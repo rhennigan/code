@@ -6,10 +6,13 @@
 #include <math.h>
 #include <stdbool.h>
 #include "./vectors.h"
+#include "./utils.h"
 
 #define _DEBUG_ true
 #define _PPREC_ "3"
 #define _SPREC_ "3"
+
+// void check_fail(bool cond, const char * f, const char * msg);
 
 vector_t vec_add(vector_t a, vector_t b) {
   if (_DEBUG_) vec_check2(&a, &b, "vec_add");
@@ -47,14 +50,6 @@ void vec_check2(vector_t * a, vector_t * b, const char * f) {
   vec_check1(a, f);
   vec_check1(b, f);
   check_fail(a->dim != b->dim, f, "vectors have different dimensions");
-}
-
-void check_fail(bool cond, const char * f, const char * msg) {
-  if (cond) {
-    printf("check_fail:\n");
-    printf("  %s: %s\n", f, msg);
-    exit(EXIT_FAILURE);
-  }
 }
 
 vector_t vec_copy(vector_t a) {

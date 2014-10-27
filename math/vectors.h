@@ -5,6 +5,7 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include "./utils.h"
 
 typedef enum comp_stat_e {
   C_UNSET,
@@ -31,7 +32,6 @@ vector_t vec_add(vector_t a, vector_t b);
 void     vec_add_i(vector_t * a, vector_t b);
 void     vec_check1(vector_t * a, const char * f);
 void     vec_check2(vector_t * a, vector_t * b, const char * f);
-void     check_fail(bool cond, const char * f, const char * msg);
 vector_t vec_copy(vector_t a);
 char *   vec_cstat(vector_t a);
 vector_t vec_cross(vector_t a, vector_t b);
@@ -43,7 +43,7 @@ vector_t vec_mul_c(vector_t a, vector_t b);
 vector_t vec_mul_s(double s, vector_t a);
 void     vec_mul_s_i(double s, vector_t * a);
 vector_t vec_neg(vector_t a);
-vector_t vec_new(int dim, ...);
+vector_t vec_new(int dim, ... /* va double */);
 double   vec_norm(vector_t a);
 vector_t vec_normalize(vector_t a);
 void     vec_normalize_i(vector_t * a);
