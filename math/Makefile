@@ -12,3 +12,7 @@ utils.o: utils.c utils.h
 
 clean:
 	rm build/*.o
+
+reset:
+	rm -rf build/
+	rm *~
