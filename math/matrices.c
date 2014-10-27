@@ -79,3 +79,5 @@ vector_t mat_mean(matrix_t m) {
   }
   return vec_mul_s(1.0 / (double)m.rows, mean);
 }
+
+// TODO(rhennigan): finish matrix definitions
