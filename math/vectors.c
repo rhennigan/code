@@ -13,8 +13,6 @@
 #define _PPREC_ "3"
 #define _SPREC_ "3"
 
-// void check_fail(bool cond, const char * f, const char * msg);
-
 vector_t vec_add(vector_t a, vector_t b) {
   if (_DEBUG_) vec_check2(&a, &b, "vec_add");
   vector_t c = vec_init(a.dim);
