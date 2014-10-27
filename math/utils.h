@@ -1,4 +1,5 @@
-// Copyright 2014, Richard Hennigan
+// utils.h - stuff
+// Copyright (C) 2014 Richard Hennigan
 
 #ifndef MATH_UTILS_H_
 #define MATH_UTILS_H_

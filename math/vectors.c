@@ -1,4 +1,5 @@
-// Copyright 2014, Richard Hennigan
+// vectors.c - vector stuff
+// Copyright (C) 2014 Richard Hennigan
 
 #include <stdarg.h>
 #include <assert.h>

@@ -1,4 +1,5 @@
-// Copyright 2014, Richard Hennigan
+// vec_test.c - testing vector stuff
+// Copyright (C) 2014 Richard Hennigan
 
 #include <stdio.h>
 #include <stdbool.h>

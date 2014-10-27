@@ -1,4 +1,5 @@
-// Copyright 2014, Richard Hennigan
+// vectors.h - vector stuff
+// Copyright (C) 2014 Richard Hennigan
 
 #ifndef MATH_VECTORS_H_
 #define MATH_VECTORS_H_

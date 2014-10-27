@@ -1,4 +1,5 @@
-// Copyright 2014, Richard Hennigan
+// matrices.c - matrix stuff
+// Copyright (C) 2014 Richard Hennigan
 
 #ifndef MATH_MATRICES_H_
 #define MATH_MATRICES_H_

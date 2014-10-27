@@ -1,4 +1,5 @@
-// Copyright 2014, Richard Hennigan
+// utils.c - stuff
+// Copyright (C) 2014 Richard Hennigan
 
 #include <stdbool.h>
 #include <stdio.h>
