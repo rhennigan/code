@@ -236,7 +236,7 @@ char * vec_tostring(vector_t a) {
 }
 
 vector_t vec_zero(int dim) {
-  check_fail(dim < 1, "vec_zero", "invalid dimension");
+  if (_DEBUG_) check_fail(dim < 1, "vec_zero", "invalid dimension");
   vector_t a = vec_init(dim);
   int i;
   for (i = 0; i < dim; i++) {
