@@ -80,4 +80,12 @@ vector_t mat_mean(matrix_t m) {
   return vec_mul_s(1.0 / (double)m.rows, mean);
 }
 
+matrix_t mat_new(int rows, int cols, ...);
+vector_t mat_principal_axis(matrix_t m);
+void     mat_print(matrix_t m);
+matrix_t mat_shift(matrix_t m);
+vector_t mat_sum(matrix_t m);
+char *   mat_tostring(matrix_t m);
+matrix_t mat_zero(int rows, int cols);
+
 // TODO(rhennigan): finish matrix definitions
