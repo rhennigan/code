@@ -1,6 +1,7 @@
 // matrices.c - matrix stuff
 // Copyright (C) 2014 Richard Hennigan
 
+#include <stdarg.h>
 #include "./vectors.h"
 #include "./matrices.h"
 #include "./utils.h"
@@ -80,7 +81,18 @@ vector_t mat_mean(matrix_t m) {
   return vec_mul_s(1.0 / (double)m.rows, mean);
 }
 
-matrix_t mat_new(int rows, int cols, ...);
+matrix_t mat_new(int rows, int cols, ...) {
+  va_list argp;
+  va_start(argp, cols);
+  matrix_t m = mat_init(rows, cols);
+  int i;
+  for (i = 0; i < rows; i++) {
+    m.r[i] = va_arg(argp, vector_t);
+  }
+  va_end(argp);
+  return m;
+}
+
 vector_t mat_principal_axis(matrix_t m);
 void     mat_print(matrix_t m);
 matrix_t mat_shift(matrix_t m);
