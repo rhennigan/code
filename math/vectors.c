@@ -113,7 +113,7 @@ double vec_dist(vector_t a, vector_t b) {
 
 double vec_dot(vector_t a, vector_t b) {
   if (_DEBUG_) vec_check2(&a, &b, "vec_dot");
-  double dot;
+  double dot = 0.0;
   int i;
   for (i = 0; i < a.dim; i++) {
     dot += a.comp[i] * b.comp[i];
