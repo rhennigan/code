@@ -7,6 +7,7 @@
 #include "./utils.h"
 
 #define _DEBUG_ true
+#define _PA_ITERATIONS_ 5
 
 matrix_t mat_add(matrix_t m1, matrix_t m2) {
   if (_DEBUG_) check_fail(m1.cols == m2.cols && m1.rows == m2.rows, "mat_add",
@@ -73,12 +74,7 @@ matrix_t mat_init(int rows, int cols) {
 }
 
 vector_t mat_mean(matrix_t m) {
-  vector_t mean = vec_zero(m.cols);
-  int i;
-  for (i = 0; i < m.rows; i++) {
-    vec_add_i(&mean, m.r[i]);
-  }
-  return vec_mul_s(1.0 / (double)m.rows, mean);
+  return vec_mul_s(1.0 / (double)m.rows, mat_sum(m));
 }
 
 matrix_t mat_new(int rows, int cols, ...) {
@@ -93,11 +89,61 @@ matrix_t mat_new(int rows, int cols, ...) {
   return m;
 }
 
-vector_t mat_principal_axis(matrix_t m);
-void     mat_print(matrix_t m);
-matrix_t mat_shift(matrix_t m);
-vector_t mat_sum(matrix_t m);
-char *   mat_tostring(matrix_t m);
-matrix_t mat_zero(int rows, int cols);
+vector_t mat_principal_axis(matrix_t m) {
+  matrix_t shift = mat_shift(m);
+  vector_t dir = vec_new(m.cols);
+  int i, n;
+  /* axis is initialized to a random direction */
+  for (i = 0; i < m.cols; i++) {
+    dir.comp[i] = 2.0 * drand48() - 1.0;
+  }
+  vector_t mdot = mat_dotvr(shift, dir);
+  for (n = 0; n < _PA_ITERATIONS_; n++) {
+    for (i = 0; i < m.rows; i++) {
+      vec_add_i(&dir, vec_mul_s(mdot.comp[i], shift.r[i]));
+    }
+  }
+  vec_normalize_i(&dir);
+  return dir;
+}
 
-// TODO(rhennigan): finish matrix definitions
+// TODO(rhennigan): finish mat_print def
+void mat_print(matrix_t m);
+
+matrix_t mat_shift(matrix_t m) {
+  vector_t mn = mat_mean(m);
+  matrix_t sh = mat_init(m.rows, m.cols);
+  int i;
+  for (i = 0; i < m.rows; i++) {
+    sh.r[i] = vec_sub(m.r[i], mn);
+  }
+  return sh;
+}
+
+vector_t mat_sum(matrix_t m) {
+  vector_t sum = vec_zero(m.cols);
+  int i;
+  for (i = 0; i < m.rows; i++) {
+    vec_add_i(&sum, m.r[i]);
+  }
+  return sum;
+}
+
+// TODO(rhennigan): finish mat_tostring def
+char * mat_tostring(matrix_t m);
+
+matrix_t mat_zero(int rows, int cols) {
+  if (_DEBUG_) {
+    check_fail(rows < 1, "mat_init", "invalid number of rows");
+    check_fail(cols < 1, "mat_init", "invalid number of columns");
+  }
+  matrix_t m;
+  m.r = malloc(sizeof(vector_t) * rows);
+  int i;
+  for (i = 0; i < rows; i++) {
+    m.r[i] = vec_zero(cols);
+  }
+  m.rows = rows;
+  m.cols = cols;
+  return m;
+}

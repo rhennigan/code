@@ -23,7 +23,7 @@ vector_t vec_new(int dim) {
 }
 
 double vec_norm(vector_t a) {
-  double n;
+  double n = 0.0;
   int i;
   for (i = 0; i < a.dim; i++) {
     n += a.v[i] * a.v[i];
@@ -89,7 +89,7 @@ vector_t vec_normalized(vector_t a) {
 
 double vec_dot(vector_t a, vector_t b) {
   assert(a.dim == b.dim);
-  double dot;
+  double dot = 0.0;
   int i;
   for (i = 0; i < a.dim; i++) {
     dot += a.v[i] * b.v[i];
