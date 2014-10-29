@@ -3,12 +3,18 @@
 
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <stdbool.h>
 #include "./vectors.h"
 #include "./matrices.h"
 #include "./utils.h"
 
 #define _DEBUG_ true
 #define _PA_ITERATIONS_ 5
+#define _PPREC_ "3"
+#define _SPREC_ "3"
 
 matrix_t mat_add(matrix_t m1, matrix_t m2) {
   if (_DEBUG_) check_fail(m1.cols == m2.cols && m1.rows == m2.rows, "mat_add",
@@ -108,20 +114,65 @@ vector_t mat_principal_axis(matrix_t m) {
   return dir;
 }
 
-void mat_print(matrix_t m) {
-  printf("[ ");
-  vec_print(m.r[0]);
-  if (m.rows > 1) {
-    int i;
-    for (i = 1; i < m.rows - 1; i++) {
-      printf("  ");
-      vec_print(m.r[i]);
-      printf(",\n");
+#define _M_TL "\u250C"
+#define _M_TR "\u2510"
+#define _M_BL "\u2514"
+#define _M_BR "\u2518"
+#define _M_VT "\u2502"
+
+void mat_print(matrix_t m, int indent) {
+  int i, j;
+  char * lsp = malloc(indent + 1);
+  memset(lsp, ' ', indent);
+  lsp[indent + 1] = '\0';
+  int md = 1;
+  bool sgn = false;
+  for (i = 0; i < m.rows; i++) {
+    for (j = 0; j < m.cols; j++) {
+      double val = log10(fabs(m.r[i].comp[j])) + 1.0;
+      md = (int)val > md ? (int)val : md;
+      if (m.r[i].comp[j] < 0.0) sgn = true;
     }
-    printf("  ");
-    vec_print(m.r[i]);
   }
-  printf(" ]");
+  int p = atoi(_PPREC_);
+  int cw = m.cols * (md + p + (sgn ? 2 : 1)) + m.cols + 1;
+  /* printf("m.cols = %d, md = %d, p = %d\n", m.cols, md, p); */
+  /* printf("comp width = %d\n", (md + p + 2)); */
+  char * fmt = malloc(BUFSIZ);
+  snprintf(fmt, sizeof(fmt), "%%%d.%df ", md + p + (sgn ? 2 : 1), p);
+
+  // print top of matrix
+  printf("%s"_M_TL, lsp);
+  for (j = 0; j < cw; j++) {
+    printf(" ");
+  }
+  printf(_M_TR"\n");
+
+  // print all rows
+  for (i = 0; i < m.rows; i++) {
+    printf("%s"_M_VT" ", lsp);  // left bracket
+    // print all columns
+    for (j = 0; j < m.cols; j++) {
+      printf(fmt, m.r[i].comp[j]);
+    }
+    printf(_M_VT"\n");  // right bracket
+  }
+
+  // print bottom of matrix
+  printf("%s"_M_BL, lsp);
+  for (j = 0; j < cw; j++) {
+    printf(" ");
+  }
+  printf(_M_BR"\n");
+}
+
+matrix_t mat_rand(int rows, int cols, double low, double high) {
+  matrix_t rand = mat_init(rows, cols);
+  int i;
+  for (i = 0; i < rows; i++) {
+    rand.r[i] = vec_rand(cols, low, high);
+  }
+  return rand;
 }
 
 matrix_t mat_shift(matrix_t m) {
