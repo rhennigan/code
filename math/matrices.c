@@ -64,6 +64,23 @@ vector_t mat_dotvr(matrix_t m, vector_t v) {
   return mdot;
 }
 
+double mat_get(matrix_t m, int row, int col) {
+  return m.r[row].comp[col];
+}
+
+vector_t mat_getc(matrix_t m, int col) {
+  vector_t cvec = vec_init(m.rows);
+  int i;
+  for (i = 0; i < m.rows; i++) {
+    cvec.comp[i] = m.r[i].comp[col];
+  }
+  return cvec;
+}
+
+vector_t mat_getr(matrix_t m, int row) {
+  return vec_copy(m.r[row]);
+}
+
 matrix_t mat_init(int rows, int cols) {
   if (_DEBUG_) {
     check_fail(rows < 1, "mat_init", "invalid number of rows");
@@ -82,6 +99,25 @@ matrix_t mat_init(int rows, int cols) {
 
 vector_t mat_mean(matrix_t m) {
   return vec_mul_s(1.0 / (double)m.rows, mat_sum(m));
+}
+
+matrix_t mat_mul(matrix_t m1, matrix_t m2) {
+  if (_DEBUG_) {
+    check_fail(m1.cols != m2.rows, "mat_mul", "wrong dimensions");
+  }
+  int r1 = m1.rows;
+  int c1 = m1.cols;
+  int c2 = m2.cols;
+  matrix_t m3 = mat_zero(r1, c2);
+  int i, j, k;
+  for (i = 0; i < r1; i++) {
+    for (j = 0; j < c2; j++) {
+      for (k = 0; j < c1; j++) {
+	m3.r[i].comp[j] += m1.r[i].comp[k] * m2.r[k].comp[j];
+      }
+    }
+  }
+  return m3;
 }
 
 matrix_t mat_new(int rows, int cols, ...) {
@@ -209,6 +245,17 @@ vector_t mat_sum(matrix_t m) {
 
 // TODO(rhennigan): finish mat_tostring def
 char * mat_tostring(matrix_t m);
+
+matrix_t mat_transpose(matrix_t m) {
+  matrix_t t = mat_init(m.cols, m.rows);
+  int i, j;
+  for (i = 0; i < m.rows; i++) {
+    for (j = 0; j < m.cols; j++) {
+      t.r[j].comp[i] = m.r[i].comp[j];
+    }
+  }
+  return t;
+}
 
 matrix_t mat_zero(int rows, int cols) {
   if (_DEBUG_) {
