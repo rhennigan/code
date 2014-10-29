@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <assert.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <stdbool.h>
 #include "./vectors.h"
@@ -203,9 +204,20 @@ void vec_print(vector_t a) {
   printf("(");
   int i;
   for (i = 0; i < a.dim - 1; i++) {
-    printf("%."_PPREC_"f, ", a.comp[i]);
+    printf(a.comp[i] < 0.0 ? "%."_PPREC_"f, " : " %."_PPREC_"f, ", a.comp[i]);
   }
-  printf("%."_PPREC_"f)", a.comp[i]);
+  printf(a.comp[i] < 0.0 ? "%."_PPREC_"f)" : " %."_PPREC_"f)", a.comp[i]);
+}
+
+vector_t vec_rand(int dim, double low, double high) {
+  if (_DEBUG_) check_fail(low > high, "vec_rand", "invalid range");
+  double range = high - low;
+  vector_t rand = vec_init(dim);
+  int i;
+  for (i = 0; i < dim; i++) {
+    rand.comp[i] = range * drand48() + low;
+  }
+  return rand;
 }
 
 vector_t vec_sub(vector_t a, vector_t b) {
