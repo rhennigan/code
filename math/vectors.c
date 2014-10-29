@@ -201,12 +201,12 @@ void vec_normalize_i(vector_t * a) {
 
 void vec_print(vector_t a) {
   if (_DEBUG_) vec_check1(&a, "vec_print");
-  printf("(");
+  printf("[");
   int i;
-  for (i = 0; i < a.dim - 1; i++) {
-    printf(a.comp[i] < 0.0 ? "%."_PPREC_"f, " : " %."_PPREC_"f, ", a.comp[i]);
+  for (i = 0; i < a.dim; i++) {
+    printf(" %."_PPREC_"f", a.comp[i]);
   }
-  printf(a.comp[i] < 0.0 ? "%."_PPREC_"f)" : " %."_PPREC_"f)", a.comp[i]);
+  printf(" ]");
 }
 
 vector_t vec_rand(int dim, double low, double high) {

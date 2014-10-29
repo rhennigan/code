@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <time.h>
+#include <math.h>
 #include "math/vectors.h"
 #include "math/matrices.h"
 
@@ -11,16 +12,34 @@ int main(/* int argc, char *argv[] */) {
   srand48((unsigned) time(NULL));
   printf("\n");
 
-  matrix_t matrix = mat_rand(10, 4, 0.0, 150.0);
-  printf("matrix:\n");
-  mat_print(matrix, 0);
+  int rows = 1000000;
+  int cols = 3;
+  double low = -(double)rows / 10.0;
+  double high = (double)rows / 10.0;
+  matrix_t rmat = mat_rand(rows, cols, low, high);
+  matrix_t matrix = mat_init(rows, cols);
+
+  int i, j;
+  for (i = 0; i < rows; i++) {
+    for (j = 0; j < cols; j++) {
+      matrix.r[i].comp[j] = (double)(i *(j + 1)) + rmat.r[i].comp[j];
+    }
+  }
+
+  /* printf("matrix:\n"); */
+  /* mat_print(matrix, 2); */
+
+  clock_t start = clock(), diff;
+  vector_t paxis = mat_principal_axis(matrix);
+  diff = clock() - start;
+  int msec = diff * 1000 / CLOCKS_PER_SEC;
+  printf("principal axis (%d.%3d seconds):\n  ", msec / 1000, msec % 1000);
+  vec_print(paxis);
   printf("\n\n");
 
-  vector_t mean = mat_mean(matrix);
-  printf("mean:\n ");
-  vec_print(mean);
+  printf("principal axis (adjusted):\n  ");
+  vec_print(vec_mul_s(paxis.comp[0] < 0.0 ? -sqrt(14.0) : sqrt(14.0), paxis));
   printf("\n\n");
-
   
   return 0;
 }

@@ -104,13 +104,16 @@ vector_t mat_principal_axis(matrix_t m) {
   for (i = 0; i < m.cols; i++) {
     dir.comp[i] = 2.0 * drand48() - 1.0;
   }
-  vector_t mdot = mat_dotvr(shift, dir);
+  vec_normalize_i(&dir);
+  
   for (n = 0; n < _PA_ITERATIONS_; n++) {
+    vector_t mdot = mat_dotvr(shift, dir);
     for (i = 0; i < m.rows; i++) {
       vec_add_i(&dir, vec_mul_s(mdot.comp[i], shift.r[i]));
     }
+    vec_normalize_i(&dir);
   }
-  vec_normalize_i(&dir);
+  
   return dir;
 }
 
@@ -130,40 +133,50 @@ void mat_print(matrix_t m, int indent) {
   for (i = 0; i < m.rows; i++) {
     for (j = 0; j < m.cols; j++) {
       double val = log10(fabs(m.r[i].comp[j])) + 1.0;
-      md = (int)val > md ? (int)val : md;
-      if (m.r[i].comp[j] < 0.0) sgn = true;
+      if ((int)val > md) {
+	md = (int)val;
+	sgn = false;
+      }
+      if ((int)val == md && m.r[i].comp[j] < 0.0) sgn = true;
     }
   }
   int p = atoi(_PPREC_);
   int cw = m.cols * (md + p + (sgn ? 2 : 1)) + m.cols + 1;
-  /* printf("m.cols = %d, md = %d, p = %d\n", m.cols, md, p); */
-  /* printf("comp width = %d\n", (md + p + 2)); */
   char * fmt = malloc(BUFSIZ);
   snprintf(fmt, sizeof(fmt), "%%%d.%df ", md + p + (sgn ? 2 : 1), p);
 
-  // print top of matrix
-  printf("%s"_M_TL, lsp);
-  for (j = 0; j < cw; j++) {
-    printf(" ");
-  }
-  printf(_M_TR"\n");
+  if (m.rows > 1) {
+    // print top of matrix
+    printf("%s"_M_TL, lsp);
+    for (j = 0; j < cw; j++) {
+      printf(" ");
+    }
+    printf(_M_TR"\n");
 
-  // print all rows
-  for (i = 0; i < m.rows; i++) {
-    printf("%s"_M_VT" ", lsp);  // left bracket
+    // print all rows
+    for (i = 0; i < m.rows; i++) {
+      printf("%s"_M_VT" ", lsp);  // left bracket
+      // print all columns
+      for (j = 0; j < m.cols; j++) {
+	printf(fmt, m.r[i].comp[j]);
+      }
+      printf(_M_VT"\n");  // right bracket
+    }
+
+    // print bottom of matrix
+    printf("%s"_M_BL, lsp);
+    for (j = 0; j < cw; j++) {
+      printf(" ");
+    }
+    printf(_M_BR"\n");
+  } else {
+    printf("%s[ ", lsp);  // left bracket
     // print all columns
     for (j = 0; j < m.cols; j++) {
-      printf(fmt, m.r[i].comp[j]);
+      printf(fmt, m.r[0].comp[j]);
     }
-    printf(_M_VT"\n");  // right bracket
+    printf("]\n");  // right bracket
   }
-
-  // print bottom of matrix
-  printf("%s"_M_BL, lsp);
-  for (j = 0; j < cw; j++) {
-    printf(" ");
-  }
-  printf(_M_BR"\n");
 }
 
 matrix_t mat_rand(int rows, int cols, double low, double high) {
