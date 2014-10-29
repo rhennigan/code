@@ -1,3 +1,3 @@
 What are you doing here?
 ====
-Turn back before it's too late.
+Nothing to see here, move along.
