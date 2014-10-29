@@ -49,6 +49,7 @@ double   vec_norm(vector_t a);
 vector_t vec_normalize(vector_t a);
 void     vec_normalize_i(vector_t * a);
 void     vec_print(vector_t a);
+vector_t vec_rand(int dim, double low, double high);
 vector_t vec_sub(vector_t a, vector_t b);
 char *   vec_tostring(vector_t a);
 vector_t vec_zero(int dim);

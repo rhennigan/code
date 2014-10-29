@@ -2,6 +2,7 @@
 // Copyright (C) 2014 Richard Hennigan
 
 #include <stdarg.h>
+#include <stdio.h>
 #include "./vectors.h"
 #include "./matrices.h"
 #include "./utils.h"
@@ -107,8 +108,21 @@ vector_t mat_principal_axis(matrix_t m) {
   return dir;
 }
 
-// TODO(rhennigan): finish mat_print def
-void mat_print(matrix_t m);
+void mat_print(matrix_t m) {
+  printf("[ ");
+  vec_print(m.r[0]);
+  if (m.rows > 1) {
+    int i;
+    for (i = 1; i < m.rows - 1; i++) {
+      printf("  ");
+      vec_print(m.r[i]);
+      printf(",\n");
+    }
+    printf("  ");
+    vec_print(m.r[i]);
+  }
+  printf(" ]");
+}
 
 matrix_t mat_shift(matrix_t m) {
   vector_t mn = mat_mean(m);
