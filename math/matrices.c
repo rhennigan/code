@@ -59,20 +59,20 @@ vector_t mat_dotvr(matrix_t m, vector_t v) {
   vector_t mdot = vec_init(m.rows);
   int i;
   for (i = 0; i < m.rows; i++) {
-    mdot.comp[i] = vec_dot(m.r[i], v);
+    mdot.c[i] = vec_dot(m.r[i], v);
   }
   return mdot;
 }
 
 double mat_get(matrix_t m, int row, int col) {
-  return m.r[row].comp[col];
+  return m.r[row].c[col];
 }
 
 vector_t mat_getc(matrix_t m, int col) {
   vector_t cvec = vec_init(m.rows);
   int i;
   for (i = 0; i < m.rows; i++) {
-    cvec.comp[i] = m.r[i].comp[col];
+    cvec.c[i] = m.r[i].c[col];
   }
   return cvec;
 }
@@ -113,7 +113,7 @@ matrix_t mat_mul(matrix_t m1, matrix_t m2) {
   for (i = 0; i < r1; i++) {
     for (j = 0; j < c2; j++) {
       for (k = 0; j < c1; j++) {
-	m3.r[i].comp[j] += m1.r[i].comp[k] * m2.r[k].comp[j];
+	m3.r[i].c[j] += m1.r[i].c[k] * m2.r[k].c[j];
       }
     }
   }
@@ -138,14 +138,14 @@ vector_t mat_principal_axis(matrix_t m) {
   int i, n;
   /* axis is initialized to a random direction */
   for (i = 0; i < m.cols; i++) {
-    dir.comp[i] = 2.0 * drand48() - 1.0;
+    dir.c[i] = 2.0 * drand48() - 1.0;
   }
   vec_normalize_i(&dir);
   
   for (n = 0; n < _PA_ITERATIONS_; n++) {
     vector_t mdot = mat_dotvr(shift, dir);
     for (i = 0; i < m.rows; i++) {
-      vec_add_i(&dir, vec_mul_s(mdot.comp[i], shift.r[i]));
+      vec_add_i(&dir, vec_mul_s(mdot.c[i], shift.r[i]));
     }
     vec_normalize_i(&dir);
   }
@@ -168,12 +168,12 @@ void mat_print(matrix_t m, int indent) {
   bool sgn = false;
   for (i = 0; i < m.rows; i++) {
     for (j = 0; j < m.cols; j++) {
-      double val = log10(fabs(m.r[i].comp[j])) + 1.0;
+      double val = log10(fabs(m.r[i].c[j])) + 1.0;
       if ((int)val > md) {
 	md = (int)val;
 	sgn = false;
       }
-      if ((int)val == md && m.r[i].comp[j] < 0.0) sgn = true;
+      if ((int)val == md && m.r[i].c[j] < 0.0) sgn = true;
     }
   }
   int p = atoi(_PPREC_);
@@ -194,7 +194,7 @@ void mat_print(matrix_t m, int indent) {
       printf("%s"_M_VT" ", lsp);  // left bracket
       // print all columns
       for (j = 0; j < m.cols; j++) {
-	printf(fmt, m.r[i].comp[j]);
+	printf(fmt, m.r[i].c[j]);
       }
       printf(_M_VT"\n");  // right bracket
     }
@@ -209,7 +209,7 @@ void mat_print(matrix_t m, int indent) {
     printf("%s[ ", lsp);  // left bracket
     // print all columns
     for (j = 0; j < m.cols; j++) {
-      printf(fmt, m.r[0].comp[j]);
+      printf(fmt, m.r[0].c[j]);
     }
     printf("]\n");  // right bracket
   }
@@ -251,7 +251,7 @@ matrix_t mat_transpose(matrix_t m) {
   int i, j;
   for (i = 0; i < m.rows; i++) {
     for (j = 0; j < m.cols; j++) {
-      t.r[j].comp[i] = m.r[i].comp[j];
+      t.r[j].c[i] = m.r[i].c[j];
     }
   }
   return t;

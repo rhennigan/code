@@ -19,7 +19,7 @@ vector_t vec_add(vector_t a, vector_t b) {
   vector_t c = vec_init(a.dim);
   int i;
   for (i = 0; i < a.dim; i++) {
-    c.comp[i] = a.comp[i] + b.comp[i];
+    c.c[i] = a.c[i] + b.c[i];
   }
   return c;
 }
@@ -28,18 +28,18 @@ void vec_add_i(vector_t * a, vector_t b) {
   if (_DEBUG_) vec_check2(a, &b, "vec_addi");
   int i;
   for (i = 0; i < a->dim; i++) {
-    a->comp[i] += b.comp[i];
+    a->c[i] += b.c[i];
   }
 }
 
 void vec_check1(vector_t * a, const char * f) {
   check_fail(a == NULL,          f, "vector is NULL");
   check_fail(a->cstat == C_DISP, f, "vector has been disposed");
-  check_fail(a->comp == NULL,    f, "vector components are NULL");
+  check_fail(a->c == NULL,    f, "vector components are NULL");
   a->cstat = C_ZERO;
   int i;
   for (i = 0; i < a->dim; i++) {
-    if (a->comp[i] != 0.0) {
+    if (a->c[i] != 0.0) {
       a->cstat = C_NONZERO;
       break;
     }
@@ -57,7 +57,7 @@ vector_t vec_copy(vector_t a) {
   vector_t b = vec_init(a.dim);
   int i;
   for (i = 0; i < a.dim; i++) {
-    b.comp[i] = a.comp[i];
+    b.c[i] = a.c[i];
   }
   return b;
 }
@@ -92,17 +92,17 @@ vector_t vec_cross(vector_t a, vector_t b) {
                "cross product only defined for 3 dimensions");
   }
   vector_t c = vec_init(a.dim);
-  c.comp[0] = a.comp[1] * b.comp[2] - a.comp[2] * b.comp[1];
-  c.comp[1] = a.comp[2] * b.comp[0] - a.comp[0] * b.comp[2];
-  c.comp[2] = a.comp[0] * b.comp[1] - a.comp[1] * b.comp[0];
+  c.c[0] = a.c[1] * b.c[2] - a.c[2] * b.c[1];
+  c.c[1] = a.c[2] * b.c[0] - a.c[0] * b.c[2];
+  c.c[2] = a.c[0] * b.c[1] - a.c[1] * b.c[0];
   return c;
 }
 
 void vec_dispose(vector_t * a) {
   if (_DEBUG_) check_fail(a != NULL && a->cstat != C_DISP, "vec_dispose",
                           "vector components have already been disposed");
-  free(a->comp);
-  a->comp = NULL;
+  free(a->c);
+  a->c = NULL;
   a->dim = -1;
   a->cstat = C_DISP;
 }
@@ -117,7 +117,7 @@ double vec_dot(vector_t a, vector_t b) {
   double dot = 0.0;
   int i;
   for (i = 0; i < a.dim; i++) {
-    dot += a.comp[i] * b.comp[i];
+    dot += a.c[i] * b.c[i];
   }
   return dot;
 }
@@ -125,8 +125,8 @@ double vec_dot(vector_t a, vector_t b) {
 vector_t vec_init(int dim) {
   if (_DEBUG_) check_fail(dim < 1, "vec_init", "invalid dimension");
   vector_t a;
-  a.comp = malloc(sizeof(double) * dim);
-  if (_DEBUG_) check_fail(a.comp == NULL, "vec_init",
+  a.c = malloc(sizeof(double) * dim);
+  if (_DEBUG_) check_fail(a.c == NULL, "vec_init",
                           "unable to allocate memory");
   a.dim = dim;
   a.cstat = C_UNSET;
@@ -138,7 +138,7 @@ vector_t vec_mul_c(vector_t a, vector_t b) {
   vector_t c = vec_init(a.dim);
   int i;
   for (i = 0; i < a.dim; i++) {
-    c.comp[i] = a.comp[i] * b.comp[i];
+    c.c[i] = a.c[i] * b.c[i];
   }
   return c;
 }
@@ -148,7 +148,7 @@ vector_t vec_mul_s(double s, vector_t a) {
   vector_t b = vec_init(a.dim);
   int i;
   for (i = 0; i < a.dim; i++) {
-    b.comp[i] = s * a.comp[i];
+    b.c[i] = s * a.c[i];
   }
   return b;
 }
@@ -157,7 +157,7 @@ void vec_mul_s_i(double s, vector_t * a) {
   if (_DEBUG_) vec_check1(a, "vec_mul_s_i");
   int i;
   for (i = 0; i < a->dim; i++) {
-    a->comp[i] *= s;
+    a->c[i] *= s;
   }
 }
 
@@ -166,7 +166,7 @@ vector_t vec_neg(vector_t a) {
   vector_t b = vec_init(a.dim);
   int i;
   for (i = 0; i < a.dim; i++) {
-    b.comp[i] = -a.comp[i];
+    b.c[i] = -a.c[i];
   }
   return b;
 }
@@ -178,7 +178,7 @@ vector_t vec_new(int dim, ...) {
   vector_t a = vec_init(dim);
   int i;
   for (i = 0; i < dim; i++) {
-    a.comp[i] = va_arg(argp, double);
+    a.c[i] = va_arg(argp, double);
   }
   va_end(argp);
   return a;
@@ -204,7 +204,7 @@ void vec_print(vector_t a) {
   printf("[");
   int i;
   for (i = 0; i < a.dim; i++) {
-    printf(" %."_PPREC_"f", a.comp[i]);
+    printf(" %."_PPREC_"f", a.c[i]);
   }
   printf(" ]");
 }
@@ -215,7 +215,7 @@ vector_t vec_rand(int dim, double low, double high) {
   vector_t rand = vec_init(dim);
   int i;
   for (i = 0; i < dim; i++) {
-    rand.comp[i] = range * drand48() + low;
+    rand.c[i] = range * drand48() + low;
   }
   return rand;
 }
@@ -234,10 +234,10 @@ char * vec_tostring(vector_t a) {
   int i;
   for (i = 0; i < a.dim - 1; i++) {
     ptr += n;
-    n = snprintf(ptr, BUFSIZ, "%."_SPREC_"f, ", a.comp[i]);
+    n = snprintf(ptr, BUFSIZ, "%."_SPREC_"f, ", a.c[i]);
   }
   ptr += n;
-  snprintf(ptr, BUFSIZ, "%."_SPREC_"f)", a.comp[i]);
+  snprintf(ptr, BUFSIZ, "%."_SPREC_"f)", a.c[i]);
   return str;
 }
 
@@ -246,7 +246,7 @@ vector_t vec_zero(int dim) {
   vector_t a = vec_init(dim);
   int i;
   for (i = 0; i < dim; i++) {
-    a.comp[i] = 0.0;
+    a.c[i] = 0.0;
   }
   a.cstat = C_ZERO;
   return a;

@@ -17,13 +17,13 @@ typedef enum comp_stat_e {
 
 typedef struct vector64_s {
   int dim;
-  double* comp;
+  double* c;
   comp_stat cstat;
 } vector64_t;
 
 typedef struct vector32_s {
   int dim;
-  float* comp;
+  float* c;
   comp_stat cstat;
 } vector32_t;
 

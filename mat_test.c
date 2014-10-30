@@ -22,7 +22,7 @@ int main(/* int argc, char *argv[] */) {
   int i, j;
   for (i = 0; i < rows; i++) {
     for (j = 0; j < cols; j++) {
-      matrix.r[i].comp[j] = (double)(i *(j + 1)) + rmat.r[i].comp[j];
+      matrix.r[i].c[j] = (double)(i *(j + 1)) + rmat.r[i].c[j];
     }
   }
 
@@ -38,7 +38,7 @@ int main(/* int argc, char *argv[] */) {
   printf("\n\n");
 
   printf("principal axis (adjusted):\n  ");
-  vec_print(vec_mul_s(paxis.comp[0] < 0.0 ? -sqrt(14.0) : sqrt(14.0), paxis));
+  vec_print(vec_mul_s(paxis.c[0] < 0.0 ? -sqrt(14.0) : sqrt(14.0), paxis));
   printf("\n\n");
   
   return 0;
