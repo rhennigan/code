@@ -22,6 +22,7 @@ matrix_t mat_add(matrix_t m1, matrix_t m2);
 void     mat_add_i(matrix_t * m1, matrix_t m2);
 void     mat_dispose(matrix_t * m);
 vector_t mat_dotvr(matrix_t m, vector_t v);
+void     mat_export(matrix_t m, const char * filename);
 double   mat_get(matrix_t m, int row, int col);
 vector_t mat_getc(matrix_t m, int col);
 vector_t mat_getr(matrix_t m, int row);

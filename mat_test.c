@@ -12,7 +12,7 @@ int main(/* int argc, char *argv[] */) {
   srand48((unsigned) time(NULL));
   printf("\n");
 
-  int rows = 1000000;
+  int rows = 100;
   int cols = 3;
   double low = -(double)rows / 10.0;
   double high = (double)rows / 10.0;
@@ -40,6 +40,11 @@ int main(/* int argc, char *argv[] */) {
   printf("principal axis (adjusted):\n  ");
   vec_print(vec_mul_s(paxis.c[0] < 0.0 ? -sqrt(14.0) : sqrt(14.0), paxis));
   printf("\n\n");
+
+  char * vecstr = vec_tostring(paxis);
+  printf("vecstr = %s\n", vecstr);
+
+  mat_export(matrix, "data.dat");
   
   return 0;
 }

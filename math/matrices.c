@@ -64,6 +64,17 @@ vector_t mat_dotvr(matrix_t m, vector_t v) {
   return mdot;
 }
 
+void mat_export(matrix_t m, const char * filename) {
+  FILE * file = fopen(filename, "w");
+  fprintf(file, "{\n");
+  int i;
+  for (i = 0; i < m.rows - 1; i++) {
+    fprintf(file, "%s,\n", vec_tostring(m.r[i]));
+  }
+  fprintf(file, "%s\n}", vec_tostring(m.r[i]));
+  fclose(file);
+}
+
 double mat_get(matrix_t m, int row, int col) {
   return m.r[row].c[col];
 }

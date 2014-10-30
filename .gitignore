@@ -31,3 +31,9 @@
 # Core Dumps
 core
 *.stackdump
+
+# Images
+*.png
+
+# Data files
+*.dat

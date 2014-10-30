@@ -230,14 +230,14 @@ char * vec_tostring(vector_t a) {
   char * str = malloc(BUFSIZ);
   char * ptr = str;
   int n;
-  n = snprintf(ptr, BUFSIZ, "(");
+  n = snprintf(ptr, BUFSIZ, "{");
   int i;
   for (i = 0; i < a.dim - 1; i++) {
     ptr += n;
     n = snprintf(ptr, BUFSIZ, "%."_SPREC_"f, ", a.c[i]);
   }
   ptr += n;
-  snprintf(ptr, BUFSIZ, "%."_SPREC_"f)", a.c[i]);
+  snprintf(ptr, BUFSIZ, "%."_SPREC_"f}", a.c[i]);
   return str;
 }
 
