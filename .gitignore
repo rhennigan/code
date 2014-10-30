@@ -37,3 +37,6 @@ core
 
 # Data files
 *.dat
+
+# Mathematica Notebooks
+*.nb

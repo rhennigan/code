@@ -1,4 +1,4 @@
-// matrices.c - matrix stuff
+// matrices.h - matrix stuff
 // Copyright (C) 2014 Richard Hennigan
 
 #ifndef MATH_MATRICES_H_
@@ -30,6 +30,7 @@ matrix_t mat_init(int rows, int cols);
 vector_t mat_mean(matrix_t m);
 matrix_t mat_mul(matrix_t m1, matrix_t m2);
 matrix_t mat_new(int rows, int cols, ... /* va vector_t */);
+// TODO(rhennigan): move principal axis stuff to a new file
 vector_t mat_principal_axis(matrix_t m);
 void     mat_print(matrix_t m, int indent);
 matrix_t mat_rand(int rows, int cols, double low, double high);
