@@ -6,6 +6,10 @@ vec_test: vec_test.c math/vectors.o math/utils.o
 	mkdir -p build/
 	cc -o build/vec_test vec_test.c build/math/vectors.o build/math/utils.o -lm
 
+data/quickselect.o: data/quickselect.c data/quickselect.h
+	mkdir -p build/data/
+	cc -o build/data/quickselect.o -c -g data/quickselect.c
+
 math/matrices.o: math/matrices.c math/matrices.h math/vectors.o
 	mkdir -p build/math/
 	cc -std=gnu99 -o build/math/matrices.o -c -g math/matrices.c -lm
@@ -21,6 +25,7 @@ math/utils.o: math/utils.c math/utils.h
 clean:
 	rm build/*.o
 	rm build/math/*.o
+	rm build/data/*.o
 
 reset:
 	rm -rf build/
