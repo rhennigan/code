@@ -1,0 +1,18 @@
+;; Object HW4
+;; EDE Project Files are auto generated: Do Not Edit
+(ede-proj-project "HW4"
+  :file "Project.ede"
+  :name "HW4"
+  :targets (list 
+   (ede-proj-target-makefile-program "stack_test"
+    :name "stack_test"
+    :path ""
+    :source '("stack_test.c" "stack.c")
+    )
+   (ede-proj-target-makefile-program "check_brackets"
+    :name "check_brackets"
+    :path ""
+    :source '("check_brackets.c" "stack.c")
+    )
+   )
+  )

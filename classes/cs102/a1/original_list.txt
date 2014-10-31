@@ -1,0 +1,5 @@
+4	Take salad out of the oven
+1	Finish this programming assignment
+5	Dust the cat
+8	Pick up children from drycleaners
+9	Iron the dishes
