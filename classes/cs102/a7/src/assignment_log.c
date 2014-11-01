@@ -58,7 +58,7 @@ int main() {
 #ifdef _USE_HEAP_
     pq_sort(pq);
     for (j = 0; j < pq->sz_lst; j++) {
-      print_assignment(pq->list[pq->sz_lst - j - 1]);
+      print_assignment(pq->list[j /* pq->sz_lst - j - 1 */]);
     }
 #else
     list_iter(pq->list, &print_assignment);
@@ -68,6 +68,32 @@ int main() {
     WAIT();
     vskip(24);
   }
+
+  for (i = 0; i < 2; i++) {
+    assign_t * next = pq_peek(pq);
+    printf("NEXT ASSIGNMENT:\n");
+    printf(" course:     %s\n", next->course_name);
+    printf(" assignment: %s\n", next->assign_name);
+    printf(" points:     %d\n", next->points);
+    printf(" due:        %d/%d\n", next->due.month, next->due.day);
+    printf("\nPress enter when the assignment is complete\n");
+    WAIT();
+    pq_dequeue(pq);
+    vskip(24);
+  }
+
+  /* print current list */
+  print_assignment_hdr();
+#ifdef _USE_HEAP_
+  pq_sort(pq);
+  for (j = 0; j < pq->sz_lst; j++) {
+    print_assignment(pq->list[j]);
+  }
+#else
+  list_iter(pq->list, &print_assignment);
+#endif  // _USE_HEAP_
+  repeat('-', 80);
+  printf("\n\n");
 
   pq_dump(pq);
   pq_dispose(pq);

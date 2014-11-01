@@ -23,3 +23,6 @@ pq.o: src/pq.c lib/pq.h list.o
 list.o: src/list.c lib/list.h
 	mkdir -p build/
 	cc -o build/list.o -c -g src/list.c
+
+clean:
+	rm -rf build/

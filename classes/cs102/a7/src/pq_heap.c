@@ -51,7 +51,7 @@ void * pq_dequeue(pq_t * pq) {
   void * head = pq->list[0];
   pq->sz_lst--;
   pq->sz_avl++;
-  pq->list[0] = pq->list[pq->sz_lst - 1];
+  pq->list[0] = pq->list[pq->sz_lst];
   sift_down(pq, 0, pq->sz_lst);
   return head;
 }
@@ -119,14 +119,23 @@ void * pq_peek(pq_t * pq) {
   return pq->list[0];
 }
 
+#define _MAX(a, b) ((a) > (b) ? (a) : (b))
+
 void pq_sort(pq_t * pq) {
-  int start, end;
-  for (start = (pq->sz_lst - 2) / 2; start >= 0; start--) {
-    sift_down(pq, start, pq->sz_lst);
+  int start;
+  for (start = _U(pq->sz_lst - 1); start >= 0; start--) {
+    sift_down(pq, start, pq->sz_lst - 1);
   }
+
+  int end;
   for (end = pq->sz_lst - 1; end > 0; end--) {
     _SWAP(pq->list[0], pq->list[end]);
     sift_down(pq, 0, end);
+  }
+
+  unsigned int i;
+  for (i = 0; i <= (_MAX(pq->sz_lst / 2, 1) - 1); i++) {
+    _SWAP(pq->list[i], pq->list[pq->sz_lst - i - 1]);
   }
 }
 
