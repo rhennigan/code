@@ -1,13 +1,20 @@
 // assignment_log.c
 // Copyright (C) 2014 Richard Hennigan
 
+#define _USE_HEAP_
+
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h>
 #include <string.h>
 #include "../lib/list.h"
-#include "../lib/pq.h"
 #include "../lib/user_input.h"
+
+#ifdef _USE_HEAP_
+#include "../lib/pq_heap.h"
+#else
+#include "../lib/pq.h"
+#endif  // _USE_HEAP_
 
 #define STR_SZ 28
 

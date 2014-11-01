@@ -63,13 +63,37 @@ void pq_dispose(pq_t * pq) {
   pq = NULL;
 }
 
-void pq_dump(pq_t * pq);
+void _pr_addr_(void * head) {
+  printf("   %p\n", head);
+}
+
+void pq_dump(pq_t * pq) {
+  printf("pq_dump: %p\n", pq);
+  printf("-----------------\n");
+  if (pq == NULL) {
+    printf(" NULL\n");
+  } else {
+    printf(" cmp: ");
+    _pr_addr_(pq->cmp);
+    printf(" sz_lst: %lu\n", pq->sz_lst);
+    printf(" sz_avl: %lu\n", pq->sz_avl);
+    printf(" sz_obj: %lu\n", pq->sz_obj);
+    printf(" list contents:\n");
+    unsigned int i;
+    for (i = 0; i < pq->sz_lst; i++) {
+      _pr_addr_(pq->list[i]);
+    }
+    printf("\n");
+  }
+}
 
 void pq_enqueue(pq_t * pq, void * obj) {
+  // TODO(rhennigan): realloc heap if space runs out
   assert(pq->sz_avl);
   pq->list[pq->sz_lst] = obj;
   pq->sz_lst++;
-  pq->sz_avl--;  // TODO(rhennigan): realloc heap if space runs out
+  pq->sz_avl--;
+  sift_up(pq, pq->sz_lst);
 }
 
 pq_t * pq_init(size_t sz_obj, p_cmp_fun cmp) {
