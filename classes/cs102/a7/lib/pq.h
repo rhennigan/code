@@ -24,5 +24,6 @@ void   pq_enqueue(pq_t * pq, void * obj);
 pq_t * pq_init(size_t sz_obj, p_cmp_fun cmp);
 bool   pq_isempty(pq_t * pq);
 void * pq_peek(pq_t * pq);
+void   pq_sort(pq_t * pq) { return; }
 
 #endif  // LIB_PQ_H_

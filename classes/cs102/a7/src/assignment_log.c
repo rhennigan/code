@@ -30,6 +30,12 @@ typedef struct assign_s {
   ddate_t due;
 } assign_t;
 
+#define _SWAP(a, b) do {                        \
+    register void * t = (a);                    \
+    (a) = (b);                                  \
+    (b) = t;                                    \
+  } while (0);
+
 bool compare(void * addr1, void * addr2);
 void print_assignment(void * addr);
 void print_assignment_hdr();
@@ -48,8 +54,9 @@ int main() {
     /* print current list */
     print_assignment_hdr();
 #   ifdef _USE_HEAP_
+    pq_sort(pq);
     for (j = 0; j < pq->sz_lst; j++) {
-      print_assignment(pq->list[j]);
+      print_assignment(pq->list[pq->sz_lst - j - 1]);
     }
 #   else
     list_iter(pq->list, &print_assignment);
@@ -65,18 +72,18 @@ int main() {
 bool compare(void * addr1, void * addr2) {
   assign_t * a1 = addr1;
   assign_t * a2 = addr2;
-  printf("%s%s%d\t\t%d/%d\n", a1->course_name, a1->assign_name,
-         a1->points, a1->due.month, a1->due.day);
+  /* printf("%s%s%d\t\t%d/%d\n", a1->course_name, a1->assign_name, */
+  /*        a1->points, a1->due.month, a1->due.day); */
   int t1 = 31 * a1->due.month + a1->due.day;
   int t2 = 31 * a2->due.month + a2->due.day;
-  printf("comparing (%d/%d, %d) with (%d/%d, %d)\n",
-         a1->due.month, a1->due.day, a1->points,
-         a2->due.month, a2->due.day, a2->points);
-  printf("  t1 = %d\n", t1);
-  printf("  t2 = %d\n", t2);
-  printf("  t1 < t2 = %d\n", (t1 < t2));
-  printf("  t1 == t2 = %d\n", (t1 == t2));
-  printf("  a1->points > a2->points = %d\n", (a1->points > a2->points));
+  /* printf("comparing (%d/%d, %d) with (%d/%d, %d)\n", */
+  /*        a1->due.month, a1->due.day, a1->points, */
+  /*        a2->due.month, a2->due.day, a2->points); */
+  /* printf("  t1 = %d\n", t1); */
+  /* printf("  t2 = %d\n", t2); */
+  /* printf("  t1 < t2 = %d\n", (t1 < t2)); */
+  /* printf("  t1 == t2 = %d\n", (t1 == t2)); */
+  /* printf("  a1->points > a2->points = %d\n", (a1->points > a2->points)); */
   if (t1 < t2) {
     return true;
   } else if (t1 == t2) {
