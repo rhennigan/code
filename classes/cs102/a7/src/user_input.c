@@ -34,7 +34,7 @@ int get_input_int(int min, int max) {
     fgets(input, BUFSIZ, stdin);
     fflush(stdin);
 
-    i = j = j = 0;
+    i = j = k = 0;
     for (i = 0; i < BUFSIZ; i++) {
       if (input[i] == '\n') break;
       digit = input[i] - '0';
@@ -127,4 +127,11 @@ bool get_input_bool() {
 void vskip(int n) {
   int i;
   for (i = 0; i < n; i++) printf("\n");
+}
+
+void hskip(int n) { repeat(' ', n); }
+
+void repeat(char c, int n) {
+  int i;
+  for (i = 0; i < n; i++) printf("%c", c);
 }

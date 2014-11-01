@@ -16,36 +16,44 @@
 #include "../lib/pq.h"
 #endif  // _USE_HEAP_
 
-#define STR_SZ 28
+#define STR_SZ 30
 
-typedef struct date_s {
+typedef struct ddate_s {
   int month;
   int day;
-} date_t;
+} ddate_t;
 
 typedef struct assign_s {
   char course_name[STR_SZ];
   char assign_name[STR_SZ];
   int points;
-  date_t due;
+  ddate_t due;
 } assign_t;
 
 bool compare(void * addr1, void * addr2);
 void print_assignment(void * addr);
-assign_t * new_assign(char * cname, char * aname, int points, date_t due);
+void print_assignment_hdr();
+assign_t * new_assign(char * cname, char * aname, int points, int m, int d);
 assign_t * new_assign_prompt();
 
 
 int main() {
   pq_t * pq = pq_init(sizeof(assign_t), &compare);
 
-  int i;
+  unsigned int i, j;
   for (i = 0; i < 5; i++) {
     assign_t * a = new_assign_prompt();
     pq_enqueue(pq, a);
-    printf("\nCourse                      Assignment                  Points\tDue\n");
-    printf("---------------------------------------------------------------------\n");
+
+    /* print current list */
+    print_assignment_hdr();
+#   ifdef _USE_HEAP_
+    for (j = 0; j < pq->sz_lst; j++) {
+      print_assignment(pq->list[j]);
+    }
+#   else
     list_iter(pq->list, &print_assignment);
+#   endif  // _USE_HEAP_
     printf("\n\n");
   }
 
@@ -54,34 +62,25 @@ int main() {
   return EXIT_SUCCESS;
 }
 
-assign_t * new_assign_prompt() {
-  printf("enter the course name: ");
-  char * cname = get_input_string();
-
-  printf("enter the assignment name: ");
-  char * aname = get_input_string();
-
-  printf("enter the number of points: ");
-  int pts = get_input_int(0, INT_MAX);
-
-  printf("enter the month of the due date (1-12): ");
-  int m = get_input_int(1, 12);
-
-  printf("enter the day of the due date (1-31): ");
-  int d = get_input_int(1, 31);
-
-  return new_assign(cname, aname, pts, (date_t){ m, d });
-}
-
 bool compare(void * addr1, void * addr2) {
   assign_t * a1 = addr1;
   assign_t * a2 = addr2;
+  printf("%s%s%d\t\t%d/%d\n", a1->course_name, a1->assign_name,
+         a1->points, a1->due.month, a1->due.day);
   int t1 = 31 * a1->due.month + a1->due.day;
   int t2 = 31 * a2->due.month + a2->due.day;
+  printf("comparing (%d/%d, %d) with (%d/%d, %d)\n",
+         a1->due.month, a1->due.day, a1->points,
+         a2->due.month, a2->due.day, a2->points);
+  printf("  t1 = %d\n", t1);
+  printf("  t2 = %d\n", t2);
+  printf("  t1 < t2 = %d\n", (t1 < t2));
+  printf("  t1 == t2 = %d\n", (t1 == t2));
+  printf("  a1->points > a2->points = %d\n", (a1->points > a2->points));
   if (t1 < t2) {
     return true;
-  } else if (t1 == t2 && a1->points > a2->points) {
-    return true;
+  } else if (t1 == t2) {
+    return (a1->points > a2->points);
   } else {
     return false;
   }
@@ -114,17 +113,49 @@ void print_assignment(void * addr) {
   }
   aname[STR_SZ - 1] = '\0';
 
-  printf("%s %s %d\t%d/%d\n", cname, aname,
+  printf("%s%s%d\t\t%d/%d\n", cname, aname,
          a->points, a->due.month, a->due.day);
 }
 
-assign_t * new_assign(char * cname, char * aname, int points, date_t due) {
+void print_assignment_hdr() {
+  printf("\nCourse");
+  hskip(STR_SZ - 7);
+  printf("Assignment");
+  hskip(STR_SZ - 11);
+  printf("Points\tDue\n");
+  repeat('-', 80);
+  printf("\n");
+}
+
+assign_t * new_assign(char * cname, char * aname, int points, int m, int d) {
   assign_t * a = malloc(sizeof(assign_t));
   snprintf(a->course_name, STR_SZ, "%s", cname);
   snprintf(a->assign_name, STR_SZ, "%s", aname);
   a->points = points;
+  ddate_t due;
+  due.month = m;
+  due.day = d;
   a->due = due;
   return a;
+}
+
+assign_t * new_assign_prompt() {
+  printf("enter the course name: ");
+  char * cname = get_input_string();
+
+  printf("enter the assignment name: ");
+  char * aname = get_input_string();
+
+  printf("enter the number of points: ");
+  int pts = get_input_int(0, INT_MAX);
+
+  printf("enter the month of the due date (1-12): ");
+  int m = get_input_int(1, 12);
+
+  printf("enter the day of the due date (1-31): ");
+  int d = get_input_int(1, 31);
+
+  return new_assign(cname, aname, pts, m, d);
 }
 
 

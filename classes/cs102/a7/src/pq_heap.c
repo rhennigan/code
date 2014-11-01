@@ -17,16 +17,16 @@
 
 #define HEAP_SIZE 1024
 
-size_t maxc(pq_t * pq, size_t n) {
+size_t maxc(pq_t * pq, size_t n, size_t end) {
   size_t l = _L(n);
-  if (l >= pq->sz_lst) return 0;
+  if (l >= end) return 0;
   size_t r = _R(n);
-  if (r >= pq->sz_lst) return l;
+  if (r >= end) return l;
   return (pq->cmp(pq->list[l], pq->list[r]) ? l : r);
 }
 
-void sift_down(pq_t * pq, size_t n) {
-  size_t ch = maxc(pq, n);
+void sift_down(pq_t * pq, size_t n, size_t end) {
+  size_t ch = maxc(pq, n, end);
   if (ch && pq->cmp(pq->list[ch], pq->list[n])) {
     _SWAP(pq->list[ch], pq->list[n]);
     sift_down(pq, ch);
@@ -91,9 +91,9 @@ void pq_enqueue(pq_t * pq, void * obj) {
   // TODO(rhennigan): realloc heap if space runs out
   assert(pq->sz_avl);
   pq->list[pq->sz_lst] = obj;
+  sift_up(pq, pq->sz_lst);
   pq->sz_lst++;
   pq->sz_avl--;
-  sift_up(pq, pq->sz_lst);
 }
 
 pq_t * pq_init(size_t sz_obj, p_cmp_fun cmp) {
@@ -117,6 +117,14 @@ bool pq_isempty(pq_t * pq) {
 
 void * pq_peek(pq_t * pq) {
   return pq->list[0];
+}
+
+void pq_sort(pq_t * pq, int start, int count) {
+  int end;
+  for (end = count - 1; end > 0; end--) {
+    _SWAP(pq->list[end], pq->list[0]);
+    sift_down(pq, pq->sz_lst);
+  }
 }
 
 #undef _L
