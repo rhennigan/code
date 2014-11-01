@@ -20,5 +20,6 @@ char * lowercase(const char * str);
 int get_input_int(int min, int max);
 double get_input_double(double min, double max);
 bool get_input_bool();
+void vskip(int n);
 
 #endif

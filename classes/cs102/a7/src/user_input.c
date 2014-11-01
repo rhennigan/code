@@ -123,3 +123,8 @@ bool get_input_bool() {
     }
   }
 }
+
+void vskip(int n) {
+  int i;
+  for (i = 0; i < n; i++) printf("\n");
+}

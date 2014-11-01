@@ -1,6 +1,6 @@
-test: test.c pq.o list.o user_input.o
+assignment_log: src/assignment_log.c pq.o list.o user_input.o
 	mkdir -p build/
-	cc -o build/test -g test.c build/pq.o build/list.o build/user_input.o
+	cc -o build/assignment_log -g src/assignment_log.c build/pq.o build/list.o build/user_input.o
 
 user_input.o: src/user_input.c lib/user_input.h
 	mkdir -p build/
