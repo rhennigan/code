@@ -13,6 +13,7 @@ typedef struct pq_s {
   void ** list;
   size_t sz_lst;
   size_t sz_obj;
+  size_t sz_avl;
   p_cmp_fun cmp;
 } pq_t;
 
