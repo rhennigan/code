@@ -1,0 +1,11 @@
+// test.c
+// Copyright (C) 2014 Richard Hennigan
+
+#include <stdio.h>
+#include "lib/list.h"
+#include "lib/pq.h"
+
+int main() {
+int test[] = { 1, 2, 3, 4, 5 };
+return 0;
+}
