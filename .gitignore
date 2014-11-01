@@ -40,3 +40,6 @@ core
 
 # Mathematica Notebooks
 *.nb
+
+# Build directories
+**build/

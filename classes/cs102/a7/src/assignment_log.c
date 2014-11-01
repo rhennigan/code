@@ -45,23 +45,28 @@ assign_t * new_assign_prompt();
 
 int main() {
   pq_t * pq = pq_init(sizeof(assign_t), &compare);
+  vskip(24);
 
   unsigned int i, j;
   for (i = 0; i < 5; i++) {
     assign_t * a = new_assign_prompt();
+    vskip(5);
     pq_enqueue(pq, a);
 
     /* print current list */
     print_assignment_hdr();
-#   ifdef _USE_HEAP_
+#ifdef _USE_HEAP_
     pq_sort(pq);
     for (j = 0; j < pq->sz_lst; j++) {
       print_assignment(pq->list[pq->sz_lst - j - 1]);
     }
-#   else
+#else
     list_iter(pq->list, &print_assignment);
-#   endif  // _USE_HEAP_
+#endif  // _USE_HEAP_
+    repeat('-', 80);
     printf("\n\n");
+    WAIT();
+    vskip(24);
   }
 
   pq_dump(pq);
@@ -72,18 +77,8 @@ int main() {
 bool compare(void * addr1, void * addr2) {
   assign_t * a1 = addr1;
   assign_t * a2 = addr2;
-  /* printf("%s%s%d\t\t%d/%d\n", a1->course_name, a1->assign_name, */
-  /*        a1->points, a1->due.month, a1->due.day); */
   int t1 = 31 * a1->due.month + a1->due.day;
   int t2 = 31 * a2->due.month + a2->due.day;
-  /* printf("comparing (%d/%d, %d) with (%d/%d, %d)\n", */
-  /*        a1->due.month, a1->due.day, a1->points, */
-  /*        a2->due.month, a2->due.day, a2->points); */
-  /* printf("  t1 = %d\n", t1); */
-  /* printf("  t2 = %d\n", t2); */
-  /* printf("  t1 < t2 = %d\n", (t1 < t2)); */
-  /* printf("  t1 == t2 = %d\n", (t1 == t2)); */
-  /* printf("  a1->points > a2->points = %d\n", (a1->points > a2->points)); */
   if (t1 < t2) {
     return true;
   } else if (t1 == t2) {
@@ -120,12 +115,15 @@ void print_assignment(void * addr) {
   }
   aname[STR_SZ - 1] = '\0';
 
-  printf("%s%s%d\t\t%d/%d\n", cname, aname,
+  printf(" %s%s%d\t\t%d/%d\n", cname, aname,
          a->points, a->due.month, a->due.day);
 }
 
 void print_assignment_hdr() {
-  printf("\nCourse");
+  printf("CURRENT ASSIGNMENTS\n");
+  repeat('-', 80);
+  printf("\n");
+  printf(" Course");
   hskip(STR_SZ - 7);
   printf("Assignment");
   hskip(STR_SZ - 11);
@@ -147,21 +145,25 @@ assign_t * new_assign(char * cname, char * aname, int points, int m, int d) {
 }
 
 assign_t * new_assign_prompt() {
-  printf("enter the course name: ");
+  printf("ENTER A NEW ASSIGNMENT\n");
+  repeat('-', 80);
+  printf("\n");
+  printf(" enter the course name: ");
   char * cname = get_input_string();
 
-  printf("enter the assignment name: ");
+  printf(" enter the assignment name: ");
   char * aname = get_input_string();
 
-  printf("enter the number of points: ");
+  printf(" enter the number of points: ");
   int pts = get_input_int(0, INT_MAX);
 
-  printf("enter the month of the due date (1-12): ");
+  printf(" enter the month of the due date (1-12): ");
   int m = get_input_int(1, 12);
 
-  printf("enter the day of the due date (1-31): ");
+  printf(" enter the day of the due date (1-31): ");
   int d = get_input_int(1, 31);
 
+  repeat('-', 80);
   return new_assign(cname, aname, pts, m, d);
 }
 
