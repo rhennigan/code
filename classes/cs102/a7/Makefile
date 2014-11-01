@@ -1,6 +1,10 @@
-test: test.c pq.o list.o
+test: test.c pq.o list.o user_input.o
 	mkdir -p build/
-	cc -o build/test -g test.c build/pq.o build/list.o
+	cc -o build/test -g test.c build/pq.o build/list.o build/user_input.o
+
+user_input.o: src/user_input.c lib/user_input.h
+	mkdir -p build/
+	cc -o build/user_input.o -c -g src/user_input.c
 
 pq.o: src/pq.c lib/pq.h list.o
 	mkdir -p build/
