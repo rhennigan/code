@@ -2,4 +2,4 @@
 
 git add .
 git commit
-git push code
+git push
