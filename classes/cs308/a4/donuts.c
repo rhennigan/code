@@ -148,18 +148,17 @@ void * sig_waiter(void * arg);
 void * producer(void * arg);
 void * consumer(void * arg);
 
-void   sig_handler(int sig_num) {
+void   sig_handler(int sig) {
   pthread_t signaled_thread_id;
   int i, thread_index;
 
-  signaled_thread_id = pthread_self ( );
-  for ( i = 0; i < (NUMCONSUMERS + 1 ); i++) {
-    if ( signaled_thread_id == thread_id [i] )  {
+  signaled_thread_id = pthread_self();
+  for (i = 0; i < (numconsumers + 1); i++) {
+    if (signaled_thread_id == thread_id[i]) {
       thread_index = i;
       break;
     }
   }
-  printf ( "\nThread %d took signal # %d, PROCESS HALT\n",
-           thread_index, sig );
-  exit ( 1 );
+  printf("\nThread %d took signal # %d, PROCESS HALT\n", thread_index, sig);
+  exit(1);
 }
