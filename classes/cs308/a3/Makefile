@@ -11,3 +11,4 @@ utilities.o:  utilities.c
 	cc -c utilities.c
 clean:
 	rm *.o proddonuts consdonuts deadlock_test .conslk .prodlk log/* *~
+
