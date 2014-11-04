@@ -30,4 +30,4 @@ void * producer(void * arg);
 void * consumer(void * arg);
 void   sig_handler(int sig_num);
 
-#endif  // DONUTS_H_
+#endif  // DONUTSs_H_
