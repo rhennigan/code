@@ -15,6 +15,14 @@ pthread_t sig_wait_id;
 #define numconsumers MAXCONSUMERS
 #define numproducers MAXPRODUCERS
 
+void init_timestamps(struct timeval first_time, int arg_array[]) {
+  gettimeofday(&first_time, (struct timezone *) 0);
+  int i;
+  for (i = 0; i < numconsumers + 1; i++) {
+    arg_array[i] = i;  /* SET ARRAY OF ARGUMENT VALUES */
+  }
+}
+
 int main(int argc, char *argv[]) {
   int nsigs;
   struct timeval randtime, first_time, last_time;
