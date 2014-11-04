@@ -97,5 +97,44 @@ int main(int argc, char *argv[]) {
 
   printf("just before threads created\n");
 
+  /*********************************************************************/
+  /* CREATE SIGNAL HANDLER THREAD, PRODUCER AND CONSUMERS              */
+  /*********************************************************************/
+
+  if (pthread_create(&sig_wait_id, NULL, sig_waiter, NULL) != 0 ) {
+
+    printf ( "pthread_create failed " );
+    exit ( 3 );
+  }
+
+  pthread_attr_init ( &thread_attr );
+  pthread_attr_setinheritsched ( &thread_attr,
+                                 PTHREAD_INHERIT_SCHED );
+
+#ifdef  GLOBAL
+  sched_struct.sched_priority = sched_get_priority_max(SCHED_OTHER);
+  pthread_attr_setinheritsched ( &thread_attr,
+      PTHREAD_EXPLICIT_SCHED );
+  pthread_attr_setschedpolicy ( &thread_attr, SCHED_OTHER );
+  pthread_attr_setschedparam ( &thread_attr, &sched_struct );  
+  pthread_attr_setscope ( &thread_attr,
+      PTHREAD_SCOPE_SYSTEM );
+#endif
+
+  if ( pthread_create (&thread_id[0], &thread_attr,
+                       producer, NULL ) != 0 ) {
+    printf ( "pthread_create failed " );
+    exit ( 3 );
+  }
+  for ( i = 1; i < NUMCONSUMERS + 1; i++ ) {
+    if ( pthread_create ( &thread_id [i], &thread_attr,
+                          consumer, ( void * )&arg_array [i]) != 0 ){
+      printf ( "pthread_create failed" );
+      exit ( 3 );
+    }
+  }
+
+  printf ( "just after threads created\n" );
+    
   return 0;
 }
