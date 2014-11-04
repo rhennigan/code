@@ -154,8 +154,8 @@ int main(int argc, char *argv[]) {
 } else {
   j = last_time.tv_usec - first_time.tv_usec;
 }
-  printf ( "Elapsed consumer time is %d sec and %d usec\n", i, j );
+  printf("Elapsed consumer time is %d sec and %d usec\n", i, j);
 
-  printf ( "\n\n ALL CONSUMERS FINISHED, KILLING  PROCESS\n\n" );
-  exit ( 0 );
+  printf("\n\n ALL CONSUMERS FINISHED, KILLING  PROCESS\n\n");
+  exit(0);
 }
