@@ -149,10 +149,29 @@ int main(/* int argc, char *argv[] */) {
 /******************************************************************************/
 void * producer(void * arg) {
   int i, j, k;
-  unsigned short xsub[3];
-  struct timeval randtime;
+  unsigned short    xsub [3];
+  struct timeval    randtime;
 
-  return NULL;
+  gettimeofday ( &randtime, ( struct timezone * ) 0 );
+  xsub [0] = ( ushort )randtime.tv_usec;
+  xsub [1] = ( ushort ) ( randtime.tv_usec >> 16 );
+  xsub [2] = ( ushort ) ( pthread_self() );
+
+  while ( 1 ) {
+    j = nrand48 ( xsub ) & 3;
+    pthread_mutex_lock ( &prod [j] );
+    while ( shared_ring.spaces [j] == 0 ) {
+      pthread_cond_wait ( &prod_cond [j], &prod [j] );
+    }
+    .
+        .
+        .
+        pthread_mutex_unlock ( &prod [j] );
+        .
+            .
+            .
+            etc.........
+                return NULL;
 }
 
 /******************************************************************************/
