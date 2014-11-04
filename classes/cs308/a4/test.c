@@ -12,10 +12,12 @@ pthread_mutex_t running_mutex = PTHREAD_MUTEX_INITIALIZER;
 void * print_hello_world(void * tid) {
   int * id = tid;
   double val = 0.0;
+  double * retval = malloc(sizeof(double));
   long int i;
-  for (i = 1; i < 100000000000; i++) {
+  for (i = *id + 1; i < 100000000; i += NTHREADS) {
     val += 1.0 / (double)i;
   }
+  retval[0] = val;
 
   printf("Thread #%d reults: val = %f\n", *id, val);
   pthread_mutex_lock(&running_mutex);
