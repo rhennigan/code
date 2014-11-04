@@ -14,7 +14,7 @@ void * print_hello_world(void * tid) {
   double val = 0.0;
   double * retval = malloc(sizeof(double));
   long int i;
-  for (i = *id + 1; i < 100000000; i += NTHREADS) {
+  for (i = *id + 1; i < 1000000000; i += NTHREADS) {
     val += 1.0 / (double)i;
   }
   retval[0] = val;
@@ -23,12 +23,13 @@ void * print_hello_world(void * tid) {
   pthread_mutex_lock(&running_mutex);
   running_threads--;
   pthread_mutex_unlock(&running_mutex);
-  pthread_exit(NULL);
+  pthread_exit((void *)retval);
 }
 
 int main(int argc, char *argv[]) {
   pthread_t threads[NTHREADS];
   int thr_id[NTHREADS];
+  double results[NTHREADS];
   int status, i;
 
   for (i = 0; i < NTHREADS; i++) {
@@ -45,10 +46,19 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  while (running_threads > 0)
-  {
-     sleep(1);
+  /* while (running_threads > 0) */
+  /* { */
+  /*    sleep(1); */
+  /* } */
+
+  double res = 0.0;
+  for (i = 0; i < NTHREADS; i++) {
+    double * lval;
+    pthread_join(threads[i], (void**)&lval);
+    res += *lval;
   }
+
+  printf("Total = %f\n", res);
   exit(EXIT_SUCCESS);
 }
 
