@@ -122,7 +122,8 @@ int main(int argc, char *argv[]) {
     exit(3);
   }
   for (i = 1; i < numconsumers + 1; i++) {
-    if (pthread_create(&thread_id[i], &thread_attr, consumer, (void *)&arg_array[i]) != 0) {
+    if (pthread_create(&thread_id[i], &thread_attr, consumer,
+      (void *)&arg_array[i]) != 0) {
       printf ( "pthread_create failed" );
       exit ( 3 );
     }
