@@ -8,6 +8,11 @@ pthread_cond_t cons_cond[MAXFLAVORS];
 pthread_t thread_id[MAXCONSUMERS + MAXPRODUCERS];
 pthread_t sig_wait_id;
 
+#define numflavors   MAXFLAVORS
+#define numslots     MAXSLOTS
+#define numconsumers MAXCONSUMERS
+#define numproducers MAXPRODUCERS
+
 int main(int argc, char *argv[]) {
   int nsigs;
   struct timeval randtime, first_time, last_time;

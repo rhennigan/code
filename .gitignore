@@ -47,3 +47,4 @@ core
 # Temporary files
 *.c~
 *.h~
+*#*
