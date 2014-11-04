@@ -144,11 +144,19 @@ int main(/* int argc, char *argv[] */) {
   exit(0);
 }
 
-void * sig_waiter(void * arg);
+
 void * producer(void * arg);
 void * consumer(void * arg);
 
-void   sig_handler(int sig) {
+/***********************************************************/
+/* PTHREAD ASYNCH SIGNAL HANDLER ROUTINE...                */
+/***********************************************************/
+void * sig_waiter(void * arg);
+
+/**********************************************************/
+/* PTHREAD SYNCH SIGNAL HANDLER ROUTINE...                */
+/**********************************************************/
+void sig_handler(int sig) {
   pthread_t signaled_thread_id;
   int i, thread_index;
 
