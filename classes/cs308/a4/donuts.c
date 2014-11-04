@@ -41,10 +41,7 @@ int main(int argc, char *argv[]) {
   /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                    */
   /**********************************************************************/
 
-  gettimeofday(&first_time, (struct timezone *) 0);
-  for (i = 0; i < numconsumers + 1; i++) {
-    arg_array[i] = i;  /* SET ARRAY OF ARGUMENT VALUES */
-  }
+  init_timestamps(first_time, arg_array);
 
   /**********************************************************************/
   /* GENERAL PTHREAD MUTEX AND CONDITION INIT AND GLOBAL INIT           */
