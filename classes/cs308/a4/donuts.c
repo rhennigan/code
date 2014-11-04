@@ -163,6 +163,7 @@ void * producer(void * arg) {
     pthread_mutex_lock(&prod[j]);
     while (shared_ring.spaces[j] == 0) {
       pthread_cond_wait(&prod_cond[j], &prod[j]);
+      /* consumer must signal prod_cond[j] after freeing up a space */
     }
     /* stuff */
     pthread_mutex_unlock(&prod[j]);
