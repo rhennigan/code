@@ -138,17 +138,18 @@ int main(int argc, char *argv[]) {
   /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                       */
   /*********************************************************************/
 
-  for (i = 1; i < numconsumers + 1; i++) {
-  pthread_join(thread_id[i], NULL);
+  for (i = 1; i < numconsumers + 1; i++)
+    pthread_join(thread_id[i], NULL);
 
   /*****************************************************************/
   /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC           */
   /*****************************************************************/
 
 
-  gettimeofday (&last_time, ( struct timezone * ) 0 );
-  if ( ( i = last_time.tv_sec - first_time.tv_sec) == 0 )
+  gettimeofday(&last_time, (struct timezone *)0);
+  if ((i = last_time.tv_sec - first_time.tv_sec) == 0) {
     j = last_time.tv_usec - first_time.tv_usec;
+}
   else{
   if ( last_time.tv_usec - first_time.tv_usec < 0 ) {
   i--;
