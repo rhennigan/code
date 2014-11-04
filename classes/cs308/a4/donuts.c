@@ -109,19 +109,19 @@ int main(/* int argc, char *argv[] */) {
 
   printf("just after threads created\n");
 
-  /*********************************************************************/
-  /* WAIT FOR ALL CONSUMERS TO FINISH, SIGNAL WAITER WILL              */
-  /* NOT FINISH UNLESS A SIGTERM ARRIVES AND WILL THEN EXIT            */
-  /* THE ENTIRE PROCESS....OTHERWISE MAIN THREAD WILL EXIT             */
-  /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                       */
-  /*********************************************************************/
+  /****************************************************************************/
+  /* WAIT FOR ALL CONSUMERS TO FINISH, SIGNAL WAITER WILL                     */
+  /* NOT FINISH UNLESS A SIGTERM ARRIVES AND WILL THEN EXIT                   */
+  /* THE ENTIRE PROCESS....OTHERWISE MAIN THREAD WILL EXIT                    */
+  /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                              */
+  /****************************************************************************/
 
   for (i = 1; i < numconsumers + 1; i++)
     pthread_join(thread_id[i], NULL);
 
-  /*****************************************************************/
-  /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC           */
-  /*****************************************************************/
+  /****************************************************************************/
+  /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                      */
+  /****************************************************************************/
 
 
   gettimeofday(&last_time, (struct timezone *)0);
