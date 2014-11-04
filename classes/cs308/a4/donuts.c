@@ -159,17 +159,17 @@ void * consumer(void * arg);
 /******************************************************************************/
 void * sig_waiter(void * arg) {
   sigset_t sigterm_signal;
-  int signo;
+  int * signo = arg;
 
   sigemptyset(&sigterm_signal);
   sigaddset(&sigterm_signal, SIGTERM);
   sigaddset(&sigterm_signal, SIGINT);
 
-  if (sigwait(&sigterm_signal, &signo) != 0) {
+  if (sigwait(&sigterm_signal, signo) != 0) {
     printf("\n  sigwait() failed, exiting\n");
     exit(2);
   }
-  printf("process going down on SIGNAL (number %d)\n\n", signo);
+  printf("process going down on SIGNAL (number %d)\n\n", *signo);
   exit(1);
   return NULL;
 }
