@@ -40,8 +40,8 @@ int main(int argc, char *argv[]) {
   /**********************************************************************/
 
   for (i = 0; i < numflavors; i++) {
-    pthread_mutex_init ( &prod [i], NULL );
-    pthread_mutex_init ( &cons [i], NULL );
+    pthread_mutex_init(&prod[i], NULL);
+    pthread_mutex_init(&cons[i], NULL);
     thread_cond_init ( &prod_cond [i],  NULL );
     pthread_cond_init ( &cons_cond [i],  NULL );
     shared_ring.outptr [i]		= 0;
