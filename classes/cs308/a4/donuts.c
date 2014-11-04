@@ -111,12 +111,10 @@ int main(int argc, char *argv[]) {
 
 #ifdef GLOBAL
   sched_struct.sched_priority = sched_get_priority_max(SCHED_OTHER);
-  pthread_attr_setinheritsched ( &thread_attr,
-      PTHREAD_EXPLICIT_SCHED );
-  pthread_attr_setschedpolicy ( &thread_attr, SCHED_OTHER );
-  pthread_attr_setschedparam ( &thread_attr, &sched_struct );  
-  pthread_attr_setscope ( &thread_attr,
-      PTHREAD_SCOPE_SYSTEM );
+  pthread_attr_setinheritsched(&thread_attr, PTHREAD_EXPLICIT_SCHED);
+  pthread_attr_setschedpolicy(&thread_attr, SCHED_OTHER);
+  pthread_attr_setschedparam(&thread_attr, &sched_struct);
+  pthread_attr_setscope(&thread_attr, PTHREAD_SCOPE_SYSTEM);
 #endif  // GLOBAL
 
   if ( pthread_create (&thread_id[0], &thread_attr,
