@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 #include "./donuts.h"
 
 donut_ring_t shared_ring;
@@ -174,18 +175,18 @@ void * producer(void * arg) {
 /* PTHREAD CONSUMER ROUTINE...                                                */
 /******************************************************************************/
 void * consumer(void * arg) {
-  int     		i, j, k, m, id;
-  unsigned short 	xsub [3];
-  struct timeval 	randtime;
-  id = *( int * ) arg;
-  gettimeofday ( &randtime, ( struct timezone * ) 0 );
-  xsub [0] = ( ushort )randtime.tv_usec;
-  xsub [1] = ( ushort ) ( randtime.tv_usec >> 16 );
-  xsub [2] = ( ushort ) ( pthread_self() );
+  int i, j, k, m, id;
+  unsigned short xsub[3];
+  struct timeval randtime;
+  id = *(int*)arg;
+  gettimeofday(&randtime, (struct timezone *)0);
+  xsub[0] = (ushort)randtime.tv_usec;
+  xsub[1] = (ushort)(randtime.tv_usec >> 16);
+  xsub[2] = (ushort)(pthread_self());
 
-  for( i = 0; i < 10; i++ ) {
-    for( m = 0; m < 12; m++ ) {
-      j = nrand48( xsub ) & 3;
+  for (i = 0; i < 10; i++) {
+    for (m = 0; m < 12; m++) {
+      j = nrand48(xsub) & 3;
       /* stuff */
     }
 
