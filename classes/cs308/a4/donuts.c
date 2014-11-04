@@ -31,8 +31,8 @@ int main(int argc, char *argv[]) {
   /**********************************************************************/
 
   gettimeofday(&first_time, (struct timezone *) 0);
-  for ( i = 0; i < numconsumers + 1; i++ ) {
-    arg_array [i] = i;	/** SET ARRAY OF ARGUMENT VALUES **/
+  for (i = 0; i < numconsumers + 1; i++) {
+    arg_array[i] = i;  /* SET ARRAY OF ARGUMENT VALUES */
   }
 
   return 0;
