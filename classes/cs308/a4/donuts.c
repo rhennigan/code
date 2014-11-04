@@ -30,16 +30,16 @@ int main(/* int argc, char *argv[] */) {
   int i, j, k;
 
   /****************************************************************************/
-  /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                    */
-  /**********************************************************************/
+  /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                          */
+  /****************************************************************************/
 
   for (i = 0; i < numconsumers + 1; i++) {
     arg_array[i] = i;  /* SET ARRAY OF ARGUMENT VALUES */
   }
 
-  /**********************************************************************/
-  /* GENERAL PTHREAD MUTEX AND CONDITION INIT AND GLOBAL INIT           */
-  /**********************************************************************/
+  /****************************************************************************/
+  /* GENERAL PTHREAD MUTEX AND CONDITION INIT AND GLOBAL INIT                 */
+  /****************************************************************************/
 
   for (i = 0; i < numflavors; i++) {
     pthread_mutex_init(&prod[i], NULL);
@@ -53,9 +53,9 @@ int main(/* int argc, char *argv[] */) {
     shared_ring.donuts[i] = 0;
   }
 
-  /**********************************************************************/
-  /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS           */
-  /**********************************************************************/
+  /****************************************************************************/
+  /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS                 */
+  /****************************************************************************/
 
   sigfillset(&all_signals);
   nsigs = sizeof(sigs) / sizeof(int);
@@ -75,9 +75,9 @@ int main(/* int argc, char *argv[] */) {
 
   printf("just before threads created\n");
 
-  /*********************************************************************/
-  /* CREATE SIGNAL HANDLER THREAD, PRODUCER AND CONSUMERS              */
-  /*********************************************************************/
+  /****************************************************************************/
+  /* CREATE SIGNAL HANDLER THREAD, PRODUCER AND CONSUMERS                     */
+  /****************************************************************************/
 
   if (pthread_create(&sig_wait_id, NULL, sig_waiter, NULL) != 0) {
     printf("pthread_create failed ");
