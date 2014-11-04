@@ -147,7 +147,13 @@ int main(/* int argc, char *argv[] */) {
 /******************************************************************************/
 /* PTHREAD PRODUCER ROUTINE...                                                */
 /******************************************************************************/
-void * producer(void * arg);
+void * producer(void * arg) {
+  int i, j, k;
+  unsigned short xsub[3];
+  struct timeval randtime;
+
+  return NULL;
+}
 
 /******************************************************************************/
 /* PTHREAD CONSUMER ROUTINE...                                                */
