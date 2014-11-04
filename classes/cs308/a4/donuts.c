@@ -15,28 +15,6 @@ pthread_t sig_wait_id;
 #define numconsumers MAXCONSUMERS
 #define numproducers MAXPRODUCERS
 
-void init_timestamps(struct timeval first_time, int arg_array[]) {
-  gettimeofday(&first_time, (struct timezone *) 0);
-  int i;
-  for (i = 0; i < numconsumers + 1; i++) {
-    arg_array[i] = i;  /* SET ARRAY OF ARGUMENT VALUES */
-  }
-}
-void init_mutex_cond() {
-  int i;
-  for (i = 0; i < numflavors; i++) {
-    pthread_mutex_init(&prod[i], NULL);
-    pthread_mutex_init(&cons[i], NULL);
-    pthread_cond_init(&prod_cond[i], NULL);
-    pthread_cond_init(&cons_cond[i], NULL);
-    shared_ring.outptr[i] = 0;
-    shared_ring.in_ptr[i] = 0;
-    shared_ring.serial[i] = 0;
-    shared_ring.spaces[i] = numslots;
-    shared_ring.donuts[i] = 0;
-  }
-}
-
 int main(int argc, char *argv[]) {
   int nsigs;
   struct timeval randtime, first_time, last_time;
@@ -160,17 +138,6 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  j = 0;
-  /*   if ((i = last_time.tv_sec - first_time.tv_sec) == 0) { */
-  /*   j = last_time.tv_usec - first_time.tv_usec; */
-  /* } else { */
-  /*   if ( last_time.tv_usec - first_time.tv_usec < 0 ) { */
-  /*   i--; */
-  /*   j = 1000000 + (last_time.tv_usec - first_time.tv_usec); */
-  /* } else { */
-  /*   j = last_time.tv_usec - first_time.tv_usec; */
-  /* } */
-  /* } */
   printf("Elapsed consumer time is %d sec and %d usec\n", i, j);
 
   printf("\n\n ALL CONSUMERS FINISHED, KILLING  PROCESS\n\n");
