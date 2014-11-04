@@ -143,3 +143,8 @@ int main(/* int argc, char *argv[] */) {
   printf("\n\n ALL CONSUMERS FINISHED, KILLING  PROCESS\n\n");
   exit(0);
 }
+
+void * sig_waiter(void * arg);
+void * producer(void * arg);
+void * consumer(void * arg);
+void   sig_handler(int sig_num);
