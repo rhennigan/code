@@ -55,13 +55,25 @@ int main(int argc, char *argv[]) {
   /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                    */
   /**********************************************************************/
 
-  init_timestamps(first_time, arg_array);
+  for (i = 0; i < numconsumers + 1; i++) {
+    arg_array[i] = i;  /* SET ARRAY OF ARGUMENT VALUES */
+  }
 
   /**********************************************************************/
   /* GENERAL PTHREAD MUTEX AND CONDITION INIT AND GLOBAL INIT           */
   /**********************************************************************/
 
-  init_mutex_cond();
+  for (i = 0; i < numflavors; i++) {
+    pthread_mutex_init(&prod[i], NULL);
+    pthread_mutex_init(&cons[i], NULL);
+    pthread_cond_init(&prod_cond[i], NULL);
+    pthread_cond_init(&cons_cond[i], NULL);
+    shared_ring.outptr[i] = 0;
+    shared_ring.in_ptr[i] = 0;
+    shared_ring.serial[i] = 0;
+    shared_ring.spaces[i] = numslots;
+    shared_ring.donuts[i] = 0;
+  }
 
   /**********************************************************************/
   /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS           */
