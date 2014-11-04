@@ -43,3 +43,7 @@ core
 
 # Build directories
 **build/
+
+# Temporary files
+*.c~
+*.h~
