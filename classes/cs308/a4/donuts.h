@@ -19,6 +19,8 @@ struct donut_ring {
   int donuts[MAXFLAVORS];
 };
 
+typedef struct donut_ring * donut_ring_t;
+
 /**********************************************************************/
 /* SIGNAL WAITER, PRODUCER AND CONSUMER THREAD FUNCTIONS              */
 /**********************************************************************/
