@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
     new_act.sa_handler  = sig_handler;
     new_act.sa_mask     = all_signals;
     new_act.sa_flags    = 0;
-    if ( sigaction ( sigs[i], &new_act, NULL ) == -1 ){
+    if (sigaction(sigs[i], &new_act, NULL) == -1) {
       perror("can't set signals: ");
       exit(1);
     }

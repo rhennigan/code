@@ -28,6 +28,6 @@ typedef struct donut_ring donut_ring_t;
 void * sig_waiter(void * arg);
 void * producer(void * arg);
 void * consumer(void * arg);
-void * sig_handler(int sig_num);
+void   sig_handler(int sig_num);
 
 #endif  // DONUTS_H_
