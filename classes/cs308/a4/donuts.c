@@ -166,9 +166,9 @@ void * producer(void * arg) {
     /* stuff */
     pthread_mutex_unlock(&prod[j]);
     /* stuff */
-
-    return NULL;
   }
+  return NULL;
+}
 
 /******************************************************************************/
 /* PTHREAD CONSUMER ROUTINE...                                                */
