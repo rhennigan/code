@@ -150,6 +150,14 @@ int main(int argc, char *argv[]) {
 
   i = last_time.tv_sec - first_time.tv_sec;
   if (i == 0) {
+    j = last_time.tv_usec - first_time.tv_usec;
+  } else {
+    if (last_time.tv_usec - first_time.tv_usec < 0) {
+      i--;
+      j = 1000000 + (last_time.tv_usec - first_time.tv_usec);
+    } else {
+      j = last_time.tv_usec - first_time.tv_usec;
+    }
   }
 
   j = 0;
