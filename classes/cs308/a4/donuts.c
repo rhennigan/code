@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  printf ( "just before threads created\n" );
+  printf("just before threads created\n");
 
   return 0;
 }
