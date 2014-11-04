@@ -15,7 +15,7 @@ pthread_t sig_wait_id;
 #define numconsumers MAXCONSUMERS
 #define numproducers MAXPRODUCERS
 
-int main(int argc, char *argv[]) {
+int main(/* int argc, char *argv[] */) {
   int nsigs;
   struct timeval randtime, first_time, last_time;
   struct sigaction new_act;
