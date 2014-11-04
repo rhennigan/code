@@ -101,17 +101,15 @@ int main(int argc, char *argv[]) {
   /* CREATE SIGNAL HANDLER THREAD, PRODUCER AND CONSUMERS              */
   /*********************************************************************/
 
-  if (pthread_create(&sig_wait_id, NULL, sig_waiter, NULL) != 0 ) {
-
-    printf ( "pthread_create failed " );
-    exit ( 3 );
+  if (pthread_create(&sig_wait_id, NULL, sig_waiter, NULL) != 0) {
+    printf("pthread_create failed ");
+    exit(3);
   }
 
-  pthread_attr_init ( &thread_attr );
-  pthread_attr_setinheritsched ( &thread_attr,
-                                 PTHREAD_INHERIT_SCHED );
+  pthread_attr_init(&thread_attr);
+  pthread_attr_setinheritsched(&thread_attr, PTHREAD_INHERIT_SCHED);
 
-#ifdef  GLOBAL
+#ifdef GLOBAL
   sched_struct.sched_priority = sched_get_priority_max(SCHED_OTHER);
   pthread_attr_setinheritsched ( &thread_attr,
       PTHREAD_EXPLICIT_SCHED );
@@ -119,7 +117,7 @@ int main(int argc, char *argv[]) {
   pthread_attr_setschedparam ( &thread_attr, &sched_struct );  
   pthread_attr_setscope ( &thread_attr,
       PTHREAD_SCOPE_SYSTEM );
-#endif
+#endif  // GLOBAL
 
   if ( pthread_create (&thread_id[0], &thread_attr,
                        producer, NULL ) != 0 ) {
