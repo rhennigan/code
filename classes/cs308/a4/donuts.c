@@ -117,14 +117,12 @@ int main(int argc, char *argv[]) {
   pthread_attr_setscope(&thread_attr, PTHREAD_SCOPE_SYSTEM);
 #endif  // GLOBAL
 
-  if ( pthread_create (&thread_id[0], &thread_attr,
-                       producer, NULL ) != 0 ) {
-    printf ( "pthread_create failed " );
-    exit ( 3 );
+  if (pthread_create(&thread_id[0], &thread_attr, producer, NULL) != 0) {
+    printf("pthread_create failed ");
+    exit(3);
   }
-  for ( i = 1; i < NUMCONSUMERS + 1; i++ ) {
-    if ( pthread_create ( &thread_id [i], &thread_attr,
-                          consumer, ( void * )&arg_array [i]) != 0 ){
+  for (i = 1; i < numconsumers + 1; i++) {
+    if (pthread_create(&thread_id[i], &thread_attr, consumer, (void *)&arg_array[i]) != 0) {
       printf ( "pthread_create failed" );
       exit ( 3 );
     }
