@@ -154,7 +154,7 @@ void * producer(void * arg) {
   struct timeval randtime;
 
   gettimeofday(&randtime, (struct timezone *)0);
-  xsub[0] = (ushort)randtime.tv_usec;
+  xsub[0] = (ushort)(randtime.tv_usec);
   xsub[1] = (ushort)(randtime.tv_usec >> 16);
   xsub[2] = (ushort)(pthread_self());
 
@@ -180,7 +180,7 @@ void * consumer(void * arg) {
   struct timeval randtime;
   id = *(int*)arg;
   gettimeofday(&randtime, (struct timezone *)0);
-  xsub[0] = (ushort)randtime.tv_usec;
+  xsub[0] = (ushort)(randtime.tv_usec);
   xsub[1] = (ushort)(randtime.tv_usec >> 16);
   xsub[2] = (ushort)(pthread_self());
 
@@ -189,10 +189,9 @@ void * consumer(void * arg) {
       j = nrand48(xsub) & 3;
       /* stuff */
     }
-
     usleep(1000); /* sleep 1 ms */
   }
-  return NULL:
+  return NULL;
 }
 
 /******************************************************************************/
