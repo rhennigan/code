@@ -150,7 +150,7 @@ int main(int argc, char *argv[]) {
 
   i = last_time.tv_sec - first_time.tv_sec;
   if (i == 0) {
-}
+  }
 
   j = 0;
   /*   if ((i = last_time.tv_sec - first_time.tv_sec) == 0) { */
