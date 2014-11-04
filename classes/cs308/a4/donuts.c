@@ -163,16 +163,12 @@ void * producer(void * arg) {
     while (shared_ring.spaces[j] == 0) {
       pthread_cond_wait(&prod_cond[j], &prod[j]);
     }
-    .
-        .
-        .
-        pthread_mutex_unlock ( &prod [j] );
-        .
-            .
-            .
-            etc.........
-                return NULL;
-}
+    /* stuff */
+    pthread_mutex_unlock(&prod[j]);
+    /* stuff */
+
+    return NULL;
+  }
 
 /******************************************************************************/
 /* PTHREAD CONSUMER ROUTINE...                                                */
