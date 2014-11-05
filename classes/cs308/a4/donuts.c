@@ -293,13 +293,14 @@ void output_collection(int id, int N, donut_t collection[N][12]) {
 
   time_t timer;
   char t_str[80];
+  char time_string[80];
   struct tm tm_info;
+  struct timeval ms;
+
   time(&timer);
   localtime_r(&timer, &tm_info);
   strftime(t_str, 80, "%T", &tm_info);
-  struct timeval ms;
   gettimeofday(&ms, NULL);
-  char time_string[80];
   snprintf(time_string, sizeof(time_string), "%s.%d",
            t_str, (int)ms.tv_usec / 1000);
 
