@@ -32,9 +32,9 @@ int main(int argc, char *argv[]) {
   // TODO(rhennigan): set these by looping over test parameters
   numflavors   = MAXFLAVORS;
   numslots     = atoi(argv[1]);
-  numconsumers = MAXCONSUMERS;
-  numproducers = MAXPRODUCERS;
-  numdozen     = MAXDOZENS;
+  numconsumers = atoi(argv[2]);
+  numproducers = atoi(argv[3]);
+  numdozen     = atoi(argv[4]);
 
   struct timeval first_time, last_time;
   int arg_array[MAXPRODUCERS + MAXCONSUMERS];
@@ -190,6 +190,7 @@ int main(int argc, char *argv[]) {
 
   // printf("\n\n ALL CONSUMERS FINISHED, KILLING  PROCESS\n\n");
 
+  printf("0");
   exit(0);
 }
 
