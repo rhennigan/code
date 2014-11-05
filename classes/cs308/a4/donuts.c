@@ -251,6 +251,11 @@ void * producer(void * arg) {
 /******************************************************************************/
 /* PTHREAD CONSUMER ROUTINE...                                                */
 /******************************************************************************/
+static void cleanup_handler(void * arg) {
+  int tid = *((int *)arg);
+  pthread_mutex_unlock(&check_mutx[tid]);
+}
+
 void * consumer(void * arg) {
   pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
   pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
