@@ -422,6 +422,7 @@ void sig_handler(int sig) {
 void check_in(int tid) {
   pthread_mutex_lock(&check_mutx[tid]);
   gettimeofday(&check_time[tid], (struct timezone *)0);
+  th_running[tid] = true;
   pthread_mutex_unlock(&check_mutx[tid]);
 }
 
