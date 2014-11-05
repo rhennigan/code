@@ -448,10 +448,10 @@ long int last_check_in() {
 void * time_keeper(void * arg) {
   FILE * fp = fopen("log/time.csv", "w");
   long int t;
-  while (1) {
+  while (run_time_k) {
     t = last_check_in();
-    /* printf("\n\nlast check in time: %ld\n\n", t); */
     fprintf(fp, "%ld\n", t);
     usleep(10000);
   }
+  return NULL;
 }
