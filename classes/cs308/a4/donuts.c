@@ -424,7 +424,7 @@ void sig_handler(int sig) {
       break;
     }
   }
-  printf("-1");
+  printf("0");
   exit(1);
 }
 
