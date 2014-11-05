@@ -240,9 +240,6 @@ void * consumer(void * arg) {
   donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS];
   int c_ptr[MAXFLAVORS];
 
-  /* check in, so that the timekeeper thread doesn't think we're deadlocked */
-  check_in();
-
   /* initialize the collection to zero */
   int i, j, k;
   for (i = 0; i < MAXDOZENS; i++) {
@@ -260,6 +257,9 @@ void * consumer(void * arg) {
 
   /* get thread id */
   int id = *(int *)arg;
+
+  /* check in, so that the timekeeper thread doesn't think we're deadlocked */
+  check_in(id);
 
   /* seed the random number generator */
   gettimeofday(&randtime, (struct timezone *)0);
