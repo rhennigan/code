@@ -203,7 +203,7 @@ void * producer(void * arg) {
     check_in(id);
 
     // REMOVE THIS
-    usleep(100000);
+    usleep(1000);
 
     /* make a flavor selection */
     sel = nrand48(xsub) & 3;
@@ -273,7 +273,7 @@ void * consumer(void * arg) {
   check_in(id);
 
   // REMOVE THIS
-  usleep(100000);
+  usleep(1000);
 
   /* seed the random number generator */
   gettimeofday(&randtime, (struct timezone *)0);
