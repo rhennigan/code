@@ -499,7 +499,7 @@ void * time_keeper(void * arg) {
   long int t;
   while (1) {
     t = last_check_in();
-    if (t > 20000) {
+    if (t > DEADLOCK_THRESHOLD) {
       printf("deadlock detected!\n");
       /* need_quit = true; */
       int i;

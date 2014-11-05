@@ -5,11 +5,12 @@
 #include <sys/time.h>
 #include <pthread.h>
 
-#define MAXFLAVORS   4
-#define MAXSLOTS     50
-#define MAXCONSUMERS 50
-#define MAXPRODUCERS 30
-#define MAXDOZENS    5
+#define MAXFLAVORS         4
+#define MAXSLOTS           50
+#define MAXCONSUMERS       50
+#define MAXPRODUCERS       30
+#define MAXDOZENS          5
+#define DEADLOCK_THRESHOLD 50000
 
 struct donut_ring {
   int flavor[MAXFLAVORS][MAXSLOTS];
