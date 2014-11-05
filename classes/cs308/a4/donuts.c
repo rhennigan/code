@@ -319,6 +319,9 @@ void * consumer(void * arg) {
       pthread_cond_signal(&prod_cond[sel]);
 
       /* check in, so the timekeeper thread doesn't think we're deadlocked */
+      pthread_mutex_lock(&check_quit);
+      if (need_quit) return NULL;
+      pthread_mutex_unlock(&check_quit);
       check_in(id);
     }
 
