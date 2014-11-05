@@ -255,6 +255,11 @@ void * consumer(void * arg) {
     }
   }
 
+  /* initialize collection pointers to zero */
+  for (j = 0; j < MAXFLAVORS; j++) {
+    c_ptr[j] = 0;
+  }
+
   /* get thread id */
   int id = *(int *)arg;
 
