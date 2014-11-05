@@ -463,13 +463,12 @@ void * time_keeper(void * arg) {
     t = last_check_in();
     if (t > DEADLOCK_THRESHOLD) {
       printf("deadlock detected!\n");
-      exit(1);
-      *((bool *)deadlock) = true;
-      int i;
-      for (i = numproducers; i < numproducers + numconsumers; i++) {
-        pthread_cancel(thread_id[i]);
-      }
-      break;
+      exit(0);
+      /* int i; */
+      /* for (i = numproducers; i < numproducers + numconsumers; i++) { */
+      /*   pthread_cancel(thread_id[i]); */
+      /* } */
+      /* break; */
     }
     if (t == -1) {
       break;
@@ -480,5 +479,5 @@ void * time_keeper(void * arg) {
   }
   fclose(fp);
   printf("time_keeper returning\n");
-  pthread_exit(deadlock);
+  pthread_exit(NULL);
 }
