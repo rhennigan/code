@@ -202,9 +202,6 @@ void * producer(void * arg) {
     /* check in, so that the timekeeper thread doesn't think we're deadlocked */
     check_in(id);
 
-    // REMOVE THIS
-    usleep(1000);
-
     /* make a flavor selection */
     sel = nrand48(xsub) & 3;
 
