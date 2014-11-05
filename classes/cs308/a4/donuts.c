@@ -115,6 +115,7 @@ int main(/* int argc, char *argv[] */) {
 
   /* create all the producer threads */
   for (i = 0; i < numproducers; i++) {
+    printf("creating producer %d\n", i);
     if (pthread_create(&thread_id[i], &th_attr, producer, NULL) != 0) {
       printf("pthread_create failed ");
       exit(3);
@@ -123,6 +124,7 @@ int main(/* int argc, char *argv[] */) {
 
   /* create all the consumer threads */
   for (i = numproducers; i < numconsumers + numproducers; i++) {
+    printf("creating consumer %d\n", i);
     if (pthread_create(&thread_id[i], &th_attr, consumer,
       (void *)&arg_array[i]) != 0) {
       printf("pthread_create failed");
