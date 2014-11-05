@@ -23,12 +23,8 @@ int main(/* int argc, char *argv[] */) {
   int numdozen     = MAXDOZENS;
 
   struct timeval first_time, last_time;
-  struct sigaction new_act;
-  cons_arg_t arg_array[MAXCONSUMERS];
-  sigset_t all_signals;
 
-  int sigs[] = { SIGBUS, SIGSEGV, SIGFPE };
-  int nsigs = sizeof(sigs) / sizeof(int);
+  cons_arg_t arg_array[MAXCONSUMERS];
 
   pthread_attr_t thread_attr;
   struct sched_param shed_struct;
@@ -65,6 +61,10 @@ int main(/* int argc, char *argv[] */) {
   /****************************************************************************/
   /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS                 */
   /****************************************************************************/
+  sigset_t all_signals;
+  int sigs[] = { SIGBUS, SIGSEGV, SIGFPE };
+  int nsigs = sizeof(sigs) / sizeof(int);
+  struct sigaction new_act;
 
   /* create signal set with all signals but SIGBUS, SIGSEGV, and SIGFPE */
   sigfillset(&all_signals);
