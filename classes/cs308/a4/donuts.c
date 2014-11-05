@@ -43,18 +43,18 @@ int main(/* int argc, char *argv[] */) {
   for (numslots = 50; numslots <= 200; numslots += 50) {
     bool deadlocked = false;
 
-    /****************************************************************************/
-    /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                          */
-    /****************************************************************************/
+    /**************************************************************************/
+    /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                        */
+    /**************************************************************************/
     gettimeofday(&first_time, (struct timezone *)0);
     for (i = 0; i < numproducers + numconsumers; i++) {
       arg_array[i] = i;  // SET ARRAY OF ARGUMENT VALUES
       t_finished[i] = false;
     }
 
-    /****************************************************************************/
-    /* GENERAL PTHREAD MUTEX AND CONDITION INIT AND GLOBAL INIT                 */
-    /****************************************************************************/
+    /**************************************************************************/
+    /* GENERAL PTHREAD MUTEX AND CONDITION INIT AND GLOBAL INIT               */
+    /**************************************************************************/
 
     for (i = 0; i < numflavors; i++) {
       pthread_mutex_init(&prod[i], NULL);
@@ -72,9 +72,9 @@ int main(/* int argc, char *argv[] */) {
       pthread_mutex_init(&check_mutx[i], NULL);
     }
 
-    /****************************************************************************/
-    /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS                 */
-    /****************************************************************************/
+    /**************************************************************************/
+    /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS               */
+    /**************************************************************************/
     sigset_t all_signals;
     int sigs[] = { SIGBUS, SIGSEGV, SIGFPE };
     int nsigs = sizeof(sigs) / sizeof(int);
@@ -107,9 +107,9 @@ int main(/* int argc, char *argv[] */) {
 
     printf("just before threads created\n");
 
-    /****************************************************************************/
-    /* CREATE SIGNAL HANDLER THREAD, PRODUCER AND CONSUMERS                     */
-    /****************************************************************************/
+    /**************************************************************************/
+    /* CREATE SIGNAL HANDLER THREAD, PRODUCER AND CONSUMERS                   */
+    /**************************************************************************/
     if (pthread_create(&sig_wait_id, NULL, sig_waiter, NULL) != 0) {
       printf("pthread_create failed ");
       exit(3);
@@ -154,18 +154,18 @@ int main(/* int argc, char *argv[] */) {
 
     printf("just after threads created\n");
 
-    /****************************************************************************/
-    /* WAIT FOR ALL CONSUMERS TO FINISH, SIGNAL WAITER WILL                     */
-    /* NOT FINISH UNLESS A SIGTERM ARRIVES AND WILL THEN EXIT                   */
-    /* THE ENTIRE PROCESS....OTHERWISE MAIN THREAD WILL EXIT                    */
-    /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                              */
-    /****************************************************************************/
+    /**************************************************************************/
+    /* WAIT FOR ALL CONSUMERS TO FINISH, SIGNAL WAITER WILL                   */
+    /* NOT FINISH UNLESS A SIGTERM ARRIVES AND WILL THEN EXIT                 */
+    /* THE ENTIRE PROCESS....OTHERWISE MAIN THREAD WILL EXIT                  */
+    /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                            */
+    /**************************************************************************/
 
     pthread_join(time_keeper_id, NULL);
 
-    /****************************************************************************/
-    /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                      */
-    /****************************************************************************/
+    /**************************************************************************/
+    /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                    */
+    /**************************************************************************/
     gettimeofday(&last_time, (struct timezone *)0);
     long int sec, usec;
     if ((sec = last_time.tv_sec - first_time.tv_sec) == 0) {
@@ -239,19 +239,6 @@ void * producer(void * arg) {
   }
   return NULL;
 }
-
-/* void cons_wait(int timeInMs, int sel) { */
-/*   struct timespec timeToWait; */
-/*   struct timeval now; */
-/*   int rt; */
-/*   gettimeofday(&now, NULL); */
-/*   timeToWait.tv_sec = now.tv_sec + 5; */
-/*   timeToWait.tv_nsec = (now.tv_usec + 1000UL * timeInMs) * 1000UL; */
-/*   pthread_mutex_lock(&cons[sel]); */
-/*   rt = pthread_cond_timedwait(&cons_cond[sel], &cons[sel], &timeToWait); */
-/*   pthread_mutex_unlock(&cons[sel]); */
-/*   printf("\nDone\n"); */
-/* } */
 
 /******************************************************************************/
 /* PTHREAD CONSUMER ROUTINE...                                                */
