@@ -298,6 +298,10 @@ void * consumer(void * arg) {
         pthread_cond_wait(&cons_cond[sel], &cons[sel]);
         /* producer must signal cons_cond[sel] when available */
       }
+      if (need_quit) {
+        printf("need_quit = true, consumer %d returning\n", id);
+        return NULL;
+      }
 
       /* remove a donut and add it to our c */
       int d_id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
@@ -321,10 +325,7 @@ void * consumer(void * arg) {
 
       /* check in, so the timekeeper thread doesn't think we're deadlocked */
       /* pthread_mutex_lock(&check_quit); */
-      if (need_quit) {
-        printf("need_quit = true, consumer %d returning\n", id);
-        return NULL;
-      }
+
       /* pthread_mutex_unlock(&check_quit); */
       check_in(id);
     }
@@ -473,6 +474,10 @@ void * time_keeper(void * arg) {
     if (t > 200000) {
       printf("deadlock detected!\n");
       need_quit = true;
+      int i;
+      for (i = 0; i < numflavors; i++) {
+        pthread_cond_signal(&cons_cond[i]);
+      }
       break;
     }
     if (t == -1) {
