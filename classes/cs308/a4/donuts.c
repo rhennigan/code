@@ -40,7 +40,7 @@ int main(/* int argc, char *argv[] */) {
   int arg_array[MAXPRODUCERS + MAXCONSUMERS];
 
   pthread_attr_t th_attr;
-  struct sched_param shed_struct;
+  struct sched_param sched_struct;
 
   int i, j;
 
