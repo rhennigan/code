@@ -180,8 +180,7 @@ void * producer(void * arg) {
 
     /* increment the number of available donuts */
     shared_ring.donuts[sel] += 1;
-    
-    /* stuff */
+
     pthread_mutex_unlock(&prod[sel]);
     /* stuff */
   }
