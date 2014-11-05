@@ -225,13 +225,13 @@ void * producer(void * arg) {
 /******************************************************************************/
 /* PTHREAD CONSUMER ROUTINE...                                                */
 /******************************************************************************/
-struct donut { int flavor, number; };
+struct donut { int flavor; int number; };
 
 void * consumer(void * arg) {
   int dz, dn, sel;
   unsigned short xsub[3];
   struct timeval randtime;
-  int collection[MAXDOZENS][12];
+  struct donut collection[MAXDOZENS][12];
 
   /* get thread id */
   int id = *(int *)arg;
