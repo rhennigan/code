@@ -317,6 +317,8 @@ void * consumer(void * arg) {
     for (j = 0; j < 12 * MAXDOZENS; j++) {
       if (c[0][i][j].id) {
         printf(" %3d", c[0][i][j].id);
+      } else {
+        printf("    ");
       }
     }
     printf("\n");
@@ -325,58 +327,58 @@ void * consumer(void * arg) {
   fflush(NULL);
 
   /* record the results */
-  output_c(id, c);
+  // output_c(id, c);
   return NULL;
 }
 
 /******************************************************************************/
 /* CONSUMER EXPORT RESULTS ROUTINE...                                         */
 /******************************************************************************/
-void output_c(int id, donut_t c[MAXFLAVORS][12 * MAXDOZENS]) {
-  system("mkdir -p log/");
+/* void output_c(int id, donut_t c[MAXFLAVORS][12 * MAXDOZENS]) { */
+/*   system("mkdir -p log/"); */
 
-  time_t timer;
-  char t_str[80];
-  char time_string[80];
-  struct tm tm_info;
-  struct timeval ms;
+/*   time_t timer; */
+/*   char t_str[80]; */
+/*   char time_string[80]; */
+/*   struct tm tm_info; */
+/*   struct timeval ms; */
 
-  time(&timer);
-  localtime_r(&timer, &tm_info);
-  strftime(t_str, 80, "%T", &tm_info);
-  gettimeofday(&ms, NULL);
-  snprintf(time_string, sizeof(time_string), "%s.%d",
-           t_str, (int)ms.tv_usec / 1000);
+/*   time(&timer); */
+/*   localtime_r(&timer, &tm_info); */
+/*   strftime(t_str, 80, "%T", &tm_info); */
+/*   gettimeofday(&ms, NULL); */
+/*   snprintf(time_string, sizeof(time_string), "%s.%d", */
+/*            t_str, (int)ms.tv_usec / 1000); */
 
-  int dozen;
-  for (dozen = 0; dozen < numdozen; dozen++) {
-#ifdef _DEBUG_
-    printf("\n----------------------------------------------------------\n");
-    printf(C_DEF "thread ID: " C_BLD "%d\t", id);
-    printf(C_DEF "time: " C_BLD "%s\t", time_string);
-    printf(C_DEF "dozen #: " C_BLD "%d\n", dozen + 1);
-    printf("" C_DEF "\n");
+/*   int dozen; */
+/*   for (dozen = 0; dozen < numdozen; dozen++) { */
+/* #ifdef _DEBUG_ */
+/*     printf("\n----------------------------------------------------------\n"); */
+/*     printf(C_DEF "thread ID: " C_BLD "%d\t", id); */
+/*     printf(C_DEF "time: " C_BLD "%s\t", time_string); */
+/*     printf(C_DEF "dozen #: " C_BLD "%d\n", dozen + 1); */
+/*     printf("" C_DEF "\n"); */
 
-    printf("plain\t\tjelly\t\tcoconut\t\thoney-dip");
-    printf("\n" C_BLD "");
+/*     printf("plain\t\tjelly\t\tcoconut\t\thoney-dip"); */
+/*     printf("\n" C_BLD ""); */
 
-    int flav, row = 0, done = 0;
-    while (!done) {
-      done = 1;
-      for (flav = 0; flav < numflavors; flav++) {
-        if (c[flav][row].id) {
-          printf("  %d\t\t", c[flav][row].id);
-          done = 0;
-        } else {
-          printf("\t\t");
-        }
-      }
-      row += 1;
-      printf("\n" C_DEF "");
-    }
-#endif
-  }
-}
+/*     int flav, row = 0, done = 0; */
+/*     while (!done) { */
+/*       done = 1; */
+/*       for (flav = 0; flav < numflavors; flav++) { */
+/*         if (c[flav][row].id) { */
+/*           printf("  %d\t\t", c[flav][row].id); */
+/*           done = 0; */
+/*         } else { */
+/*           printf("\t\t"); */
+/*         } */
+/*       } */
+/*       row += 1; */
+/*       printf("\n" C_DEF ""); */
+/*     } */
+/* #endif */
+/*   } */
+/* } */
 
 /******************************************************************************/
 /* PTHREAD ASYNCH SIGNAL HANDLER ROUTINE...                                   */
