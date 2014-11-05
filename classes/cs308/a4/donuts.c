@@ -211,6 +211,7 @@ void * consumer(void * arg) {
   int dz, dn, sel;
   unsigned short xsub[3];
   struct timeval randtime;
+  int collection[MAXDOZENS][12];
 
   /* retrieve individual arguments */
   cons_arg_t * cons_arg = arg;
@@ -239,7 +240,7 @@ void * consumer(void * arg) {
 
       /* remove a donut */
       int ptr = shared_ring.outptr[sel];
-      int donut_num = shared_ring.flavor[sel][ptr];
+      collection[dz][dn] = shared_ring.flavor[sel][ptr];
       shared_ring.flavor[sel][ptr] = 0;
 
       /* move outptr forward and cycle if necessary */
