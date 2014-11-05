@@ -487,12 +487,10 @@ void * time_keeper(void * arg) {
           pthread_mutex_lock(&check_mutx[i]);
           if (!t_finished[i]) {
             finished = false;
-            printf("consumer %d still running\n", i);
             pthread_cancel(thread_id[i]);
           }
           pthread_mutex_unlock(&check_mutx[i]);
         }
-        printf("signalling consumers...\n");
         for (i = 0; i < numflavors; i++) {
           pthread_cond_signal(&cons_cond[i]);
         }
