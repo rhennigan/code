@@ -479,23 +479,6 @@ void * time_keeper(void * arg) {
     if (t > 200000) {
       printf("deadlock detected!\n");
       need_quit = true;
-      bool finished = false;
-      int i;
-      while (!finished) {
-        finished = true;
-        for (i = numproducers; i < numproducers + numconsumers; i++) {
-          pthread_mutex_lock(&check_mutx[i]);
-          if (!t_finished[i]) {
-            finished = false;
-            pthread_cancel(thread_id[i]);
-          }
-          pthread_mutex_unlock(&check_mutx[i]);
-        }
-        for (i = 0; i < numflavors; i++) {
-          pthread_cond_signal(&cons_cond[i]);
-        }
-        usleep(1000);
-      }
       break;
     }
     if (t == -1) {
