@@ -264,16 +264,16 @@ void * consumer(void * arg) {
   }
 
   /* record the results */
-  output_collection(numdozen, collection);
+  output_collection(id, numdozen, collection);
   return NULL;
 }
 
 /******************************************************************************/
 /* CONSUMER EXPORT RESULTS ROUTINE...                                         */
 /******************************************************************************/
-void output_collection(int N, int collection[N][12]) {
+void output_collection(int id, int N, int collection[N][12]) {
   int i, j;
-  printf("results:\n");
+  printf("consumer %d results:\n", id);
   for (i = 0; i < N; i++) {
     for (j = 0; j < 12; j++) {
       printf(" %3d", collection[i][j]);

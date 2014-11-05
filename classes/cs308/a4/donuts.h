@@ -29,6 +29,6 @@ void * sig_waiter(void * arg);
 void * producer(void * arg);
 void * consumer(void * arg);
 void   sig_handler(int sig_num);
-void   output_collection(int N, int collection[N][12]);
+void   output_collection(int id, int N, int collection[N][12]);
 
 #endif  // DONUTS_H_
