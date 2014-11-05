@@ -114,11 +114,13 @@ int main(/* int argc, char *argv[] */) {
 #endif  // GLOBAL
 
   /* create all the producer threads */
-  if (pthread_create(&thread_id[0], &th_attr, producer, NULL) != 0) {
-    printf("pthread_create failed ");
-    exit(3);
+  for (i = 0; i < numproducers; i++) {
+    if (pthread_create(&thread_id[i], &th_attr, producer, NULL) != 0) {
+      printf("pthread_create failed ");
+      exit(3);
+    }
   }
-  for (i = 1; i < numconsumers + 1; i++) {
+  for (i = numproducers; i < numconsumers + numproducers; i++) {
     if (pthread_create(&thread_id[i], &th_attr, consumer,
       (void *)&arg_array[i]) != 0) {
       printf("pthread_create failed");
