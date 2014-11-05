@@ -209,6 +209,7 @@ void * producer(void * arg) {
   while (1) {
     /* check in, so that the timekeeper thread doesn't think we're deadlocked */
     // check_in(id);
+    if (need_quit) return NULL;
 
     /* make a flavor selection */
     sel = nrand48(xsub) & 3;
