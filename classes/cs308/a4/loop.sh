@@ -8,5 +8,5 @@ do
 		res=$(`echo ./donuts $i 50 30 200`)
 		count=`expr $count + $res`
 	done
-	echo $i", "$count
+	echo $i", "$count >> "deadlocks.csv"
 done
