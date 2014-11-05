@@ -24,10 +24,16 @@ typedef struct donut_ring donut_ring_t;
 /**********************************************************************/
 /* SIGNAL WAITER, PRODUCER AND CONSUMER THREAD FUNCTIONS              */
 /**********************************************************************/
-
 void * sig_waiter(void * arg);
 void * producer(void * arg);
 void * consumer(void * arg);
 void   sig_handler(int sig_num);
+
+/**********************************************************************/
+/* PTHREAD ROUTINE ARGUMENT STRUCTS                                   */
+/**********************************************************************/
+typedef struct prod_arg {
+  int numslots;
+} prod_arg_t;
 
 #endif  // DONUTS_H_
