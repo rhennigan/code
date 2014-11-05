@@ -459,7 +459,7 @@ void * time_keeper(void * arg) {
     t = last_check_in();
     if (t > 200000) {
       printf("deadlock detected!\n\n");
-      exit(1);
+      return NULL;
     }
     if (t == -1) {
       break;
