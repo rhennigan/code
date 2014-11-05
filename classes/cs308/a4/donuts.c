@@ -236,12 +236,16 @@ void * consumer(void * arg) {
         /* producer must signal cons_cond[sel] when available */
       }
 
+      /* remove a donut */
       int ptr = shared_ring.outptr[sel];
       int donut_num = shared_ring.flavor[sel][ptr];
       shared_ring.flavor[sel][ptr] = 0;
 
       /* move outptr forward and cycle if necessary */
       shared_ring.outptr[sel] = (shared_ring.outptr[sel] + 1) % numslots;
+
+      /* increment the number of available spaces */
+      shared_ring.spaces[sel] += 1;
     }
     usleep(1000); /* sleep 1 ms */
   }
