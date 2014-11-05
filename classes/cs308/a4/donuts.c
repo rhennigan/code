@@ -169,9 +169,10 @@ void * producer(void * arg) {
     /* increment the donut counter for the selected flavor */
     shared_ring.serial[sel] += 1;
 
-    
-    int in_ptr = shared_ring.in_ptr[sel];
+    /* insert a new donut */
     shared_ring.flavor[sel][shared_ring.in_ptr[sel]] = shared_ring.serial[sel];
+
+    /* move in_ptr forward and cycle if necessary */
     shared_ring.in_ptr[sel] = (shared_ring.in_ptr[sel] + 1) % numslots;
     /* stuff */
     pthread_mutex_unlock(&prod[sel]);
