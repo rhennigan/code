@@ -16,7 +16,7 @@ pthread_cond_t  prod_cond[MAXFLAVORS];
 pthread_cond_t  cons_cond[MAXFLAVORS];
 pthread_t       thread_id[MAXCONSUMERS + MAXPRODUCERS];
 pthread_t       sig_wait_id;
-pthread_t       time_keeper;
+pthread_t       time_keeper_id;
 int             numflavors;
 int             numslots;
 int             numconsumers;
@@ -134,6 +134,12 @@ int main(/* int argc, char *argv[] */) {
       printf("pthread_create failed");
       exit(3);
     }
+  }
+
+  /* create the timekeeper thread */
+  if (pthread_create(&time_keeper_id, NULL, time_keeper, NULL) != 0) {
+    printf("pthread_create failed ");
+    exit(3);
   }
 
   printf("just after threads created\n");
