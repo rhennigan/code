@@ -19,6 +19,10 @@ int             numconsumers;
 int             numproducers;
 int             numdozen;
 
+int timeval_subtract(struct timeval * result,
+                     struct timeval * last,
+                     struct timeval * first);
+
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
   numflavors   = MAXFLAVORS;
@@ -147,16 +151,16 @@ int main(/* int argc, char *argv[] */) {
   /****************************************************************************/
   gettimeofday(&last_time, (struct timezone *)0);
   long int sec, usec;
-  if ((sec = last_time.tv_sec - first_time.tv_sec) == 0) {
-    usec = last_time.tv_usec - first_time.tv_usec;
-  } else {
-    if (last_time.tv_usec - first_time.tv_usec < 0) {
-      sec--;
-      usec = 1000000 + (last_time.tv_usec - first_time.tv_usec);
-    } else {
-      usec = last_time.tv_usec - first_time.tv_usec;
-    }
-  }
+  /* if ((sec = last_time.tv_sec - first_time.tv_sec) == 0) { */
+  /*   usec = last_time.tv_usec - first_time.tv_usec; */
+  /* } else { */
+  /*   if (last_time.tv_usec - first_time.tv_usec < 0) { */
+  /*     sec--; */
+  /*     usec = 1000000 + (last_time.tv_usec - first_time.tv_usec); */
+  /*   } else { */
+  /*     usec = last_time.tv_usec - first_time.tv_usec; */
+  /*   } */
+  /* } */
 
   printf("Elapsed consumer time is %ld sec and %ld usec\n", sec, usec);
 
