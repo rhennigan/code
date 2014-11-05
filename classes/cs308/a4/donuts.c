@@ -243,6 +243,7 @@ void * consumer(void * arg) {
   unsigned short xsub[3];
   struct timeval randtime;
   donut_t collection[MAXFLAVORS][12 * MAXDOZENS];
+  int collection_ptr[MAXFLAVORS];
 
   /* get thread id */
   int id = *(int *)arg;
