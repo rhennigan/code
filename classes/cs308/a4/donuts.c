@@ -475,6 +475,7 @@ void * time_keeper(void * arg) {
     if (t > 200000) {
       printf("deadlock detected!\n");
       need_quit = true;
+      bool finished = false;
       int i;
       for (i = 0; i < numflavors; i++) {
         pthread_cond_signal(&cons_cond[i]);
