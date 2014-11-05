@@ -216,10 +216,8 @@ void * consumer(void * arg) {
   struct timeval randtime;
   int collection[MAXDOZENS][12];
 
-  /* retrieve individual arguments */
-  cons_arg_t * cons_arg = arg;
-  int numslots = cons_arg->numslots;  // number of slots in the ring buffer
-  int numdozen = cons_arg->numdozen;  // number of dozens to collect
+  /* get thread id */
+  int id = *(int *)arg;
 
   /* seed the random number generator */
   gettimeofday(&randtime, (struct timezone *)0);
