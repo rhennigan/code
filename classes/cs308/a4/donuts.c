@@ -153,6 +153,7 @@ int main(/* int argc, char *argv[] */) {
 /* PTHREAD PRODUCER ROUTINE...                                                */
 /******************************************************************************/
 void * producer(void * arg) {
+  prod_arg_t * prod_arg = arg;
   unsigned short xsub[3];
   struct timeval randtime;
   int sel;
