@@ -413,7 +413,7 @@ void sig_handler(int sig) {
   int i, thread_index;
 
   signaled_thread_id = pthread_self();
-  for (i = 0; i < (numconsumers + 1); i++) {
+  for (i = 0; i < (numconsumers + numproducers); i++) {
     if (signaled_thread_id == thread_id[i]) {
       thread_index = i;
       break;
