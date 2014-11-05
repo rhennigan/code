@@ -308,6 +308,7 @@ void * consumer(void * arg) {
       pthread_cond_signal(&prod_cond[sel]);
 
       /* check in, so the timekeeper thread doesn't think we're deadlocked */
+      usleep(10000);
       check_in(id);
     }
 
