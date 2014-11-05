@@ -259,8 +259,8 @@ void cons_wait(int timeInMs, int sel) {
   timeToWait.tv_sec = now.tv_sec + 5;
   timeToWait.tv_nsec = (now.tv_usec + 1000UL * timeInMs) * 1000UL;
   pthread_mutex_lock(&cons[sel]);
-  rt = pthread_cond_timedwait(&fakeCond, &fakeMutex, &timeToWait);
-  pthread_mutex_unlock(&fakeMutex);
+  rt = pthread_cond_timedwait(&cons_cond[sel], &cons[sel], &timeToWait);
+  pthread_mutex_unlock(&cons[sel]);
   printf("\nDone\n");
 }
 
@@ -310,7 +310,8 @@ void * consumer(void * arg) {
 
       /* if there are no donuts available, thread will wait until signaled */
       while (shared_ring.donuts[sel] == 0) {
-        pthread_cond_wait(&cons_cond[sel], &cons[sel]);
+        /* pthread_cond_wait(&cons_cond[sel], &cons[sel]); */
+        cons_wait(100, sel);
         /* producer must signal cons_cond[sel] when available */
         if (need_quit) {
           printf("need_quit = true, consumer %d returning\n", id);
