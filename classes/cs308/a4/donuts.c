@@ -169,6 +169,7 @@ void * producer(void * arg) {
     shared_ring.serial[sel_fl] += 1;
     int in_ptr = shared_ring.in_ptr[sel_fl];
     shared_ring.flavor[sel_fl][in_ptr] = shared_ring.serial[sel_fl];
+    shared_ring.in_ptr[sel_fl] = (in_ptr + 1) % numslots;
     /* stuff */
     pthread_mutex_unlock(&prod[sel_fl]);
     /* stuff */
