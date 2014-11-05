@@ -289,6 +289,10 @@ void * consumer(void * arg) {
 /******************************************************************************/
 void output_collection(int id, int N, donut_t collection[N][12]) {
   system("mkdir -p log/");
+
+  char t_str[80];
+  struct tm * tm_info;
+
   int i, j, k = 0;
   printf("consumer %d results:\n", id);
   for (i = 0; i < N; i++) {
