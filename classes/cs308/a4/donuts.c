@@ -24,8 +24,11 @@ int             numdozen;
 pthread_mutex_t check_mtx = PTHREAD_MUTEX_INITIALIZER;
 volatile struct timeval check_time;
 
-int time_sub(struct timeval *res, struct timeval *t2, struct timeval *t1) {
-    long int diff = (t2->tv_usec + 1000000 * t2->tv_sec) - (t1->tv_usec + 1000000 * t1->tv_sec);
+long int elapsed(struct timeval *res, struct timeval *t2, struct timeval *t1) {
+  long int usec1 = (t1->tv_usec + 1000000 * t1->tv_sec);
+  long int usec2 = (t2->tv_usec + 1000000 * t2->tv_sec);
+
+    long int diff = usec2 - usec1;
     result->tv_sec = diff / 1000000;
     result->tv_usec = diff % 1000000;
 
