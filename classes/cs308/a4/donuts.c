@@ -211,6 +211,12 @@ void * consumer(void * arg) {
   unsigned short xsub[3];
   struct timeval randtime;
   id = *(int*)arg;
+
+  /* retrieve individual arguments */
+  cons_arg_t * cons_arg = arg;
+  int numslots = cons_arg->numslots;
+
+  /* seed the random number generator */
   gettimeofday(&randtime, (struct timezone *)0);
   xsub[0] = (ushort)(randtime.tv_usec);
   xsub[1] = (ushort)(randtime.tv_usec >> 16);
