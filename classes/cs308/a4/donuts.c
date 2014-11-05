@@ -247,8 +247,8 @@ void * consumer(void * arg) {
 
   /* initialize the collection to zero */
   int i, j;
-  for (i = 0; i < MAXFLAVORS; i++) {
-    for (j = 0; j < 12 * MAXDOZENS; j++) {
+  for (i = 0; i < numflavors; i++) {
+    for (j = 0; j < 12 * numdozen; j++) {
       collection[i][j] = (donut_t){ -1, 0 };
     }
   }
