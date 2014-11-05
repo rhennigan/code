@@ -458,5 +458,6 @@ void * time_keeper(void * arg) {
     fprintf(fp, "%ld\n", t);
     usleep(10000);
   }
+  fclose(fp);
   return NULL;
 }
