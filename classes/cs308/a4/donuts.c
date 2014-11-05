@@ -287,13 +287,13 @@ void * consumer(void * arg) {
 /******************************************************************************/
 /* CONSUMER EXPORT RESULTS ROUTINE...                                         */
 /******************************************************************************/
-void output_collection(int id, int N, int collection[N][12]) {
+void output_collection(int id, int N, donut_t collection[N][12]) {
   system("mkdir -p log/");
-  int i, j;
+  int i, j, k = 0;
   printf("consumer %d results:\n", id);
   for (i = 0; i < N; i++) {
     for (j = 0; j < 12; j++) {
-      printf(" %3d", collection[i][j]);
+      printf(" %3d", collection[i][j].id);
     }
     printf("\n");
   }
