@@ -473,7 +473,7 @@ void * time_keeper(void * arg) {
     if (t > 200000) {
       printf("deadlock detected!\n");
       need_quit = true;
-      return NULL;
+      break;
     }
     if (t == -1) {
       break;
@@ -482,5 +482,6 @@ void * time_keeper(void * arg) {
     }
   }
   fclose(fp);
+  printf("time_keeper returning\n");
   return NULL;
 }
