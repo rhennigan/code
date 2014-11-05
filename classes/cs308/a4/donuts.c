@@ -207,7 +207,7 @@ void * producer(void * arg) {
 /* PTHREAD CONSUMER ROUTINE...                                                */
 /******************************************************************************/
 void * consumer(void * arg) {
-  int i, j, k, m, id;
+  int dz, dn, sel;
   unsigned short xsub[3];
   struct timeval randtime;
 
@@ -221,9 +221,9 @@ void * consumer(void * arg) {
   xsub[1] = (ushort)(randtime.tv_usec >> 16);
   xsub[2] = (ushort)(pthread_self());
 
-  for (i = 0; i < numdozen; i++) {  // for each dozen
-    for (m = 0; m < 12; m++) {  // for each donut
-      j = nrand48(xsub) & 3;
+  for (dz = 0; dz < numdozen; dz++) {  // for each dozen
+    for (dn = 0; dn < 12; dn++) {  // for each donut
+      sel = nrand48(xsub) & 3;
       /* stuff */
     }
     usleep(1000); /* sleep 1 ms */
