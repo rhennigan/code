@@ -363,7 +363,7 @@ void * consumer(void * arg) {
     for (j = 0; j < MAXFLAVORS; j++) {
       c_ptr[j] = 0;
     }
-    /* sleep 100 us to give other consumer threads a chance to run */
+    /* sleep 1000 us to give other consumer threads a chance to run */
     usleep(1000);
   }
 
