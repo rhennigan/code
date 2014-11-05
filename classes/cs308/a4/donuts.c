@@ -303,7 +303,7 @@ void * consumer(void * arg) {
         pthread_cond_wait(&cons_cond[sel], &cons[sel]);
       }
 
-      /* remove a donut and add it to our c */
+      /* remove a donut and add it to our collection */
       int d_id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
       c[dz][sel][c_ptr[sel]++] = (donut_t){ sel, d_id };
       shared_ring.flavor[sel][shared_ring.outptr[sel]] = 0;
