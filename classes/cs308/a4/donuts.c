@@ -320,7 +320,10 @@ void * consumer(void * arg) {
 
       /* check in, so the timekeeper thread doesn't think we're deadlocked */
       pthread_mutex_lock(&check_quit);
-      if (need_quit) return NULL;
+      if (need_quit) {
+        printf("need_quit = true, consumer %d returning\n", id);
+        return NULL;
+      }
       pthread_mutex_unlock(&check_quit);
       check_in(id);
     }
