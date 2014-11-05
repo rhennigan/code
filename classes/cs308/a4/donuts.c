@@ -434,6 +434,6 @@ void * time_keeper(void * arg) {
   while (1) {
     t = last_check_in();
     printf("\n\nlast check in time: %ld\n\n", t);
-    usleep(100000);
+    usleep(1000);
   }
 }
