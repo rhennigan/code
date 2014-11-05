@@ -484,6 +484,7 @@ void * time_keeper(void * arg) {
           if (!t_finished[i]) finished = false;
           pthread_mutex_unlock(&check_mutx[i]);
         }
+        printf("signalling consumers...\n");
         for (i = 0; i < numflavors; i++) {
           pthread_cond_signal(&cons_cond[i]);
         }
