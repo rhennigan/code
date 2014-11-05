@@ -308,6 +308,8 @@ void * consumer(void * arg) {
     }
     printf("\n");
   }
+  printf("\n");
+  fflush(NULL);
 
   /* record the results */
   output_collection(id, collection);
