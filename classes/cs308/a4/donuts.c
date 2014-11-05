@@ -243,7 +243,15 @@ void * consumer(void * arg) {
   unsigned short xsub[3];
   struct timeval randtime;
   donut_t collection[MAXFLAVORS][12 * MAXDOZENS];
-  int collection_ptr[MAXFLAVORS];
+  int c_ptr[MAXFLAVORS];
+
+  /* initialize the collection to zero */
+  int i, j;
+  for (i = 0; i < MAXFLAVORS; i++) {
+    for (j = 0; j < 12 * MAXDOZENS; j++) {
+      collection[i][j] = (donut_t){ -1, 0 };
+    }
+  }
 
   /* get thread id */
   int id = *(int *)arg;
@@ -269,6 +277,7 @@ void * consumer(void * arg) {
       }
 
       /* remove a donut and add it to our collection */
+      collection[sel][c_ptr[sel]++]
       collection[dz][dn].id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
       collection[dz][dn].fl = sel;
       shared_ring.flavor[sel][shared_ring.outptr[sel]] = 0;
