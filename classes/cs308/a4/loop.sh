@@ -8,5 +8,5 @@ do
 		res=$(`echo ./donuts $i 50 30 10`)
 		count=`expr $count + $res`
 	done
-	echo $count
+	echo $i", "$count
 done
