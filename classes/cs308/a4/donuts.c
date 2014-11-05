@@ -444,13 +444,13 @@ long int last_check_in() {
   long int max = -1;
   struct timeval current;
   for (i = numproducers; i < (numproducers + numconsumers - 1); i++) {
-    pthread_mutex_lock(&check_mutx[i]);
+    // pthread_mutex_lock(&check_mutx[i]);
     if (!t_finished[i]) {
       gettimeofday(&current, (struct timezone *)0);
       long int t = elapsed_us(&current, &check_time[i]);
       max = t > max ? t : max;
     }
-    pthread_mutex_unlock(&check_mutx[i]);
+    // pthread_mutex_unlock(&check_mutx[i]);
   }
   return max;
 }
