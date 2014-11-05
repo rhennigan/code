@@ -411,8 +411,8 @@ void check_in(int tid) {
 long int last_check_in() {
   int i;
   long int max = 0;
+  struct timeval current;
   for (i = 0; i < numproducers + numconsumers; i++) {
-    
+    gettimeofday(&current, (struct timezone *)0);
   }
-
 }
