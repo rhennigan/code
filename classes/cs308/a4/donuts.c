@@ -112,6 +112,7 @@ int main(/* int argc, char *argv[] */) {
 #endif  // GLOBAL
 
   /* create all the producer threads */
+  prod_arg_t prod_args = { numslots };
   for (i = 0; i < numproducers; i++) {
     pthread_create(&thread_id[i], &thread_attr, producer, NULL);
   }
