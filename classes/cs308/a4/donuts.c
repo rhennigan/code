@@ -453,6 +453,7 @@ void * time_keeper(void * arg) {
   long int t;
   while (1) {
     t = last_check_in();
+    if (t > 100000) printf("deadlock detected!\n\n");
     if (t == -1) {
       break;
     } else {
