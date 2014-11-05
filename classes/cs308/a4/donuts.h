@@ -22,6 +22,7 @@ struct donut_ring {
 
 typedef struct donut_ring donut_ring_t;
 typedef struct donut { int fl; int id; } donut_t;
+typedef donut_t donut_collection[MAXFLAVORS];
 
 /**********************************************************************/
 /* SIGNAL WAITER, PRODUCER AND CONSUMER THREAD FUNCTIONS              */
