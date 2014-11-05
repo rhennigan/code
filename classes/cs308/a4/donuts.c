@@ -242,7 +242,7 @@ void * consumer(void * arg) {
   int dz, dn, sel;
   unsigned short xsub[3];
   struct timeval randtime;
-  donut_t collection[MAXFLAVORS][12 * MAXDOZENS];
+  donut_t collection[MAXDOZENS][MAXFLAVORS][12];
   int c_ptr[MAXFLAVORS];
 
   /* initialize the collection to zero */
