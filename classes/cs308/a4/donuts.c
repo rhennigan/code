@@ -301,6 +301,9 @@ void * consumer(void * arg) {
     usleep(1000);
   }
 
+  /* inspecting collection */
+  
+
   /* record the results */
   output_collection(id, collection);
   return NULL;
