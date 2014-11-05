@@ -293,14 +293,14 @@ void * consumer(void * arg) {
   }
 
   /* record the results */
-  output_collection(id, numdozen, collection);
+  output_collection(id, collection);
   return NULL;
 }
 
 /******************************************************************************/
 /* CONSUMER EXPORT RESULTS ROUTINE...                                         */
 /******************************************************************************/
-void output_collection(int id, int N, donut_t collection[N][12]) {
+void output_collection(int id, donut_t collection[N][12]) {
   system("mkdir -p log/");
 
   time_t timer;
@@ -331,8 +331,8 @@ void output_collection(int id, int N, donut_t collection[N][12]) {
     int flav, row = 0, done = 0;
     while (!done) {
       done = 1;
-      for (flav = 0; flav < NUMFLAVORS; flav++) {
-        if (donuts[flav][row].num) {
+      for (flav = 0; flav < numflavors; flav++) {
+        if (collection[dozen][row].num) {
           printf("  %d\t\t", donuts[flav][row].num);
           done = 0;
         } else {
