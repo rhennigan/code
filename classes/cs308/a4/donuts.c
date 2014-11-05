@@ -39,9 +39,10 @@ int main(/* int argc, char *argv[] */) {
   int arg_array[MAXPRODUCERS + MAXCONSUMERS];
   pthread_attr_t th_attr;
   int i;
-  bool deadlocked = false;
 
   for (numslots = 50; numslots <= 200; numslots += 50) {
+    bool deadlocked = false;
+    
   /****************************************************************************/
   /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                          */
   /****************************************************************************/
