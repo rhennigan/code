@@ -324,7 +324,7 @@ void * consumer(void * arg) {
   }
 
   /* let the timekeeper thread know that we're done */
-  th_running[id] = false;
+  t_finished[id] = true;
 
   /* record the results */
   output_c(id, c);
@@ -425,7 +425,6 @@ void sig_handler(int sig) {
 void check_in(int tid) {
   pthread_mutex_lock(&check_mutx[tid]);
   gettimeofday(&check_time[tid], (struct timezone *)0);
-  th_running[tid] = true;
   pthread_mutex_unlock(&check_mutx[tid]);
 }
 
