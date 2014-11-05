@@ -333,15 +333,14 @@ void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]) {
 
   int dozen;
   for (dozen = 0; dozen < numdozen; dozen++) {
-#ifdef _DEBUG_
     fprintf(fp, "\n--------------------------------------------------------\n");
-    fprintf(fp, C_DEF "thread ID: " C_BLD "%d\t", id);
-    fprintf(fp, C_DEF "time: " C_BLD "%s\t", time_string);
-    fprintf(fp, C_DEF "dozen #: " C_BLD "%d\n", dozen + 1);
-    fprintf(fp, "" C_DEF "\n");
+    fprintf(fp, "thread ID: %d\t", id);
+    fprintf(fp, "time: %s\t", time_string);
+    fprintf(fp, "dozen #: %d\n", dozen + 1);
+    fprintf(fp, "\n");
 
     fprintf(fp, "plain\t\tjelly\t\tcoconut\t\thoney-dip");
-    fprintf(fp, "\n" C_BLD "");
+    fprintf(fp, "\n");
 
     int flav, row = 0, done = 0;
     while (!done) {
@@ -355,9 +354,8 @@ void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]) {
         }
       }
       row += 1;
-      fprintf(fp, "\n" C_DEF "");
+      fprintf(fp, "\n");
     }
-#endif
   }
   fclose(fp);
 }
