@@ -487,6 +487,7 @@ void * time_keeper(void * arg) {
           if (!t_finished[i]) {
             finished = false;
             printf("consumer %d still running\n", i);
+            pthread_cancel(thread_id[i]);
           }
           pthread_mutex_unlock(&check_mutx[i]);
         }
