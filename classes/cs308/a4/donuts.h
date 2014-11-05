@@ -9,7 +9,7 @@
 #define MAXSLOTS     50
 #define MAXCONSUMERS 1
 #define MAXPRODUCERS 1
-#define MAXDOZENS    5
+#define MAXDOZENS    1
 
 struct donut_ring {
   int flavor[MAXFLAVORS][MAXSLOTS];
