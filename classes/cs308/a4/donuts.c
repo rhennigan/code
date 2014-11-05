@@ -164,7 +164,7 @@ void * producer(void * arg) {
     pthread_mutex_lock(&prod[sel]);
     while (shared_ring.spaces[sel] == 0) {
       pthread_cond_wait(&prod_cond[sel], &prod[sel]);
-      /* consumer must signal prod_cond[flavor] after freeing up a space */
+      /* consumer must signal prod_cond[sel] after freeing up a space */
     }
     /* increment the donut id for the selected flavor */
     shared_ring.serial[sel] += 1;
@@ -181,6 +181,9 @@ void * producer(void * arg) {
     /* increment the number of available donuts */
     shared_ring.donuts[sel] += 1;
 
+    // TODO(rhennigan): signal cons_cond[sel] now that donuts are available
+
+    /* release our hold on the mutex for this flavor */
     pthread_mutex_unlock(&prod[sel]);
     /* stuff */
   }
