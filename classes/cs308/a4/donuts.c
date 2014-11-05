@@ -304,6 +304,10 @@ void * consumer(void * arg) {
       pthread_cond_signal(&prod_cond[sel]);
     }
 
+    /* reset collection pointers to zero */
+    for (j = 0; j < MAXFLAVORS; j++) {
+      c_ptr[j] = 0;
+    }
     /* sleep 1 ms to give other consumer threads a chance to run */
     usleep(1000);
   }
