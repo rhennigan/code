@@ -214,8 +214,8 @@ void * consumer(void * arg) {
 
   /* retrieve individual arguments */
   cons_arg_t * cons_arg = arg;
-  int numslots = cons_arg->numslots;
-  int numdozen = cons_arg->numdozen;
+  int numslots = cons_arg->numslots;  // size of ring buffer
+  int numdozen = cons_arg->numdozen;  // number of dozens to collect
 
   /* seed the random number generator */
   gettimeofday(&randtime, (struct timezone *)0);
@@ -223,8 +223,8 @@ void * consumer(void * arg) {
   xsub[1] = (ushort)(randtime.tv_usec >> 16);
   xsub[2] = (ushort)(pthread_self());
 
-  for (i = 0; i < 10; i++) {
-    for (m = 0; m < 12; m++) {
+  for (i = 0; i < numdozen; i++) {  // for each dozen
+    for (m = 0; m < 12; m++) {  // for each donut
       j = nrand48(xsub) & 3;
       /* stuff */
     }
