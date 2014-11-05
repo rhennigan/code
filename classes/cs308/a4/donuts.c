@@ -26,7 +26,7 @@ int main(/* int argc, char *argv[] */) {
 
   cons_arg_t arg_array[MAXCONSUMERS];
 
-  pthread_attr_t thread_attr;
+  pthread_attr_t th_attr;
   struct sched_param shed_struct;
 
   int i, j;
@@ -100,29 +100,29 @@ int main(/* int argc, char *argv[] */) {
     exit(3);
   }
 
-  pthread_attr_init(&thread_attr);
-  pthread_attr_setinheritsched(&thread_attr, PTHREAD_INHERIT_SCHED);
+  pthread_attr_init(&th_attr);
+  pthread_attr_setinheritsched(&th_attr, PTHREAD_INHERIT_SCHED);
 
 #ifdef GLOBAL
   sched_struct.sched_priority = sched_get_priority_max(SCHED_OTHER);
-  pthread_attr_setinheritsched(&thread_attr, PTHREAD_EXPLICIT_SCHED);
-  pthread_attr_setschedpolicy(&thread_attr, SCHED_OTHER);
-  pthread_attr_setschedparam(&thread_attr, &sched_struct);
-  pthread_attr_setscope(&thread_attr, PTHREAD_SCOPE_SYSTEM);
+  pthread_attr_setinheritsched(&th_attr, PTHREAD_EXPLICIT_SCHED);
+  pthread_attr_setschedpolicy(&th_attr, SCHED_OTHER);
+  pthread_attr_setschedparam(&th_attr, &sched_struct);
+  pthread_attr_setscope(&th_attr, PTHREAD_SCOPE_SYSTEM);
 #endif  // GLOBAL
 
   /* create all the producer threads */
   prod_arg_t prod_args = { numslots };
   for (i = 0; i < numproducers; i++) {
-    pthread_create(&thread_id[i], &thread_attr, producer, (void *)&prod_args);
+    pthread_create(&thread_id[i], &th_attr, producer, (void *)&prod_args);
   }
 
-  if (pthread_create(&thread_id[0], &thread_attr, producer, NULL) != 0) {
+  if (pthread_create(&thread_id[0], &th_attr, producer, NULL) != 0) {
     printf("pthread_create failed ");
     exit(3);
   }
   for (i = 1; i < numconsumers + 1; i++) {
-    if (pthread_create(&thread_id[i], &thread_attr, consumer,
+    if (pthread_create(&thread_id[i], &th_attr, consumer,
       (void *)&arg_array[i]) != 0) {
       printf("pthread_create failed");
       exit(3);
