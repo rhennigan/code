@@ -22,10 +22,6 @@ int             numconsumers;
 int             numproducers;
 int             numdozen;
 
-int timeval_subtract(struct timeval * result,
-                     struct timeval * last,
-                     struct timeval * first);
-
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
   numflavors   = MAXFLAVORS;
@@ -396,30 +392,4 @@ void sig_handler(int sig) {
   }
   printf("\nThread %d took signal # %d, PROCESS HALT\n", thread_index, sig);
   exit(1);
-}
-
-/* timeval_subtract from:
-   www.gnu.org/software/libc/manual/html_node/Elapsed-Time.html */
-int timeval_subtract(result, x, y)
-    struct timeval *result, *x, *y;
-{
-  /* Perform the carry for the later subtraction by updating y. */
-  if (x->tv_usec < y->tv_usec) {
-    int nsec = (y->tv_usec - x->tv_usec) / 1000000 + 1;
-    y->tv_usec -= 1000000 * nsec;
-    y->tv_sec += nsec;
-  }
-  if (x->tv_usec - y->tv_usec > 1000000) {
-    int nsec = (x->tv_usec - y->tv_usec) / 1000000;
-    y->tv_usec += 1000000 * nsec;
-    y->tv_sec -= nsec;
-  }
-
-  /* Compute the time remaining to wait.
-     tv_usec is certainly positive. */
-  result->tv_sec = x->tv_sec - y->tv_sec;
-  result->tv_usec = x->tv_usec - y->tv_usec;
-
-  /* Return 1 if result is negative. */
-  return x->tv_sec < y->tv_sec;
 }
