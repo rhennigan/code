@@ -27,8 +27,8 @@ int main(/* int argc, char *argv[] */) {
   cons_arg_t arg_array[MAXCONSUMERS];
   sigset_t all_signals;
 
-  int nsigs = 3;
   int sigs[] = { SIGBUS, SIGSEGV, SIGFPE };
+  int nsigs = sizeof(sigs) / sizeof(int);
 
   pthread_attr_t thread_attr;
   struct sched_param shed_struct;
@@ -68,7 +68,6 @@ int main(/* int argc, char *argv[] */) {
 
   /* create signal set with all signals but SIGBUS, SIGSEGV, and SIGFPE */
   sigfillset(&all_signals);
-  nsigs = sizeof(sigs) / sizeof(int);
   for (i = 0; i < nsigs; i++) {
     sigdelset(&all_signals, sigs[i]);
   }
