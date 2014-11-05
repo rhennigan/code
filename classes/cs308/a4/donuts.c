@@ -166,7 +166,7 @@ void * producer(void * arg) {
       pthread_cond_wait(&prod_cond[sel], &prod[sel]);
       /* consumer must signal prod_cond[flavor] after freeing up a space */
     }
-    /* increment the donut counter for the selected flavor */
+    /* increment the donut id for the selected flavor */
     shared_ring.serial[sel] += 1;
 
     /* insert a new donut */
@@ -177,6 +177,10 @@ void * producer(void * arg) {
 
     /* decrement the number of available spaces */
     shared_ring.spaces[sel] -= 1;
+
+    /* increment the number of available donuts */
+    shared_ring.donuts[sel] += 1;
+    
     /* stuff */
     pthread_mutex_unlock(&prod[sel]);
     /* stuff */
