@@ -464,6 +464,7 @@ void * time_keeper(void * deadlock) {
     t = last_check_in();
     if (t > DEADLOCK_THRESHOLD) {
       printf("deadlock detected!\n");
+      exit(1);
       *((bool *)deadlock) = true;
       int i;
       for (i = numproducers; i < numproducers + numconsumers; i++) {
