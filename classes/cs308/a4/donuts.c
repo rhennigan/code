@@ -120,6 +120,8 @@ int main(/* int argc, char *argv[] */) {
       exit(3);
     }
   }
+
+  /* create all the consumer threads */
   for (i = numproducers; i < numconsumers + numproducers; i++) {
     if (pthread_create(&thread_id[i], &th_attr, consumer,
       (void *)&arg_array[i]) != 0) {
@@ -137,14 +139,12 @@ int main(/* int argc, char *argv[] */) {
   /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                              */
   /****************************************************************************/
 
-  for (i = 1; i < numconsumers + 1; i++)
+  for (i = numproducers; i < numconsumers + numproducers; i++)
     pthread_join(thread_id[i], NULL);
 
   /****************************************************************************/
   /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                      */
   /****************************************************************************/
-
-
   gettimeofday(&last_time, (struct timezone *)0);
 
   i = last_time.tv_sec - first_time.tv_sec;
