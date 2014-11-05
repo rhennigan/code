@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for i in `seq 50 50 300`;
+for i in `seq 50 10 300`;
 do
 	count=0
 	for j in `seq 1 100`;
