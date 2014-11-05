@@ -321,15 +321,15 @@ void * consumer(void * arg) {
 
       /* if there are no donuts available, thread will wait until signaled */
       while (shared_ring.donuts[sel] == 0) {
-        /* pthread_cond_wait(&cons_cond[sel], &cons[sel]); */
-        cons_wait(100, sel);
+        pthread_cond_wait(&cons_cond[sel], &cons[sel]);
+        /* cons_wait(100, sel); */
         /* producer must signal cons_cond[sel] when available */
-        if (need_quit) {
-          printf("need_quit = true, consumer %d returning\n", id);
-          t_finished[id] = true;
-          pthread_mutex_unlock(&cons[sel]);
-          return NULL;
-        }
+        /* if (need_quit) { */
+        /*   printf("need_quit = true, consumer %d returning\n", id); */
+        /*   t_finished[id] = true; */
+        /*   pthread_mutex_unlock(&cons[sel]); */
+        /*   return NULL; */
+        /* } */
       }
 
       /* remove a donut and add it to our c */
