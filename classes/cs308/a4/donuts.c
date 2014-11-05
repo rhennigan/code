@@ -43,7 +43,7 @@ int main(/* int argc, char *argv[] */) {
   /****************************************************************************/
   /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                          */
   /****************************************************************************/
-
+  gettimeofday(&first_time, (struct timezone *)0);
   for (i = 0; i < numconsumers + 1; i++) {
     arg_array[i] = i;  // SET ARRAY OF ARGUMENT VALUES
   }
@@ -150,7 +150,10 @@ int main(/* int argc, char *argv[] */) {
   /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                      */
   /****************************************************************************/
   gettimeofday(&last_time, (struct timezone *)0);
-  long int sec, usec;
+  struct timeval elapsed;
+  timeval_subtract(&elapsed, &last_time, &first_time);
+  long int sec = elapsed.tv_sec;
+  long int usec = elapsed.tv_usec;
   /* if ((sec = last_time.tv_sec - first_time.tv_sec) == 0) { */
   /*   usec = last_time.tv_usec - first_time.tv_usec; */
   /* } else { */
