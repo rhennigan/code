@@ -166,12 +166,12 @@ int main(/* int argc, char *argv[] */) {
   /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                              */
   /****************************************************************************/
 
-  sleep(10);
-  for (i = 0; i < numproducers + numconsumers; i++) {
-    pthread_cancel(thread_id[i]);
-  }
-  for (i = numproducers; i < numconsumers + numproducers; i++)
-    pthread_join(thread_id[i], NULL);
+  /* sleep(10); */
+  /* for (i = 0; i < numproducers + numconsumers; i++) { */
+  /*   pthread_cancel(thread_id[i]); */
+  /* } */
+  /* for (i = numproducers; i < numconsumers + numproducers; i++) */
+  /*   pthread_join(thread_id[i], NULL); */
 
   pthread_join(time_keeper_id, NULL);
 
