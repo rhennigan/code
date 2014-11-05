@@ -455,7 +455,7 @@ void * time_keeper(void * arg) {
   FILE * fp = fopen("log/time.csv", "w");
   long int t;
   while (1) {
-    usleep(20000);
+    usleep(10000);
     t = last_check_in();
     if (t > 200000) {
       printf("deadlock detected!\n\n");
