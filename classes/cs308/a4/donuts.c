@@ -23,7 +23,7 @@ int main(/* int argc, char *argv[] */) {
   int numdozens    = MAXDOZENS;
 
   int nsigs;
-  struct timeval randtime, first_time, last_time;
+  struct timeval first_time, last_time;
   struct sigaction new_act;
   int arg_array[MAXCONSUMERS];
   sigset_t all_signals;
