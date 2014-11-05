@@ -468,6 +468,9 @@ void * time_keeper(void * arg) {
     t = last_check_in();
     if (t > 200000) {
       printf("deadlock detected!\n\n");
+      pthread_mutex_lock(&check_quit);
+      need_quit = true;
+      pthread_mutex_unlock(&check_quit);
       return NULL;
     }
     if (t == -1) {
