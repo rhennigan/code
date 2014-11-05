@@ -256,12 +256,9 @@ void mywait(int timeInMs) {
   struct timeval now;
   int rt;
   gettimeofday(&now, NULL);
-  *** timeToWait.tv_sec = now.tv_sec + 5;
-  timeToWait.tv_nsec = (now.tv_usec+1000UL*timeInMs)*1000UL;***
-
-
-
-                                                                pthread_mutex_lock(&fakeMutex);
+  timeToWait.tv_sec = now.tv_sec + 5;
+  timeToWait.tv_nsec = (now.tv_usec + 1000UL * timeInMs) * 1000UL;
+  pthread_mutex_lock(&fakeMutex);
   rt = pthread_cond_timedwait(&fakeCond, &fakeMutex, &timeToWait);
   pthread_mutex_unlock(&fakeMutex);
   printf("\nDone\n");
