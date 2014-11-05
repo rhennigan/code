@@ -296,8 +296,7 @@ void * consumer(void * arg) {
       pthread_mutex_lock(&cons[sel]);
 
       /* if there are no donuts available, thread will wait until signaled */
-      while (!need_quit && shared_ring.donuts[sel] == 0) {
-        usleep(100);
+      while (shared_ring.donuts[sel] == 0) {
         pthread_cond_wait(&cons_cond[sel], &cons[sel]);
         /* producer must signal cons_cond[sel] when available */
         if (need_quit) {
