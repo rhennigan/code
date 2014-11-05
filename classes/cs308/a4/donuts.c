@@ -261,6 +261,9 @@ void * consumer(void * arg) {
     /* sleep 1 ms to give other consumer threads a chance to run */
     usleep(1000);
   }
+
+  /* record the results */
+  output_collection(collection);
   return NULL;
 }
 
