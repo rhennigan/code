@@ -223,8 +223,11 @@ void * consumer(void * arg) {
 
   for (dz = 0; dz < numdozen; dz++) {  // for each dozen
     for (dn = 0; dn < 12; dn++) {  // for each donut
+      /* make a flavor selection */
       sel = nrand48(xsub) & 3;
-      /* stuff */
+
+      /* entering critical region */
+      pthread_mutex_lock(&cons[sel]);
     }
     usleep(1000); /* sleep 1 ms */
   }
