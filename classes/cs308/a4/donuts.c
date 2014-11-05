@@ -334,7 +334,7 @@ void * consumer(void * arg) {
   t_finished[id] = true;
 
   /* record the results */
-  output_c(id, c);
+  // output_c(id, c);
   return NULL;
 }
 
