@@ -165,6 +165,10 @@ int main(/* int argc, char *argv[] */) {
     /**************************************************************************/
 
     pthread_join(time_keeper_id, NULL);
+    /* for (i = 0; i < numconsumers + numproducers; i++) { */
+    /*   pthread_join(thread_id[i], NULL); */
+    /* } */
+
     printf("deadlock = %d\n", deadlock);
 
     /**************************************************************************/
