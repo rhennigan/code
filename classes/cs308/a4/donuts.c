@@ -44,7 +44,7 @@ int main(/* int argc, char *argv[] */) {
   /****************************************************************************/
   /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                          */
   /****************************************************************************/
-  // gettimeofday(check_time, (struct timezone *)0);
+  for (i = 0; i < numproducers + numconsumers; i++) check_in(i);
   gettimeofday(&first_time, (struct timezone *)0);
   for (i = 0; i < numconsumers + 1; i++) {
     arg_array[i] = i;  // SET ARRAY OF ARGUMENT VALUES
