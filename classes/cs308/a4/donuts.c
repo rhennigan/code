@@ -71,6 +71,10 @@ int main(/* int argc, char *argv[] */) {
     shared_ring.donuts[i] = 0;
   }
 
+  for (i = 0; i < numconsumers + numproducers; i++) {
+    pthread_mutex_init(&check_mutx[i], NULL);
+  }
+
   /****************************************************************************/
   /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS                 */
   /****************************************************************************/
