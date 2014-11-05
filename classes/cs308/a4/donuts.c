@@ -27,7 +27,7 @@ pthread_mutex_t check_mutx[MAXCONSUMERS + MAXPRODUCERS];
 struct timeval  check_time[MAXCONSUMERS + MAXPRODUCERS];
 bool            t_finished[MAXCONSUMERS + MAXPRODUCERS];
 pthread_mutex_t check_quit;
-bool            need_quit;
+volatile bool   need_quit;
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
@@ -210,7 +210,9 @@ void * producer(void * arg) {
   while (1) {
     /* check in, so that the timekeeper thread doesn't think we're deadlocked */
     // check_in(id);
+    pthread_mutex_lock(&check_quit);
     if (need_quit) return NULL;
+    pthread_mutex_unlock(&check_quit);
 
     /* make a flavor selection */
     sel = nrand48(xsub) & 3;
