@@ -247,8 +247,8 @@ void * consumer(void * arg) {
 
   /* initialize the collection to zero */
   int i, j;
-  for (i = 0; i < numflavors; i++) {
-    for (j = 0; j < 12 * numdozen; j++) {
+  for (i = 0; i < MAXFLAVORS; i++) {
+    for (j = 0; j < 12 * MAXDOZENS; j++) {
       collection[i][j] = (donut_t){ -1, 0 };
     }
   }
@@ -302,7 +302,12 @@ void * consumer(void * arg) {
   }
 
   /* inspecting collection */
-  
+  for (i = 0; i < MAXFLAVORS; i++) {
+    for (j = 0; j < 12 * MAXDOZENS; j++) {
+      printf(" %3d", collection[i][j].id);
+    }
+    printf("\n");
+  }
 
   /* record the results */
   output_collection(id, collection);
