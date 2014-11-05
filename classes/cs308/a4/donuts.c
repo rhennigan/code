@@ -25,7 +25,8 @@ int main(/* int argc, char *argv[] */) {
   int nsigs;
   struct timeval first_time, last_time;
   struct sigaction new_act;
-  int arg_array[MAXCONSUMERS];
+  //int arg_array[MAXCONSUMERS];
+  cons_arg_t arg_array[MAXCONSUMERS];
   sigset_t all_signals;
 
   int sigs[] = { SIGBUS, SIGSEGV, SIGFPE };
@@ -33,7 +34,7 @@ int main(/* int argc, char *argv[] */) {
   pthread_attr_t thread_attr;
   struct sched_param shed_struct;
 
-  int i, j, k;
+  int i, j;
 
   /****************************************************************************/
   /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                          */
