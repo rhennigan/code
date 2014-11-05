@@ -277,7 +277,8 @@ void * consumer(void * arg) {
       }
 
       /* remove a donut and add it to our collection */
-      collection[sel][c_ptr[sel]++]
+      int d_id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
+      collection[sel][c_ptr[sel]++].id = d_id;
       collection[dz][dn].id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
       collection[dz][dn].fl = sel;
       shared_ring.flavor[sel][shared_ring.outptr[sel]] = 0;
