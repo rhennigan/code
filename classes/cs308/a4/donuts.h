@@ -38,6 +38,7 @@ typedef struct prod_arg {
 
 typedef struct cons_arg {
   int numslots;
+  int numdozen;
 } cons_arg_t;
 
 #endif  // DONUTS_H_

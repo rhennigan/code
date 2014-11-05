@@ -215,6 +215,7 @@ void * consumer(void * arg) {
   /* retrieve individual arguments */
   cons_arg_t * cons_arg = arg;
   int numslots = cons_arg->numslots;
+  int numdozen = cons_arg->numdozen;
 
   /* seed the random number generator */
   gettimeofday(&randtime, (struct timezone *)0);
