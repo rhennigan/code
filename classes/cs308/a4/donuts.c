@@ -303,6 +303,7 @@ void * consumer(void * arg) {
         if (need_quit) {
           printf("need_quit = true, consumer %d returning\n", id);
           t_finished[id] = true;
+          pthread_mutex_unlock(&cons[sel]);
           return NULL;
         }
       }
