@@ -404,7 +404,7 @@ long int elapsed_us(struct timeval *t2, struct timeval *t1) {
 }
 
 void check_in(int tid) {
-  pthread_mutex_lock(&check_mutx);
-  gettimeofday(&check_time, (struct timezone *)0);
+  pthread_mutex_lock(&check_mutx[tid]);
+  gettimeofday(&check_time[tid], (struct timezone *)0);
   pthread_mutex_unlock(&check_mtx);
 }
