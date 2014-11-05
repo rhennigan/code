@@ -21,11 +21,11 @@ int             numdozen;
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
-  int numflavors   = MAXFLAVORS;
-  int numslots     = MAXSLOTS;
-  int numconsumers = MAXCONSUMERS;
-  int numproducers = MAXPRODUCERS;
-  int numdozen     = MAXDOZENS;
+  numflavors   = MAXFLAVORS;
+  numslots     = MAXSLOTS;
+  numconsumers = MAXCONSUMERS;
+  numproducers = MAXPRODUCERS;
+  numdozen     = MAXDOZENS;
 
   struct timeval first_time, last_time;
 
