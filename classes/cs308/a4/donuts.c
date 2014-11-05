@@ -77,7 +77,7 @@ int main(/* int argc, char *argv[] */) {
   /* block everything remaining in all_signals */
   sigprocmask(SIG_BLOCK, &all_signals, NULL);
 
-  /* initialize all_signals again? */
+  /* initialize all_signals */
   sigfillset(&all_signals);
   for (i = 0; i < nsigs; i++) {
     new_act.sa_handler = sig_handler;
