@@ -161,6 +161,7 @@ void * producer(void * arg) {
   prod_arg_t * prod_arg = arg;
   int numslots = prod_arg->numslots;
 
+  /* seed the random number generator */
   gettimeofday(&randtime, (struct timezone *)0);
   xsub[0] = (ushort)(randtime.tv_usec);
   xsub[1] = (ushort)(randtime.tv_usec >> 16);
