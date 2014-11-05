@@ -146,12 +146,12 @@ int main(/* int argc, char *argv[] */) {
   /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                      */
   /****************************************************************************/
   gettimeofday(&last_time, (struct timezone *)0);
-  int s  = last_time.tv_sec  - first_time.tv_sec;
-  int us = last_time.tv_usec - first_time.tv_usec;
-  s  = us < 1 ? s - 1 : s;
-  us = us < 1 ? 1000000 + us : us;
+  int s = last_time.tv_sec  - first_time.tv_sec;
+  int m = last_time.tv_usec - first_time.tv_usec;
+  s = m < 1 ? s - 1 : s;
+  m = m < 1 ? 1000000 + m : m;
 
-  printf("Elapsed consumer time is %d sec and %d usec\n", i, j);
+  printf("Elapsed consumer time is %d sec and %d usec\n", s, m);
 
   printf("\n\n ALL CONSUMERS FINISHED, KILLING  PROCESS\n\n");
   exit(0);
@@ -164,10 +164,6 @@ void * producer(void * arg) {
   unsigned short xsub[3];
   struct timeval randtime;
   int sel;
-
-  /* retrieve individual arguments */
-  prod_arg_t * prod_arg = arg;
-  int numslots = prod_arg->numslots;
 
   /* seed the random number generator */
   gettimeofday(&randtime, (struct timezone *)0);
