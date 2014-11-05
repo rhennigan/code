@@ -246,6 +246,14 @@ void * consumer(void * arg) {
 
       /* increment the number of available spaces */
       shared_ring.spaces[sel] += 1;
+
+      /* decrement the number of available donuts */
+      shared_ring.donuts[sel] -= 1;
+
+      /* release our hold on the mutex for this flavor */
+      pthread_mutex_unlock(&cons[sel]);
+
+      /* signal prod_cond[sel] now that production space is available */
     }
     usleep(1000); /* sleep 1 ms */
   }
