@@ -22,7 +22,6 @@ struct donut_ring {
 
 typedef struct donut_ring donut_ring_t;
 typedef struct donut { int fl; int id; } donut_t;
-typedef donut_t donut_collection[MAXFLAVORS];
 
 /**********************************************************************/
 /* SIGNAL WAITER, PRODUCER AND CONSUMER THREAD FUNCTIONS              */
@@ -31,6 +30,6 @@ void * sig_waiter(void * arg);
 void * producer(void * arg);
 void * consumer(void * arg);
 void sig_handler(int sig_num);
-void output_collection(int id, donut_t collection[MAXFLAVORS][12 * MAXDOZENS]);
+void output_collection(int id, donut_t collection[MAXDOZENS][MAXFLAVORS][12]);
 
 #endif  // DONUTS_H_
