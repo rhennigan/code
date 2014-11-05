@@ -484,7 +484,10 @@ void * time_keeper(void * arg) {
         finished = true;
         for (i = numproducers; i < numproducers + numconsumers; i++) {
           pthread_mutex_lock(&check_mutx[i]);
-          if (!t_finished[i]) finished = false;
+          if (!t_finished[i]) {
+            finished = false;
+            printf("consumer %d still running\n", i);
+          }
           pthread_mutex_unlock(&check_mutx[i]);
         }
         printf("signalling consumers...\n");
