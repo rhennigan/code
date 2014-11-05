@@ -238,6 +238,9 @@ void * consumer(void * arg) {
       int ptr = shared_ring.outptr[sel];
       int donut_num = shared_ring.flavor[sel][ptr];
       shared_ring.flavor[sel][ptr] = 0;
+
+      /* move outptr forward and cycle if necessary */
+      shared_ring.outptr[sel] = (shared_ring.outptr[sel] + 1) % numslots;
     }
     usleep(1000); /* sleep 1 ms */
   }
