@@ -4,6 +4,18 @@
 #include <time.h>
 #include "./donuts.h"
 
+#define _DEBUG_
+
+#define _USE_COLOR_TERM_
+
+#ifdef _USE_COLOR_TERM_
+#define C_DEF "\033[0m"
+#define C_BLD "\033[1m\033[37m"
+#else
+#define C_DEF ""
+#define C_BLD ""
+#endif
+
 /******************************************************************************/
 /* GLOBAL VARIABLES                                                           */
 /******************************************************************************/
