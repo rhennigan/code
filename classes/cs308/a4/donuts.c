@@ -40,6 +40,17 @@ int main(/* int argc, char *argv[] */) {
   pthread_attr_t th_attr;
   int i;
 
+  for (i = 0; i < numflavors; i++) {
+    pthread_mutex_init(&prod[i], NULL);
+    pthread_mutex_init(&cons[i], NULL);
+    pthread_cond_init(&prod_cond[i], NULL);
+    pthread_cond_init(&cons_cond[i], NULL);
+  }
+
+  for (i = 0; i < numconsumers + numproducers; i++) {
+    pthread_mutex_init(&check_mutx[i], NULL);
+  }
+
   for (numslots = 50; numslots <= 200; numslots += 50) {
     /**************************************************************************/
     /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                        */
@@ -55,19 +66,11 @@ int main(/* int argc, char *argv[] */) {
     /**************************************************************************/
 
     for (i = 0; i < numflavors; i++) {
-      pthread_mutex_init(&prod[i], NULL);
-      pthread_mutex_init(&cons[i], NULL);
-      pthread_cond_init(&prod_cond[i], NULL);
-      pthread_cond_init(&cons_cond[i], NULL);
       shared_ring.outptr[i] = 0;
       shared_ring.in_ptr[i] = 0;
       shared_ring.serial[i] = 0;
       shared_ring.spaces[i] = numslots;
       shared_ring.donuts[i] = 0;
-    }
-
-    for (i = 0; i < numconsumers + numproducers; i++) {
-      pthread_mutex_init(&check_mutx[i], NULL);
     }
 
     /**************************************************************************/
