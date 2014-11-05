@@ -210,11 +210,9 @@ void * consumer(void * arg) {
   int i, j, k, m, id;
   unsigned short xsub[3];
   struct timeval randtime;
-  id = *(int*)arg;
 
   /* retrieve individual arguments */
   cons_arg_t * cons_arg = arg;
-  int numslots = cons_arg->numslots;  // size of ring buffer
   int numdozen = cons_arg->numdozen;  // number of dozens to collect
 
   /* seed the random number generator */
