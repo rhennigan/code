@@ -16,6 +16,7 @@ pthread_cond_t  prod_cond[MAXFLAVORS];
 pthread_cond_t  cons_cond[MAXFLAVORS];
 pthread_t       thread_id[MAXCONSUMERS + MAXPRODUCERS];
 pthread_t       sig_wait_id;
+pthread_t       time_keeper;
 int             numflavors;
 int             numslots;
 int             numconsumers;
