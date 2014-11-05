@@ -73,6 +73,8 @@ int main(/* int argc, char *argv[] */) {
   for (i = 0; i < nsigs; i++) {
     sigdelset(&all_signals, sigs[i]);
   }
+
+  /* block everything remaining in all_signals */
   sigprocmask(SIG_BLOCK, &all_signals, NULL);
   sigfillset(&all_signals);
   for (i = 0; i < nsigs; i++) {
