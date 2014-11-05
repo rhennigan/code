@@ -407,3 +407,7 @@ void check_in(int tid) {
   gettimeofday(&check_time[tid], (struct timezone *)0);
   pthread_mutex_unlock(&check_mutx[tid]);
 }
+
+long int last_check_in() {
+  
+}
