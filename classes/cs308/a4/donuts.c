@@ -25,7 +25,7 @@ int             numproducers;
 int             numdozen;
 pthread_mutex_t check_mutx[MAXCONSUMERS + MAXPRODUCERS];
 struct timeval  check_time[MAXCONSUMERS + MAXPRODUCERS];
-bool            running[MAXCONSUMERS];
+bool            th_running[MAXCONSUMERS + MAXPRODUCERS];
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
@@ -47,11 +47,11 @@ int main(/* int argc, char *argv[] */) {
   /****************************************************************************/
   /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                          */
   /****************************************************************************/
-  run_time_k = true;
   gettimeofday(&first_time, (struct timezone *)0);
   for (i = 0; i < numproducers + numconsumers; i++) {
     arg_array[i] = i;  // SET ARRAY OF ARGUMENT VALUES
     check_in(i);
+    th_running[i] = true;
   }
 
   /****************************************************************************/
