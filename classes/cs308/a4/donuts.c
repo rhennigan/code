@@ -41,7 +41,6 @@ int main(/* int argc, char *argv[] */) {
   int i;
 
   for (numslots = 50; numslots <= 200; numslots += 50) {
-    bool deadlocked = false;
 
     /**************************************************************************/
     /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                        */
