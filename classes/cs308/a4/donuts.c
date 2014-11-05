@@ -455,8 +455,12 @@ void * time_keeper(void * arg) {
   long int t;
   while (1) {
     t = last_check_in();
-    fprintf(fp, "%ld\n", t);
-    usleep(10000);
+    if (t == -1) {
+      break;
+    } else {
+      fprintf(fp, "%ld\n", t);
+      usleep(10000);
+    }
   }
   fclose(fp);
   return NULL;
