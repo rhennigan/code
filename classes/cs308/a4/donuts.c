@@ -75,6 +75,8 @@ int main(/* int argc, char *argv[] */) {
     pthread_mutex_init(&check_mutx[i], NULL);
   }
 
+  pthread_mutex_init(&check_quit, NULL);
+
   /****************************************************************************/
   /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS                 */
   /****************************************************************************/
