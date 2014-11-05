@@ -93,6 +93,8 @@ int main(/* int argc, char *argv[] */) {
   /* CREATE SIGNAL HANDLER THREAD, PRODUCER AND CONSUMERS                     */
   /****************************************************************************/
 
+  /* pthread_create(pthread_t * thread, const pthread_attr_t * attr,
+                    void *(*start_routine) (void *), void * arg)      */
   if (pthread_create(&sig_wait_id, NULL, sig_waiter, NULL) != 0) {
     printf("pthread_create failed ");
     exit(3);
