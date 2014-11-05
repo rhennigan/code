@@ -13,6 +13,11 @@ pthread_cond_t  prod_cond[MAXFLAVORS];
 pthread_cond_t  cons_cond[MAXFLAVORS];
 pthread_t       thread_id[MAXCONSUMERS + MAXPRODUCERS];
 pthread_t       sig_wait_id;
+int             numflavors;
+int             numslots;
+int             numconsumers;
+int             numproducers;
+int             numdozen;
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
