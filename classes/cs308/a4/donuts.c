@@ -257,7 +257,9 @@ void * consumer(void * arg) {
       /* signal prod_cond[sel] now that production space is available */
       pthread_cond_signal(&prod_cond[sel]);
     }
-    usleep(1000); /* sleep 1 ms */
+
+    /* sleep 1 ms to give other consumer threads a chance to run */
+    usleep(1000);
   }
   return NULL;
 }
