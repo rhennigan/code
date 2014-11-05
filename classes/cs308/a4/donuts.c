@@ -181,11 +181,10 @@ void * producer(void * arg) {
     /* increment the number of available donuts */
     shared_ring.donuts[sel] += 1;
 
-    // TODO(rhennigan): signal cons_cond[sel] now that donuts are available
-
     /* release our hold on the mutex for this flavor */
     pthread_mutex_unlock(&prod[sel]);
-    /* stuff */
+
+    // TODO(rhennigan): signal cons_cond[sel] now that donuts are available
   }
   return NULL;
 }
