@@ -320,12 +320,12 @@ void * consumer(void * arg) {
       pthread_cond_signal(&prod_cond[sel]);
 
       /* check in, so the timekeeper thread doesn't think we're deadlocked */
-      pthread_mutex_lock(&check_quit);
+      /* pthread_mutex_lock(&check_quit); */
       if (need_quit) {
         printf("need_quit = true, consumer %d returning\n", id);
         return NULL;
       }
-      pthread_mutex_unlock(&check_quit);
+      /* pthread_mutex_unlock(&check_quit); */
       check_in(id);
     }
 
@@ -472,11 +472,7 @@ void * time_keeper(void * arg) {
     t = last_check_in();
     if (t > 200000) {
       printf("deadlock detected!\n");
-      pthread_mutex_lock(&check_quit);
-      printf("need_quit = true\n");
       need_quit = true;
-      pthread_mutex_unlock(&check_quit);
-      printf("time_keeper exiting\n");
       return NULL;
     }
     if (t == -1) {
