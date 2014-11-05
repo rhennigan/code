@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for k in `seq 1 100`;
+for k in `seq 1 1000`;
 do
 	for dz in `seq 100 50 300`;
 	do
@@ -9,11 +9,11 @@ do
 			count=0
 			for j in `seq 1 100`;
 			do
-				res=$(`echo ./donuts $i 50 30 200`)
+				res=$(`echo ./donuts $i 50 30 $dz`)
 				count=`expr $count + $res`
 			done
-			echo $i", "$count
-			echo $i", "$count >> "deadlocks.csv"
+			echo $i", "$dz", "$count
+			echo $i", "$dz", "$count >> "deadlocks.csv"
 		done
 	done
 done
