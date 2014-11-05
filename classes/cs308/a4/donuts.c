@@ -26,7 +26,7 @@ int             numdozen;
 pthread_mutex_t check_mutx[MAXCONSUMERS + MAXPRODUCERS];
 struct timeval  check_time[MAXCONSUMERS + MAXPRODUCERS];
 bool            t_finished[MAXCONSUMERS + MAXPRODUCERS];
-pthread_mutex_t check_quit = PTHREAD_MUTEX_INITIALIZER;
+// pthread_mutex_t check_quit = PTHREAD_MUTEX_INITIALIZER;
 // bool            need_quit = false;
 
 int main(/* int argc, char *argv[] */) {
@@ -75,7 +75,7 @@ int main(/* int argc, char *argv[] */) {
     pthread_mutex_init(&check_mutx[i], NULL);
   }
 
-  pthread_mutex_init(&check_quit, NULL);
+  // pthread_mutex_init(&check_quit, NULL);
 
   /****************************************************************************/
   /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS                 */
