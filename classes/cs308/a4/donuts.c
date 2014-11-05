@@ -213,6 +213,7 @@ void * consumer(void * arg) {
 
   /* retrieve individual arguments */
   cons_arg_t * cons_arg = arg;
+  int numslots = cons_arg->numslots;  // number of slots in the ring buffer
   int numdozen = cons_arg->numdozen;  // number of dozens to collect
 
   /* seed the random number generator */
