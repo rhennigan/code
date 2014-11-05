@@ -148,7 +148,7 @@ int main(int argc, char *argv[]) {
   }
 
   /* create the timekeeper thread */
-  int tk = pthread_create(&time_keeper_id, NULL, time_keeper, NULL);
+  int tk = pthread_create(&time_keeper_id, &th_attr, time_keeper, NULL);
   if (tk != 0) {
     printf("pthread_create failed ");
     exit(3);
@@ -455,8 +455,7 @@ long int last_check_in() {
   return max;
 }
 
-void * time_keeper(void * deadlock) {
-  *((bool *)deadlock) = false;
+void * time_keeper(void * arg) {
   usleep(10000);
   FILE * fp = fopen("log/time.csv", "w");
   long int t;
