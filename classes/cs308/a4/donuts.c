@@ -146,8 +146,8 @@ int main(/* int argc, char *argv[] */) {
   /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                      */
   /****************************************************************************/
   gettimeofday(&last_time, (struct timezone *)0);
-
-  i = last_time.tv_sec - first_time.tv_sec;
+  int s, us;
+  s = last_time.tv_sec - first_time.tv_sec;
   if (i == 0) {
     j = last_time.tv_usec - first_time.tv_usec;
   } else {
