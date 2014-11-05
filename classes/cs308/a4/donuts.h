@@ -6,10 +6,10 @@
 #include <pthread.h>
 
 #define MAXFLAVORS         4
-#define MAXSLOTS           50
-#define MAXCONSUMERS       50
-#define MAXPRODUCERS       30
-#define MAXDOZENS          5
+#define MAXSLOTS           500
+#define MAXCONSUMERS       100
+#define MAXPRODUCERS       100
+#define MAXDOZENS          500
 #define DEADLOCK_THRESHOLD 100000
 #define TIME_KEEPER_PER    10000
 
