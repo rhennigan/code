@@ -21,8 +21,9 @@ int             numslots;
 int             numconsumers;
 int             numproducers;
 int             numdozen;
-pthread_mutex_t check_mtx = PTHREAD_MUTEX_INITIALIZER;
-volatile struct timeval check_time;
+
+pthread_mutex_t         check_mutx[MAXCONSUMERS + MAXPRODUCERS];
+volatile struct timeval check_time[MAXCONSUMERS + MAXPRODUCERS];
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
