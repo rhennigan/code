@@ -30,6 +30,6 @@ void * sig_waiter(void * arg);
 void * producer(void * arg);
 void * consumer(void * arg);
 void   sig_handler(int sig_num);
-void   output_collection(int id, int N, donut_t collection[N][12]);
+void   output_collection(int id, int N, donut_t collection[N][12 * MAXDOZENS]);
 
 #endif  // DONUTS_H_
