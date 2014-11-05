@@ -203,8 +203,7 @@ void * producer(void * arg) {
 
   while (1) {
     /* check in, so that the timekeeper thread doesn't think we're deadlocked */
-    usleep(10000);
-    check_in(id);
+    // check_in(id);
 
     /* make a flavor selection */
     sel = nrand48(xsub) & 3;
@@ -311,7 +310,6 @@ void * consumer(void * arg) {
       pthread_cond_signal(&prod_cond[sel]);
 
       /* check in, so the timekeeper thread doesn't think we're deadlocked */
-      usleep(10000);
       check_in(id);
     }
 
