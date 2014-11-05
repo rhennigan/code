@@ -6,16 +6,6 @@
 
 #define _DEBUG_
 
-#define _USE_COLOR_TERM_
-
-#ifdef _USE_COLOR_TERM_
-#define C_DEF "\033[0m"
-#define C_BLD "\033[1m\033[37m"
-#else
-#define C_DEF ""
-#define C_BLD ""
-#endif
-
 /******************************************************************************/
 /* GLOBAL VARIABLES                                                           */
 /******************************************************************************/
@@ -345,27 +335,27 @@ void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]) {
   for (dozen = 0; dozen < numdozen; dozen++) {
 #ifdef _DEBUG_
     fprintf(fp, "\n--------------------------------------------------------\n");
-    fprintf(C_DEF "thread ID: " C_BLD "%d\t", id);
-    fprintf(C_DEF "time: " C_BLD "%s\t", time_string);
-    fprintf(C_DEF "dozen #: " C_BLD "%d\n", dozen + 1);
-    fprintf("" C_DEF "\n");
+    fprintf(fp, C_DEF "thread ID: " C_BLD "%d\t", id);
+    fprintf(fp, C_DEF "time: " C_BLD "%s\t", time_string);
+    fprintf(fp, C_DEF "dozen #: " C_BLD "%d\n", dozen + 1);
+    fprintf(fp, "" C_DEF "\n");
 
-    fprintf("plain\t\tjelly\t\tcoconut\t\thoney-dip");
-    fprintf("\n" C_BLD "");
+    fprintf(fp, "plain\t\tjelly\t\tcoconut\t\thoney-dip");
+    fprintf(fp, "\n" C_BLD "");
 
     int flav, row = 0, done = 0;
     while (!done) {
       done = 1;
       for (flav = 0; flav < numflavors; flav++) {
         if (c[dozen][flav][row].id) {
-          fprintf("  %d\t\t", c[dozen][flav][row].id);
+          fprintf(fp, "  %d\t\t", c[dozen][flav][row].id);
           done = 0;
         } else {
-          fprintf("\t\t");
+          fprintf(fp, "\t\t");
         }
       }
       row += 1;
-      fprintf("\n" C_DEF "");
+      fprintf(fp, "\n" C_DEF "");
     }
 #endif
   }
