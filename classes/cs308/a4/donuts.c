@@ -285,7 +285,6 @@ void * consumer(void * arg) {
 
       /* remove a donut and add it to our c */
       int d_id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
-      c[dz][sel]
       c[sel][c_ptr[sel]++] = (donut_t){ sel, d_id };
       shared_ring.flavor[sel][shared_ring.outptr[sel]] = 0;
 
