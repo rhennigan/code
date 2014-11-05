@@ -228,6 +228,9 @@ void * consumer(void * arg) {
 
       /* entering critical region */
       pthread_mutex_lock(&cons[sel]);
+
+      /* if there are no donuts available, thread will wait until signaled */
+      
     }
     usleep(1000); /* sleep 1 ms */
   }
