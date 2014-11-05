@@ -469,7 +469,7 @@ void * time_keeper(void * deadlock) {
       printf("deadlock detected!\n");
       *((bool *)deadlock) = true;
       int i;
-      for (i = 0; i < numproducers + numconsumers; i++) {
+      for (i = numproducers; i < numproducers + numconsumers; i++) {
         pthread_cancel(thread_id[i]);
       }
       break;
