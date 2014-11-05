@@ -334,6 +334,8 @@ void sig_handler(int sig) {
   exit(1);
 }
 
+/* timeval_subtract from:
+   www.gnu.org/software/libc/manual/html_node/Elapsed-Time.html */
 int timeval_subtract(result, x, y)
     struct timeval *result, *x, *y;
 {
