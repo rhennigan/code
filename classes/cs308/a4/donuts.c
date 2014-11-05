@@ -290,9 +290,11 @@ void * consumer(void * arg) {
       pthread_mutex_lock(&cons[sel]);
 
       /* if there are no donuts available, thread will wait until signaled */
+      pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
       while (shared_ring.donuts[sel] == 0) {
         pthread_cond_wait(&cons_cond[sel], &cons[sel]);
       }
+      pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
 
       /* remove a donut and add it to our c */
       int d_id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
