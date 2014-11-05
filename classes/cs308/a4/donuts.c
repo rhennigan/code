@@ -204,12 +204,6 @@ void * producer(void * arg) {
   xsub[2] = (ushort)(pthread_self());
 
   while (1) {
-    /* check in, so that the timekeeper thread doesn't think we're deadlocked */
-    // check_in(id);
-    /* pthread_mutex_lock(&check_quit); */
-    /* if (need_quit) return NULL; */
-    /* pthread_mutex_unlock(&check_quit); */
-
     /* make a flavor selection */
     sel = nrand48(xsub) & 3;
 
@@ -246,18 +240,18 @@ void * producer(void * arg) {
   return NULL;
 }
 
-void cons_wait(int timeInMs, int sel) {
-  struct timespec timeToWait;
-  struct timeval now;
-  int rt;
-  gettimeofday(&now, NULL);
-  timeToWait.tv_sec = now.tv_sec + 5;
-  timeToWait.tv_nsec = (now.tv_usec + 1000UL * timeInMs) * 1000UL;
-  pthread_mutex_lock(&cons[sel]);
-  rt = pthread_cond_timedwait(&cons_cond[sel], &cons[sel], &timeToWait);
-  pthread_mutex_unlock(&cons[sel]);
-  printf("\nDone\n");
-}
+/* void cons_wait(int timeInMs, int sel) { */
+/*   struct timespec timeToWait; */
+/*   struct timeval now; */
+/*   int rt; */
+/*   gettimeofday(&now, NULL); */
+/*   timeToWait.tv_sec = now.tv_sec + 5; */
+/*   timeToWait.tv_nsec = (now.tv_usec + 1000UL * timeInMs) * 1000UL; */
+/*   pthread_mutex_lock(&cons[sel]); */
+/*   rt = pthread_cond_timedwait(&cons_cond[sel], &cons[sel], &timeToWait); */
+/*   pthread_mutex_unlock(&cons[sel]); */
+/*   printf("\nDone\n"); */
+/* } */
 
 /******************************************************************************/
 /* PTHREAD CONSUMER ROUTINE...                                                */
@@ -307,14 +301,6 @@ void * consumer(void * arg) {
       /* if there are no donuts available, thread will wait until signaled */
       while (shared_ring.donuts[sel] == 0) {
         pthread_cond_wait(&cons_cond[sel], &cons[sel]);
-        /* cons_wait(100, sel); */
-        /* producer must signal cons_cond[sel] when available */
-        /* if (need_quit) { */
-        /*   printf("need_quit = true, consumer %d returning\n", id); */
-        /*   t_finished[id] = true; */
-        /*   pthread_mutex_unlock(&cons[sel]); */
-        /*   return NULL; */
-        /* } */
       }
 
       /* remove a donut and add it to our c */
@@ -338,9 +324,6 @@ void * consumer(void * arg) {
       pthread_cond_signal(&prod_cond[sel]);
 
       /* check in, so the timekeeper thread doesn't think we're deadlocked */
-      /* pthread_mutex_lock(&check_quit); */
-
-      /* pthread_mutex_unlock(&check_quit); */
       check_in(id);
     }
 
@@ -348,7 +331,7 @@ void * consumer(void * arg) {
     for (j = 0; j < MAXFLAVORS; j++) {
       c_ptr[j] = 0;
     }
-    /* sleep 1000 us to give other consumer threads a chance to run */
+    /* give other consumer threads a chance to run */
     usleep(1000);
   }
 
