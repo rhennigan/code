@@ -473,6 +473,5 @@ void * time_keeper(void * deadlock) {
   }
   fclose(fp);
   printf("time_keeper returning\n");
-  
   pthread_exit(deadlock);
 }
