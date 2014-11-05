@@ -111,6 +111,11 @@ int main(/* int argc, char *argv[] */) {
   pthread_attr_setscope(&thread_attr, PTHREAD_SCOPE_SYSTEM);
 #endif  // GLOBAL
 
+  /* create all the producer threads */
+  for (i = 0; i < numproducers; i++) {
+    pthread_create(&thread_id[i], &thread_attr, producer, NULL);
+  }
+
   if (pthread_create(&thread_id[0], &thread_attr, producer, NULL) != 0) {
     printf("pthread_create failed ");
     exit(3);
