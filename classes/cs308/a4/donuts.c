@@ -478,9 +478,13 @@ void * time_keeper(void * arg) {
       bool finished = false;
       int i;
       while (!finished) {
-        
+        finished = true;
+        for (i = numproducers; i < numproducers + numconsumers; i++) {
+          pthread_mutex_lock(&check_mutx[i]);
+          
+          pthread_mutex_unlock(&check_mutx[i]);
+        }
       }
-      
       for (i = 0; i < numflavors; i++) {
         pthread_cond_signal(&cons_cond[i]);
       }
