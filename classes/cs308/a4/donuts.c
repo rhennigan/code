@@ -20,6 +20,7 @@ int main(/* int argc, char *argv[] */) {
   int numslots     = MAXSLOTS;
   int numconsumers = MAXCONSUMERS;
   int numproducers = MAXPRODUCERS;
+  int numdozens    = MAXDOZENS;
 
   int nsigs;
   struct timeval randtime, first_time, last_time;
