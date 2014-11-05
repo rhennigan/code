@@ -40,17 +40,6 @@ int main(/* int argc, char *argv[] */) {
   pthread_attr_t th_attr;
   int i;
 
-  for (i = 0; i < numflavors; i++) {
-    pthread_mutex_init(&prod[i], NULL);
-    pthread_mutex_init(&cons[i], NULL);
-    pthread_cond_init(&prod_cond[i], NULL);
-    pthread_cond_init(&cons_cond[i], NULL);
-  }
-
-  for (i = 0; i < numconsumers + numproducers; i++) {
-    pthread_mutex_init(&check_mutx[i], NULL);
-  }
-
   for (numslots = 50; numslots <= 200; numslots += 50) {
     /**************************************************************************/
     /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                        */
@@ -64,6 +53,17 @@ int main(/* int argc, char *argv[] */) {
     /**************************************************************************/
     /* GENERAL PTHREAD MUTEX AND CONDITION INIT AND GLOBAL INIT               */
     /**************************************************************************/
+
+    for (i = 0; i < numflavors; i++) {
+      pthread_mutex_init(&prod[i], NULL);
+      pthread_mutex_init(&cons[i], NULL);
+      pthread_cond_init(&prod_cond[i], NULL);
+      pthread_cond_init(&cons_cond[i], NULL);
+    }
+
+    for (i = 0; i < numconsumers + numproducers; i++) {
+      pthread_mutex_init(&check_mutx[i], NULL);
+    }
 
     for (i = 0; i < numflavors; i++) {
       shared_ring.outptr[i] = 0;
@@ -251,14 +251,9 @@ void * producer(void * arg) {
 /******************************************************************************/
 /* PTHREAD CONSUMER ROUTINE...                                                */
 /******************************************************************************/
-static void cleanup_handler(void * arg) {
-  int tid = *((int *)arg);
-  pthread_mutex_unlock(&check_mutx[tid]);
-}
-
 void * consumer(void * arg) {
   pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-  pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
+  // pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
 
   int dz, dn, sel;
   unsigned short xsub[3];
