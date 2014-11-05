@@ -26,8 +26,8 @@ int             numdozen;
 pthread_mutex_t check_mutx[MAXCONSUMERS + MAXPRODUCERS];
 struct timeval  check_time[MAXCONSUMERS + MAXPRODUCERS];
 bool            t_finished[MAXCONSUMERS + MAXPRODUCERS];
-pthread_mutex_t check_quit;
-bool            need_quit;
+pthread_mutex_t check_quit = PTHREAD_MUTEX_INITIALIZER;
+bool            need_quit = false;
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
@@ -70,7 +70,6 @@ int main(/* int argc, char *argv[] */) {
     shared_ring.spaces[i] = numslots;
     shared_ring.donuts[i] = 0;
   }
-  need_quit = false;
 
   /****************************************************************************/
   /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS                 */
