@@ -167,8 +167,13 @@ void * producer(void * arg) {
   xsub[2] = (ushort)(pthread_self());
 
   while (1) {
+    /* make a flavor selection */
     sel = nrand48(xsub) & 3;
+
+    /* entering critical region; lock the mutex for this flavor */
     pthread_mutex_lock(&prod[sel]);
+
+    /* if there's no room left in the buffer, thread will wait until signaled */
     while (shared_ring.spaces[sel] == 0) {
       pthread_cond_wait(&prod_cond[sel], &prod[sel]);
       /* consumer must signal prod_cond[sel] after freeing up a space */
