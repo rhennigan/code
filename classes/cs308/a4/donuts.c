@@ -24,17 +24,6 @@ int             numdozen;
 pthread_mutex_t check_mtx = PTHREAD_MUTEX_INITIALIZER;
 volatile struct timeval check_time;
 
-long int elapsed(struct timeval *res, struct timeval *t2, struct timeval *t1) {
-  long int usec1 = (t1->tv_usec + 1000000 * t1->tv_sec);
-  long int usec2 = (t2->tv_usec + 1000000 * t2->tv_sec);
-
-    long int diff = usec2 - usec1;
-    result->tv_sec = diff / 1000000;
-    result->tv_usec = diff % 1000000;
-
-    return (diff<0);
-}
-
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
   numflavors   = MAXFLAVORS;
@@ -405,4 +394,10 @@ void sig_handler(int sig) {
   }
   printf("\nThread %d took signal # %d, PROCESS HALT\n", thread_index, sig);
   exit(1);
+}
+
+long int elapsed_us(struct timeval *t2, struct timeval *t1) {
+  long int usec1 = (t1->tv_usec + 1000000 * t1->tv_sec);
+  long int usec2 = (t2->tv_usec + 1000000 * t2->tv_sec);
+  return usec2 - usec1;
 }
