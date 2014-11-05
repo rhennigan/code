@@ -3,13 +3,16 @@
 #include <unistd.h>
 #include "./donuts.h"
 
-donut_ring_t shared_ring;
+/******************************************************************************/
+/* GLOBAL VARIABLES                                                           */
+/******************************************************************************/
+donut_ring_t    shared_ring;
 pthread_mutex_t prod[MAXFLAVORS];
 pthread_mutex_t cons[MAXFLAVORS];
-pthread_cond_t prod_cond[MAXFLAVORS];
-pthread_cond_t cons_cond[MAXFLAVORS];
-pthread_t thread_id[MAXCONSUMERS + MAXPRODUCERS];
-pthread_t sig_wait_id;
+pthread_cond_t  prod_cond[MAXFLAVORS];
+pthread_cond_t  cons_cond[MAXFLAVORS];
+pthread_t       thread_id[MAXCONSUMERS + MAXPRODUCERS];
+pthread_t       sig_wait_id;
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
