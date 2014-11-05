@@ -280,6 +280,9 @@ void * consumer(void * arg) {
   donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS];
   int c_ptr[MAXFLAVORS];
 
+  pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
+  pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+
   /* initialize the collection to zero */
   int i, j, k;
   for (i = 0; i < MAXDOZENS; i++) {
@@ -303,8 +306,6 @@ void * consumer(void * arg) {
   xsub[0] = (ushort)(randtime.tv_usec);
   xsub[1] = (ushort)(randtime.tv_usec >> 16);
   xsub[2] = (ushort)(pthread_self());
-
-  pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 
   for (dz = 0; dz < numdozen; dz++) {  // for each dozen
     for (dn = 0; dn < 12; dn++) {  // for each donut
