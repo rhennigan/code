@@ -26,6 +26,7 @@ int             numdozen;
 pthread_mutex_t check_mutx[MAXCONSUMERS + MAXPRODUCERS];
 struct timeval  check_time[MAXCONSUMERS + MAXPRODUCERS];
 bool            t_finished[MAXCONSUMERS + MAXPRODUCERS];
+pthread_mutex_t check_quit;
 bool            need_quit;
 
 int main(/* int argc, char *argv[] */) {
