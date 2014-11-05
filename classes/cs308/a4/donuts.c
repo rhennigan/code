@@ -364,7 +364,7 @@ void * consumer(void * arg) {
       c_ptr[j] = 0;
     }
     /* sleep 100 us to give other consumer threads a chance to run */
-    usleep(100);
+    usleep(1000);
   }
 
   /* let the timekeeper thread know that we're done */

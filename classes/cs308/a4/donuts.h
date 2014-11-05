@@ -10,7 +10,7 @@
 #define MAXCONSUMERS       50
 #define MAXPRODUCERS       30
 #define MAXDOZENS          5
-#define DEADLOCK_THRESHOLD 50000
+#define DEADLOCK_THRESHOLD 100000
 
 struct donut_ring {
   int flavor[MAXFLAVORS][MAXSLOTS];
