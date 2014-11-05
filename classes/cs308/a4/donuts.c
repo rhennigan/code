@@ -21,6 +21,7 @@ int             numslots;
 int             numconsumers;
 int             numproducers;
 int             numdozen;
+pthread_mutex_t check_in = PTHREAD_MUTEX_INITIALIZER;
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
