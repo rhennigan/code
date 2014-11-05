@@ -152,7 +152,7 @@ void * producer(void * arg) {
   int i, j, k;
   unsigned short xsub[3];
   struct timeval randtime;
-  int sel_fl;
+  int sel;
 
   gettimeofday(&randtime, (struct timezone *)0);
   xsub[0] = (ushort)(randtime.tv_usec);
@@ -160,18 +160,21 @@ void * producer(void * arg) {
   xsub[2] = (ushort)(pthread_self());
 
   while (1) {
-    sel_fl = nrand48(xsub) & 3;
-    pthread_mutex_lock(&prod[sel_fl]);
-    while (shared_ring.spaces[sel_fl] == 0) {
-      pthread_cond_wait(&prod_cond[sel_fl], &prod[sel_fl]);
+    sel = nrand48(xsub) & 3;
+    pthread_mutex_lock(&prod[sel]);
+    while (shared_ring.spaces[sel] == 0) {
+      pthread_cond_wait(&prod_cond[sel], &prod[sel]);
       /* consumer must signal prod_cond[flavor] after freeing up a space */
     }
-    shared_ring.serial[sel_fl] += 1;
-    int in_ptr = shared_ring.in_ptr[sel_fl];
-    shared_ring.flavor[sel_fl][in_ptr] = shared_ring.serial[sel_fl];
-    shared_ring.in_ptr[sel_fl] = (in_ptr + 1) % numslots;
+    /* increment the donut counter for the selected flavor */
+    shared_ring.serial[sel] += 1;
+
+    
+    int in_ptr = shared_ring.in_ptr[sel];
+    shared_ring.flavor[sel][shared_ring.in_ptr[sel]] = shared_ring.serial[sel];
+    shared_ring.in_ptr[sel] = (shared_ring.in_ptr[sel] + 1) % numslots;
     /* stuff */
-    pthread_mutex_unlock(&prod[sel_fl]);
+    pthread_mutex_unlock(&prod[sel]);
     /* stuff */
   }
   return NULL;
