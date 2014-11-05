@@ -210,9 +210,9 @@ void * producer(void * arg) {
   while (1) {
     /* check in, so that the timekeeper thread doesn't think we're deadlocked */
     // check_in(id);
-    pthread_mutex_lock(&check_quit);
-    if (need_quit) return NULL;
-    pthread_mutex_unlock(&check_quit);
+    /* pthread_mutex_lock(&check_quit); */
+    /* if (need_quit) return NULL; */
+    /* pthread_mutex_unlock(&check_quit); */
 
     /* make a flavor selection */
     sel = nrand48(xsub) & 3;
@@ -467,10 +467,12 @@ void * time_keeper(void * arg) {
     usleep(10000);
     t = last_check_in();
     if (t > 200000) {
-      printf("deadlock detected!\n\n");
+      printf("deadlock detected!\n");
       pthread_mutex_lock(&check_quit);
+      printf("need_quit = true\n");
       need_quit = true;
       pthread_mutex_unlock(&check_quit);
+      printf("time_keeper exiting\n");
       return NULL;
     }
     if (t == -1) {
