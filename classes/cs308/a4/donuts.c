@@ -341,8 +341,8 @@ void output_collection(int id, donut_t collection[MAXFLAVORS][12 * MAXDOZENS]) {
     while (!done) {
       done = 1;
       for (flav = 0; flav < numflavors; flav++) {
-        if (collection[dozen][row].num) {
-          printf("  %d\t\t", donuts[flav][row].num);
+        if (collection[dozen][row].id) {
+          printf("  %d\t\t", collection[flav][row].id);
           done = 0;
         } else {
           printf("\t\t");
@@ -351,23 +351,7 @@ void output_collection(int id, donut_t collection[MAXFLAVORS][12 * MAXDOZENS]) {
       row += 1;
       printf("\n" C_DEF "");
     }
-    /* display_sem_contents("CONS", semid[CONSUMER], shared_ring, numslots); */
 #endif
-
-  int i, j, k = 0;
-  printf("consumer %d results:\n", id);
-  for (i = 0; i < N; i++) {
-    printf(" dozen number: %d\n", i);
-    for (k = 0; k < numflavors; k++) {
-      printf("  flavor %d: ", k);
-      for (j = 0; j < 12; j++) {
-        if (collection[i][j].fl == k) {
-          printf(" %3d", collection[i][j].id);
-        }
-      }
-      printf("\n");
-    }
-    printf("\n");
   }
 }
 
