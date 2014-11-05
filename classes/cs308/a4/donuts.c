@@ -185,6 +185,7 @@ void * producer(void * arg) {
     pthread_mutex_unlock(&prod[sel]);
 
     // TODO(rhennigan): signal cons_cond[sel] now that donuts are available
+    pthread_cond_signal(&cons_cond[sel]);
   }
   return NULL;
 }
