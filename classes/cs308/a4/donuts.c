@@ -162,6 +162,7 @@ int main(/* int argc, char *argv[] */) {
     /**************************************************************************/
 
     pthread_join(time_keeper_id, NULL);
+    printf("deadlock = %d\n", deadlock);
 
     /**************************************************************************/
     /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                    */
