@@ -234,6 +234,8 @@ void * consumer(void * arg) {
         pthread_cond_wait(&cons_cond[sel], &cons[sel]);
         /* producer must signal cons_cond[sel] when available */
       }
+
+      int ptr = shared_ring.outptr[sel];
     }
     usleep(1000); /* sleep 1 ms */
   }
