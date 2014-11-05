@@ -314,11 +314,11 @@ void * consumer(void * arg) {
 
   /* inspecting c */
   for (i = 0; i < numflavors; i++) {
-    for (j = 0; j < 12 * numdozen; j++) {
+    for (j = 0; j < 24; j++) {
       if (c[0][i][j].id) {
         printf(" %d", c[0][i][j].id);
       } else {
-        printf("  ");
+        printf(" -");
       }
     }
     printf("\n");
