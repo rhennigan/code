@@ -316,6 +316,33 @@ void output_collection(int id, int N, donut_t collection[N][12]) {
   snprintf(time_string, sizeof(time_string), "%s.%d",
            t_str, (int)ms.tv_usec / 1000);
 
+#ifdef _DEBUG_
+    printf("\n----------------------------------------------------------\n");
+    printf(C_DEF "thread ID: " C_BLD "%d\t", id);
+    printf(C_DEF "time: " C_BLD "%s\t", time_string);
+    printf(C_DEF "dozen #: " C_BLD "%d\n", dozen + 1);
+    printf("" C_DEF "\n");
+
+    printf("plain\t\tjelly\t\tcoconut\t\thoney-dip");
+    printf("\n" C_BLD "");
+
+    int flav, row = 0, done = 0;
+    while (!done) {
+      done = 1;
+      for (flav = 0; flav < NUMFLAVORS; flav++) {
+        if (donuts[flav][row].num) {
+          printf("  %d\t\t", donuts[flav][row].num);
+          done = 0;
+        } else {
+          printf("\t\t");
+        }
+      }
+      row += 1;
+      printf("\n" C_DEF "");
+    }
+    /* display_sem_contents("CONS", semid[CONSUMER], shared_ring, numslots); */
+#endif
+
   int i, j, k = 0;
   printf("consumer %d results:\n", id);
   for (i = 0; i < N; i++) {
