@@ -254,6 +254,7 @@ void * consumer(void * arg) {
       pthread_mutex_unlock(&cons[sel]);
 
       /* signal prod_cond[sel] now that production space is available */
+      pthread_cond_signal(&prod_cond[sel]);
     }
     usleep(1000); /* sleep 1 ms */
   }
