@@ -22,13 +22,12 @@ int main(/* int argc, char *argv[] */) {
   int numproducers = MAXPRODUCERS;
   int numdozen     = MAXDOZENS;
 
-  int nsigs;
   struct timeval first_time, last_time;
   struct sigaction new_act;
-  // int arg_array[MAXCONSUMERS];
   cons_arg_t arg_array[MAXCONSUMERS];
   sigset_t all_signals;
 
+  int nsigs = 3;
   int sigs[] = { SIGBUS, SIGSEGV, SIGFPE };
 
   pthread_attr_t thread_attr;
