@@ -295,8 +295,8 @@ void output_collection(int id, int N, donut_t collection[N][12]) {
   char t_str[80];
   struct tm tm_info;
   time(&timer);
-  localtime_r(&timer, &tm_info);
-  strftime(t_str, 80, "%T", tm_info);
+  /* localtime_r(&timer, &tm_info); */
+  /* strftime(t_str, 80, "%T", tm_info); */
 
   int i, j, k = 0;
   printf("consumer %d results:\n", id);
