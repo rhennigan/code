@@ -35,7 +35,7 @@ void   output_collection(int N, int collection[N][12]);
 /* PTHREAD ROUTINE ARGUMENT STRUCTS                                   */
 /**********************************************************************/
 typedef struct prod_arg {
-  int id;        // id number of producer thread
+  pthread_t id;  // id number of producer thread
   int numslots;  // number of slots in the ring buffer
 } prod_arg_t;
 
