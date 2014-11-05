@@ -328,9 +328,10 @@ void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]) {
   char time_string[80];
   struct tm tm_info;
   struct timeval ms;
-  FILE * logfile;
+
   char file_name[80];
   snprintf(file_name, sizeof(file_name), "log/%d.txt", id);
+  FILE * logfile = fopen(file_name, "w");
 
   time(&timer);
   localtime_r(&timer, &tm_info);
@@ -367,7 +368,8 @@ void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]) {
     }
 #endif
   }
-}
+    fclose(logfile);
+  }
 
 /******************************************************************************/
 /* PTHREAD ASYNCH SIGNAL HANDLER ROUTINE...                                   */
