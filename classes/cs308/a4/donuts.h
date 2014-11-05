@@ -7,7 +7,7 @@
 
 #define MAXFLAVORS   4
 #define MAXSLOTS     50
-#define MAXCONSUMERS 1
+#define MAXCONSUMERS 10
 #define MAXPRODUCERS 1
 #define MAXDOZENS    5
 
