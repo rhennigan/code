@@ -163,6 +163,8 @@ int main(/* int argc, char *argv[] */) {
   for (i = numproducers; i < numconsumers + numproducers; i++)
     pthread_join(thread_id[i], NULL);
 
+  pthread_join(time_keeper_id, NULL);
+
   /****************************************************************************/
   /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                      */
   /****************************************************************************/
