@@ -440,10 +440,10 @@ long int elapsed_us(struct timeval *t2, struct timeval *t1) {
 }
 
 long int last_check_in() {
-  int i;
+  int i = 0;
   long int max = -1;
   struct timeval current;
-  for (i = numproducers; i < numproducers + numconsumers - 2; i++) {
+  for (i = numproducers; i < numproducers + numconsumers - 1; i++) {
     pthread_mutex_lock(&check_mutx[i]);
     if (!t_finished[i]) {
       gettimeofday(&current, (struct timezone *)0);
