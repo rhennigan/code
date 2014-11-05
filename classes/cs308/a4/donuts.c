@@ -242,7 +242,7 @@ void * consumer(void * arg) {
   int dz, dn, sel;
   unsigned short xsub[3];
   struct timeval randtime;
-  donut_t collection[MAXDOZENS][MAXFLAVORS][12];
+  donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS];
   int c_ptr[MAXFLAVORS];
 
   /* initialize the collection to zero */
@@ -250,12 +250,12 @@ void * consumer(void * arg) {
   for (i = 0; i < MAXDOZENS; i++) {
     for (j = 0; j < MAXFLAVORS; j++) {
       for (k = 0; k < 12; k++) {
-        collection[i][j][k] = (donut_t){ -1, 0 };
+        c[i][j][k] = (donut_t){ -1, 0 };
       }
     }
   }
 
-  /* initialize collection pointers to zero */
+  /* initialize c pointers to zero */
   for (j = 0; j < MAXFLAVORS; j++) {
     c_ptr[j] = 0;
   }
@@ -283,9 +283,10 @@ void * consumer(void * arg) {
         /* producer must signal cons_cond[sel] when available */
       }
 
-      /* remove a donut and add it to our collection */
+      /* remove a donut and add it to our c */
       int d_id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
-      collection[sel][c_ptr[sel]++] = (donut_t){ sel, d_id };
+      c[dz][sel]
+      c[sel][c_ptr[sel]++] = (donut_t){ sel, d_id };
       shared_ring.flavor[sel][shared_ring.outptr[sel]] = 0;
 
       /* move outptr forward and cycle if necessary */
@@ -308,10 +309,10 @@ void * consumer(void * arg) {
     usleep(1000);
   }
 
-  /* inspecting collection */
+  /* inspecting c */
   for (i = 0; i < MAXFLAVORS; i++) {
     for (j = 0; j < 12 * MAXDOZENS; j++) {
-      printf(" %3d", collection[i][j].id);
+      printf(" %3d", c[i][j].id);
     }
     printf("\n");
   }
@@ -319,14 +320,14 @@ void * consumer(void * arg) {
   fflush(NULL);
 
   /* record the results */
-  output_collection(id, collection);
+  output_c(id, c);
   return NULL;
 }
 
 /******************************************************************************/
 /* CONSUMER EXPORT RESULTS ROUTINE...                                         */
 /******************************************************************************/
-void output_collection(int id, donut_t collection[MAXFLAVORS][12 * MAXDOZENS]) {
+void output_c(int id, donut_t c[MAXFLAVORS][12 * MAXDOZENS]) {
   system("mkdir -p log/");
 
   time_t timer;
@@ -358,8 +359,8 @@ void output_collection(int id, donut_t collection[MAXFLAVORS][12 * MAXDOZENS]) {
     while (!done) {
       done = 1;
       for (flav = 0; flav < numflavors; flav++) {
-        if (collection[flav][row].id) {
-          printf("  %d\t\t", collection[flav][row].id);
+        if (c[flav][row].id) {
+          printf("  %d\t\t", c[flav][row].id);
           done = 0;
         } else {
           printf("\t\t");
