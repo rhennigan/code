@@ -157,6 +157,7 @@ int main(/* int argc, char *argv[] */) {
     }
   }
 
+  printf("first_time.tv_sec = %d\n", first_time.tv_sec);
   printf("Elapsed consumer time is %d sec and %d usec\n", i, j);
 
   printf("\n\n ALL CONSUMERS FINISHED, KILLING  PROCESS\n\n");
