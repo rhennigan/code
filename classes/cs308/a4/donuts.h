@@ -31,7 +31,8 @@ void * producer(void * arg);
 void * consumer(void * arg);
 void sig_handler(int sig_num);
 void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]);
+void check_in(int tid);
 long int elapsed_us(struct timeval *t2, struct timeval *t1);
-void check_in();
+long int last_check_in();
 
 #endif  // DONUTS_H_

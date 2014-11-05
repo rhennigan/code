@@ -396,16 +396,16 @@ void sig_handler(int sig) {
   exit(1);
 }
 
-long int elapsed_us(struct timeval *t2, struct timeval *t1) {
-  long int usec1 = (t1->tv_usec + 1000000 * t1->tv_sec);
-  long int usec2 = (t2->tv_usec + 1000000 * t2->tv_sec);
-  return usec2 - usec1;
-}
-
 void check_in(int tid) {
   pthread_mutex_lock(&check_mutx[tid]);
   gettimeofday(&check_time[tid], (struct timezone *)0);
   pthread_mutex_unlock(&check_mutx[tid]);
+}
+
+long int elapsed_us(struct timeval *t2, struct timeval *t1) {
+  long int usec1 = (t1->tv_usec + 1000000 * t1->tv_sec);
+  long int usec2 = (t2->tv_usec + 1000000 * t2->tv_sec);
+  return usec2 - usec1;
 }
 
 long int last_check_in() {
@@ -419,4 +419,5 @@ long int last_check_in() {
     max = t > max ? t : max;
     pthread_mutex_unlock(&check_mutx[i]);
   }
+  return max;
 }
