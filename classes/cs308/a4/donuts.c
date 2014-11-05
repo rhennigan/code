@@ -225,6 +225,8 @@ void * producer(void * arg) {
 /******************************************************************************/
 /* PTHREAD CONSUMER ROUTINE...                                                */
 /******************************************************************************/
+struct donut { int flavor, number; };
+
 void * consumer(void * arg) {
   int dz, dn, sel;
   unsigned short xsub[3];
