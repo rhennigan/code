@@ -428,3 +428,10 @@ long int last_check_in() {
   }
   return max;
 }
+
+void * time_keeper(void * arg) {
+  long int t;
+  while (1) {
+    t = last_check_in();
+  }
+}
