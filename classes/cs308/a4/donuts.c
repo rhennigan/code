@@ -188,6 +188,9 @@ void * producer(void * arg) {
   struct timeval randtime;
   int sel;
 
+  /* get thread id */
+  int id = *(int *)arg;
+
   /* seed the random number generator */
   gettimeofday(&randtime, (struct timezone *)0);
   xsub[0] = (ushort)(randtime.tv_usec);
@@ -195,6 +198,9 @@ void * producer(void * arg) {
   xsub[2] = (ushort)(pthread_self());
 
   while (1) {
+    /* check in, so that the timekeeper thread doesn't think we're deadlocked */
+    check_in(id);
+
     /* make a flavor selection */
     sel = nrand48(xsub) & 3;
 
@@ -206,6 +212,7 @@ void * producer(void * arg) {
       pthread_cond_wait(&prod_cond[sel], &prod[sel]);
       /* consumer must signal prod_cond[sel] after freeing up a space */
     }
+
     /* increment the donut id for the selected flavor */
     shared_ring.serial[sel] += 1;
 
