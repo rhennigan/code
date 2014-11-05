@@ -67,6 +67,7 @@ int main(/* int argc, char *argv[] */) {
   /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS                 */
   /****************************************************************************/
 
+  /* create sigset with all signals and delete SIGBUS, SIGSEGV, and SIGFPE */
   sigfillset(&all_signals);
   nsigs = sizeof(sigs) / sizeof(int);
   for (i = 0; i < nsigs; i++) {
