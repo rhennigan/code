@@ -29,6 +29,7 @@ typedef struct donut { int fl; int id; } donut_t;
 void * sig_waiter(void * arg);
 void * producer(void * arg);
 void * consumer(void * arg);
+void * time_keeper(void * arg);
 void sig_handler(int sig_num);
 void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]);
 void check_in(int tid);
