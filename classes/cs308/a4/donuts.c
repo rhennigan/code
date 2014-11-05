@@ -26,8 +26,6 @@ int             numdozen;
 pthread_mutex_t check_mutx[MAXCONSUMERS + MAXPRODUCERS];
 struct timeval  check_time[MAXCONSUMERS + MAXPRODUCERS];
 bool            t_finished[MAXCONSUMERS + MAXPRODUCERS];
-// pthread_mutex_t check_quit = PTHREAD_MUTEX_INITIALIZER;
-// bool            need_quit = false;
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
@@ -74,8 +72,6 @@ int main(/* int argc, char *argv[] */) {
   for (i = 0; i < numconsumers + numproducers; i++) {
     pthread_mutex_init(&check_mutx[i], NULL);
   }
-
-  // pthread_mutex_init(&check_quit, NULL);
 
   /****************************************************************************/
   /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS                 */
@@ -166,23 +162,12 @@ int main(/* int argc, char *argv[] */) {
   /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                              */
   /****************************************************************************/
 
-  /* sleep(10); */
-  /* for (i = 0; i < numproducers + numconsumers; i++) { */
-  /*   pthread_cancel(thread_id[i]); */
-  /* } */
-  /* for (i = numproducers; i < numconsumers + numproducers; i++) */
-  /*   pthread_join(thread_id[i], NULL); */
-
   pthread_join(time_keeper_id, NULL);
 
   /****************************************************************************/
   /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                      */
   /****************************************************************************/
   gettimeofday(&last_time, (struct timezone *)0);
-  /* struct timeval elapsed; */
-  /* timeval_subtract(&elapsed, &last_time, &first_time); */
-  /* long int sec = elapsed.tv_sec; */
-  /* long int usec = elapsed.tv_usec; */
   long int sec, usec;
   if ((sec = last_time.tv_sec - first_time.tv_sec) == 0) {
     usec = last_time.tv_usec - first_time.tv_usec;
