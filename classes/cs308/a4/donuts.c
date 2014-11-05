@@ -150,20 +150,21 @@ int main(/* int argc, char *argv[] */) {
   /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                      */
   /****************************************************************************/
   gettimeofday(&last_time, (struct timezone *)0);
-  struct timeval elapsed;
-  timeval_subtract(&elapsed, &last_time, &first_time);
-  long int sec = elapsed.tv_sec;
-  long int usec = elapsed.tv_usec;
-  /* if ((sec = last_time.tv_sec - first_time.tv_sec) == 0) { */
-  /*   usec = last_time.tv_usec - first_time.tv_usec; */
-  /* } else { */
-  /*   if (last_time.tv_usec - first_time.tv_usec < 0) { */
-  /*     sec--; */
-  /*     usec = 1000000 + (last_time.tv_usec - first_time.tv_usec); */
-  /*   } else { */
-  /*     usec = last_time.tv_usec - first_time.tv_usec; */
-  /*   } */
-  /* } */
+  /* struct timeval elapsed; */
+  /* timeval_subtract(&elapsed, &last_time, &first_time); */
+  /* long int sec = elapsed.tv_sec; */
+  /* long int usec = elapsed.tv_usec; */
+  long int sec, usec;
+  if ((sec = last_time.tv_sec - first_time.tv_sec) == 0) {
+    usec = last_time.tv_usec - first_time.tv_usec;
+  } else {
+    if (last_time.tv_usec - first_time.tv_usec < 0) {
+      sec--;
+      usec = 1000000 + (last_time.tv_usec - first_time.tv_usec);
+    } else {
+      usec = last_time.tv_usec - first_time.tv_usec;
+    }
+  }
 
   printf("Elapsed consumer time is %ld sec and %ld usec\n", sec, usec);
 
