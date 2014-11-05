@@ -21,7 +21,8 @@ int             numslots;
 int             numconsumers;
 int             numproducers;
 int             numdozen;
-pthread_mutex_t check_in = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t check_in_mtx = PTHREAD_MUTEX_INITIALIZER;
+volatile struct timeval check_in_time;
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
