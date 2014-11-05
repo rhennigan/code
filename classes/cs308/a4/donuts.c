@@ -316,6 +316,8 @@ void output_collection(int id, int N, donut_t collection[N][12]) {
   snprintf(time_string, sizeof(time_string), "%s.%d",
            t_str, (int)ms.tv_usec / 1000);
 
+  int dozen;
+  for (dozen = 0; dozen < numdozen; dozen++) {
 #ifdef _DEBUG_
     printf("\n----------------------------------------------------------\n");
     printf(C_DEF "thread ID: " C_BLD "%d\t", id);
