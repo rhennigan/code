@@ -481,12 +481,12 @@ void * time_keeper(void * arg) {
         finished = true;
         for (i = numproducers; i < numproducers + numconsumers; i++) {
           pthread_mutex_lock(&check_mutx[i]);
-          
+          if (!t_finished[i]) finished = false;
           pthread_mutex_unlock(&check_mutx[i]);
         }
-      }
-      for (i = 0; i < numflavors; i++) {
-        pthread_cond_signal(&cons_cond[i]);
+        for (i = 0; i < numflavors; i++) {
+          pthread_cond_signal(&cons_cond[i]);
+        }
       }
       break;
     }
