@@ -1,11 +1,11 @@
 #!/bin/bash
 
-for i in `seq 50 50 500`;
+for i in `seq 10 50 10`;
 do
 	count=0
-	for j in `seq 1 100`;
+	for j in `seq 1 1000`;
 	do
-		res=$(`echo ./donuts $i 50 30 10`)
+		res=$(`echo ./donuts $i 50 30 200`)
 		echo $res
 		count=`expr $count + $res`
 	done
