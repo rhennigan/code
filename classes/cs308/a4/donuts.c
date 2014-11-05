@@ -174,6 +174,9 @@ void * producer(void * arg) {
 
     /* move in_ptr forward and cycle if necessary */
     shared_ring.in_ptr[sel] = (shared_ring.in_ptr[sel] + 1) % numslots;
+
+    /* decrement the number of available spaces */
+    
     /* stuff */
     pthread_mutex_unlock(&prod[sel]);
     /* stuff */
