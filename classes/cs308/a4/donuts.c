@@ -50,7 +50,6 @@ int main(/* int argc, char *argv[] */) {
   gettimeofday(&first_time, (struct timezone *)0);
   for (i = 0; i < numproducers + numconsumers; i++) {
     arg_array[i] = i;  // SET ARRAY OF ARGUMENT VALUES
-    check_in(i);
     t_finished[i] = false;
   }
 
@@ -97,6 +96,10 @@ int main(/* int argc, char *argv[] */) {
       perror("can't set signals: ");
       exit(EXIT_FAILURE);
     }
+  }
+
+  for (i = 0; i < numproducers + numconsumers; i++) {
+    check_in(i);
   }
 
   printf("just before threads created\n");
