@@ -69,8 +69,9 @@ int main(/* int argc, char *argv[] */) {
 
   sigfillset(&all_signals);
   nsigs = sizeof(sigs) / sizeof(int);
-  for (i = 0; i < nsigs; i++)
+  for (i = 0; i < nsigs; i++) {
     sigdelset(&all_signals, sigs[i]);
+  }
   sigprocmask(SIG_BLOCK, &all_signals, NULL);
   sigfillset(&all_signals);
   for (i = 0; i < nsigs; i++) {
