@@ -275,7 +275,7 @@ void output_collection(int N, int collection[N][12]) {
   printf("results:\n");
   for (i = 0; i < N; i++) {
     for (j = 0; j < 12; j++) {
-      printf(" %d", collection[i][j]);
+      printf(" %3d", collection[i][j]);
     }
     printf("\n");
   }
