@@ -448,9 +448,8 @@ long int last_check_in() {
   return max;
 }
 
-void * time_keeper(void * arg) {
-  bool * deadlock = malloc(sizeof(bool));
-  (*deadlock) = false;
+void * time_keeper(void * deadlock) {
+  *((bool *)deadlock) = false;
   usleep(10000);
   FILE * fp = fopen("log/time.csv", "w");
   long int t;
@@ -458,7 +457,7 @@ void * time_keeper(void * arg) {
     t = last_check_in();
     if (t > DEADLOCK_THRESHOLD) {
       printf("deadlock detected!\n");
-      (*deadlock) = true;
+      *((bool *)deadlock) = true;
       int i;
       for (i = 0; i < numproducers + numconsumers; i++) {
         pthread_cancel(thread_id[i]);
@@ -474,5 +473,6 @@ void * time_keeper(void * arg) {
   }
   fclose(fp);
   printf("time_keeper returning\n");
+  
   pthread_exit(deadlock);
 }
