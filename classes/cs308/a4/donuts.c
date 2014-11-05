@@ -26,6 +26,7 @@ int             numdozen;
 pthread_mutex_t check_mutx[MAXCONSUMERS + MAXPRODUCERS];
 struct timeval  check_time[MAXCONSUMERS + MAXPRODUCERS];
 bool            t_finished[MAXCONSUMERS + MAXPRODUCERS];
+bool            deadlock;
 
 int main(int argc, char *argv[]) {
   // TODO(rhennigan): set these by looping over test parameters
