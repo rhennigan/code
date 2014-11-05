@@ -25,7 +25,7 @@ int             numproducers;
 int             numdozen;
 pthread_mutex_t check_mutx[MAXCONSUMERS + MAXPRODUCERS];
 struct timeval  check_time[MAXCONSUMERS + MAXPRODUCERS];
-bool            th_running[MAXCONSUMERS + MAXPRODUCERS];
+bool            t_finished[MAXCONSUMERS + MAXPRODUCERS];
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
@@ -51,7 +51,7 @@ int main(/* int argc, char *argv[] */) {
   for (i = 0; i < numproducers + numconsumers; i++) {
     arg_array[i] = i;  // SET ARRAY OF ARGUMENT VALUES
     check_in(i);
-    th_running[i] = true;
+    t_finished[i] = false;
   }
 
   /****************************************************************************/
@@ -322,6 +322,9 @@ void * consumer(void * arg) {
     /* sleep 1 ms to give other consumer threads a chance to run */
     usleep(1000);
   }
+
+  /* let the timekeeper thread know that we're done */
+  th_running[id] = false;
 
   /* record the results */
   output_c(id, c);
