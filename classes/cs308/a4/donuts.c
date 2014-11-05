@@ -167,6 +167,8 @@ void * producer(void * arg) {
       /* consumer must signal prod_cond[flavor] after freeing up a space */
     }
     shared_ring.serial[sel_fl] += 1;
+    int in_ptr = shared_ring.in_ptr[sel_fl];
+    shared_ring.flavor[sel_fl][in_ptr] = shared_ring.serial[sel_fl];
     /* stuff */
     pthread_mutex_unlock(&prod[sel_fl]);
     /* stuff */
