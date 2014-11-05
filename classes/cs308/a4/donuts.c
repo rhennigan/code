@@ -291,11 +291,13 @@ void output_collection(int id, int N, donut_t collection[N][12]) {
   system("mkdir -p log/");
   int i, j, k = 0;
   printf("consumer %d results:\n", id);
-  for (i = 0; i < N; i++) {
-    for (j = 0; j < 12; j++) {
-      printf(" %3d", collection[i][j].id);
+  for (k = 0; k < numflavors; k++) {
+    for (i = 0; i < N; i++) {
+      for (j = 0; j < 12; j++) {
+        printf(" %3d", collection[i][j].id);
+      }
+      printf("\n");
     }
-    printf("\n");
   }
 }
 
