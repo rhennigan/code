@@ -312,20 +312,6 @@ void * consumer(void * arg) {
     usleep(1000);
   }
 
-  /* inspecting c */
-  for (i = 0; i < numflavors; i++) {
-    for (j = 0; j < 24; j++) {
-      if (c[0][i][j].id) {
-        printf(" %d", c[0][i][j].id);
-      } else {
-        printf(" -");
-      }
-    }
-    printf("\n");
-  }
-  printf("\n");
-  fflush(NULL);
-
   /* record the results */
   output_c(id, c);
   return NULL;
@@ -366,8 +352,8 @@ void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]) {
     while (!done) {
       done = 1;
       for (flav = 0; flav < numflavors; flav++) {
-        if (c[flav][row].id) {
-          printf("  %d\t\t", c[flav][row].id);
+        if (c[dozen][flav][row].id) {
+          printf("  %d\t\t", c[dozen][flav][row].id);
           done = 0;
         } else {
           printf("\t\t");
