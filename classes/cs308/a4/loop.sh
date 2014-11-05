@@ -6,6 +6,7 @@ do
 	for j in `seq 1 100`;
 	do
 		res=$(`echo ./donuts $i 50 30 10`)
+		echo $res
 		count=`expr $count + $res`
 	done
 	echo $i", "$count
