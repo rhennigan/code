@@ -286,7 +286,7 @@ void * consumer(void * arg) {
   xsub[2] = (ushort)(pthread_self());
 
   pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-  
+
   for (dz = 0; dz < numdozen; dz++) {  // for each dozen
     for (dn = 0; dn < 12; dn++) {  // for each donut
       /* make a flavor selection */
