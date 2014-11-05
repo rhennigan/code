@@ -35,7 +35,7 @@ int main(/* int argc, char *argv[] */) {
 
   struct timeval first_time, last_time;
 
-  int arg_array[MAXCONSUMERS];
+  int arg_array[MAXPRODUCERS + MAXCONSUMERS];
 
   pthread_attr_t th_attr;
   struct sched_param shed_struct;
@@ -47,7 +47,7 @@ int main(/* int argc, char *argv[] */) {
   /****************************************************************************/
   for (i = 0; i < numproducers + numconsumers; i++) check_in(i);
   gettimeofday(&first_time, (struct timezone *)0);
-  for (i = 0; i < numconsumers + 1; i++) {
+  for (i = 0; i < numproducers + numconsumers; i++) {
     arg_array[i] = i;  // SET ARRAY OF ARGUMENT VALUES
   }
 
