@@ -29,7 +29,7 @@ void * sig_waiter(void * arg);
 void * producer(void * arg);
 void * consumer(void * arg);
 void   sig_handler(int sig_num);
-void   output_collection(int collection[][12]);
+void   output_collection(int N, int collection[N][12]);
 
 /**********************************************************************/
 /* PTHREAD ROUTINE ARGUMENT STRUCTS                                   */

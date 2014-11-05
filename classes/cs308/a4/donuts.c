@@ -263,15 +263,19 @@ void * consumer(void * arg) {
   }
 
   /* record the results */
-  output_collection(collection);
+  output_collection(numdozen, collection);
   return NULL;
 }
 
 /******************************************************************************/
 /* CONSUMER EXPORT RESULTS ROUTINE...                                         */
 /******************************************************************************/
-void output_collection(int collection[][12]) {
-  
+void output_collection(int N, int collection[N][12]) {
+  int i, j;
+  printf("results:\n");
+  for (i = 0; i < N; i++) {
+    
+  }
 }
 
 /******************************************************************************/
