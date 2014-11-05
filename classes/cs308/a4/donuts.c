@@ -297,6 +297,7 @@ void * consumer(void * arg) {
 
       /* if there are no donuts available, thread will wait until signaled */
       while (!need_quit && shared_ring.donuts[sel] == 0) {
+        usleep(100);
         pthread_cond_wait(&cons_cond[sel], &cons[sel]);
         /* producer must signal cons_cond[sel] when available */
         if (need_quit) {
@@ -490,6 +491,7 @@ void * time_keeper(void * arg) {
         for (i = 0; i < numflavors; i++) {
           pthread_cond_signal(&cons_cond[i]);
         }
+        usleep(1000);
       }
       break;
     }
