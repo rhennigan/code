@@ -2,7 +2,7 @@
 
 for k in `seq 1 100`;
 do
-	for i in `seq 500 500 10000`;
+	for i in `seq 250 50 750`;
 	do
 		count=0
 		for j in `seq 1 100`;
