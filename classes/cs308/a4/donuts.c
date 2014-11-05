@@ -29,7 +29,7 @@ int main(/* int argc, char *argv[] */) {
 
   struct timeval first_time, last_time;
 
-  cons_arg_t arg_array[MAXCONSUMERS];
+  int arg_array[MAXCONSUMERS];
 
   pthread_attr_t th_attr;
   struct sched_param shed_struct;

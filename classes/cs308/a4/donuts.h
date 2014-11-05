@@ -31,17 +31,4 @@ void * consumer(void * arg);
 void   sig_handler(int sig_num);
 void   output_collection(int N, int collection[N][12]);
 
-/**********************************************************************/
-/* PTHREAD ROUTINE ARGUMENT STRUCTS                                   */
-/**********************************************************************/
-typedef struct prod_arg {
-  int numslots;  // number of slots in the ring buffer
-} prod_arg_t;
-
-typedef struct cons_arg {
-  pthread_t id;  // id number of consumer thread
-  int numslots;  // number of slots in the ring buffer
-  int numdozen;  // number of dozens to collect
-} cons_arg_t;
-
 #endif  // DONUTS_H_
