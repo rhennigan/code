@@ -33,12 +33,12 @@ void   sig_handler(int sig_num);
 /* PTHREAD ROUTINE ARGUMENT STRUCTS                                   */
 /**********************************************************************/
 typedef struct prod_arg {
-  int prod_num;  // id number of producer thread
+  pthread_t id;  // id number of producer thread
   int numslots;  // number of slots in the ring buffer
 } prod_arg_t;
 
 typedef struct cons_arg {
-  int cons_num;  // id number of consumer thread
+  pthread_t id;  // id number of consumer thread
   int numslots;  // number of slots in the ring buffer
   int numdozen;  // number of dozens to collect
 } cons_arg_t;
