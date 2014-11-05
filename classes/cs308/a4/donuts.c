@@ -149,7 +149,6 @@ int main(/* int argc, char *argv[] */) {
 /* PTHREAD PRODUCER ROUTINE...                                                */
 /******************************************************************************/
 void * producer(void * arg) {
-  int i, j, k;
   unsigned short xsub[3];
   struct timeval randtime;
   int sel;
@@ -184,7 +183,7 @@ void * producer(void * arg) {
     /* release our hold on the mutex for this flavor */
     pthread_mutex_unlock(&prod[sel]);
 
-    // TODO(rhennigan): signal cons_cond[sel] now that donuts are available
+    /* signal cons_cond[sel] now that donuts are available */
     pthread_cond_signal(&cons_cond[sel]);
   }
   return NULL;
