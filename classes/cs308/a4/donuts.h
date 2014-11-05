@@ -10,7 +10,7 @@
 #define MAXCONSUMERS       100
 #define MAXPRODUCERS       100
 #define MAXDOZENS          300
-#define DEADLOCK_THRESHOLD 100000
+#define DEADLOCK_THRESHOLD 1000000
 #define TIME_KEEPER_PER    10000
 
 struct donut_ring {
