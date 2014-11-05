@@ -27,10 +27,10 @@ pthread_mutex_t check_mutx[MAXCONSUMERS + MAXPRODUCERS];
 struct timeval  check_time[MAXCONSUMERS + MAXPRODUCERS];
 bool            t_finished[MAXCONSUMERS + MAXPRODUCERS];
 
-int main(/* int argc, char *argv[] */) {
+int main(int argc, char *argv[]) {
   // TODO(rhennigan): set these by looping over test parameters
   numflavors   = MAXFLAVORS;
-  numslots     = MAXSLOTS;
+  numslots     = atoi(argv[1]);
   numconsumers = MAXCONSUMERS;
   numproducers = MAXPRODUCERS;
   numdozen     = MAXDOZENS;
@@ -40,157 +40,156 @@ int main(/* int argc, char *argv[] */) {
   pthread_attr_t th_attr;
   int i;
 
-  for (numslots = 50; numslots <= 200; numslots += 50) {
-    /**************************************************************************/
-    /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                        */
-    /**************************************************************************/
-    gettimeofday(&first_time, (struct timezone *)0);
-    for (i = 0; i < numproducers + numconsumers; i++) {
-      arg_array[i] = i;  // SET ARRAY OF ARGUMENT VALUES
-      t_finished[i] = false;
+  /**************************************************************************/
+  /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                        */
+  /**************************************************************************/
+  gettimeofday(&first_time, (struct timezone *)0);
+  for (i = 0; i < numproducers + numconsumers; i++) {
+    arg_array[i] = i;  // SET ARRAY OF ARGUMENT VALUES
+    t_finished[i] = false;
+  }
+
+  /**************************************************************************/
+  /* GENERAL PTHREAD MUTEX AND CONDITION INIT AND GLOBAL INIT               */
+  /**************************************************************************/
+
+  for (i = 0; i < numflavors; i++) {
+    pthread_mutex_init(&prod[i], NULL);
+    pthread_mutex_init(&cons[i], NULL);
+    pthread_cond_init(&prod_cond[i], NULL);
+    pthread_cond_init(&cons_cond[i], NULL);
+  }
+
+  for (i = 0; i < numconsumers + numproducers; i++) {
+    pthread_mutex_init(&check_mutx[i], NULL);
+  }
+
+  for (i = 0; i < numflavors; i++) {
+    shared_ring.outptr[i] = 0;
+    shared_ring.in_ptr[i] = 0;
+    shared_ring.serial[i] = 0;
+    shared_ring.spaces[i] = numslots;
+    shared_ring.donuts[i] = 0;
+  }
+
+  /**************************************************************************/
+  /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS               */
+  /**************************************************************************/
+  sigset_t all_signals;
+  int sigs[] = { SIGBUS, SIGSEGV, SIGFPE };
+  int nsigs = sizeof(sigs) / sizeof(int);
+  struct sigaction new_act;
+
+  /* create signal set with all signals but SIGBUS, SIGSEGV, and SIGFPE */
+  sigfillset(&all_signals);
+  for (i = 0; i < nsigs; i++) {
+    sigdelset(&all_signals, sigs[i]);
+  }
+
+  /* block everything remaining in all_signals */
+  sigprocmask(SIG_BLOCK, &all_signals, NULL);
+
+  /* initialize all_signals */
+  sigfillset(&all_signals);
+  for (i = 0; i < nsigs; i++) {
+    new_act.sa_handler = sig_handler;
+    new_act.sa_mask    = all_signals;
+    new_act.sa_flags   = 0;
+    if (sigaction(sigs[i], &new_act, NULL) == -1) {
+      perror("can't set signals: ");
+      exit(EXIT_FAILURE);
     }
+  }
 
-    /**************************************************************************/
-    /* GENERAL PTHREAD MUTEX AND CONDITION INIT AND GLOBAL INIT               */
-    /**************************************************************************/
+  for (i = 0; i < numproducers + numconsumers; i++) {
+    check_in(i);
+  }
 
-    for (i = 0; i < numflavors; i++) {
-      pthread_mutex_init(&prod[i], NULL);
-      pthread_mutex_init(&cons[i], NULL);
-      pthread_cond_init(&prod_cond[i], NULL);
-      pthread_cond_init(&cons_cond[i], NULL);
-    }
+  printf("just before threads created\n");
 
-    for (i = 0; i < numconsumers + numproducers; i++) {
-      pthread_mutex_init(&check_mutx[i], NULL);
-    }
+  /**************************************************************************/
+  /* CREATE SIGNAL HANDLER THREAD, PRODUCER AND CONSUMERS                   */
+  /**************************************************************************/
+  if (pthread_create(&sig_wait_id, NULL, sig_waiter, NULL) != 0) {
+    printf("pthread_create failed ");
+    exit(3);
+  }
 
-    for (i = 0; i < numflavors; i++) {
-      shared_ring.outptr[i] = 0;
-      shared_ring.in_ptr[i] = 0;
-      shared_ring.serial[i] = 0;
-      shared_ring.spaces[i] = numslots;
-      shared_ring.donuts[i] = 0;
-    }
-
-    /**************************************************************************/
-    /* SETUP FOR MANAGING THE SIGTERM SIGNAL, BLOCK ALL SIGNALS               */
-    /**************************************************************************/
-    sigset_t all_signals;
-    int sigs[] = { SIGBUS, SIGSEGV, SIGFPE };
-    int nsigs = sizeof(sigs) / sizeof(int);
-    struct sigaction new_act;
-
-    /* create signal set with all signals but SIGBUS, SIGSEGV, and SIGFPE */
-    sigfillset(&all_signals);
-    for (i = 0; i < nsigs; i++) {
-      sigdelset(&all_signals, sigs[i]);
-    }
-
-    /* block everything remaining in all_signals */
-    sigprocmask(SIG_BLOCK, &all_signals, NULL);
-
-    /* initialize all_signals */
-    sigfillset(&all_signals);
-    for (i = 0; i < nsigs; i++) {
-      new_act.sa_handler = sig_handler;
-      new_act.sa_mask    = all_signals;
-      new_act.sa_flags   = 0;
-      if (sigaction(sigs[i], &new_act, NULL) == -1) {
-        perror("can't set signals: ");
-        exit(EXIT_FAILURE);
-      }
-    }
-
-    for (i = 0; i < numproducers + numconsumers; i++) {
-      check_in(i);
-    }
-
-    printf("just before threads created\n");
-
-    /**************************************************************************/
-    /* CREATE SIGNAL HANDLER THREAD, PRODUCER AND CONSUMERS                   */
-    /**************************************************************************/
-    if (pthread_create(&sig_wait_id, NULL, sig_waiter, NULL) != 0) {
-      printf("pthread_create failed ");
-      exit(3);
-    }
-
-    pthread_attr_init(&th_attr);
-    pthread_attr_setinheritsched(&th_attr, PTHREAD_INHERIT_SCHED);
+  pthread_attr_init(&th_attr);
+  pthread_attr_setinheritsched(&th_attr, PTHREAD_INHERIT_SCHED);
 
 #ifdef GLOBAL
-    sched_struct.sched_priority = sched_get_priority_max(SCHED_OTHER);
-    pthread_attr_setinheritsched(&th_attr, PTHREAD_EXPLICIT_SCHED);
-    pthread_attr_setschedpolicy(&th_attr, SCHED_OTHER);
-    pthread_attr_setschedparam(&th_attr, &sched_struct);
-    pthread_attr_setscope(&th_attr, PTHREAD_SCOPE_SYSTEM);
+  sched_struct.sched_priority = sched_get_priority_max(SCHED_OTHER);
+  pthread_attr_setinheritsched(&th_attr, PTHREAD_EXPLICIT_SCHED);
+  pthread_attr_setschedpolicy(&th_attr, SCHED_OTHER);
+  pthread_attr_setschedparam(&th_attr, &sched_struct);
+  pthread_attr_setscope(&th_attr, PTHREAD_SCOPE_SYSTEM);
 #endif  // GLOBAL
 
-    /* create all the producer threads */
-    for (i = 0; i < numproducers; i++) {
-      // printf("creating producer %d\n", i);
-      if (pthread_create(&thread_id[i], &th_attr, producer,
-                         (void *)&arg_array[i]) != 0) {
-        printf("pthread_create failed ");
-        exit(3);
-      }
-    }
-
-    /* create all the consumer threads */
-    for (i = numproducers; i < numconsumers + numproducers; i++) {
-      // printf("creating consumer %d\n", i);
-      if (pthread_create(&thread_id[i], &th_attr, consumer,
-                         (void *)&arg_array[i]) != 0) {
-        printf("pthread_create failed");
-        exit(3);
-      }
-    }
-
-    /* create the timekeeper thread */
-    bool deadlock;
-    int tk = pthread_create(&time_keeper_id, &th_attr, time_keeper, &deadlock);
-    if (tk != 0) {
+  /* create all the producer threads */
+  for (i = 0; i < numproducers; i++) {
+    // printf("creating producer %d\n", i);
+    if (pthread_create(&thread_id[i], &th_attr, producer,
+                       (void *)&arg_array[i]) != 0) {
       printf("pthread_create failed ");
       exit(3);
     }
-
-    printf("just after threads created\n");
-
-    /**************************************************************************/
-    /* WAIT FOR ALL CONSUMERS TO FINISH, SIGNAL WAITER WILL                   */
-    /* NOT FINISH UNLESS A SIGTERM ARRIVES AND WILL THEN EXIT                 */
-    /* THE ENTIRE PROCESS....OTHERWISE MAIN THREAD WILL EXIT                  */
-    /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                            */
-    /**************************************************************************/
-
-    pthread_join(time_keeper_id, NULL);
-    /* for (i = 0; i < numconsumers + numproducers; i++) { */
-    /*   pthread_join(thread_id[i], NULL); */
-    /* } */
-
-    printf("deadlock = %d\n", deadlock);
-
-    /**************************************************************************/
-    /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                    */
-    /**************************************************************************/
-    gettimeofday(&last_time, (struct timezone *)0);
-    long int sec, usec;
-    if ((sec = last_time.tv_sec - first_time.tv_sec) == 0) {
-      usec = last_time.tv_usec - first_time.tv_usec;
-    } else {
-      if (last_time.tv_usec - first_time.tv_usec < 0) {
-        sec--;
-        usec = 1000000 + (last_time.tv_usec - first_time.tv_usec);
-      } else {
-        usec = last_time.tv_usec - first_time.tv_usec;
-      }
-    }
-
-    printf("Elapsed consumer time is %ld sec and %ld usec\n", sec, usec);
-
-    printf("\n\n ALL CONSUMERS FINISHED, KILLING  PROCESS\n\n");
   }
+
+  /* create all the consumer threads */
+  for (i = numproducers; i < numconsumers + numproducers; i++) {
+    // printf("creating consumer %d\n", i);
+    if (pthread_create(&thread_id[i], &th_attr, consumer,
+                       (void *)&arg_array[i]) != 0) {
+      printf("pthread_create failed");
+      exit(3);
+    }
+  }
+
+  /* create the timekeeper thread */
+  bool deadlock;
+  int tk = pthread_create(&time_keeper_id, &th_attr, time_keeper, &deadlock);
+  if (tk != 0) {
+    printf("pthread_create failed ");
+    exit(3);
+  }
+
+  printf("just after threads created\n");
+
+  /**************************************************************************/
+  /* WAIT FOR ALL CONSUMERS TO FINISH, SIGNAL WAITER WILL                   */
+  /* NOT FINISH UNLESS A SIGTERM ARRIVES AND WILL THEN EXIT                 */
+  /* THE ENTIRE PROCESS....OTHERWISE MAIN THREAD WILL EXIT                  */
+  /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                            */
+  /**************************************************************************/
+
+  pthread_join(time_keeper_id, NULL);
+  /* for (i = 0; i < numconsumers + numproducers; i++) { */
+  /*   pthread_join(thread_id[i], NULL); */
+  /* } */
+
+  printf("deadlock = %d\n", deadlock);
+
+  /**************************************************************************/
+  /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                    */
+  /**************************************************************************/
+  gettimeofday(&last_time, (struct timezone *)0);
+  long int sec, usec;
+  if ((sec = last_time.tv_sec - first_time.tv_sec) == 0) {
+    usec = last_time.tv_usec - first_time.tv_usec;
+  } else {
+    if (last_time.tv_usec - first_time.tv_usec < 0) {
+      sec--;
+      usec = 1000000 + (last_time.tv_usec - first_time.tv_usec);
+    } else {
+      usec = last_time.tv_usec - first_time.tv_usec;
+    }
+  }
+
+  printf("Elapsed consumer time is %ld sec and %ld usec\n", sec, usec);
+
+  printf("\n\n ALL CONSUMERS FINISHED, KILLING  PROCESS\n\n");
+
   exit(0);
 }
 
