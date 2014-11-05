@@ -166,6 +166,10 @@ int main(/* int argc, char *argv[] */) {
   /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                              */
   /****************************************************************************/
 
+  sleep(10);
+  for (i = 0; i < numproducers + numconsumers; i++) {
+        
+  }
   for (i = numproducers; i < numconsumers + numproducers; i++)
     pthread_join(thread_id[i], NULL);
 
