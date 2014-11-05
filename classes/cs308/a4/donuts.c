@@ -45,7 +45,7 @@ int main(/* int argc, char *argv[] */) {
   /****************************************************************************/
   /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                          */
   /****************************************************************************/
-  gettimeofday(&check_time, (struct timezone *)0);
+  // gettimeofday(check_time, (struct timezone *)0);
   gettimeofday(&first_time, (struct timezone *)0);
   for (i = 0; i < numconsumers + 1; i++) {
     arg_array[i] = i;  // SET ARRAY OF ARGUMENT VALUES
@@ -405,6 +405,6 @@ long int elapsed_us(struct timeval *t2, struct timeval *t1) {
 
 void check_in(int tid) {
   pthread_mutex_lock(&check_mutx[tid]);
-  gettimeofday(&check_time[tid], (struct timezone *)0);
+  gettimeofday(check_time[tid], (struct timezone *)0);
   pthread_mutex_unlock(&check_mtx);
 }
