@@ -6,7 +6,7 @@
 #include <pthread.h>
 
 #define MAXFLAVORS         4
-#define MAXSLOTS           1000
+#define MAXSLOTS           10000
 #define MAXCONSUMERS       100
 #define MAXPRODUCERS       100
 #define MAXDOZENS          300
