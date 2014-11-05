@@ -40,7 +40,7 @@ typedef struct prod_arg {
 } prod_arg_t;
 
 typedef struct cons_arg {
-  int id;        // id number of consumer thread
+  pthread_t id;  // id number of consumer thread
   int numslots;  // number of slots in the ring buffer
   int numdozen;  // number of dozens to collect
 } cons_arg_t;
