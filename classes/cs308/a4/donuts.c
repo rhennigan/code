@@ -344,28 +344,28 @@ void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]) {
   int dozen;
   for (dozen = 0; dozen < numdozen; dozen++) {
 #ifdef _DEBUG_
-    printf("\n----------------------------------------------------------\n");
-    printf(C_DEF "thread ID: " C_BLD "%d\t", id);
-    printf(C_DEF "time: " C_BLD "%s\t", time_string);
-    printf(C_DEF "dozen #: " C_BLD "%d\n", dozen + 1);
-    printf("" C_DEF "\n");
+    fprintf(fp, "\n--------------------------------------------------------\n");
+    fprintf(C_DEF "thread ID: " C_BLD "%d\t", id);
+    fprintf(C_DEF "time: " C_BLD "%s\t", time_string);
+    fprintf(C_DEF "dozen #: " C_BLD "%d\n", dozen + 1);
+    fprintf("" C_DEF "\n");
 
-    printf("plain\t\tjelly\t\tcoconut\t\thoney-dip");
-    printf("\n" C_BLD "");
+    fprintf("plain\t\tjelly\t\tcoconut\t\thoney-dip");
+    fprintf("\n" C_BLD "");
 
     int flav, row = 0, done = 0;
     while (!done) {
       done = 1;
       for (flav = 0; flav < numflavors; flav++) {
         if (c[dozen][flav][row].id) {
-          printf("  %d\t\t", c[dozen][flav][row].id);
+          fprintf("  %d\t\t", c[dozen][flav][row].id);
           done = 0;
         } else {
-          printf("\t\t");
+          fprintf("\t\t");
         }
       }
       row += 1;
-      printf("\n" C_DEF "");
+      fprintf("\n" C_DEF "");
     }
 #endif
   }
