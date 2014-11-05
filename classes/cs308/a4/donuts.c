@@ -401,3 +401,9 @@ long int elapsed_us(struct timeval *t2, struct timeval *t1) {
   long int usec2 = (t2->tv_usec + 1000000 * t2->tv_sec);
   return usec2 - usec1;
 }
+
+void check_in() {
+  pthread_mutex_lock(&check_mtx);
+
+  pthread_mutex_unlock(&check_mtx);
+}
