@@ -331,6 +331,7 @@ void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]) {
 
   char file_name[80];
   snprintf(file_name, sizeof(file_name), "log/%d.txt", id);
+  printf("filename = %s\n\n", file_name);
   FILE * logfile = fopen(file_name, "w");
 
   time(&timer);
