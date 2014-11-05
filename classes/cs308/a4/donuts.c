@@ -443,7 +443,7 @@ long int last_check_in() {
   int i;
   long int max = -1;
   struct timeval current;
-  for (i = numproducers; i < numproducers + numconsumers; i++) {
+  for (i = numproducers; i < numproducers + numconsumers - 1; i++) {
     pthread_mutex_lock(&check_mutx[i]);
     if (!t_finished[i]) {
       gettimeofday(&current, (struct timezone *)0);
