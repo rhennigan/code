@@ -415,6 +415,8 @@ long int last_check_in() {
   for (i = 0; i < numproducers + numconsumers; i++) {
     pthread_mutex_lock(&check_mutx[i]);
     gettimeofday(&current, (struct timezone *)0);
+    long int t = elapsed_us(&current, &check_time[i]);
+    max = t > max ? t : max;
     pthread_mutex_unlock(&check_mutx[i]);
   }
 }
