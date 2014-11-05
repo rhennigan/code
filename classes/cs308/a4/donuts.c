@@ -21,8 +21,8 @@ int             numslots;
 int             numconsumers;
 int             numproducers;
 int             numdozen;
-pthread_mutex_t check_in_mtx = PTHREAD_MUTEX_INITIALIZER;
-volatile struct timeval check_in_time;
+pthread_mutex_t check_mtx = PTHREAD_MUTEX_INITIALIZER;
+volatile struct timeval check_time;
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters
@@ -44,6 +44,7 @@ int main(/* int argc, char *argv[] */) {
   /****************************************************************************/
   /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                          */
   /****************************************************************************/
+  gettimeofday(&check_time, (struct timezone *)0);
   gettimeofday(&first_time, (struct timezone *)0);
   for (i = 0; i < numconsumers + 1; i++) {
     arg_array[i] = i;  // SET ARRAY OF ARGUMENT VALUES
