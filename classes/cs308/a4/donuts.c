@@ -294,9 +294,11 @@ void output_collection(int id, int N, donut_t collection[N][12]) {
   for (i = 0; i < N; i++) {
     printf(" dozen number: %d\n", i);
     for (k = 0; k < numflavors; k++) {
-      printf(" flavor %d: ", k);
+      printf("  flavor %d: ", k);
       for (j = 0; j < 12; j++) {
-        printf(" %3d", collection[i][j].id);
+        if (collection[i][j].fl == k) {
+          printf(" %3d", collection[i][j].id);
+        }
       }
       printf("\n");
     }
