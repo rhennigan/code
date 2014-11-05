@@ -225,7 +225,7 @@ void * producer(void * arg) {
 /******************************************************************************/
 /* PTHREAD CONSUMER ROUTINE...                                                */
 /******************************************************************************/
-struct donut { int flavor; int number; };
+struct donut { int fl; int id; };
 
 void * consumer(void * arg) {
   int dz, dn, sel;
@@ -257,7 +257,8 @@ void * consumer(void * arg) {
       }
 
       /* remove a donut and add it to our collection */
-      collection[dz][dn] = shared_ring.flavor[sel][shared_ring.outptr[sel]];
+      collection[dz][dn].id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
+      collection[dz][dn].fl = sel;
       shared_ring.flavor[sel][shared_ring.outptr[sel]] = 0;
 
       /* move outptr forward and cycle if necessary */
