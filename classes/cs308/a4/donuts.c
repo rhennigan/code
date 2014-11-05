@@ -425,7 +425,6 @@ void sig_handler(int sig) {
     }
   }
   printf("-1");
-  /* printf("\nThread %d took signal # %d, PROCESS HALT\n", thread_index, sig); */
   exit(1);
 }
 
