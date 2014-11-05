@@ -248,14 +248,14 @@ void * producer(void * arg) {
 /* PTHREAD CONSUMER ROUTINE...                                                */
 /******************************************************************************/
 void * consumer(void * arg) {
+  pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
+  pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
+
   int dz, dn, sel;
   unsigned short xsub[3];
   struct timeval randtime;
   donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS];
   int c_ptr[MAXFLAVORS];
-
-  pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
-  pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 
   /* initialize the collection to zero */
   int i, j, k;
