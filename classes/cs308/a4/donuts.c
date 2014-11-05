@@ -152,7 +152,7 @@ void * producer(void * arg) {
   int i, j, k;
   unsigned short xsub[3];
   struct timeval randtime;
-  int flavor;
+  int sel_fl;
 
   gettimeofday(&randtime, (struct timezone *)0);
   xsub[0] = (ushort)(randtime.tv_usec);
@@ -160,14 +160,15 @@ void * producer(void * arg) {
   xsub[2] = (ushort)(pthread_self());
 
   while (1) {
-    flavor = nrand48(xsub) & 3;
-    pthread_mutex_lock(&prod[flavor]);
-    while (shared_ring.spaces[flavor] == 0) {
-      pthread_cond_wait(&prod_cond[flavor], &prod[flavor]);
+    sel_fl = nrand48(xsub) & 3;
+    pthread_mutex_lock(&prod[sel_fl]);
+    while (shared_ring.spaces[sel_fl] == 0) {
+      pthread_cond_wait(&prod_cond[sel_fl], &prod[sel_fl]);
       /* consumer must signal prod_cond[flavor] after freeing up a space */
     }
+    shared_ring.serial[sel_fl] += 1;
     /* stuff */
-    pthread_mutex_unlock(&prod[flavor]);
+    pthread_mutex_unlock(&prod[sel_fl]);
     /* stuff */
   }
   return NULL;
