@@ -495,6 +495,7 @@ long int last_check_in() {
 }
 
 void * time_keeper(void * arg) {
+  usleep(10000);
   FILE * fp = fopen("log/time.csv", "w");
   long int t;
   while (1) {
