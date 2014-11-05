@@ -27,7 +27,7 @@ pthread_mutex_t check_mutx[MAXCONSUMERS + MAXPRODUCERS];
 struct timeval  check_time[MAXCONSUMERS + MAXPRODUCERS];
 bool            t_finished[MAXCONSUMERS + MAXPRODUCERS];
 pthread_mutex_t check_quit = PTHREAD_MUTEX_INITIALIZER;
-bool            need_quit = false;
+// bool            need_quit = false;
 
 int main(/* int argc, char *argv[] */) {
   // TODO(rhennigan): set these by looping over test parameters

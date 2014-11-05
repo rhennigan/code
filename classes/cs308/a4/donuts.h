@@ -11,7 +11,7 @@
 #define MAXPRODUCERS       30
 #define MAXDOZENS          5
 #define DEADLOCK_THRESHOLD 100000
-#define TIME_KEEPER_PER    5000
+#define TIME_KEEPER_PER    10000
 
 struct donut_ring {
   int flavor[MAXFLAVORS][MAXSLOTS];
