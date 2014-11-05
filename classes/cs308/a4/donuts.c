@@ -357,7 +357,6 @@ void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]) {
 
   char file_name[80];
   snprintf(file_name, sizeof(file_name), "log/%d.txt", id - numproducers);
-  printf("filename = %s\n", file_name);
   FILE * fp = fopen(file_name, "w");
 
   time(&timer);
@@ -470,7 +469,6 @@ void * time_keeper(void * arg) {
     t = last_check_in();
     if (t > DEADLOCK_THRESHOLD) {
       printf("deadlock detected!\n");
-      /* need_quit = true; */
       int i;
       for (i = 0; i < numproducers + numconsumers; i++) {
         pthread_cancel(thread_id[i]);
