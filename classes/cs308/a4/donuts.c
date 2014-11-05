@@ -168,7 +168,7 @@ int main(int argc, char *argv[]) {
   /*   pthread_join(thread_id[i], NULL); */
   /* } */
 
-  printf("deadlock = %d\n", deadlock);
+  // printf("deadlock = %d\n", deadlock);
 
   /**************************************************************************/
   /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                    */
