@@ -324,9 +324,7 @@ void * consumer(void * arg) {
       pthread_cond_signal(&prod_cond[sel]);
 
       /* check in, so the timekeeper thread doesn't think we're deadlocked */
-      pthread_mutex_lock(&check_mutx[id]);
-      gettimeofday(&check_time[id], (struct timezone *)0);
-      pthread_mutex_unlock(&check_mutx[id]);
+      check_in(id);
     }
 
     /* reset collection pointers to zero */
