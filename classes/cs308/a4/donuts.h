@@ -6,10 +6,10 @@
 #include <pthread.h>
 
 #define MAXFLAVORS   4
-#define MAXSLOTS     500
-#define MAXCONSUMERS 50
-#define MAXPRODUCERS 30
-#define MAXDOZENS    200
+#define MAXSLOTS     2
+#define MAXCONSUMERS 1
+#define MAXPRODUCERS 1
+#define MAXDOZENS    100
 
 struct donut_ring {
   int flavor[MAXFLAVORS][MAXSLOTS];
