@@ -302,6 +302,7 @@ void output_collection(int id, int N, donut_t collection[N][12]) {
       }
       printf("\n");
     }
+    printf("\n");
   }
 }
 
