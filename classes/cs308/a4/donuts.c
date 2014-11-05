@@ -75,8 +75,8 @@ int main(/* int argc, char *argv[] */) {
   sigfillset(&all_signals);
   for (i = 0; i < nsigs; i++) {
     new_act.sa_handler = sig_handler;
-    new_act.sa_mask = all_signals;
-    new_act.sa_flags = 0;
+    new_act.sa_mask    = all_signals;
+    new_act.sa_flags   = 0;
     if (sigaction(sigs[i], &new_act, NULL) == -1) {
       perror("can't set signals: ");
       exit(EXIT_FAILURE);
