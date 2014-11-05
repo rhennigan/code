@@ -328,6 +328,8 @@ void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]) {
   char time_string[80];
   struct tm tm_info;
   struct timeval ms;
+  FILE * logfile;
+  char file_name[80];
 
   time(&timer);
   localtime_r(&timer, &tm_info);
