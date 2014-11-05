@@ -246,10 +246,12 @@ void * consumer(void * arg) {
   int c_ptr[MAXFLAVORS];
 
   /* initialize the collection to zero */
-  int i, j;
-  for (i = 0; i < MAXFLAVORS; i++) {
-    for (j = 0; j < 12 * MAXDOZENS; j++) {
-      collection[i][j] = (donut_t){ -1, 0 };
+  int i, j, k;
+  for (i = 0; i < MAXDOZENS; i++) {
+    for (j = 0; j < MAXFLAVORS; j++) {
+      for (k = 0; k < 12; k++) {
+        collection[i][j][k] = (donut_t){ -1, 0 };
+      }
     }
   }
 
