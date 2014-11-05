@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <time.h>
+#include <stdbool.h>
 #include "./donuts.h"
 
 #define _DEBUG_
