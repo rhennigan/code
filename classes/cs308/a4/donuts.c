@@ -351,7 +351,7 @@ void output_collection(int id, donut_t collection[MAXFLAVORS][12 * MAXDOZENS]) {
     while (!done) {
       done = 1;
       for (flav = 0; flav < numflavors; flav++) {
-        if (collection[dozen][row].id) {
+        if (collection[flav][row].id) {
           printf("  %d\t\t", collection[flav][row].id);
           done = 0;
         } else {
