@@ -297,10 +297,11 @@ void * consumer(void * arg) {
       while (!need_quit && shared_ring.donuts[sel] == 0) {
         pthread_cond_wait(&cons_cond[sel], &cons[sel]);
         /* producer must signal cons_cond[sel] when available */
-      }
-      if (need_quit) {
-        printf("need_quit = true, consumer %d returning\n", id);
-        return NULL;
+        if (need_quit) {
+          printf("need_quit = true, consumer %d returning\n", id);
+          t_finished[id] = true;
+          return NULL;
+        }
       }
 
       /* remove a donut and add it to our c */
