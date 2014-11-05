@@ -309,11 +309,8 @@ void * consumer(void * arg) {
       /* signal prod_cond[sel] now that production space is available */
       pthread_cond_signal(&prod_cond[sel]);
 
-      /* check in, so that the timekeeper thread doesn't think we're deadlocked */
+      /* check in, so the timekeeper thread doesn't think we're deadlocked */
       check_in(id);
-
-      // REMOVE THIS
-      usleep(1000);
     }
 
     /* reset collection pointers to zero */
