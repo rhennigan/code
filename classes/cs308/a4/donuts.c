@@ -11,12 +11,13 @@ pthread_cond_t cons_cond[MAXFLAVORS];
 pthread_t thread_id[MAXCONSUMERS + MAXPRODUCERS];
 pthread_t sig_wait_id;
 
-#define numflavors   MAXFLAVORS
-#define numslots     MAXSLOTS
-#define numconsumers MAXCONSUMERS
-#define numproducers MAXPRODUCERS
-
 int main(/* int argc, char *argv[] */) {
+  // TODO(rhennigan): set these by looping over test parameters
+  int numflavors   = MAXFLAVORS;
+  int numslots     = MAXSLOTS;
+  int numconsumers = MAXCONSUMERS;
+  int numproducers = MAXPRODUCERS;
+
   int nsigs;
   struct timeval randtime, first_time, last_time;
   struct sigaction new_act;
