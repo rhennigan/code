@@ -41,7 +41,6 @@ int main(/* int argc, char *argv[] */) {
   int i;
 
   for (numslots = 50; numslots <= 200; numslots += 50) {
-
     /**************************************************************************/
     /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                        */
     /**************************************************************************/
@@ -473,5 +472,5 @@ void * time_keeper(void * arg) {
   }
   fclose(fp);
   printf("time_keeper returning\n");
-  return NULL;
+  pthread_exit(deadlock);
 }
