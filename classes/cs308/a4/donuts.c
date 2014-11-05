@@ -20,7 +20,7 @@ int main(/* int argc, char *argv[] */) {
   int numslots     = MAXSLOTS;
   int numconsumers = MAXCONSUMERS;
   int numproducers = MAXPRODUCERS;
-  int numdozens    = MAXDOZENS;
+  int numdozen     = MAXDOZENS;
 
   int nsigs;
   struct timeval first_time, last_time;
@@ -43,6 +43,8 @@ int main(/* int argc, char *argv[] */) {
   for (i = 0; i < numconsumers + 1; i++) {
     /* SET ARRAY OF ARGUMENT VALUES */
     arg_array[i].id = i;
+    arg_array[i].numslots = numslots;
+    arg_array[i].numdozen = numdozen;
   }
 
   /****************************************************************************/
