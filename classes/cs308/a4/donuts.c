@@ -458,13 +458,13 @@ long int last_check_in() {
 
 void * time_keeper(void * arg) {
   usleep(10000);
-  FILE * fp = fopen("log/time.csv", "w");
+  // FILE * fp = fopen("log/time.csv", "w");
   long int t;
   while (1) {
     t = last_check_in();
     if (t > DEADLOCK_THRESHOLD) {
       printf("1");
-      fclose(fp);
+      // fclose(fp);
       exit(0);
       /* int i; */
       /* for (i = numproducers; i < numproducers + numconsumers; i++) { */
@@ -475,10 +475,10 @@ void * time_keeper(void * arg) {
     if (t == -1) {
       break;
     } else {
-      fprintf(fp, "%ld\n", t);
+      // fprintf(fp, "%ld\n", t);
     }
     usleep(TIME_KEEPER_PER);
   }
-  fclose(fp);
+  // fclose(fp);
   pthread_exit(NULL);
 }
