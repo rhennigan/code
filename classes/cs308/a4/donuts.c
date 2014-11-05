@@ -320,8 +320,8 @@ void * consumer(void * arg) {
     for (j = 0; j < MAXFLAVORS; j++) {
       c_ptr[j] = 0;
     }
-    /* sleep 1 ms to give other consumer threads a chance to run */
-    usleep(1000);
+    /* sleep 100 us to give other consumer threads a chance to run */
+    usleep(100);
   }
 
   /* let the timekeeper thread know that we're done */
