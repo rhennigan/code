@@ -315,7 +315,9 @@ void * consumer(void * arg) {
   /* inspecting c */
   for (i = 0; i < MAXFLAVORS; i++) {
     for (j = 0; j < 12 * MAXDOZENS; j++) {
-      printf(" %3d", c[i][j].id);
+      if (c[0][i][j].id) {
+        printf(" %3d", c[0][i][j].id);
+      }
     }
     printf("\n");
   }
