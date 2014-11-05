@@ -147,7 +147,8 @@ int main(/* int argc, char *argv[] */) {
   /****************************************************************************/
   gettimeofday(&last_time, (struct timezone *)0);
   int s, us;
-  s = last_time.tv_sec - first_time.tv_sec;
+  s  = last_time.tv_sec  - first_time.tv_sec;
+  us = last_time.tv_usec - first_time.tv_usec;
   if (i == 0) {
     j = last_time.tv_usec - first_time.tv_usec;
   } else {
