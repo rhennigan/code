@@ -503,6 +503,10 @@ void * time_keeper(void * arg) {
     if (t > 200000) {
       printf("deadlock detected!\n");
       need_quit = true;
+      int i;
+      for (i = 0; i < numproducers + numconsumers; i++) {
+        pthread_cancel(thread_id[i]);
+      }
       break;
     }
     if (t == -1) {
