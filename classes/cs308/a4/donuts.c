@@ -25,7 +25,7 @@ int main(/* int argc, char *argv[] */) {
   int nsigs;
   struct timeval first_time, last_time;
   struct sigaction new_act;
-  //int arg_array[MAXCONSUMERS];
+  // int arg_array[MAXCONSUMERS];
   cons_arg_t arg_array[MAXCONSUMERS];
   sigset_t all_signals;
 
@@ -41,7 +41,8 @@ int main(/* int argc, char *argv[] */) {
   /****************************************************************************/
 
   for (i = 0; i < numconsumers + 1; i++) {
-    arg_array[i] = i;  /* SET ARRAY OF ARGUMENT VALUES */
+    /* SET ARRAY OF ARGUMENT VALUES */
+    arg_array[i].id = i;
   }
 
   /****************************************************************************/
