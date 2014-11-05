@@ -513,7 +513,7 @@ void * time_keeper(void * arg) {
     } else {
       fprintf(fp, "%ld\n", t);
     }
-    usleep(1000);
+    usleep(TIME_KEEPER_PER);
   }
   fclose(fp);
   printf("time_keeper returning\n");
