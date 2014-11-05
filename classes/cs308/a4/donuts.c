@@ -279,8 +279,6 @@ void * consumer(void * arg) {
       /* remove a donut and add it to our collection */
       int d_id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
       collection[sel][c_ptr[sel]++] = (donut_t){ sel, d_id };
-      collection[dz][dn].id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
-      collection[dz][dn].fl = sel;
       shared_ring.flavor[sel][shared_ring.outptr[sel]] = 0;
 
       /* move outptr forward and cycle if necessary */
@@ -311,7 +309,7 @@ void * consumer(void * arg) {
 /******************************************************************************/
 /* CONSUMER EXPORT RESULTS ROUTINE...                                         */
 /******************************************************************************/
-void output_collection(int id, donut_t collection[N][12]) {
+void output_collection(int id, donut_t collection[MAXFLAVORS][12 * MAXDOZENS]) {
   system("mkdir -p log/");
 
   time_t timer;
