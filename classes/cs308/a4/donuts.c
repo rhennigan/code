@@ -146,7 +146,8 @@ int main(/* int argc, char *argv[] */) {
 
     /* create the timekeeper thread */
     bool deadlock;
-    if (pthread_create(&time_keeper_id, &th_attr, time_keeper, &deadlock) != 0) {
+    int tk = pthread_create(&time_keeper_id, &th_attr, time_keeper, &deadlock);
+    if (tk != 0) {
       printf("pthread_create failed ");
       exit(3);
     }
