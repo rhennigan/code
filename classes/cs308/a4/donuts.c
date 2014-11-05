@@ -477,6 +477,10 @@ void * time_keeper(void * arg) {
       need_quit = true;
       bool finished = false;
       int i;
+      while (!finished) {
+        
+      }
+      
       for (i = 0; i < numflavors; i++) {
         pthread_cond_signal(&cons_cond[i]);
       }
