@@ -106,7 +106,7 @@ int main(int argc, char *argv[]) {
     check_in(i);
   }
 
-  printf("just before threads created\n");
+  // printf("just before threads created\n");
 
   /**************************************************************************/
   /* CREATE SIGNAL HANDLER THREAD, PRODUCER AND CONSUMERS                   */
@@ -154,7 +154,7 @@ int main(int argc, char *argv[]) {
     exit(3);
   }
 
-  printf("just after threads created\n");
+  // printf("just after threads created\n");
 
   /**************************************************************************/
   /* WAIT FOR ALL CONSUMERS TO FINISH, SIGNAL WAITER WILL                   */
