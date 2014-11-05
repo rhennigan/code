@@ -146,19 +146,10 @@ int main(/* int argc, char *argv[] */) {
   /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                      */
   /****************************************************************************/
   gettimeofday(&last_time, (struct timezone *)0);
-  int s, us;
-  s  = last_time.tv_sec  - first_time.tv_sec;
-  us = last_time.tv_usec - first_time.tv_usec;
-  if (i == 0) {
-    j = last_time.tv_usec - first_time.tv_usec;
-  } else {
-    if (last_time.tv_usec - first_time.tv_usec < 0) {
-      i--;
-      j = 1000000 + (last_time.tv_usec - first_time.tv_usec);
-    } else {
-      j = last_time.tv_usec - first_time.tv_usec;
-    }
-  }
+  int s  = last_time.tv_sec  - first_time.tv_sec;
+  int us = last_time.tv_usec - first_time.tv_usec;
+  s  = us < 1 ? s - 1 : s;
+  us = us < 1 ? 1000000 + us : us;
 
   printf("Elapsed consumer time is %d sec and %d usec\n", i, j);
 
