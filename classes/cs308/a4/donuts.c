@@ -287,6 +287,7 @@ void * consumer(void * arg) {
 /* CONSUMER EXPORT RESULTS ROUTINE...                                         */
 /******************************************************************************/
 void output_collection(int id, int N, int collection[N][12]) {
+  system("mkdir -p log/");
   int i, j;
   printf("consumer %d results:\n", id);
   for (i = 0; i < N; i++) {
