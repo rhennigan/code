@@ -238,10 +238,9 @@ void * consumer(void * arg) {
         /* producer must signal cons_cond[sel] when available */
       }
 
-      /* remove a donut */
-      int ptr = shared_ring.outptr[sel];
-      collection[dz][dn] = shared_ring.flavor[sel][ptr];
-      shared_ring.flavor[sel][ptr] = 0;
+      /* remove a donut and add it to our collection */
+      collection[dz][dn] = shared_ring.flavor[sel][shared_ring.outptr[sel]];
+      shared_ring.flavor[sel][shared_ring.outptr[sel]] = 0;
 
       /* move outptr forward and cycle if necessary */
       shared_ring.outptr[sel] = (shared_ring.outptr[sel] + 1) % numslots;
