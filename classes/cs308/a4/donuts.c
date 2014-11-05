@@ -36,13 +36,10 @@ int main(/* int argc, char *argv[] */) {
   numdozen     = MAXDOZENS;
 
   struct timeval first_time, last_time;
-
   int arg_array[MAXPRODUCERS + MAXCONSUMERS];
-
   pthread_attr_t th_attr;
-  // struct sched_param sched_struct;
-
-  int i, j;
+  int i;
+  bool deadlocked = false;
 
   /****************************************************************************/
   /* INITIAL TIMESTAMP VALUE FOR PERFORMANCE MEASURE                          */
