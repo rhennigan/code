@@ -255,7 +255,7 @@ void * consumer(void * arg) {
     }
   }
 
-  /* initialize c pointers to zero */
+  /* initialize collection pointers to zero */
   for (j = 0; j < MAXFLAVORS; j++) {
     c_ptr[j] = 0;
   }
@@ -285,7 +285,7 @@ void * consumer(void * arg) {
 
       /* remove a donut and add it to our c */
       int d_id = shared_ring.flavor[sel][shared_ring.outptr[sel]];
-      c[sel][c_ptr[sel]++] = (donut_t){ sel, d_id };
+      c[dz][sel][c_ptr[sel]++] = (donut_t){ sel, d_id };
       shared_ring.flavor[sel][shared_ring.outptr[sel]] = 0;
 
       /* move outptr forward and cycle if necessary */
