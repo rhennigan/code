@@ -345,8 +345,8 @@ void output_c(int id, donut_t c[MAXDOZENS][MAXFLAVORS][12 * MAXFLAVORS]) {
   struct timeval ms;
 
   char file_name[80];
-  snprintf(file_name, sizeof(file_name), "log/%d.txt", id);
-  printf("filename = %s\n\n", file_name);
+  snprintf(file_name, sizeof(file_name), "log/%d.txt", id - numproducers);
+  printf("filename = %s\n", file_name);
   FILE * fp = fopen(file_name, "w");
 
   time(&timer);
