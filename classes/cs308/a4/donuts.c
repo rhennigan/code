@@ -146,7 +146,7 @@ int main(/* int argc, char *argv[] */) {
   }
 
   /* create the timekeeper thread */
-  if (pthread_create(&time_keeper_id, NULL, time_keeper, NULL) != 0) {
+  if (pthread_create(&time_keeper_id, &th_attr, time_keeper, NULL) != 0) {
     printf("pthread_create failed ");
     exit(3);
   }
