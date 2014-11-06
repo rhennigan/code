@@ -32,7 +32,8 @@ bool            deadlock;
 int main(int argc, char *argv[]) {
   // TODO(rhennigan): set these by looping over test parameters
   if (argc != 5) {
-    printf("");
+    printf("Invalid arguments\n");
+    printf("  usage: donuts [numslots] [numconsumers] [numproducers] [numdozen]\n");
     exit(1);
   }
   numflavors   = MAXFLAVORS;
