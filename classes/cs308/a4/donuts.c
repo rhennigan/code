@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include "./donuts.h"
 
-#define _DEBUG_
+// #define _DEBUG_
 
 /******************************************************************************/
 /* GLOBAL VARIABLES                                                           */
