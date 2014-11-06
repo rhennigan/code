@@ -31,7 +31,10 @@ bool            deadlock;
 
 int main(int argc, char *argv[]) {
   // TODO(rhennigan): set these by looping over test parameters
-  assert(argc == 5);
+  if (argc != 5) {
+    printf("");
+    exit(1);
+  }
   numflavors   = MAXFLAVORS;
   numslots     = atoi(argv[1]);
   numconsumers = atoi(argv[2]);
