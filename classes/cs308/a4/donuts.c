@@ -106,8 +106,6 @@ int main(int argc, char *argv[]) {
     check_in(i);
   }
 
-  // printf("just before threads created\n");
-
   /**************************************************************************/
   /* CREATE SIGNAL HANDLER THREAD, PRODUCER AND CONSUMERS                   */
   /**************************************************************************/
@@ -154,42 +152,7 @@ int main(int argc, char *argv[]) {
     exit(3);
   }
 
-  // printf("just after threads created\n");
-
-  /**************************************************************************/
-  /* WAIT FOR ALL CONSUMERS TO FINISH, SIGNAL WAITER WILL                   */
-  /* NOT FINISH UNLESS A SIGTERM ARRIVES AND WILL THEN EXIT                 */
-  /* THE ENTIRE PROCESS....OTHERWISE MAIN THREAD WILL EXIT                  */
-  /* THE PROCESS WHEN ALL CONSUMERS ARE FINISHED                            */
-  /**************************************************************************/
-
   pthread_join(time_keeper_id, NULL);
-  /* for (i = 0; i < numconsumers + numproducers; i++) { */
-  /*   pthread_join(thread_id[i], NULL); */
-  /* } */
-
-  // printf("deadlock = %d\n", deadlock);
-
-  /**************************************************************************/
-  /* GET FINAL TIMESTAMP, CALCULATE ELAPSED SEC AND USEC                    */
-  /**************************************************************************/
-  /* gettimeofday(&last_time, (struct timezone *)0); */
-  /* long int sec, usec; */
-  /* if ((sec = last_time.tv_sec - first_time.tv_sec) == 0) { */
-  /*   usec = last_time.tv_usec - first_time.tv_usec; */
-  /* } else { */
-  /*   if (last_time.tv_usec - first_time.tv_usec < 0) { */
-  /*     sec--; */
-  /*     usec = 1000000 + (last_time.tv_usec - first_time.tv_usec); */
-  /*   } else { */
-  /*     usec = last_time.tv_usec - first_time.tv_usec; */
-  /*   } */
-  /* } */
-
-  // printf("Elapsed consumer time is %ld sec and %ld usec\n", sec, usec);
-
-  // printf("\n\n ALL CONSUMERS FINISHED, KILLING  PROCESS\n\n");
-
   printf("0");
   exit(0);
 }
