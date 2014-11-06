@@ -393,6 +393,9 @@ void sig_handler(int sig) {
   exit(1);
 }
 
+/******************************************************************************/
+/* FUNCTIONS FOR DEADLOCK DETECTION THREAD...                                 */
+/******************************************************************************/
 void check_in(int tid) {
   pthread_mutex_lock(&check_mutx[tid]);
   gettimeofday(&check_time[tid], (struct timezone *)0);
