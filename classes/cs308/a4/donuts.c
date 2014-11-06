@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <time.h>
 #include <stdbool.h>
+#include <assert.h>
 #include "./donuts.h"
 
 // #define _DEBUG_
@@ -30,6 +31,7 @@ bool            deadlock;
 
 int main(int argc, char *argv[]) {
   // TODO(rhennigan): set these by looping over test parameters
+  assert(argc == 5);
   numflavors   = MAXFLAVORS;
   numslots     = atoi(argv[1]);
   numconsumers = atoi(argv[2]);
