@@ -47,6 +47,7 @@ bool key_eq(void * a1, void * a2) {
 
 void * hash_table_lookup(hash_table_t * ht, hkey_t key) {
   uint64_t h_idx = hash(key.key, key.size) % ht->size;
+  printf("\nh_idx = %d\n", h_idx);
   void * found = list_find(ht->row[h_idx], &key, &key_eq);
   return found;
 }
