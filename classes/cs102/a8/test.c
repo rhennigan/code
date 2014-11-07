@@ -10,6 +10,7 @@
 #define NUMC 240
 #define NUMA 331
 #define NUMQ 58
+#define HTSZ 10
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
@@ -42,11 +43,11 @@ bool equal(void * a, void * b) {
 
 int main(int argc, char * argv[]) {
   /* uint64_t entry_counts[MODSZ]; */
-  /* char     buffer[BUFSIZ]; */
-  /* FILE *   countries_file; */
+  char     buffer[BUFSIZ];
+  FILE *   alts_file;
   uint32_t i;
 
-  hash_table_t * hash_table = hash_table_init(5);
+  hash_table_t * hash_table = hash_table_init(HTSZ);
   uint32_t x = 10, y = 5;
   char * xs = "ten";
   char * ys = "five";
