@@ -1,8 +1,8 @@
 test: hash.o list.o user_input.o
 	gcc -o test test.c build/*.o
 
-hash.o: lib/hash.h src/hash.c prep
-	gcc -o build/hash.o -c src/hash.c
+hash.o: lib/hash.h src/hash.c list.o prep
+	gcc -o build/hash.o -c src/hash.c build/list.o
 
 list.o: lib/list.h src/list.c prep
 	gcc -o build/list.o -c src/list.c
