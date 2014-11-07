@@ -9,6 +9,7 @@ void print_hash(char * str) {
 }
 
 int main(int argc, char * argv[]) {
+  uint64_t entry_counts[MODSZ];
   int i;
   for (i = 1; i < argc; i++) {
     print_hash(argv[i]);
