@@ -34,7 +34,7 @@ uint64_t       hash(char * str);
 hash_table_t * hash_table_init(size_t size);
 void           hash_table_insert(hash_table_t * ht, key_val_t kv);
 void *         hash_table_lookup(hash_table_t * ht, hkey_t key);
-key_val_t *    make_kv(void * key, void * val);
+key_val_t *    make_kv(void * key, size_t ks, void * val, size_t vs);
 bool           match_key(key_val_t * kv1, key_val_t * kv2);
 uint32_t       string_distance(char *s1, char *s2);
 
