@@ -114,6 +114,9 @@ int main(int argc, char * argv[]) {
         minidx = i;
       }
     }
+    hkey_t k;
+    k.key = malloc(strlen(str));
+    snprintf(k.key, strlen(str), "%s", str);
     void * addr = hash_table_lookup(hash_table, k);
     printf("closest match for %s: %s\n", str, alternate[minidx]);
   }
