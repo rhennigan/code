@@ -5,7 +5,7 @@
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define MIN3(a, b, c) MIN(MIN(a, b), c)
 
-uint64_t hash(char * str) {
+uint64_t hash(void * addr, size_t size) {
   uint64_t hash = 5381;
   char ch;
   while ((ch = (*str++)))
