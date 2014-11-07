@@ -55,7 +55,8 @@ int main(int argc, char * argv[]) {
   hash_table_insert(hash_table, yk);
 
   for (i = 0; i < hash_table->size; i++) {
-    list_iter(hash_table->row[i], &print_kv);
+    list_dump(hash_table->row[i]);
+    /* list_iter(hash_table->row[i], &print_kv); */
   }
 
   /* list_t * list = NULL; */

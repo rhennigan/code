@@ -23,7 +23,7 @@ void list_dispose(list_t * list) {
 }
 
 void list_dump(list_t * list) {
-  printf("list_dump: %p\n", list);
+  printf("\nlist_dump: %p\n", list);
   printf("-------------------\n");
   if (list == NULL) {
     printf(" NULL\n");
