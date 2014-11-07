@@ -9,6 +9,8 @@
 #define NUMC 240
 #define NUMQ 58
 
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+
 /* GLOBAL VARIABLES */
 char countries[NUMC][BUFSIZ];
 char questions[NUMQ][BUFSIZ];
@@ -40,7 +42,7 @@ int main(int argc, char * argv[]) {
     uint32_t mindst = INT_MAX;
     uint32_t minidx = 0;
     for (i = 0; i < 240; i++) {
-      
+      mindst = MIN(mindst, string_distance(str, countries[i]));
     }
 
   }
@@ -57,3 +59,5 @@ int main(int argc, char * argv[]) {
 
   return 0;
 }
+
+#undef MIN
