@@ -6,8 +6,6 @@
 #include <stdbool.h>
 #include "./list.h"
 
-#define HASH_TABLE_SIZE 100
-
 typedef struct hkey_s {
   size_t size;
   void * key;
@@ -37,7 +35,5 @@ void *         hash_table_lookup(hash_table_t * ht, hkey_t key);
 key_val_t *    make_kv(void * key, size_t ks, void * val, size_t vs);
 bool           match_key(void * a1, void * a2);
 uint32_t       string_distance(char *s1, char *s2);
-
-#undef HASH_TABLE_SIZE
 
 #endif  // LIB_HASH_
