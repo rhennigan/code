@@ -27,6 +27,7 @@ hash_table_t * hash_table_init(size_t size) {
 
 void hash_table_insert(hash_table_t * ht, key_val_t kv) {
   uint64_t h_idx = hash(kv.key.key, kv.key.size);
+  ht->data[h_idx] = list_cons_c(ht->data, kv, key_val_t);
 }
 
 /* void hash_table_insert(hash_table_t * ht, key_val_t * kv) { */
