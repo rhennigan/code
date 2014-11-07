@@ -25,7 +25,7 @@ hash_table_t * hash_table_init(uint32_t size) {
 }
 
 void hash_table_insert(hash_table_t * ht, key_val_t kv) {
-  
+  uint64_t h = hash(*(char*)kv.key);
 }
 
 uint32_t string_distance(char *s1, char *s2) {
