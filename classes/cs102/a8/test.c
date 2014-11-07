@@ -53,8 +53,10 @@ int main(int argc, char * argv[]) {
 
   for (i = 0; i < NUMA; i++) {
     fgets(buffer, BUFSIZ, alts_file);
+    char * key;
+    char * val;
     for (j = 0; j < BUFSIZ; j++) {
-      
+      if (buffer[j] == '\0') break;
     }
   }
 
