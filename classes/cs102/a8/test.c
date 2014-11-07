@@ -67,26 +67,26 @@ int main(int argc, char * argv[]) {
     printf("key = %s, val = %s\n", key, val);
   }
 
-  uint32_t x = 10, y = 5;
-  char * xs = "ten";
-  char * ys = "five";
+  /* uint32_t x = 10, y = 5; */
+  /* char * xs = "ten"; */
+  /* char * ys = "five"; */
 
-  printf("sizeof(xs) = %ld\n", sizeof(xs));
-  printf("sizeof(ys) = %ld\n", sizeof(ys));
+  /* printf("sizeof(xs) = %ld\n", sizeof(xs)); */
+  /* printf("sizeof(ys) = %ld\n", sizeof(ys)); */
 
-  key_val_t * xk = make_kv(xs, 4, &x, sizeof(x));
-  key_val_t * yk = make_kv(ys, 5, &y, sizeof(y));
+  /* key_val_t * xk = make_kv(xs, 4, &x, sizeof(x)); */
+  /* key_val_t * yk = make_kv(ys, 5, &y, sizeof(y)); */
 
-  hash_table_insert(hash_table, xk);
-  hash_table_insert(hash_table, yk);
+  /* hash_table_insert(hash_table, xk); */
+  /* hash_table_insert(hash_table, yk); */
 
-  free(xk);
-  free(yk);
+  /* free(xk); */
+  /* free(yk); */
 
-  for (i = 0; i < hash_table->size; i++) {
-    list_dump(hash_table->row[i]);
-    list_iter(hash_table->row[i], &print_kv);
-  }
+  /* for (i = 0; i < hash_table->size; i++) { */
+  /*   list_dump(hash_table->row[i]); */
+  /*   list_iter(hash_table->row[i], &print_kv); */
+  /* } */
 
   /* hkey_t k; */
   /* k.key = "ten"; */
