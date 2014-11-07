@@ -10,9 +10,8 @@
 uint64_t hash(void * addr, size_t size) {
   uint64_t hash = 5381;
   uint32_t i;
-  for (i = 0; i < size; i++) {
+  for (i = 0; i < size; i++)
     hash = ((hash << 5) + hash) + *(char*)(addr + i);
-  }
   return hash;
 }
 
@@ -22,9 +21,8 @@ hash_table_t * hash_table_init(size_t size) {
   ht->size = size;
   ht->row = data;
   uint32_t i;
-  for (i = 0; i < size; i++) {
+  for (i = 0; i < size; i++)
     ht->row[i] = NULL;
-  }
   return ht;
 }
 
@@ -41,9 +39,8 @@ bool match_key(void * a1, void * a2) {
   char * str1 = (char *)k1.key;
   char * str2 = (char *)k2.key;
   uint32_t i;
-  for (i = 0; i < k1.size; i++) {
+  for (i = 0; i < k1.size; i++)
     if (str1[i] != str2[i]) return false;
-  }
   return true;
 }
 
