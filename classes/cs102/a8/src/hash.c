@@ -10,11 +10,12 @@
 uint64_t hash(void * addr, size_t size) {
   uint64_t hash = 5381;
   uint32_t i, c;
-  for (i = 0; i < size; i++)
+  for (i = 0; i < size; i++) {
     c = *(char*)(addr + i);
     printf("*(char*)(addr + i) = %d\n", c);
     hash = ((hash << 5) + hash) + c;
     printf("hash[%d] = %lu\n", i, hash);
+  }
   return hash;
 }
 
