@@ -13,6 +13,7 @@ typedef struct list_s {
 
 list_t * list_cons(list_t * list, void * head);
 void     list_dispose(list_t * list);
+void     list_dump(list_t * list);
 void *   list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b));
 void *   list_head(list_t * list);
 list_t * list_init();

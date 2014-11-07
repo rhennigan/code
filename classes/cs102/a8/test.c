@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <limits.h>
 #include "lib/user_input.h"
+#include "lib/list.h"
 #include "lib/hash.h"
 
 #define MODSZ 50L

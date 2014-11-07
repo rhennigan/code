@@ -7,8 +7,6 @@
 #include <stdio.h>
 #include "../lib/list.h"
 
-#define PRINT_ADDR(addr) printf("%p", addr);
-
 list_t * list_cons(list_t * list, void * head) {
   list_t * new_list = list_init();
   new_list->head = head;
