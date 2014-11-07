@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include "lib/hash.h"
 
+#define MODSZ 100L
+
 void print_hash(char * str) {
-  uint64_t h = hash(str);
+  uint64_t h = hash(str) % MODSZ;
   printf("hash(%s) = %lu\n", str, h);
 }
 
