@@ -101,6 +101,23 @@ int main(int argc, char * argv[]) {
   }
 
 
+  while (1) {
+    printf("Enter country name: ");
+    char * str = get_input_string();
+    uint32_t dist;
+    uint32_t mindst = INT_MAX;
+    uint32_t minidx = 0;
+    for (i = 0; i < 240; i++) {
+      dist = string_distance(str, alternate[i]);
+      if (dist < mindst) {
+        mindst = dist;
+        minidx = i;
+      }
+    }
+    printf("closest match for %s: %s\n", str, alternate[minidx]);
+  }
+
+
   /* uint32_t x = 10, y = 5; */
   /* char * xs = "ten"; */
   /* char * ys = "five"; */
