@@ -19,7 +19,7 @@ int main(int argc, char * argv[]) {
     entry_counts[i] = 0L;
   }
 
-   words_file = fopen("words.csv", "r");
+  words_file = fopen("words.csv", "r");
 
   for (i = 1; i < argc; i++) {
     print_hash(argv[i]);
