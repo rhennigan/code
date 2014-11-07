@@ -2,6 +2,7 @@
 #define LIB_HASH_
 
 #include <stdint.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include "./list.h"
 
@@ -16,7 +17,7 @@ typedef struct key_val_s {
 typedef list_t * ht_entry_t;
 
 typedef struct hash_table_s {
-  uint32_t size;
+  size_t size;
   ht_entry_t * row;
 } hash_table_t;
 
