@@ -10,7 +10,7 @@
 #define NUMC 240
 #define NUMA 331
 #define NUMQ 58
-#define HTSZ 10
+#define HTSZ 5
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
@@ -35,8 +35,7 @@ void print_kv(void * addr) {
   memcpy(key, kv.key.key, kv.key.size);
   char * val = malloc(kv.val.size);
   memcpy(val, kv.val.val, kv.val.size);
-  uint32_t v = *(uint32_t*)kv.val.val;
-  printf("  (%s, %d)\n", key, v);
+  printf("  (%s, %s)\n", key, val);
 }
 
 bool equal(void * a, void * b) {
