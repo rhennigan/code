@@ -81,11 +81,11 @@ int main(int argc, char * argv[]) {
     free(kv);
   }
 
-  for (i = 0; i < hash_table->size; i++) {
-    list_dump(hash_table->row[i]);
-    printf("\n");
-    list_iter(hash_table->row[i], &print_kv);
-  }
+  /* for (i = 0; i < hash_table->size; i++) { */
+  /*   list_dump(hash_table->row[i]); */
+  /*   printf("\n"); */
+  /*   list_iter(hash_table->row[i], &print_kv); */
+  /* } */
 
   size_t maxlen = 0;
   for (i = 0; i < hash_table->size; i++) {
