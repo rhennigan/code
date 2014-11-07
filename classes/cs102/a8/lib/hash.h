@@ -9,9 +9,10 @@
 #define HASH_TABLE_SIZE 100
 
 typedef struct key_val_s {
-  uint32_t key_size;
-  void *   key;
-  void *   val;
+  size_t key_size;
+  size_t val_size;
+  void * key;
+  void * val;
 } key_val_t;
 
 typedef list_t * ht_entry_t;
@@ -22,7 +23,7 @@ typedef struct hash_table_s {
 } hash_table_t;
 
 uint64_t       hash(char * str);
-hash_table_t * hash_table_init(uint32_t size);
+hash_table_t * hash_table_init(size_t size);
 void           hash_table_insert(hash_table_t * ht, key_val_t kv);
 void *         hash_table_lookup(hash_table_t * ht, void * key);
 key_val_t *    make_kv(void * key, void * val);
