@@ -63,8 +63,11 @@ int main(int argc, char * argv[]) {
     list_iter(hash_table->row[i], &print_kv);
   }
 
-  char * k = "ten";
-  
+  hkey_t k;
+  k.key = "ten";
+  k.size = 4;
+  void * addr = hash_table_lookup(hash_table, k);
+  printf("\n\n%p\n", addr);
 
   /* list_iter(hash_table->row[0], &print_kv); */
   /* list_t * list = hash_table->row[0]; */
