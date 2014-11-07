@@ -22,7 +22,7 @@ hash_table_t * hash_table_init(size_t size) {
   ht->row = data;
   uint32_t i;
   for (i = 0; i < size; i++) {
-    ht->row[i] = list_init();
+    ht->row[i] = NULL;
   }
   return ht;
 }
