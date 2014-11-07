@@ -23,7 +23,7 @@ int main(int argc, char * argv[]) {
 
   while (fgets(buffer, BUFSIZ, words_file) != NULL) {
     // print_hash(buffer);
-    entry_counts[hash(buffer) & MODSZ]++;
+    entry_counts[hash(buffer) % MODSZ]++;
   }
 
   for (i = 0; i < MODSZ; i++) {
