@@ -1,17 +1,16 @@
+#include <string.h>
 #include "../lib/hash.h"
+
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define MIN3(a, b, c) MIN(MIN(a, b), c)
 
 uint64_t hash(char * str) {
   uint64_t hash = 5381;
   char ch;
-
   while ((ch = (*str++)))
     hash = ((hash << 5) + hash) + ch;
-
   return hash;
 }
-
-#define MIN(a, b) ((a) < (b) ? (a) : (b))
-#define MIN3(a, b, c) MIN(MIN(a, b), c)
 
 int levenshtein(char *s1, char *s2) {
   uint32_t len1, len2, i, j, ld, od;
