@@ -96,6 +96,10 @@ int main(int argc, char * argv[]) {
 
   printf("maxlen = %lu\n", maxlen);
 
+  for (i = 0; i < NUMA; i++) {
+    printf("%d -> %s\n", i, alternate[i]);
+  }
+
 
   /* uint32_t x = 10, y = 5; */
   /* char * xs = "ten"; */
