@@ -10,7 +10,7 @@ typedef struct key_val_s {
 } key_val_t;
 
 typedef struct hash_table_s {
-  list_t ** entries;
+  (list_t *) entries[];
 } hash_table_t;
 
 uint64_t       hash(char * str);
