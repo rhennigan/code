@@ -5,6 +5,7 @@
 #define LIB_LIST_H_
 
 #include <stdbool.h>
+#include <stdlib.h>
 
 typedef struct list_s {
   void * head;
