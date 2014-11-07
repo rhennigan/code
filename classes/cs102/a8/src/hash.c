@@ -31,6 +31,12 @@ void hash_table_insert(hash_table_t * ht, key_val_t kv) {
   list_cons_c(ht->row[h_idx], kv, key_val_t);
 }
 
+void * hash_table_lookup(hash_table_t * ht, hkey_t key);
+
+key_val_t * make_kv(void * key, size_t ks, void * val, size_t vs);
+
+bool match_key(key_val_t * kv1, key_val_t * kv2);
+
 uint32_t string_distance(char *s1, char *s2) {
   uint32_t len1, len2, i, j, ld, od;
   len1 = strlen(s1);
