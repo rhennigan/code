@@ -26,6 +26,10 @@ void print_int(void * addr) {
   printf(" %d", *(int*)addr);
 }
 
+bool equal(void * a, void * b) {
+  return *(uint32_t*)a == *(uint32_t*)b;
+}
+
 int main(int argc, char * argv[]) {
   uint64_t entry_counts[MODSZ];
   char     buffer[BUFSIZ];
@@ -40,6 +44,8 @@ int main(int argc, char * argv[]) {
   list_iter(list, &print_int);
   printf("\n");
   list_dump(list);
+
+  void * addr = list_find(list, 
 
   /* for (i = 0; i < MODSZ; i++) { */
   /*   entry_counts[i] = 0L; */
