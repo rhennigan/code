@@ -45,15 +45,18 @@ int main(int argc, char * argv[]) {
   /* uint64_t entry_counts[MODSZ]; */
   char     buffer[BUFSIZ];
   FILE *   alts_file;
-  uint32_t i;
+  uint32_t i, j;
 
   hash_table_t * hash_table = hash_table_init(HTSZ);
 
   alts_file = fopen("data/alternates.csv", "r");
 
-  /* for (i = 0; i < 240; i++) { */
-  /*   fgets(countries[i], 32, countries_file); */
-  /* } */
+  for (i = 0; i < NUMA; i++) {
+    fgets(buffer, BUFSIZ, alts_file);
+    for (j = 0; j < BUFSIZ; j++) {
+      
+    }
+  }
 
   uint32_t x = 10, y = 5;
   char * xs = "ten";
