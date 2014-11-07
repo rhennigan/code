@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <limits.h>
 #include "lib/user_input.h"
 #include "lib/hash.h"
 
@@ -36,7 +37,7 @@ int main(int argc, char * argv[]) {
 
   while (1) {
     char * str = get_input_string();
-    int32_t mindst = 0;
+    int32_t mindst = INT_MAX;
     int32_t minidx = 0;
     for (i = 0; i < 240; i++) {
       
