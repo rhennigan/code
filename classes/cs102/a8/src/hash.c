@@ -32,7 +32,9 @@ void hash_table_insert(hash_table_t * ht, key_val_t * kv) {
   list_cons_c(ht->row[h_idx], *kv, key_val_t);
 }
 
-void * hash_table_lookup(hash_table_t * ht, hkey_t key);
+void * hash_table_lookup(hash_table_t * ht, hkey_t key) {
+  uint64_t h_idx = hash(key.key, key.size) % ht->size;
+}
 
 key_val_t * make_kv(void * key, size_t ks, void * val, size_t vs) {
   key_val_t * kv = malloc(sizeof(key_val_t));
