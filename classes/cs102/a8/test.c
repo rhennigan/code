@@ -39,10 +39,11 @@ int main(int argc, char * argv[]) {
 
   while (1) {
     char * str = get_input_string();
+    uint32_t dist;
     uint32_t mindst = INT_MAX;
     uint32_t minidx = 0;
     for (i = 0; i < 240; i++) {
-      mindst = MIN(mindst, string_distance(str, countries[i]));
+      dist = string_distance(str, countries[i]);
     }
 
   }
