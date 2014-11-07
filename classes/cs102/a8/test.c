@@ -36,6 +36,8 @@ int main(int argc, char * argv[]) {
 
   while (1) {
     char * str = get_input_string();
+    int32_t mindst = 0;
+    int32_t minidx = 0;
     for (i = 0; i < 240; i++) {
       
     }
