@@ -10,7 +10,7 @@
 #define NUMC 240
 #define NUMA 331
 #define NUMQ 58
-#define HTSZ 10
+#define HTSZ 1000
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
@@ -87,7 +87,8 @@ int main(int argc, char * argv[]) {
   }
 
   for (i = 0; i < hash_table->size; i++) {
-    printf("%d -> %lu\n", i, list_length(hash_table->row[i]));
+    size_t len = list_length(hash_table->row[i]);
+    printf("%d -> %lu\n", i, len);
   }
 
 
