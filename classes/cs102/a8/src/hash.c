@@ -41,8 +41,11 @@ key_val_t * make_kv(void * key, size_t ks, void * val, size_t vs) {
   v.size = vs;
   k.key = malloc(k.size);
   v.val = malloc(v.size);
+  memcpy(k.key, key, k.size);
+  memcpy(v.val, val, v.size);
   kv->key = k;
   kv->val = v;
+  return kv;
 }
 
 bool match_key(key_val_t * kv1, key_val_t * kv2);
