@@ -1,9 +1,16 @@
 #include <stdio.h>
 #include "lib/hash.h"
 
-int main(int argc, char * argv[]) {
-  char * str = argv[1];
+void print_hash(char * str) {
   uint64_t h = hash(str);
   printf("hash(%s) = %lu\n", str, h);
+}
+
+int main(int argc, char * argv[]) {
+  int i;
+  for (i = 1; i < argc; i++) {
+    print_hash(argv[i]);
+  }
+
   return 0;
 }
