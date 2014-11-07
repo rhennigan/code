@@ -28,6 +28,12 @@ int main(int argc, char * argv[]) {
   FILE *   countries_file;
   uint32_t i;
 
+  list_t * list = NULL;
+  for (i = 0; i < 10; i++) {
+    uint32_t * n = malloc(sizeof(uint32_t));
+    list = list_cons(list, 
+  }
+
   /* for (i = 0; i < MODSZ; i++) { */
   /*   entry_counts[i] = 0L; */
   /* } */
