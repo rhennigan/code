@@ -30,7 +30,7 @@ void list_dump(list_t * list) {
   } else {
     printf(" list contents:\n");
     while (list != NULL) {
-      printf("  %p\n", list_head(list));
+      printf("  %p, %p\n", list_head(list), list_tail(list));
       list = list_tail(list);
     }
   }
