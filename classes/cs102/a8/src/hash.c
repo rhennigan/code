@@ -35,16 +35,19 @@ void * hash_table_lookup(hash_table_t * ht, hkey_t key);
 
 key_val_t * make_kv(void * key, size_t ks, void * val, size_t vs) {
   key_val_t * kv = malloc(sizeof(key_val_t));
+
   hkey_t k;
-  hval_t v;
   k.size = ks;
-  v.size = vs;
   k.key = malloc(k.size);
-  v.val = malloc(v.size);
   memcpy(k.key, key, k.size);
-  memcpy(v.val, val, v.size);
   kv->key = k;
+
+  hval_t v;
+  v.size = vs;
+  v.val = malloc(v.size);
+  memcpy(v.val, val, v.size);
   kv->val = v;
+
   return kv;
 }
 
