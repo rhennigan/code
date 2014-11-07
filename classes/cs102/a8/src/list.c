@@ -32,7 +32,8 @@ void list_dump(list_t * list) {
   } else {
     printf(" list contents:\n");
     while (list != NULL) {
-      printf("  ");
+      printf("  %p\n", list_head(list));
+      list = list_tail(list);
     }
   }
 }
