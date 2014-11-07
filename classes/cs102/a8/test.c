@@ -7,6 +7,7 @@
 
 /* GLOBAL VARIABLES */
 char countries[240][32];
+char questions[58][256];
 bool q_answers[240][58];
 
 void print_hash(char * str) {
