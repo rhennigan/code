@@ -25,8 +25,8 @@ hash_table_t * hash_table_init(size_t size) {
 }
 
 void hash_table_insert(hash_table_t * ht, key_val_t kv) {
-  char * str = malloc(sizeof(char) * kv.key_size);
-  uint64_t h = hash(str);
+  char * key_str = malloc(sizeof(char) * kv.key.size);
+  uint64_t h_idx = hash(key_str);
 }
 
 uint32_t string_distance(char *s1, char *s2) {
