@@ -31,7 +31,7 @@ void print_kv(void * addr) {
   char * key = malloc(kv.key.size);
   memcpy(key, kv.key.key, kv.key.size);
   uint32_t v = *(uint32_t*)kv.val.val;
-  printf("(%s, %d)\n", key, v);
+  printf("  (%s, %d)\n", key, v);
 }
 
 bool equal(void * a, void * b) {
@@ -57,10 +57,10 @@ int main(int argc, char * argv[]) {
 
   for (i = 0; i < hash_table->size; i++) {
     list_dump(hash_table->row[i]);
-    /* list_iter(hash_table->row[i], &print_kv); */
+    list_iter(hash_table->row[i], &print_kv);
   }
 
-  list_iter(hash_table->row[0], &print_kv);
+  /* list_iter(hash_table->row[0], &print_kv); */
   /* list_t * list = hash_table->row[0]; */
   /* key_val_t * kv = list_head(list); */
   /* print_kv(kv); */
