@@ -40,6 +40,8 @@ int main(int argc, char * argv[]) {
   char * xs = "ten";
   char * ys = "five";
 
+  key_val_t * xk = make_kv(xs, sizeof(xs), &x, sizeof(x));
+
   list_t * list = NULL;
   for (i = 0; i < 10; i++) {
     list_cons_c(list, i, uint32_t);
