@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "lib/hash.h"
 
 #define MODSZ 10L
