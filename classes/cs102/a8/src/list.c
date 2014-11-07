@@ -22,6 +22,10 @@ void list_dispose(list_t * list) {
   list_dispose(* next);
 }
 
+void list_dump(list_t * list) {
+  printf("list_dump: %p\n", list);
+}
+
 void * list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b)) {
   if (list == NULL) {
     return NULL;
