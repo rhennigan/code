@@ -8,7 +8,7 @@
 
 #define MODSZ 50L
 #define NUMC 240
-#define NUMA 331
+#define NUMA 10
 #define NUMQ 58
 #define HTSZ 10
 
