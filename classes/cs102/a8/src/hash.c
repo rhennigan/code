@@ -35,7 +35,12 @@ void * hash_table_lookup(hash_table_t * ht, hkey_t key);
 
 key_val_t * make_kv(void * key, size_t ks, void * val, size_t vs) {
   key_val_t * kv = malloc(sizeof(key_val_t));
-  
+  hkey_t k;
+  hval_t v;
+  k.key = malloc(ks);
+  v.val = malloc(vs);
+  kv->key = k;
+  kv->val = v;
 }
 
 bool match_key(key_val_t * kv1, key_val_t * kv2);
