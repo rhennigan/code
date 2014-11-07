@@ -27,6 +27,11 @@ int main(int argc, char * argv[]) {
 
   countries_file = fopen("data/countries.csv", "r");
 
+  for (i = 0; i < 240; i++) {
+    fgets(countries[i], 32, countries_file);
+  }
+
+
   while (fgets(buffer, BUFSIZ, countries_file) != NULL) {
     entry_counts[hash(buffer) % MODSZ]++;
   }
@@ -35,7 +40,7 @@ int main(int argc, char * argv[]) {
     printf("%lu\n", entry_counts[i]);
   }
 
-  fclose(words_file);
+  fclose(countries_file);
 
   return 0;
 }
