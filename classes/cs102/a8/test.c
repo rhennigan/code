@@ -28,7 +28,8 @@ void print_int(void * addr) {
 
 void print_kv(void * addr) {
   key_val_t kv = *(key_val_t *)addr;
-  char * key = kv.key.key;
+  char * key = malloc(kv.key.size);
+  memcpy(key, kv.key.key, kv.key.size);
   uint32_t v = *(uint32_t*)kv.val.val;
   printf("(%s, %d)\n", key, v);
 }
@@ -61,7 +62,7 @@ int main(int argc, char * argv[]) {
 
   list_t * list = hash_table->row[0];
   key_val_t * kv = list_head(list);
-  printf("(%s, %d)\n", kv->key.key, kv->val.val);
+  print_kv(kv);
 
   /* list_t * list = NULL; */
   /* for (i = 0; i < 10; i++) { */
