@@ -44,7 +44,8 @@ int main(int argc, char * argv[]) {
   key_val_t * xk = make_kv(xs, sizeof(xs), &x, sizeof(x));
   key_val_t * yk = make_kv(ys, sizeof(ys), &y, sizeof(y));
 
-  
+  hash_table_insert(hash_table, xk);
+  hash_table_insert(hash_table, yk);
 
   list_t * list = NULL;
   for (i = 0; i < 10; i++) {
