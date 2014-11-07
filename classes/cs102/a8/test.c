@@ -45,7 +45,7 @@ int main(int argc, char * argv[]) {
   /* uint64_t entry_counts[MODSZ]; */
   char     buffer[BUFSIZ];
   FILE *   alts_file;
-  uint32_t i, j;
+  uint32_t i, j, k;
 
   hash_table_t * hash_table = hash_table_init(HTSZ);
 
@@ -58,6 +58,9 @@ int main(int argc, char * argv[]) {
     for (j = 0; j < BUFSIZ; j++) {
       if (buffer[j] == ',') break;
       key[j] = buffer[j];
+    }
+    for (j = j+1; j < BUFSIZ; j++) {
+      val[j]
     }
   }
 
@@ -82,11 +85,11 @@ int main(int argc, char * argv[]) {
     list_iter(hash_table->row[i], &print_kv);
   }
 
-  hkey_t k;
-  k.key = "ten";
-  k.size = 4;
-  void * addr = hash_table_lookup(hash_table, k);
-  printf("\n\n%p\n", addr);
+  /* hkey_t k; */
+  /* k.key = "ten"; */
+  /* k.size = 4; */
+  /* void * addr = hash_table_lookup(hash_table, k); */
+  /* printf("\n\n%p\n", addr); */
 
   /* list_iter(hash_table->row[0], &print_kv); */
   /* list_t * list = hash_table->row[0]; */
