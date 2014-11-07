@@ -115,7 +115,7 @@ int main(int argc, char * argv[]) {
       }
     }
     hkey_t k;
-    k.size = strlen(alternate[minidx]);
+    k.size = strlen(alternate[minidx])+1;
     k.key = alternate[minidx];
     void * addr = hash_table_lookup(hash_table, k);
     printf("\n\nlookup = %p\n", addr);
