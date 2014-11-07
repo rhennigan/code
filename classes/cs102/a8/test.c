@@ -77,6 +77,7 @@ int main(int argc, char * argv[]) {
 
   for (i = 0; i < hash_table->size; i++) {
     list_dump(hash_table->row[i]);
+    printf("\n");
     list_iter(hash_table->row[i], &print_kv);
   }
 
