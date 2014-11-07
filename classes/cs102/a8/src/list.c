@@ -25,10 +25,10 @@ void list_dispose(list_t * list) {
 void list_dump(list_t * list) {
   printf("\nlist_dump: %p\n", list);
   printf("-------------------\n");
+  printf(" list contents:\n");
   if (list == NULL) {
-    printf(" (nil)\n");
+    printf("  (nil)\n");
   } else {
-    printf(" list contents:\n");
     while (list != NULL) {
       printf("  %p, %p\n", list_head(list), list_tail(list));
       list = list_tail(list);
