@@ -14,19 +14,19 @@ uint64_t hash(char * str) {
 #define MIN3(a, b, c) MIN(MIN(a, b), c)
 
 int levenshtein(char *s1, char *s2) {
-  uint32_t s1len, s2len, x, y, ld, od;
-  s1len = strlen(s1);
-  s2len = strlen(s2);
-  uint32_t c[s1len+1];
-  for (y = 1; y <= s1len; y++)
-    c[y] = y;
-  for (x = 1; x <= s2len; x++) {
-    c[0] = x;
-    for (y = 1, ld = x-1; y <= s1len; y++) {
-      od = c[y];
-      c[y] = MIN3(c[y] + 1, c[y-1] + 1, ld + (s1[y-1] == s2[x-1] ? 0 : 1));
+  uint32_t len1, len2, i, j, ld, od;
+  len1 = strlen(s1);
+  len2 = strlen(s2);
+  uint32_t c[len1+1];
+  for (j = 1; j <= len1; j++)
+    c[j] = j;
+  for (i = 1; i <= len2; i++) {
+    c[0] = i;
+    for (j = 1, ld = i-1; j <= len1; j++) {
+      od = c[j];
+      c[j] = MIN3(c[j] + 1, c[j-1] + 1, ld + (s1[j-1] == s2[i-1] ? 0 : 1));
       ld = od;
     }
   }
-  return(c[s1len]);
+  return(c[len1]);
 }
