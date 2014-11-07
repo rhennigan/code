@@ -40,6 +40,8 @@ int main(int argc, char * argv[]) {
   }
 
   list_iter(list, &print_int);
+  printf("\n");
+  list_dump(list);
 
   /* for (i = 0; i < MODSZ; i++) { */
   /*   entry_counts[i] = 0L; */
