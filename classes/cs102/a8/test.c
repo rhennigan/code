@@ -45,7 +45,9 @@ int main(int argc, char * argv[]) {
   printf("\n");
   list_dump(list);
 
-  void * addr = list_find(list, 
+  uint32_t n = 5;
+  void * addr = list_find(list, &n, &equal);
+  bool found = addr == NULL ? false : true;
 
   /* for (i = 0; i < MODSZ; i++) { */
   /*   entry_counts[i] = 0L; */
