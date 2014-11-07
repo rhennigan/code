@@ -56,12 +56,15 @@ int main(int argc, char * argv[]) {
     char * key = malloc(BUFSIZ);
     char * val = malloc(BUFSIZ);
     for (j = 0; j < BUFSIZ; j++) {
-      if (buffer[j] == ',') break;
+      if (buffer[j] == ',') {
+        key[j] = '\0';
+        break;
+      }
       key[j] = buffer[j];
     }
-    for (k = j; k < BUFSIZ; k++) {
+    for (k = j + 1; k < BUFSIZ; k++) {
       if (buffer[k] == '\n') break;
-      val[k-j] = buffer[k];
+      val[k-j-1] = buffer[k];
       if (buffer[k] == '\0') break;
     }
     printf("key = %s, val = %s\n", key, val);
