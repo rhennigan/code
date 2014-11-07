@@ -60,9 +60,9 @@ int main(int argc, char * argv[]) {
     /* list_iter(hash_table->row[i], &print_kv); */
   }
 
-  list_t * list = hash_table->row[0];
-  key_val_t * kv = list_head(list);
-  print_kv(kv);
+  /* list_t * list = hash_table->row[0]; */
+  /* key_val_t * kv = list_head(list); */
+  /* print_kv(kv); */
 
   /* list_t * list = NULL; */
   /* for (i = 0; i < 10; i++) { */
