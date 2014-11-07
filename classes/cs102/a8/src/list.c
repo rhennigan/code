@@ -22,6 +22,11 @@ void list_dispose(list_t * list) {
   list_dispose(* next);
 }
 
+void * list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b)) {
+  if (list == NULL) return NULL;
+  if (cmp(h, list_head(list))) return list_head(list);
+}
+
 void * list_head(list_t * list) {
   if (list == NULL) {
     printf("list_head: list is empty\n");
