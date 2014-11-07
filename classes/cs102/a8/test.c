@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "lib/hash.h"
 
-#define MODSZ 10L
+#define MODSZ 100L
 
 void print_hash(char * str) {
   uint64_t h = hash(str) % MODSZ;
@@ -22,7 +22,6 @@ int main(int argc, char * argv[]) {
   words_file = fopen("words.csv", "r");
 
   while (fgets(buffer, BUFSIZ, words_file) != NULL) {
-    // print_hash(buffer);
     entry_counts[hash(buffer) % MODSZ]++;
   }
 
@@ -30,6 +29,7 @@ int main(int argc, char * argv[]) {
     printf("%lu\n", entry_counts[i]);
   }
 
-
+  fclose(words_file);
+  
   return 0;
 }
