@@ -119,7 +119,7 @@ int main(int argc, char * argv[]) {
     k.key = malloc(strlen(str));
     snprintf(k.key, strlen(str), "%s", str);
     void * addr = hash_table_lookup(hash_table, k);
-    uint64_t h = hash(str, strlen(str)) % HTSZ;
+    uint64_t h = hash(str, strlen(str)+1) % HTSZ;
     printf("hash(%s, %lu) = %lu\n", str, strlen(str), h);
     printf("\n\nlookup = %p\n", addr);
     printf("closest match for %s: %s\n", str, alternate[minidx]);
