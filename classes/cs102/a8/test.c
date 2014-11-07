@@ -51,7 +51,7 @@ int main(int argc, char * argv[]) {
 
   alts_file = fopen("data/alternates.csv", "r");
 
-  for (i = 0; i < NUMA; i++) {
+  for (i = 0; i < 5; i++) {
     fgets(buffer, BUFSIZ, alts_file);
     char * key = malloc(BUFSIZ);
     char * val = malloc(BUFSIZ);
@@ -59,9 +59,12 @@ int main(int argc, char * argv[]) {
       if (buffer[j] == ',') break;
       key[j] = buffer[j];
     }
-    for (k = j+1; k < BUFSIZ; k++) {
-      val[k-j-1] = buffer[k];
+    for (k = j; k < BUFSIZ; k++) {
+      if (buffer[k] == '\n') break;
+      val[k-j] = buffer[k];
+      if (buffer[k] == '\0') break;
     }
+    printf("key = %s, val = %s\n", key, val);
   }
 
   uint32_t x = 10, y = 5;
