@@ -25,6 +25,7 @@ void list_dispose(list_t * list) {
 void list_dump(list_t * list) {
   printf("\nlist_dump: %p\n", list);
   printf("-------------------\n");
+  printf(" list size: %lu\n", list_length(list));
   printf(" list contents:\n");
   if (list == NULL) {
     printf("  (nil)\n");
@@ -68,6 +69,15 @@ void list_iter(list_t * list, void (*f)(void * head)) {
     (*f)(tmp->head);
     tmp = list_tail(tmp);
   }
+}
+
+size_t list_length(list_t * list) {
+  size_t len = 0;
+  while (list != NULL) {
+    len++;
+    list = list_tail(list);
+  }
+  return len;
 }
 
 list_t * list_tail(list_t * list) {
