@@ -20,10 +20,10 @@ list_t * list_init();
 void     list_iter(list_t * list, void (*f)(void * head));
 list_t * list_tail(list_t * list);
 
-#define list_cons_c(lst, i, t) do {             \
-    t * n = malloc(sizeof(t));                  \
-    *n = i;                                     \
-    lst = list_cons(lst, n);                    \
+#define list_cons_c(list, item, type) do {      \
+    type * mem = malloc(sizeof(type));          \
+    *mem = item;                                \
+    list = list_cons(list, mem);                \
   } while (0)
 
 #endif  // LIB_LIST_H_
