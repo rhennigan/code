@@ -19,7 +19,7 @@ void list_dispose(list_t * list) {
   list_t ** next = &list->tail;
   free(list);
   list = NULL;
-  list_dispose(* next);
+  list_dispose(*next);
 }
 
 void list_dump(list_t * list) {
