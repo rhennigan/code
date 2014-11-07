@@ -51,7 +51,7 @@ int main(int argc, char * argv[]) {
 
   alts_file = fopen("data/alternates.csv", "r");
 
-  for (i = 0; i < 5; i++) {
+  for (i = 0; i < 20; i++) {
     fgets(buffer, BUFSIZ, alts_file);
     char * key = malloc(BUFSIZ);
     char * val = malloc(BUFSIZ);
@@ -69,8 +69,9 @@ int main(int argc, char * argv[]) {
     }
     printf("key = %s (%lu), val = %s (%lu)\n",
            key, strlen(key), val, strlen(val));
-    key_val_t * kv = make_kv(key, strlen(key),
-                             val, strlen(val));
+    key_val_t * kv = make_kv(key, strlen(key), val, strlen(val));
+    hash_table_insert(hash_table, kv);
+    free(kv);
   }
 
   /* uint32_t x = 10, y = 5; */
