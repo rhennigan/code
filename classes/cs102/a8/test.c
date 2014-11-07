@@ -30,6 +30,6 @@ int main(int argc, char * argv[]) {
   }
 
   fclose(words_file);
-  
+
   return 0;
 }
