@@ -32,7 +32,9 @@ void hash_table_insert(hash_table_t * ht, key_val_t * kv) {
   list_cons_c(ht->row[h_idx], *kv, key_val_t);
 }
 
-bool key_eq(hkey_t k1, hkey_t k2) {
+bool key_eq(void * a1, void * a2) {
+  hkey_t k1 = *(hkey_t *)a1;
+  hkey_t k2 = *(hkey_t *)a2;
   if (k1.size != k2.size) return false;
 
   char * str1 = (char *)k1.key;
