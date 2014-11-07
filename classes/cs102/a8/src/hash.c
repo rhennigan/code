@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdlib.h>
 #include "../lib/hash.h"
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
@@ -12,7 +13,10 @@ uint64_t hash(char * str) {
   return hash;
 }
 
-hash_table_t * hash_table_init(uint32_t size);
+hash_table_t * hash_table_init(uint32_t size) {
+  hash_table_t * ht = malloc(sizeof(hash_table_t));
+  
+}
 
 uint32_t string_distance(char *s1, char *s2) {
   uint32_t len1, len2, i, j, ld, od;
