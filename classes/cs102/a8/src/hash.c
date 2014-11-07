@@ -37,8 +37,10 @@ key_val_t * make_kv(void * key, size_t ks, void * val, size_t vs) {
   key_val_t * kv = malloc(sizeof(key_val_t));
   hkey_t k;
   hval_t v;
-  k.key = malloc(ks);
-  v.val = malloc(vs);
+  k.size = ks;
+  v.size = vs;
+  k.key = malloc(k.size);
+  v.val = malloc(v.size);
   kv->key = k;
   kv->val = v;
 }
