@@ -12,7 +12,8 @@
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define COPY(i, t) do {                         \
-                                                \
+    t * n = malloc(sizeof(t));                  \
+    *n = i;                                     \
   } while (0)
 
 /* GLOBAL VARIABLES */
