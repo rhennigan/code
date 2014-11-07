@@ -5,6 +5,8 @@
 #include "lib/hash.h"
 
 #define MODSZ 50L
+#define NUMC 240
+#define NUMQ 58
 
 /* GLOBAL VARIABLES */
 char countries[240][32];
@@ -34,6 +36,10 @@ int main(int argc, char * argv[]) {
 
   while (1) {
     char * str = get_input_string();
+    for (i = 0; i < 240; i++) {
+      
+    }
+
   }
 
   /* while (fgets(buffer, BUFSIZ, countries_file) != NULL) { */
