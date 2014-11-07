@@ -22,6 +22,10 @@ void print_hash(char * str) {
   printf("hash(%s) = %lu\n", str, h);
 }
 
+void print_int(void * addr) {
+  printf(" %d", *(int*)addr);
+}
+
 int main(int argc, char * argv[]) {
   uint64_t entry_counts[MODSZ];
   char     buffer[BUFSIZ];
@@ -31,7 +35,7 @@ int main(int argc, char * argv[]) {
   list_t * list = NULL;
   for (i = 0; i < 10; i++) {
     uint32_t * n = malloc(sizeof(uint32_t));
-    list = list_cons(list, 
+    list = list_cons(list, n);
   }
 
   /* for (i = 0; i < MODSZ; i++) { */
