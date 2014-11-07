@@ -48,6 +48,13 @@ int main(int argc, char * argv[]) {
   uint32_t i;
 
   hash_table_t * hash_table = hash_table_init(HTSZ);
+
+  alts_file = fopen("data/alternates.csv", "r");
+
+  /* for (i = 0; i < 240; i++) { */
+  /*   fgets(countries[i], 32, countries_file); */
+  /* } */
+
   uint32_t x = 10, y = 5;
   char * xs = "ten";
   char * ys = "five";
