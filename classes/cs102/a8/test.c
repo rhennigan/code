@@ -73,6 +73,7 @@ int main(int argc, char * argv[]) {
       val[k-j-1] = buffer[k];
       if (buffer[k] == '\0') break;
     }
+    strcpy(alternates[i], key);
     printf("key = %s (%lu), val = %s (%lu)\n",
            key, strlen(key), val, strlen(val));
     key_val_t * kv = make_kv(key, strlen(key)+1, val, strlen(val)+1);
