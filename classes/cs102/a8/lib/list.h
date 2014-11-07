@@ -4,6 +4,8 @@
 #ifndef LIB_LIST_H_
 #define LIB_LIST_H_
 
+#include <stdbool.h>
+
 typedef struct list_s {
   void * head;
   struct list_s * tail;
