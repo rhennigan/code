@@ -34,7 +34,7 @@ int main(int argc, char * argv[]) {
 
   list_t * list = NULL;
   for (i = 0; i < 10; i++) {
-    CONS_CPY(list, i, uint32_t);
+    list_cons_c(list, i, uint32_t);
   }
 
   list_iter(list, &print_int);
