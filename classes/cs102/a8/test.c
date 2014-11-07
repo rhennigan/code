@@ -38,9 +38,9 @@ bool equal(void * a, void * b) {
 }
 
 int main(int argc, char * argv[]) {
-  uint64_t entry_counts[MODSZ];
-  char     buffer[BUFSIZ];
-  FILE *   countries_file;
+  /* uint64_t entry_counts[MODSZ]; */
+  /* char     buffer[BUFSIZ]; */
+  /* FILE *   countries_file; */
   uint32_t i;
 
   hash_table_t * hash_table = hash_table_init(5);
@@ -58,44 +58,44 @@ int main(int argc, char * argv[]) {
     list_iter(hash_table->row[i], &print_kv);
   }
 
-  list_t * list = NULL;
-  for (i = 0; i < 10; i++) {
-    list_cons_c(list, i, uint32_t);
-  }
+  /* list_t * list = NULL; */
+  /* for (i = 0; i < 10; i++) { */
+  /*   list_cons_c(list, i, uint32_t); */
+  /* } */
 
-  list_iter(list, &print_int);
-  printf("\n");
-  list_dump(list);
+  /* list_iter(list, &print_int); */
+  /* printf("\n"); */
+  /* list_dump(list); */
 
-  uint32_t n = 50;
-  void * addr = list_find(list, &n, &equal);
-  bool found = addr == NULL ? false : true;
-  printf("found: %s\n", found ? "true" : "false");
+  /* uint32_t n = 50; */
+  /* void * addr = list_find(list, &n, &equal); */
+  /* bool found = addr == NULL ? false : true; */
+  /* printf("found: %s\n", found ? "true" : "false"); */
 
   /* for (i = 0; i < MODSZ; i++) { */
   /*   entry_counts[i] = 0L; */
   /* } */
 
-  countries_file = fopen("data/countries.csv", "r");
+  /* countries_file = fopen("data/countries.csv", "r"); */
 
-  for (i = 0; i < 240; i++) {
-    fgets(countries[i], 32, countries_file);
-  }
+  /* for (i = 0; i < 240; i++) { */
+  /*   fgets(countries[i], 32, countries_file); */
+  /* } */
 
-  while (1) {
-    char * str = get_input_string();
-    uint32_t dist;
-    uint32_t mindst = INT_MAX;
-    uint32_t minidx = 0;
-    for (i = 0; i < 240; i++) {
-      dist = string_distance(str, countries[i]);
-      if (dist < mindst) {
-        mindst = dist;
-        minidx = i;
-      }
-    }
-    printf("closest match for %s: %s\n", str, countries[minidx]);
-  }
+  /* while (1) { */
+  /*   char * str = get_input_string(); */
+  /*   uint32_t dist; */
+  /*   uint32_t mindst = INT_MAX; */
+  /*   uint32_t minidx = 0; */
+  /*   for (i = 0; i < 240; i++) { */
+  /*     dist = string_distance(str, countries[i]); */
+  /*     if (dist < mindst) { */
+  /*       mindst = dist; */
+  /*       minidx = i; */
+  /*     } */
+  /*   } */
+  /*   printf("closest match for %s: %s\n", str, countries[minidx]); */
+  /* } */
 
   /* while (fgets(buffer, BUFSIZ, countries_file) != NULL) { */
   /*   entry_counts[hash(buffer) % MODSZ]++; */
@@ -105,7 +105,7 @@ int main(int argc, char * argv[]) {
   /*   printf("%lu\n", entry_counts[i]); */
   /* } */
 
-  fclose(countries_file);
+  /* fclose(countries_file); */
 
   return 0;
 }
