@@ -27,7 +27,8 @@ void print_int(void * addr) {
 }
 
 void print_kv(void * addr) {
-  key_val_t * kv = (key_val_t *)addr;
+  key_val_t kv = *(key_val_t *)addr;
+  
 }
 
 bool equal(void * a, void * b) {
@@ -51,9 +52,9 @@ int main(int argc, char * argv[]) {
   hash_table_insert(hash_table, xk);
   hash_table_insert(hash_table, yk);
 
-  for (i = 0; i < hash_table->size; i++) {
-    list_iter(hash_table->row[i], 
-  }
+  /* for (i = 0; i < hash_table->size; i++) { */
+  /*   list_iter(hash_table->row[i],  */
+  /* } */
 
   list_t * list = NULL;
   for (i = 0; i < 10; i++) {
