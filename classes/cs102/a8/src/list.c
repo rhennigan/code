@@ -30,7 +30,10 @@ void list_dump(list_t * list) {
   if (list == NULL) {
     printf(" NULL\n");
   } else {
-    printf(
+    printf(" list contents:\n");
+    while (list != NULL) {
+      printf("  ");
+    }
   }
 }
 
