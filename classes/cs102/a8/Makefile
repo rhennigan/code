@@ -1,8 +1,14 @@
 test: hash.o
-	gcc -o test test.c build/hash.o
+	gcc -o test test.c build/*.o
 
 hash.o: lib/hash.h src/hash.c prep
 	gcc -o build/hash.o -c src/hash.c
+
+list.o: lib/list.h src/list.c prep
+	gcc -o build/list.o -c src/list.c
+
+hash.o: lib/user_input.h src/user_input.c prep
+	gcc -o build/user_input.o -c src/user_input.c
 
 prep: 
 	mkdir -p build/
