@@ -21,9 +21,9 @@ int main(int argc, char * argv[]) {
 
   words_file = fopen("words.csv", "r");
 
-  for (i = 1; i < argc; i++) {
-    print_hash(argv[i]);
-    entry_counts[hash(argv[i]) % MODSZ]++;
+  while (fgets(buffer, BUFSIZ, words_file) != NULL) {
+    // print_hash(buffer);
+    entry_counts[hash(buffer) & MODSZ]++;
   }
 
   for (i = 0; i < MODSZ; i++) {
