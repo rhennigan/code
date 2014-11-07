@@ -15,7 +15,7 @@ typedef list_t * ht_entry_t;
 
 typedef struct hash_table_s {
   uint32_t size;
-  ht_entry_t row[];
+  ht_entry_t * row;
 } hash_table_t;
 
 uint64_t       hash(char * str);
