@@ -25,8 +25,8 @@ hash_table_t * hash_table_init(size_t size) {
   return ht;
 }
 
-void hash_table_insert(hash_table_t * ht, key_val_t * kv) {
-  
+void hash_table_insert(hash_table_t * ht, key_val_t kv) {
+  uint64_t h_idx = hash(kv->key.key, kv->key.size);
 }
 
 /* void hash_table_insert(hash_table_t * ht, key_val_t * kv) { */
