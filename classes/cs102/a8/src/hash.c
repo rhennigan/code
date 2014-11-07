@@ -36,19 +36,19 @@ bool key_eq(void * a1, void * a2) {
   hkey_t k1 = *(hkey_t *)a1;
   hkey_t k2 = *(hkey_t *)a2;
   if (k1.size != k2.size) return false;
-
   char * str1 = (char *)k1.key;
   char * str2 = (char *)k2.key;
   uint32_t i;
   for (i = 0; i < k1.size; i++) {
     if (str1[i] != str2[i]) return false;
   }
-
   return true;
 }
 
 void * hash_table_lookup(hash_table_t * ht, hkey_t key) {
   uint64_t h_idx = hash(key.key, key.size) % ht->size;
+  void * found = list_find(ht->row[h_idx], &key, &key_eq);
+  return found;
 }
 
 key_val_t * make_kv(void * key, size_t ks, void * val, size_t vs) {
