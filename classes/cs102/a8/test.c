@@ -36,6 +36,10 @@ int main(int argc, char * argv[]) {
   FILE *   countries_file;
   uint32_t i;
 
+  uint32_t x = 10, y = 5;
+  char * xs = "ten";
+  char * ys = "five";
+
   list_t * list = NULL;
   for (i = 0; i < 10; i++) {
     list_cons_c(list, i, uint32_t);
