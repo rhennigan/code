@@ -74,9 +74,9 @@ key_val_t * make_kv(void * key, size_t ks, void * val, size_t vs) {
 
 /* Levenshtein distance */
 uint32_t string_distance(char *s1, char *s2) {
-  uint32_t len1, len2, i, j, ld, od;
-  len1 = strlen(s1);
-  len2 = strlen(s2);
+  uint32_t i, j, ld, od;
+  uint32_t len1 = strlen(s1);
+  uint32_t len2 = strlen(s2);
   uint32_t c[len1+1];
   for (j = 1; j <= len1; j++)
     c[j] = j;
