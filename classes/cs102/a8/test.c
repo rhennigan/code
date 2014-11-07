@@ -65,7 +65,7 @@ int main(int argc, char * argv[]) {
 
   hkey_t k;
   k.key = "ten";
-  k.size = 4;
+  k.size = 3;
   void * addr = hash_table_lookup(hash_table, k);
   printf("\n\n%p\n", addr);
 
