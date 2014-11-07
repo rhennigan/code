@@ -18,6 +18,7 @@ uint64_t hash(void * addr, size_t size) {
 hash_table_t * hash_table_init(size_t size) {
   hash_table_t * ht = malloc(sizeof(hash_table_t));
   ht_entry_t * data = malloc(sizeof(list_t *) * size);
+  ht->size = size;
   ht->row = data;
   uint32_t i;
   for (i = 0; i < size; i++) {

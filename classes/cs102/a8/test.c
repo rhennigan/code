@@ -36,11 +36,15 @@ int main(int argc, char * argv[]) {
   FILE *   countries_file;
   uint32_t i;
 
+  hash_table_t * hash_table = hash_table_init(5);
   uint32_t x = 10, y = 5;
   char * xs = "ten";
   char * ys = "five";
 
   key_val_t * xk = make_kv(xs, sizeof(xs), &x, sizeof(x));
+  key_val_t * yk = make_kv(ys, sizeof(ys), &y, sizeof(y));
+
+  
 
   list_t * list = NULL;
   for (i = 0; i < 10; i++) {
