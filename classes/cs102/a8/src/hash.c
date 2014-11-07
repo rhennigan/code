@@ -32,6 +32,11 @@ void hash_table_insert(hash_table_t * ht, key_val_t * kv) {
   list_cons_c(ht->row[h_idx], *kv, key_val_t);
 }
 
+bool key_eq(hkey_t k1, hkey_t k2) {
+  if (k1.size != k2.size) return false;
+  
+}
+
 void * hash_table_lookup(hash_table_t * ht, hkey_t key) {
   uint64_t h_idx = hash(key.key, key.size) % ht->size;
 }
