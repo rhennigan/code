@@ -35,8 +35,11 @@ int main(int argc, char * argv[]) {
   list_t * list = NULL;
   for (i = 0; i < 10; i++) {
     uint32_t * n = malloc(sizeof(uint32_t));
+    *n = i;
     list = list_cons(list, n);
   }
+
+  list_iter(list, &print_int);
 
   /* for (i = 0; i < MODSZ; i++) { */
   /*   entry_counts[i] = 0L; */
