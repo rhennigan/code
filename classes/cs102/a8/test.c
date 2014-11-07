@@ -17,10 +17,10 @@ char countries[NUMC][BUFSIZ];
 char questions[NUMQ][BUFSIZ];
 bool q_answers[NUMC][NUMQ];
 
-void print_hash(char * str) {
-  uint64_t h = hash(str) % MODSZ;
-  printf("hash(%s) = %lu\n", str, h);
-}
+/* void print_hash(char * str) { */
+/*   uint64_t h = hash(str) % MODSZ; */
+/*   printf("hash(%s) = %lu\n", str, h); */
+/* } */
 
 void print_int(void * addr) {
   printf(" %d", *(int*)addr);
@@ -46,6 +46,10 @@ int main(int argc, char * argv[]) {
 
   hash_table_insert(hash_table, xk);
   hash_table_insert(hash_table, yk);
+
+  for (i = 0; i < hash_table->size; i++) {
+    list_iter(hash_table->row[i], 
+  }
 
   list_t * list = NULL;
   for (i = 0; i < 10; i++) {
