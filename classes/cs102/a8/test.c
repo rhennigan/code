@@ -118,8 +118,10 @@ int main(int argc, char * argv[]) {
     k.size = strlen(alternate[minidx])+1;
     k.key = alternate[minidx];
     void * addr = hash_table_lookup(hash_table, k);
+    key_val_t kv = *(key_val_t*)addr;
+    char * correct = kv.val.val;
     printf("\n\nlookup = %p\n", addr);
-    printf("closest match for %s: %s\n", str, alternate[minidx]);
+    printf("closest match for %s: %s\n", str, correct);
   }
 
 
