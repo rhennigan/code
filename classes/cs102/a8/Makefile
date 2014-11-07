@@ -1,7 +1,7 @@
 test: hash.o user_input.o
-	gcc -o test test.c build/*.o
+	gcc -o test test.c build/hash.o build/user_input.o
 
-hash.o: lib/hash.h src/hash.c list.o prep
+hash.o: lib/hash.h src/hash.c build/list.o prep
 	gcc -o build/hash.o -c src/hash.c build/list.o
 
 list.o: lib/list.h src/list.c prep
