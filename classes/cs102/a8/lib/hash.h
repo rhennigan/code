@@ -11,8 +11,10 @@ typedef struct key_val_s {
   void * val;
 } key_val_t;
 
+typedef list_t * ht_entry_t;
+
 typedef struct hash_table_s {
-  (list_t *) entries[HASH_TABLE_SIZE];
+  ht_entry_t entries[HASH_TABLE_SIZE];
 } hash_table_t;
 
 uint64_t       hash(char * str);
