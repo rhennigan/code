@@ -32,7 +32,7 @@ typedef struct hash_table_s {
 
 uint64_t       hash(void * addr, size_t size);
 hash_table_t * hash_table_init(size_t size);
-void           hash_table_insert(hash_table_t * ht, key_val_t kv);
+void           hash_table_insert(hash_table_t * ht, key_val_t * kv);
 void *         hash_table_lookup(hash_table_t * ht, hkey_t key);
 key_val_t *    make_kv(void * key, size_t ks, void * val, size_t vs);
 bool           match_key(key_val_t * kv1, key_val_t * kv2);
