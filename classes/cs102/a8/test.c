@@ -8,12 +8,14 @@
 
 #define MODSZ 50L
 #define NUMC 240
+#define NUMA 331
 #define NUMQ 58
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 /* GLOBAL VARIABLES */
 char countries[NUMC][BUFSIZ];
+char alternate[NUMA][BUFSIZ];
 char questions[NUMQ][BUFSIZ];
 bool q_answers[NUMC][NUMQ];
 
