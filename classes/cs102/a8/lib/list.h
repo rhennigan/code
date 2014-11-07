@@ -18,6 +18,7 @@ void *   list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b));
 void *   list_head(list_t * list);
 list_t * list_init();
 void     list_iter(list_t * list, void (*f)(void * head));
+size_t   list_length(list_t * list);
 list_t * list_tail(list_t * list);
 
 #define list_cons_c(list, item, type) do {      \
