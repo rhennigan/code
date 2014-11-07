@@ -4,5 +4,6 @@
 #include <stdint.h>
 
 uint64_t hash(char * str);
+int32_t string_distance(char *s1, char *s2);
 
 #endif  // LIB_HASH_

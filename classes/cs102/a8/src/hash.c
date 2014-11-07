@@ -12,7 +12,7 @@ uint64_t hash(char * str) {
   return hash;
 }
 
-int levenshtein(char *s1, char *s2) {
+int32_t string_distance(char *s1, char *s2) {
   uint32_t len1, len2, i, j, ld, od;
   len1 = strlen(s1);
   len2 = strlen(s2);
@@ -29,3 +29,6 @@ int levenshtein(char *s1, char *s2) {
   }
   return(c[len1]);
 }
+
+#undef MIN
+#undef MIN3
