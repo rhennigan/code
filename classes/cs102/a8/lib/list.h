@@ -20,4 +20,10 @@ list_t * list_init();
 void     list_iter(list_t * list, void (*f)(void * head));
 list_t * list_tail(list_t * list);
 
+#define CONS_CPY(lst, i, t) do {                \
+    t * n = malloc(sizeof(t));                  \
+    *n = i;                                     \
+    lst = list_cons(lst, n);                    \
+  } while (0)
+
 #endif  // LIB_LIST_H_

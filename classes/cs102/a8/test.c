@@ -11,10 +11,6 @@
 #define NUMQ 58
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
-#define COPY(i, t) do {                         \
-    t * n = malloc(sizeof(t));                  \
-    *n = i;                                     \
-  } while (0)
 
 /* GLOBAL VARIABLES */
 char countries[NUMC][BUFSIZ];
