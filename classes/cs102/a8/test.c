@@ -56,7 +56,11 @@ int main(int argc, char * argv[]) {
     char * key;
     char * val;
     for (j = 0; j < BUFSIZ; j++) {
-      if (buffer[j] == '\0') break;
+      key[j] = buffer[j];
+      if (buffer[j] == '\0') {
+        
+        break;
+      }
     }
   }
 
