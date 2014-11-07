@@ -33,6 +33,8 @@ void print_kv(void * addr) {
   key_val_t kv = *(key_val_t *)addr;
   char * key = malloc(kv.key.size);
   memcpy(key, kv.key.key, kv.key.size);
+  char * val = malloc(kv.val.size);
+  memcpy(val, kv.val.val, kv.val.size);
   uint32_t v = *(uint32_t*)kv.val.val;
   printf("  (%s, %d)\n", key, v);
 }
@@ -72,6 +74,11 @@ int main(int argc, char * argv[]) {
     key_val_t * kv = make_kv(key, strlen(key), val, strlen(val));
     hash_table_insert(hash_table, kv);
     free(kv);
+  }
+
+  for (i = 0; i < hash_table->size; i++) {
+    list_dump(hash_table->row[i]);
+    list_iter(hash_table->row[i], &print_kv);
   }
 
   /* uint32_t x = 10, y = 5; */
