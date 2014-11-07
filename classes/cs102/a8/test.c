@@ -44,8 +44,12 @@ int main(int argc, char * argv[]) {
     uint32_t minidx = 0;
     for (i = 0; i < 240; i++) {
       dist = string_distance(str, countries[i]);
+      if (dist < mindst) {
+        mindst = dist;
+        minidx = i;
+      }
     }
-
+    printf("closest match for %s: %s\n", str, countries[minidx]);
   }
 
   /* while (fgets(buffer, BUFSIZ, countries_file) != NULL) { */
