@@ -23,7 +23,7 @@ int main(int argc, char * argv[]) {
   uint64_t entry_counts[MODSZ];
   char     buffer[BUFSIZ];
   FILE *   countries_file;
-  int      i;
+  uint32_t i;
 
   /* for (i = 0; i < MODSZ; i++) { */
   /*   entry_counts[i] = 0L; */
@@ -37,8 +37,8 @@ int main(int argc, char * argv[]) {
 
   while (1) {
     char * str = get_input_string();
-    int32_t mindst = INT_MAX;
-    int32_t minidx = 0;
+    uint32_t mindst = INT_MAX;
+    uint32_t minidx = 0;
     for (i = 0; i < 240; i++) {
       
     }
