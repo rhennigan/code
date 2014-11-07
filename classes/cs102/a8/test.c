@@ -18,16 +18,16 @@ void print_hash(char * str) {
 int main(int argc, char * argv[]) {
   uint64_t entry_counts[MODSZ];
   char     buffer[BUFSIZ];
-  FILE *   words_file;
+  FILE *   countries_file;
   int      i;
 
-  for (i = 0; i < MODSZ; i++) {
-    entry_counts[i] = 0L;
-  }
+  /* for (i = 0; i < MODSZ; i++) { */
+  /*   entry_counts[i] = 0L; */
+  /* } */
 
-  words_file = fopen("words.csv", "r");
+  countries_file = fopen("data/countries.csv", "r");
 
-  while (fgets(buffer, BUFSIZ, words_file) != NULL) {
+  while (fgets(buffer, BUFSIZ, countries_file) != NULL) {
     entry_counts[hash(buffer) % MODSZ]++;
   }
 
