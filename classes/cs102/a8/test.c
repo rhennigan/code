@@ -56,6 +56,8 @@ int main(int argc, char * argv[]) {
     fgets(buffer, BUFSIZ, alts_file);
     char * key = malloc(BUFSIZ);
     char * val = malloc(BUFSIZ);
+    memset(key, '\0', BUFSIZ);
+    memset(val, '\0', BUFSIZ);
     for (j = 0; j < BUFSIZ; j++) {
       if (buffer[j] == ',') {
         key[j] = '\0';
