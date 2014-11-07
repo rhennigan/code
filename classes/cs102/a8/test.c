@@ -61,7 +61,7 @@ int main(int argc, char * argv[]) {
 
   list_t * list = hash_table->row[0];
   key_val_t * kv = list_head(list);
-  
+  printf("(%s, %d)\n", kv->key.key, kv->val.val);
 
   /* list_t * list = NULL; */
   /* for (i = 0; i < 10; i++) { */
