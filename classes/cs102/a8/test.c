@@ -28,7 +28,8 @@ void print_int(void * addr) {
 
 void print_kv(void * addr) {
   key_val_t kv = *(key_val_t *)addr;
-  
+  char * key = kv.key.key;
+  uint32_t v = *(uint32_t*)kv.val.val;
 }
 
 bool equal(void * a, void * b) {
