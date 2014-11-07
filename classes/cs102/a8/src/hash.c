@@ -24,6 +24,10 @@ hash_table_t * hash_table_init(uint32_t size) {
   return ht;
 }
 
+void hash_table_insert(hash_table_t * ht, key_val_t kv) {
+  
+}
+
 uint32_t string_distance(char *s1, char *s2) {
   uint32_t len1, len2, i, j, ld, od;
   len1 = strlen(s1);
