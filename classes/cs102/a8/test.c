@@ -67,7 +67,8 @@ int main(int argc, char * argv[]) {
       val[k-j-1] = buffer[k];
       if (buffer[k] == '\0') break;
     }
-    printf("key = %s, val = %s\n", key, val);
+    printf("key = %s (%d), val = %s (%d)\n",
+           key, strlen(key), val, strlen(val));
   }
 
   /* uint32_t x = 10, y = 5; */
