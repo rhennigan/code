@@ -26,6 +26,10 @@ void print_int(void * addr) {
   printf(" %d", *(int*)addr);
 }
 
+void print_kv(void * addr) {
+  key_val_t * kv = (key_val_t *)addr;
+}
+
 bool equal(void * a, void * b) {
   return *(uint32_t*)a == *(uint32_t*)b;
 }
