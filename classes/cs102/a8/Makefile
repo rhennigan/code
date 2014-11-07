@@ -1,4 +1,4 @@
-test: hash.o list.o user_input.o
+test: hash.o user_input.o
 	gcc -o test test.c build/*.o
 
 hash.o: lib/hash.h src/hash.c list.o prep
