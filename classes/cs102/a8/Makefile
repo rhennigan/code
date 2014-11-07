@@ -12,3 +12,6 @@ user_input.o: lib/user_input.h src/user_input.c prep
 
 prep: 
 	mkdir -p build/
+
+clean:
+	rm build/*.o
