@@ -30,6 +30,7 @@ hash_table_t * hash_table_init(size_t size) {
 
 void hash_table_insert(hash_table_t * ht, key_val_t * kv) {
   uint64_t h_idx = hash(kv->key.key, kv->key.size) % ht->size;
+  printf("\ninsert h_idx = %ld\n", h_idx);
   list_cons_c(ht->row[h_idx], *kv, key_val_t);
 }
 
@@ -48,7 +49,7 @@ bool key_eq(void * a1, void * a2) {
 
 void * hash_table_lookup(hash_table_t * ht, hkey_t key) {
   uint64_t h_idx = hash(key.key, key.size) % ht->size;
-  printf("\nh_idx = %ld\n", h_idx);
+  printf("\nlookup h_idx = %ld\n", h_idx);
   void * found = list_find(ht->row[h_idx], &key, &key_eq);
   return found;
 }
