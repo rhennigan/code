@@ -7,9 +7,10 @@
 
 uint64_t hash(void * addr, size_t size) {
   uint64_t hash = 5381;
-  char ch;
-  while ((ch = (*str++)))
-    hash = ((hash << 5) + hash) + ch;
+  uint32_t i;
+  for (i = 0; i < size; i++) {
+    hash = ((hash << 5) + hash) + *(char*)(addr + i);
+  }
   return hash;
 }
 
@@ -24,11 +25,11 @@ hash_table_t * hash_table_init(size_t size) {
   return ht;
 }
 
-void hash_table_insert(hash_table_t * ht, key_val_t * kv) {
-  char * key_str = malloc(sizeof(char) * kv->key.size);
-  memcpy(key_str, kv->key.key, kv->key.size);
-  uint64_t h_idx = hash(key_str);
-}
+/* void hash_table_insert(hash_table_t * ht, key_val_t * kv) { */
+/*   char * key_str = malloc(sizeof(char) * kv->key.size); */
+/*   memcpy(key_str, kv->key.key, kv->key.size); */
+/*   uint64_t h_idx = hash(key_str); */
+/* } */
 
 uint32_t string_distance(char *s1, char *s2) {
   uint32_t len1, len2, i, j, ld, od;
