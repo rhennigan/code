@@ -10,7 +10,7 @@
 #define NUMC 240
 #define NUMA 331
 #define NUMQ 58
-#define HTSZ 1000
+#define HTSZ 10
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
