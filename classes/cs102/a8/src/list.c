@@ -26,7 +26,7 @@ void list_dump(list_t * list) {
   printf("\nlist_dump: %p\n", list);
   printf("-------------------\n");
   if (list == NULL) {
-    printf(" NULL\n");
+    printf(" (nil)\n");
   } else {
     printf(" list contents:\n");
     while (list != NULL) {
