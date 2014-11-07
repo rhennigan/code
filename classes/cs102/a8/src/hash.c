@@ -34,10 +34,14 @@ void hash_table_insert(hash_table_t * ht, key_val_t * kv) {
 
 bool key_eq(hkey_t k1, hkey_t k2) {
   if (k1.size != k2.size) return false;
+
+  char * str1 = (char *)k1.key;
+  char * str2 = (char *)k2.key;
   uint32_t i;
   for (i = 0; i < k1.size; i++) {
-    if (k1.key[i] != k2.key[i]) return false;
+    if (str1[i] != str2[i]) return false;
   }
+
   return true;
 }
 
