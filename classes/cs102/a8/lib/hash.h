@@ -8,6 +8,13 @@
 
 #define HASH_TABLE_SIZE 100
 
+typedef struct key_s {
+  size_t size;
+  void * key;
+} key_t;
+
+
+
 typedef struct key_val_s {
   size_t key_size;
   size_t val_size;
