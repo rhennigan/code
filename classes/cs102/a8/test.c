@@ -114,6 +114,7 @@ int main(int argc, char * argv[]) {
         minidx = i;
       }
     }
+    void * addr = hash_table_lookup(hash_table, k);
     printf("closest match for %s: %s\n", str, alternate[minidx]);
   }
 
