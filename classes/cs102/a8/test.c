@@ -107,7 +107,7 @@ int main(int argc, char * argv[]) {
     uint32_t dist;
     uint32_t mindst = INT_MAX;
     uint32_t minidx = 0;
-    for (i = 0; i < 240; i++) {
+    for (i = 0; i < NUMA; i++) {
       dist = string_distance(str, alternate[i]);
       if (dist < mindst) {
         mindst = dist;
