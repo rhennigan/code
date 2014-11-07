@@ -15,11 +15,11 @@ uint64_t hash(char * str) {
 
 hash_table_t * hash_table_init(uint32_t size) {
   hash_table_t * ht = malloc(sizeof(hash_table_t));
-  ht_entry_t * data = malloc(sizeof(list_t) * size);
+  ht_entry_t * data = malloc(sizeof(list_t *) * size);
   ht->row = data;
   uint32_t i;
   for (i = 0; i < size; i++) {
-    ht->row[i] = NULL;
+    ht->row[i] = list_init();
   }
   return ht;
 }
