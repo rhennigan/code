@@ -25,7 +25,7 @@ void list_dispose(list_t * list) {
 void * list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b)) {
   if (list == NULL) {
     return NULL;
-  } else if (cmp(h, list_head(list))) {
+  } else if ((*cmp)(h, list_head(list))) {
     return list_head(list);
   } else {
     return list_find(list_tail(list), h, (*cmp));
