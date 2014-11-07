@@ -52,7 +52,7 @@ int main(int argc, char * argv[]) {
 
   alts_file = fopen("data/alternates.csv", "r");
 
-  for (i = 0; i < 20; i++) {
+  for (i = 0; i < NUMA; i++) {
     fgets(buffer, BUFSIZ, alts_file);
     char * key = malloc(BUFSIZ);
     char * val = malloc(BUFSIZ);
