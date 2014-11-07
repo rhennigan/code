@@ -32,7 +32,9 @@ int main(int argc, char * argv[]) {
     fgets(countries[i], 32, countries_file);
   }
 
-  
+  while (1) {
+    char * str = get_input_string();
+  }
 
   /* while (fgets(buffer, BUFSIZ, countries_file) != NULL) { */
   /*   entry_counts[hash(buffer) % MODSZ]++; */
