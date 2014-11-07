@@ -69,6 +69,8 @@ int main(int argc, char * argv[]) {
     }
     printf("key = %s (%lu), val = %s (%lu)\n",
            key, strlen(key), val, strlen(val));
+    key_val_t * kv = make_kv(key, strlen(key),
+                             val, strlen(val));
   }
 
   /* uint32_t x = 10, y = 5; */
