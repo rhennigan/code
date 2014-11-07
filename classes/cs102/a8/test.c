@@ -30,6 +30,7 @@ void print_kv(void * addr) {
   key_val_t kv = *(key_val_t *)addr;
   char * key = kv.key.key;
   uint32_t v = *(uint32_t*)kv.val.val;
+  printf("(%s, %d)\n", key, v);
 }
 
 bool equal(void * a, void * b) {
@@ -53,9 +54,9 @@ int main(int argc, char * argv[]) {
   hash_table_insert(hash_table, xk);
   hash_table_insert(hash_table, yk);
 
-  /* for (i = 0; i < hash_table->size; i++) { */
-  /*   list_iter(hash_table->row[i],  */
-  /* } */
+  for (i = 0; i < hash_table->size; i++) {
+    list_iter(hash_table->row[i], &print_kv);
+  }
 
   list_t * list = NULL;
   for (i = 0; i < 10; i++) {
