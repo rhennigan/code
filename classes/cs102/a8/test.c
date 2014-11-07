@@ -13,6 +13,7 @@ int main(int argc, char * argv[]) {
   int i;
   for (i = 1; i < argc; i++) {
     print_hash(argv[i]);
+    entry_counts[hash(argv[i]) % MODSZ]++;
   }
 
   return 0;
