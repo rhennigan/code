@@ -3,6 +3,6 @@
 
 #include <stdint.h>
 
-uint64_t hash(uint8_t * str);
+uint64_t hash(char * str);
 
 #endif  // LIB_HASH_
