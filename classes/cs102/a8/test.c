@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "lib/user_input.h"
 #include "lib/hash.h"
 
 #define MODSZ 50L
@@ -31,14 +32,15 @@ int main(int argc, char * argv[]) {
     fgets(countries[i], 32, countries_file);
   }
 
+  
 
-  while (fgets(buffer, BUFSIZ, countries_file) != NULL) {
-    entry_counts[hash(buffer) % MODSZ]++;
-  }
+  /* while (fgets(buffer, BUFSIZ, countries_file) != NULL) { */
+  /*   entry_counts[hash(buffer) % MODSZ]++; */
+  /* } */
 
-  for (i = 0; i < MODSZ; i++) {
-    printf("%lu\n", entry_counts[i]);
-  }
+  /* for (i = 0; i < MODSZ; i++) { */
+  /*   printf("%lu\n", entry_counts[i]); */
+  /* } */
 
   fclose(countries_file);
 
