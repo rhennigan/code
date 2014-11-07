@@ -9,9 +9,9 @@
 #define NUMQ 58
 
 /* GLOBAL VARIABLES */
-char countries[240][32];
-char questions[58][256];
-bool q_answers[240][58];
+char countries[NUMC][BUFSIZ];
+char questions[NUMQ][BUFSIZ];
+bool q_answers[NUMC][NUMQ];
 
 void print_hash(char * str) {
   uint64_t h = hash(str) % MODSZ;
