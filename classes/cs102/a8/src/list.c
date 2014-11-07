@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include "../lib/list.h"
 
+#define PRINT_ADDR(addr) printf("%p", addr);
+
 list_t * list_cons(list_t * list, void * head) {
   list_t * new_list = list_init();
   new_list->head = head;
@@ -24,6 +26,12 @@ void list_dispose(list_t * list) {
 
 void list_dump(list_t * list) {
   printf("list_dump: %p\n", list);
+  printf("---------------------");
+  if (list == NULL) {
+    printf(" NULL\n");
+  } else {
+    printf(
+  }
 }
 
 void * list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b)) {
