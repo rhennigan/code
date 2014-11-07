@@ -86,10 +86,14 @@ int main(int argc, char * argv[]) {
     list_iter(hash_table->row[i], &print_kv);
   }
 
+  size_t maxlen = 0;
   for (i = 0; i < hash_table->size; i++) {
     size_t len = list_length(hash_table->row[i]);
+    maxlen = len > maxlen ? len : maxlen;
     printf("%d -> %lu\n", i, len);
   }
+
+  printf("maxlen = %lu\n", maxlen);
 
 
   /* uint32_t x = 10, y = 5; */
