@@ -52,8 +52,8 @@ int main(int argc, char * argv[]) {
   printf("sizeof(xs) = %ld\n", sizeof(xs));
   printf("sizeof(ys) = %ld\n", sizeof(ys));
 
-  key_val_t * xk = make_kv(xs, sizeof(xs), &x, sizeof(x));
-  key_val_t * yk = make_kv(ys, sizeof(ys), &y, sizeof(y));
+  key_val_t * xk = make_kv(xs, 4, &x, sizeof(x));
+  key_val_t * yk = make_kv(ys, 5, &y, sizeof(y));
 
   hash_table_insert(hash_table, xk);
   hash_table_insert(hash_table, yk);
@@ -68,7 +68,7 @@ int main(int argc, char * argv[]) {
 
   hkey_t k;
   k.key = "ten";
-  k.size = 3;
+  k.size = 4;
   void * addr = hash_table_lookup(hash_table, k);
   printf("\n\n%p\n", addr);
 
