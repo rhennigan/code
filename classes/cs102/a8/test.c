@@ -59,8 +59,8 @@ int main(int argc, char * argv[]) {
       if (buffer[j] == ',') break;
       key[j] = buffer[j];
     }
-    for (j = j+1; j < BUFSIZ; j++) {
-      val[j]
+    for (k = j+1; k < BUFSIZ; k++) {
+      val[k-j-1] = buffer[k];
     }
   }
 
