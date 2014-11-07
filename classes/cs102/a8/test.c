@@ -49,8 +49,11 @@ int main(int argc, char * argv[]) {
   char * xs = "ten";
   char * ys = "five";
 
-  key_val_t * xk = make_kv(xs, 3, &x, sizeof(x));
-  key_val_t * yk = make_kv(ys, 4, &y, sizeof(y));
+  printf("sizeof(xs) = %ld\n", sizeof(xs));
+  printf("sizeof(ys) = %ld\n", sizeof(ys));
+
+  key_val_t * xk = make_kv(xs, sizeof(xs), &x, sizeof(x));
+  key_val_t * yk = make_kv(ys, sizeof(ys), &y, sizeof(y));
 
   hash_table_insert(hash_table, xk);
   hash_table_insert(hash_table, yk);
