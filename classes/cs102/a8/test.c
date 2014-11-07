@@ -64,7 +64,10 @@ int main(int argc, char * argv[]) {
       key[j] = buffer[j];
     }
     for (k = j + 1; k < BUFSIZ; k++) {
-      if (buffer[k] == '\n') break;
+      if (buffer[k] == '\n') {
+        val[k-j-1] = '\0';
+        break;
+      }
       val[k-j-1] = buffer[k];
       if (buffer[k] == '\0') break;
     }
