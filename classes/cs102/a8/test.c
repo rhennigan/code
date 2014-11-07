@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "lib/hash.h"
 
-#define MODSZ 100L
+#define MODSZ 10L
 
 void print_hash(char * str) {
   uint64_t h = hash(str) % MODSZ;
