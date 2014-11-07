@@ -5,7 +5,7 @@
 #define MODSZ 50L
 
 /* GLOBAL VARIABLES */
-
+char countries[240][32];
 
 void print_hash(char * str) {
   uint64_t h = hash(str) % MODSZ;
