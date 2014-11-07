@@ -31,12 +31,6 @@ void hash_table_insert(hash_table_t * ht, key_val_t kv) {
   list_cons_c(ht->row[h_idx], kv, key_val_t);
 }
 
-/* void hash_table_insert(hash_table_t * ht, key_val_t * kv) { */
-/*   char * key_str = malloc(sizeof(char) * kv->key.size); */
-/*   memcpy(key_str, kv->key.key, kv->key.size); */
-/*   uint64_t h_idx = hash(key_str); */
-/* } */
-
 uint32_t string_distance(char *s1, char *s2) {
   uint32_t len1, len2, i, j, ld, od;
   len1 = strlen(s1);
