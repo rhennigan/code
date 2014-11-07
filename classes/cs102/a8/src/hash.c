@@ -72,8 +72,6 @@ key_val_t * make_kv(void * key, size_t ks, void * val, size_t vs) {
   return kv;
 }
 
-bool match_key(key_val_t * kv1, key_val_t * kv2);
-
 uint32_t string_distance(char *s1, char *s2) {
   uint32_t len1, len2, i, j, ld, od;
   len1 = strlen(s1);
