@@ -63,6 +63,9 @@ int main(int argc, char * argv[]) {
     list_iter(hash_table->row[i], &print_kv);
   }
 
+  char * k = "ten";
+  
+
   /* list_iter(hash_table->row[0], &print_kv); */
   /* list_t * list = hash_table->row[0]; */
   /* key_val_t * kv = list_head(list); */
