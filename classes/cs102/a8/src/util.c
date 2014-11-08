@@ -179,11 +179,14 @@ void div_tree(bintree_t * bt, list_t * cvecs) {
   }
 
   printf("\n\n--------------------\n");
+  printf("total = ");
   for (uint32_t i = 0; i < NUMQ; i++)
     printf(" %d", total[i]);
 
   printf("\n\n--------------------\n");
-  
+  printf("mid = %d\n", mid);
+  printf("mindist = %d\n", mindist);
+  printf("splitby = %d\n", splitby);
 }
 
 #undef ABS
