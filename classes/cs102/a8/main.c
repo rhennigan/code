@@ -43,18 +43,16 @@ int main(int argc, char * argv[]) {
 
   div_tree(bt);
 
-  printf("depth = %lu\n", bt_depth(bt));
-
   while (1) {
-    printf("\n-----------------------\n");
-    list_t * tmp = bt_get_data(bt);
-    while (tmp != NULL) {
-      void * addr = list_head(tmp);
-      int32_t * cvec = (int32_t*)addr;
-      printf("%s, ", countries[cvec[0]]);
-      tmp = list_tail(tmp);
-    }
-    printf("\n-----------------------\n");
+    /* printf("\n-----------------------\n"); */
+    /* list_t * tmp = bt_get_data(bt); */
+    /* while (tmp != NULL) { */
+    /*   void * addr = list_head(tmp); */
+    /*   int32_t * cvec = (int32_t*)addr; */
+    /*   printf("%s, ", countries[cvec[0]]); */
+    /*   tmp = list_tail(tmp); */
+    /* } */
+    /* printf("\n-----------------------\n"); */
 
     int32_t ques_num = split_by(bt_get_data(bt));
     char * question = questions[ques_num];
