@@ -1,8 +1,10 @@
 CC=gcc
 CFLAGS=-std=c99 -g -c
 LDFLAGS=-g
-SOURCES=src/list.c src/hash.c src/user_input.c src/util.c test.c
-OBJECTS=$(SOURCES:.c=.o)
+BUILD=list hash user_input util
+SOURCES=$(BUILD:%=src/%.c)
+OBJECTS=$(BUILD:%=build/%.o)
+HEADERS=$(BUILD:%=lib/%.h)
 EXECUTABLE=test
 
 all: $(SOURCES) $(EXECUTABLE)
