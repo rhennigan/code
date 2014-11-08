@@ -1,13 +1,13 @@
 #include "../lib/util.h"
 
-hash_table_t * load_alternates(size_t ht_size, char alts[][BUFSIZ]) {
+hash_table_t * load_alternates(const char * path, size_t hs, char a[][BUFSIZ]) {
   char           buffer[BUFSIZ];
   FILE *         alts_file;
   hash_table_t * hash_table;
   uint32_t       i, j, k;
 
-  hash_table = hash_table_init(ht_size);
-  alts_file  = fopen("data/alternates.csv", "r");
+  hash_table = hash_table_init(hs);
+  alts_file  = fopen(path, "r");
 
   for (i = 0; i < NUMA; i++) {
     fgets(buffer, BUFSIZ, alts_file);
