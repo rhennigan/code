@@ -228,14 +228,15 @@ void div_tree(bintree_t * bt) {
   }
 
   bt_insl(bt, cvecs_l);
-  bintree_t * bt_l = bt_init();
-  bintree_t * bt_r = bt_init();
+  bt_insr(bt, cvecs_r);
+  /* bintree_t * bt_l = bt_init(); */
+  /* bintree_t * bt_r = bt_init(); */
 
-  bt_l->data = cvecs_l;
-  bt_r->data = cvecs_r;
+  /* bt_l->data = cvecs_l; */
+  /* bt_r->data = cvecs_r; */
 
-  div_tree(bt_l);
-  div_tree(bt_r);
+  div_tree(bt_get_left(bt));
+  div_tree(bt_get_right(bt));
 }
 
 #undef ABS
