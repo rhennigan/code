@@ -1,3 +1,5 @@
+GCC_OPTS="-std=c99 -g"
+
 test: util.o hash.o user_input.o list.o
 	gcc -o test -g test.c build/*.o
 
