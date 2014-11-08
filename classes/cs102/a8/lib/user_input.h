@@ -9,11 +9,12 @@
 #include <stdbool.h>
 
 
-#define WAIT()                                                                 \
-  char ch;                                                                     \
-  printf("Press [ENTER] to continue...");                                      \
-  fflush(stdout);                                                              \
-  while ((ch = getchar()) != '\n' && ch != EOF) {}                             \
+#define WAIT() do {                                     \
+    char ch;                                            \
+    printf("Press [ENTER] to continue...");             \
+    fflush(stdout);                                     \
+    while ((ch = getchar()) != '\n' && ch != EOF) {}    \
+  } while (0);                                          \
 
 char * get_input_string();
 char * lowercase(const char * str);
