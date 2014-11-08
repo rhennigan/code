@@ -150,9 +150,13 @@ void add_cvec(uint32_t total[NUMQ], bool cvec[NUMQ]) {
 
 uint32_t * sum_cvecs(list_t * cvecs) {
   uint32_t total[NUMQ];
+  while (cvecs != NULL) {
+    void * addr = list_head(cvecs);
+    bool * cvec = (bool*)addr;
+  }
   if (cvecs == NULL) return;
-  void * addr = list_head(cvecs);
-  bool * cvec = (bool*)addr;
+  
+  
   for (uint32_t i = 0; i < NUMQ; i++) {
     if (cvec[i]) {
       total[i]++;
