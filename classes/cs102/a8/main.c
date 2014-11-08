@@ -79,10 +79,8 @@ int main(int argc, char * argv[]) {
       if (strcmp(ans, "unknown") == 0) {
         get_help(hash_table);
       } else if (strcmp(ans, "yes") == 0) {
-        void * a1 = bt;
         bt = bt_get_left(bt);
         q_asked++;
-        void * a2 = bt;
         break;
       } else if (strcmp(ans, "no") == 0) {
         bt = bt_get_right(bt);
