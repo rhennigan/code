@@ -41,7 +41,7 @@ bool bt_is_empty(bintree_t * bt) {
 }
 
 bool bt_is_leaf(bintree_t * bt) {
-  if (bt_is_empty(bt)) return false;
+  return bt_has_data(bt) && !bt_has_left(bt) && !bt_has_right(bt);
 }
 
 bool bt_is_node(bintree_t * bt) {
