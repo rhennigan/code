@@ -1,8 +1,6 @@
 CC=gcc
 CFLAGS=-std=c99 -g -c
 LDFLAGS=-g
-SOURCES=src/* test.c
-DEPS=lib/list.h lib/hash.h lib/user_input.h lib/util.h
 SOURCES=src/list.c src/hash.c src/user_input.c src/util.c test.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=test
@@ -12,8 +10,8 @@ all: $(SOURCES) $(EXECUTABLE)
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
 
-%.o: %.c $(DEPS)
-	$(CC) $(CFLAGS) $< -o $@
+%.o: src/%.c $(DEPS)
+	$(CC) $(CFLAGS) $< -o build/$@
 
 # test: util.o hash.o user_input.o list.o
 # 	$(CC) -o test $(CFLAGS) test.c build/*.o
