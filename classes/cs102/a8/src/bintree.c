@@ -45,7 +45,7 @@ bool bt_is_leaf(bintree_t * bt) {
 }
 
 bool bt_is_node(bintree_t * bt) {
-  return bt_has_data(bt) && !bt_has_left(bt) && !bt_has_right(bt);
+  return bt_has_left(bt) || bt_has_right(bt);
 }
 
 size_t bt_leaf_count(bintree_t * bt);
