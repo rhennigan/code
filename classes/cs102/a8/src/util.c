@@ -169,6 +169,7 @@ int32_t * sum_cvecs(list_t * cvecs) {
 
 void div_tree(bintree_t * bt) {
   int32_t * total, mid, mindist, splitby;
+  list_t * cvecs_l, * cvecs_r;
   list_t * cvecs = bt_get_data(bt);
   mid = list_length(cvecs) / 2;
   total = sum_cvecs(cvecs);
