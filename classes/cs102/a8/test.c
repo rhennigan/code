@@ -25,12 +25,12 @@ int main(int argc, char * argv[]) {
   FILE *         ques_file;
   uint32_t       i, j, k;
 
-  hash_table = load_alternates(HTSZ, NUMA, alternate);
+  hash_table = load_alternates(HTSZ, alternate);
 
   while (1) {
     printf("Enter country name: ");
     char * str = get_input_string();
-    char * correct = match_str(str, hash_table, alternate, NUMA);
+    char * correct = match_str(str, hash_table, alternate);
     printf("closest match for %s: %s\n", str, correct);
   }
 
