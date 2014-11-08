@@ -16,6 +16,7 @@ $(EXECUTABLE): $(OBJECTS)
 build/%.o: src/%.c lib/%.h
 	@echo "building "$@", depends on: "$<
 	$(CC) $(CFLAGS) $< -o $@
+	@echo " "
 
 clean:
 	rm build/*.o
