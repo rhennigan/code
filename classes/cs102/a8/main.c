@@ -25,10 +25,10 @@ void get_help(hash_table_t * ht) {
   if (cfv < 100) {
     printf("Interpreting %s as %s (confidence: %d%%)\n", str, mst, cfv);
   }
-  printf("\n\n");
-  printf("%s Facts (page 1)\n", mst);
-  printf("------------------------------------------\n");
   int32_t page = 1;
+  printf("\n\n");
+  printf("%s Facts (page %d)\n", mst, page);
+  printf("------------------------------------------\n");
   int32_t cidx = -1;
   for (int32_t i = 0; i < NUMC; i++) {
     if (strcmp(countries[i], mst) == 0) {
@@ -41,9 +41,11 @@ void get_help(hash_table_t * ht) {
     char * a = q_answers[cidx][i+1] ? "YES" : "NO";
     printf("%s = %s\n", q, a);
     if (i % 21 == 20) {
+      printf("------------------------------------------\n");
       WAIT();
+      page++;
       printf("\n");
-      printf("%s Facts\n", mst);
+      printf("%s Facts (page %d)\n", mst, page);
       printf("------------------------------------------\n");
     }
   }
