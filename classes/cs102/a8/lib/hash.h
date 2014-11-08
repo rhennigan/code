@@ -1,5 +1,5 @@
-#ifndef LIB_HASH_
-#define LIB_HASH_
+#ifndef LIB_HASH_H_
+#define LIB_HASH_H_
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -36,4 +36,4 @@ key_val_t *    make_kv(void * key, size_t ks, void * val, size_t vs);
 bool           match_key(void * a1, void * a2);
 uint32_t       string_distance(char * s1, char * s2);
 
-#endif  // LIB_HASH_
+#endif  // LIB_HASH_H_

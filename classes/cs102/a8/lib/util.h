@@ -1,5 +1,5 @@
-#ifndef LIB_UTIL_
-#define LIB_UTIL_
+#ifndef LIB_UTIL_H_
+#define LIB_UTIL_H_
 
 #include <limits.h>
 #include <stdio.h>
@@ -23,4 +23,4 @@ bool           equal(void * a, void * b);
 void           dbg_alts(hash_table_t * ht, char alts[][BUFSIZ]);
 char *         match_str(char * s, hash_table_t * ht, char a[][BUFSIZ]);
 
-#endif  // LIB_UTIL_
+#endif  // LIB_UTIL_H_
