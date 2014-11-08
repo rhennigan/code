@@ -81,7 +81,7 @@ void dbg_alts(hash_table_t * ht, char ** alts, size_t a_size) {
   }
 }
 
-char * match_str(char * s, hash_table_t * ht, char ** alts, size_t as) {
+char * match_str(char * s, hash_table_t * ht, char alts[][BUFSIZ], size_t as) {
   uint32_t dist, mindst, minidx, i;
   mindst = INT_MAX;
   minidx = 0;
