@@ -103,7 +103,7 @@ void dbg_alts(hash_table_t * ht, char a[][BUFSIZ]) {
   }
 }
 
-char * match_str(char * s, hash_table_t * ht, char a[][BUFSIZ], double p) {
+char * match(char * s, hash_table_t * ht, char a[][BUFSIZ], double * p) {
   uint32_t dist, mindst, minidx, i;
   mindst = INT_MAX;
   minidx = 0;
@@ -132,7 +132,8 @@ char * match_str(char * s, hash_table_t * ht, char a[][BUFSIZ], double p) {
   double den = MAX((double)strlen(s), (double)strlen(a[minidx]));
   double match = num / den;
   uint32_t md = (int)(100 * match * match);
-  printf("matched %s (confidence: %d%%)\n", correct, md);
+  *p = md;
+  /* printf("matched %s (confidence: %d%%)\n", correct, md); */
   return correct;
 }
 
