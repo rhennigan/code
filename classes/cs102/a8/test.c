@@ -22,6 +22,12 @@ int main(int argc, char * argv[]) {
   load_text("data/questions.csv", NUMQ, questions);
   hash_table = load_alternates(HTSZ, alternate);
 
+  for (uint32_t i = 0; i < NUMC; i++)
+    printf("%s\n", countries[i]);
+
+  for (uint32_t i = 0; i < NUMQ; i++)
+    printf("%s\n", questions[i]);
+
   printf("Enter country name: ");
   char * str = lowercase(get_input_string());
   char * correct = match_str(str, hash_table, alternate);
