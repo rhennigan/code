@@ -104,5 +104,10 @@ char * match_str(char * s, hash_table_t * ht, char alts[][BUFSIZ]) {
 
   key_val_t kv = *(key_val_t*)addr;
   char * correct = kv.val.val;
+
+  double len1 = (double)strlen(s);
+  double len2 = (double)strlen(alts[minidx]);
+  double len = len1 > len2 ? len1 : len2;
+  double match = len / (len + (double)mindst);
   return correct;
 }
