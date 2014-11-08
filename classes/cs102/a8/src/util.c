@@ -143,10 +143,10 @@ void print_cvec(void * addr) {
   printf("\n");
 }
 
-void add_cvec(uint32_t total[NUMQ], bool cvec[NUMQ]) {
-  for (uint32_t i = 0; i < NUMQ; i++)
-    total[i] += cvec[i] ? 1 : 0;
-}
+/* void add_cvec(uint32_t total[NUMQ], bool cvec[NUMQ]) { */
+/*   for (uint32_t i = 0; i < NUMQ; i++) */
+/*     total[i] += cvec[i] ? 1 : 0; */
+/* } */
 
 int32_t * sum_cvecs(list_t * cvecs) {
   int32_t * total = malloc(sizeof(int32_t) * NUMQ);
