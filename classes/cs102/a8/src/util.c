@@ -164,8 +164,13 @@ uint32_t * sum_cvecs(list_t * cvecs) {
 }
 
 void div_tree(bintree_t * bt, list_t * cvecs) {
-  size_t mid = list_length(cvecs) / 2;
-  uint32_t * total = sum_cvecs(cvecs);
+  size_t mid;
+  uint32_t * total;
+
+  mid = list_length(cvecs) / 2;
+  total = sum_cvecs(cvecs);
+
+
   printf("\n\n--------------------\n");
   for (uint32_t i = 0; i < NUMQ; i++)
     printf(" %d", total[i]);
