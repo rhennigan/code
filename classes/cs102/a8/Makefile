@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-std=c99 -g -c
 LDFLAGS=-std=c99 -g
-BUILD=list hash user_input util
+BUILD=list hash user_input util bintree
 EXECUTABLE=test
 
 SOURCES=$(BUILD:%=src/%.c)
