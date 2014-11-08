@@ -52,7 +52,7 @@ int main(int argc, char * argv[]) {
   } else if (strcmp(ans, "no") == 0) {
     printf("no");
   } else {
-    printf("stupid");
+    printf("invalid input, please respond with \"yes\" or \"no\"\n");
   }
 
   list_t * cvecs0 = bt_get_data(bt);
