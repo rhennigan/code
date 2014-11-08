@@ -227,6 +227,7 @@ void div_tree(bintree_t * bt) {
     return;
   }
 
+  bt_insl(bt, cvecs_l);
   bintree_t * bt_l = bt_init();
   bintree_t * bt_r = bt_init();
 
