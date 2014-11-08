@@ -26,8 +26,9 @@ void get_help(hash_table_t * ht) {
     printf("Interpreting %s as %s (confidence: %d%%)\n", str, mst, cfv);
   }
   printf("\n\n");
-  printf("%s Facts\n", mst);
+  printf("%s Facts (page 1)\n", mst);
   printf("------------------------------------------\n");
+  int32_t page = 1;
   int32_t cidx = -1;
   for (int32_t i = 0; i < NUMC; i++) {
     if (strcmp(countries[i], mst) == 0) {
