@@ -39,7 +39,8 @@ void get_help(hash_table_t * ht) {
     char * q = questions[i];
     char * a = q_answers[cidx][i+1] ? "YES" : "NO";
     printf("%s = %s\n", q, a);
-    if (i % 24 == 0) WAIT();
+    if ((i+1) % 23 == 0) WAIT();
+    printf("\n");
   }
   printf("\n------------------------------------------\n\n");
 }
