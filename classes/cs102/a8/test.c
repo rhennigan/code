@@ -7,7 +7,7 @@
 #include "lib/hash.h"
 #include "lib/util.h"
 
-#define MIN(a, b) ((a) < (b) ? (a) : (b))
+
 
 /* GLOBAL VARIABLES */
 char countries[NUMC][BUFSIZ];
@@ -17,18 +17,14 @@ bool q_answers[NUMC][NUMQ];
 
 int main(int argc, char * argv[]) {
   hash_table_t * hash_table;
-  FILE *         ques_file;
+  FILE *         ans_file;
   uint32_t       i, j, k;
 
   hash_table = load_alternates(HTSZ, alternate);
 
-  while (1) {
-    printf("Enter country name: ");
-    char * str = lowercase(get_input_string());
-    char * correct = match_str(str, hash_table, alternate);
-
-    printf("closest match for %s: %s\n", str, correct);
-  }
+  printf("Enter country name: ");
+  char * str = lowercase(get_input_string());
+  char * correct = match_str(str, hash_table, alternate);
 
   return 0;
 }
