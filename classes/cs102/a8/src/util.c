@@ -109,6 +109,7 @@ char * match_str(char * s, hash_table_t * ht, char alts[][BUFSIZ]) {
   double len2 = (double)strlen(alts[minidx])-1;
   double len = len1 > len2 ? len2 : len1;
   double match = len / (len + ((double)mindst * (double)mindst));
-  printf("matched %s (confidence: %.1f%%)\n", correct, 100.0*match*match);
+  uint32_t md = (int)(100*match*match);
+  printf("matched %s (confidence: %d%%)\n", correct, md);
   return correct;
 }
