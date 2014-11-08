@@ -23,23 +23,24 @@ int main(int argc, char * argv[]) {
   load_answ("data/answers.csv", NUMQ, q_answers);
 
   for (uint32_t i = 0; i < NUMC; i++) {
-    for (uint32_t j = 0; j < NUMQ; j++) {
+    printf("%d ", q_answers[i][0]);
+    for (uint32_t j = 1; j < NUMQ+1; j++) {
       printf("%d", q_answers[i][j]);
     }
     printf("\n");
   }
 
-  bintree_t * bt = bt_init();
-  list_t * cvec_lst = NULL;
-  for (int32_t i = NUMC-1; i >= 0; i--) {
-    list_t * cvec = NULL;
-    cvec = list_cons(cvec, q_answers[i]);
-    list_cons_c(cvec, i, int32_t);
-    cvec_lst = list_cons(cvec_lst, cvec);
-  }
-  bt->data = cvec_lst;
+  /* bintree_t * bt = bt_init(); */
+  /* list_t * cvec_lst = NULL; */
+  /* for (int32_t i = NUMC-1; i >= 0; i--) { */
+  /*   list_t * cvec = NULL; */
+  /*   cvec = list_cons(cvec, q_answers[i]); */
+  /*   list_cons_c(cvec, i, int32_t); */
+  /*   cvec_lst = list_cons(cvec_lst, cvec); */
+  /* } */
+  /* bt->data = cvec_lst; */
 
-  printf("\n\n");
+  /* printf("\n\n"); */
 
   /* div_tree(bt, cvecs); */
   /* for (uint32_t i = 0; i < NUMC; i++) */
