@@ -212,7 +212,6 @@ void div_tree(bintree_t * bt) {
   }
 
   if (cvecs_l == NULL || cvecs_r == NULL) {
-    printf("len = %lu\n", list_length(cvecs));
     return;
   }
 
