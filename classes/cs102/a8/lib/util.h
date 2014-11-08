@@ -11,6 +11,9 @@
 #define NUMQ 58
 #define HTSZ 100
 
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+
 hash_table_t * load_alternates(size_t ht_size, char alts[][BUFSIZ]);
 void           print_int(void * addr);
 void           print_kv(void * addr);
