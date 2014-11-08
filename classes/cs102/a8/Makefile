@@ -8,7 +8,7 @@ EXECUTABLE=test
 all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+	$(CC) $(LDFLAGS) $(OBJECTS) $(EXECUTABLE).c -o $@
 
 %.o: src/%.c lib/%.h
 	$(CC) $(CFLAGS) $< -o build/$@
