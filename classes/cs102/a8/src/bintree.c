@@ -25,7 +25,7 @@ void bt_dispose(bintree_t * bt) {
   bt_dispose(*r);
 }
 
-list_t * bt_flatten(bintree_t * bt, list_t * list) {
+void bt_flatten(bintree_t * bt, list_t * list) {
   
 }
 
