@@ -26,7 +26,14 @@ void bt_dispose(bintree_t * bt) {
 }
 
 void bt_flatten(bintree_t * bt, list_t * list) {
-  
+  if (bt_is_leaf(bt)) {
+    list = list_cons(list, bt_get_data(bt));
+  }
+}
+
+void * bt_get_data(bintree_t * bt) {
+  assert(bt != NULL);
+  return bt->data;
 }
 
 bintree_t * bt_get_left(bintree_t * bt) {
