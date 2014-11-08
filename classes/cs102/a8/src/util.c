@@ -59,7 +59,7 @@ bool equal(void * a, void * b) {
   return *(uint32_t*)a == *(uint32_t*)b;
 }
 
-void dbg_alts(hash_table_t * ht, char ** alts, size_t alts_size) {
+void dbg_alts(hash_table_t * ht, char ** alts, size_t a_size) {
   uint32_t i;
   for (i = 0; i < ht->size; i++) {
     list_dump(ht->row[i]);
@@ -76,7 +76,7 @@ void dbg_alts(hash_table_t * ht, char ** alts, size_t alts_size) {
 
   printf("maxlen = %lu\n", maxlen);
 
-  for (i = 0; i < alts_size; i++) {
+  for (i = 0; i < a_size; i++) {
     printf("%d -> %s\n", i, alts[i]);
   }
 }
