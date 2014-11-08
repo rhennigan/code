@@ -66,6 +66,7 @@ int main(int argc, char * argv[]) {
         printf("%s\n", country);
         cvecs = list_tail(cvecs);
       }
+      bt_dispose(bt);
       exit(EXIT_SUCCESS);
     }
     int32_t ques_num = split_by(bt_get_data(bt));
