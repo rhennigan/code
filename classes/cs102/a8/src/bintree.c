@@ -25,6 +25,10 @@ void bt_dispose(bintree_t * bt) {
   bt_dispose(*r);
 }
 
+list_t * bt_flatten(bintree_t * bt) {
+  
+}
+
 bintree_t * bt_get_left(bintree_t * bt) {
   assert(bt != NULL);
   return bt->left;
