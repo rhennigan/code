@@ -138,8 +138,9 @@ char * match_str(char * s, hash_table_t * ht, char a[][BUFSIZ]) {
 
 void print_cvec(void * addr) {
   bool * cvec = (bool*)addr;
-  for (uint32_t j = 0; j < NUMQ; j++) {
-    printf("%c", cvec[j] ? 'T' : 'F');
+  printf("%d ", cvec[0]);
+  for (uint32_t j = 1; j < NUMQ+1; j++) {
+    printf("%d", cvec[j]);
   }
   printf("\n");
 }
