@@ -52,7 +52,7 @@ void load_text(const char * path, size_t len, char array[][BUFSIZ]) {
   fclose(file);
 }
 
-void load_answ(const char * path, size_t qcount, bool questions[][NUMQ]) {
+void load_answ(const char * path, size_t qcount, int32_t questions[][NUMQ]) {
   FILE * file = fopen(path, "r");
   char buff[BUFSIZ];
   for (uint32_t i = 0; i < NUMC; i++) {
@@ -165,29 +165,29 @@ int32_t * sum_cvecs(list_t * cvecs) {
 
 #define ABS(n) ((n) < 0 ? -(n) : (n))
 
-void div_tree(bintree_t * bt) {
-  int32_t * total, mid, mindist, splitby;
-  list_t * cvec_lst = bt_get_data(bt);
-  mid = list_length(cvecs) / 2;
-  total = sum_cvecs(cvecs);
-  mindist = INT_MAX;
-  for (int32_t i = 0; i < NUMQ; i++) {
-    if (ABS(total[i] - mid) < mindist) {
-      mindist = ABS(total[i] - mid);
-      splitby = i;
-    }
-  }
+/* void div_tree(bintree_t * bt) { */
+/*   int32_t * total, mid, mindist, splitby; */
+/*   list_t * cvec_lst = bt_get_data(bt); */
+/*   mid = list_length(cvecs) / 2; */
+/*   total = sum_cvecs(cvecs); */
+/*   mindist = INT_MAX; */
+/*   for (int32_t i = 0; i < NUMQ; i++) { */
+/*     if (ABS(total[i] - mid) < mindist) { */
+/*       mindist = ABS(total[i] - mid); */
+/*       splitby = i; */
+/*     } */
+/*   } */
 
-  printf("\n\n--------------------\n");
-  printf("total = ");
-  for (uint32_t i = 0; i < NUMQ; i++)
-    printf(" %d", total[i]);
+/*   printf("\n\n--------------------\n"); */
+/*   printf("total = "); */
+/*   for (uint32_t i = 0; i < NUMQ; i++) */
+/*     printf(" %d", total[i]); */
 
-  printf("\n\n--------------------\n");
-  printf("mid = %d\n", mid);
-  printf("mindist = %d\n", mindist);
-  printf("splitby = %d\n", splitby);
-  printf("total[splitby] = %d\n", total[splitby]);
-}
+/*   printf("\n\n--------------------\n"); */
+/*   printf("mid = %d\n", mid); */
+/*   printf("mindist = %d\n", mindist); */
+/*   printf("splitby = %d\n", splitby); */
+/*   printf("total[splitby] = %d\n", total[splitby]); */
+/* } */
 
 #undef ABS
