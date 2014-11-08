@@ -21,10 +21,11 @@ char questions[NUMQ][BUFSIZ];
 bool q_answers[NUMC][NUMQ];
 
 int main(int argc, char * argv[]) {
-  FILE *   ques_file;
-  uint32_t i, j, k;
+  hash_table_t * hash_table;
+  FILE *         ques_file;
+  uint32_t       i, j, k;
 
-  load_alternates(HTSZ, NUMA, alternates);
+  hash_table = load_alternates(HTSZ, NUMA, alternates);
 
   while (1) {
     printf("Enter country name: ");
