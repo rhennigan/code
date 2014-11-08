@@ -12,7 +12,7 @@ all: $(SOURCES) $(EXECUTABLE)
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
 
-.c.o: $(DEPS)
+%.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) $< -o $@
 
 # test: util.o hash.o user_input.o list.o
