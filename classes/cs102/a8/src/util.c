@@ -156,7 +156,7 @@ int32_t * sum_cvecs(list_t * cvecs) {
     total[i] = 0;
   while (cvecs != NULL) {
     void * addr = list_head(cvecs);
-    bool * cvec = (bool*)addr;
+    int32_t * cvec = (int32_t*)addr;
     for (uint32_t j = 0; j < NUMQ; j++) {
       total[j] += cvec[j+1];
     }
