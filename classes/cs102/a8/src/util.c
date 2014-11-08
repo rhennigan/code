@@ -184,7 +184,14 @@ void div_tree(bintree_t * bt) {
   list_t * cvecs_r = NULL;
   list_t * tmp = cvecs;
   while (tmp != NULL) {
-    
+    void * addr = list_head(tmp);
+    int32_t * cvec = (int32_t*)addr;
+    if (cvec[splitby+1]) {
+      cvecs_l = list_cons(cvecs_l, addr);
+    } else {
+      cvecs_r = list_cons(cvecs_r, addr);
+    }
+    tmp = list_tail(tmp);
   }
 
   printf("\n\n--------------------\n");
