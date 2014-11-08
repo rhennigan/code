@@ -208,8 +208,11 @@ void div_tree(bintree_t * bt) {
   bt_insl(bt, cvecs_l);
   bt_insr(bt, cvecs_r);
 
-void * a1;
-div_tree(bt_get_left(bt));
+  void * a1 = bt;
+  void * a2 = bt_get_left(bt);
+  void * a3 = bt_get_right(bt);
+  
+  div_tree(bt_get_left(bt));
   div_tree(bt_get_right(bt));
 }
 
