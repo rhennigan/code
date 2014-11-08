@@ -212,6 +212,9 @@ void div_tree(bintree_t * bt) {
 
   bt_l->data = cvecs_l;
   bt_r->data = cvecs_r;
+
+  div_tree(bt_l);
+  div_tree(bt_r);
 }
 
 #undef ABS
