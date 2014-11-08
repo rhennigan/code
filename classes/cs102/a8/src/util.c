@@ -157,7 +157,8 @@ void sum_cvecs(uint32_t total[NUMQ], list_t * cvecs) {
       total[i]++;
     }
   }
-  sum_cvecs(total, list_tail(cvecs));
+  cvecs = list_tail(cvecs);
+  sum_cvecs(total, cvecs);
 }
 
 void div_tree(bintree_t * bt, list_t * cvecs) {
