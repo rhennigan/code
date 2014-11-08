@@ -15,7 +15,7 @@ char    questions[NUMQ][BUFSIZ];
 int32_t q_answers[NUMC][NUMQ+1];
 
 void get_help(hash_table_t * ht) {
-  printf("If you are not sure of an answer, you can check the fact database\n");
+  printf("If you are not sure of an answer, you can check the fact database ");
   printf("for any country\n");
   printf("Enter a country name to retrieve data: ");
   char * str = get_input_string();
@@ -69,7 +69,9 @@ int main(int argc, char * argv[]) {
     while (1) {
       printf("%s (yes/no/unknown): ", question);
       char * ans = get_input_string();
-      if (strcmp(ans, "yes") == 0) {
+      if (strcmp(ans, "unknown") == 0) {
+        get_help(hash_table);
+      } else if (strcmp(ans, "yes") == 0) {
         bt = bt_get_left(bt);
         break;
       } else if (strcmp(ans, "no") == 0) {
