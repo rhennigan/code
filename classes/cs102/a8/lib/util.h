@@ -17,7 +17,7 @@
 
 hash_table_t * load_alts(const char * path, size_t hs, char a[][BUFSIZ]);
 void           load_text(const char * path, size_t len, char a[][BUFSIZ]);
-void           load_answ(const char * path, size_t qc, int32_t a[][NUMQ]);
+void           load_answ(const char * path, size_t qc, int32_t a[][NUMQ+1]);
 void           print_int(void * addr);
 void           print_kv(void * addr);
 void           print_cvec(void * addr);
