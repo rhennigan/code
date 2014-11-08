@@ -56,7 +56,9 @@ int main(int argc, char * argv[]) {
 
   printf("\n-----------------------\n");
   while (cvecsl != NULL) {
-    
+    void * addr = list_head(cvecsl);
+    int32_t * cvec = (int32_t*)addr;
+    printf("%d ", cvec[split0+1]);
   }
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
