@@ -20,7 +20,7 @@ typedef struct bintree_s {
 
 size_t      bt_depth(bintree_t * bt);
 void        bt_dispose(bintree_t * bt);
-list_t *    bt_flatten(bintree_t * bt);
+void        bt_flatten(bintree_t * bt, list_t * list);
 bintree_t * bt_get_left(bintree_t * bt);
 bintree_t * bt_get_right(bintree_t * bt);
 bool        bt_has_data(bintree_t * bt);
