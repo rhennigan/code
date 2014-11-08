@@ -21,6 +21,8 @@ void bt_dispose(bintree_t * bt) {
   bintree_t ** r = &bt->right;
   free(bt);
   bt = NULL;
+  bt_dispose(*l);
+  bt_dispose(*r);
 }
 
 bintree_t * bt_get_left(bintree_t * bt) {
