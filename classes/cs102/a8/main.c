@@ -35,7 +35,7 @@ int main(int argc, char * argv[]) {
   list_t * c_idx = NULL;
   for (int32_t i = NUMC-1; i >= 0; i--) {
     cvecs = list_cons(cvecs, q_answers[i]);
-    c_idx = list_cons_c(c_idx, i);
+    list_cons_c(c_idx, i, int32_t);
   }
   bt->data = cvecs;
 
