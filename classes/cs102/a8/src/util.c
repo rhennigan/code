@@ -103,7 +103,7 @@ void dbg_alts(hash_table_t * ht, char a[][BUFSIZ]) {
   }
 }
 
-char * match(char * s, hash_table_t * ht, char a[][BUFSIZ], double * p) {
+char * match(char * s, hash_table_t * ht, char a[][BUFSIZ], int * p) {
   uint32_t dist, mindst, minidx, i;
   mindst = INT_MAX;
   minidx = 0;
