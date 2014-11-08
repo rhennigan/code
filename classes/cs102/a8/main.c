@@ -28,8 +28,15 @@ void get_help(hash_table_t * ht) {
   printf("\n\n");
   printf("%s Facts\n", mst);
   printf("------------------------------------------");
+  int32_t cidx = -1;
+  for (int32_t i = 0; i < NUMC; i++) {
+    if (strcmp(countries[i], mst) == 0) {
+      cidx = i;
+    }
+  }
+  assert(cidx >= 0);
   for (uint32_t i = 0; i < NUMQ; i++) {
-    
+    char * q = questions[i];
   }
 }
 
