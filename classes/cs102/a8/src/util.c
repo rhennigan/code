@@ -150,7 +150,9 @@ void add_cvec(uint32_t total[NUMQ], bool cvec[NUMQ]) {
 
 void sum_cvecs(uint32_t total[NUMQ], list_t * cvecs) {
   if (cvecs == NULL) return;
-  
+  void * addr = list_head(cvecs);
+  bool * cvec = (bool*)addr;
+  add_cvec(total, cvec);
 }
 
 void div_tree(bintree_t * bt, list_t * cvecs) {
