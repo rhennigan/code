@@ -149,7 +149,7 @@ void add_cvec(uint32_t total[NUMQ], bool cvec[NUMQ]) {
 }
 
 uint32_t * sum_cvecs(list_t * cvecs) {
-  uint32_t total[NUMQ];
+  uint32_t * total = malloc(sizeof(uint32_t) * NUMQ);
   while (cvecs != NULL) {
     void * addr = list_head(cvecs);
     print_cvec(addr);
@@ -162,7 +162,7 @@ uint32_t * sum_cvecs(list_t * cvecs) {
 void div_tree(bintree_t * bt, list_t * cvecs) {
   size_t mid = list_length(cvecs) / 2;
   uint32_t total[NUMQ];
-  sum_cvecs(total, cvecs);
+  sum_cvecs(cvecs);
   for (uint32_t i = 0; i < NUMQ; i++)
     printf(" %d", total[i]);
 }
