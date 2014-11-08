@@ -33,6 +33,7 @@ int main(int argc, char * argv[]) {
   bt->data = cvecs;
   div_tree(bt);
 
+  uint32_t q_asked = 0;
   while (1) {
     if (bt_is_leaf(bt)) {
       list_t * cvecs = bt_get_data(bt);
