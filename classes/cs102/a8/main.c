@@ -33,6 +33,11 @@ int main(int argc, char * argv[]) {
   bt->data = cvecs;
   div_tree(bt);
 
+  printf("----------------------------------------------\n");
+  printf("Welcome to the country guessing game!\n");
+  printf("I know %d true/false facts for %d countries\n", NUMQ, NUMC);
+  
+
   uint32_t q_asked = 0;
   while (1) {
     if (bt_is_leaf(bt)) {
