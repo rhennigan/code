@@ -42,8 +42,7 @@ hash_table_t * load_alternates(size_t ht_size, char alts[][BUFSIZ]) {
 
 void load_countries(char countries[][BUFSIZ]) {
   FILE * cn_file = fopen("data/countries.csv", "r");
-  uint32_t i;
-  for (i = 0; i < NUMC; i++)
+  for (uint32_t i = 0; i < NUMC; i++)
     fgets(countries[i], BUFSIZ, cn_file);
 }
 
