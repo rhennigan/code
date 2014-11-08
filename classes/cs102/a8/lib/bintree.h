@@ -17,6 +17,7 @@ typedef struct bintree_s {
 
 size_t      bt_depth(bintree_t * bt);
 void        bt_dispose(bintree_t * bt);
+bool        bt_has_data(bintree_t * bt);
 bool        bt_has_left(bintree_t * bt);
 bool        bt_has_right(bintree_t * bt);
 bintree_t * bt_init();
