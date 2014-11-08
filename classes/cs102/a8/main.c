@@ -37,6 +37,7 @@ void get_help(hash_table_t * ht) {
   assert(cidx >= 0);
   for (uint32_t i = 0; i < NUMQ; i++) {
     char * q = questions[i];
+    char * a = q_answers[cidx][i+1] ? "YES" : "NO";
   }
 }
 
