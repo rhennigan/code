@@ -24,7 +24,9 @@ void bt_insl(bintree_t * tree, void * data);
 
 void bt_insr(bintree_t * tree, void * data);
 
-bool bt_is_empty(bintree_t * tree);
+bool bt_is_empty(bintree_t * tree) {
+  return bt->data == NULL && bt->left == NULL && bt->right == NULL;
+}
 
 bool bt_is_leaf(bintree_t * tree);
 
