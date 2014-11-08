@@ -163,6 +163,8 @@ uint32_t * sum_cvecs(list_t * cvecs) {
   return total;
 }
 
+#define ABS(n) ((n) < 0 ? -(n) : (n))
+
 void div_tree(bintree_t * bt, list_t * cvecs) {
   uint32_t * total, mid, splitby;
 
@@ -174,3 +176,5 @@ void div_tree(bintree_t * bt, list_t * cvecs) {
   for (uint32_t i = 0; i < NUMQ; i++)
     printf(" %d", total[i]);
 }
+
+#undef ABS
