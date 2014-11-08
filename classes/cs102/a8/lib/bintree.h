@@ -4,6 +4,7 @@
 #ifndef LIB_BINTREE_H_
 #define LIB_BINTREE_H_
 
+#include <assert.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>

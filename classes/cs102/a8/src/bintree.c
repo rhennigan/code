@@ -11,7 +11,10 @@ bool bt_has_left(bintree_t * tree);
 
 bool bt_has_right(bintree_t * tree);
 
-bintree_t * bt_init();
+bintree_t * bt_init() {
+  bintree_t * bt = malloc(sizeof(bintree_t));
+  assert(bt != NULL);
+}
 
 void bt_insl(bintree_t * tree, void * data);
 
