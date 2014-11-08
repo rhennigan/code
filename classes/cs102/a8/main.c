@@ -45,6 +45,8 @@ int main(int argc, char * argv[]) {
 
   list_t * cvecs0 = bt_get_data(bt);
   int32_t split0 = split_by(cvecs0);
+  char * initq = questions[split0];
+  printf("initq = %s\n", initq);
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
