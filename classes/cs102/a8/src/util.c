@@ -44,6 +44,7 @@ void load_countries(char countries[][BUFSIZ]) {
   FILE * cn_file = fopen("data/countries.csv", "r");
   for (uint32_t i = 0; i < NUMC; i++)
     fgets(countries[i], BUFSIZ, cn_file);
+  fclose(cn_file);
 }
 
 void print_int(void * addr) {
