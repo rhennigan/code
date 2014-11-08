@@ -35,9 +35,9 @@ int main(int argc, char * argv[]) {
   /*   printf("\n"); */
   /* } */
 
-  printf("Enter country name: ");
-  char * str = lowercase(get_input_string());
-  char * correct = match_str(str, hash_table, alternate);
+  /* printf("Enter country name: "); */
+  /* char * str = lowercase(get_input_string()); */
+  /* char * correct = match_str(str, hash_table, alternate); */
 
   return 0;
 }
