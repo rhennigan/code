@@ -16,7 +16,7 @@ int32_t q_answers[NUMC][NUMQ+1];
 
 void get_help(hash_table_t * ht) {
   printf("\n\n");
-  printf("If you are not sure of an answer, you can check the fact database ");
+  printf("If you are not sure of an answer, you can check the database ");
   printf("for any country.\n");
   printf("Enter a country name to retrieve data: ");
   char * str = get_input_string();
