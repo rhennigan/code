@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS=-std=c99 -g -c
 LDFLAGS=-std=c99 -g
 BUILD=list hash user_input util bintree
-EXECUTABLE=test
+EXECUTABLE=main
 
 SOURCES=$(BUILD:%=src/%.c)
 OBJECTS=$(BUILD:%=build/%.o)
