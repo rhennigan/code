@@ -47,6 +47,12 @@ int main(int argc, char * argv[]) {
   int32_t split0 = split_by(cvecs0);
   char * initq = questions[split0];
   printf("initq = %s\n", initq);
+
+  bintree_t * btl = bt_get_left(bt);
+  bintree_t * btr = bt_get_right(bt);
+
+  list_t * cvecsl = bt_get_data(btl);
+  list_t * cvecsr = bt_get_data(btr);
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
