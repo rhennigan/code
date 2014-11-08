@@ -148,7 +148,8 @@ void add_cvec(uint32_t total[NUMQ], bool cvec[NUMQ]) {
     total[i] += cvec[i] ? 1 : 0;
 }
 
-void sum_cvecs(uint32_t total[NUMQ], list_t * cvecs) {
+uint32_t * sum_cvecs(list_t * cvecs) {
+  uint32_t total[NUMQ];
   if (cvecs == NULL) return;
   void * addr = list_head(cvecs);
   bool * cvec = (bool*)addr;
@@ -158,7 +159,6 @@ void sum_cvecs(uint32_t total[NUMQ], list_t * cvecs) {
     }
   }
   cvecs = list_tail(cvecs);
-  sum_cvecs(total, cvecs);
 }
 
 void div_tree(bintree_t * bt, list_t * cvecs) {
