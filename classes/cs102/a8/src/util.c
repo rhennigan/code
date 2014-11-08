@@ -1,10 +1,10 @@
 #include "../lib/util.h"
 
-hash_table_t * load_alternates(size_t ht_size, size_t af_size) {
+hash_table_t * load_alternates(size_t ht_size, size_t af_size, char ** alts) {
   char           buffer[BUFSIZ];
   FILE *         alts_file;
   hash_table_t * hash_table;
-  uint32_t       i;
+  uint32_t       i, j, k;
 
   hash_table = hash_table_init(ht_size);
   alts_file  = fopen("data/alternates.csv", "r");
@@ -30,7 +30,7 @@ hash_table_t * load_alternates(size_t ht_size, size_t af_size) {
       val[k-j-1] = buffer[k];
       if (buffer[k] == '\0') break;
     }
-    snprintf(alternate[i], BUFSIZ, "%s", key);
+    snprintf(alts[i], BUFSIZ, "%s", key);
     printf("key = %s (%lu), val = %s (%lu)\n",
            key, strlen(key), val, strlen(val));
     key_val_t * kv = make_kv(key, strlen(key)+1, val, strlen(val)+1);
