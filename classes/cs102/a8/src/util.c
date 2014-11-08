@@ -82,10 +82,10 @@ void dbg_alts(hash_table_t * ht, char ** alts, size_t a_size) {
 }
 
 char * match_str(hash_table_t * ht, char ** alts, size_t a_size) {
-  uint32_t dist;
-  uint32_t mindst = INT_MAX;
-  uint32_t minidx = 0;
-  for (i = 0; i < NUMA; i++) {
+  uint32_t dist, mindst, minidx, i;
+  mindst = INT_MAX;
+  minidx = 0;
+  for (i = 0; i < a_size; i++) {
     dist = string_distance(str, alternate[i]);
     if (dist < mindst) {
       mindst = dist;
