@@ -182,21 +182,8 @@ int32_t split_by(list_t * cvecs) {
 }
 
 void div_tree(bintree_t * bt) {
-  /* int32_t * total, mid, mindist, split; */
   list_t * cvecs = bt_get_data(bt);
   int32_t split = split_by(cvecs);
-
-  /* printf("\n\n--------------------\n"); */
-  /* printf("total = "); */
-  /* for (uint32_t i = 0; i < NUMQ; i++) */
-  /*   printf(" %d", total[i]); */
-
-  /* printf("\n\n--------------------\n"); */
-  /* printf("mid = %d\n", mid); */
-  /* printf("mindist = %d\n", mindist); */
-  /* printf("split = %d\n", split); */
-  /* printf("total[split] = %d\n", total[split]); */
-
   list_t * cvecs_l = NULL;
   list_t * cvecs_r = NULL;
   list_t * tmp = cvecs;
@@ -217,11 +204,6 @@ void div_tree(bintree_t * bt) {
 
   bt_insl(bt, cvecs_l);
   bt_insr(bt, cvecs_r);
-  /* bintree_t * bt_l = bt_init(); */
-  /* bintree_t * bt_r = bt_init(); */
-
-  /* bt_l->data = cvecs_l; */
-  /* bt_r->data = cvecs_r; */
 
   div_tree(bt_get_left(bt));
   div_tree(bt_get_right(bt));
