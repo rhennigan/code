@@ -46,6 +46,7 @@ int main(int argc, char * argv[]) {
   int32_t ques_num = split_by(bt_get_data(bt));
   char * question = questions[ques_num];
   printf("%s (yes/no): ", question);
+  char * ans = get_input_string();
 
   list_t * cvecs0 = bt_get_data(bt);
   int32_t split0 = split_by(cvecs0);
