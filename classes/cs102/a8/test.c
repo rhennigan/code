@@ -17,13 +17,8 @@ bool q_answers[NUMC][NUMQ];
 
 int main(int argc, char * argv[]) {
   hash_table_t * hash_table;
-  uint32_t i;
-  FILE * cn_file;
 
-  cn_file = fopen("data/countries.csv", "r");
-  for (i = 0; i < NUMC; i++)
-    fgets(countries[i], BUFSIZ, cn_file);
-
+  load_countries(countries);
   hash_table = load_alternates(HTSZ, alternate);
 
   printf("Enter country name: ");
