@@ -15,6 +15,7 @@
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
 hash_table_t * load_alternates(size_t ht_size, char alts[][BUFSIZ]);
+void           load_countries(char countries[][BUFSIZ]);
 void           print_int(void * addr);
 void           print_kv(void * addr);
 bool           equal(void * a, void * b);

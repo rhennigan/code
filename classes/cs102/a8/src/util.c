@@ -40,6 +40,10 @@ hash_table_t * load_alternates(size_t ht_size, char alts[][BUFSIZ]) {
   return hash_table;
 }
 
+void load_countries(char countries[][BUFSIZ]) {
+  
+}
+
 void print_int(void * addr) {
   printf(" %d", *(int*)addr);
 }
