@@ -81,21 +81,22 @@ void dbg_alts(hash_table_t * ht, char ** alts, size_t a_size) {
   }
 }
 
-char * match_str(hash_table_t * ht, char ** alts, size_t a_size) {
+char * match_str(char * s, hash_table_t * ht, char ** alts, size_t as) {
   uint32_t dist, mindst, minidx, i;
   mindst = INT_MAX;
   minidx = 0;
-  for (i = 0; i < a_size; i++) {
-    dist = string_distance(str, alternate[i]);
+  for (i = 0; i < as; i++) {
+    dist = string_distance(s, alts[i]);
     if (dist < mindst) {
       mindst = dist;
       minidx = i;
     }
   }
   hkey_t k;
-  k.size = strlen(alternate[minidx])+1;
-  k.key = alternate[minidx];
-  void * addr = hash_table_lookup(hash_table, k);
+  k.size = strlen(alts[minidx])+1;
+  k.key = alts[minidx];
+  void * addr = hash_table_lookup(ht, k);
   key_val_t kv = *(key_val_t*)addr;
   char * correct = kv.val.val;
+  return correct;
 }
