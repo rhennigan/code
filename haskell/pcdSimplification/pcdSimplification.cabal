@@ -1,0 +1,21 @@
+name:           pcdSimplification
+version:        0.1
+cabal-version:  >=1.2
+build-type:     Simple
+author:         Richard Hennigan
+license:        GPL-2
+data-files:     src/test.hs
+
+executable pcdSimplification
+  hs-source-dirs:  src
+  main-is:         Main.hs
+  build-depends:   base >= 4
+  ghc-options:     -Wall
+
+library 
+  build-depends:   
+                   base >= 4,
+                   containers,
+                   directory
+  hs-source-dirs:  src
+
