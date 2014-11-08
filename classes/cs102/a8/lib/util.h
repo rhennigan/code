@@ -14,8 +14,9 @@
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
-hash_table_t * load_alternates(size_t ht_size, char alts[][BUFSIZ]);
-void           load_text(const char * path, size_t len, char array[][BUFSIZ]);
+hash_table_t * load_alternates(const char * path, size_t hs, char a[][BUFSIZ]);
+void           load_text(const char * path, size_t len, char a[][BUFSIZ]);
+void           load_ques(
 void           print_int(void * addr);
 void           print_kv(void * addr);
 bool           equal(void * a, void * b);
