@@ -10,23 +10,26 @@ all: $(SOURCES) $(EXECUTABLE)
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
 
-test: util.o hash.o user_input.o list.o
-	$(CC) -o test $(CFLAGS) test.c build/*.o
+.c.o:
+	$(CC) $(CFLAGS) $< -o $@
 
-util.o: lib/util.h src/util.c prep
-	$(CC) -o build/util.o $(CFLAGS) -c src/util.c
+# test: util.o hash.o user_input.o list.o
+# 	$(CC) -o test $(CFLAGS) test.c build/*.o
 
-list.o: lib/list.h src/list.c prep
-	$(CC) -o build/list.o $(CFLAGS) -c src/list.c
+# util.o: lib/util.h src/util.c prep
+# 	$(CC) -o build/util.o $(CFLAGS) -c src/util.c
 
-hash.o: lib/hash.h src/hash.c prep
-	$(CC) -o build/hash.o $(CFLAGS) -c src/hash.c
+# list.o: lib/list.h src/list.c prep
+# 	$(CC) -o build/list.o $(CFLAGS) -c src/list.c
 
-user_input.o: lib/user_input.h src/user_input.c prep
-	$(CC) -o build/user_input.o $(CFLAGS) -c src/user_input.c
+# hash.o: lib/hash.h src/hash.c prep
+# 	$(CC) -o build/hash.o $(CFLAGS) -c src/hash.c
 
-prep: 
-	mkdir -p build/
+# user_input.o: lib/user_input.h src/user_input.c prep
+# 	$(CC) -o build/user_input.o $(CFLAGS) -c src/user_input.c
 
-clean:
-	rm build/*.o
+# prep: 
+# 	mkdir -p build/
+
+# clean:
+# 	rm build/*.o
