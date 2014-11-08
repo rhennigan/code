@@ -117,7 +117,7 @@ size_t bt_node_count(bintree_t * bt) {
   } else if (bt_is_node(bt)) {
     size_t lc = bt_node_count(bt_get_left(bt));
     size_t rc = bt_node_count(bt_get_right(bt));
-    return lc + rc;
+    return 1 + lc + rc;
   } else {
     return 0;
   }
