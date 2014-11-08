@@ -143,4 +143,7 @@ void print_cvec(void * addr) {
   printf("\n");
 }
 
-void div_tree(bintree_t * bt, list_t * cvecs);
+void div_tree(bintree_t * bt, list_t * cvecs) {
+  size_t mid = list_length(cvecs) / 2;
+  uint32_t total = vsum(cvecs);
+}
