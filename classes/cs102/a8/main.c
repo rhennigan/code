@@ -28,7 +28,7 @@ int main(int argc, char * argv[]) {
     list_t * cvec = NULL;
     cvec = list_cons(cvec, q_answers[i]);
     list_cons_c(cvec, i, int32_t);
-    list_cons_c(cvec_lst, cvec, list_t);
+    cvec_lst = list_cons(cvec_lst, cvec);
   }
   bt->data = cvec_lst;
 
