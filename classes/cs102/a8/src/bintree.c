@@ -75,6 +75,14 @@ bool bt_is_node(bintree_t * bt) {
   return bt_has_left(bt) || bt_has_right(bt);
 }
 
-size_t bt_leaf_count(bintree_t * bt);
+size_t bt_leaf_count(bintree_t * bt) {
+  if (bt_is_leaf(bt)) {
+    return 1;
+  } else {
+    size_t lc = bt_leaf_count(bt_get_left(bt));
+    size_t rc = bt_leaf_count(bt_get_right(bt));
+    return lc + rc;
+  }
+}
 
 size_t bt_node_count(bintree_t * bt);
