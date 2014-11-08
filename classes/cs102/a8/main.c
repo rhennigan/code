@@ -33,12 +33,9 @@ int main(int argc, char * argv[]) {
   bintree_t * bt = bt_init();
   list_t * cvecs = NULL;
   for (int32_t i = NUMC-1; i >= 0; i--) {
-    list_t * cvec = NULL;
-    cvec = list_cons(cvec, q_answers[i]);
-    list_cons_c(cvec, i, int32_t);
-    cvec_lst = list_cons(cvec_lst, cvec);
+    cvecs = list_cons(cvecs, q_answers[i]);
   }
-  bt->data = cvec_lst;
+  bt->data = cvecs;
 
   /* printf("\n\n"); */
 
