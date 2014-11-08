@@ -10,7 +10,7 @@ all: $(SOURCES) $(EXECUTABLE)
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
 
-%.o: src/%.c $(DEPS)
+%.o: src/%.c lib/%.h
 	$(CC) $(CFLAGS) $< -o build/$@
 
 # test: util.o hash.o user_input.o list.o
