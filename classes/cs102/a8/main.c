@@ -43,6 +43,7 @@ int main(int argc, char * argv[]) {
         printf("%s\n", country);
         cvecs = list_tail(cvecs);
       }
+      exit(EXIT_SUCCESS);
     }
     int32_t ques_num = split_by(bt_get_data(bt));
     char * question = questions[ques_num];
@@ -76,6 +77,7 @@ void get_help(hash_table_t * ht) {
   char * mst = match(lowercase(str), ht, alternate, &cfv);
   if (cfv < 100) {
     printf("Interpreting %s as %s (confidence: %d%%)\n", str, mst, cfv);
+    WAIT();
   }
   int32_t page = 1;
   printf("\n\n");
