@@ -1,7 +1,9 @@
 CC=gcc
 CFLAGS=-std=c99 -g -c
 LDFLAGS=-g
-SOURCES=src/list.c src/hash.c src/user_input.c src/util.c test.c
+SOURCES=src/* test.c
+DEPS=lib/*
+#SOURCES=src/list.c src/hash.c src/user_input.c src/util.c test.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=test
 
