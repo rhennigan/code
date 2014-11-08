@@ -9,6 +9,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+
 typedef struct bintree_s {
   struct bintree_s * left;
   void * data;
