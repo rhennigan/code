@@ -12,8 +12,8 @@ all: $(SOURCES) $(EXECUTABLE)
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) $(EXECUTABLE).c -o $@
 
-%.o: src/%.c lib/%.h
-	$(CC) $(CFLAGS) $< -o build/$@
+build/%.o: src/%.c lib/%.h
+	$(CC) $(CFLAGS) $< -o $@
 
 # test: util.o hash.o user_input.o list.o
 # 	$(CC) -o test $(CFLAGS) test.c build/*.o
