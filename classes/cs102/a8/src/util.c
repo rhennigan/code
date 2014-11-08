@@ -145,7 +145,7 @@ void print_cvec(void * addr) {
 
 void add_cvec(uint32_t total[NUMQ], bool cvec[NUMQ]) {
   for (uint32_t i = 0; i < NUMQ; i++)
-    total[i] += cvec[i];
+    total[i] += cvec[i] ? 1 : 0;
 }
 
 void sum_cvecs(uint32_t total[NUMQ], list_t * cvecs) {
