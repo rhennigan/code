@@ -180,6 +180,17 @@ void div_tree(bintree_t * bt) {
     }
   }
 
+  printf("\n\n--------------------\n");
+  printf("total = ");
+  for (uint32_t i = 0; i < NUMQ; i++)
+    printf(" %d", total[i]);
+
+  printf("\n\n--------------------\n");
+  printf("mid = %d\n", mid);
+  printf("mindist = %d\n", mindist);
+  printf("splitby = %d\n", splitby);
+  printf("total[splitby] = %d\n", total[splitby]);
+
   list_t * cvecs_l = NULL;
   list_t * cvecs_r = NULL;
   list_t * tmp = cvecs;
@@ -194,22 +205,13 @@ void div_tree(bintree_t * bt) {
     tmp = list_tail(tmp);
   }
 
+  if (cvecs_l == NULL || cvecs_r == NULL) return;
+
   bintree_t * bt_l = bt_init();
   bintree_t * bt_r = bt_init();
 
   bt_l->data = cvecs_l;
   bt_r->data = cvecs_r;
-
-  printf("\n\n--------------------\n");
-  printf("total = ");
-  for (uint32_t i = 0; i < NUMQ; i++)
-    printf(" %d", total[i]);
-
-  printf("\n\n--------------------\n");
-  printf("mid = %d\n", mid);
-  printf("mindist = %d\n", mindist);
-  printf("splitby = %d\n", splitby);
-  printf("total[splitby] = %d\n", total[splitby]);
 }
 
 #undef ABS
