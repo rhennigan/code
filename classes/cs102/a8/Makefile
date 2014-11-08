@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-std=c99 -g -c
-LDFLAGS=-g
+LDFLAGS=-std=c99 -g
 BUILD=list hash user_input util
 EXECUTABLE=test
 
