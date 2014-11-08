@@ -121,6 +121,7 @@ void get_help(hash_table_t * ht) {
     }
   }
   hline();
+  printf("\n\n");
 }
 
 void hline() {
