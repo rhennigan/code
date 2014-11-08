@@ -1,6 +1,6 @@
 #include "../lib/util.h"
 
-hash_table_t * load_alternates(const char * path, size_t hs, char a[][BUFSIZ]) {
+hash_table_t * load_alts(const char * path, size_t hs, char a[][BUFSIZ]) {
   char           buffer[BUFSIZ];
   FILE *         alts_file;
   hash_table_t * hash_table;

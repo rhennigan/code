@@ -20,7 +20,8 @@ int main(int argc, char * argv[]) {
 
   load_text("data/countries.csv", NUMC, countries);
   load_text("data/questions.csv", NUMQ, questions);
-  hash_table = load_alternates(HTSZ, alternate);
+  hash_table = load_alternates("data/questions.csv", HTSZ, alternate);
+  load_ques("data/answers.csv", NUMQ, q_answers);
 
   for (uint32_t i = 0; i < NUMC; i++)
     printf("%s\n", countries[i]);
