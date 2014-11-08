@@ -43,6 +43,8 @@ int main(int argc, char * argv[]) {
 
   printf("depth = %lu\n", bt_depth(bt));
 
+  int32_t ques_num = split_by(bt_get_data(bt));
+
   list_t * cvecs0 = bt_get_data(bt);
   int32_t split0 = split_by(cvecs0);
   char * initq = questions[split0];
