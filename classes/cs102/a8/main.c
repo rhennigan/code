@@ -14,7 +14,7 @@ char    alternate[NUMA][BUFSIZ];
 char    questions[NUMQ][BUFSIZ];
 int32_t q_answers[NUMC][NUMQ+1];
 
-
+void get_help(hash_table_t * hash_table);
 
 int main(int argc, char * argv[]) {
   hash_table_t * hash_table;
@@ -75,48 +75,8 @@ int main(int argc, char * argv[]) {
     }
   }
 
-  /* list_t * cvecs0 = bt_get_data(bt); */
-  /* int32_t split0 = split_by(cvecs0); */
-  /* char * initq = questions[split0]; */
-  /* printf("initq = %s\n", initq); */
-
-  /* bintree_t * btl = bt_get_left(bt); */
-  /* bintree_t * btr = bt_get_right(bt); */
-
-  /* list_t * cvecsl = bt_get_data(btl); */
-  /* list_t * cvecsr = bt_get_data(btr); */
-
-  /* printf("\n-----------------------\n"); */
-  /* while (cvecsl != NULL) { */
-  /*   void * addr = list_head(cvecsl); */
-  /*   int32_t * cvec = (int32_t*)addr; */
-  /*   printf("%s, ", countries[cvec[0]]); */
-  /*   cvecsl = list_tail(cvecsl); */
-  /* } */
-
-  /* printf("\n-----------------------\n"); */
-  /* while (cvecsr != NULL) { */
-  /*   void * addr = list_head(cvecsr); */
-  /*   int32_t * cvec = (int32_t*)addr; */
-  /*   printf("%s, ", countries[cvec[0]]); */
-  /*   cvecsr = list_tail(cvecsr); */
-  /* } */
-  /* for (uint32_t i = 0; i < NUMC; i++) */
-  /*   printf("%s\n", countries[i]); */
-
-  /* for (uint32_t i = 0; i < NUMQ; i++) */
-  /*   printf("%s\n", questions[i]); */
-
-
-
-  /* printf("Enter country name: "); */
-  /* char * str = lowercase(get_input_string()); */
-  /* char * correct = match_str(str, hash_table, alternate); */
-
   return 0;
 }
-
-#undef MIN
 
 void get_help(hash_table_t * ht) {
   printf("\n\n");
@@ -156,3 +116,4 @@ void get_help(hash_table_t * ht) {
   printf("\n------------------------------------------\n\n");
 }
 
+#undef MIN
