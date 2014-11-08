@@ -31,8 +31,6 @@ hash_table_t * load_alternates(size_t ht_size, char alts[][BUFSIZ]) {
       if (buffer[k] == '\0') break;
     }
     snprintf(alts[i], BUFSIZ, "%s", key);
-    printf("key = %s (%lu), val = %s (%lu)\n",
-           key, strlen(key), val, strlen(val));
     key_val_t * kv = make_kv(key, strlen(key)+1, val, strlen(val)+1);
     hash_table_insert(hash_table, kv);
     free(kv);
