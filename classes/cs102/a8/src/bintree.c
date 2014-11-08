@@ -29,7 +29,9 @@ bool bt_is_empty(bintree_t * bt) {
   return bt->data == NULL && bt->left == NULL && bt->right == NULL;
 }
 
-bool bt_is_leaf(bintree_t * bt);
+bool bt_is_leaf(bintree_t * bt) {
+  if (bt_is_empty(bt)) return false;
+}
 
 bool bt_is_node(bintree_t * bt);
 
