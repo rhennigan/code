@@ -59,7 +59,7 @@ void load_answ(const char * path, size_t qcount, int32_t questions[][NUMQ+1]) {
     questions[i][0] = i;
     fgets(buff, BUFSIZ, file);
     for (uint32_t j = 0; j < qcount; j++)
-      questions[i][j] = buff[j] == '1' ? true : false;
+      questions[i][j+1] = buff[j] == '1' ? 1 : 0;
   }
   fclose(file);
 }

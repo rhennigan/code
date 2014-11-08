@@ -12,7 +12,7 @@
 char countries[NUMC][BUFSIZ];
 char alternate[NUMA][BUFSIZ];
 char questions[NUMQ][BUFSIZ];
-bool q_answers[NUMC][NUMQ];
+bool q_answers[NUMC][NUMQ+1];
 
 int main(int argc, char * argv[]) {
   hash_table_t * hash_table;
