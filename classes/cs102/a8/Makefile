@@ -16,6 +16,8 @@ $(EXECUTABLE): $(OBJECTS)
 build/%.o: src/%.c lib/%.h
 	$(CC) $(CFLAGS) $< -o $@
 
+clean:
+	rm build/*.o
 # test: util.o hash.o user_input.o list.o
 # 	$(CC) -o test $(CFLAGS) test.c build/*.o
 
