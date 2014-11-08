@@ -40,6 +40,7 @@ void get_help(hash_table_t * ht) {
     char * a = q_answers[cidx][i+1] ? "YES" : "NO";
     printf("%s = %s\n", q, a);
   }
+  printf("\n------------------------------------------\n\n");
 }
 
 int main(int argc, char * argv[]) {
