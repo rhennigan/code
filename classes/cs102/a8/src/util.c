@@ -48,10 +48,10 @@ void load_countries(char countries[][BUFSIZ]) {
 }
 
 void load_text(const char * path, size_t len, char array[][BUFSIZ]) {
-  FILE * cn_file = fopen(path, "r");
-  for (uint32_t i = 0; i < NUMC; i++)
-    fgets(countries[i], BUFSIZ, cn_file);
-  fclose(cn_file);
+  FILE * file = fopen(path, "r");
+  for (uint32_t i = 0; i < len; i++)
+    fgets(array[i], BUFSIZ, file);
+  fclose(file);
 }
 
 void print_int(void * addr) {
