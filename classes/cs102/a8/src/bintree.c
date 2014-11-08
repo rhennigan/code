@@ -14,11 +14,17 @@ bool bt_has_right(bintree_t * tree);
 bintree_t * bt_init() {
   bintree_t * bt = malloc(sizeof(bintree_t));
   assert(bt != NULL);
+  bt->data = NULL;
+  bt->left = NULL;
+  bt->right = NULL;
+  return bt;
 }
 
 void bt_insl(bintree_t * tree, void * data);
 
 void bt_insr(bintree_t * tree, void * data);
+
+bool bt_is_empty(bintree_t * tree);
 
 bool bt_is_leaf(bintree_t * tree);
 
