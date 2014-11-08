@@ -33,12 +33,16 @@ bintree_t * bt_init() {
 
 void bt_insl(bintree_t * bt, void * data) {
   assert(bt != NULL);
-  bt->left = data;
+  assert(bt->left == NULL);
+  bt->left = bt_init();
+  bt->left->data = data;
 }
 
 void bt_insr(bintree_t * bt, void * data) {
   assert(bt != NULL);
-  bt->right = data;
+  assert(bt->right == NULL);
+  bt->right = bt_init();
+  bt->right->data = data;
 }
 
 bool bt_is_empty(bintree_t * bt) {
