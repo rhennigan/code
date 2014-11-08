@@ -11,6 +11,6 @@ void           print_int(void * addr);
 void           print_kv(void * addr);
 bool           equal(void * a, void * b);
 void           dbg_alts(hash_table_t * ht, char alts[][BUFSIZ], size_t a_size);
-char *         match_str(char * s, hash_table_t * ht, char ** alts, size_t as);
+char *         match_str(char * s, hash_table_t * ht, char alts[][BUFSIZ], size_t as);
 
 #endif  // LIB_UTIL_
