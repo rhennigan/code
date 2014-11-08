@@ -17,7 +17,10 @@ size_t bt_depth(bintree_t * bt) {
 
 void bt_dispose(bintree_t * bt) {
   if (bt == NULL) return;
-  
+  bintree_t ** l = &bt->left;
+  bintree_t ** r = &bt->right;
+  free(bt);
+  bt = NULL;
 }
 
 bintree_t * bt_get_left(bintree_t * bt) {
