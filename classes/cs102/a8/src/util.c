@@ -212,8 +212,8 @@ void div_tree(bintree_t * bt) {
   void * a2 = bt_get_left(bt);
   void * a3 = bt_get_right(bt);
 
-  printf("%p->%p,\n", a1, a2);
-  printf("%p->%p,\n", a1, a3);
+  printf("\"%p\"->\"%p\",\n", a1, a2);
+  printf("\"%p\"->\"%p\",\n", a1, a3);
 
   div_tree(bt_get_left(bt));
   div_tree(bt_get_right(bt));
