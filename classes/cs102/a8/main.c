@@ -22,6 +22,8 @@ int main(int argc, char * argv[]) {
   hash_table = load_alts("data/alternates.csv", HTSZ, alternate);
   load_answ("data/answers.csv", NUMQ, q_answers);
 
+  bintree_t * bt = bt_init();
+  list_t * cvecs = NULL;
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
