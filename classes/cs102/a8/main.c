@@ -28,6 +28,9 @@ void get_help(hash_table_t * ht) {
   printf("\n\n");
   printf("%s Facts\n", mst);
   printf("------------------------------------------");
+  for (uint32_t i = 0; i < NUMQ; i++) {
+    
+  }
 }
 
 int main(int argc, char * argv[]) {
