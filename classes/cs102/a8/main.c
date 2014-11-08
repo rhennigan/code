@@ -57,7 +57,7 @@ int main(int argc, char * argv[]) {
     int32_t ques_num = split_by(bt_get_data(bt));
     char * question = questions[ques_num];
     while (1) {
-      printf("%s (yes/no): ", question);
+      printf("%s (yes/no/unknown): ", question);
       char * ans = get_input_string();
       if (strcmp(ans, "yes") == 0) {
         bt = bt_get_left(bt);
