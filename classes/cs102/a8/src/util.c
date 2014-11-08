@@ -56,6 +56,7 @@ void load_answ(const char * path, size_t qcount, int32_t questions[][NUMQ+1]) {
   FILE * file = fopen(path, "r");
   char buff[BUFSIZ];
   for (uint32_t i = 0; i < NUMC; i++) {
+    questions[i][0] = i;
     fgets(buff, BUFSIZ, file);
     for (uint32_t j = 0; j < qcount; j++)
       questions[i][j] = buff[j] == '1' ? true : false;
