@@ -15,9 +15,9 @@ char questions[NUMQ][BUFSIZ];
 bool q_answers[NUMC][NUMQ];
 
 void print_cvec(void * addr) {
-  bool * cvec = *(bool*)addr;
+  bool * cvec = (bool*)addr;
   for (uint32_t j = 0; j < NUMQ; j++) {
-    printf("%c", q_answers[i][j] ? 'T' : 'F');
+    printf("%c", cvec[j] ? 'T' : 'F');
   }
 }
 
