@@ -18,7 +18,10 @@ bintree_t * bt_get_left(bintree_t * bt) {
   return bt->left;
 }
 
-bintree_t * bt_get_right(bintree_t * bt);
+bintree_t * bt_get_right(bintree_t * bt) {
+  assert(bt != NULL);
+  return bt->right;
+}
 
 bool bt_has_data(bintree_t * bt) {
   assert(bt != NULL);
