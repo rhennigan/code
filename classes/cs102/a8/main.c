@@ -19,6 +19,7 @@ void hline();
 
 int main(int argc, char * argv[]) {
   hash_table_t * hash_table;
+  FILE * graph_file = fopen("data/graph_data.csv", "w");
 
   load_text("data/countries.csv", NUMC, countries);
   load_text("data/questions.csv", NUMQ, questions);
