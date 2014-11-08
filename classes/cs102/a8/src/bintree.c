@@ -76,7 +76,9 @@ bool bt_is_node(bintree_t * bt) {
 }
 
 size_t bt_leaf_count(bintree_t * bt) {
-  if (bt_is_leaf(bt)) {
+  if (bt == NULL) {
+    return 0;
+  } else if (bt_is_leaf(bt)) {
     return 1;
   } else {
     size_t lc = bt_leaf_count(bt_get_left(bt));
