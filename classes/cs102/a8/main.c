@@ -114,9 +114,10 @@ int main(int argc, char * argv[]) {
 
 #undef MIN
 
-void get_help() {
+void get_help(hash_table_t * ht) {
   printf("If you are not sure of an answer, you can check the fact database\n");
   printf("for any country\n");
   printf("Enter a country name to retrieve data: ");
   char * str = get_input_string();
+  char * match = match_str(lowercase(str), ht, alternate);
 }
