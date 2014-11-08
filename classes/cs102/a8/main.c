@@ -43,6 +43,16 @@ int main(int argc, char * argv[]) {
 
   printf("depth = %lu\n", bt_depth(bt));
 
+  printf("\n-----------------------\n");
+  list_t * tmp = bt_get_data(bt);
+  while (tmp != NULL) {
+    void * addr = list_head(tmp);
+    int32_t * cvec = (int32_t*)addr;
+    printf("%s, ", countries[cvec[0]]);
+    tmp = list_tail(tmp);
+  }
+  printf("\n-----------------------\n");
+
   int32_t ques_num = split_by(bt_get_data(bt));
   char * question = questions[ques_num];
   while (1) {
@@ -59,32 +69,32 @@ int main(int argc, char * argv[]) {
     }
   }
 
-  list_t * cvecs0 = bt_get_data(bt);
-  int32_t split0 = split_by(cvecs0);
-  char * initq = questions[split0];
-  printf("initq = %s\n", initq);
+  /* list_t * cvecs0 = bt_get_data(bt); */
+  /* int32_t split0 = split_by(cvecs0); */
+  /* char * initq = questions[split0]; */
+  /* printf("initq = %s\n", initq); */
 
-  bintree_t * btl = bt_get_left(bt);
-  bintree_t * btr = bt_get_right(bt);
+  /* bintree_t * btl = bt_get_left(bt); */
+  /* bintree_t * btr = bt_get_right(bt); */
 
-  list_t * cvecsl = bt_get_data(btl);
-  list_t * cvecsr = bt_get_data(btr);
+  /* list_t * cvecsl = bt_get_data(btl); */
+  /* list_t * cvecsr = bt_get_data(btr); */
 
-  printf("\n-----------------------\n");
-  while (cvecsl != NULL) {
-    void * addr = list_head(cvecsl);
-    int32_t * cvec = (int32_t*)addr;
-    printf("%s, ", countries[cvec[0]]);
-    cvecsl = list_tail(cvecsl);
-  }
+  /* printf("\n-----------------------\n"); */
+  /* while (cvecsl != NULL) { */
+  /*   void * addr = list_head(cvecsl); */
+  /*   int32_t * cvec = (int32_t*)addr; */
+  /*   printf("%s, ", countries[cvec[0]]); */
+  /*   cvecsl = list_tail(cvecsl); */
+  /* } */
 
-  printf("\n-----------------------\n");
-  while (cvecsr != NULL) {
-    void * addr = list_head(cvecsr);
-    int32_t * cvec = (int32_t*)addr;
-    printf("%s, ", countries[cvec[0]]);
-    cvecsr = list_tail(cvecsr);
-  }
+  /* printf("\n-----------------------\n"); */
+  /* while (cvecsr != NULL) { */
+  /*   void * addr = list_head(cvecsr); */
+  /*   int32_t * cvec = (int32_t*)addr; */
+  /*   printf("%s, ", countries[cvec[0]]); */
+  /*   cvecsr = list_tail(cvecsr); */
+  /* } */
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
