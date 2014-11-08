@@ -14,8 +14,8 @@ bool bt_has_right(bintree_t * bt);
 bintree_t * bt_init() {
   bintree_t * bt = malloc(sizeof(bintree_t));
   assert(bt != NULL);
-  bt->data = NULL;
-  bt->left = NULL;
+  bt->data  = NULL;
+  bt->left  = NULL;
   bt->right = NULL;
   return bt;
 }
