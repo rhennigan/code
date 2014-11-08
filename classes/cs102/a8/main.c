@@ -22,7 +22,9 @@ void get_help(hash_table_t * ht) {
   char * str = get_input_string();
   int32_t cfv;
   char * mst = match(lowercase(str), ht, alternate, &cfv);
-  printf("Matched %s (confidence: %d%%)\n", mst, cfv);
+  if (cfv < 100) {
+    printf("Interpreting %s as %s (confidence: %d%%)\n", str, mst, cfv);
+  }
   printf("\n\n");
 }
 
