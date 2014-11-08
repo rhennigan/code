@@ -36,7 +36,10 @@ void bt_insl(bintree_t * bt, void * data) {
   bt->left = data;
 }
 
-void bt_insr(bintree_t * bt, void * data);
+void bt_insr(bintree_t * bt, void * data) {
+  assert(bt != NULL);
+  bt->right = data;
+}
 
 bool bt_is_empty(bintree_t * bt) {
   return !bt_has_data(bt) && !bt_has_left(bt) && !bt_has_right(bt);
