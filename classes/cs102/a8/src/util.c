@@ -184,17 +184,6 @@ int32_t split_by(list_t * cvecs) {
 void div_tree(bintree_t * bt) {
   /* int32_t * total, mid, mindist, split; */
   list_t * cvecs = bt_get_data(bt);
-
-  /* mid = list_length(cvecs) / 2; */
-  /* total = sum_cvecs(cvecs); */
-  /* mindist = INT_MAX; */
-  /* for (int32_t i = 0; i < NUMQ; i++) { */
-  /*   if (ABS(total[i] - mid) < mindist) { */
-  /*     mindist = ABS(total[i] - mid); */
-  /*     split = i; */
-  /*   } */
-  /* } */
-
   int32_t split = split_by(cvecs);
 
   /* printf("\n\n--------------------\n"); */

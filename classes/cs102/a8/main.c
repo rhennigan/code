@@ -42,6 +42,9 @@ int main(int argc, char * argv[]) {
   div_tree(bt);
 
   printf("depth = %lu\n", bt_depth(bt));
+
+  list_t * cvecs0 = bt_get_data(bt);
+  int32_t split0 = split_by(cvecs0);
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
