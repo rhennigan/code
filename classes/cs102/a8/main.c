@@ -35,7 +35,7 @@ int main(int argc, char * argv[]) {
 
   printf("----------------------------------------------\n");
   printf("Welcome to the country guessing game!\n");
-  printf("I know %d true/false facts for %d countries\n", NUMQ, NUMC);
+  printf("I know %d facts for each of the %d countries\n", NUMQ, NUMC);
   printf("Pick a country and I'll ask you a series of yes/no questions");
   printf(" about that country\n");
   printf("----------------------------------------------\n");
