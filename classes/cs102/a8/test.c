@@ -46,6 +46,7 @@ int main(int argc, char * argv[]) {
   /* uint64_t entry_counts[MODSZ]; */
   char     buffer[BUFSIZ];
   FILE *   alts_file;
+  FILE *   ques_file;
   uint32_t i, j, k;
 
   hash_table_t * hash_table = hash_table_init(HTSZ);
