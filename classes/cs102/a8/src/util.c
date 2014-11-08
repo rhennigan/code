@@ -57,7 +57,10 @@ void load_ques(const char * path, size_t qcount, bool questions[][NUMQ]) {
   char buff[BUFSIZ];
   for (uint32_t i = 0; i < NUMC; i++) {
     fgets(buff, BUFSIZ, file);
+    for (uint32_t j = 0; j < qcount; j++)
+      questions[i][j] = buff[j] == '1' ? true : false;
   }
+  fclose(file);
 }
 
 void print_int(void * addr) {
