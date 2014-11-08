@@ -25,7 +25,7 @@ int main(int argc, char * argv[]) {
   bintree_t * bt = bt_init();
   list_t * cvecs = NULL;
   for (int32_t i = NUMC-1; i >= 0; i--) {
-    
+    cvecs = list_cons(cvecs, q_answers[i]);
   }
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
