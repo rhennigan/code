@@ -1,7 +1,10 @@
 CC=gcc
 CFLAGS=-std=c99 -g
+SOURCES=src/list.c src/hash.c src/user_input.c src/util.c
+OBJECTS=$(SOURCES:.c=.o)
+EXECUTABLE=test
 
-all: test
+all: $(SOURCES) $(EXECUTABLE)
 
 test: util.o hash.o user_input.o list.o
 	$(CC) -o test $(CFLAGS) test.c build/*.o
