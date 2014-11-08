@@ -32,6 +32,8 @@ int main(int argc, char * argv[]) {
   }
 
   bt->data = cvecs;
+
+  printf("Optimizing decision tree...\n");
   div_tree(bt);
 
   hline();
