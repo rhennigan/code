@@ -53,6 +53,11 @@ int main(int argc, char * argv[]) {
 
   list_t * cvecsl = bt_get_data(btl);
   list_t * cvecsr = bt_get_data(btr);
+
+  printf("\n-----------------------\n");
+  while (cvecsl != NULL) {
+    
+  }
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
