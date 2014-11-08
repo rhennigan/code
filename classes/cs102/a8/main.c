@@ -19,6 +19,7 @@ void print_cvec(void * addr) {
   for (uint32_t j = 0; j < NUMQ; j++) {
     printf("%c", cvec[j] ? 'T' : 'F');
   }
+  printf("\n");
 }
 
 int main(int argc, char * argv[]) {
@@ -34,6 +35,8 @@ int main(int argc, char * argv[]) {
   for (int32_t i = NUMC-1; i >= 0; i--) {
     cvecs = list_cons(cvecs, q_answers[i]);
   }
+
+  list_iter(cvecs, &print_cvec);
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
