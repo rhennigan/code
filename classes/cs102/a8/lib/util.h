@@ -1,6 +1,7 @@
 #ifndef LIB_UTIL_
 #define LIB_UTIL_
 
+#include <limits.h>
 #include <stdio.h>
 #include <string.h>
 #include "./hash.h"
