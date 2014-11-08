@@ -26,6 +26,8 @@ void get_help(hash_table_t * ht) {
     printf("Interpreting %s as %s (confidence: %d%%)\n", str, mst, cfv);
   }
   printf("\n\n");
+  printf("%s Facts\n", mst);
+  printf("------------------------------------------");
 }
 
 int main(int argc, char * argv[]) {
