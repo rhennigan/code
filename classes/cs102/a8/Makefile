@@ -1,6 +1,8 @@
 CC=gcc
 CFLAGS=-std=c99 -g
 
+all: test
+
 test: util.o hash.o user_input.o list.o
 	$(CC) -o test $(CFLAGS) test.c build/*.o
 
