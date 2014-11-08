@@ -3,11 +3,22 @@
 
 #include "../lib/bintree.h"
 
-size_t bt_depth(bintree_t * bt) {
-  if (bt_is_leaf(bt)) return 1;
-}
+/* size_t bt_depth(bintree_t * bt) { */
+/*   if (bt_is_leaf(bt)) { */
+/*     return 1; */
+/*   } else { */
+/*     return 0; */
+/*   } */
+/* } */
 
 void bt_dispose(bintree_t * bt);
+
+bintree_t * bt_get_left(bintree_t * bt) {
+  assert(bt != NULL);
+  return bt->left;
+}
+
+bintree_t * bt_get_right(bintree_t * bt);
 
 bool bt_has_data(bintree_t * bt) {
   assert(bt != NULL);
