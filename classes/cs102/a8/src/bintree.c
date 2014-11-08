@@ -4,7 +4,9 @@
 #include "../lib/bintree.h"
 
 size_t bt_depth(bintree_t * bt) {
-  if (bt_is_leaf(bt)) {
+  if (bt == NULL) {
+    return 0;
+  } else if (bt_is_leaf(bt)) {
     return 1;
   } else {
     size_t ld = bt_depth(bt_get_left(bt));
