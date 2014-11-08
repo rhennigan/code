@@ -34,6 +34,6 @@ void           hash_table_insert(hash_table_t * ht, key_val_t * kv);
 void *         hash_table_lookup(hash_table_t * ht, hkey_t key);
 key_val_t *    make_kv(void * key, size_t ks, void * val, size_t vs);
 bool           match_key(void * a1, void * a2);
-uint32_t       string_distance(char *s1, char *s2);
+uint32_t       string_distance(char * s1, char * s2);
 
 #endif  // LIB_HASH_
