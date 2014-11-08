@@ -7,7 +7,9 @@ size_t bt_depth(bintree_t * bt) {
   if (bt_is_leaf(bt)) {
     return 1;
   } else {
-    return 0;
+    size_t ld = bt_depth(bt_get_left(bt));
+    size_t rd = bt_depth(bt_get_right(bt));
+    return 1 + MAX(ld, rd);
   }
 }
 
