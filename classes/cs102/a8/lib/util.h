@@ -6,6 +6,7 @@
 #include <string.h>
 #include "./hash.h"
 #include "./bintree.h"
+#include "../lib/user_input.h"
 
 #define NUMC 240
 #define NUMA 333
