@@ -34,13 +34,13 @@ int main(int argc, char * argv[]) {
   bt->data = cvecs;
   div_tree(bt);
 
-  printf("----------------------------------------------\n");
+  hline();
   printf("Welcome to the country guessing game!\n");
   printf("I know %d facts for each of the %d countries\n", NUMQ, NUMC);
   printf("Pick a country and I'll ask you a series of yes/no questions");
   printf(" about that country\nand I'll try to guess the correct one");
   printf(" as soon as possible.\n");
-  printf("----------------------------------------------\n");
+  hline();
 
   uint32_t q_asked = 0;
   while (1) {
@@ -100,7 +100,7 @@ void get_help(hash_table_t * ht) {
   int32_t page = 1;
   printf("\n\n");
   printf("%s Facts (page %d)\n", mst, page);
-  printf("------------------------------------------\n");
+  hline();
   int32_t cidx = -1;
   for (int32_t i = 0; i < NUMC; i++) {
     if (strcmp(countries[i], mst) == 0) {
@@ -113,15 +113,15 @@ void get_help(hash_table_t * ht) {
     char * a = q_answers[cidx][i+1] ? "YES" : "NO";
     printf("%s = %s\n", q, a);
     if (i % 20 == 19) {
-      printf("------------------------------------------\n");
+      hline();
       WAIT();
       page++;
       printf("\n");
       printf("%s Facts (page %d)\n", mst, page);
-      printf("------------------------------------------\n");
+      hline();
     }
   }
-  printf("\n------------------------------------------\n\n");
+  hline();
 }
 
 void hline() {
