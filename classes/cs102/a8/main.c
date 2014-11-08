@@ -9,10 +9,10 @@
 #include "lib/bintree.h"
 
 /* GLOBAL VARIABLES */
-char countries[NUMC][BUFSIZ];
-char alternate[NUMA][BUFSIZ];
-char questions[NUMQ][BUFSIZ];
-bool q_answers[NUMC][NUMQ+1];
+char    countries[NUMC][BUFSIZ];
+char    alternate[NUMA][BUFSIZ];
+char    questions[NUMQ][BUFSIZ];
+int32_t q_answers[NUMC][NUMQ+1];
 
 int main(int argc, char * argv[]) {
   hash_table_t * hash_table;
@@ -21,6 +21,13 @@ int main(int argc, char * argv[]) {
   load_text("data/questions.csv", NUMQ, questions);
   hash_table = load_alts("data/alternates.csv", HTSZ, alternate);
   load_answ("data/answers.csv", NUMQ, q_answers);
+
+  for (uint32_t i = 0; i < NUMC; i++) {
+    for (uint32_t j = 0; j < NUMQ; j++) {
+      printf("%d", q_answers[i][j]);
+    }
+    printf("\n");
+  }
 
   bintree_t * bt = bt_init();
   list_t * cvec_lst = NULL;
@@ -41,12 +48,7 @@ int main(int argc, char * argv[]) {
   /* for (uint32_t i = 0; i < NUMQ; i++) */
   /*   printf("%s\n", questions[i]); */
 
-  /* for (uint32_t i = 0; i < NUMC; i++) { */
-  /*   for (uint32_t j = 0; j < NUMQ; j++) { */
-  /*     printf("%c", q_answers[i][j] ? 'T' : 'F'); */
-  /*   } */
-  /*   printf("\n"); */
-  /* } */
+
 
   /* printf("Enter country name: "); */
   /* char * str = lowercase(get_input_string()); */
