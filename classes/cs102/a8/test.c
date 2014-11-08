@@ -29,6 +29,13 @@ int main(int argc, char * argv[]) {
   for (uint32_t i = 0; i < NUMQ; i++)
     printf("%s\n", questions[i]);
 
+  for (uint32_t i = 0; i < NUMC; i++) {
+    for (uint32_t j = 0; j < NUMQ; j++) {
+      printf("%c", q_answers[i][j]);
+    }
+    printf("\n");
+  }
+
   printf("Enter country name: ");
   char * str = lowercase(get_input_string());
   char * correct = match_str(str, hash_table, alternate);
