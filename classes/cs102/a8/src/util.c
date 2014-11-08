@@ -194,6 +194,9 @@ void div_tree(bintree_t * bt) {
     tmp = list_tail(tmp);
   }
 
+  bintree_t * bt_l = bt_init();
+  bintree_t * bt_r = bt_init();
+
   printf("\n\n--------------------\n");
   printf("total = ");
   for (uint32_t i = 0; i < NUMQ; i++)
