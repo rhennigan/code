@@ -165,7 +165,7 @@ int32_t * sum_cvecs(list_t * cvecs) {
 
 #define ABS(n) ((n) < 0 ? -(n) : (n))
 
-void div_tree(bintree_t * bt, list_t * cvecs) {
+void div_tree(bintree_t * bt) {
   int32_t * total, mid, mindist, splitby;
 
   mid = list_length(cvecs) / 2;
