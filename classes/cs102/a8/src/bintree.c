@@ -7,9 +7,15 @@ size_t bt_depth(bintree_t * bt);
 
 void bt_dispose(bintree_t * bt);
 
-bool bt_has_left(bintree_t * bt);
+bool bt_has_left(bintree_t * bt) {
+  assert(bt != NULL);
+  return bt->left != NULL;
+}
 
-bool bt_has_right(bintree_t * bt);
+bool bt_has_right(bintree_t * bt) {
+  assert(bt != NULL);
+  return bt->right != NULL;
+}
 
 bintree_t * bt_init() {
   bintree_t * bt = malloc(sizeof(bintree_t));
