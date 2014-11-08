@@ -30,23 +30,7 @@ int main(int argc, char * argv[]) {
   while (1) {
     printf("Enter country name: ");
     char * str = get_input_string();
-    uint32_t dist;
-    uint32_t mindst = INT_MAX;
-    uint32_t minidx = 0;
-    for (i = 0; i < NUMA; i++) {
-      dist = string_distance(str, alternate[i]);
-      if (dist < mindst) {
-        mindst = dist;
-        minidx = i;
-      }
-    }
-    hkey_t k;
-    k.size = strlen(alternate[minidx])+1;
-    k.key = alternate[minidx];
-    void * addr = hash_table_lookup(hash_table, k);
-    key_val_t kv = *(key_val_t*)addr;
-    char * correct = kv.val.val;
-    printf("\n\nlookup = %p\n", addr);
+    char * correct = match_str(str, hash_table, alternates, NUMA);
     printf("closest match for %s: %s\n", str, correct);
   }
 
