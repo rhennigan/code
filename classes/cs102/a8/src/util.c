@@ -182,18 +182,20 @@ int32_t split_by(list_t * cvecs) {
 }
 
 void div_tree(bintree_t * bt) {
-  int32_t * total, mid, mindist, splitby;
+  /* int32_t * total, mid, mindist, split; */
   list_t * cvecs = bt_get_data(bt);
 
-  mid = list_length(cvecs) / 2;
-  total = sum_cvecs(cvecs);
-  mindist = INT_MAX;
-  for (int32_t i = 0; i < NUMQ; i++) {
-    if (ABS(total[i] - mid) < mindist) {
-      mindist = ABS(total[i] - mid);
-      splitby = i;
-    }
-  }
+  /* mid = list_length(cvecs) / 2; */
+  /* total = sum_cvecs(cvecs); */
+  /* mindist = INT_MAX; */
+  /* for (int32_t i = 0; i < NUMQ; i++) { */
+  /*   if (ABS(total[i] - mid) < mindist) { */
+  /*     mindist = ABS(total[i] - mid); */
+  /*     split = i; */
+  /*   } */
+  /* } */
+
+  int32_t split = split_by(cvecs);
 
   /* printf("\n\n--------------------\n"); */
   /* printf("total = "); */
@@ -203,8 +205,8 @@ void div_tree(bintree_t * bt) {
   /* printf("\n\n--------------------\n"); */
   /* printf("mid = %d\n", mid); */
   /* printf("mindist = %d\n", mindist); */
-  /* printf("splitby = %d\n", splitby); */
-  /* printf("total[splitby] = %d\n", total[splitby]); */
+  /* printf("split = %d\n", split); */
+  /* printf("total[split] = %d\n", total[split]); */
 
   list_t * cvecs_l = NULL;
   list_t * cvecs_r = NULL;
@@ -212,7 +214,7 @@ void div_tree(bintree_t * bt) {
   while (tmp != NULL) {
     void * addr = list_head(tmp);
     int32_t * cvec = (int32_t*)addr;
-    if (cvec[splitby+1]) {
+    if (cvec[split+1]) {
       cvecs_l = list_cons(cvecs_l, addr);
     } else {
       cvecs_r = list_cons(cvecs_r, addr);
