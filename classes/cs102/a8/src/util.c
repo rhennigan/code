@@ -49,8 +49,13 @@ void load_countries(char countries[][BUFSIZ]) {
 
 void load_text(const char * path, size_t len, char array[][BUFSIZ]) {
   FILE * file = fopen(path, "r");
-  for (uint32_t i = 0; i < len; i++)
+  for (uint32_t i = 0; i < len; i++) {
     fgets(array[i], BUFSIZ, file);
+    for (uint32_t j = 0; j < BUFSIZ; j++) {
+      if (array[i][j] == '\n')
+        array[i][j] = '\0';
+    }
+  }
   fclose(file);
 }
 
