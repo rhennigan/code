@@ -14,7 +14,7 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) $(EXECUTABLE).c -o $@
 
 build/%.o: src/%.c lib/%.h
-	echo "building "$@", depends on: "$<
+	@echo "building "$@", depends on: "$<
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
