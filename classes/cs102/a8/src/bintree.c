@@ -30,6 +30,7 @@ void bt_flatten(bintree_t * bt, list_t * list) {
   if (bt_has_data(bt)) {
     list = list_cons(list, bt_get_data(bt));
   }
+  bt_flatten(bt_get_left(bt), list);
 }
 
 void * bt_get_data(bintree_t * bt) {
