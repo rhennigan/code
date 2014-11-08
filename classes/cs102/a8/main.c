@@ -119,5 +119,7 @@ void get_help(hash_table_t * ht) {
   printf("for any country\n");
   printf("Enter a country name to retrieve data: ");
   char * str = get_input_string();
-  char * match = match_str(lowercase(str), ht, alternate);
+  double cfv;
+  char * mst = match(lowercase(str), ht, alternate, &cfv);
+  printf("matched %s (confidence: %d%%)\n", mst, cfv); 
 }
