@@ -182,6 +182,10 @@ void div_tree(bintree_t * bt) {
 
   list_t * cvecs_l = NULL;
   list_t * cvecs_r = NULL;
+  list_t * tmp = cvecs;
+  while (tmp != NULL) {
+    
+  }
 
   printf("\n\n--------------------\n");
   printf("total = ");
