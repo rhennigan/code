@@ -37,9 +37,9 @@ int main(int argc, char * argv[]) {
   }
   bt->data = cvecs;
 
-  /* printf("\n\n"); */
+  printf("\n\n");
 
-  /* div_tree(bt, cvecs); */
+  div_tree(bt);
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
