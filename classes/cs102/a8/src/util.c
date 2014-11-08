@@ -167,8 +167,18 @@ int32_t * sum_cvecs(list_t * cvecs) {
 
 #define ABS(n) ((n) < 0 ? -(n) : (n))
 
-int32_t split_by() {
-  
+int32_t split_by(list_t * cvecs) {
+  int32_t mid = list_length(cvecs) / 2;
+  int32_t * total = sum_cvecs(cvecs);
+  int32_t mindist = INT_MAX;
+  int32_t split;
+  for (int32_t i = 0; i < NUMQ; i++) {
+    if (ABS(total[i] - mid) < mindist) {
+      mindist = ABS(total[i] - mid);
+      split = i;
+    }
+  }
+  return split;
 }
 
 void div_tree(bintree_t * bt) {
