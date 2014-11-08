@@ -59,24 +59,24 @@ bool equal(void * a, void * b) {
   return *(uint32_t*)a == *(uint32_t*)b;
 }
 
-void dbg_alts(hash_table_t * hash_table) {
+void dbg_alts(hash_table_t * ht, char ** alts, size_t alts_size) {
   uint32_t i;
-  for (i = 0; i < hash_table->size; i++) {
-    list_dump(hash_table->row[i]);
+  for (i = 0; i < ht->size; i++) {
+    list_dump(ht->row[i]);
     printf("\n");
-    list_iter(hash_table->row[i], &print_kv);
+    list_iter(ht->row[i], &print_kv);
   }
 
   size_t maxlen = 0;
-  for (i = 0; i < hash_table->size; i++) {
-    size_t len = list_length(hash_table->row[i]);
+  for (i = 0; i < ht->size; i++) {
+    size_t len = list_length(ht->row[i]);
     maxlen = len > maxlen ? len : maxlen;
     printf("%d -> %lu\n", i, len);
   }
 
   printf("maxlen = %lu\n", maxlen);
 
-  for (i = 0; i < NUMA; i++) {
-    printf("%d -> %s\n", i, alternate[i]);
+  for (i = 0; i < alts_size; i++) {
+    printf("%d -> %s\n", i, alts[i]);
   }
 }
