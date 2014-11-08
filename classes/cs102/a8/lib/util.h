@@ -16,7 +16,7 @@
 
 hash_table_t * load_alternates(size_t ht_size, char alts[][BUFSIZ]);
 void           load_countries(char countries[][BUFSIZ]);
-void           load_text(const char * path, char array[][BUFSIZ]);
+void           load_text(const char * path, size_t len, char array[][BUFSIZ]);
 void           print_int(void * addr);
 void           print_kv(void * addr);
 bool           equal(void * a, void * b);
