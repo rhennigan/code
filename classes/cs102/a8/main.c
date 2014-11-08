@@ -33,7 +33,7 @@ int main(int argc, char * argv[]) {
 
   bt->data = cvecs;
 
-  printf("Optimizing decision tree...\n");
+  printf("Building an optimal decision tree...\n");
   div_tree(bt);
   hline();
   printf("Decision tree stats:\n");
