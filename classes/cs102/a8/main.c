@@ -37,9 +37,10 @@ int main(int argc, char * argv[]) {
     cvecs = list_cons(cvecs, q_answers[i]);
     list_cons_c(c_idx, i, int32_t);
   }
-  bt->data = cvecs;
+  bt->data = c_idx;
 
   list_iter(cvecs, &print_cvec);
+  list_iter(c_idx, &print_int);
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
