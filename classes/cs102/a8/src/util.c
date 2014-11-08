@@ -187,6 +187,7 @@ void div_tree(bintree_t * bt, list_t * cvecs) {
   printf("mid = %d\n", mid);
   printf("mindist = %d\n", mindist);
   printf("splitby = %d\n", splitby);
+  printf("total[splitby] = %d\n", total[splitby]);
 }
 
 #undef ABS
