@@ -20,7 +20,7 @@ int main(int argc, char * argv[]) {
 
   load_text("data/countries.csv", NUMC, countries);
   load_text("data/questions.csv", NUMQ, questions);
-  hash_table = load_alts("data/questions.csv", HTSZ, alternate);
+  hash_table = load_alts("data/alternates.csv", HTSZ, alternate);
   load_answ("data/answers.csv", NUMQ, q_answers);
 
   for (uint32_t i = 0; i < NUMC; i++)
@@ -31,7 +31,7 @@ int main(int argc, char * argv[]) {
 
   for (uint32_t i = 0; i < NUMC; i++) {
     for (uint32_t j = 0; j < NUMQ; j++) {
-      printf("%c", q_answers[i][j]);
+      printf("%c", q_answers[i][j] ? 'T' : 'F');
     }
     printf("\n");
   }

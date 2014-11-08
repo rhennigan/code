@@ -10,7 +10,7 @@ HEADERS=$(BUILD:%=lib/%.h)
 
 all: $(SOURCES) $(EXECUTABLE)
 
-$(EXECUTABLE): $(OBJECTS)
+$(EXECUTABLE): $(OBJECTS) $(EXECUTABLE).c
 	$(CC) $(LDFLAGS) $(OBJECTS) $(EXECUTABLE).c -o $@
 
 build/%.o: src/%.c lib/%.h
