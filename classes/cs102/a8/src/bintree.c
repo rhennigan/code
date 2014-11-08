@@ -31,7 +31,9 @@ bintree_t * bt_init() {
   return bt;
 }
 
-void bt_insl(bintree_t * bt, void * data);
+void bt_insl(bintree_t * bt, void * data) {
+  assert(bt != NULL);
+}
 
 void bt_insr(bintree_t * bt, void * data);
 
@@ -41,10 +43,12 @@ bool bt_is_empty(bintree_t * bt) {
 }
 
 bool bt_is_leaf(bintree_t * bt) {
+  assert(bt != NULL);
   return bt_has_data(bt) && !bt_has_left(bt) && !bt_has_right(bt);
 }
 
 bool bt_is_node(bintree_t * bt) {
+  assert(bt != NULL);
   return bt_has_left(bt) || bt_has_right(bt);
 }
 
