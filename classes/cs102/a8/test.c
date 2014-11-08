@@ -23,18 +23,18 @@ int main(int argc, char * argv[]) {
   hash_table = load_alts("data/alternates.csv", HTSZ, alternate);
   load_answ("data/answers.csv", NUMQ, q_answers);
 
-  for (uint32_t i = 0; i < NUMC; i++)
-    printf("%s\n", countries[i]);
+  /* for (uint32_t i = 0; i < NUMC; i++) */
+  /*   printf("%s\n", countries[i]); */
 
-  for (uint32_t i = 0; i < NUMQ; i++)
-    printf("%s\n", questions[i]);
+  /* for (uint32_t i = 0; i < NUMQ; i++) */
+  /*   printf("%s\n", questions[i]); */
 
-  for (uint32_t i = 0; i < NUMC; i++) {
-    for (uint32_t j = 0; j < NUMQ; j++) {
-      printf("%c", q_answers[i][j] ? 'T' : 'F');
-    }
-    printf("\n");
-  }
+  /* for (uint32_t i = 0; i < NUMC; i++) { */
+  /*   for (uint32_t j = 0; j < NUMQ; j++) { */
+  /*     printf("%c", q_answers[i][j] ? 'T' : 'F'); */
+  /*   } */
+  /*   printf("\n"); */
+  /* } */
 
   printf("Enter country name: ");
   char * str = lowercase(get_input_string());
