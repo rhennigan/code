@@ -64,6 +64,7 @@ int main(int argc, char * argv[]) {
     int32_t ques_num = split_by(bt_get_data(bt));
     char * question = questions[ques_num];
     while (1) {
+      printf("%d countries remaining...\n", list_length());
       printf("%s (yes/no/unknown): ", question);
       char * ans = get_input_string();
       if (strcmp(ans, "unknown") == 0) {
