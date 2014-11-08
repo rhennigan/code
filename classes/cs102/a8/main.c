@@ -112,12 +112,12 @@ void get_help(hash_table_t * ht) {
     char * q = questions[i];
     char * a = q_answers[cidx][i+1] ? "YES" : "NO";
     printf("%s = %s\n", q, a);
-    if (i % 20 == 19) {
+    if (i % 19 == 18) {
       hline();
       WAIT();
       page++;
       printf("\n");
-      printf("%s Facts (page %d)\n", mst, page);
+      printf("%s Facts (page %d)", mst, page);
       hline();
     }
   }
