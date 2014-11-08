@@ -14,6 +14,12 @@ char alternate[NUMA][BUFSIZ];
 char questions[NUMQ][BUFSIZ];
 bool q_answers[NUMC][NUMQ];
 
+void print_cvec(void * addr) {
+    for (uint32_t j = 0; j < NUMQ; j++) {
+      printf("%c", q_answers[i][j] ? 'T' : 'F');
+    }
+}
+
 int main(int argc, char * argv[]) {
   hash_table_t * hash_table;
 
