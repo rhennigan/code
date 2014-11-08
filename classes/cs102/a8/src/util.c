@@ -1,16 +1,17 @@
 #include <stdio.h>
+#include <string.h>
 #include "../lib/util.h"
 
-hash_table_t * load_alternates(size_t size) {
+hash_table_t * load_alternates(size_t ht_size, size_t af_size) {
   char           buffer[BUFSIZ];
   FILE *         alts_file;
   hash_table_t * hash_table;
   uint32_t       i;
 
-  hash_table = hash_table_init(size);
+  hash_table = hash_table_init(ht_size);
   alts_file  = fopen("data/alternates.csv", "r");
 
-  for (i = 0; i < NUMA; i++) {
+  for (i = 0; i < af_size; i++) {
     fgets(buffer, BUFSIZ, alts_file);
     char * key = malloc(BUFSIZ);
     char * val = malloc(BUFSIZ);
