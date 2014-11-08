@@ -158,7 +158,7 @@ int32_t * sum_cvecs(list_t * cvecs) {
     void * addr = list_head(cvecs);
     bool * cvec = (bool*)addr;
     for (uint32_t j = 0; j < NUMQ; j++) {
-      total[j] += cvec[j] ? 1 : 0;
+      total[j] += cvec[j+1];
     }
     cvecs = list_tail(cvecs);
   }
@@ -167,29 +167,29 @@ int32_t * sum_cvecs(list_t * cvecs) {
 
 #define ABS(n) ((n) < 0 ? -(n) : (n))
 
-/* void div_tree(bintree_t * bt) { */
-/*   int32_t * total, mid, mindist, splitby; */
-/*   list_t * cvec_lst = bt_get_data(bt); */
-/*   mid = list_length(cvecs) / 2; */
-/*   total = sum_cvecs(cvecs); */
-/*   mindist = INT_MAX; */
-/*   for (int32_t i = 0; i < NUMQ; i++) { */
-/*     if (ABS(total[i] - mid) < mindist) { */
-/*       mindist = ABS(total[i] - mid); */
-/*       splitby = i; */
-/*     } */
-/*   } */
+void div_tree(bintree_t * bt) {
+  int32_t * total, mid, mindist, splitby;
+  list_t * cvec_lst = bt_get_data(bt);
+  mid = list_length(cvecs) / 2;
+  total = sum_cvecs(cvecs);
+  mindist = INT_MAX;
+  for (int32_t i = 0; i < NUMQ; i++) {
+    if (ABS(total[i] - mid) < mindist) {
+      mindist = ABS(total[i] - mid);
+      splitby = i;
+    }
+  }
 
-/*   printf("\n\n--------------------\n"); */
-/*   printf("total = "); */
-/*   for (uint32_t i = 0; i < NUMQ; i++) */
-/*     printf(" %d", total[i]); */
+  printf("\n\n--------------------\n");
+  printf("total = ");
+  for (uint32_t i = 0; i < NUMQ; i++)
+    printf(" %d", total[i]);
 
-/*   printf("\n\n--------------------\n"); */
-/*   printf("mid = %d\n", mid); */
-/*   printf("mindist = %d\n", mindist); */
-/*   printf("splitby = %d\n", splitby); */
-/*   printf("total[splitby] = %d\n", total[splitby]); */
-/* } */
+  printf("\n\n--------------------\n");
+  printf("mid = %d\n", mid);
+  printf("mindist = %d\n", mindist);
+  printf("splitby = %d\n", splitby);
+  printf("total[splitby] = %d\n", total[splitby]);
+}
 
 #undef ABS
