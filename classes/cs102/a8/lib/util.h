@@ -26,6 +26,6 @@ bool           equal(void * a, void * b);
 void           dbg_alts(hash_table_t * ht, char alts[][BUFSIZ]);
 char *         match(char* s, hash_table_t* ht, char a[][BUFSIZ], int* p);
 int32_t        split_by(list_t * cvecs);
-void           div_tree(bintree_t * bt);
+void           div_tree(bintree_t * bt, FILE * out);
 
 #endif  // LIB_UTIL_H_
