@@ -152,7 +152,11 @@ void sum_cvecs(uint32_t total[NUMQ], list_t * cvecs) {
   if (cvecs == NULL) return;
   void * addr = list_head(cvecs);
   bool * cvec = (bool*)addr;
-  add_cvec(total, cvec);
+  for (uint32_t i = 0; i < NUMQ; i++) {
+    if (cvec[i]) {
+      total[i]++;
+    }
+  }
   sum_cvecs(total, list_tail(cvecs));
 }
 
