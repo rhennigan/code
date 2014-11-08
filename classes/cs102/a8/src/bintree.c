@@ -15,7 +15,10 @@ size_t bt_depth(bintree_t * bt) {
   }
 }
 
-void bt_dispose(bintree_t * bt);
+void bt_dispose(bintree_t * bt) {
+  if (bt == NULL) return;
+  
+}
 
 bintree_t * bt_get_left(bintree_t * bt) {
   assert(bt != NULL);
