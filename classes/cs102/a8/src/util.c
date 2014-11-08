@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <string.h>
 #include "../lib/util.h"
 
 hash_table_t * load_alternates(size_t ht_size, size_t af_size) {
