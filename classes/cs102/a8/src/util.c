@@ -1,6 +1,6 @@
 #include "../lib/util.h"
 
-hash_table_t * load_alternates(size_t ht_size, size_t as, char alts[][BUFSIZ]) {
+hash_table_t * load_alternates(size_t ht_size, char alts[][BUFSIZ]) {
   char           buffer[BUFSIZ];
   FILE *         alts_file;
   hash_table_t * hash_table;
@@ -9,7 +9,7 @@ hash_table_t * load_alternates(size_t ht_size, size_t as, char alts[][BUFSIZ]) {
   hash_table = hash_table_init(ht_size);
   alts_file  = fopen("data/alternates.csv", "r");
 
-  for (i = 0; i < as; i++) {
+  for (i = 0; i < NUMA; i++) {
     fgets(buffer, BUFSIZ, alts_file);
     char * key = malloc(BUFSIZ);
     char * val = malloc(BUFSIZ);
@@ -81,11 +81,11 @@ void dbg_alts(hash_table_t * ht, char ** alts, size_t a_size) {
   }
 }
 
-char * match_str(char * s, hash_table_t * ht, char alts[][BUFSIZ], size_t as) {
+char * match_str(char * s, hash_table_t * ht, char alts[][BUFSIZ], size_t NUMA) {
   uint32_t dist, mindst, minidx, i;
   mindst = INT_MAX;
   minidx = 0;
-  for (i = 0; i < as; i++) {
+  for (i = 0; i < NUMA; i++) {
     dist = string_distance(s, alts[i]);
     if (dist < mindst) {
       mindst = dist;
