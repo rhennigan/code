@@ -52,7 +52,7 @@ void load_text(const char * path, size_t len, char array[][BUFSIZ]) {
   fclose(file);
 }
 
-void load_ques(const char * path, size_t qcount, bool questions[][NUMQ]) {
+void load_answ(const char * path, size_t qcount, bool questions[][NUMQ]) {
   FILE * file = fopen(path, "r");
   char buff[BUFSIZ];
   for (uint32_t i = 0; i < NUMC; i++) {
