@@ -6,7 +6,10 @@
 #include <string.h>
 #include "./hash.h"
 
+#define NUMC 240
 #define NUMA 333
+#define NUMQ 58
+#define HTSZ 100
 
 hash_table_t * load_alternates(size_t ht_size, char alts[][BUFSIZ]);
 void           print_int(void * addr);

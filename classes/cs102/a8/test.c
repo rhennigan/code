@@ -7,11 +7,6 @@
 #include "lib/hash.h"
 #include "lib/util.h"
 
-#define NUMC 240
-#define NUMA 333
-#define NUMQ 58
-#define HTSZ 100
-
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 /* GLOBAL VARIABLES */
