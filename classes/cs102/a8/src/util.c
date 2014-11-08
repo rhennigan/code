@@ -1,5 +1,4 @@
 #include "../lib/util.h"
-#include "../lib/user_input.h"
 
 hash_table_t * load_alts(const char * path, size_t hs, char a[][BUFSIZ]) {
   char           buffer[BUFSIZ];
@@ -213,14 +212,14 @@ void div_tree(bintree_t * bt) {
   div_tree(bt_get_right(bt));
 }
 
-void get_help(hash_table_t * ht) {
+void get_help(hash_table_t * ht, char a[][BUFSIZ], char c[][BUFSIZ]) {
   printf("\n\n");
   printf("If you are not sure of an answer, you can check the database ");
   printf("for any country.\n");
   printf("Enter a country name to retrieve data: ");
   char * str = get_input_string();
   int32_t cfv;
-  char * mst = match(lowercase(str), ht, alternate, &cfv);
+  char * mst = match(lowercase(str), ht, a, &cfv);
   if (cfv < 100) {
     printf("Interpreting %s as %s (confidence: %d%%)\n", str, mst, cfv);
   }
