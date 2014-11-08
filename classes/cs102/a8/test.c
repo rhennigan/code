@@ -17,7 +17,14 @@ bool q_answers[NUMC][NUMQ];
 
 int main(int argc, char * argv[]) {
   hash_table_t * hash_table;
-  FILE * cn_file = fopen("data/countries.csv", "r");
+  char buffer[BUFSIZ];
+  uint32_t i;
+  FILE * cn_file;
+
+  cn_file = fopen("data/countries.csv", "r");
+  for (i = 0; i < NUMC; i++) {
+    
+  }
 
   hash_table = load_alternates(HTSZ, alternate);
 
