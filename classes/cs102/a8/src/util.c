@@ -96,6 +96,7 @@ char * match_str(char * s, hash_table_t * ht, char alts[][BUFSIZ]) {
   k.size = strlen(alts[minidx])+1;
   k.key = alts[minidx];
   void * addr = hash_table_lookup(ht, k);
+  if (addr == NULL) return NULL;
   key_val_t kv = *(key_val_t*)addr;
   char * correct = kv.val.val;
   return correct;
