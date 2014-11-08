@@ -40,6 +40,8 @@ int main(int argc, char * argv[]) {
   printf("\n\n");
 
   div_tree(bt);
+
+  printf("depth = %lu\n", bt_depth(bt));
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
