@@ -30,7 +30,7 @@ hash_table_t * load_alternates(const char * path, size_t hs, char a[][BUFSIZ]) {
       val[k-j-1] = buffer[k];
       if (buffer[k] == '\0') break;
     }
-    snprintf(alts[i], BUFSIZ, "%s", key);
+    snprintf(a[i], BUFSIZ, "%s", key);
     key_val_t * kv = make_kv(key, strlen(key)+1, val, strlen(val)+1);
     hash_table_insert(hash_table, kv);
     free(kv);
@@ -80,7 +80,7 @@ bool equal(void * a, void * b) {
   return *(uint32_t*)a == *(uint32_t*)b;
 }
 
-void dbg_alts(hash_table_t * ht, char alts[][BUFSIZ]) {
+void dbg_alts(hash_table_t * ht, char a[][BUFSIZ]) {
   uint32_t i;
   for (i = 0; i < ht->size; i++) {
     list_dump(ht->row[i]);
@@ -98,24 +98,24 @@ void dbg_alts(hash_table_t * ht, char alts[][BUFSIZ]) {
   printf("maxlen = %lu\n", maxlen);
 
   for (i = 0; i < NUMA; i++) {
-    printf("%d -> %s\n", i, alts[i]);
+    printf("%d -> %s\n", i, a[i]);
   }
 }
 
-char * match_str(char * s, hash_table_t * ht, char alts[][BUFSIZ]) {
+char * match_str(char * s, hash_table_t * ht, char a[][BUFSIZ]) {
   uint32_t dist, mindst, minidx, i;
   mindst = INT_MAX;
   minidx = 0;
   for (i = 0; i < NUMA; i++) {
-    dist = string_distance(s, alts[i]);
+    dist = string_distance(s, a[i]);
     if (dist < mindst) {
       mindst = dist;
       minidx = i;
     }
   }
   hkey_t k;
-  k.size = strlen(alts[minidx])+1;
-  k.key = alts[minidx];
+  k.size = strlen(a[minidx])+1;
+  k.key = a[minidx];
   void * addr = hash_table_lookup(ht, k);
 
   if (addr == NULL) {
@@ -126,7 +126,7 @@ char * match_str(char * s, hash_table_t * ht, char alts[][BUFSIZ]) {
   key_val_t kv = *(key_val_t*)addr;
   char * correct = kv.val.val;
 
-  double len = MIN((double)strlen(s), (double)strlen(alts[minidx]));
+  double len = MIN((double)strlen(s), (double)strlen(a[minidx]));
   double num = MAX(0.0, len - (double)mindst);
   double match = num / len;
   uint32_t md = (int)(100 * match * match);
