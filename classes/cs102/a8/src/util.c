@@ -143,3 +143,4 @@ void print_cvec(void * addr) {
   printf("\n");
 }
 
+void div_tree(bintree_t * bt, list_t * cvecs);
