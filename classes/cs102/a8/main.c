@@ -43,29 +43,31 @@ int main(int argc, char * argv[]) {
 
   printf("depth = %lu\n", bt_depth(bt));
 
-  printf("\n-----------------------\n");
-  list_t * tmp = bt_get_data(bt);
-  while (tmp != NULL) {
-    void * addr = list_head(tmp);
-    int32_t * cvec = (int32_t*)addr;
-    printf("%s, ", countries[cvec[0]]);
-    tmp = list_tail(tmp);
-  }
-  printf("\n-----------------------\n");
-
-  int32_t ques_num = split_by(bt_get_data(bt));
-  char * question = questions[ques_num];
   while (1) {
-    printf("%s (yes/no): ", question);
-    char * ans = get_input_string();
-    if (strcmp(ans, "yes") == 0) {
-      bt = bt_get_left(bt);
-      break;
-    } else if (strcmp(ans, "no") == 0) {
-      bt = bt_get_right(bt);
-      break;
-    } else {
-      printf("invalid input, please respond with \"yes\" or \"no\"\n");
+    printf("\n-----------------------\n");
+    list_t * tmp = bt_get_data(bt);
+    while (tmp != NULL) {
+      void * addr = list_head(tmp);
+      int32_t * cvec = (int32_t*)addr;
+      printf("%s, ", countries[cvec[0]]);
+      tmp = list_tail(tmp);
+    }
+    printf("\n-----------------------\n");
+
+    int32_t ques_num = split_by(bt_get_data(bt));
+    char * question = questions[ques_num];
+    while (1) {
+      printf("%s (yes/no): ", question);
+      char * ans = get_input_string();
+      if (strcmp(ans, "yes") == 0) {
+        bt = bt_get_left(bt);
+        break;
+      } else if (strcmp(ans, "no") == 0) {
+        bt = bt_get_right(bt);
+        break;
+      } else {
+        printf("invalid input, please respond with \"yes\" or \"no\"\n");
+      }
     }
   }
 
