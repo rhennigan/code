@@ -117,7 +117,7 @@ void get_help(hash_table_t * ht) {
       WAIT();
       page++;
       printf("\n");
-      printf("%s Facts (page %d)", mst, page);
+      printf("%s Facts (page %d)\n", mst, page);
       hline();
     }
   }
@@ -125,7 +125,6 @@ void get_help(hash_table_t * ht) {
 }
 
 void hline() {
-  printf("\n");
   for (uint32_t i = 0; i < 80; i++) printf("-");
   printf("\n");
 }
