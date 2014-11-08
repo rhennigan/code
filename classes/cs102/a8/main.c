@@ -38,7 +38,7 @@ int main(int argc, char * argv[]) {
     if (bt_is_leaf(bt)) {
       list_t * cvecs = bt_get_data(bt);
       if (list_length(cvecs) == 1) {
-        printf("I found the answer: ");
+        printf("I found the answer with %d questions: ", q_asked);
       } else {
         printf("I've run out of questions to ask.");
         printf("I've narrowed the choice down to the following:\n");
@@ -61,9 +61,11 @@ int main(int argc, char * argv[]) {
         get_help(hash_table);
       } else if (strcmp(ans, "yes") == 0) {
         bt = bt_get_left(bt);
+        q_asked++;
         break;
       } else if (strcmp(ans, "no") == 0) {
         bt = bt_get_right(bt);
+        q_asked++;
         break;
       } else {
         printf("invalid input, please respond with \"yes\" or \"no\"\n");
