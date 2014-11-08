@@ -36,6 +36,12 @@ int main(int argc, char * argv[]) {
   while (1) {
     if (bt_is_leaf(bt)) {
       list_t * cvecs = bt_get_data(bt);
+      if (list_length(cvecs) == 1) {
+        printf("I found the answer: ");
+      } else {
+        printf("I've run out of questions to ask.");
+        printf("I've narrowed the choice down to the following:\n");
+      }
       while (cvecs != NULL) {
         void * addr = list_head(cvecs);
         int32_t * cvec = (int32_t*)addr;
