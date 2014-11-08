@@ -90,5 +90,9 @@ size_t bt_leaf_count(bintree_t * bt) {
 }
 
 size_t bt_node_count(bintree_t * bt) {
-  
+  if (bt == NULL) {
+    return 0;
+  } else if (bt_is_node(bt)) {
+    return 0;
+  }
 }
