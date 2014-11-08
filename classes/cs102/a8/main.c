@@ -15,6 +15,7 @@ char    questions[NUMQ][BUFSIZ];
 int32_t q_answers[NUMC][NUMQ+1];
 
 void get_help(hash_table_t * hash_table);
+void hline();
 
 int main(int argc, char * argv[]) {
   hash_table_t * hash_table;
@@ -121,6 +122,12 @@ void get_help(hash_table_t * ht) {
     }
   }
   printf("\n------------------------------------------\n\n");
+}
+
+void hline() {
+  printf("\n");
+  for (uint32_t i = 0; i < 80; i++) printf("-");
+  printf("\n");
 }
 
 #undef MIN
