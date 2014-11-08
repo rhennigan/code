@@ -2,10 +2,11 @@ CC=gcc
 CFLAGS=-std=c99 -g -c
 LDFLAGS=-g
 BUILD=list hash user_input util
+EXECUTABLE=test
+
 SOURCES=$(BUILD:%=src/%.c)
 OBJECTS=$(BUILD:%=build/%.o)
 HEADERS=$(BUILD:%=lib/%.h)
-EXECUTABLE=test
 
 all: $(SOURCES) $(EXECUTABLE)
 
