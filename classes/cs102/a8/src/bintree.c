@@ -89,4 +89,6 @@ size_t bt_leaf_count(bintree_t * bt) {
   }
 }
 
-size_t bt_node_count(bintree_t * bt);
+size_t bt_node_count(bintree_t * bt) {
+  
+}
