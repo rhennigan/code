@@ -24,13 +24,13 @@ int main(int argc, char * argv[]) {
   hash_table = load_alts("data/alternates.csv", HTSZ, alternate);
   load_answ("data/answers.csv", NUMQ, q_answers);
 
-  for (uint32_t i = 0; i < NUMC; i++) {
-    printf("%d ", q_answers[i][0]);
-    for (uint32_t j = 1; j < NUMQ+1; j++) {
-      printf("%d", q_answers[i][j]);
-    }
-    printf("\n");
-  }
+  /* for (uint32_t i = 0; i < NUMC; i++) { */
+  /*   printf("%d ", q_answers[i][0]); */
+  /*   for (uint32_t j = 1; j < NUMQ+1; j++) { */
+  /*     printf("%d", q_answers[i][j]); */
+  /*   } */
+  /*   printf("\n"); */
+  /* } */
 
   bintree_t * bt = bt_init();
   list_t * cvecs = NULL;
