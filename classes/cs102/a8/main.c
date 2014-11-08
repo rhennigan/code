@@ -45,14 +45,18 @@ int main(int argc, char * argv[]) {
 
   int32_t ques_num = split_by(bt_get_data(bt));
   char * question = questions[ques_num];
-  printf("%s (yes/no): ", question);
-  char * ans = get_input_string();
-  if (strcmp(ans, "yes") == 0) {
-    bt = bt_get_left(bt);
-  } else if (strcmp(ans, "no") == 0) {
-    bt = bt_get_right(bt);
-  } else {
-    printf("invalid input, please respond with \"yes\" or \"no\"\n");
+  while (1) {
+    printf("%s (yes/no): ", question);
+    char * ans = get_input_string();
+    if (strcmp(ans, "yes") == 0) {
+      bt = bt_get_left(bt);
+      break;
+    } else if (strcmp(ans, "no") == 0) {
+      bt = bt_get_right(bt);
+      break;
+    } else {
+      printf("invalid input, please respond with \"yes\" or \"no\"\n");
+    }
   }
 
   list_t * cvecs0 = bt_get_data(bt);
