@@ -35,6 +35,9 @@ int main(int argc, char * argv[]) {
 
   printf("Optimizing decision tree...\n");
   div_tree(bt);
+  hline();
+  printf("Decision tree info:\n");
+  printf("  depth = %lu\n", bt_depth(bt));
 
   hline();
   printf("Welcome to the country guessing game!\n");
