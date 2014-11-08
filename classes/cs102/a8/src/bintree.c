@@ -3,13 +3,13 @@
 
 #include "../lib/bintree.h"
 
-/* size_t bt_depth(bintree_t * bt) { */
-/*   if (bt_is_leaf(bt)) { */
-/*     return 1; */
-/*   } else { */
-/*     return 0; */
-/*   } */
-/* } */
+size_t bt_depth(bintree_t * bt) {
+  if (bt_is_leaf(bt)) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
 
 void bt_dispose(bintree_t * bt);
 
