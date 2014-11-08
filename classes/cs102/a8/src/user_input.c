@@ -15,9 +15,9 @@ char * get_input_string() {
 }
 
 char * lowercase(const char * str) {
-  char * lower = malloc(strlen(str) + 1);
+  char * lower = malloc(strlen(str)+1);
   int i;
-  for (i = 0; str[i]; i++) {
+  for (i = 0; i < strlen(str); i++) {
       lower[i] = tolower(str[i]);
     }
   return lower;
