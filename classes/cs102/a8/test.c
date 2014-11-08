@@ -5,6 +5,7 @@
 #include "lib/user_input.h"
 #include "lib/list.h"
 #include "lib/hash.h"
+#include "lib/util.h"
 
 #define MODSZ 50L
 #define NUMC 240
@@ -43,46 +44,10 @@ bool equal(void * a, void * b) {
 }
 
 int main(int argc, char * argv[]) {
-  /* uint64_t entry_counts[MODSZ]; */
-  char     buffer[BUFSIZ];
-  FILE *   alts_file;
   FILE *   ques_file;
   uint32_t i, j, k;
 
-  hash_table_t * hash_table = hash_table_init(HTSZ);
-
-  alts_file = fopen("data/alternates.csv", "r");
-
-  for (i = 0; i < NUMA; i++) {
-    fgets(buffer, BUFSIZ, alts_file);
-    char * key = malloc(BUFSIZ);
-    char * val = malloc(BUFSIZ);
-    memset(key, '\0', BUFSIZ);
-    memset(val, '\0', BUFSIZ);
-    for (j = 0; j < BUFSIZ; j++) {
-      if (buffer[j] == ',') {
-        key[j] = '\0';
-        break;
-      }
-      key[j] = buffer[j];
-    }
-    for (k = j + 1; k < BUFSIZ; k++) {
-      if (buffer[k] == '\n') {
-        val[k-j-1] = '\0';
-        break;
-      }
-      val[k-j-1] = buffer[k];
-      if (buffer[k] == '\0') break;
-    }
-    snprintf(alternate[i], BUFSIZ, "%s", key);
-    printf("key = %s (%lu), val = %s (%lu)\n",
-           key, strlen(key), val, strlen(val));
-    key_val_t * kv = make_kv(key, strlen(key)+1, val, strlen(val)+1);
-    hash_table_insert(hash_table, kv);
-    free(kv);
-  }
-
-  fclose(alts_file);
+  load_alternates(HTSZ, NUMA, alternates);
 
   for (i = 0; i < hash_table->size; i++) {
     list_dump(hash_table->row[i]);
