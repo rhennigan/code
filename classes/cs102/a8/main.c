@@ -47,6 +47,13 @@ int main(int argc, char * argv[]) {
   char * question = questions[ques_num];
   printf("%s (yes/no): ", question);
   char * ans = get_input_string();
+  if (strcmp(ans, "yes") == 0) {
+    printf("yes");
+  } else if (strcmp(ans, "no") == 0) {
+    printf("no");
+  } else {
+    printf("stupid");
+  }
 
   list_t * cvecs0 = bt_get_data(bt);
   int32_t split0 = split_by(cvecs0);
