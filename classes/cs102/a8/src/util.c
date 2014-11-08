@@ -181,6 +181,8 @@ int32_t split_by(list_t * cvecs) {
   return split;
 }
 
+#undef ABS
+
 void div_tree(bintree_t * bt) {
   list_t * cvecs = bt_get_data(bt);
   int32_t split = split_by(cvecs);
@@ -208,5 +210,3 @@ void div_tree(bintree_t * bt) {
   div_tree(bt_get_left(bt));
   div_tree(bt_get_right(bt));
 }
-
-#undef ABS
