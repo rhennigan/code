@@ -33,6 +33,10 @@ int main(int argc, char * argv[]) {
 
   list_iter(cvecs, &print_cvec);
   list_iter(c_idx, &print_int);
+
+  printf("\n\n");
+
+  div_tree(bt, cvecs);
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
