@@ -94,7 +94,7 @@ void get_help(hash_table_t * ht) {
   int32_t cfv;
   char * mst = match(lowercase(str), ht, alternate, &cfv);
   if (cfv < 100) {
-    printf("Interpreting %s as %s (confidence: %d%%)\n", str, mst, cfv);
+    printf("\nInterpreting %s as %s (confidence: %d%%)\n\n", str, mst, cfv);
     WAIT();
   }
   int32_t page = 1;
