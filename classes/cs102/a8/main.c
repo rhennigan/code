@@ -48,9 +48,9 @@ int main(int argc, char * argv[]) {
   printf("%s (yes/no): ", question);
   char * ans = get_input_string();
   if (strcmp(ans, "yes") == 0) {
-    printf("yes");
+    bt = bt_get_left(bt);
   } else if (strcmp(ans, "no") == 0) {
-    printf("no");
+    bt = bt_get_right(bt);
   } else {
     printf("invalid input, please respond with \"yes\" or \"no\"\n");
   }
