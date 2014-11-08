@@ -192,8 +192,6 @@ void div_tree(bintree_t * bt) {
   /* printf("splitby = %d\n", splitby); */
   /* printf("total[splitby] = %d\n", total[splitby]); */
 
-  printf("len = %lu\n", list_length(cvecs));
-
   list_t * cvecs_l = NULL;
   list_t * cvecs_r = NULL;
   list_t * tmp = cvecs;
@@ -208,7 +206,10 @@ void div_tree(bintree_t * bt) {
     tmp = list_tail(tmp);
   }
 
-  if (cvecs_l == NULL || cvecs_r == NULL) return;
+  if (cvecs_l == NULL || cvecs_r == NULL) {
+    printf("len = %lu\n", list_length(cvecs));
+    return;
+  }
 
   bintree_t * bt_l = bt_init();
   bintree_t * bt_r = bt_init();
