@@ -134,3 +134,12 @@ char * match_str(char * s, hash_table_t * ht, char a[][BUFSIZ]) {
   printf("matched %s (confidence: %d%%)\n", correct, md);
   return correct;
 }
+
+void print_cvec(void * addr) {
+  bool * cvec = (bool*)addr;
+  for (uint32_t j = 0; j < NUMQ; j++) {
+    printf("%c", cvec[j] ? 'T' : 'F');
+  }
+  printf("\n");
+}
+

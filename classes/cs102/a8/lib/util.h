@@ -20,6 +20,7 @@ void           load_text(const char * path, size_t len, char a[][BUFSIZ]);
 void           load_answ(const char * path, size_t qc, bool a[][NUMQ]);
 void           print_int(void * addr);
 void           print_kv(void * addr);
+void           print_cvec(void * addr);
 bool           equal(void * a, void * b);
 void           dbg_alts(hash_table_t * ht, char alts[][BUFSIZ]);
 char *         match_str(char * s, hash_table_t * ht, char a[][BUFSIZ]);
