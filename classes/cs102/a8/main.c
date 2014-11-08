@@ -35,7 +35,7 @@ int main(int argc, char * argv[]) {
   bt->data = cvecs;
 
   printf("Building an optimal decision tree...\n");
-  div_tree(bt);
+  div_tree(bt, graph_file);
   hline();
   printf("Decision tree stats:\n");
   printf("  depth = %lu\n", bt_depth(bt));
