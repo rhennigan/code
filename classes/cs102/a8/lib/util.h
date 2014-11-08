@@ -6,7 +6,7 @@
 #include <string.h>
 #include "./hash.h"
 
-hash_table_t * load_alternates(size_t ht_size, size_t af_size, char ** alts);
+hash_table_t * load_alternates(size_t ht_size, size_t as, char alts[][BUFSIZ]);
 void           print_int(void * addr);
 void           print_kv(void * addr);
 bool           equal(void * a, void * b);
