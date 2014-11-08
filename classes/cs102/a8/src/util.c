@@ -145,5 +145,5 @@ void print_cvec(void * addr) {
 
 void div_tree(bintree_t * bt, list_t * cvecs) {
   size_t mid = list_length(cvecs) / 2;
-  uint32_t total = vsum(cvecs);
+  uint32_t total[NUMQ];
 }
