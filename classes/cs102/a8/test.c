@@ -7,7 +7,6 @@
 #include "lib/hash.h"
 #include "lib/util.h"
 
-#define MODSZ 50L
 #define NUMC 240
 #define NUMA 333
 #define NUMQ 58
@@ -21,53 +20,11 @@ char alternate[NUMA][BUFSIZ];
 char questions[NUMQ][BUFSIZ];
 bool q_answers[NUMC][NUMQ];
 
-/* void print_hash(char * str) { */
-/*   uint64_t h = hash(str) % MODSZ; */
-/*   printf("hash(%s) = %lu\n", str, h); */
-/* } */
-
-void print_int(void * addr) {
-  printf(" %d", *(int*)addr);
-}
-
-void print_kv(void * addr) {
-  key_val_t kv = *(key_val_t *)addr;
-  char * key = malloc(kv.key.size);
-  memcpy(key, kv.key.key, kv.key.size);
-  char * val = malloc(kv.val.size);
-  memcpy(val, kv.val.val, kv.val.size);
-  printf("  (%s, %s)\n", key, val);
-}
-
-bool equal(void * a, void * b) {
-  return *(uint32_t*)a == *(uint32_t*)b;
-}
-
 int main(int argc, char * argv[]) {
   FILE *   ques_file;
   uint32_t i, j, k;
 
   load_alternates(HTSZ, NUMA, alternates);
-
-  for (i = 0; i < hash_table->size; i++) {
-    list_dump(hash_table->row[i]);
-    printf("\n");
-    list_iter(hash_table->row[i], &print_kv);
-  }
-
-  size_t maxlen = 0;
-  for (i = 0; i < hash_table->size; i++) {
-    size_t len = list_length(hash_table->row[i]);
-    maxlen = len > maxlen ? len : maxlen;
-    printf("%d -> %lu\n", i, len);
-  }
-
-  printf("maxlen = %lu\n", maxlen);
-
-  for (i = 0; i < NUMA; i++) {
-    printf("%d -> %s\n", i, alternate[i]);
-  }
-
 
   while (1) {
     printf("Enter country name: ");
