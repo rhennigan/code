@@ -143,6 +143,11 @@ void print_cvec(void * addr) {
   printf("\n");
 }
 
+void add_cvec(uint32_t total[NUMQ], bool cvec[NUMQ]) {
+  for (uint32_t i = 0; i < NUMQ; i++)
+    total[i] += cvec[i];
+}
+
 void div_tree(bintree_t * bt, list_t * cvecs) {
   size_t mid = list_length(cvecs) / 2;
   uint32_t total[NUMQ];
