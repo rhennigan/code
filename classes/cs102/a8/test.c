@@ -24,8 +24,9 @@ int main(int argc, char * argv[]) {
 
   while (1) {
     printf("Enter country name: ");
-    char * str = get_input_string();
+    char * str = lowercase(get_input_string());
     char * correct = match_str(str, hash_table, alternate);
+
     printf("closest match for %s: %s\n", str, correct);
   }
 
