@@ -36,8 +36,10 @@ int main(int argc, char * argv[]) {
   while (1) {
     if (bt_is_leaf(bt)) {
       list_t * cvecs = bt_get_data(bt);
-      void * addr = list_head(cvecs);
-      int32_t * cvec = (int32_t*)addr;
+      while (cvecs != NULL) {
+        void * addr = list_head(cvecs);
+        int32_t * cvec = (int32_t*)addr;
+      }
     }
     int32_t ques_num = split_by(bt_get_data(bt));
     char * question = questions[ques_num];
