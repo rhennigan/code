@@ -40,13 +40,6 @@ hash_table_t * load_alternates(size_t ht_size, char alts[][BUFSIZ]) {
   return hash_table;
 }
 
-void load_countries(char countries[][BUFSIZ]) {
-  FILE * cn_file = fopen("data/countries.csv", "r");
-  for (uint32_t i = 0; i < NUMC; i++)
-    fgets(countries[i], BUFSIZ, cn_file);
-  fclose(cn_file);
-}
-
 void load_text(const char * path, size_t len, char array[][BUFSIZ]) {
   FILE * file = fopen(path, "r");
   for (uint32_t i = 0; i < len; i++) {
@@ -57,6 +50,10 @@ void load_text(const char * path, size_t len, char array[][BUFSIZ]) {
     }
   }
   fclose(file);
+}
+
+void load_ques(const char * path, size_t qcount, bool questions[][BUFSIZ]) {
+  
 }
 
 void print_int(void * addr) {
