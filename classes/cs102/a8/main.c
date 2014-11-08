@@ -121,5 +121,5 @@ void get_help(hash_table_t * ht) {
   char * str = get_input_string();
   double cfv;
   char * mst = match(lowercase(str), ht, alternate, &cfv);
-  printf("matched %s (confidence: %d%%)\n", mst, cfv); 
+  printf("matched %s (confidence: %d%%)\n", mst, cfv);
 }
