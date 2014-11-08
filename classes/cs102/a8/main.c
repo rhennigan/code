@@ -23,23 +23,18 @@ int main(int argc, char * argv[]) {
   load_answ("data/answers.csv", NUMQ, q_answers);
 
   bintree_t * bt = bt_init();
-  list_t * cvecs = NULL;
-  list_t * c_idx = NULL;
+  list_t * cvec_lst = NULL;
   for (int32_t i = NUMC-1; i >= 0; i--) {
     list_t * cvec = NULL;
     cvec = list_cons(cvec, q_answers[i]);
     list_cons_c(cvec, i, int32_t);
-    cvecs = list_cons(cvecs, q_answers[i]);
-    list_cons_c(c_idx, i, int32_t);
+    list_cons_c(cvec_lst, cvec, list_t);
   }
-  bt->data = c_idx;
-
-  list_iter(cvecs, &print_cvec);
-  list_iter(c_idx, &print_int);
+  bt->data = cvec_lst;
 
   printf("\n\n");
 
-  div_tree(bt, cvecs);
+  /* div_tree(bt, cvecs); */
   /* for (uint32_t i = 0; i < NUMC; i++) */
   /*   printf("%s\n", countries[i]); */
 
