@@ -58,9 +58,9 @@ int main(int argc, char * argv[]) {
     if (bt_is_leaf(bt)) {
       list_t * cvecs = bt_get_data(bt);
       if (list_length(cvecs) == 1) {
-        printf("I found the answer with %d questions: ", q_asked);
+        printf("\n\nI found the answer with %d questions: ", q_asked);
       } else {
-        printf("I've run out of questions to ask.");
+        printf("\n\nI've run out of questions to ask.");
         printf("I've narrowed the choice down to the following:\n");
       }
       while (cvecs != NULL) {
