@@ -19,7 +19,7 @@ void hline();
 
 int main(int argc, char * argv[]) {
   hash_table_t * hash_table;
-  FILE * graph_file = fopen("data/graph_data.csv", "w");
+  FILE * graph_file = fopen("data/graph_data.txt", "w");
 
   load_text("data/countries.csv", NUMC, countries);
   load_text("data/questions.csv", NUMQ, questions);
@@ -35,9 +35,9 @@ int main(int argc, char * argv[]) {
   bt->data = cvecs;
 
   printf("Building an optimal decision tree...\n");
-  fprintf(graph_file, "edges={");
   div_tree(bt, graph_file);
   fflush(NULL);
+  fclose(graph_file);
 
   hline();
   printf("Decision tree stats:\n");
