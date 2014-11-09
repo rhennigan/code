@@ -77,7 +77,7 @@ int main(int argc, char * argv[]) {
     char * question = questions[ques_num];
     while (1) {
       printf("\n%lu countries remaining...\n", list_length(bt_get_data(bt)));
-      printf("%s (yes/no/unknown): ", question);
+      printf("%s\n  (yes/no/unknown) > ", question);
       char * ans = get_input_string();
       if (strcmp(ans, "unknown") == 0) {
         get_help(hash_table);
