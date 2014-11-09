@@ -35,6 +35,7 @@ int main(int argc, char * argv[]) {
   bt->data = cvecs;
 
   printf("Building an optimal decision tree...\n");
+  fprintf(graph_file, "edges={");
   div_tree(bt, graph_file);
   fflush(NULL);
 
