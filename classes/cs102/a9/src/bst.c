@@ -167,8 +167,8 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
       return;
     } else {
       bst_insert(next, data, cmp);
-    }
-  }
+    }  // end if (next == NULL) else
+  }  // end if (diff == 0) else
 }
 
 void bst_print(bst_t * bst, pr_fun pf) {
