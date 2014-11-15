@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
   size_t ARRSIZ = atoi(argv[1]);
   int64_t arr[ARRSIZ];
   for (size_t i = 0; i < ARRSIZ; i++) {
-    arr[i] = rand() % 90 + 10;
+    arr[i] = rand() % 50 + 10;
     bst_insert(bst, &arr[i], &intcmp);
     bst_print(bst, &print_node);
     printf("---------------------------------------------\n");
