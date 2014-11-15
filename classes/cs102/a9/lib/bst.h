@@ -5,6 +5,7 @@
 #define LIB_BINTREE_H_
 
 #include <stdlib.h>
+#include <stdint.h>
 #include "./list.h"
 
 typedef struct bst_s {
@@ -19,7 +20,7 @@ size_t  bst_depth(bst_t * bst);
 void    bst_dispose(bst_t * bst);
 void    bst_flatten(bst_t * bst, list_t ** list);
 bst_t * bst_init();
-bst_t * bst_insert(bst_t * bst, void * data);
+bst_t * bst_insert(bst_t * bst, void * data, int32_t (*cmp)(void * a, void * b));
 void    bst_print(bst_t * bst);
 
 #endif  // LIB_BINTREE_H_
