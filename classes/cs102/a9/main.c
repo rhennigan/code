@@ -4,8 +4,6 @@
 #include <stdlib.h>
 #include "lib/bst.h"
 
-#define ARRSIZ 15
-
 int32_t intcmp(void * a, void * b) {
   int32_t x = *(int32_t*)a;
   int32_t y = *(int32_t*)b;
@@ -27,6 +25,7 @@ void print_node(bst_t * node) {
 
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
+  size_t ARRSIZ = atoi(argv[1]);
   int64_t arr[ARRSIZ];
   for (int32_t i = 0; i < ARRSIZ; i++) {
     arr[i] = rand() % 90 + 10;
