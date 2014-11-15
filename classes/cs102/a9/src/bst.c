@@ -96,6 +96,12 @@ static inline bool is_leaf(bst_t * bst) {
   return has_data(bst) && !has_left(bst) && !has_right(bst);
 }
 
+static bool is_left(bst_t * bst) {
+  if (!has_parent(bst)) return false;
+  bst_t * p = get_parent(bst);
+  return get_left(p) == bst;
+}
+
 size_t force_depth(bst_t * bst) {
   if (bst == NULL) {
     return 0;
