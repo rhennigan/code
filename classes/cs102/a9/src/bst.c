@@ -9,6 +9,8 @@
 /* PROTECTED MEMBER ACCESS FUNCTIONS                                          */
 /******************************************************************************/
 
+// Read functions
+
 static inline void check_null(void * addr, const char * msg) {
   if (addr == NULL) {
     printf("%p: %s\n", addr, msg);
@@ -38,6 +40,33 @@ static inline void * get_data(bst_t * bst) {
 
 static inline size_t get_depth(bst_t * bst) {
   check_null(bst, "get_depth");
+  return bst->depth;
+}
+
+// Write functions
+
+static inline bst_t * set_left(bst_t * bst) {
+  check_null(bst, "set_left");
+  return bst->left;
+}
+
+static inline bst_t * set_parent(bst_t * bst) {
+  check_null(bst, "set_parent");
+  return bst->parent;
+}
+
+static inline bst_t * set_right(bst_t * bst) {
+  check_null(bst, "set_right");
+  return bst->right;
+}
+
+static inline void * set_data(bst_t * bst) {
+  check_null(bst, "set_data");
+  return bst->data;
+}
+
+static inline size_t set_depth(bst_t * bst) {
+  check_null(bst, "set_depth");
   return bst->depth;
 }
 
