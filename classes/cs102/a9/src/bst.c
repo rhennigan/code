@@ -50,14 +50,14 @@ static inline void set_left(bst_t * bst, bst_t * new) {
   bst->left = new;
 }
 
-static inline bst_t * set_parent(bst_t * bst) {
+static inline void set_parent(bst_t * bst, bst_t * new) {
   check_null(bst, "set_parent");
-  return bst->parent;
+  bst->parent = new;
 }
 
-static inline bst_t * set_right(bst_t * bst) {
+static inline void set_right(bst_t * bst, bst_t * new) {
   check_null(bst, "set_right");
-  return bst->right;
+  bst->right = new;
 }
 
 static inline void * set_data(bst_t * bst) {
