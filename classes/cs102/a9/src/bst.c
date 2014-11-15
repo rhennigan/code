@@ -109,19 +109,29 @@ static bool is_right(bst_t * bst) {
 }
 
 size_t force_depth(bst_t * bst) {
-  if (bst == NULL) {
-    return 0;
-  } else if (is_leaf(bst)) {
-    set_depth(bst, 0);
-    return 0;
+  if (has_parent(bst)) {
+    set_depth(bst, get_depth(get_parent(bst)) + 1);
   } else {
-    size_t ld = force_depth(get_left(bst));
-    size_t rd = force_depth(get_right(bst));
-    size_t d = 1 + MAX(ld, rd);
-    set_depth(bst, d);
-    return d;
+    set_depth(bst, 0);
   }
 }
+
+/* size_t force_depth(bst_t * bst) { */
+/*   if (bst == NULL) { */
+/*     return 0; */
+/*   } else if (is_leaf(bst)) { */
+/*     if (has_parent(bst)) { */
+/*       set_depth(bst, 0); */
+/*     } */
+/*     return 0; */
+/*   } else { */
+/*     size_t ld = force_depth(get_left(bst)); */
+/*     size_t rd = force_depth(get_right(bst)); */
+/*     size_t d = 1 + MAX(ld, rd); */
+/*     set_depth(bst, d); */
+/*     return d; */
+/*   } */
+/* } */
 
 static void rotate_left(bst_t ** bst) {
   bst_t * root = *bst;
