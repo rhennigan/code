@@ -251,7 +251,7 @@ void show_tree(bst_t *root, struct trunk *prev) {
   show_tree(get_left(root), &this_disp);
 
   if (!prev) {
-    this_disp.str = B_HR""B_HR""B_HR""B_HR;
+    this_disp.str = B_HR""B_HR""B_HR;
   } else if (is_left(root)) {
     this_disp.str = B_TL""B_HR""B_HR""B_HR;
     prev_str = "&&&"B_VT;
