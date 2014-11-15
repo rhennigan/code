@@ -46,7 +46,17 @@ static inline size_t depth(bst_t * bst) {
 /******************************************************************************/
 
 static bst_t * rotate_right(bst_t * center) {
-  
+  bst_t *A, *B, *E;
+  A = center;
+  B = E = NULL;
+  if (A) {
+    B = A->left;
+  }
+  if (B) {
+    E = B->right;
+    B->right = A;
+    B->parent = A->parent;
+  }
 }
 
 static void balance(bst_t * bst) {
