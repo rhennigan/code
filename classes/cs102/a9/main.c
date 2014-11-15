@@ -20,6 +20,8 @@ void print_node(bst_t * node) {
     for (size_t i = 0; i < shift; i++)  printf(" ");
     int32_t * data = node->data;
     printf("%lu, %d\n", bst_depth(node), *data);
+  } else {
+    printf("\n");
   }
 }
 
