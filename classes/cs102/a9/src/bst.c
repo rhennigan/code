@@ -17,6 +17,16 @@ static inline bst_t * get_left(bst_t * bst) {
   return bst->left;
 }
 
+static inline bst_t * get_parent(bst_t * bst) {
+  check_null(bst, "get_parent");
+  return bst->parent;
+}
+
+static inline bst_t * get_right(bst_t * bst) {
+  check_null(bst, "get_right");
+  return bst->right;
+}
+
 size_t  bst_depth(bst_t * bst);
 
 void    bst_dispose(bst_t * bst);
