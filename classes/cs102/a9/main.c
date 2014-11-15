@@ -22,8 +22,8 @@ void print_node(bst_t * node) {
     return;
   }
   if (node->data != NULL) {
-    size_t shift = MAX(0, INDENTSZ * bst_depth(node) - 2);
-    for (size_t i = 0; i < shift; i++)  printf(" ");
+    int32_t shift = MAX(INDENTSZ, INDENTSZ * bst_depth(node) - 2);
+    for (int32_t i = 0; i < shift; i++)  printf(" ");
     int32_t * data = node->data;
     printf("--%d\n", *data);
   } else {
