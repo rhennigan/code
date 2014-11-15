@@ -130,6 +130,13 @@ static void rotate_right(bst_t ** bst) {
   *bst = pivot;
 }
 
+static void inc_p_path(bst_t * bst) {
+  while (has_parent(bst)) {
+    bst = get_parent(bst);
+    set_depth(bst, get_depth(bst) + 1);
+  }
+}
+
 /******************************************************************************/
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
@@ -160,8 +167,6 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
   if (td == NULL) {
     printf("td = NULL\n");
     set_data(bst, data);
-    set_left(bst, bst_init());
-    set_right(bst, bst_init());
     return;
   }
   int32_t diff = (*cmp)(data, td);
