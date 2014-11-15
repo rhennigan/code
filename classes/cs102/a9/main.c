@@ -18,7 +18,7 @@ size_t offset = 0;
 void print_node(bst_t * node) {
   if (node == NULL) return;
   if (node->data != NULL) {
-    size_t shift = INDENTSZ * bst_depth(node);
+    size_t shift = INDENTSZ * (offset - bst_depth(node));
     for (size_t i = 0; i < shift; i++)  printf(" ");
     int32_t * data = node->data;
     printf("%lu, %d\n", bst_depth(node), *data);
