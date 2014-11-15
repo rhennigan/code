@@ -135,7 +135,7 @@ static void rotate_right(bst_t ** bst) {
 /******************************************************************************/
 
 size_t bst_depth(bst_t * bst) {
-  return depth(bst);
+  return get_depth(bst);
 }
 
 void bst_dispose(bst_t * bst);
@@ -157,7 +157,10 @@ bst_t * bst_init() {
 
 bst_t * bst_insert(bst_t * bst, void * get_data, cmp_fun cmp);
 
-void    bst_print(bst_t * bst, pr_fun pf);
+void bst_print(bst_t * bst, pr_fun pf) {
+  if (bst == NULL) return;
+  pf(get_data(bst));
+}
 
 void    bst_remove(bst_t * bst, void * get_data, cmp_fun cmp);
 
