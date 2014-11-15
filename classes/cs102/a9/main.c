@@ -12,13 +12,16 @@ int32_t intcmp(void * a, void * b) {
   return x - y;
 }
 
+#define INDENTSZ 4
+size_t offset = 0;
+
 void print_node(bst_t * node) {
   if (node == NULL) return;
   if (node->data != NULL) {
-    size_t shift = 4 * bst_depth(node);
+    size_t shift = INDENTSZ * bst_depth(node);
     for (size_t i = 0; i < shift; i++)  printf(" ");
     int32_t * data = node->data;
-    printf("%lu, %d\n", node->depth, *data);
+    printf("%lu, %d\n", bst_depth(node), *data);
   }
 }
 
@@ -30,7 +33,7 @@ int main(int argc, char *argv[]) {
     bst_insert(bst, &arr[i], &intcmp);
   }
 
-  size_t offset = force_depth(bst);
+  offset = force_depth(bst);
   bst_print(bst, &print_node);
   return 0;
 }
