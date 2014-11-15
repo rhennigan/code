@@ -161,6 +161,7 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
     set_data(bst, data);
     set_left(bst, bst_init());
     set_right(bst, bst_init());
+    set_depth(bst, get_depth(bst) + 1);
     while (has_parent(bst)) {
       bst = get_parent(bst);
       set_depth(bst, get_depth(bst) + 1);
