@@ -47,6 +47,7 @@ int main(int argc, char *argv[]) {
     printf("%lu ", arr[i]);
   }
 
+  printf("\n");
   show_tree(bst, NULL);
 
   return 0;
