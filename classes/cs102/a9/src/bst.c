@@ -246,14 +246,14 @@ void show_trunks(struct trunk * p) {
 
 void show_tree(bst_t *root, struct trunk *prev) {
   if (root == NULL) return;
-  struct trunk this_disp = { prev, "   " };
+  struct trunk this_disp = { prev, "    " };
   char *prev_str = this_disp.str;
   show_tree(get_left(root), &this_disp);
 
   if (!prev) {
     this_disp.str = B_HR""B_HR""B_HR;
   } else if (is_left(root)) {
-    this_disp.str = B_TL""B_HR""B_HR;
+    this_disp.str = B_TL""B_HR""B_HR""B_HR;
     prev_str = "   "B_VT;
   } else {
     this_disp.str = B_BL""B_HR""B_HR;
