@@ -111,9 +111,10 @@ static size_t force_depth(bst_t * bst) {
 }
 
 static void rotate_left(bst_t ** bst) {
-  bst_t * pivot = get_right(*bst);
-  set_right(*bst, get_left(pivot));
-  set_left(pivot, *bst);
+  bst_t * root = *bst;
+  bst_t * pivot = get_right(root);
+  set_right(root, get_left(pivot));
+  set_left(pivot, root);
   *bst = pivot;
 }
 
