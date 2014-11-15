@@ -7,7 +7,9 @@
 #define ARRSIZ 15
 
 int32_t intcmp(void * a, void * b) {
-  return *(int32_t*)a - *(int32_t*)b;
+  int32_t x = *(int32_t*)a;
+  int32_t y = *(int32_t*)b;
+  return x - y;
 }
 
 int main(int argc, char *argv[]) {
