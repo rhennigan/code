@@ -18,5 +18,6 @@ void    bst_dispose(bst_t * bst);
 void    bst_flatten(bst_t * bst, list_t ** list);
 bst_t * bst_init();
 bst_t * bst_initd(void * data);
+bst_t * bst_insert(bst_t * bst, void * data);
 
 #endif  // LIB_BINTREE_H_
