@@ -243,21 +243,21 @@ void show_trunks(struct trunk * p) {
 }
 
 void show_tree(bst_t *root, struct trunk *prev, int is_left) {
-if (root == NULL) return;
-struct trunk this_disp = { prev, "    " };
-char *prev_str = this_disp.str;
-show_tree(root->kid[0], &this_disp, 1);
- 
-if (!prev)
-  this_disp.str = "---";
-else if (is_left) {
-this_disp.str = ".--";
-prev_str = "   |";
-} else {
-this_disp.str = "`--";
-prev->str = prev_str;
-}
- 
+  if (root == NULL) return;
+  struct trunk this_disp = { prev, "    " };
+  char *prev_str = this_disp.str;
+  show_tree(get_left(root), &this_disp, 1);
+
+  if (!prev) {
+    this_disp.str = "---";
+  } else if (is_left) {
+    this_disp.str = ".--";
+    prev_str = "   |";
+  } else {
+    this_disp.str = "`--";
+    prev->str = prev_str;
+  }
+
 show_trunks(&this_disp);
 printf("%d\n", root->payload);
  
