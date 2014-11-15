@@ -136,9 +136,11 @@ static bst_t * rotate_left(bst_t * center) {
   return C;
 }
 
-static bst_t * rotate_right(bst_t ** bst) {
+static void rotate_right(bst_t ** bst) {
   bst_t * pivot = get_left(*bst);
-  set_left(*bst, get_right(pivot))
+  set_left(*bst, get_right(pivot));
+  set_right(pivot, *bst);
+  *bst = pivot;
 }
 
 /* static bst_t * rotate_right(bst_t * center) { */
