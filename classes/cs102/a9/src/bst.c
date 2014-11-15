@@ -138,9 +138,11 @@ size_t bst_depth(bst_t * bst) {
   return depth(bst);
 }
 
-void    bst_dispose(bst_t * bst);
+void bst_dispose(bst_t * bst);
 
-void    bst_flatten(bst_t * bst, list_t ** list);
+void bst_dump(bst_t * bst, order_t order);
+
+void bst_flatten(bst_t * bst, list_t ** list, order_t order);
 
 bst_t * bst_init() {
   bst_t * bst = malloc(sizeof(bst_t));
@@ -153,10 +155,10 @@ bst_t * bst_init() {
   return bst;
 }
 
-bst_t * bst_insert(bst_t * bst, void * get_data, cmp_f cmp);
+bst_t * bst_insert(bst_t * bst, void * get_data, cmp_fun cmp);
 
-void    bst_print(bst_t * bst);
+void    bst_print(bst_t * bst, pr_fun pf);
 
-void    bst_remove(bst_t * bst, void * get_data, cmp_f cmp);
+void    bst_remove(bst_t * bst, void * get_data, cmp_fun cmp);
 
-void *  bst_search(bst_t * bst, void * get_data, void * result, cmp_f cmp);
+void *  bst_search(bst_t * bst, void * get_data, void * result, cmp_fun cmp);
