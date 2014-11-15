@@ -24,6 +24,11 @@ typedef struct bst_s {
 typedef int32_t (*cmp_fun)(void * a, void * b);
 typedef void (*pr_fun)(bst_t * bst);
 
+struct trunk {
+  struct trunk * prev;
+  char * str;
+};
+
 size_t  bst_depth(bst_t * bst);
 void    bst_dispose(bst_t * bst);
 void    bst_dump(bst_t * bst, order_t order);
@@ -35,5 +40,6 @@ void    bst_print(bst_t * bst, pr_fun pf);
 void    bst_remove(bst_t * bst, void * data, cmp_fun cmp);
 void *  bst_search(bst_t * bst, void * data, void * result, cmp_fun cmp);
 void    bst_update_depth(bst_t * bst);
+void    show_tree(bst_t *root, struct trunk *prev);
 
 #endif  // LIB_BINTREE_H_
