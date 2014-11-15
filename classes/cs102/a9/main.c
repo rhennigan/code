@@ -13,6 +13,7 @@ int32_t intcmp(void * a, void * b) {
 }
 
 void print_node(bst_t * node) {
+  if (node == NULL) return;
   size_t shift = 4 * bst_depth(node);
   for (size_t i = 0; i < shift; i++)  printf(" ");
   if (node != NULL) {
