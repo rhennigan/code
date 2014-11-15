@@ -131,9 +131,11 @@ static void rotate_right(bst_t ** bst) {
 }
 
 static void inc_p_path(bst_t * bst) {
+  size_t d;
   while (has_parent(bst)) {
+    d = get_depth(bst);
     bst = get_parent(bst);
-    set_depth(bst, get_depth(bst) + 1);
+    if (d == get_depth(bst)) set_depth(bst, get_depth(bst) + 1);
   }
 }
 
