@@ -70,21 +70,27 @@ static inline void set_depth(bst_t * bst, size_t depth) {
   bst->depth = depth;
 }
 
-/******************************************************************************/
-/* ADDITIONAL PRIVATE FUNCTIONS                                               */
-/******************************************************************************/
-
-static inline bool has_data(bst_t * bst) {
-  return get_data(bst) != NULL;
-}
+// Member query functions
 
 static inline bool has_left(bst_t * bst) {
   return get_left(bst) != NULL;
 }
 
+static inline bool has_parent(bst_t * bst) {
+  return get_parent(bst) != NULL;
+}
+
 static inline bool has_right(bst_t * bst) {
   return get_right(bst) != NULL;
 }
+
+static inline bool has_data(bst_t * bst) {
+  return get_data(bst) != NULL;
+}
+
+/******************************************************************************/
+/* ADDITIONAL PRIVATE FUNCTIONS                                               */
+/******************************************************************************/
 
 static inline bool is_leaf(bst_t * bst) {
   return has_data(bst) && !has_left(bst) && !has_right(bst);
