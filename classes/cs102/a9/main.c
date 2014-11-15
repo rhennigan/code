@@ -14,7 +14,10 @@ int32_t intcmp(void * a, void * b) {
 size_t offset = 0;
 
 void print_node(bst_t * node) {
-  if (node == NULL) return;
+  if (node == NULL) {
+    printf("\n");
+    return;
+  }
   if (node->data != NULL) {
     size_t shift = INDENTSZ * bst_depth(node);
     for (size_t i = 0; i < shift; i++)  printf(" ");
