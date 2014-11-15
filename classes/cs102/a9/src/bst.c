@@ -256,7 +256,7 @@ void show_tree(bst_t *root, struct trunk *prev) {
     this_disp.str = B_TL""B_HR""B_HR;
     prev_str = "   "B_VT;
   } else {
-    this_disp.str = "`--";
+    this_disp.str = "`"B_HR""B_HR;
     prev->str = prev_str;
   }
 
