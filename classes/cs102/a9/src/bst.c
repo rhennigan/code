@@ -16,28 +16,28 @@ static inline void check_null(void * addr, const char * msg) {
   }
 }
 
-static inline bst_t * left(bst_t * bst) {
-  check_null(bst, "left");
+static inline bst_t * get_left(bst_t * bst) {
+  check_null(bst, "get_left");
   return bst->left;
 }
 
-static inline bst_t * parent(bst_t * bst) {
-  check_null(bst, "parent");
+static inline bst_t * get_parent(bst_t * bst) {
+  check_null(bst, "get_parent");
   return bst->parent;
 }
 
-static inline bst_t * right(bst_t * bst) {
-  check_null(bst, "right");
+static inline bst_t * get_right(bst_t * bst) {
+  check_null(bst, "get_right");
   return bst->right;
 }
 
-static inline void * data(bst_t * bst) {
-  check_null(bst, "data");
+static inline void * get_data(bst_t * bst) {
+  check_null(bst, "get_data");
   return bst->data;
 }
 
-static inline size_t depth(bst_t * bst) {
-  check_null(bst, "depth");
+static inline size_t get_depth(bst_t * bst) {
+  check_null(bst, "get_depth");
   return bst->depth;
 }
 
@@ -51,8 +51,8 @@ static size_t force_depth(bst_t * bst) {
   } else if (is_leaf(bst)) {
     return 1;
   } else {
-    size_t ld = force_depth(left(bst));
-    size_t rd = force_depth(right(bst));
+    size_t ld = force_depth(get_left(bst));
+    size_t rd = force_depth(get_right(bst));
     size_t d = MAX(ld, rd);
     bst->depth = d;
     return d;
@@ -64,18 +64,18 @@ static bst_t * rotate_right(bst_t * center) {
   A = center;
   B = E = NULL;
   if (A) {
-    B = A->left;
+    B = A->get_left;
   }
   if (B) {
-    E = B->right;
-    B->right = A;
-    B->parent = A->parent;
+    E = B->get_right;
+    B->get_right = A;
+    B->get_parent = A->get_parent;
   }
 }
 
 static void balance(bst_t * bst) {
-  bst_t * left_tree = left(bst);
-  bst_t * right_tree = right(bst);
+  bst_t * left_tree = get_left(bst);
+  bst_t * right_tree = get_right(bst);
   return;
 }
 
@@ -94,18 +94,18 @@ void    bst_flatten(bst_t * bst, list_t ** list);
 bst_t * bst_init() {
   bst_t * bst = malloc(sizeof(bst_t));
   check_null(bst, "bst_init: malloc");
-  bst->left   = NULL;
-  bst->parent = NULL;
-  bst->right  = NULL;
-  bst->data   = NULL;
+  bst->get_left   = NULL;
+  bst->get_parent = NULL;
+  bst->get_right  = NULL;
+  bst->get_data   = NULL;
   bst->depth  = 0;
   return bst;
 }
 
-bst_t * bst_insert(bst_t * bst, void * data, cmp_f cmp);
+bst_t * bst_insert(bst_t * bst, void * get_data, cmp_f cmp);
 
 void    bst_print(bst_t * bst);
 
-void    bst_remove(bst_t * bst, void * data, cmp_f cmp);
+void    bst_remove(bst_t * bst, void * get_data, cmp_f cmp);
 
-void *  bst_search(bst_t * bst, void * data, void * result, cmp_f cmp);
+void *  bst_search(bst_t * bst, void * get_data, void * result, cmp_f cmp);
