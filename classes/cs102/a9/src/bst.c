@@ -60,14 +60,14 @@ static inline void set_right(bst_t * bst, bst_t * new) {
   bst->right = new;
 }
 
-static inline void * set_data(bst_t * bst) {
+static inline void set_data(bst_t * bst, void * data) {
   check_null(bst, "set_data");
-  return bst->data;
+  bst->data = data;
 }
 
-static inline size_t set_depth(bst_t * bst) {
+static inline void set_depth(bst_t * bst, size_t depth) {
   check_null(bst, "set_depth");
-  return bst->depth;
+  bst->depth = depth;
 }
 
 /******************************************************************************/
