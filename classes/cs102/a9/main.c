@@ -30,9 +30,8 @@ int main(int argc, char *argv[]) {
   for (int32_t i = 0; i < ARRSIZ; i++) {
     arr[i] = rand() % 90 + 10;
     bst_insert(bst, &arr[i], &intcmp);
+    bst_print(bst, &print_node);
+    printf("---------------------------------------------\n");
   }
-
-  offset = force_depth(bst);
-  bst_print(bst, &print_node);
   return 0;
 }
