@@ -110,64 +110,12 @@ static size_t force_depth(bst_t * bst) {
   }
 }
 
-static bst_t * rotate_left(bst_t * center) {
-  bst_t *A, *C, *D;
-  A = center;
-  C = D =  NULL;
-  if (A) {
-    C = A->right;
-  }
-  if (C) {
-    D = C->left;
-    C->left = A;
-    C->parent = A->parent;
-    if (C->parent) {
-      if (A == C->parent->left) {
-        C->parent->left = C;
-      } else {
-        C->parent->right = C;
-      }
-    }
-  }
-  A->parent = C;
-  if (D) D->parent = A;
-  A->right = D;
-  force_depth(center);
-  return C;
-}
-
 static void rotate_right(bst_t ** bst) {
   bst_t * pivot = get_left(*bst);
   set_left(*bst, get_right(pivot));
   set_right(pivot, *bst);
   *bst = pivot;
 }
-
-/* static bst_t * rotate_right(bst_t * center) { */
-/*   bst_t *A, *B, *E; */
-/*   A = center; */
-/*   B = E = NULL; */
-/*   if (A) { */
-/*     B = A->left; */
-/*   } */
-/*   if (B) { */
-/*     E = B->right; */
-/*     B->right = A; */
-/*     B->parent = A->parent; */
-/*     if (B->parent) { */
-/*       if (A == B->parent->left) { */
-/*         B->parent->left = B; */
-/*       } else { */
-/*         B->parent->right = B; */
-/*       } */
-/*     } */
-/*   } */
-/*   A->parent = B; */
-/*   if (E) E->parent = A; */
-/*   A->left = E; */
-/*   force_depth(center); */
-/*   return B; */
-/* } */
 
 static void balance(bst_t * bst) {
   bst_t * left_tree = get_left(bst);
