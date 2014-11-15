@@ -9,14 +9,14 @@
 /* PROTECTED MEMBER ACCESS FUNCTIONS                                          */
 /******************************************************************************/
 
-// Read functions
-
 static inline void check_null(void * addr, const char * msg) {
   if (addr == NULL) {
     printf("%p: %s\n", addr, msg);
     exit(EXIT_FAILURE);
   }
 }
+
+// Member read functions
 
 static inline bst_t * get_left(bst_t * bst) {
   check_null(bst, "get_left");
@@ -43,11 +43,11 @@ static inline size_t get_depth(bst_t * bst) {
   return bst->depth;
 }
 
-// Write functions
+// Member write functions
 
-static inline bst_t * set_left(bst_t * bst) {
+static inline void set_left(bst_t * bst, bst_t * new) {
   check_null(bst, "set_left");
-  return bst->left;
+  bst->left = new;
 }
 
 static inline bst_t * set_parent(bst_t * bst) {
