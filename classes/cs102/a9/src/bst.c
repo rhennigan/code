@@ -136,31 +136,39 @@ static bst_t * rotate_left(bst_t * center) {
   return C;
 }
 
-static bst_t * rotate_right(bst_t * center) {
-  bst_t *A, *B, *E;
-  A = center;
-  B = E = NULL;
-  if (A) {
-    B = A->left;
-  }
-  if (B) {
-    E = B->right;
-    B->right = A;
-    B->parent = A->parent;
-    if (B->parent) {
-      if (A == B->parent->left) {
-        B->parent->left = B;
-      } else {
-        B->parent->right = B;
-      }
-    }
-  }
-  A->parent = B;
-  if (E) E->parent = A;
-  A->left = E;
-  force_depth(center);
-  return B;
+static bst_t * rotate_right(bst_t ** bst) {
+  bst_t * Q = *bst;
+  bst_t * P = get_left(Q);
+  bst_t * C = get_right(Q);
+  bst_t * A = get_left(P);
+  bst_t * B = get_right(P);
 }
+
+/* static bst_t * rotate_right(bst_t * center) { */
+/*   bst_t *A, *B, *E; */
+/*   A = center; */
+/*   B = E = NULL; */
+/*   if (A) { */
+/*     B = A->left; */
+/*   } */
+/*   if (B) { */
+/*     E = B->right; */
+/*     B->right = A; */
+/*     B->parent = A->parent; */
+/*     if (B->parent) { */
+/*       if (A == B->parent->left) { */
+/*         B->parent->left = B; */
+/*       } else { */
+/*         B->parent->right = B; */
+/*       } */
+/*     } */
+/*   } */
+/*   A->parent = B; */
+/*   if (E) E->parent = A; */
+/*   A->left = E; */
+/*   force_depth(center); */
+/*   return B; */
+/* } */
 
 static void balance(bst_t * bst) {
   bst_t * left_tree = get_left(bst);
