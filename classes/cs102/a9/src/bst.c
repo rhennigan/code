@@ -130,12 +130,6 @@ static void rotate_right(bst_t ** bst) {
   *bst = pivot;
 }
 
-static void balance(bst_t * bst) {
-  bst_t * left_tree = get_left(bst);
-  bst_t * right_tree = get_right(bst);
-  return;
-}
-
 /******************************************************************************/
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
