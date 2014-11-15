@@ -159,6 +159,10 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
   void * td = get_data(bst);
   if (td == NULL) {
     set_data(bst, data);
+    while (has_parent(bst)) {
+      bst = get_parent(bst);
+      set_depth(bst, get_depth(bst) + 1);
+    }
     return;
   }
   int32_t diff = (*cmp)(data, td);
