@@ -161,6 +161,9 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
     return;
   } else {
     bst_t * next = diff < 0 ? get_left(bst) : get_right(bst);
+    if (next == NULL) {
+      next = bst_init();
+    }
   }
 }
 
