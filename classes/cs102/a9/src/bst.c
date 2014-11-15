@@ -108,17 +108,17 @@ static bool is_right(bst_t * bst) {
   return get_right(p) == bst;
 }
 
-void update_depth(bst_t * bst) {
+void bst_update_depth(bst_t * bst) {
   if (has_parent(bst)) {
     set_depth(bst, get_depth(get_parent(bst)) + 1);
   } else {
     set_depth(bst, 0);
   }
   if (has_left(bst)) {
-    update_depth(get_left(bst));
+    bst_update_depth(get_left(bst));
   }
   if (has_right(bst)) {
-    update_depth(get_right(bst));
+    bst_update_depth(get_right(bst));
   }
 }
 

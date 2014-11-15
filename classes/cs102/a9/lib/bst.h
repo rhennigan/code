@@ -34,5 +34,6 @@ void    bst_insert(bst_t * bst, void * data, cmp_fun cmp);
 void    bst_print(bst_t * bst, pr_fun pf);
 void    bst_remove(bst_t * bst, void * data, cmp_fun cmp);
 void *  bst_search(bst_t * bst, void * data, void * result, cmp_fun cmp);
+void    bst_update_depth(bst_t * bst);
 
 #endif  // LIB_BINTREE_H_
