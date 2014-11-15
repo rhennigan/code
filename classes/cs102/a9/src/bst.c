@@ -121,6 +121,13 @@ static bst_t * rotate_right(bst_t * center) {
     E = B->right;
     B->right = A;
     B->parent = A->parent;
+    if (B->parent) {
+      if (A == B->parent->left) {
+        B->parent->left = B;
+      } else {
+        B->parent->right = B;
+      }
+    }
   }
 }
 
