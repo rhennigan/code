@@ -264,7 +264,7 @@ void show_tree(bst_t *root, struct trunk *prev) {
   printf("%d\n", *(int*)get_data(root));
 
   if (prev) prev->str = prev_str;
-  this_disp.str = "++++"B_VT;
+  this_disp.str = "+++"B_VT;
 
   show_tree(get_right(root), &this_disp);
   if (!prev) puts("");
