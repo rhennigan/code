@@ -7,28 +7,28 @@
 
 static inline void check_null(void * addr, const char * msg) {
   if (addr == NULL) {
-    printf("%s\n", msg);
+    printf("%p: %s\n", addr, msg);
     exit(EXIT_FAILURE);
   }
 }
 
-static inline bst_t * get_left(bst_t * bst) {
-  check_null(bst, "get_left");
+static inline bst_t * left(bst_t * bst) {
+  check_null(bst, "left");
   return bst->left;
 }
 
-static inline bst_t * get_parent(bst_t * bst) {
-  check_null(bst, "get_parent");
+static inline bst_t * parent(bst_t * bst) {
+  check_null(bst, "parent");
   return bst->parent;
 }
 
-static inline bst_t * get_right(bst_t * bst) {
-  check_null(bst, "get_right");
+static inline bst_t * right(bst_t * bst) {
+  check_null(bst, "right");
   return bst->right;
 }
 
-static inline void * get_data(bst_t * bst) {
-  check_null(bst, "get_data");
+static inline void * data(bst_t * bst) {
+  check_null(bst, "data");
   return bst->data;
 }
 
