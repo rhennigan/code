@@ -83,7 +83,7 @@ static size_t force_depth(bst_t * bst) {
     size_t ld = force_depth(get_left(bst));
     size_t rd = force_depth(get_right(bst));
     size_t d = MAX(ld, rd);
-    bst->depth = d;
+    set_depth(bst, d);
     return d;
   }
 }
