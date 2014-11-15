@@ -74,6 +74,11 @@ static inline void set_depth(bst_t * bst, size_t depth) {
 /* ADDITIONAL PRIVATE FUNCTIONS                                               */
 /******************************************************************************/
 
+static bool is_leaf(bst_t * bst) {
+  check_null(bst, "is_leaf");
+  
+}
+
 static size_t force_depth(bst_t * bst) {
   if (bst == NULL) {
     return 0;
