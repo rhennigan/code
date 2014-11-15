@@ -262,7 +262,7 @@ void show_tree(bst_t *root, struct trunk *prev) {
   }
 
   show_trunks(&this_disp);
-  printf(B_ND" (%lu, %d)\n", get_depth(root), *(int*)get_data(root));
+  printf(B_HR""B_ND" (%lu, %d)\n", get_depth(root), *(int*)get_data(root));
 
   if (prev) prev->str = prev_str;
   this_disp.str = "   "B_VT;
