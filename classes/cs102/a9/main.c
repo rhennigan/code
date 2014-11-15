@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   int64_t arr[ARRSIZ];
   for (int32_t i = 0; i < ARRSIZ; i++) {
-    arr[i] = lrand48();
+    arr[i] = rand();
     printf("%lu\n", arr[i]);
   }
   return 0;
