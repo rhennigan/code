@@ -37,7 +37,9 @@ static inline size_t depth(bst_t * bst) {
   return bst->depth;
 }
 
-size_t  bst_depth(bst_t * bst);
+size_t bst_depth(bst_t * bst) {
+  return depth(bst);
+}
 
 void    bst_dispose(bst_t * bst);
 
