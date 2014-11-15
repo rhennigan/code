@@ -159,16 +159,16 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = (*cmp)(data, get_data(bst));
   if (diff == 0) {
     return;
-  } else {
+  } else {  // (diff != 0)
     bst_t * next = diff < 0 ? get_left(bst) : get_right(bst);
     if (next == NULL) {
       next = bst_init();
       set_data(next, data);
       return;
-    } else {
+    } else {  // (next != NULL)
       bst_insert(next, data, cmp);
-    }  // end if (next == NULL) else
-  }  // end if (diff == 0) else
+    }  // endif (next == NULL)
+  }  // endif (diff == 0)
 }
 
 void bst_print(bst_t * bst, pr_fun pf) {
