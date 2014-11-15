@@ -19,7 +19,7 @@ void print_node(bst_t * node) {
     return;
   }
   if (node->data != NULL) {
-    size_t shift = INDENTSZ * bst_depth(node);
+    size_t shift = INDENTSZ * bst_depth(node) - 2;
     for (size_t i = 0; i < shift; i++)  printf(" ");
     int32_t * data = node->data;
     printf("%d\n", *data);
@@ -35,9 +35,6 @@ int main(int argc, char *argv[]) {
   for (size_t i = 0; i < ARRSIZ; i++) {
     arr[i] = rand() % 50 + 10;
     bst_insert(bst, &arr[i], &intcmp);
-    offset = bst_depth(bst);
-    bst_print(bst, &print_node);
-    printf("---------------------------------------------\n");
   }
 
   bst_update_depth(bst);
