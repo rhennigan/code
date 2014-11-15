@@ -261,8 +261,7 @@ void show_tree(bst_t *root, struct trunk *prev) {
   }
 
   show_trunks(&this_disp);
-  printf(B_HR"\u2588\u258C(%lu, %d)\n", get_depth(root),
-         *(int*)get_data(root));
+  printf(B_HR"\u2588%d\n", *(int*)get_data(root));
 
   if (prev) prev->str = prev_str;
   this_disp.str = "   "B_VT;
