@@ -112,6 +112,7 @@ size_t force_depth(bst_t * bst) {
   if (bst == NULL) {
     return 0;
   } else if (is_leaf(bst)) {
+    set_depth(bst, 1);
     return 1;
   } else {
     size_t ld = force_depth(get_left(bst));
