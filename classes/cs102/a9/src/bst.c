@@ -5,6 +5,11 @@
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
+static inline bst_t * get_left(bst_t * bst) {
+  assert(bst != NULL);
+  return bst->left;
+}
+
 size_t  bst_depth(bst_t * bst);
 
 void    bst_dispose(bst_t * bst);
