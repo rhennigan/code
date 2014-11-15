@@ -25,10 +25,11 @@ typedef int32_t (*cmp_f)(void * a, void * b);
 
 size_t  bst_depth(bst_t * bst);
 void    bst_dispose(bst_t * bst);
+void    bst_dump(bst_t * bst, order_t order);
 void    bst_flatten(bst_t * bst, list_t ** list, order_t order);
 bst_t * bst_init();
 bst_t * bst_insert(bst_t * bst, void * data, cmp_f cmp);
-void    bst_print(bst_t * bst);
+void    bst_print(bst_t * bst, void (*pr)(void * data));
 void    bst_remove(bst_t * bst, void * data, cmp_f cmp);
 void *  bst_search(bst_t * bst, void * data, void * result, cmp_f cmp);
 
