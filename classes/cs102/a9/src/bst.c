@@ -160,10 +160,7 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
   if (diff == 0) {
     return;
   } else {
-    bst_t * next;
-    if (diff < 0) {
-      next = get_left(bst);
-    }
+    bst_t * next = diff < 0 ? get_left(bst) : get_right(bst);
   }
 }
 
