@@ -22,7 +22,7 @@ void print_node(bst_t * node) {
     size_t shift = INDENTSZ * bst_depth(node);
     for (size_t i = 0; i < shift; i++)  printf(" ");
     int32_t * data = node->data;
-    printf("%lu, %d\n", bst_depth(node), *data);
+    printf("%d\n", *data);
   } else {
     printf("\n");
   }
