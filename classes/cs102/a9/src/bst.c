@@ -78,6 +78,14 @@ static inline bool has_data(bst_t * bst) {
   return get_data(bst) != NULL;
 }
 
+static inline bool has_left(bst_t * bst) {
+  return get_left(bst) != NULL;
+}
+
+static inline bool has_right(bst_t * bst) {
+  return get_right(bst) != NULL;
+}
+
 static inline bool is_leaf(bst_t * bst) {
   return has_data(bst) && !has_left(bst) && !has_right(bst);
 }
