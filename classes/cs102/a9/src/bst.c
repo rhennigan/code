@@ -183,10 +183,7 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
       goleft ? set_left(bst, next) : set_right(bst, next);
       set_parent(next, bst);
       set_data(next, data);
-      while (has_parent(next)) {
-        set_depth(next, get_depth(next) + 1);
-        next = get_parent(next);
-      }
+      inc_p_path(next);
       return;
     } else {  // (next != NULL)
       bst_insert(next, data, cmp);
