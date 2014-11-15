@@ -102,6 +102,12 @@ static bool is_left(bst_t * bst) {
   return get_left(p) == bst;
 }
 
+static bool is_right(bst_t * bst) {
+  if (!has_parent(bst)) return false;
+  bst_t * p = get_parent(bst);
+  return get_right(p) == bst;
+}
+
 size_t force_depth(bst_t * bst) {
   if (bst == NULL) {
     return 0;
