@@ -12,6 +12,10 @@ int32_t intcmp(void * a, void * b) {
   return x - y;
 }
 
+void print_node(bst_t * node) {
+  size_t d = bst_depth(node);
+}
+
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   int64_t arr[ARRSIZ];
