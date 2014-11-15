@@ -5,6 +5,10 @@
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
+/******************************************************************************/
+/* PROTECTED MEMBER ACCESS FUNCTIONS                                          */
+/******************************************************************************/
+
 static inline void check_null(void * addr, const char * msg) {
   if (addr == NULL) {
     printf("%p: %s\n", addr, msg);
