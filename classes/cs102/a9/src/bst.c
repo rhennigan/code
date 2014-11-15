@@ -163,9 +163,9 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
     bool goleft = diff < 0 ? true : false;
     bst_t * next = goleft ? get_left(bst) : get_right(bst);
     if (next == NULL) {
-      next = bst_init();
-      set_parent(next, bst);
+      next = bst_init();  // new pointer, need to update parent
       goleft ? set_left(bst, next) : set_right(bst, next);
+      set_parent(next, bst);
       set_data(next, data);
       return;
     } else {  // (next != NULL)
