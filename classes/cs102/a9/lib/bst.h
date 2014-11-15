@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include "./list.h"
 
-typedef enum order_e { PREORDER, INORDER, POSTORDER } order_t;
+typedef enum { PRE_ORDER, IN_ORDER, POST_ORDER } order_t;
 
 typedef struct bst_s {
   struct bst_s * left;
@@ -25,7 +25,7 @@ typedef int32_t (*cmp_f)(void * a, void * b);
 
 size_t  bst_depth(bst_t * bst);
 void    bst_dispose(bst_t * bst);
-void    bst_flatten(bst_t * bst, list_t ** list);
+void    bst_flatten(bst_t * bst, list_t ** list, order_t order);
 bst_t * bst_init();
 bst_t * bst_insert(bst_t * bst, void * data, cmp_f cmp);
 void    bst_print(bst_t * bst);
