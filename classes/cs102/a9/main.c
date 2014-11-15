@@ -16,6 +16,7 @@ int main(int argc, char *argv[]) {
   for (int32_t i = 0; i < ARRSIZ; i++) {
     arr[i] = rand();
     printf("%lu\n", arr[i]);
+    bst_insert(bst, &arr[i], &intcmp);
   }
   return 0;
 }
