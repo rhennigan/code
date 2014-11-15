@@ -155,12 +155,14 @@ bst_t * bst_init() {
   return bst;
 }
 
-bst_t * bst_insert(bst_t * bst, void * get_data, cmp_fun cmp);
+bst_t * bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
+  int32_t diff = (*cmp)(data, get_data(bst));
+}
 
 void bst_print(bst_t * bst, pr_fun pf) {
   if (bst == NULL) return;
   bst_print(get_left(bst), pf);
-  pf(get_data(bst));
+  (*pf)(get_data(bst));
   bst_print(get_right(bst), pf);
 }
 
