@@ -8,9 +8,11 @@
 #include "./list.h"
 
 typedef struct bst_s {
-  struct bst_s *left, *parent, *right;
-  void *data;
-  size_t depth;
+  struct bst_s * left;
+  struct bst_s * parent;
+  struct bst_s * right;
+  void *         data;
+  size_t         depth;
 } bst_t;
 
 size_t  bst_depth(bst_t * bst);
