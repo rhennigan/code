@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "lib/bst.h"
 
-#define ARRSIZ 3
+#define ARRSIZ 7
 
 int32_t intcmp(void * a, void * b) {
   int32_t x = *(int32_t*)a;
