@@ -45,8 +45,12 @@ static inline size_t depth(bst_t * bst) {
 /* ADDITIONAL PRIVATE FUNCTIONS                                               */
 /******************************************************************************/
 
-static void force_depth(bst_t * bst) {
-  
+static size_t force_depth(bst_t * bst) {
+  if (bst == NULL) {
+    return 0;
+  } else if (is_leaf(bst)) {
+    
+  }
 }
 
 static bst_t * rotate_right(bst_t * center) {
