@@ -11,6 +11,8 @@
 #include <stdint.h>
 #include "./list.h"
 
+typedef enum order_e { PREORDER, INORDER, POSTORDER } order_t;
+
 typedef struct bst_s {
   struct bst_s * left;
   struct bst_s * parent;
