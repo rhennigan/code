@@ -230,3 +230,39 @@ void bst_print(bst_t * bst, pr_fun pf) {
 void    bst_remove(bst_t * bst, void * get_data, cmp_fun cmp);
 
 void *  bst_search(bst_t * bst, void * get_data, void * result, cmp_fun cmp);
+
+struct trunk {
+  struct trunk * prev;
+  char * str;
+};
+
+void show_tree(bst_t * root) {
+  if (root == NULL) return;
+}
+
+void show_tree(bst_t * root, int is_left) {
+if (root == NULL) return;
+ 
+struct trunk this_disp = { prev, "    " };
+char *prev_str = this_disp.str;
+show_tree(root->kid[0], &this_disp, 1);
+ 
+if (!prev)
+  this_disp.str = "---";
+else if (is_left) {
+this_disp.str = ".--";
+prev_str = "   |";
+} else {
+this_disp.str = "`--";
+prev->str = prev_str;
+}
+ 
+show_trunks(&this_disp);
+printf("%d\n", root->payload);
+ 
+if (prev) prev->str = prev_str;
+this_disp.str = "   |";
+ 
+show_tree(root->kid[1], &this_disp, 0);
+if (!prev) puts("");
+}
