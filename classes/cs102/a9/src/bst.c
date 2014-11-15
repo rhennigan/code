@@ -132,8 +132,7 @@ static bst_t * rotate_left(bst_t * center) {
   A->parent = C;
   if (D) D->parent = A;
   A->right = D;
-  dump(C); printf("\n");
-  recalculate_heights(center);
+  force_depth(center);
   return C;
 }
 
