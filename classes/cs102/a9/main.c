@@ -15,8 +15,10 @@ int32_t intcmp(void * a, void * b) {
 void print_node(bst_t * node) {
   size_t shift = 4 * bst_depth(node);
   for (size_t i = 0; i < shift; i++)  printf(" ");
-  void * data = node->data;
-  printf("d\n", *(int32_t*)get_data(node));
+  if (node != NULL) {
+    int32_t * data = node->data;
+    printf("%d\n", *data);
+  }
 }
 
 int main(int argc, char *argv[]) {
