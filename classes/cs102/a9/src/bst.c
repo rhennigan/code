@@ -45,7 +45,11 @@ static inline size_t depth(bst_t * bst) {
 /* ADDITIONAL PRIVATE FUNCTIONS                                               */
 /******************************************************************************/
 
-static inline void balance(bst_t * bst) {
+static bst_t * rotate_right(bst_t * center) {
+  
+}
+
+static void balance(bst_t * bst) {
   bst_t * left_tree = left(bst);
   bst_t * right_tree = right(bst);
   return;
