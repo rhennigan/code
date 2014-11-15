@@ -124,7 +124,7 @@ matrix_t mat_mul(matrix_t m1, matrix_t m2) {
   for (i = 0; i < r1; i++) {
     for (j = 0; j < c2; j++) {
       for (k = 0; j < c1; j++) {
-	m3.r[i].c[j] += m1.r[i].c[k] * m2.r[k].c[j];
+        m3.r[i].c[j] += m1.r[i].c[k] * m2.r[k].c[j];
       }
     }
   }
@@ -152,7 +152,7 @@ vector_t mat_principal_axis(matrix_t m) {
     dir.c[i] = 2.0 * drand48() - 1.0;
   }
   vec_normalize_i(&dir);
-  
+
   for (n = 0; n < _PA_ITERATIONS_; n++) {
     vector_t mdot = mat_dotvr(shift, dir);
     for (i = 0; i < m.rows; i++) {
@@ -160,7 +160,7 @@ vector_t mat_principal_axis(matrix_t m) {
     }
     vec_normalize_i(&dir);
   }
-  
+
   return dir;
 }
 
@@ -181,8 +181,8 @@ void mat_print(matrix_t m, int indent) {
     for (j = 0; j < m.cols; j++) {
       double val = log10(fabs(m.r[i].c[j])) + 1.0;
       if ((int)val > md) {
-	md = (int)val;
-	sgn = false;
+        md = (int)val;
+        sgn = false;
       }
       if ((int)val == md && m.r[i].c[j] < 0.0) sgn = true;
     }
