@@ -7,19 +7,23 @@
 #include <stdlib.h>
 #include "./list.h"
 
-typedef struct bst_s {
+typedef struct bst_n_s {
   struct bst_s * left;
   struct bst_s * parent;
   struct bst_s * right;
   void *         data;
   size_t         depth;
+} bst_n_t;
+
+typedef struct bst_s {
+  bst_n_t * root;
 } bst_t;
 
-size_t  bst_depth(bst_t * bst);
-void    bst_dispose(bst_t * bst);
-void    bst_flatten(bst_t * bst, list_t ** list);
-bst_t * bst_init();
-bst_t * bst_initd(void * data);
-bst_t * bst_insert(bst_t * bst, void * data);
+size_t  bst_depth(bst_n_t * bst);
+void    bst_dispose(bst_n_t * bst);
+void    bst_flatten(bst_n_t * bst, list_t ** list);
+bst_n_t * bst_init();
+bst_n_t * bst_initd(void * data);
+bst_n_t * bst_insert(bst_n_t * bst, void * data);
 
 #endif  // LIB_BINTREE_H_
