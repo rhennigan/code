@@ -22,8 +22,6 @@ void print_node(bst_t * node) {
   }
 }
 
-size_t force_depth(bst_t * bst);
-
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   int64_t arr[ARRSIZ];
