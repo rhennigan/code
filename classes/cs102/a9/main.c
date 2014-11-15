@@ -13,35 +13,16 @@ int32_t intcmp(void * a, void * b) {
   return x - y;
 }
 
-#define INDENTSZ 4
-size_t offset = 0;
-
-void print_node(bst_t * node) {
-  if (node == NULL) {
-    printf("\n");
-    return;
-  }
-  if (node->data != NULL) {
-    int32_t shift = MAX(INDENTSZ, INDENTSZ * bst_depth(node) - 2);
-    for (int32_t i = 0; i < shift; i++)  printf(" ");
-    int32_t * data = node->data;
-    printf("--%d\n", *data);
-  } else {
-    printf("\n");
-  }
-}
-
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   size_t ARRSIZ = atoi(argv[1]);
   int64_t arr[ARRSIZ];
   for (size_t i = 0; i < ARRSIZ; i++) {
-    arr[i] = rand() % 50 + 10;
+    arr[i] = rand() % 100 + 10;
     bst_insert(bst, &arr[i], &intcmp);
   }
 
   bst_update_depth(bst);
-  bst_print(bst, &print_node);
   printf("---------------------------------------------\n");
   for (size_t i = 0; i < ARRSIZ; i++) {
     printf("%lu ", arr[i]);
