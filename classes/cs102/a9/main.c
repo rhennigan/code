@@ -18,7 +18,7 @@ void print_node(bst_t * node) {
     size_t shift = 4 * bst_depth(node);
     for (size_t i = 0; i < shift; i++)  printf(" ");
     int32_t * data = node->data;
-    printf("%d\n", *data);
+    printf("%lu, %d\n", node->depth, *data);
   }
 }
 
