@@ -27,12 +27,16 @@ int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   size_t ARRSIZ = atoi(argv[1]);
   int64_t arr[ARRSIZ];
-  for (int32_t i = 0; i < ARRSIZ; i++) {
+  for (size_t i = 0; i < ARRSIZ; i++) {
     arr[i] = rand() % 90 + 10;
-    printf("%lu ", arr[i]);
     bst_insert(bst, &arr[i], &intcmp);
     bst_print(bst, &print_node);
     printf("---------------------------------------------\n");
   }
+
+  for (size_t i = 0; i < ARRSIZ; i++) {
+    printf("%lu ", arr[i]);
+  }
+
   return 0;
 }
