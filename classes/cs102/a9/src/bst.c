@@ -11,7 +11,16 @@ void    bst_dispose(bst_t * bst);
 
 void    bst_flatten(bst_t * bst, list_t ** list);
 
-bst_t * bst_init();
+bst_t * bst_init() {
+  bst_t * bst = malloc(sizeof(bst_t));
+  assert(bst != NULL);
+  bst->left   = NULL;
+  bst->parent = NULL;
+  bst->right  = NULL;
+  bst->data   = NULL;
+  bst->depth  = 0;
+  return bst;
+}
 
 bst_t * bst_insert(bst_t * bst, void * data, cmp_f cmp);
 
