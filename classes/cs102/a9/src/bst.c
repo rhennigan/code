@@ -236,7 +236,13 @@ struct trunk {
   char * str;
 };
 
-void show_tree(struct node *root, struct trunk *prev, int is_left) {
+void show_trunks(struct trunk * p) {
+  if (!p) return;
+  show_trunks(p->prev);
+  printf("%s", p->str);
+}
+
+void show_tree(bst_t *root, struct trunk *prev, int is_left) {
 if (root == NULL) return;
 struct trunk this_disp = { prev, "    " };
 char *prev_str = this_disp.str;
