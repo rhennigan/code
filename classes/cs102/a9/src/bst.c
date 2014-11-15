@@ -32,6 +32,11 @@ static inline void * data(bst_t * bst) {
   return bst->data;
 }
 
+static inline size_t depth(bst_t * bst) {
+  check_null(bst, "depth");
+  return bst->depth;
+}
+
 size_t  bst_depth(bst_t * bst);
 
 void    bst_dispose(bst_t * bst);
