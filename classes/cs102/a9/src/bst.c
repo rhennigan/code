@@ -129,6 +129,11 @@ static bst_t * rotate_right(bst_t * center) {
       }
     }
   }
+  A->parent = B;
+  if (E) E->parent = A;
+  A->left = E;
+  force_depth(center);
+  return B;
 }
 
 static void balance(bst_t * bst) {
