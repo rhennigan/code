@@ -27,6 +27,11 @@ static inline bst_t * get_right(bst_t * bst) {
   return bst->right;
 }
 
+static inline void * get_data(bst_t * bst) {
+  check_null(bst, "get_data");
+  return bst->data;
+}
+
 size_t  bst_depth(bst_t * bst);
 
 void    bst_dispose(bst_t * bst);
