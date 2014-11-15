@@ -37,6 +37,9 @@ int main(int argc, char *argv[]) {
     printf("---------------------------------------------\n");
   }
 
+  offset = force_depth(bst);
+  bst_print(bst, &print_node);
+  printf("---------------------------------------------\n");
   for (size_t i = 0; i < ARRSIZ; i++) {
     printf("%lu ", arr[i]);
   }
