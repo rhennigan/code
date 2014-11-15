@@ -13,7 +13,7 @@ static inline void check_null(void * addr, const char * msg) {
 }
 
 static inline bst_t * get_left(bst_t * bst) {
-  assert(bst != NULL);
+  check_null(bst, "get_left");
   return bst->left;
 }
 
