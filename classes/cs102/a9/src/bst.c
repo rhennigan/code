@@ -242,15 +242,15 @@ void show_trunks(struct trunk * p) {
   printf("%s", p->str);
 }
 
-void show_tree(bst_t *root, struct trunk *prev, int is_left) {
+void show_tree(bst_t *root, struct trunk *prev) {
   if (root == NULL) return;
   struct trunk this_disp = { prev, "    " };
   char *prev_str = this_disp.str;
-  show_tree(get_left(root), &this_disp, 1);
+  show_tree(get_left(root), &this_disp);
 
   if (!prev) {
     this_disp.str = "---";
-  } else if (is_left) {
+  } else if (is_left(root)) {
     this_disp.str = ".--";
     prev_str = "   |";
   } else {
@@ -258,12 +258,12 @@ void show_tree(bst_t *root, struct trunk *prev, int is_left) {
     prev->str = prev_str;
   }
 
-show_trunks(&this_disp);
-printf("%d\n", root->payload);
- 
-if (prev) prev->str = prev_str;
-this_disp.str = "   |";
- 
-show_tree(root->kid[1], &this_disp, 0);
-if (!prev) puts("");
+  show_trunks(&this_disp);
+  printf("%d\n", *(int*)get_data(root));
+
+  if (prev) prev->str = prev_str;
+  this_disp.str = "   |";
+
+  show_tree(get_right(root), &this_disp);
+  if (!prev) puts("");
 }
