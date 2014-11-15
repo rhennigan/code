@@ -5,6 +5,13 @@
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
+static inline void check_null(void * addr, const char * msg) {
+  if (addr == NULL) {
+    printf("%s\n", msg);
+    exit(EXIT_FAILURE);
+  }
+}
+
 static inline bst_t * get_left(bst_t * bst) {
   assert(bst != NULL);
   return bst->left;
