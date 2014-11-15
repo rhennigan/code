@@ -41,4 +41,3 @@ void    bst_print(bst_t * bst);
 void    bst_remove(bst_t * bst, void * data, cmp_f cmp);
 
 void *  bst_search(bst_t * bst, void * data, void * result, cmp_f cmp);
-
