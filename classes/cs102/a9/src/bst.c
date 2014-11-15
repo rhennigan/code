@@ -164,6 +164,9 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
     if (next == NULL) {
       next = bst_init();
       set_data(next, data);
+      return;
+    } else {
+      bst_insert(next, data, cmp);
     }
   }
 }
