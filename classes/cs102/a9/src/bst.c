@@ -256,7 +256,7 @@ void show_tree(bst_t *root, struct trunk *prev) {
     this_disp.str = B_TL""B_HR""B_HR;
     prev_str = "   "B_VT;
   } else {
-    this_disp.str = "`"B_HR""B_HR;
+    this_disp.str = B_BL""B_HR""B_HR;
     prev->str = prev_str;
   }
 
@@ -264,7 +264,7 @@ void show_tree(bst_t *root, struct trunk *prev) {
   printf("%d\n", *(int*)get_data(root));
 
   if (prev) prev->str = prev_str;
-  this_disp.str = "   |";
+  this_disp.str = "   "B_VT;
 
   show_tree(get_right(root), &this_disp);
   if (!prev) puts("");
