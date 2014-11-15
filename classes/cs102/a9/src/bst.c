@@ -237,12 +237,8 @@ struct trunk {
 };
 
 void show_tree(bst_t * root) {
-  if (root == NULL) return;
-}
-
-void show_tree(bst_t * root, int is_left) {
 if (root == NULL) return;
- 
+bst_t * prev = get_parent(root);
 struct trunk this_disp = { prev, "    " };
 char *prev_str = this_disp.str;
 show_tree(root->kid[0], &this_disp, 1);
