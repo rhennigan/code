@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "lib/bst.h"
 
-#define ARRSIZ 15
+#define ARRSIZ 3
 
 int32_t intcmp(void * a, void * b) {
   int32_t x = *(int32_t*)a;
@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     bst_insert(bst, &arr[i], &intcmp);
   }
 
-  force_depth(bst);
+  size_t offset = force_depth(bst);
   bst_print(bst, &print_node);
   return 0;
 }
