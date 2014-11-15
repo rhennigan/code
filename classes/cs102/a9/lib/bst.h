@@ -16,6 +16,8 @@ typedef struct bst_s {
   size_t         depth;
 } bst_t;
 
+typedef int32_t (*cmp)(void * a, void * b);
+
 size_t  bst_depth(bst_t * bst);
 void    bst_dispose(bst_t * bst);
 void    bst_flatten(bst_t * bst, list_t ** list);
