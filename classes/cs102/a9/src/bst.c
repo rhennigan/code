@@ -177,7 +177,7 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
 void bst_print(bst_t * bst, pr_fun pf) {
   if (bst == NULL) return;
   bst_print(get_left(bst), pf);
-  (*pf)(get_data(bst));
+  (*pf)(bst);
   bst_print(get_right(bst), pf);
 }
 

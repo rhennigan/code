@@ -22,7 +22,7 @@ typedef struct bst_s {
 } bst_t;
 
 typedef int32_t (*cmp_fun)(void * a, void * b);
-typedef void (*pr_fun)(void * data);
+typedef void (*pr_fun)(bst_t * bst);
 
 size_t  bst_depth(bst_t * bst);
 void    bst_dispose(bst_t * bst);
