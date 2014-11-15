@@ -155,8 +155,9 @@ bst_t * bst_init() {
   return bst;
 }
 
-bst_t * bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
+void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = (*cmp)(data, get_data(bst));
+  if (diff == 0) return;
   if (diff < 0) {
     bst_t * next = get_left(bst);
   }
