@@ -205,7 +205,7 @@ void mat_print(matrix_t m, int indent) {
       printf("%s"_M_VT" ", lsp);  // left bracket
       // print all columns
       for (j = 0; j < m.cols; j++) {
-	printf(fmt, m.r[i].c[j]);
+        printf(fmt, m.r[i].c[j]);
       }
       printf(_M_VT"\n");  // right bracket
     }
