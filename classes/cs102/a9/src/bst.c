@@ -157,9 +157,13 @@ bst_t * bst_init() {
 
 void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = (*cmp)(data, get_data(bst));
-  if (diff == 0) return;
-  if (diff < 0) {
-    bst_t * next = get_left(bst);
+  if (diff == 0) {
+    return;
+  } else {
+    bst_t * next;
+    if (diff < 0) {
+      next = get_left(bst);
+    }
   }
 }
 
