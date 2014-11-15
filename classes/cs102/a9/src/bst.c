@@ -145,11 +145,11 @@ void    bst_flatten(bst_t * bst, list_t ** list);
 bst_t * bst_init() {
   bst_t * bst = malloc(sizeof(bst_t));
   check_null(bst, "bst_init: malloc");
-  bst->get_left   = NULL;
-  bst->get_parent = NULL;
-  bst->get_right  = NULL;
-  bst->get_data   = NULL;
-  bst->depth  = 0;
+  set_left(bst, NULL);
+  set_parent(bst, NULL);
+  set_right(bst, NULL);
+  set_data(bst, NULL);
+  set_depth(bst, 0);
   return bst;
 }
 
