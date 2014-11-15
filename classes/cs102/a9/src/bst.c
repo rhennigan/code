@@ -49,7 +49,10 @@ static size_t force_depth(bst_t * bst) {
   if (bst == NULL) {
     return 0;
   } else if (is_leaf(bst)) {
-    
+    return 1;
+  } else {
+    size_t ld = force_depth(left(bst));
+    size_t rd = force_depth(right(bst));
   }
 }
 
