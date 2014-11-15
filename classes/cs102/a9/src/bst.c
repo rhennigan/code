@@ -243,7 +243,7 @@ void show_trunks(struct trunk * p) {
 #define B_BL "\u2514"
 #define B_BR "\u2518"
 #define B_VT "\u2502"
-#define B_ND "\u2551"
+#define B_ND "\u256A"
 
 void show_tree(bst_t *root, struct trunk *prev) {
   if (root == NULL) return;
