@@ -243,7 +243,6 @@ void show_trunks(struct trunk * p) {
 #define B_BL "\u2514"
 #define B_BR "\u2518"
 #define B_VT "\u2502"
-#define B_ND "\u2588"
 
 void show_tree(bst_t *root, struct trunk *prev) {
   if (root == NULL) return;
@@ -262,7 +261,7 @@ void show_tree(bst_t *root, struct trunk *prev) {
   }
 
   show_trunks(&this_disp);
-  printf(B_HR""B_ND"\u258C (%lu, %d)\n", get_depth(root), *(int*)get_data(root));
+  printf(B_HR"\u2588\u258C (%lu, %d)\n", get_depth(root), *(int*)get_data(root));
 
   if (prev) prev->str = prev_str;
   this_disp.str = "   "B_VT;
