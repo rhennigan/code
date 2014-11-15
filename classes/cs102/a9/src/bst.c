@@ -41,6 +41,10 @@ static inline size_t depth(bst_t * bst) {
   return bst->depth;
 }
 
+/******************************************************************************/
+/* PUBLIC FUNCTIONS                                                           */
+/******************************************************************************/
+
 size_t bst_depth(bst_t * bst) {
   return depth(bst);
 }
