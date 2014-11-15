@@ -45,6 +45,10 @@ static inline size_t depth(bst_t * bst) {
 /* ADDITIONAL PRIVATE FUNCTIONS                                               */
 /******************************************************************************/
 
+static void force_depth(bst_t * bst) {
+  
+}
+
 static bst_t * rotate_right(bst_t * center) {
   bst_t *A, *B, *E;
   A = center;
