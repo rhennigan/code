@@ -157,6 +157,9 @@ bst_t * bst_init() {
 
 bst_t * bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = (*cmp)(data, get_data(bst));
+  if (diff < 0) {
+    
+  }
 }
 
 void bst_print(bst_t * bst, pr_fun pf) {
