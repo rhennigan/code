@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include "lib/bst.h"
 
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+
 int32_t intcmp(void * a, void * b) {
   int32_t x = *(int32_t*)a;
   int32_t y = *(int32_t*)b;
@@ -19,10 +22,10 @@ void print_node(bst_t * node) {
     return;
   }
   if (node->data != NULL) {
-    size_t shift = INDENTSZ * bst_depth(node) - 2;
+    size_t shift = MAX(0, INDENTSZ * bst_depth(node) - 2);
     for (size_t i = 0; i < shift; i++)  printf(" ");
     int32_t * data = node->data;
-    printf("%d\n", *data);
+    printf("--%d\n", *data);
   } else {
     printf("\n");
   }
