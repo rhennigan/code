@@ -244,11 +244,11 @@ void show_trunks(struct trunk * p) {
 #define B_BR "\u2518"
 #define B_VT "\u2502"
 
-void show_tree(bst_t *root, struct trunk *prev) {
+void show_tree(bst_t *root, struct trunk *prev, pr_fun pf) {
   if (root == NULL) return;
   struct trunk this_disp = { prev, "    " };
   char *prev_str = this_disp.str;
-  show_tree(get_left(root), &this_disp);
+  show_tree(get_left(root), &this_disp, pf);
 
   if (!prev) {
     this_disp.str = B_HR""B_HR;
@@ -266,6 +266,6 @@ void show_tree(bst_t *root, struct trunk *prev) {
   if (prev) prev->str = prev_str;
   this_disp.str = "   "B_VT;
 
-  show_tree(get_right(root), &this_disp);
+  show_tree(get_right(root), &this_disp, pf);
   if (!prev) puts("");
 }
