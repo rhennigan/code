@@ -28,6 +28,7 @@ int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   srand(time(NULL));
   for (int i = 0; i < argc - 1; i++) {
+    bst_print(bst, NULL, &pf);
     bst_insert(bst, argv[i], &cmp);
   }
 
@@ -37,8 +38,8 @@ int main(int argc, char *argv[]) {
   bst_print(bst, NULL, &pf);
 
   printf("BALANCING\n");
-  for (size_t i = 0; i < bst_height(bst); i++) {
-    printf("\n---------------------------------------------\n");
+  for (size_t i = 0; i < bst_height(bst)-1; i++) {
+    printf("---------------------------------------------\n\n");
     bst = bst_balance(bst);
     bst_print(bst, NULL, &pf);
   }
