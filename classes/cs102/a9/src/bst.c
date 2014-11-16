@@ -183,38 +183,20 @@ void bst_balance(bst_t * bst) {
   bst_balance(get_left(bst));
   bst_balance(get_right(bst));
   if (bal(bst) > 1) {
+    printf("\n---------------------------------------------\n");
+    printf("ROTATING:\n");
+    bst_print(bst, NULL, &pf);
     bst = rotate_left(bst);
+    printf("RESULTS:\n");
+    bst_print(bst, NULL, &pf);
   }
   if (bal(bst) < 1) {
-    bst = rotate_right(bst);
-  }
-  while (rlc - llc > 0) {
     printf("\n---------------------------------------------\n");
-    bst = rotate_left(bst);
-    bst_update_depth(bst);
-    llc = (int32_t)bst_node_count(get_left(bst));
-    rlc = (int32_t)bst_node_count(get_right(bst));
-    printf("after rotate_right\n");
-    printf("left = %d, right = %d\n", llc, rlc);
-    printf("rlc - llc = %d\n", rlc - llc);
-    printf("llc - rlc = %d\n", llc - rlc);
+    printf("ROTATING:\n");
     bst_print(bst, NULL, &pf);
-    fflush(NULL);
-    printf("\n\n\n");
-  }
-  while (llc - rlc > 0) {
-    printf("\n---------------------------------------------\n");
     bst = rotate_right(bst);
-    bst_update_depth(bst);
-    llc = (int32_t)bst_node_count(get_left(bst));
-    rlc = (int32_t)bst_node_count(get_right(bst));
-    printf("after rotate_right\n");
-    printf("left = %d, right = %d\n", llc, rlc);
-    printf("rlc - llc = %d\n", rlc - llc);
-    printf("llc - rlc = %d\n", llc - rlc);
+    printf("RESULTS:\n");
     bst_print(bst, NULL, &pf);
-    fflush(NULL);
-    printf("\n\n\n");
   }
 }
 
