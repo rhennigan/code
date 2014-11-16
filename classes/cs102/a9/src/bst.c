@@ -216,6 +216,7 @@ bst_t * bst_balance(bst_t * bst) {
   /* printf("bst_node_count(bst) = %lu\n", bst_node_count(bst)); */
   int b = bal(bst);
   if (bst_node_count(bst) == 3) {
+    printf("here\n");
     return balance3(bst);
   }
   if (has_left(bst)) set_left(bst, bst_balance(get_left(bst)));
