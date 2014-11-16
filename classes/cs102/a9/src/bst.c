@@ -194,7 +194,7 @@ bst_t * bst_balance(bst_t * bst) {
     printf("RESULTS:\n");
     bst_print(bst, NULL, &pf);
   }
-  if (bal(bst) < 0) {
+  if (bal(bst) < -1) {
     printf("\n---------------------------------------------\n");
     printf("balance = %d\n", bal(bst));
     printf("ROTATING:\n");
