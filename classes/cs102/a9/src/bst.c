@@ -343,6 +343,7 @@ static void aux_insert(void * addr) {
   bst_t * bst = args.bst;
   void * data = args.data;
   cmp_fun cmp = args.cmp;
+  bst_insert(bst, data, cmp);
 }
 
 void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {

@@ -29,6 +29,12 @@ typedef struct trunk_s {
   char *           str;
 } trunk_t;
 
+typedef struct ins_arg_s {
+  bst_t * bst;
+  void * data;
+  cmp_fun cmp;
+} ins_arg_t;
+
 bst_t *  bst_balance(bst_t * bst);
 void     bst_dispose(bst_t * bst);
 void     bst_dump(bst_t * bst, order_t order);
