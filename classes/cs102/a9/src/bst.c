@@ -125,12 +125,8 @@ void bst_update_depth(bst_t * bst) {
   } else {
     set_depth(bst, 0);
   }
-  if (has_left(bst)) {
-    bst_update_depth(get_left(bst));
-  }
-  if (has_right(bst)) {
-    bst_update_depth(get_right(bst));
-  }
+  if (has_left(bst)) bst_update_depth(get_left(bst));
+  if (has_right(bst)) bst_update_depth(get_right(bst));
 }
 
 size_t force_depth(bst_t * bst) {
