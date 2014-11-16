@@ -206,7 +206,7 @@ bst_t * bst_balance(bst_t * bst) {
     printf("balance = %d\n", bal(bst));
     bst_print(bst, NULL, &pf);
   }
-  return bst;
+  return bst_balance(bst);
 }
 
 size_t bst_leaf_count(bst_t * bst) {
