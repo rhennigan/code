@@ -145,7 +145,7 @@ void bst_update_depth(bst_t * bst) {
 /*   } */
 /* } */
 
-void rotate_left(bst_t ** bst) {
+bst_t * rotate_left(bst_t * bst) {
   bst_t * root = *bst;
   bst_t * pivot = get_right(root);
   set_right(root, get_left(pivot));
