@@ -181,7 +181,7 @@ void bst_balance(bst_t * bst) {
   printf("left = %d, right = %d\n", llc, rlc);
   printf("rlc - llc = %d\n", rlc - llc);
   printf("llc - rlc = %d\n", llc - rlc);
-  while (rlc - llc > 1) {
+  while (rlc - llc > 0) {
     printf("\n---------------------------------------------\n");
     bst = rotate_left(bst);
     bst_update_depth(bst);
