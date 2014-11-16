@@ -343,7 +343,7 @@ static void aux_insert(void * addr) {
 
 void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = cmp(get_data(bst), data);
-  if (diff == 0 && !is_leaf(bst)) {
+  if (diff == 0) {
     bst_t * p = get_parent(bst);
     bool left = is_left(bst);
     list_t * list = NULL;
@@ -359,8 +359,6 @@ void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
     set_parent(bst, p);
     bst_update_depth(bst);
     return;
-  } else if (diff == 0 && is_leaf(bst)) {
-    bst_dispose(bst);
   } else if (diff > 0 && has_left(bst)) {
       bst_remove(get_left(bst), data, cmp);
   } else if (diff < 0 && has_right(bst)) {
