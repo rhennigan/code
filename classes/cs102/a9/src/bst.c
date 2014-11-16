@@ -332,10 +332,6 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
 /*   bst_print(get_right(bst), pf); */
 /* } */
 
-static void aux_map(void * data) {
-
-}
-
 static void aux_insert(void * addr) {
   ins_arg_t args = *(ins_arg_t*)addr;
   bst_t * bst = args.bst;
