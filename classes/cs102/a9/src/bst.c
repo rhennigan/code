@@ -352,6 +352,7 @@ void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
       bst_insert(bst, list_head(list), cmp);
       list = list_tail(list);
     }
+    set_parent(bst, p);
     bst_update_depth(bst);
     return;
   } else if (diff > 0 && has_left(bst)) {
