@@ -359,6 +359,8 @@ void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
     set_parent(bst, p);
     bst_update_depth(bst);
     return;
+  } else if (diff == 0 && is_leaf(bst)) {
+    bst_dispose(bst);
   } else if (diff > 0 && has_left(bst)) {
       bst_remove(get_left(bst), data, cmp);
   } else if (diff < 0 && has_right(bst)) {
