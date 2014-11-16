@@ -174,14 +174,14 @@ void rotate_right(bst_t ** bst) {
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
 
-size_t bst_depth(bst_t * bst) {
+size_t bst_height(bst_t * bst) {
   if (bst == NULL) {
     return 0;
   } else if (is_leaf(bst)) {
     return 1;
   } else {
-    size_t ld = bst_depth(get_left(bst));
-    size_t rd = bst_depth(get_right(bst));
+    size_t ld = bst_height(get_left(bst));
+    size_t rd = bst_height(get_right(bst));
     size_t d = 1 + MAX(ld, rd);
     return d;
   }
