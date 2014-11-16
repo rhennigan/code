@@ -220,8 +220,7 @@ bst_t * bst_balance(bst_t * bst) {
   if (has_left(bst)) set_left(bst, bst_balance(get_left(bst)));
   if (has_right(bst)) set_right(bst, bst_balance(get_right(bst)));
   int b = bal(bst);
-  printf("bal(bst) = %d -> ", b);
-  while (bal(bst) > 1) {
+  if (bal(bst) > 1) {
     /* printf("\n---------------------------------------------\n"); */
     /* printf("balance = %d\n", bal(bst)); */
     /* printf("ROTATING LEFT:\n"); */
@@ -232,7 +231,7 @@ bst_t * bst_balance(bst_t * bst) {
     /* printf("balance = %d\n", bal(bst)); */
     /* bst_print(bst, NULL, &pf); */
   }
-  while (bal(bst) < -1) {
+  if (bal(bst) < -1) {
     /* printf("\n---------------------------------------------\n"); */
     /* printf("balance = %d\n", bal(bst)); */
     /* printf("ROTATING RIGHT:\n"); */
@@ -243,7 +242,7 @@ bst_t * bst_balance(bst_t * bst) {
     /* printf("balance = %d\n", bal(bst)); */
     /* bst_print(bst, NULL, &pf); */
   }
-  printf("%d\n", bal(bst));
+  printf("bal(bst) = %d -> %d\n", b, bal(bst));
   return bst;
 }
 
