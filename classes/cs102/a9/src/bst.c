@@ -140,22 +140,22 @@ size_t force_depth(bst_t * bst) {
 }
 
 static void rotate_left(bst_t ** bst) {
-  bst_t * root = *bst;
-  set_depth(root, get_depth(root) - 1);
-  bst_t * pivot = get_right(root);
+  bst_t * bst = *bst;
+  set_depth(bst, get_depth(bst) - 1);
+  bst_t * pivot = get_right(bst);
   set_depth(pivot, get_depth(pivot) + 1);
-  set_right(root, get_left(pivot));
-  set_left(pivot, root);
+  set_right(bst, get_left(pivot));
+  set_left(pivot, bst);
   *bst = pivot;
 }
 
 static void rotate_right(bst_t ** bst) {
-  bst_t * root = *bst;
-  set_depth(root, get_depth(root) - 1);
-  bst_t * pivot = get_left(root);
+  bst_t * bst = *bst;
+  set_depth(bst, get_depth(bst) - 1);
+  bst_t * pivot = get_left(bst);
   set_depth(pivot, get_depth(pivot) + 1);
-  set_left(root, get_right(pivot));
-  set_right(pivot, root);
+  set_left(bst, get_right(pivot));
+  set_right(pivot, bst);
   *bst = pivot;
 }
 
@@ -244,15 +244,15 @@ static inline void show_trunks(struct trunk * p) {
 #define B_BR "\u2518"
 #define B_VT "\u2502"
 
-void bst_print(bst_t *root, struct trunk *prev, pr_fun pf) {
-  if (root == NULL) return;
+void bst_print(bst_t * bst, struct trunk *prev, pr_fun pf) {
+  if (bst == NULL) return;
   struct trunk this_disp = { prev, "    " };
   char *prev_str = this_disp.str;
-  bst_print(get_left(root), &this_disp, pf);
+  bst_print(get_left(bst), &this_disp, pf);
 
   if (!prev) {
     this_disp.str = B_HR""B_HR;
-  } else if (is_left(root)) {
+  } else if (is_left(bst)) {
     this_disp.str = "\b"B_TL""B_HR""B_HR;
     prev_str = "   "B_VT;
   } else {
@@ -261,11 +261,13 @@ void bst_print(bst_t *root, struct trunk *prev, pr_fun pf) {
   }
 
   show_trunks(&this_disp);
-  printf(B_HR"\u2588%d\n", *(int*)get_data(root));
+  printf(B_HR"\u2588");
+  (*pf)(bst);
+  printf("\n");
 
   if (prev) prev->str = prev_str;
   this_disp.str = "   "B_VT;
 
-  bst_print(get_right(root), &this_disp, pf);
+  bst_print(get_right(bst), &this_disp, pf);
   if (!prev) puts("");
 }

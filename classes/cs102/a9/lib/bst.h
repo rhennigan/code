@@ -24,10 +24,10 @@ typedef struct bst_s {
 typedef int32_t (*cmp_fun)(void * a, void * b);
 typedef void (*pr_fun)(bst_t * bst);
 
-struct trunk {
+typedef struct trunk_s {
   struct trunk * prev;
-  char * str;
-};
+  char *         str;
+} trunk_t;
 
 size_t  bst_depth(bst_t * bst);
 void    bst_dispose(bst_t * bst);
