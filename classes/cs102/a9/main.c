@@ -20,10 +20,8 @@ void pf(bst_t * bst) {
   printf(" %s", (char*)bst->data);
 }
 
-char * tostring(void * s) {
-  char * str = malloc(BUFSIZ);
-  snprintf(str, BUFSIZ, "%s", (char*)s);
-  return str;
+void ps(void * s) {
+  printf("%s\n", (char*)s);
 }
 
 int main(int argc, char *argv[]) {
