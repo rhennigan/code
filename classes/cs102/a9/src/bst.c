@@ -226,6 +226,7 @@ bst_t * bst_balance(bst_t * bst) {
     /* printf("ROTATING LEFT:\n"); */
     /* bst_print(bst, NULL, &pf); */
     bst = rotate_left(bst);
+    bst = bst_balance(bst);
     /* printf("RESULTS:\n"); */
     /* printf("balance = %d\n", bal(bst)); */
     /* bst_print(bst, NULL, &pf); */
@@ -236,6 +237,7 @@ bst_t * bst_balance(bst_t * bst) {
     /* printf("ROTATING RIGHT:\n"); */
     /* bst_print(bst, NULL, &pf); */
     bst = rotate_right(bst);
+    bst = bst_balance(bst);
     /* printf("RESULTS:\n"); */
     /* printf("balance = %d\n", bal(bst)); */
     /* bst_print(bst, NULL, &pf); */
