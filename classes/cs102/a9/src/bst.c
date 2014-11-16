@@ -344,12 +344,14 @@ void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = cmp(get_data(bst), data);
   if (diff == 0) {
     bst_t * p = get_parent(bst);
-    list_t * data = NULL;
-    bst_flatten(bst, &data, PRE_ORDER);
+    list_t * list = NULL;
+    bst_flatten(bst, &list, PRE_ORDER);
     bst_dispose(bst);
     bst = bst_init();
-    ins_arg_t args = { bst, data, cmp };
-    
+    while (list != NULL) {
+      bst_insert(bst, list_head(list), cmp);
+      list = list_tail(list);
+    }
     bst_update_depth(bst);
     return;
   } else if (diff > 0 && has_left(bst)) {
