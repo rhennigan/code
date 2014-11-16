@@ -334,9 +334,9 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
 /*   bst_print(get_right(bst), pf); */
 /* } */
 
-void    bst_remove(bst_t * bst, void * get_data, cmp_fun cmp);
+void bst_remove(bst_t * bst, void * get_data, cmp_fun cmp);
 
-void *  bst_search(bst_t * bst, void * get_data, void * result, cmp_fun cmp);
+void * bst_search(bst_t * bst, void * get_data, void * result, cmp_fun cmp);
 
 static inline void show_trunks(trunk_t * p) {
   if (!p) return;
