@@ -36,8 +36,9 @@ int main(int argc, char *argv[]) {
 
   bst_update_depth(bst);
 
+  printf("---------------------------------------------\n");
   printf("TREE COMPLETE\n");
-  printf("\n---------------------------------------------\n");
+  printf("---------------------------------------------\n");
   bst_print(bst, NULL, &pf);
 
   printf("BALANCING\n");
