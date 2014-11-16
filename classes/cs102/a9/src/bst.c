@@ -176,12 +176,13 @@ void rotate_right(bst_t ** bst) {
 
 void bst_balance(bst_t * bst) {
   if (bst == NULL) return;
-  rotate_left(&bst);
   int32_t lh = (int32_t)bst_height(get_left(bst));
   int32_t rh = (int32_t)bst_height(get_right(bst));
   printf("left = %d, right = %d\n", lh, rh);
   printf("rh - lh = %d\n", rh - lh);
   printf("lh - rh = %d\n", lh - rh);
+  rotate_right(&bst);
+  
   /* while (rh - lh > 1) rotate_left(&bst); */
   /* while (lh - rh > 0) rotate_right(&bst); */
 }
