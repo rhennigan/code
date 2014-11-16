@@ -52,5 +52,9 @@ int main(int argc, char *argv[]) {
   list_t * flat = NULL;
   bst_flatten(bst, &flat, IN_ORDER);
   list_iter(list_reverse(flat), &ps);
+
+  char * h = "hello";
+  bool found_hello = bst_search(bst, h, cmp);
+  printf("found hello: %s\n", found_hello ? "true" : "false");
   return 0;
 }
