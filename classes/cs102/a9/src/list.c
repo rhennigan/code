@@ -81,10 +81,10 @@ size_t list_length(list_t * list) {
 }
 
 list_t * list_map(list_t * list, void * (*f)(void * x)) {
-  list_t * tmp = list;
-  while (tmp != NULL) {
-    (*f)(tmp->head);
-    tmp = list_tail(tmp);
+  list_t * new_list = NULL;
+  while (list != NULL) {
+    new_list = list_cons(new_list, (*f)(list->head));
+    list = list_tail(list);
   }
 }
 
