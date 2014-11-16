@@ -186,7 +186,7 @@ static inline int32_t bal(bst_t * bst) {
 void pf(bst_t * bst) {
   if (bst == NULL || bst->data == NULL) return;
   /* printf(" %d", *(int32_t*)bst->data); */
-  printf(" %lu", bst_node_count(bst));
+  printf(" %d (%lu)", bst_node_count(bst), *(int32_t*)bst->data);
 }
 
 static bst_t * balance3(bst_t * bst) {
