@@ -178,10 +178,10 @@ void pf(bst_t * bst) {
   printf(" %d", *(int32_t*)bst->data);
 }
 
-void bst_balance(bst_t * bst) {
-  if (bst == NULL) return;
-  bst_balance(get_left(bst));
-  bst_balance(get_right(bst));
+bst_t * bst_balance(bst_t * bst) {
+  if (bst == NULL) return bst;
+  bst = bst_balance(get_left(bst));
+  bst = bst_balance(get_right(bst));
   if (bal(bst) > 1) {
     printf("\n---------------------------------------------\n");
     printf("ROTATING:\n");
@@ -198,6 +198,7 @@ void bst_balance(bst_t * bst) {
     printf("RESULTS:\n");
     bst_print(bst, NULL, &pf);
   }
+  return bst;
 }
 
 size_t bst_leaf_count(bst_t * bst) {
