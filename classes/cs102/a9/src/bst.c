@@ -338,16 +338,12 @@ bool bst_search(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = cmp(get_data(bst), data);
   if (diff == 0) {
     return true;
-  } else if (diff < 0) {
-    if (has_left(bst))
+  } else if (diff < 0 && has_left(bst)) {
       return bst_search(get_left(bst), data, cmp);
-    else
-      return false;
-  } else if (diff > 0) {
-    if (has_right(bst))
+  } else if (diff > 0 && has_right(bst)) {
       return bst_search(get_right(bst), data, cmp);
-    else
-      return false;
+  } else {
+    return false;
   }
 }
 
