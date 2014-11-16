@@ -20,6 +20,11 @@ void pf(bst_t * bst) {
   printf(" %s", (char*)bst->data);
 }
 
+char * tostring(void * s) {
+  char * str = malloc(BUFSIZ);
+  
+}
+
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   srand(time(NULL));
