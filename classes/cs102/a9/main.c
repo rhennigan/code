@@ -2,6 +2,7 @@
 // Copyright (C) 2014 Richard Hennigan
 
 #include <stdlib.h>
+#include <time.h>
 #include "lib/bst.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
@@ -21,6 +22,7 @@ void pf(bst_t * bst); /* { */
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   size_t ARRSIZ = atoi(argv[1]);
+  srand(atoi(argv[2]);
   int64_t arr[ARRSIZ];
   for (size_t i = 0; i < ARRSIZ; i++) {
     arr[i] = rand() % 100 + 10;
