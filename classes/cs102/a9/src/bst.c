@@ -179,7 +179,7 @@ void pf(bst_t * bst) {
 }
 
 bst_t * bst_balance(bst_t * bst) {
-  if (bst == NULL) return bst;
+  if (bst == NULL || is_leaf(bst)) return bst;
   if (get_left(bst) != NULL)
     bst = bst_balance(get_left(bst));
   if (get_right(bst) != NULL)
