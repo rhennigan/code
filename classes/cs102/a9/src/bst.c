@@ -214,6 +214,8 @@ size_t bst_leaf_count(bst_t * bst) {
     return 0;
   } else if (is_leaf(bst)) {
     return 1;
+  } else {
+    return bst_leaf_count(get_left(bst)) + bst_leaf_count(get_right(bst));
   }
 }
 
