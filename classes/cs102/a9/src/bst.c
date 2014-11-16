@@ -226,11 +226,13 @@ bst_t * bst_balance(bst_t * bst) {
   if (has_right(bst) && ABS(bal(get_right(bst)))) {
     set_right(bst, bst_balance(get_right(bst)));
   }
-  while (bal(bst) / (int)bst_height(bst) > 0) {
+  if (bal(bst) / (int)bst_height(bst) > 0) {
     bst = rotate_left(bst);
+    bst = bst_balance(bst);
   }
-  while ((-bal(bst)) / ((int)bst_height(bst)) > 0) {
+  if ((-bal(bst)) / ((int)bst_height(bst)) > 0) {
     bst = rotate_right(bst);
+    bst = bst_balance(bst);
   }
   return bst;
 }
