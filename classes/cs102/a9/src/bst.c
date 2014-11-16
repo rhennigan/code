@@ -164,12 +164,10 @@ bst_t * rotate_left(bst_t * bst) {
   return pivot;
 }
 
-static void inc_p_path(bst_t * bst, void (*f)(bst_t * bst)) {
-  size_t d;
+static void inc_p_path(bst_t * bst) {
   while (has_parent(bst)) {
-    d = get_depth(bst);
     bst = get_parent(bst);
-    if (d == get_depth(bst)) set_depth(bst, get_depth(bst) + 1);
+    bst = bst_balance(bst);
   }
 }
 
