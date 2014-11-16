@@ -42,6 +42,6 @@ void    bst_remove(bst_t * bst, void * data, cmp_fun cmp);
 void *  bst_search(bst_t * bst, void * data, void * result, cmp_fun cmp);
 void    bst_update_depth(bst_t * bst);
 
-void rotate_left(bst_t ** bst);
-void rotate_right(bst_t ** bst);
+bst_t * rotate_left(bst_t * bst);
+bst_t * rotate_right(bst_t * bst);
 #endif  // LIB_BINTREE_H_
