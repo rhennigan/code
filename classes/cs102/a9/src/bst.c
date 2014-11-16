@@ -181,22 +181,22 @@ void pf(bst_t * bst) {
 
 
 
-void bst_balance(bst_t ** bst) {
-  if (*bst == NULL) return;
-  int32_t lh = (int32_t)bst_height(get_left(*bst));
-  int32_t rh = (int32_t)bst_height(get_right(*bst));
+void bst_balance(bst_t * bst) {
+  if (bst == NULL) return;
+  int32_t lh = (int32_t)bst_height(get_left(bst));
+  int32_t rh = (int32_t)bst_height(get_right(bst));
   printf("left = %d, right = %d\n", lh, rh);
   printf("rh - lh = %d\n", rh - lh);
   printf("lh - rh = %d\n", lh - rh);
   while (lh - rh > 0) {
-    rotate_right(bst);
-    lh = (int32_t)bst_height(get_left(*bst));
-    rh = (int32_t)bst_height(get_right(*bst));
+    bst = rotate_right(bst);
+    lh = (int32_t)bst_height(get_left(bst));
+    rh = (int32_t)bst_height(get_right(bst));
     printf("after rotate_right\n");
     printf("left = %d, right = %d\n", lh, rh);
     printf("rh - lh = %d\n", rh - lh);
     printf("lh - rh = %d\n", lh - rh);
-    bst_print(*bst, NULL, &pf);
+    bst_print(bst, NULL, &pf);
     fflush(NULL);
     printf("\n\n\n");
   }
