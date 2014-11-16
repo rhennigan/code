@@ -335,6 +335,13 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
 void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = cmp(get_data(bst), data);
   if (diff == 0) {
+    
+    return;
+  } else if (diff > 0 && has_left(bst)) {
+      bst_remove(get_left(bst), data, cmp);
+  } else if (diff < 0 && has_right(bst)) {
+      bst_remove(get_right(bst), data, cmp);
+  } else {
     return;
   }
 }
