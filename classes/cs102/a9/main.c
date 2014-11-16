@@ -37,7 +37,9 @@ int main(int argc, char *argv[]) {
   bst_print(bst, NULL, &pf);
 
   printf("\n---------------------------------------------\n");
-  bst_balance(bst);
+  bst = bst_balance(bst);
+  printf("\n---------------------------------------------\n");
+  bst_print(bst, NULL, &pf);
 
   return 0;
 }
