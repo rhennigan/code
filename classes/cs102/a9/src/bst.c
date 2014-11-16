@@ -211,6 +211,9 @@ static bst_t * balance3(bst_t * bst, cmp_fun cmp) {
 bst_t * bst_balance(bst_t * bst) {
   printf("balancing %p\n", bst);
   if (bst == NULL || is_leaf(bst)) return bst;
+  if (bst_leaf_count(bst) == 3) {
+    bst = balance3(bst, cmp);
+  }
   if (has_left(bst) && ABS(bal(get_left(bst))) > 1)
     set_left(bst, bst_balance(get_left(bst)));
   if (has_right(bst) && ABS(bal(get_right(bst))) > 1)
