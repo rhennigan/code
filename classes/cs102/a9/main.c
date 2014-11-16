@@ -80,7 +80,9 @@ int main(int argc, char *argv[]) {
 
   printf("\n\n---------------------------------------------\n");
   printf("TESTING REMOVAL\n");
-  printf("---------------------------------------------\n");
+  printf("---------------------------------------------\n\n");
+  bst_print(bst, NULL, &pf);
+  printf("\n\n");
 
   char * remove1 = "these";
   printf("  Removing \"%s\"... \n\n", remove1);
