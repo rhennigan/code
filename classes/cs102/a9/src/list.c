@@ -86,6 +86,7 @@ list_t * list_map(list_t * list, void * (*f)(void * x)) {
     new_list = list_cons(new_list, (*f)(list->head));
     list = list_tail(list);
   }
+  return new_list;
 }
 
 list_t * list_reverse(list_t * list) {
