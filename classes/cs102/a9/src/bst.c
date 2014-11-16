@@ -189,6 +189,7 @@ void pf(bst_t * bst) {
 }
 
 static bst_t * balance3(bst_t * bst, cmp_fun cmp) {
+  bst_t * p = get_parent(bst);
   list_t * data = NULL;
   bst_flatten(bst, &data, PRE_ORDER);
   bst_dispose(bst);
@@ -205,6 +206,9 @@ static bst_t * balance3(bst_t * bst, cmp_fun cmp) {
   set_data(get_left(bst), a);
   set_data(bst, b);
   set_data(get_right(bst), c);
+  set_parent(get_left(bst), bst);
+  set_parent(bst, p);
+  set_parent(get_right(bst), bst);
   return bst;
 }
 
