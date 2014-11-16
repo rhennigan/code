@@ -174,6 +174,11 @@ void rotate_right(bst_t ** bst) {
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
 
+void bst_balance(bst_t * bst) {
+  if (bst == NULL) return;
+  
+}
+
 size_t bst_height(bst_t * bst) {
   if (bst == NULL) {
     return 0;
