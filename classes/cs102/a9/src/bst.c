@@ -6,6 +6,7 @@
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define MIN3(a, b, c) MIN(a, MIN(b, c))
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MAX3(a, b, c) MAX(a, MAX(b, c))
 #define ABS(a) ((a) < 0 ? -(a) : (a))
 
 /******************************************************************************/
