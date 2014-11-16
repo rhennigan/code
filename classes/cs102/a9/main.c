@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
   bst_print(bst, NULL, &pf);
 
   printf("BALANCING\n");
-  for (int i = 0; i < 4; i++) {
+  for (size_t i = 0; i < bst_height(bst); i++) {
     printf("\n---------------------------------------------\n");
     bst = bst_balance(bst);
     bst_print(bst, NULL, &pf);
