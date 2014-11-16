@@ -27,7 +27,7 @@ void ps(void * s) {
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   srand(time(NULL));
-  for (int i = 0; i < argc - 1; i++) {
+  for (int i = 0; i < argc; i++) {
     printf("Inserting \"%s\"...\n", argv[i]);
     bst_insert(bst, argv[i], &cmp);
     bst_print(bst, NULL, &pf);
@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
   list_iter(list_reverse(flat), &ps);
 
   for (int32_t i = 0; i < argc; i++) {
-    printf("Searching for \"%s\"... ", argv[i]);
+    printf("Searching for \"%s\"... \t", argv[i]);
     bool found = bst_search(bst, argv[i], cmp);
     printf("%s\n", found ? "FOUND" : "NOT FOUND");
   }

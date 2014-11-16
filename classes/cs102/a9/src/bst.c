@@ -336,7 +336,7 @@ void bst_remove(bst_t * bst, void * data, cmp_fun cmp);
 
 bool bst_search(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = cmp(get_data(bst), data);
-  printf("(%s, %s), diff = %d\n", (char*)data, (char*)get_data(bst), diff);
+  /* printf("(%s, %s), diff = %d\n", (char*)data, (char*)get_data(bst), diff); */
   if (diff == 0) {
     return true;
   } else if (diff > 0 && has_left(bst)) {
