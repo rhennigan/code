@@ -180,8 +180,10 @@ void pf(bst_t * bst) {
 
 bst_t * bst_balance(bst_t * bst) {
   if (bst == NULL) return bst;
-  bst = bst_balance(get_left(bst));
-  bst = bst_balance(get_right(bst));
+  if (get_left(bst) != NULL)
+    bst = bst_balance(get_left(bst));
+  if (get_right(bst) != NULL)
+    bst = bst_balance(get_right(bst));
   if (bal(bst) > 1) {
     printf("\n---------------------------------------------\n");
     printf("ROTATING:\n");
