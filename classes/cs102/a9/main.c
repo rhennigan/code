@@ -28,12 +28,16 @@ int main(int argc, char *argv[]) {
   }
 
   bst_update_depth(bst);
-  printf("---------------------------------------------\n");
+  printf("\n---------------------------------------------\n");
   for (size_t i = 0; i < ARRSIZ; i++) {
     printf("%lu ", arr[i]);
   }
 
-  printf("\n");
+  printf("\n---------------------------------------------\n");
+  bst_print(bst, NULL, &pf);
+
+  printf("\n---------------------------------------------\n");
+  rotate_right(&bst);
   bst_print(bst, NULL, &pf);
 
   return 0;
