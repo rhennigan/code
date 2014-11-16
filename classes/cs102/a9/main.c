@@ -9,12 +9,6 @@
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
-/* int32_t intcmp(void * a, void * b) { */
-/*   int32_t x = *(int32_t*)a; */
-/*   int32_t y = *(int32_t*)b; */
-/*   return x - y; */
-/* } */
-
 int32_t cmp(void * a, void * b) {
   char * x = (char*)a;
   char * y = (char*)b;
