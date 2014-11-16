@@ -174,6 +174,13 @@ void rotate_right(bst_t ** bst) {
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
 
+void pf(bst_t * bst) {
+  if (bst == NULL || bst->data == NULL) return;
+  printf("(%lu, %d)", bst_height(bst), *(int32_t*)bst->data);
+}
+
+
+
 void bst_balance(bst_t * bst) {
   if (bst == NULL) return;
   int32_t lh = (int32_t)bst_height(get_left(bst));
@@ -189,6 +196,7 @@ void bst_balance(bst_t * bst) {
     printf("left = %d, right = %d\n", lh, rh);
     printf("rh - lh = %d\n", rh - lh);
     printf("lh - rh = %d\n", lh - rh);
+    bst_print(bst, NULL, &pf);
   }
 }
 
