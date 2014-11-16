@@ -188,7 +188,7 @@ void bst_balance(bst_t * bst) {
   printf("left = %d, right = %d\n", lh, rh);
   printf("rh - lh = %d\n", rh - lh);
   printf("lh - rh = %d\n", lh - rh);
-  while (lh - rh > 2) {
+  while (lh - rh > 0) {
     rotate_right(&bst);
     lh = (int32_t)bst_height(get_left(bst));
     rh = (int32_t)bst_height(get_right(bst));

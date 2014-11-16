@@ -13,10 +13,10 @@ int32_t intcmp(void * a, void * b) {
   return x - y;
 }
 
-void pf(bst_t * bst) {
-  if (bst == NULL || bst->data == NULL) return;
-  printf("(%lu, %d)", bst_height(bst), *(int32_t*)bst->data);
-}
+void pf(bst_t * bst); /* { */
+/*   if (bst == NULL || bst->data == NULL) return; */
+/*   printf("(%lu, %d)", bst_height(bst), *(int32_t*)bst->data); */
+/* } */
 
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
