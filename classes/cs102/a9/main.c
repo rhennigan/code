@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
     bst_print(bst, NULL, &pf);
   }
 
-  printf("---------------------------------------------\n");
+  printf("\n\n---------------------------------------------\n");
   printf("TREE BALANCED, DISPLAYING IN-ORDER ITEMS\n");
   printf("---------------------------------------------\n");
 
@@ -53,19 +53,23 @@ int main(int argc, char *argv[]) {
   bst_flatten(bst, &flat, IN_ORDER);
   list_iter(list_reverse(flat), &ps);
 
+  printf("\n\n---------------------------------------------\n");
+  printf("TESTING SEARCH\n");
+  printf("---------------------------------------------\n");
+
   for (int32_t i = 0; i < argc; i++) {
-    printf("Searching for \"%s\"... ", argv[i]);
+    printf("  Searching for \"%s\"... ", argv[i]);
     bool found = bst_search(bst, argv[i], cmp);
     printf("%s\n", found ? "FOUND" : "NOT FOUND");
   }
 
   char * missing1 = "not present";
-  printf("Searching for \"%s\"... ", missing1);
+  printf("  Searching for \"%s\"... ", missing1);
   bool found1 = bst_search(bst, missing1, cmp);
   printf("%s\n", found1 ? "FOUND" : "NOT FOUND");
 
   char * missing2 = "missing";
-  printf("Searching for \"%s\"... ", missing2);
+  printf("  Searching for \"%s\"... ", missing2);
   bool found2 = bst_search(bst, missing2, cmp);
   printf("%s\n", found2 ? "FOUND" : "NOT FOUND");
 
