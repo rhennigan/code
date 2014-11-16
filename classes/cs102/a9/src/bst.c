@@ -332,6 +332,16 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
 /*   bst_print(get_right(bst), pf); */
 /* } */
 
+typedef struct ins_arg_s {
+  bst_t * bst;
+  void * data;
+  cmp_fun cmp;
+} ins_arg_t;
+
+static void aux_insert(void * args) {
+  
+}
+
 void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = cmp(get_data(bst), data);
   if (diff == 0) {
