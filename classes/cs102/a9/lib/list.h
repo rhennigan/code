@@ -20,6 +20,7 @@ void *   list_head(list_t * list);
 list_t * list_init();
 void     list_iter(list_t * list, void (*f)(void * head));
 size_t   list_length(list_t * list);
+list_t * list_map(list_t * list, void * (*f)(void * x));
 list_t * list_reverse(list_t * list);
 list_t * list_tail(list_t * list);
 
