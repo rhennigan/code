@@ -29,18 +29,11 @@ void pf(bst_t * bst) {
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   srand(time(NULL));
-  int64_t arr[ARRSIZ];
-  for (size_t i = 0; i < ARRSIZ; i++) {
-    arr[i] = rand() % 100 + 10;
-    bst_insert(bst, &arr[i], &cmp);
-    printf("\n");
+  for (int i = 0; i < argc - 1; i++) {
+    bst_insert(bst, &argv[i], &cmp);
   }
 
   bst_update_depth(bst);
-  printf("\n---------------------------------------------\n");
-  for (size_t i = 0; i < ARRSIZ; i++) {
-    printf("%lu ", arr[i]);
-  }
 
   printf("\n---------------------------------------------\n");
   bst_print(bst, NULL, &pf);
