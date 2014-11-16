@@ -174,13 +174,14 @@ void pf(bst_t * bst) {
 
 void bst_balance(bst_t * bst) {
   if (bst == NULL) return;
+  bst_balance(get_left(bst));
+  bst_balance(get_right(bst));
   int32_t llc = (int32_t)bst_node_count(get_left(bst));
   int32_t rlc = (int32_t)bst_node_count(get_right(bst));
   printf("left = %d, right = %d\n", llc, rlc);
   printf("rlc - llc = %d\n", rlc - llc);
   printf("llc - rlc = %d\n", llc - rlc);
   while (rlc - llc > 1) {
-    bst_balance(get_left(bst));
     printf("\n---------------------------------------------\n");
     bst = rotate_left(bst);
     bst_update_depth(bst);
