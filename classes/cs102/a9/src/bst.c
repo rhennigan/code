@@ -342,6 +342,7 @@ static void aux_insert(void * addr) {
 
 void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = cmp(get_data(bst), data);
+  printf("cmp(%s, %s) = %d\n", (char*)get_data(bst), (char*)data, diff);
   if (diff == 0) {
     bst_t * p = get_parent(bst);
     bool left = is_left(bst);
