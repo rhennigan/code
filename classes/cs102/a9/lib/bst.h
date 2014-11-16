@@ -45,4 +45,5 @@ void     bst_update_depth(bst_t * bst);
 
 bst_t * rotate_left(bst_t * bst);
 bst_t * rotate_right(bst_t * bst);
+
 #endif  // LIB_BINTREE_H_

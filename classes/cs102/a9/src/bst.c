@@ -188,7 +188,7 @@ void pf(bst_t * bst) {
   printf(" %d", *(int32_t*)bst->data);
 }
 
-static bst_t * balance3(bst_t * bst, cmp_fun cmp) {
+static bst_t * balance3(bst_t * bst) {
   bst_t * p = get_parent(bst);
   list_t * data = NULL;
   bst_flatten(bst, &data, IN_ORDER);
@@ -209,17 +209,17 @@ static bst_t * balance3(bst_t * bst, cmp_fun cmp) {
   return bst;
 }
 
-bst_t * bst_balance(bst_t * bst, cmp_fun cmp) {
+bst_t * bst_balance(bst_t * bst) {
   printf("balancing %p\n", bst);
   if (bst == NULL || is_leaf(bst)) return bst;
   printf("bst_node_count(bst) = %lu\n", bst_leaf_count(bst));
   if (bst_node_count(bst) == 3) {
-    bst = balance3(bst, cmp);
+    bst = balance3(bst);
   }
   if (has_left(bst) && ABS(bal(get_left(bst))) > 1)
-    set_left(bst, bst_balance(get_left(bst), cmp));
+    set_left(bst, bst_balance(get_left(bst)));
   if (has_right(bst) && ABS(bal(get_right(bst))) > 1)
-    set_right(bst, bst_balance(get_right(bst), cmp));
+    set_right(bst, bst_balance(get_right(bst)));
   while (bal(bst) > 1) {
     printf("\n---------------------------------------------\n");
     printf("balance = %d\n", bal(bst));
