@@ -186,7 +186,7 @@ static inline int32_t bal(bst_t * bst) {
 void pf(bst_t * bst) {
   if (bst == NULL || bst->data == NULL) return;
   /* printf(" %d", *(int32_t*)bst->data); */
-  printf(" %lu", bst_height(bst));
+  printf(" %lu", bst_node_count(bst));
 }
 
 static bst_t * balance3(bst_t * bst) {
@@ -232,7 +232,7 @@ bst_t * bst_balance(bst_t * bst) {
     /* printf("ROTATING LEFT:\n"); */
     /* bst_print(bst, NULL, &pf); */
     bst = rotate_left(bst);
-    bst = bst_balance(bst);
+    /* bst = bst_balance(bst); */
     /* printf("RESULTS:\n"); */
     /* printf("balance = %d\n", bal(bst)); */
     /* bst_print(bst, NULL, &pf); */
@@ -243,7 +243,7 @@ bst_t * bst_balance(bst_t * bst) {
     /* printf("ROTATING RIGHT:\n"); */
     /* bst_print(bst, NULL, &pf); */
     bst = rotate_right(bst);
-    bst = bst_balance(bst);
+    /* bst = bst_balance(bst); */
     /* printf("RESULTS:\n"); */
     /* printf("balance = %d\n", bal(bst)); */
     /* bst_print(bst, NULL, &pf); */
