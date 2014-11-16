@@ -174,8 +174,8 @@ bst_t * rotate_left(bst_t * bst) {
 /* } */
 
 static inline int32_t bal(bst_t * bst) {
-  int32_t llc = (int32_t)bst_height(get_left(bst));
-  int32_t rlc = (int32_t)bst_height(get_right(bst));
+  int32_t llc = (int32_t)bst_node_count(get_left(bst));
+  int32_t rlc = (int32_t)bst_node_count(get_right(bst));
   return rlc - llc;
 }
 
@@ -225,7 +225,7 @@ bst_t * bst_balance(bst_t * bst) {
     printf("here\n");
     set_right(bst, bst_balance(get_right(bst)));
   }
-  while (bal(bst) > 1) {
+  while (bal(bst) > 2) {
     /* printf("\n---------------------------------------------\n"); */
     /* printf("balance = %d\n", bal(bst)); */
     /* printf("ROTATING LEFT:\n"); */
