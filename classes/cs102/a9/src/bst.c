@@ -6,6 +6,17 @@
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
 /******************************************************************************/
+/* UNICODE CHARACTERS FOR TREE DRAWING                                        */
+/******************************************************************************/
+
+#define B_HR "\u2500"
+#define B_TL "\u250C"
+#define B_TR "\u2510"
+#define B_BL "\u2514"
+#define B_BR "\u2518"
+#define B_VT "\u2502"
+
+/******************************************************************************/
 /* PROTECTED MEMBER ACCESS FUNCTIONS                                          */
 /******************************************************************************/
 
@@ -236,13 +247,6 @@ static inline void show_trunks(trunk_t * p) {
   show_trunks(p->prev);
   printf("%s", p->str);
 }
-
-#define B_HR "\u2500"
-#define B_TL "\u250C"
-#define B_TR "\u2510"
-#define B_BL "\u2514"
-#define B_BR "\u2518"
-#define B_VT "\u2502"
 
 void bst_print(bst_t * bst, trunk_t * prev, pr_fun pf) {
   if (bst == NULL) return;
