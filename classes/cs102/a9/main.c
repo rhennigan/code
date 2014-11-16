@@ -39,5 +39,8 @@ int main(int argc, char *argv[]) {
     printf("\n---------------------------------------------\n");
     bst_print(bst, NULL, &pf);
   }
+
+  list_t * flat = NULL;
+  bst_flatten(bst, &flat, IN_ORDER);
   return 0;
 }
