@@ -244,7 +244,11 @@ void bst_dispose(bst_t * bst);
 
 void bst_dump(bst_t * bst, order_t order);
 
-void bst_flatten(bst_t * bst, list_t ** list, order_t order);
+void bst_flatten(bst_t * bst, list_t ** list, order_t order) {
+  switch (order) {
+    case PRE_ORDER:
+  }
+}
 
 bst_t * bst_init() {
   bst_t * bst = malloc(sizeof(bst_t));
