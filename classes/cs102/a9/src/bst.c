@@ -192,6 +192,7 @@ static bst_t * balance3(bst_t * bst) {
   bst_t * p = get_parent(bst);
   list_t * data = NULL;
   bst_flatten(bst, &data, IN_ORDER);
+  data = list_reverse(data);
   bst_dispose(bst);
   void * a = list_head(data);
   void * b = list_head(list_tail(data));
