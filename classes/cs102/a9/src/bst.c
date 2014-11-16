@@ -4,6 +4,7 @@
 #include "../lib/bst.h"
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define MIN3(a, b, c) MIN(a, MIN(b, c))
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define ABS(a) ((a) < 0 ? -(a) : (a))
 
