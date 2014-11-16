@@ -134,9 +134,7 @@ bst_t * rotate_right(bst_t * bst) {
   bst_t * p = get_parent(bst);
   bst_t * root = bst;
   bst_t * pivot = get_left(root);
-  printf("root = %p, pivot = %p\n", root, pivot);
   set_left(root, get_right(pivot));
-  printf("get_left(root) = %p\n", get_left(root));
   if (has_left(root)) set_parent(get_left(root), root);
   set_right(pivot, root);
   set_parent(root, pivot);
@@ -149,7 +147,7 @@ bst_t * rotate_left(bst_t * bst) {
   bst_t * root = bst;
   bst_t * pivot = get_right(root);
   set_right(root, get_left(pivot));
-  set_parent(get_right(root), root);
+  if (has_right(root)) set_parent(get_right(root), root);
   set_left(pivot, root);
   set_parent(root, pivot);
   set_parent(pivot, p);
@@ -173,8 +171,6 @@ void pf(bst_t * bst) {
   if (bst == NULL || bst->data == NULL) return;
   printf("(%lu, %d)", bst_height(bst), *(int32_t*)bst->data);
 }
-
-
 
 void bst_balance(bst_t * bst) {
   if (bst == NULL) return;
