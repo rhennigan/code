@@ -81,7 +81,12 @@ size_t list_length(list_t * list) {
 }
 
 list_t * list_reverse(list_t * list) {
-  if (list == NULL) return;
+  list_t * new_list = NULL;
+  while (list != NULL) {
+    new_list = list_cons(new_list, list_head(list));
+    list = list_tail(list);
+  }
+  return new_list;
 }
 
 list_t * list_tail(list_t * list) {
