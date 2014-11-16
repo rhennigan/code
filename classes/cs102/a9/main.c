@@ -21,12 +21,17 @@ void pf(bst_t * bst) {
 }
 
 void ps(void * s) {
-  printf("%s\n", (char*)s);
+  printf("  %s\n", (char*)s);
 }
 
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   srand(time(NULL));
+
+  printf("\n\n---------------------------------------------\n");
+  printf("BUILDING TREE\n");
+  printf("---------------------------------------------\n");
+
   for (int i = 0; i < argc; i++) {
     printf("Inserting \"%s\"...\n", argv[i]);
     bst_insert(bst, argv[i], &cmp);
