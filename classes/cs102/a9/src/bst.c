@@ -201,9 +201,9 @@ static bst_t * balance3(bst_t * bst) {
   bst = bst_init();
   set_left(bst, bst_init());
   set_right(bst, bst_init());
-  set_data(get_left(bst), a);
+  set_data(get_left(bst), c);
   set_data(bst, b);
-  set_data(get_right(bst), c);
+  set_data(get_right(bst), a);
   set_parent(get_left(bst), bst);
   set_parent(bst, p);
   set_parent(get_right(bst), bst);
