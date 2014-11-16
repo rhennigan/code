@@ -164,10 +164,10 @@ bst_t * rotate_left(bst_t * bst) {
   return pivot;
 }
 
-static void inc_p_path(bst_t * bst) {
-  while (has_parent(bst)) {
-    bst = get_parent(bst);
-    bst = bst_balance(bst);
+static void inc_p_path(bst_t ** bst) {
+  while (has_parent(*bst)) {
+    *bst = get_parent(*bst);
+    *bst = bst_balance(*bst);
   }
 }
 
