@@ -146,6 +146,7 @@ void bst_update_depth(bst_t * bst) {
 /* } */
 
 bst_t * rotate_right(bst_t * bst) {
+  bst_t * p = has_parent(bst) ? get_parent(bst) : NULL;
   bst_t * root = bst;
   bst_t * pivot = get_left(root);
   set_left(root, get_right(pivot));
@@ -156,6 +157,7 @@ bst_t * rotate_right(bst_t * bst) {
 }
 
 bst_t * rotate_left(bst_t * bst) {
+  bst_t * p = has_parent(bst) ? get_parent(bst) : NULL;
   bst_t * root = bst;
   bst_t * pivot = get_right(root);
   set_right(root, get_left(pivot));
