@@ -253,10 +253,16 @@ void bst_flatten(bst_t * bst, list_t ** list, order_t order) {
       bst_flatten(get_right(bst), list, order);
       break;
     case IN_ORDER:
+      bst_flatten(get_left(bst), list, order);
+      *list = list_cons(*list, get_data(bst));
+      bst_flatten(get_right(bst), list, order);
       break;
     case POST_ORDER:
+      bst_flatten(get_left(bst), list, order);
+      bst_flatten(get_right(bst), list, order);
+      *list = list_cons(*list, get_data(bst));
       break;
-  }
+  }  // end switch (order)
 }
 
 bst_t * bst_init() {
@@ -292,8 +298,8 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
       return;
     } else {  // (next != NULL)
       bst_insert(next, data, cmp);
-    }  // endif (next == NULL)
-  }  // endif (diff == 0)
+    }  // end if (next == NULL)
+  }  // end if (diff == 0)
 }
 
 /* void bst_print(bst_t * bst, pr_fun pf) { */
