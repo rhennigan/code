@@ -46,8 +46,8 @@ int main(int argc, char *argv[]) {
   }
 
   printf("---------------------------------------------\n");
-  printf("TREE BALANCED\n");
-  printf("---------------------------------------------\n\n");
+  printf("TREE BALANCED, DISPLAYING IN-ORDER ITEMS\n");
+  printf("---------------------------------------------\n");
 
   list_t * flat = NULL;
   bst_flatten(bst, &flat, IN_ORDER);
