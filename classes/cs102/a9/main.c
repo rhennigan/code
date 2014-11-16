@@ -85,11 +85,11 @@ int main(int argc, char *argv[]) {
   printf("TESTING REMOVAL\n");
   printf("---------------------------------------------\n\n");
   bst_print(bst, NULL, &pf);
-  printf("\n\n");
+  printf("\n");
 
   remove_test(bst, "strings");
-  remove_test(bst, "strings");
-  remove_test(bst, "strings");
+  remove_test(bst, "./main");
+  remove_test(bst, "binary");
 
   return 0;
 }
