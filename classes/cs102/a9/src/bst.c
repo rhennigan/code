@@ -340,7 +340,7 @@ void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
     bst_flatten(bst, &data, PRE_ORDER);
     bst_dispose(bst);
     bst = bst_init();
-    
+    bst_update_depth(bst);
     return;
   } else if (diff > 0 && has_left(bst)) {
       bst_remove(get_left(bst), data, cmp);
