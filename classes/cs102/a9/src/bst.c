@@ -246,28 +246,28 @@ static inline void show_trunks(trunk_t * p) {
 
 void bst_print(bst_t * bst, trunk_t * prev, pr_fun pf) {
   if (bst == NULL) return;
-  trunk_t this_disp = { prev, "    " };
-  char * prev_str = this_disp.str;
-  bst_print(get_left(bst), &this_disp, pf);
+  trunk_t trunk = { prev, "    " };
+  char * prev_str = trunk.str;
+  bst_print(get_left(bst), &trunk, pf);
 
   if (!prev) {
-    this_disp.str = B_HR""B_HR;
+    trunk.str = B_HR""B_HR;
   } else if (is_left(bst)) {
-    this_disp.str = "\b"B_TL""B_HR""B_HR;
+    trunk.str = "\b"B_TL""B_HR""B_HR;
     prev_str = "   "B_VT;
   } else {
-    this_disp.str = "\b"B_BL""B_HR""B_HR;
+    trunk.str = "\b"B_BL""B_HR""B_HR;
     prev->str = prev_str;
   }
 
-  show_trunks(&this_disp);
+  show_trunks(&trunk);
   printf(B_HR"\u2588");
   (*pf)(bst);
   printf("\n");
 
   if (prev) prev->str = prev_str;
-  this_disp.str = "   "B_VT;
+  trunk.str = "   "B_VT;
 
-  bst_print(get_right(bst), &this_disp, pf);
+  bst_print(get_right(bst), &trunk, pf);
   if (!prev) puts("");
 }
