@@ -37,6 +37,7 @@ size_t  bst_height(bst_t * bst);
 bst_t * bst_init();
 void    bst_insert(bst_t * bst, void * data, cmp_fun cmp);
 size_t  bst_leaf_count(bst_t * bst);
+size_t  bst_node_count(bst_t * bst);
 void    bst_print(bst_t * bst, trunk_t * prev, pr_fun pf);
 void    bst_remove(bst_t * bst, void * data, cmp_fun cmp);
 void *  bst_search(bst_t * bst, void * data, void * result, cmp_fun cmp);

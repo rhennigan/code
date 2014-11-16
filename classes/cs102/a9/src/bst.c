@@ -183,8 +183,8 @@ void bst_balance(bst_t * bst) {
     printf("\n---------------------------------------------\n");
     bst = rotate_left(bst);
     bst_update_depth(bst);
-    llc = (int32_t)bst_leaf_count(get_left(bst));
-    rlc = (int32_t)bst_leaf_count(get_right(bst));
+    llc = (int32_t)bst_node_count(get_left(bst));
+    rlc = (int32_t)bst_node_count(get_right(bst));
     printf("after rotate_right\n");
     printf("left = %d, right = %d\n", llc, rlc);
     printf("rlc - llc = %d\n", rlc - llc);
@@ -197,8 +197,8 @@ void bst_balance(bst_t * bst) {
     printf("\n---------------------------------------------\n");
     bst = rotate_right(bst);
     bst_update_depth(bst);
-    llc = (int32_t)bst_leaf_count(get_left(bst));
-    rlc = (int32_t)bst_leaf_count(get_right(bst));
+    llc = (int32_t)bst_node_count(get_left(bst));
+    rlc = (int32_t)bst_node_count(get_right(bst));
     printf("after rotate_right\n");
     printf("left = %d, right = %d\n", llc, rlc);
     printf("rlc - llc = %d\n", rlc - llc);
