@@ -175,7 +175,10 @@ void rotate_right(bst_t ** bst) {
 /******************************************************************************/
 
 size_t bst_depth(bst_t * bst) {
-  if (bst == NULL) return 0;
+  if (bst == NULL)
+    return 0;
+  else if (is_leaf(bst))
+    return 1;
 }
 
 void bst_dispose(bst_t * bst);
