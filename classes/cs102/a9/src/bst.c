@@ -130,21 +130,6 @@ void bst_update_depth(bst_t * bst) {
     bst_update_depth(get_right(bst));
 }
 
-/* size_t force_depth(bst_t * bst) { */
-/*   if (bst == NULL) { */
-/*     return 0; */
-/*   } else if (is_leaf(bst)) { */
-/*     if (has_parent(bst)) set_depth(bst, 0); */
-/*     return 0; */
-/*   } else { */
-/*     size_t ld = force_depth(get_left(bst)); */
-/*     size_t rd = force_depth(get_right(bst)); */
-/*     size_t d = 1 + MAX(ld, rd); */
-/*     set_depth(bst, d); */
-/*     return d; */
-/*   } */
-/* } */
-
 bst_t * rotate_right(bst_t * bst) {
   bst_t * p = get_parent(bst);
   bst_t * root = bst;
