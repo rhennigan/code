@@ -15,15 +15,17 @@ int32_t intcmp(void * a, void * b) {
 }
 
 int32_t cmp(void * a, void * b) {
-  char x = *(char*)a;
-  char y = *(char*)b;
+  char * x = (char*)a;
+  char * y = (char*)b;
   return strcmp(x, y);
 }
 
-void pf(bst_t * bst); /* { */
-/*   if (bst == NULL || bst->data == NULL) return; */
-/*   printf("(%lu, %d)", bst_height(bst), *(int32_t*)bst->data); */
-/* } */
+void pf(bst_t * bst) {
+  if (bst == NULL || bst->data == NULL) return;
+  if (!is_leaf(bst)) printf(" %d, %d, %d", (int)bst_node_count(bst),
+                            bal(bst), ((int)bst_height(bst)+1));
+  /* printf(" %d(%lu)",  *(int32_t*)bst->data, bst_node_count(bst)); */
+}
 
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
