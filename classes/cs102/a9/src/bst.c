@@ -231,7 +231,7 @@ void    bst_remove(bst_t * bst, void * get_data, cmp_fun cmp);
 
 void *  bst_search(bst_t * bst, void * get_data, void * result, cmp_fun cmp);
 
-static inline void show_trunks(struct trunk * p) {
+static inline void show_trunks(trunk_t * p) {
   if (!p) return;
   show_trunks(p->prev);
   printf("%s", p->str);
@@ -244,10 +244,10 @@ static inline void show_trunks(struct trunk * p) {
 #define B_BR "\u2518"
 #define B_VT "\u2502"
 
-void bst_print(bst_t * bst, struct trunk *prev, pr_fun pf) {
+void bst_print(bst_t * bst, trunk_t * prev, pr_fun pf) {
   if (bst == NULL) return;
-  struct trunk this_disp = { prev, "    " };
-  char *prev_str = this_disp.str;
+  trunk_t this_disp = { prev, "    " };
+  char * prev_str = this_disp.str;
   bst_print(get_left(bst), &this_disp, pf);
 
   if (!prev) {
