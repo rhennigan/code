@@ -343,6 +343,11 @@ bool bst_search(bst_t * bst, void * data, cmp_fun cmp) {
       return bst_search(get_left(bst), data, cmp);
     else
       return false;
+  } else if (diff > 0) {
+    if (has_right(bst))
+      return bst_search(get_right(bst), data, cmp);
+    else
+      return false;
   }
 }
 
