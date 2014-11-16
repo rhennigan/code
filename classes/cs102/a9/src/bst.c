@@ -336,6 +336,11 @@ void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = cmp(get_data(bst), data);
   if (diff == 0) {
     bst_t * p = get_parent(bst);
+    list_t * data = NULL;
+    bst_flatten(bst, &data, PRE_ORDER);
+    bst_dispose(bst);
+    bst = bst_init();
+    
     return;
   } else if (diff > 0 && has_left(bst)) {
       bst_remove(get_left(bst), data, cmp);
