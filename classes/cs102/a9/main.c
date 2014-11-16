@@ -22,7 +22,8 @@ void pf(bst_t * bst) {
 
 char * tostring(void * s) {
   char * str = malloc(BUFSIZ);
-  
+  snprintf(str, BUFSIZ, "%s", (char*)s);
+  return str;
 }
 
 int main(int argc, char *argv[]) {
@@ -47,5 +48,6 @@ int main(int argc, char *argv[]) {
 
   list_t * flat = NULL;
   bst_flatten(bst, &flat, IN_ORDER);
+  list_t * strings = list_map(flat, *tostring);
   return 0;
 }
