@@ -13,6 +13,10 @@ int32_t intcmp(void * a, void * b) {
   return x - y;
 }
 
+void pf(bst_t * bst) {
+  
+}
+
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   size_t ARRSIZ = atoi(argv[1]);
@@ -29,7 +33,7 @@ int main(int argc, char *argv[]) {
   }
 
   printf("\n");
-  show_tree(bst, NULL);
+  bst_print(bst, NULL);
 
   return 0;
 }
