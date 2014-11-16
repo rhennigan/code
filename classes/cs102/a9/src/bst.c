@@ -174,8 +174,8 @@ void pf(bst_t * bst) {
 
 void bst_balance(bst_t * bst) {
   if (bst == NULL) return;
-  int32_t llc = (int32_t)bst_leaf_count(get_left(bst));
-  int32_t rlc = (int32_t)bst_leaf_count(get_right(bst));
+  int32_t llc = (int32_t)bst_node_count(get_left(bst));
+  int32_t rlc = (int32_t)bst_node_count(get_right(bst));
   printf("left = %d, right = %d\n", llc, rlc);
   printf("rlc - llc = %d\n", rlc - llc);
   printf("llc - rlc = %d\n", llc - rlc);
@@ -216,6 +216,14 @@ size_t bst_leaf_count(bst_t * bst) {
     return 1;
   } else {
     return bst_leaf_count(get_left(bst)) + bst_leaf_count(get_right(bst));
+  }
+}
+
+size_t bst_node_count(bst_t * bst) {
+  if (bst == NULL) {
+    return 0;
+  } else {
+    return 1 + bst_leaf_count(get_left(bst)) + bst_leaf_count(get_right(bst));
   }
 }
 
