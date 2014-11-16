@@ -191,15 +191,12 @@ void pf(bst_t * bst) {
 static bst_t * balance3(bst_t * bst, cmp_fun cmp) {
   bst_t * p = get_parent(bst);
   list_t * data = NULL;
-  bst_flatten(bst, &data, PRE_ORDER);
+  bst_flatten(bst, &data, IN_ORDER);
   bst_dispose(bst);
   void * a = list_head(data);
   void * b = list_head(list_tail(data));
   void * c = list_head(list_tail(list_tail(data)));
   list_dispose(data);
-  if (cmp(a, b)) SWAP(a, b);
-  if (cmp(a, c)) SWAP(a, c);
-  if (cmp(b, c)) SWAP(b, c);
   bst = bst_init();
   set_left(bst, bst_init());
   set_right(bst, bst_init());
