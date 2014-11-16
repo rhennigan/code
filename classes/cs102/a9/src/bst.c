@@ -240,7 +240,9 @@ size_t bst_height(bst_t * bst) {
   }
 }
 
-void bst_dispose(bst_t * bst);
+void bst_dispose(bst_t * bst) {
+  bst_t ** tmp = &bst;
+}
 
 void bst_dump(bst_t * bst, order_t order);
 
