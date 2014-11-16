@@ -350,6 +350,10 @@ void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
     bst_flatten(get_left(bst), &list, PRE_ORDER);
     bst_flatten(get_right(bst), &list, PRE_ORDER);
     bst_dispose(bst);
+    if (is_leaf(bst)) {
+      left ? set_left(p, NULL) : set_right(p, NULL);
+      return;
+    }
     bst = bst_init();
     while (list != NULL) {
       bst_insert(bst, list_head(list), cmp);
