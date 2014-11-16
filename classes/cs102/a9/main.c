@@ -87,10 +87,9 @@ int main(int argc, char *argv[]) {
   bst_print(bst, NULL, &pf);
   printf("\n\n");
 
-  char * remove1 = "strings";
-  printf("  Removing \"%s\"... \n\n", remove1);
-  bst_remove(bst, remove1, cmp);
-  bst_print(bst, NULL, &pf);
+  remove_test(bst, "strings");
+  remove_test(bst, "strings");
+  remove_test(bst, "strings");
 
   return 0;
 }
