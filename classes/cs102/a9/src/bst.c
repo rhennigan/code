@@ -9,6 +9,12 @@
 #define MAX3(a, b, c) MAX(a, MAX(b, c))
 #define ABS(a) ((a) < 0 ? -(a) : (a))
 
+#define SWAP(a, b) do {                         \
+    register void * t = (a);                    \
+    (a) = (b);                                  \
+    (b) = t;                                    \
+  } while (0);
+
 /******************************************************************************/
 /* UNICODE CHARACTERS FOR TREE DRAWING                                        */
 /******************************************************************************/
@@ -191,12 +197,7 @@ static bst_t * balance3(bst_t * bst, cmp_fun cmp) {
   void * c = list_head(list_tail(list_tail(data)));
   list_dispose(data);
   bst = bst_init();
-  a <= b <= c
-a <= c <= b
-b <= a <= c
-b <= c <= a
-c <= a <= b
-c <= b <= a
+  
 }
 
 bst_t * bst_balance(bst_t * bst) {
