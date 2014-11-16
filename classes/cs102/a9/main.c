@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
   bst_print(bst, NULL, &pf);
 
   printf("\n---------------------------------------------\n");
-  rotate_right(&bst);
+  bst_balance(bst);
   bst_print(bst, NULL, &pf);
 
   return 0;
