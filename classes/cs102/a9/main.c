@@ -78,5 +78,13 @@ int main(int argc, char *argv[]) {
   bool found2 = bst_search(bst, missing2, cmp);
   printf("%s\n", found2 ? "FOUND" : "NOT FOUND");
 
+  printf("\n\n---------------------------------------------\n");
+  printf("TESTING REMOVAL\n");
+  printf("---------------------------------------------\n");
+
+  char * remove1 = "strings";
+  printf("  Removing \"%s\"... ", remove1);
+  bst_remove(bst, remove1, cmp);
+
   return 0;
 }
