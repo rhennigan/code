@@ -82,8 +82,8 @@ int main(int argc, char *argv[]) {
   printf("TESTING REMOVAL\n");
   printf("---------------------------------------------\n");
 
-  char * remove1 = "strings";
-  printf("  Removing \"%s\"... \n", remove1);
+  char * remove1 = "these";
+  printf("  Removing \"%s\"... \n\n", remove1);
   bst_remove(bst, remove1, cmp);
   bst_print(bst, NULL, &pf);
 

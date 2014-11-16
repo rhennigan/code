@@ -302,6 +302,7 @@ bst_t * bst_init() {
 }
 
 void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
+  if (data == NULL) return;
   void * td = get_data(bst);
   if (td == NULL) {
     set_data(bst, data);
