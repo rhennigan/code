@@ -332,7 +332,12 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
 /*   bst_print(get_right(bst), pf); */
 /* } */
 
-void bst_remove(bst_t * bst, void * data, cmp_fun cmp);
+void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
+  int32_t diff = cmp(get_data(bst), data);
+  if (diff == 0) {
+    return;
+  }
+}
 
 bool bst_search(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = cmp(get_data(bst), data);
