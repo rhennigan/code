@@ -179,6 +179,9 @@ size_t bst_depth(bst_t * bst) {
     return 0;
   else if (is_leaf(bst))
     return 1;
+  else {
+    
+  }
 }
 
 void bst_dispose(bst_t * bst);
