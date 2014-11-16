@@ -149,6 +149,7 @@ bst_t * rotate_right(bst_t * bst) {
   bst_t * root = bst;
   bst_t * pivot = get_left(root);
   set_left(root, get_right(pivot));
+  set_parent(get_left(root), root);
   set_right(pivot, root);
   return pivot;
 }
