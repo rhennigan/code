@@ -164,14 +164,14 @@ bst_t * rotate_left(bst_t * bst) {
   return pivot;
 }
 
-/* static void inc_p_path(bst_t * bst) { */
-/*   size_t d; */
-/*   while (has_parent(bst)) { */
-/*     d = get_depth(bst); */
-/*     bst = get_parent(bst); */
-/*     if (d == get_depth(bst)) set_depth(bst, get_depth(bst) + 1); */
-/*   } */
-/* } */
+static void inc_p_path(bst_t * bst) {
+  size_t d;
+  while (has_parent(bst)) {
+    d = get_depth(bst);
+    bst = get_parent(bst);
+    if (d == get_depth(bst)) set_depth(bst, get_depth(bst) + 1);
+  }
+}
 
 static inline int32_t bal(bst_t * bst) {
   int32_t llc = (int32_t)bst_node_count(get_left(bst));
