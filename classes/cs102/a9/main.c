@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   srand(time(NULL));
   for (int i = 0; i < argc - 1; i++) {
-    bst_insert(bst, &argv[i], &cmp);
+    bst_insert(bst, argv[i], &cmp);
   }
 
   bst_update_depth(bst);
