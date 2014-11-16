@@ -196,10 +196,11 @@ static bst_t * balance3(bst_t * bst, cmp_fun cmp) {
   void * b = list_head(list_tail(data));
   void * c = list_head(list_tail(list_tail(data)));
   list_dispose(data);
-  bst = bst_init();
   if (cmp(a, b) < 0) SWAP(a, b);
-  if (cmp(b, c) < 0) SWAP(b, c);
   if (cmp(a, c) < 0) SWAP(a, c);
+  if (cmp(b, c) < 0) SWAP(b, c);
+  bst = bst_init();
+  
 }
 
 bst_t * bst_balance(bst_t * bst) {
