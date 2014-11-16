@@ -332,12 +332,6 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
 /*   bst_print(get_right(bst), pf); */
 /* } */
 
-typedef struct ins_arg_s {
-  bst_t * bst;
-  void * data;
-  cmp_fun cmp;
-} ins_arg_t;
-
 static void aux_insert(void * addr) {
   ins_arg_t args = *(ins_arg_t*)addr;
   bst_t * bst = args.bst;
