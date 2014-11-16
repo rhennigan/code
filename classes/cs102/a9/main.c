@@ -43,5 +43,15 @@ int main(int argc, char *argv[]) {
   printf("\n---------------------------------------------\n");
   bst_print(bst, NULL, &pf);
 
+  printf("\n---------------------------------------------\n");
+  bst = bst_balance(bst);
+  printf("\n---------------------------------------------\n");
+  bst_print(bst, NULL, &pf);
+
+  printf("\n---------------------------------------------\n");
+  bst = bst_balance(bst);
+  printf("\n---------------------------------------------\n");
+  bst_print(bst, NULL, &pf);
+
   return 0;
 }
