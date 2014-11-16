@@ -60,12 +60,14 @@ int main(int argc, char *argv[]) {
   }
 
   char * missing1 = "not present";
+  printf("Searching for \"%s\"... ", missing1);
   bool found1 = bst_search(bst, missing1, cmp);
-  printf("found %s: %s\n", missing1, found1 ? "true" : "false");
+  printf("%s\n", found1 ? "FOUND" : "NOT FOUND");
 
   char * missing2 = "missing";
+  printf("Searching for \"%s\"... ", missing2);
   bool found2 = bst_search(bst, missing2, cmp);
-  printf("found %s: %s\n", missing2, found2 ? "true" : "false");
+  printf("%s\n", found2 ? "FOUND" : "NOT FOUND");
 
   return 0;
 }
