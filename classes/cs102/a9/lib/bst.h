@@ -32,7 +32,7 @@ typedef struct trunk_s {
 bst_t *  bst_balance(bst_t * bst);
 void     bst_dispose(bst_t * bst);
 void     bst_dump(bst_t * bst, order_t order);
-list_t * bst_flatten(bst_t * bst, list_t ** list, order_t order);
+void     bst_flatten(bst_t * bst, list_t ** list, order_t order);
 size_t   bst_height(bst_t * bst);
 bst_t *  bst_init();
 void     bst_insert(bst_t * bst, void * data, cmp_fun cmp);

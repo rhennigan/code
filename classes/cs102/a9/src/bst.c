@@ -244,11 +244,11 @@ void bst_dispose(bst_t * bst);
 
 void bst_dump(bst_t * bst, order_t order);
 
-list_t * bst_flatten(bst_t * bst, list_t ** list, order_t order) {
-  if (bst == NULL) return *list;
+void bst_flatten(bst_t * bst, list_t ** list, order_t order) {
+  if (bst == NULL) return;
   switch (order) {
     case PRE_ORDER:
-      list = list_cons(list, get_data(bst));
+      *list = list_cons(*list, get_data(bst));
       return;
     case IN_ORDER:
       return;
