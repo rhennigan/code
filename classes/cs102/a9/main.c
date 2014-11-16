@@ -28,10 +28,9 @@ int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   srand(time(NULL));
   for (int i = 0; i < argc - 1; i++) {
-    printf("Current tree:\n");
-    bst_print(bst, NULL, &pf);
     printf("Inserting \"%s\"...\n", argv[i]);
     bst_insert(bst, argv[i], &cmp);
+    bst_print(bst, NULL, &pf);
   }
 
   bst_update_depth(bst);
