@@ -33,7 +33,7 @@ size_t  bst_depth(bst_t * bst);
 void    bst_dispose(bst_t * bst);
 void    bst_dump(bst_t * bst, order_t order);
 void    bst_flatten(bst_t * bst, list_t ** list, order_t order);
-size_t  force_depth(bst_t * bst);
+/* size_t  force_depth(bst_t * bst); */
 bst_t * bst_init();
 void    bst_insert(bst_t * bst, void * data, cmp_fun cmp);
 void    bst_print(bst_t * bst, trunk_t * prev, pr_fun pf);
