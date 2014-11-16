@@ -223,7 +223,7 @@ size_t bst_node_count(bst_t * bst) {
   if (bst == NULL) {
     return 0;
   } else {
-    return 1 + bst_leaf_count(get_left(bst)) + bst_leaf_count(get_right(bst));
+    return 1 + bst_node_count(get_left(bst)) + bst_node_count(get_right(bst));
   }
 }
 
