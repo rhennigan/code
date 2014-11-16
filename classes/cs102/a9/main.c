@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
   list_iter(list_reverse(flat), &ps);
 
   for (int32_t i = 0; i < argc; i++) {
-    printf("Searching for \"%s\"... \t", argv[i]);
+    printf("Searching for \"%s\"... ", argv[i]);
     bool found = bst_search(bst, argv[i], cmp);
     printf("%s\n", found ? "FOUND" : "NOT FOUND");
   }
