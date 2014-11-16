@@ -48,6 +48,6 @@ int main(int argc, char *argv[]) {
 
   list_t * flat = NULL;
   bst_flatten(bst, &flat, IN_ORDER);
-  list_t * strings = list_map(flat, *tostring);
+  list_t * strings = list_map(flat, &tostring);
   return 0;
 }
