@@ -219,10 +219,10 @@ bst_t * bst_balance(bst_t * bst) {
   if (bst_node_count(bst) == 3 && b != 0) {
     return balance3(bst);
   }
-  if (has_left(bst) && ABS(bal(get_left(bst))) > 1) {
+  if (has_left(bst) && ABS(bal(get_left(bst)))) {
     set_left(bst, bst_balance(get_left(bst)));
   }
-  if (has_right(bst) && ABS(bal(get_right(bst))) > 1) {
+  if (has_right(bst) && ABS(bal(get_right(bst)))) {
     set_right(bst, bst_balance(get_right(bst)));
   }
   while (bal(bst) > 1) {
