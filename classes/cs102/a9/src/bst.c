@@ -215,11 +215,13 @@ bst_t * bst_balance(bst_t * bst) {
   if (bst == NULL || is_leaf(bst)) return bst;
   /* printf("bst_node_count(bst) = %lu\n", bst_node_count(bst)); */
   int b = bal(bst);
-  if (bst_node_count(bst) == 3) {
-    printf("here (%d)\n", b);
+  if (bst_node_count(bst) == 3 && b != 0) {
     return balance3(bst);
   }
-  if (has_left(bst)) set_left(bst, bst_balance(get_left(bst)));
+  if (has_left(bst) && bal(get_left(bst)) != 0) {
+    printf("here\n");
+    set_left(bst, bst_balance(get_left(bst)));
+  }
   if (has_right(bst)) set_right(bst, bst_balance(get_right(bst)));
   while (bal(bst) > 1) {
     /* printf("\n---------------------------------------------\n"); */
