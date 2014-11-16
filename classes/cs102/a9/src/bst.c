@@ -313,7 +313,6 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
   if (td == NULL) {
     printf("td = NULL\n");
     set_data(bst, data);
-    inc_p_path(&bst);
     return;
   }
   int32_t diff = (*cmp)(data, td);
@@ -328,7 +327,6 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
       goleft ? set_left(bst, next) : set_right(bst, next);
       set_parent(next, bst);
       set_data(next, data);
-      inc_p_path(&bst);
       return;
     } else {  // (next != NULL)
       bst_insert(next, data, cmp);
