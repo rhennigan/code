@@ -164,7 +164,7 @@ bst_t * rotate_left(bst_t * bst) {
   return pivot;
 }
 
-static void inc_p_path(bst_t * bst) {
+static void inc_p_path(bst_t * bst, void (*f)(bst_t * bst)) {
   size_t d;
   while (has_parent(bst)) {
     d = get_depth(bst);
