@@ -200,7 +200,12 @@ static bst_t * balance3(bst_t * bst, cmp_fun cmp) {
   if (cmp(a, c) < 0) SWAP(a, c);
   if (cmp(b, c) < 0) SWAP(b, c);
   bst = bst_init();
-  
+  set_left(bst, bst_init());
+  set_right(bst, bst_init());
+  set_data(get_left(bst), a);
+  set_data(bst, b);
+  set_data(get_right(bst), c);
+  return bst;
 }
 
 bst_t * bst_balance(bst_t * bst) {
