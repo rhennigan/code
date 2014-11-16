@@ -14,7 +14,8 @@ int32_t intcmp(void * a, void * b) {
 }
 
 void pf(bst_t * bst) {
-  int * data = get_data(bst);
+  if (bst == NULL || bst->data == NULL) return;
+  int * data = bst->data;
 }
 
 int main(int argc, char *argv[]) {
