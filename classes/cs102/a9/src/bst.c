@@ -335,7 +335,13 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
 void bst_remove(bst_t * bst, void * data, cmp_fun cmp);
 
 bool bst_search(bst_t * bst, void * data, cmp_fun cmp) {
-  if (cmp(get_data(bst), data) == 0) return true;
+  if (cmp(get_data(bst), data) == 0) {
+    return true;
+  } else {
+    bool lsearch = false, rsearch = false;
+    if (has_left(bst))
+      lsearch = bst_search(get_left(bst), data, cmp);
+  }
 }
 
 static inline void show_trunks(trunk_t * p) {
