@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
   for (size_t i = 0; i < ARRSIZ; i++) {
     arr[i] = rand() % 100 + 10;
     bst_insert(bst, &arr[i], &intcmp);
+    printf("\n");
   }
 
   bst_update_depth(bst);
