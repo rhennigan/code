@@ -335,16 +335,14 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
 void bst_remove(bst_t * bst, void * data, cmp_fun cmp);
 
 bool bst_search(bst_t * bst, void * data, cmp_fun cmp) {
-  if (cmp(get_data(bst), data) == 0) {
+  int32_t diff = cmp(get_data(bst), data);
+  if (diff == 0) {
     return true;
-  } else {
-    bool lsearch = false, rsearch = false;
+  } else if (diff < 0) {
     if (has_left(bst))
-      lsearch = bst_search(get_left(bst), data, cmp);
-    if (has_right(bst))
-      rsearch = bst_search(get_right(bst), data, cmp);
-
-    return lsearch || rsearch;
+      return bst_search(get_left(bst), data, cmp);
+    else
+      return false;
   }
 }
 
