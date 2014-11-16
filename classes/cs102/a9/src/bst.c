@@ -165,9 +165,10 @@ bst_t * rotate_left(bst_t * bst) {
 }
 
 static void inc_p_path(bst_t ** bst) {
-  while (has_parent(*bst)) {
-    *bst = get_parent(*bst);
-    *bst = bst_balance(*bst);
+  *bst = bst_balance(*bst);
+  if (has_parent(*bst)) {
+    bst_t * p = get_parent(*bst);
+    inc_p_path(&p);
   }
 }
 
