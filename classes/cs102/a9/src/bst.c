@@ -213,7 +213,7 @@ static bst_t * balance3(bst_t * bst) {
 bst_t * bst_balance(bst_t * bst) {
   printf("balancing %p\n", bst);
   if (bst == NULL || is_leaf(bst)) return bst;
-  printf("bst_node_count(bst) = %lu\n", bst_leaf_count(bst));
+  printf("bst_node_count(bst) = %lu\n", bst_node_count(bst));
   if (bst_node_count(bst) == 3) {
     bst = balance3(bst);
   }
