@@ -220,7 +220,7 @@ bst_t * bst_balance(bst_t * bst) {
   }
   if (has_left(bst)) set_left(bst, bst_balance(get_left(bst)));
   if (has_right(bst)) set_right(bst, bst_balance(get_right(bst)));
-  if (bal(bst) > 2) {
+  if (bal(bst) > 1) {
     /* printf("\n---------------------------------------------\n"); */
     /* printf("balance = %d\n", bal(bst)); */
     /* printf("ROTATING LEFT:\n"); */
