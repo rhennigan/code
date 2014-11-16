@@ -190,6 +190,8 @@ static bst_t * balance3(bst_t * bst) {
   void * b = list_head(list_tail(data));
   void * c = list_head(list_tail(list_tail(data)));
   list_dispose(data);
+  bst = bst_init();
+  
 }
 
 bst_t * bst_balance(bst_t * bst) {
