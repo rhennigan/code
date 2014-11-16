@@ -182,8 +182,11 @@ void bst_balance(bst_t * bst) {
   if (bst == NULL) return;
   bst_balance(get_left(bst));
   bst_balance(get_right(bst));
-  if (bal(bst) > 2) {
+  if (bal(bst) > 1) {
     bst = rotate_left(bst);
+  }
+  if (bal(bst) < 1) {
+    bst = rotate_right(bst);
   }
   while (rlc - llc > 0) {
     printf("\n---------------------------------------------\n");
