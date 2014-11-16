@@ -24,6 +24,18 @@ void ps(void * s) {
   printf("  %s\n", (char*)s);
 }
 
+void search_test(bst_t * bst, char * str) {
+  printf("  Searching for \"%s\"... ", str);
+  bool found = bst_search(bst, str, cmp);
+  printf("%s\n", found ? "FOUND" : "NOT FOUND");
+}
+
+void remove_test(bst_t * bst, char * remove) {
+  printf("  Removing \"%s\"... \n\n", remove);
+  bst_remove(bst, remove, cmp);
+  bst_print(bst, NULL, &pf);
+}
+
 int main(int argc, char *argv[]) {
   bst_t * bst = bst_init();
   srand(time(NULL));
