@@ -82,13 +82,7 @@ size_t list_length(list_t * list) {
 
 list_t * list_map(list_t * list, void * (*f)(void * x)) {
   if (list == NULL) return NULL;
-  
-  list_t * new_list = NULL;
-  while (list != NULL) {
-    new_list = list_cons(new_list, (*f)(list->head));
-    list = list_tail(list);
-  }
-  return new_list;
+  return list_cons(list_map(list_tail(list), f), f(list_head(list)));
 }
 
 list_t * list_reverse(list_t * list) {
