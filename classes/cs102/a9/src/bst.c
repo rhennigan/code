@@ -175,12 +175,15 @@ void rotate_right(bst_t ** bst) {
 /******************************************************************************/
 
 size_t bst_depth(bst_t * bst) {
-  if (bst == NULL)
+  if (bst == NULL) {
     return 0;
-  else if (is_leaf(bst))
+  } else if (is_leaf(bst)) {
     return 1;
-  else {
-    
+  } else {
+    size_t ld = bst_depth(get_left(bst));
+    size_t rd = bst_depth(get_right(bst));
+    size_t d = 1 + MAX(ld, rd);
+    return d;
   }
 }
 
