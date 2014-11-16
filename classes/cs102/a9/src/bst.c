@@ -4,6 +4,7 @@
 #include "../lib/bst.h"
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define ABS(a) ((a) < 0 ? -(a) : (a))
 
 /******************************************************************************/
 /* UNICODE CHARACTERS FOR TREE DRAWING                                        */
