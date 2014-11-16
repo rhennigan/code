@@ -304,13 +304,11 @@ bst_t * bst_init() {
 void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
   void * td = get_data(bst);
   if (td == NULL) {
-    printf("td = NULL\n");
     set_data(bst, data);
     return;
   }
   int32_t diff = (*cmp)(data, td);
   if (diff == 0) {
-    printf("td is duplicate\n");
     return;
   } else {  // (diff != 0)
     bool goleft = diff < 0 ? true : false;

@@ -31,10 +31,12 @@ int main(int argc, char *argv[]) {
     printf("Inserting \"%s\"...\n", argv[i]);
     bst_insert(bst, argv[i], &cmp);
     bst_print(bst, NULL, &pf);
+    printf("\n\n");
   }
 
   bst_update_depth(bst);
 
+  printf("TREE COMPLETE\n");
   printf("\n---------------------------------------------\n");
   bst_print(bst, NULL, &pf);
 
