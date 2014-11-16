@@ -182,7 +182,7 @@ void pf(bst_t * bst) {
 bst_t * bst_balance(bst_t * bst) {
   printf("balancing %p\n", bst);
   if (bst == NULL || is_leaf(bst)) return bst;
-  if (get_left(bst) != NULL)
+  if (get_left(bst) != NULL && ABS(bal(get_left(bst))) > 1)
     set_left(bst, bst_balance(get_left(bst)));
   if (get_right(bst) != NULL)
     set_right(bst, bst_balance(get_right(bst)));
