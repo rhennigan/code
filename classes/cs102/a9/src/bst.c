@@ -169,7 +169,7 @@ bst_t * rotate_left(bst_t * bst) {
 
 void pf(bst_t * bst) {
   if (bst == NULL || bst->data == NULL) return;
-  printf("(%lu, %d)", bst_height(bst), *(int32_t*)bst->data);
+  printf(" %d", *(int32_t*)bst->data);
 }
 
 void bst_balance(bst_t * bst) {
