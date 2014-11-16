@@ -210,8 +210,11 @@ void bst_balance(bst_t * bst) {
 }
 
 size_t bst_leaf_count(bst_t * bst) {
-  if (bst == NULL) return 0;
-  
+  if (bst == NULL) {
+    return 0;
+  } else if (is_leaf(bst)) {
+    return 1;
+  }
 }
 
 size_t bst_height(bst_t * bst) {
