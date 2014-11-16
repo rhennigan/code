@@ -80,6 +80,10 @@ size_t list_length(list_t * list) {
   return len;
 }
 
+list_t * list_reverse(list_t * list) {
+  if (list == NULL) return;
+}
+
 list_t * list_tail(list_t * list) {
   if (list == NULL) {
     printf("list_tail: list is empty\n");
