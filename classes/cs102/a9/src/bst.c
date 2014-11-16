@@ -344,6 +344,7 @@ void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
   int32_t diff = cmp(get_data(bst), data);
   if (diff == 0) {
     bst_t * p = get_parent(bst);
+    bool left = is_left(bst);
     list_t * list = NULL;
     bst_flatten(bst, &list, PRE_ORDER);
     bst_dispose(bst);
@@ -352,6 +353,7 @@ void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
       bst_insert(bst, list_head(list), cmp);
       list = list_tail(list);
     }
+    left ? set_left(p, bst) : set_right(p, bst);
     set_parent(bst, p);
     bst_update_depth(bst);
     return;
