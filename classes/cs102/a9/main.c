@@ -75,20 +75,11 @@ int main(int argc, char *argv[]) {
   printf("---------------------------------------------\n");
 
   for (int32_t i = 0; i < argc; i++) {
-    printf("  Searching for \"%s\"... ", argv[i]);
-    bool found = bst_search(bst, argv[i], cmp);
-    printf("%s\n", found ? "FOUND" : "NOT FOUND");
+    search_test(bst, argv[i]);
   }
 
-  char * missing1 = "not present";
-  printf("  Searching for \"%s\"... ", missing1);
-  bool found1 = bst_search(bst, missing1, cmp);
-  printf("%s\n", found1 ? "FOUND" : "NOT FOUND");
-
-  char * missing2 = "missing";
-  printf("  Searching for \"%s\"... ", missing2);
-  bool found2 = bst_search(bst, missing2, cmp);
-  printf("%s\n", found2 ? "FOUND" : "NOT FOUND");
+  search_test(bst, "not present");
+  search_test(bst, "missing");
 
   printf("\n\n---------------------------------------------\n");
   printf("TESTING REMOVAL\n");
