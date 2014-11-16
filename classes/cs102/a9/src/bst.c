@@ -137,7 +137,7 @@ bst_t * rotate_right(bst_t * bst) {
   printf("root = %p, pivot = %p\n", root, pivot);
   set_left(root, get_right(pivot));
   printf("get_left(root) = %p\n", get_left(root));
-  set_parent(get_left(root), root);
+  if (has_left(root)) set_parent(get_left(root), root);
   set_right(pivot, root);
   set_parent(root, pivot);
   set_parent(pivot, p);
