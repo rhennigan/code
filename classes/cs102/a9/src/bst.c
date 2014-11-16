@@ -214,6 +214,7 @@ bst_t * bst_balance(bst_t * bst) {
   /* printf("balancing %p\n", bst); */
   if (bst == NULL || is_leaf(bst)) return bst;
   /* printf("bst_node_count(bst) = %lu\n", bst_node_count(bst)); */
+  int b = bal(bst);
   if (bst_node_count(bst) == 3) {
     bst = balance3(bst);
   }
@@ -230,7 +231,7 @@ bst_t * bst_balance(bst_t * bst) {
     /* printf("balance = %d\n", bal(bst)); */
     /* bst_print(bst, NULL, &pf); */
   }
-  if (bal(bst) < -2) {
+  if (bal(bst) < -1) {
     /* printf("\n---------------------------------------------\n"); */
     /* printf("balance = %d\n", bal(bst)); */
     /* printf("ROTATING RIGHT:\n"); */
