@@ -334,7 +334,7 @@ void bst_insert(bst_t * bst, void * data, cmp_fun cmp) {
 
 void bst_remove(bst_t * bst, void * get_data, cmp_fun cmp);
 
-void * bst_search(bst_t * bst, void * get_data, void * result, cmp_fun cmp) {
+bool bst_search(bst_t * bst, void * get_data, void * result, cmp_fun cmp) {
   
 }
 

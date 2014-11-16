@@ -40,7 +40,7 @@ size_t   bst_leaf_count(bst_t * bst);
 size_t   bst_node_count(bst_t * bst);
 void     bst_print(bst_t * bst, trunk_t * prev, pr_fun pf);
 void     bst_remove(bst_t * bst, void * data, cmp_fun cmp);
-void *   bst_search(bst_t * bst, void * data, void * result, cmp_fun cmp);
+bool     bst_search(bst_t * bst, void * data, void * result, cmp_fun cmp);
 void     bst_update_depth(bst_t * bst);
 
 bst_t * rotate_left(bst_t * bst);
