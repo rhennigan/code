@@ -197,6 +197,8 @@ void bst_balance(bst_t ** bst) {
     printf("rh - lh = %d\n", rh - lh);
     printf("lh - rh = %d\n", lh - rh);
     bst_print(*bst, NULL, &pf);
+    fflush(NULL);
+    printf("\n\n\n");
   }
 }
 
