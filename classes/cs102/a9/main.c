@@ -58,13 +58,14 @@ int main(int argc, char *argv[]) {
     bool found = bst_search(bst, argv[i], cmp);
     printf("%s\n", found ? "FOUND" : "NOT FOUND");
   }
-  char * hello = "hello";
-  bool found_hello = bst_search(bst, hello, cmp);
-  printf("found hello: %s\n", found_hello ? "true" : "false");
 
-  char * goodbye = "goodbye";
-  bool found_goodbye = bst_search(bst, goodbye, cmp);
-  printf("found goodbye: %s\n", found_goodbye ? "true" : "false");
+  char * missing1 = "not present";
+  bool found1 = bst_search(bst, missing1, cmp);
+  printf("found %s: %s\n", missing1, found1 ? "true" : "false");
+
+  char * missing2 = "missing";
+  bool found2 = bst_search(bst, missing2, cmp);
+  printf("found %s: %s\n", missing2, found2 ? "true" : "false");
 
   return 0;
 }
