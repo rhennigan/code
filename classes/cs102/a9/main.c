@@ -15,7 +15,7 @@ int32_t intcmp(void * a, void * b) {
 
 void pf(bst_t * bst) {
   if (bst == NULL || bst->data == NULL) return;
-  int * data = bst->data;
+  printf("%d", *(int32_t*)bst->data);
 }
 
 int main(int argc, char *argv[]) {
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
   }
 
   printf("\n");
-  bst_print(bst, NULL);
+  bst_print(bst, NULL, &pf);
 
   return 0;
 }
