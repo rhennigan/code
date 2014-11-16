@@ -241,7 +241,12 @@ size_t bst_height(bst_t * bst) {
 }
 
 void bst_dispose(bst_t * bst) {
+  if (bst == NULL) return;
   bst_t ** tmp = &bst;
+  bst_dispose(get_left(bst));
+  bst_dispose(get_right(bst));
+  free(bst);
+  bst = NULL;
 }
 
 void bst_dump(bst_t * bst, order_t order);
