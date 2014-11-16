@@ -182,7 +182,7 @@ void pf(bst_t * bst) {
   printf(" %d", *(int32_t*)bst->data);
 }
 
-static bst_t * balance3(bst_t * bst) {
+static bst_t * balance3(bst_t * bst, cmp_fun cmp) {
   list_t * data = NULL;
   bst_flatten(bst, &data, PRE_ORDER);
   bst_dispose(bst);
@@ -191,7 +191,7 @@ static bst_t * balance3(bst_t * bst) {
   void * c = list_head(list_tail(list_tail(data)));
   list_dispose(data);
   bst = bst_init();
-  
+  void * z = cmp(a, b) ? a : b;
 }
 
 bst_t * bst_balance(bst_t * bst) {
