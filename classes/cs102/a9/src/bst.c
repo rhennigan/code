@@ -347,7 +347,8 @@ void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
     bst_t * p = get_parent(bst);
     bool left = is_left(bst);
     list_t * list = NULL;
-    bst_flatten(bst, &list, PRE_ORDER);
+    bst_flatten(get_left(bst), &list, PRE_ORDER);
+    bst_flatten(get_right(bst), &list, PRE_ORDER);
     bst_dispose(bst);
     bst = bst_init();
     while (list != NULL) {
