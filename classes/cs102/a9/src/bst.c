@@ -180,6 +180,7 @@ void bst_balance(bst_t * bst) {
   printf("rlc - llc = %d\n", rlc - llc);
   printf("llc - rlc = %d\n", llc - rlc);
   while (rlc - llc > 1) {
+    bst_balance(get_left(bst));
     printf("\n---------------------------------------------\n");
     bst = rotate_left(bst);
     bst_update_depth(bst);
