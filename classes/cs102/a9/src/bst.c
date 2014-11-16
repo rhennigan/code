@@ -338,8 +338,11 @@ typedef struct ins_arg_s {
   cmp_fun cmp;
 } ins_arg_t;
 
-static void aux_insert(void * args) {
-  
+static void aux_insert(void * addr) {
+  ins_arg_t args = *(ins_arg_t*)addr;
+  bst_t * bst = args.bst;
+  void * data = args.data;
+  cmp_fun cmp = args.cmp;
 }
 
 void bst_remove(bst_t * bst, void * data, cmp_fun cmp) {
