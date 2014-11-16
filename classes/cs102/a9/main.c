@@ -37,16 +37,17 @@ int main(int argc, char *argv[]) {
   bst_update_depth(bst);
 
   printf("---------------------------------------------\n");
-  printf("TREE COMPLETE\n");
-  printf("---------------------------------------------\n");
-  bst_print(bst, NULL, &pf);
+  printf("TREE COMPLETE, NOW BALANCING...\n");
 
-  printf("BALANCING\n");
   for (size_t i = 0; i < bst_height(bst)-1; i++) {
     printf("---------------------------------------------\n\n");
     bst = bst_balance(bst);
     bst_print(bst, NULL, &pf);
   }
+
+  printf("---------------------------------------------\n");
+  printf("TREE BALANCED\n");
+  printf("---------------------------------------------\n\n");
 
   list_t * flat = NULL;
   bst_flatten(bst, &flat, IN_ORDER);
