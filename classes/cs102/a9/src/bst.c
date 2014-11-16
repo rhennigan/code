@@ -154,11 +154,11 @@ bst_t * rotate_right(bst_t * bst) {
 }
 
 bst_t * rotate_left(bst_t * bst) {
-  bst_t * root = *bst;
+  bst_t * root = bst;
   bst_t * pivot = get_right(root);
   set_right(root, get_left(pivot));
   set_left(pivot, root);
-  *bst = pivot;
+  return pivot;
 }
 
 /* static void inc_p_path(bst_t * bst) { */
