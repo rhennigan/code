@@ -249,11 +249,13 @@ void bst_flatten(bst_t * bst, list_t ** list, order_t order) {
   switch (order) {
     case PRE_ORDER:
       *list = list_cons(*list, get_data(bst));
-      return;
+      bst_flatten(get_left(bst), list, order);
+      bst_flatten(get_right(bst), list, order);
+      break;
     case IN_ORDER:
-      return;
+      break;
     case POST_ORDER:
-      return;
+      break;
   }
 }
 
