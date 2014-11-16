@@ -182,6 +182,11 @@ void pf(bst_t * bst) {
 static bst_t * balance3(bst_t * bst) {
   list_t * data = NULL;
   bst_flatten(bst, &data, PRE_ORDER);
+  bst_dispose(bst);
+  void * a = list_head(data);
+  void * b = list_head(list_tail(data));
+  void * c = list_head(list_tail(list_tail(data)));
+  list_dispose(data);
 }
 
 bst_t * bst_balance(bst_t * bst) {
