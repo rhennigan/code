@@ -147,9 +147,7 @@ void bst_update_depth(bst_t * bst) {
 
 void rotate_left(bst_t ** bst) {
   bst_t * root = *bst;
-  set_depth(root, get_depth(root) + 1);
   bst_t * pivot = get_right(root);
-  set_depth(pivot, get_depth(pivot) - 1);
   set_right(root, get_left(pivot));
   set_left(pivot, root);
   *bst = pivot;
@@ -157,9 +155,7 @@ void rotate_left(bst_t ** bst) {
 
 void rotate_right(bst_t ** bst) {
   bst_t * root = *bst;
-  set_depth(root, get_depth(root) + 1);
   bst_t * pivot = get_left(root);
-  set_depth(pivot, get_depth(pivot) - 1);
   set_left(root, get_right(pivot));
   set_right(pivot, root);
   *bst = pivot;
