@@ -211,33 +211,33 @@ static bst_t * balance3(bst_t * bst) {
 }
 
 bst_t * bst_balance(bst_t * bst) {
-  printf("balancing %p\n", bst);
+  /* printf("balancing %p\n", bst); */
   if (bst == NULL || is_leaf(bst)) return bst;
-  printf("bst_node_count(bst) = %lu\n", bst_node_count(bst));
+  /* printf("bst_node_count(bst) = %lu\n", bst_node_count(bst)); */
   if (bst_node_count(bst) == 3) {
     bst = balance3(bst);
   }
   if (has_left(bst)) set_left(bst, bst_balance(get_left(bst)));
   if (has_right(bst)) set_right(bst, bst_balance(get_right(bst)));
   while (bal(bst) > 1) {
-    printf("\n---------------------------------------------\n");
-    printf("balance = %d\n", bal(bst));
-    printf("ROTATING LEFT:\n");
-    bst_print(bst, NULL, &pf);
+    /* printf("\n---------------------------------------------\n"); */
+    /* printf("balance = %d\n", bal(bst)); */
+    /* printf("ROTATING LEFT:\n"); */
+    /* bst_print(bst, NULL, &pf); */
     bst = rotate_left(bst);
-    printf("RESULTS:\n");
-    printf("balance = %d\n", bal(bst));
-    bst_print(bst, NULL, &pf);
+    /* printf("RESULTS:\n"); */
+    /* printf("balance = %d\n", bal(bst)); */
+    /* bst_print(bst, NULL, &pf); */
   }
   while (bal(bst) < -1) {
-    printf("\n---------------------------------------------\n");
-    printf("balance = %d\n", bal(bst));
-    printf("ROTATING RIGHT:\n");
-    bst_print(bst, NULL, &pf);
+    /* printf("\n---------------------------------------------\n"); */
+    /* printf("balance = %d\n", bal(bst)); */
+    /* printf("ROTATING RIGHT:\n"); */
+    /* bst_print(bst, NULL, &pf); */
     bst = rotate_right(bst);
-    printf("RESULTS:\n");
-    printf("balance = %d\n", bal(bst));
-    bst_print(bst, NULL, &pf);
+    /* printf("RESULTS:\n"); */
+    /* printf("balance = %d\n", bal(bst)); */
+    /* bst_print(bst, NULL, &pf); */
   }
   return bst;
 }
