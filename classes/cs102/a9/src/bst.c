@@ -185,7 +185,7 @@ static inline int32_t bal(bst_t * bst) {
 
 void pf(bst_t * bst) {
   if (bst == NULL || bst->data == NULL) return;
-  if (!is_leaf(bst)) printf(" %d, %d, %d", bst_node_count(bst),
+  if (!is_leaf(bst)) printf(" %d, %d, %d", (int)bst_node_count(bst),
                             bal(bst), ((int)bst_height(bst)+1));
   /* printf(" %d(%lu)",  *(int32_t*)bst->data, bst_node_count(bst)); */
 }
