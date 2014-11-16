@@ -226,7 +226,7 @@ bst_t * bst_balance(bst_t * bst) {
     printf("here\n");
     set_right(bst, bst_balance(get_right(bst)));
   }
-  while (bal(bst) > 2) {
+  while (bal(bst) > 1) {
     /* printf("\n---------------------------------------------\n"); */
     /* printf("balance = %d\n", bal(bst)); */
     /* printf("ROTATING LEFT:\n"); */
