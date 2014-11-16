@@ -247,6 +247,11 @@ void bst_dump(bst_t * bst, order_t order);
 void bst_flatten(bst_t * bst, list_t ** list, order_t order) {
   switch (order) {
     case PRE_ORDER:
+      return;
+    case IN_ORDER:
+      return;
+    case POST_ORDER:
+      return;
   }
 }
 
