@@ -54,13 +54,15 @@ int main(int argc, char *argv[]) {
   list_iter(list_reverse(flat), &ps);
 
   for (int32_t i = 0; i < argc; i++) {
-    
+    printf("Searching for \"%s\"... ", argv[i]);
+    bool found = bst_search(bst, argv[i], cmp);
+    printf("%s\n", found ? "FOUND" : "NOT FOUND");
   }
   char * hello = "hello";
   bool found_hello = bst_search(bst, hello, cmp);
   printf("found hello: %s\n", found_hello ? "true" : "false");
 
-  char * goodbye = "goodbyeo";
+  char * goodbye = "goodbye";
   bool found_goodbye = bst_search(bst, goodbye, cmp);
   printf("found goodbye: %s\n", found_goodbye ? "true" : "false");
 
