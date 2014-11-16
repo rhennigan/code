@@ -179,6 +179,10 @@ void pf(bst_t * bst) {
   printf(" %d", *(int32_t*)bst->data);
 }
 
+static bst_t * balance3(bst_t * bst) {
+  list_t * data = NULL;
+}
+
 bst_t * bst_balance(bst_t * bst) {
   printf("balancing %p\n", bst);
   if (bst == NULL || is_leaf(bst)) return bst;
