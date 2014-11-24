@@ -12,7 +12,7 @@
 #include "./utils.h"
 
 #define _DEBUG_ true
-#define _PA_ITERATIONS_ 5
+#define _PA_ITERATIONS_ 10
 #define _PPREC_ "3"
 #define _SPREC_ "3"
 

@@ -8,11 +8,12 @@
 #include "math/vectors.h"
 #include "math/matrices.h"
 
-int main(/* int argc, char *argv[] */) {
+int main(int argc, char *argv[]) {
+  if (argc != 2) exit(1);
   srand48((unsigned) time(NULL));
   printf("\n");
 
-  int rows = 100;
+  int rows = atoi(argv[1]);
   int cols = 3;
   double low = -(double)rows / 10.0;
   double high = (double)rows / 10.0;
@@ -33,7 +34,7 @@ int main(/* int argc, char *argv[] */) {
   vector_t paxis = mat_principal_axis(matrix);
   diff = clock() - start;
   int msec = diff * 1000 / CLOCKS_PER_SEC;
-  printf("principal axis (%d.%3d seconds):\n  ", msec / 1000, msec % 1000);
+  printf("principal axis (%d sec, %d ms):\n  ", msec / 1000, msec % 1000);
   vec_print(paxis);
   printf("\n\n");
 

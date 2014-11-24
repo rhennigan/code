@@ -178,14 +178,14 @@ cluster2[[Ordering[error2][[;;split2]]]]
 ];
 
 ClusterProjectionDistanceC[cluster1_,cluster2_]:=Module[
-{len1,len2,c1,c2,sequence,centroids},
-{len1,len2}=Length/@{cluster1,cluster2};
-{c1,c2}=If[len1==len2,{cluster1,cluster2},
-RandomSample[#][[;;Min[{len1,len2}]]]&/@{cluster1,cluster2}
-];
-sequence=FixedPointList[RefineClustersC,{c1,c2}];
-centroids=Map[Mean,sequence,{2}];
-Min[EuclideanDistance@@@centroids]
+	{len1,len2,c1,c2,sequence,centroids},
+	{len1,len2}=Length/@{cluster1,cluster2};
+	{c1,c2}=If[len1==len2,{cluster1,cluster2},
+		RandomSample[#][[;;Min[{len1,len2}]]]&/@{cluster1,cluster2}
+	];
+	sequence=FixedPointList[RefineClustersC,{c1,c2}];
+	centroids=Map[Mean,sequence,{2}];
+	Min[EuclideanDistance@@@centroids]
 ]
 
 SimplexContent[vertices_]:=Module[
