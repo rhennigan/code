@@ -145,9 +145,9 @@ list_t * list_map(list_t * list, void * (*f)(void * x)) {
 
 lpair_t list_partition(list_t * list, cmp_fun pred) {
   /* lpair_t pair = *(lpair_t*)malloc(sizeof(lpair_t)); */
-  lpair_t pair;
+  lpair_t pair = { NULL, NULL };
   while (list != NULL) {
-    
+    void * x = list_head(list);
   }  // end while (list != NULL)
   return pair;
 }
