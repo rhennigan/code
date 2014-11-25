@@ -15,6 +15,7 @@ bool intlt(void * a, void * b) {
 }
 
 int main(int argc, char *argv[]) {
+  printf("\n\n\n\n\n\n\n\n\n\n\n");
   int array[20];
   for (int i = 0; i < 20; i++)
     array[i] = rand() % 100;
