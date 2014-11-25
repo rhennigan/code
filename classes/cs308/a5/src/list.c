@@ -156,6 +156,8 @@ list_t * list_reverse(list_t * list) {
   return new_list;
 }  // end list_reverse
 
+static inline list_t * merge(list_t * xs, list_t * ys, cmp_fun lt);
+
 list_t * list_sort(list_t * list, cmp_fun lt) {
   if (list == NULL) {
     return NULL;
