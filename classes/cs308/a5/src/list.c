@@ -94,7 +94,7 @@ list_t * list_reverse(list_t * list) {
   return new_list;
 }
 
-list_t * list_tail(list_t * list) {
+inline list_t * list_tail(list_t * list) {
   if (list == NULL) {
     printf("list_tail: list is empty\n");
     exit(EXIT_FAILURE);
