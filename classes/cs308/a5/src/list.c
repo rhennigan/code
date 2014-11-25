@@ -50,12 +50,15 @@ void list_app(list_t ** list, void * data) {
 }  // end list_app
 
 list_t * list_copy(list_t * list) {
-  list_t * new_list = NULL;
-  list_t * tmp = list_init();
-  while (list != NULL) {
-    
+  if (list == NULL) {
+    return NULL;
+  } else {
+    list_t * new_list = list_init();
+    while (list != NULL) {
+      
+    }
+    return new_list;
   }
-  return new_list;
 }
 
 void list_dispose(list_t * list) {
