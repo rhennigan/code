@@ -163,10 +163,10 @@ static inline list_t * merge(list_t * xs, list_t * ys, cmp_fun lt) {
     return ys;
   } else if (ys == NULL) {
     return xs;
-  } else {
+  } else {  // (xs != NULL && ys != NULL)
     void * x = list_head(xs);
     void * y = list_head(ys);
-  }
+  }  // end if (xs == NULL && ys == NULL)
 }
 
 list_t * list_sort(list_t * list, cmp_fun lt) {
