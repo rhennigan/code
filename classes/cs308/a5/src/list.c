@@ -160,7 +160,7 @@ list_t * list_sort(list_t * list, cmp_fun lt) {
   if (list == NULL) {
     return NULL;
   } else {  // (list != NULL)
-    
+    return NULL;
   }  // end if (list == NULL)
 }  // end list_sort
 
