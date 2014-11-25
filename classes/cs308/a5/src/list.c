@@ -3,8 +3,12 @@
 
 #include "../lib/list.h"
 
-static inline list_t * last(list_t * list) {
-  
+static inline list_t * last_node(list_t * list) {
+  assert(list != NULL);
+  while (list->tail != NULL) {
+    list = list_tail(list);
+  }  // end while (list->tail != NULL)
+  return list;
 }  // end last
 
 list_t * list_app(list_t * list, void * data) {
