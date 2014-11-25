@@ -156,16 +156,21 @@ list_t * list_reverse(list_t * list) {
   return new_list;
 }  // end list_reverse
 
-static inline list_t * merge(list_t * xs, list_t * ys, cmp_fun lt) {
-  if (xs == NULL && ys == NULL) {
+static inline list_t * merge(list_t * xxs, list_t * yys, cmp_fun lt) {
+  if (xxs == NULL && yys == NULL) {
     return NULL;
-  } else if (xs == NULL) {
-    return ys;
-  } else if (ys == NULL) {
-    return xs;
+  } else if (xxs == NULL) {
+    return yys;
+  } else if (yys == NULL) {
+    return xxs;
   } else {  // (xs != NULL && ys != NULL)
-    void * x = list_head(xs);
-    void * y = list_head(ys);
+    void * x = list_head(xxs);
+    void * y = list_head(yys);
+    list_t * xs = list_tail(xxs);
+    list_t * ys = list_tail(yys);
+    if (lt(x, y)) {
+      return list_cons(merge
+    }
   }  // end if (xs == NULL && ys == NULL)
 }
 
