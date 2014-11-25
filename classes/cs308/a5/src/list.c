@@ -53,7 +53,7 @@ list_t * list_copy(list_t * list) {
   if (list == NULL) {
     return NULL;
   } else {
-    return list_cons(list_tail(list), list_head(list));
+    return list_cons(list_copy(list_tail(list)), list_head(list));
   }
 }
 
