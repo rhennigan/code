@@ -72,13 +72,13 @@ void list_dump(list_t * list) {
   }  // end if (list == NULL)
 }  // end list_dump
 
-void * list_find(list_t * list, void * h, cmp_fun cmp) {
+void * list_find(list_t * list, void * h, cmp_fun eq) {
   if (list == NULL) {
     return NULL;
-  } else if ((*cmp)(h, list_head(list))) {
+  } else if ((*eq)(h, list_head(list))) {
     return list_head(list);
   } else {  // (list != NULL && !(*cmp)(h, list_head(list)))
-    return list_find(list_tail(list), h, (*cmp));
+    return list_find(list_tail(list), h, (*eq));
   }   // end if (list == NULL)
 }  // end list_find
 
