@@ -143,6 +143,8 @@ list_t * list_map(list_t * list, void * (*f)(void * x)) {
   }  // end if (list == NULL)
 }
 
+void list_partition(list_t * lst, cmp_fun pred, list_t ** d1, list_t ** d2);
+
 list_t * list_pre(list_t * list, void * data) {
   return list_cons(list, data);
 }  // end list_app
