@@ -30,6 +30,9 @@ list_t * list_tail(list_t * list);
 void *   list_toarray(list_t * list, size_t size);
 
 #define list_range(start, end, step, type) do { \
+  list_t * list = NULL;                         \
+  for (type i = start; i <= end; i+=step) {     \
+                                                \
                                                 \
   } while (0)
 
