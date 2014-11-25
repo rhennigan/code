@@ -4,9 +4,10 @@
 #ifndef LIB_LIST_H_
 #define LIB_LIST_H_
 
+#include <assert.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct list_s {
   void * head;
