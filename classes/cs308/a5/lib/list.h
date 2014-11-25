@@ -17,6 +17,7 @@ typedef struct list_s {
 typedef bool (*cmp_fun)(void * a, void * b);
 
 void     list_app(list_t ** list, void * data);
+list_t * list_copy(list_t * list);
 void     list_dispose(list_t * list);
 void     list_dump(list_t * list);
 void *   list_find(list_t * list, void * h, cmp_fun eq);
