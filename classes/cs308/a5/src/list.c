@@ -23,9 +23,9 @@ static inline list_t * list_init() {
   return list;
 }  // end list_init
 
-static inline list_t * list_cons(list_t * list, void * head) {
+static inline list_t * list_cons(list_t * list, void * data) {
   list_t * new_list = list_init();
-  new_list->head = head;
+  new_list->head = data;
   new_list->tail = list;
   return new_list;
 }  // end list_cons
