@@ -31,11 +31,9 @@ void *   list_toarray(list_t * list, size_t size);
 
 #define abs(x) ((x) < 0 ? -(x) : (x))
 
-#define list_cons_c(list, item, type) do {      \
-    type * mem = malloc(sizeof(type));          \
-    *mem = item;                                \
-    *list = list_pre(*list, mem);               \
-  } while (0)
+#define range(start, end, step) ((size_t)abs(((end) - (start)) / (step)) + 1)
+
+#define make_range_arr(addr, start, end, step, type)
 
 #define list_range(start, end, step, type) do {                 \
     size_t count = (size_t)abs(((end) - (start)) / (step)) + 1; \
