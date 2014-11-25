@@ -182,7 +182,11 @@ list_t * list_sort(list_t * list, cmp_fun lt) {
     return NULL;
   } else {  // (list != NULL)
     void * pivot = list_head(list);
-    list_t * left = NULL, * right = NULL;
+    list_t * left = NULL;
+    list_t * right = list_cons(NULL, pivot);
+    while (list != NULL) {
+      if (lt(
+    }
     return NULL;
   }  // end if (list == NULL)
 }  // end list_sort
