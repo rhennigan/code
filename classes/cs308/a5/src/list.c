@@ -96,8 +96,8 @@ void * list_find(list_t * list, void * h, cmp_fun eq) {
 
 list_t * list_fromarray(void * array, size_t objsize, size_t length) {
   list_t * list = NULL;
-  for (size_t i = (length-1) * objsize; i >= 0; i -= objsize) {
-    
+  for (int i = (length-1) * objsize; i >= 0; i -= objsize) {
+    list = list_cons(list, array+i);
   }
 }
 
