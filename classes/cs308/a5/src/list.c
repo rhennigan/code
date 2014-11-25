@@ -199,7 +199,7 @@ list_t * list_sort(list_t * list, cmp_fun lt) {
     lpair_t part = list_partition(list, lt, pivot);
     part.left = list_sort(part.left, lt);
     part.right = list_sort(part.right, lt);
-    return merge(list_sort(left, lt), list_sort(right, lt), lt);
+    return merge(part.left, part.right, lt);
   }  // end if (list == NULL)
 }  // end list_sort
 

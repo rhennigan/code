@@ -25,6 +25,8 @@ int main(int argc, char *argv[]) {
   printf("\n\n");
   list_dump(list);
 
+  list_t * sorted = list_sort(list, &intlt);
+
   int pivot = 50;
   lpair_t pair = list_partition(list, intlt, &pivot);
   printf("\nleft = ");
