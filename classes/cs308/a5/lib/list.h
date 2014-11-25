@@ -32,8 +32,10 @@ void *   list_toarray(list_t * list, size_t size);
 #define abs(x) ((x) < 0 ? -(x) : (x))
 #define count(start, end, step) ((size_t)abs(((end) - (start)) / (step)) + 1)
 
-#define range_arr(start, end, step, type)                   \
+#define make_range_arr(start, end, step, type)              \
   ((type)(malloc(sizeof(type) * count(start, end, step))))
+
+#define range_arr(start, end, step, type)
 
 #define list_range(list, start, end, step, type) do {           \
                                                                 \
