@@ -6,6 +6,7 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdlib.h>
 
 typedef struct list_s {
   void * head;

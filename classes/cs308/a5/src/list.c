@@ -1,10 +1,6 @@
 // list.c - basic cons list
 // Copyright (C) 2014 Richard Hennigan
 
-#include <assert.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "../lib/list.h"
 
 list_t * list_app(list_t * list, void * data) {
