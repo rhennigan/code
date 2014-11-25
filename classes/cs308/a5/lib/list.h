@@ -28,7 +28,7 @@ size_t   list_length(list_t * list);
 list_t * list_map(list_t * list, void * (*f)(void * x));
 void     list_pre(list_t ** list, void * data);
 list_t * list_reverse(list_t * list);
-void     list_sort(list_t ** list, cmp_fun lt);
+list_t * list_sort(list_t * list, cmp_fun lt);
 list_t * list_tail(list_t * list);
 void *   list_toarray(list_t * list, size_t size);
 
