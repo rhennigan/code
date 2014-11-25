@@ -193,7 +193,7 @@ list_t * list_sort(list_t * list, cmp_fun lt) {
       }  // end if (lt(x, pivot))
       list = list_tail(list);
     }  // end while (list != NULL)
-    return NULL;
+    return merge(list_sort(left, lt), list_sort(right, lt), lt);
   }  // end if (list == NULL)
 }  // end list_sort
 
