@@ -136,8 +136,8 @@ list_t * list_map(list_t * list, void * (*f)(void * x)) {
   }  // end if (list == NULL)
 }
 
-void list_pre(list_t ** list, void * data) {
-  *list = list_cons(*list, data);
+list_t * list_pre(list_t * list, void * data) {
+  return list_cons(list, data);
 }  // end list_app
 
 list_t * list_reverse(list_t * list) {

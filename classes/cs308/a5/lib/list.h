@@ -27,7 +27,7 @@ void     list_iter(list_t * list, void (*f)(void * head));
 list_t * list_join(list_t * list1, list_t * list2);
 size_t   list_length(list_t * list);
 list_t * list_map(list_t * list, void * (*f)(void * x));
-list_t * list_pre(list_t ** list, void * data);
+list_t * list_pre(list_t * list, void * data);
 list_t * list_reverse(list_t * list);
 list_t * list_sort(list_t * list, cmp_fun lt);
 list_t * list_tail(list_t * list);
