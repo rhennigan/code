@@ -58,15 +58,16 @@ void * list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b)) {
     return list_head(list);
   } else {
     return list_find(list_tail(list), h, (*cmp));
-  }
+  }   // end if (list == NULL)
 }
 
 inline void * list_head(list_t * list) {
   if (list == NULL) {
     printf("list_head: list is empty\n");
     exit(EXIT_FAILURE);
-  }
-  return list->head;
+  } else {
+    return list->head;
+  }  // end if (list == NULL)
 }
 
 inline list_t * list_init() {
@@ -82,7 +83,7 @@ void list_iter(list_t * list, void (*f)(void * head)) {
   while (tmp != NULL) {
     (*f)(tmp->head);
     tmp = list_tail(tmp);
-  }
+  }  // end while (tmp != NULL)
 }
 
 size_t list_length(list_t * list) {
