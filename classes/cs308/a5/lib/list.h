@@ -12,6 +12,7 @@ typedef struct list_s {
   struct list_s * tail;
 } list_t;
 
+list_t * list_app(list_t * list, void * data);
 list_t * list_cons(list_t * list, void * head);
 void     list_dispose(list_t * list);
 void     list_dump(list_t * list);
