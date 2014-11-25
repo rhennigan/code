@@ -1,16 +1,14 @@
 // The following data structures can be used for the first fit
 // and best fit implementations for assignment 5
 
-
-
-#include<stdio.h>
+#include <stdio.h>
 
 #define NUMBER_ENTRIES  (1001)
 #define FALSE           (0)
 #define TRUE            (1)
 #define DONE            (2)
 
-struct request{
+struct request {
         int is_req;
         int is_allocated;
         int size;
@@ -19,15 +17,15 @@ struct request{
         int memory_left;
         int largest_chunk;
         int elements_on_free_list;
-}req_array[NUMBER_ENTRIES];
+} req_array[NUMBER_ENTRIES];
 
-struct free_list{
+struct free_list {
         struct free_list *next;
         struct free_list *previous;
         int block_size;
         int block_adr;
         int adjacent_adr;
-}list_head, *top;
+} list_head, *top;
 
 int total_free_space;
 int free_list_length = 0, total_free;
@@ -40,7 +38,7 @@ int update_list(int);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-// the buddy system requires a more complex set of structures 
+// the buddy system requires a more complex set of structures
 // as suggested below
 
 #include<stdio.h>
