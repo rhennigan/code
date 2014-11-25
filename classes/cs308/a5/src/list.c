@@ -45,7 +45,7 @@ static inline list_t * list_snoc(list_t * list, void * data) {
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
 
-void list_app(list_t ** list, void * data) {
+list_t * list_app(list_t * list, void * data) {
   *list = list_snoc(*list, data);
 }  // end list_app
 
