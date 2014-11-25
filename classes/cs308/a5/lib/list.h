@@ -33,24 +33,4 @@ list_t * list_sort(list_t * list, cmp_fun lt);
 list_t * list_tail(list_t * list);
 void *   list_toarray(list_t * list, size_t size);
 
-/* #define abs(x) ((x) < 0 ? -(x) : (x)) */
-/* #define count(start, end, step) ((size_t)abs(((end)-(start)) / (step))+1) */
-
-/* #define make_range_arr(start, end, step, type)              \ */
-/*   ((type)(malloc(sizeof(type) * count(start, end, step)))) */
-
-/* #define range_arr(start, end, step, type) */
-
-/* #define list_range(list, start, end, step, type) do {           \ */
-/*                                                                 \ */
-/*     for (type i = start; i <= end; i+=step) {                   \ */
-/*                                                                 \ */
-/*     }  /\* end for (type i = start; i <= end; i+=step) *\/        \ */
-/*   } while (0) */
-
-/* #undef abs */
-/* #undef count */
-/* #undef range_arr */
-/* #undef list_range */
-
 #endif  // LIB_LIST_H_
