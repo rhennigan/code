@@ -27,5 +27,9 @@ int main(int argc, char *argv[]) {
 
   int pivot = 50;
   lpair_t pair = list_partition(list, intlt, &pivot);
+  printf("\nleft = ");
+  list_iter(pair.left, &pint);
+  printf("\nright = ");
+  list_iter(pair.right, &pint);
   return 0;
 }
