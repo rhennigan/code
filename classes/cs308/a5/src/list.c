@@ -15,12 +15,20 @@ static inline list_t * last_node(list_t * list) {
   return list;
 }  // end last
 
+static inline list_t * init() {
+  list_t * list = malloc(sizeof(list_t));
+  assert(list != NULL);
+  list->head = NULL;
+  list->tail = NULL;
+  return list;
+}  // end init
+
 /******************************************************************************/
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
 
 list_t * list_app(list_t * list, void * data) {
-  list_t *last = list_init();
+  list_t *last = init();
   last->head = data;
   if (list == NULL) {
     return last;
@@ -31,7 +39,7 @@ list_t * list_app(list_t * list, void * data) {
 }  // end list_app
 
 list_t * list_cons(list_t * list, void * head) {
-  list_t * new_list = list_init();
+  list_t * new_list = init();
   new_list->head = head;
   new_list->tail = list;
   return new_list;
@@ -80,14 +88,6 @@ inline void * list_head(list_t * list) {
     return list->head;
   }  // end if (list == NULL)
 }  // end list_head
-
-inline list_t * list_init() {
-  list_t * list = malloc(sizeof(list_t));
-  assert(list != NULL);
-  list->head = NULL;
-  list->tail = NULL;
-  return list;
-}  // end list_init
 
 void list_iter(list_t * list, void (*f)(void * head)) {
   list_t * tmp = list;

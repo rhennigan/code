@@ -21,7 +21,6 @@ void     list_dump(list_t * list);
 void *   list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b));
 list_t * list_fromarray(void * array, size_t objsize, size_t length);
 void *   list_head(list_t * list);
-list_t * list_init();
 void     list_iter(list_t * list, void (*f)(void * head));
 list_t * list_join(list_t * list1, list_t * list2);
 size_t   list_length(list_t * list);
