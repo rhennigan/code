@@ -1,0 +1,310 @@
+
+Assignment 5 summary results
+
+ff 1024KB     490
+ff  512KB     374
+ff  256KB     245
+
+bf 1024KB     492
+bf  512KB     377
+bf  256KB     242
+
+bs 1024KB     465
+bs  512KB     328
+bs  256KB     212
+
+
+FIRST FIT RESULTS AND FIRST PAGE FOR 1MB (1024KB)
+
+Failed Req 89 is size 53152
+Failed Req 217 is size 128224
+Failed Req 226 is size 122592
+Failed Req 302 is size 118560
+Failed Req 346 is size 112864
+Failed Req 350 is size 128160
+Failed Req 556 is size 126048
+Failed Req 634 is size 65696
+Failed Req 635 is size 100448
+Failed Req 873 is size 80736
+
+TOTAL ALLOCATIONS: 490
+seq    1 type  alloc size  99744 done  YES tot mem  948832 links   1 lrgst chk  948832
+seq    2 type  alloc size 111776 done  YES tot mem  837056 links   1 lrgst chk  837056
+seq    3 type  alloc size  64864 done  YES tot mem  772192 links   1 lrgst chk  772192
+seq    4 type  alloc size  91552 done  YES tot mem  680640 links   1 lrgst chk  680640
+seq    5 type   free size 111776 done  YES tot mem  792416 links   2 lrgst chk  680640
+seq    6 type   free size  91552 done  YES tot mem  883968 links   2 lrgst chk  772192
+seq    7 type  alloc size   5600 done  YES tot mem  878368 links   2 lrgst chk  772192
+seq    8 type  alloc size 110304 done  YES tot mem  768064 links   2 lrgst chk  661888
+seq    9 type  alloc size  78688 done  YES tot mem  689376 links   2 lrgst chk  661888
+seq   10 type  alloc size   8032 done  YES tot mem  681344 links   2 lrgst chk  661888
+seq   11 type  alloc size  27872 done  YES tot mem  653472 links   2 lrgst chk  634016
+seq   12 type  alloc size  72992 done  YES tot mem  580480 links   2 lrgst chk  561024
+seq   13 type  alloc size   4960 done  YES tot mem  575520 links   2 lrgst chk  561024
+seq   14 type  alloc size  58400 done  YES tot mem  517120 links   2 lrgst chk  502624
+seq   15 type  alloc size  84640 done  YES tot mem  432480 links   2 lrgst chk  417984
+seq   16 type   free size  78688 done  YES tot mem  511168 links   3 lrgst chk  417984
+seq   17 type  alloc size  25760 done  YES tot mem  485408 links   3 lrgst chk  417984
+seq   18 type   free size   5600 done  YES tot mem  491008 links   4 lrgst chk  417984
+seq   19 type   free size  64864 done  YES tot mem  555872 links   4 lrgst chk  417984
+seq   20 type  alloc size   6496 done  YES tot mem  549376 links   4 lrgst chk  417984
+seq   21 type  alloc size 118240 done  YES tot mem  431136 links   4 lrgst chk  299744
+seq   22 type   free size  27872 done  YES tot mem  459008 links   5 lrgst chk  299744
+seq   23 type  alloc size  44448 done  YES tot mem  414560 links   5 lrgst chk  299744
+seq   24 type   free size   8032 done  YES tot mem  422592 links   5 lrgst chk  299744
+seq   25 type  alloc size 113440 done  YES tot mem  309152 links   5 lrgst chk  186304
+seq   26 type   free size  99744 done  YES tot mem  408896 links   5 lrgst chk  186304
+seq   27 type   free size 118240 done  YES tot mem  527136 links   6 lrgst chk  186304
+seq   28 type   free size   6496 done  YES tot mem  533632 links   7 lrgst chk  186304
+seq   29 type   free size  84640 done  YES tot mem  618272 links   7 lrgst chk  202880
+seq   30 type  alloc size 115040 done  YES tot mem  503232 links   7 lrgst chk  186304
+seq   31 type   free size  25760 done  YES tot mem  528992 links   6 lrgst chk  186304
+seq   32 type  alloc size  55072 done  YES tot mem  473920 links   6 lrgst chk  186304
+seq   33 type   free size   4960 done  YES tot mem  478880 links   5 lrgst chk  186304
+seq   34 type   free size  44448 done  YES tot mem  523328 links   4 lrgst chk  221312
+seq   35 type   free size  55072 done  YES tot mem  578400 links   4 lrgst chk  276384
+seq   36 type  alloc size  57312 done  YES tot mem  521088 links   4 lrgst chk  219072
+seq   37 type  alloc size 101408 done  YES tot mem  419680 links   4 lrgst chk  186304
+seq   38 type   free size 110304 done  YES tot mem  529984 links   3 lrgst chk  255840
+seq   39 type   free size  72992 done  YES tot mem  602976 links   3 lrgst chk  328832
+seq   40 type   free size  58400 done  YES tot mem  661376 links   3 lrgst chk  387232
+seq   41 type  alloc size  71328 done  YES tot mem  590048 links   3 lrgst chk  315904
+seq   42 type  alloc size  26144 done  YES tot mem  563904 links   3 lrgst chk  289760
+seq   43 type  alloc size  55968 done  YES tot mem  507936 links   3 lrgst chk  233792
+seq   44 type  alloc size  17824 done  YES tot mem  490112 links   3 lrgst chk  215968
+seq   45 type   free size  26144 done  YES tot mem  516256 links   4 lrgst chk  215968
+seq   46 type   free size  57312 done  YES tot mem  573568 links   5 lrgst chk  215968
+seq   47 type  alloc size  49120 done  YES tot mem  524448 links   5 lrgst chk  215968
+seq   48 type   free size  71328 done  YES tot mem  595776 links   5 lrgst chk  215968
+seq   49 type  alloc size  87200 done  YES tot mem  508576 links   5 lrgst chk  215968
+seq   50 type  alloc size  16928 done  YES tot mem  491648 links   5 lrgst chk  199040
+seq   51 type  alloc size  10848 done  YES tot mem  480800 links   5 lrgst chk  188192
+seq   52 type   free size  16928 done  YES tot mem  497728 links   6 lrgst chk  188192
+seq   53 type   free size  87200 done  YES tot mem  584928 links   6 lrgst chk  188192
+seq   54 type  alloc size 110112 done  YES tot mem  474816 links   6 lrgst chk  186304
+seq   55 type   free size 113440 done  YES tot mem  588256 links   5 lrgst chk  387584
+seq   56 type  alloc size  36640 done  YES tot mem  551616 links   5 lrgst chk  387584
+seq   57 type   free size 110112 done  YES tot mem  661728 links   5 lrgst chk  387584
+seq   58 type  alloc size  90592 done  YES tot mem  571136 links   5 lrgst chk  387584
+seq   59 type  alloc size     32 done  YES tot mem  571104 links   5 lrgst chk  387584
+
+
+
+BEST FIT RESULTS AND FIRST PAGE FOR 1MB (1024KB)
+
+Failed Req 217 is size 128224
+Failed Req 302 is size 118560
+Failed Req 350 is size 128160
+Failed Req 556 is size 126048
+Failed Req 592 is size 58208
+Failed Req 634 is size 65696
+Failed Req 635 is size 100448
+Failed Req 873 is size 80736
+
+TOTAL ALLOCATIONS: 492
+seq    1 type  alloc size  99744 done  YES tot mem  948832 links   1 lrgst chk  948832
+seq    2 type  alloc size 111776 done  YES tot mem  837056 links   1 lrgst chk  837056
+seq    3 type  alloc size  64864 done  YES tot mem  772192 links   1 lrgst chk  772192
+seq    4 type  alloc size  91552 done  YES tot mem  680640 links   1 lrgst chk  680640
+seq    5 type   free size 111776 done  YES tot mem  792416 links   2 lrgst chk  680640
+seq    6 type   free size  91552 done  YES tot mem  883968 links   2 lrgst chk  772192
+seq    7 type  alloc size   5600 done  YES tot mem  878368 links   2 lrgst chk  772192
+seq    8 type  alloc size 110304 done  YES tot mem  768064 links   2 lrgst chk  661888
+seq    9 type  alloc size  78688 done  YES tot mem  689376 links   2 lrgst chk  661888
+seq   10 type  alloc size   8032 done  YES tot mem  681344 links   2 lrgst chk  661888
+seq   11 type  alloc size  27872 done  YES tot mem  653472 links   2 lrgst chk  634016
+seq   12 type  alloc size  72992 done  YES tot mem  580480 links   2 lrgst chk  561024
+seq   13 type  alloc size   4960 done  YES tot mem  575520 links   2 lrgst chk  561024
+seq   14 type  alloc size  58400 done  YES tot mem  517120 links   2 lrgst chk  502624
+seq   15 type  alloc size  84640 done  YES tot mem  432480 links   2 lrgst chk  417984
+seq   16 type   free size  78688 done  YES tot mem  511168 links   3 lrgst chk  417984
+seq   17 type  alloc size  25760 done  YES tot mem  485408 links   3 lrgst chk  417984
+seq   18 type   free size   5600 done  YES tot mem  491008 links   4 lrgst chk  417984
+seq   19 type   free size  64864 done  YES tot mem  555872 links   4 lrgst chk  417984
+seq   20 type  alloc size   6496 done  YES tot mem  549376 links   4 lrgst chk  417984
+seq   21 type  alloc size 118240 done  YES tot mem  431136 links   4 lrgst chk  299744
+seq   22 type   free size  27872 done  YES tot mem  459008 links   5 lrgst chk  299744
+seq   23 type  alloc size  44448 done  YES tot mem  414560 links   5 lrgst chk  299744
+seq   24 type   free size   8032 done  YES tot mem  422592 links   5 lrgst chk  299744
+seq   25 type  alloc size 113440 done  YES tot mem  309152 links   5 lrgst chk  186304
+seq   26 type   free size  99744 done  YES tot mem  408896 links   5 lrgst chk  186304
+seq   27 type   free size 118240 done  YES tot mem  527136 links   6 lrgst chk  186304
+seq   28 type   free size   6496 done  YES tot mem  533632 links   7 lrgst chk  186304
+seq   29 type   free size  84640 done  YES tot mem  618272 links   7 lrgst chk  202880
+seq   30 type  alloc size 115040 done  YES tot mem  503232 links   7 lrgst chk  202880
+seq   31 type   free size  25760 done  YES tot mem  528992 links   6 lrgst chk  202880
+seq   32 type  alloc size  55072 done  YES tot mem  473920 links   6 lrgst chk  202880
+seq   33 type   free size   4960 done  YES tot mem  478880 links   5 lrgst chk  202880
+seq   34 type   free size  44448 done  YES tot mem  523328 links   4 lrgst chk  276384
+seq   35 type   free size  55072 done  YES tot mem  578400 links   4 lrgst chk  276384
+seq   36 type  alloc size  57312 done  YES tot mem  521088 links   4 lrgst chk  276384
+seq   37 type  alloc size 101408 done  YES tot mem  419680 links   4 lrgst chk  276384
+seq   38 type   free size 110304 done  YES tot mem  529984 links   3 lrgst chk  414560
+seq   39 type   free size  72992 done  YES tot mem  602976 links   3 lrgst chk  487552
+seq   40 type   free size  58400 done  YES tot mem  661376 links   3 lrgst chk  545952
+seq   41 type  alloc size  71328 done  YES tot mem  590048 links   3 lrgst chk  545952
+seq   42 type  alloc size  26144 done  YES tot mem  563904 links   3 lrgst chk  545952
+seq   43 type  alloc size  55968 done  YES tot mem  507936 links   3 lrgst chk  489984
+seq   44 type  alloc size  17824 done  YES tot mem  490112 links   3 lrgst chk  472160
+seq   45 type   free size  26144 done  YES tot mem  516256 links   3 lrgst chk  472160
+seq   46 type   free size  57312 done  YES tot mem  573568 links   3 lrgst chk  472160
+seq   47 type  alloc size  49120 done  YES tot mem  524448 links   3 lrgst chk  472160
+seq   48 type   free size  71328 done  YES tot mem  595776 links   3 lrgst chk  472160
+seq   49 type  alloc size  87200 done  YES tot mem  508576 links   3 lrgst chk  472160
+seq   50 type  alloc size  16928 done  YES tot mem  491648 links   3 lrgst chk  472160
+seq   51 type  alloc size  10848 done  YES tot mem  480800 links   3 lrgst chk  472160
+seq   52 type   free size  16928 done  YES tot mem  497728 links   3 lrgst chk  472160
+seq   53 type   free size  87200 done  YES tot mem  584928 links   4 lrgst chk  472160
+seq   54 type  alloc size 110112 done  YES tot mem  474816 links   4 lrgst chk  362048
+seq   55 type   free size 113440 done  YES tot mem  588256 links   4 lrgst chk  362048
+seq   56 type  alloc size  36640 done  YES tot mem  551616 links   4 lrgst chk  362048
+seq   57 type   free size 110112 done  YES tot mem  661728 links   4 lrgst chk  472160
+seq   58 type  alloc size  90592 done  YES tot mem  571136 links   4 lrgst chk  472160
+seq   59 type  alloc size     32 done  YES tot mem  571104 links   4 lrgst chk  472160
+seq   60 type   free size 115040 done  YES tot mem  686144 links   4 lrgst chk  472160
+seq   61 type  alloc size  57312 done  YES tot mem  628832 links   4 lrgst chk  472160
+
+
+
+BUDDY SYSTEM RESULTS AND FIRST 2 PAGES FOR 1MB (1024KB)
+
+Failed Req 85 is size 79840
+Failed Req 86 is size 110816
+Failed Req 89 is size 53152
+Failed Req 130 is size 45664
+Failed Req 132 is size 94432
+Failed Req 166 is size 46368
+Failed Req 167 is size 47584
+Failed Req 187 is size 103776
+Failed Req 201 is size 69472
+Failed Req 204 is size 105760
+Failed Req 218 is size 65568
+Failed Req 236 is size 110944
+Failed Req 272 is size 69664
+Failed Req 279 is size 106784
+Failed Req 300 is size 120480
+Failed Req 303 is size 42080
+Failed Req 334 is size 74784
+Failed Req 350 is size 128160
+Failed Req 352 is size 85472
+Failed Req 389 is size 118112
+Failed Req 402 is size 107168
+Failed Req 403 is size 72416
+Failed Req 538 is size 35168
+Failed Req 556 is size 126048
+Failed Req 584 is size 75040
+Failed Req 586 is size 82656
+Failed Req 587 is size 72864
+Failed Req 592 is size 58208
+Failed Req 623 is size 97568
+Failed Req 632 is size 108896
+Failed Req 634 is size 65696
+Failed Req 635 is size 100448
+Failed Req 814 is size 77088
+Failed Req 871 is size 124128
+Failed Req 873 is size 80736
+
+TOTAL ALLOCATIONS: 465
+ seq    type       size   act size   done  base adr  tot mem  lrgst chk  lngst lst
+   1   alloc      99744     131072    YES         0   917504     524288          1
+   2   alloc     111776     131072    YES    131072   786432     524288          1
+   3   alloc      64864      65536    YES    262144   720896     524288          1
+   4   alloc      91552     131072    YES    393216   589824     524288          1
+   5    free see      2     131072    YES        -1   720896     524288          1
+   6    free see      4     131072    YES        -1   851968     524288          1
+   7   alloc       5600       8192    YES    327680   843776     524288          2
+   8   alloc     110304     131072    YES    131072   712704     524288          2
+   9   alloc      78688     131072    YES    393216   581632     524288          1
+  10   alloc       8032       8192    YES    335872   573440     524288          1
+  11   alloc      27872      32768    YES    360448   540672     524288          1
+  12   alloc      72992     131072    YES    524288   409600     262144          1
+  13   alloc       4960       8192    YES    344064   401408     262144          1
+  14   alloc      58400      65536    YES    655360   335872     262144          1
+  15   alloc      84640     131072    YES    786432   204800     131072          1
+  16    free see      9     131072    YES        -1   335872     131072          1
+  17   alloc      25760      32768    YES    720896   303104     131072          2
+  18    free see      7       8192    YES        -1   311296     131072          2
+  19    free see      3      65536    YES        -1   376832     131072          2
+  20   alloc       6496       8192    YES    327680   368640     131072          2
+  21   alloc     118240     131072    YES    393216   237568     131072          2
+  22    free see     11      32768    YES        -1   270336     131072          1
+  23   alloc      44448      65536    YES    262144   204800     131072          2
+  24    free see     10       8192    YES        -1   212992     131072          2
+  25   alloc     113440     131072    YES    917504    81920      32768          2
+  26    free see      1     131072    YES        -1   212992     131072          2
+  27    free see     21     131072    YES        -1   344064     131072          2
+  28    free see     20       8192    YES        -1   352256     131072          2
+  29    free see     15     131072    YES        -1   483328     131072          2
+  30   alloc     115040     131072    YES         0   352256     131072          3
+
+ seq    type       size   act size   done  base adr  tot mem  lrgst chk  lngst lst
+  31    free see     17      32768    YES        -1   385024     131072          2
+  32   alloc      55072      65536    YES    720896   319488     131072          2
+  33    free see     13       8192    YES        -1   327680     131072          2
+  34    free see     23      65536    YES        -1   393216     262144          2
+  35    free see     32      65536    YES        -1   458752     262144          1
+  36   alloc      57312      65536    YES    720896   393216     262144          1
+  37   alloc     101408     131072    YES    786432   262144     262144          1
+  38    free see      8     131072    YES        -1   393216     262144          1
+  39    free see     12     131072    YES        -1   524288     262144          1
+  40    free see     14      65536    YES        -1   589824     262144          2
+  41   alloc      71328     131072    YES    131072   458752     262144          2
+  42   alloc      26144      32768    YES    655360   425984     262144          1
+  43   alloc      55968      65536    YES    524288   360448     262144          1
+  44   alloc      17824      32768    YES    688128   327680     262144          1
+  45    free see     42      32768    YES        -1   360448     262144          1
+  46    free see     36      65536    YES        -1   425984     262144          1
+  47   alloc      49120      65536    YES    589824   360448     262144          2
+  48    free see     41     131072    YES        -1   491520     262144          1
+  49   alloc      87200     131072    YES    131072   360448     262144          1
+  50   alloc      16928      32768    YES    655360   327680     262144          1
+  51   alloc      10848      16384    YES    720896   311296     262144          1
+  52    free see     50      32768    YES        -1   344064     262144          1
+  53    free see     49     131072    YES        -1   475136     262144          2
+  54   alloc     110112     131072    YES    131072   344064     262144          2
+  55    free see     25     131072    YES        -1   475136     262144          2
+  56   alloc      36640      65536    YES    917504   409600     262144          2
+  57    free see     54     131072    YES        -1   540672     262144          2
+  58   alloc      90592     131072    YES    131072   409600     262144          2
+  59   alloc         32         32    YES    737280   409568     262144          2
+  60    free see     30     131072    YES        -1   540640     262144          2
+
+ seq    type       size   act size   done  base adr  tot mem  lrgst chk  lngst lst
+  61   alloc      57312      65536    YES    983040   475104     262144          2
+  62   alloc     113952     131072    YES         0   344032     262144          2
+  63    free see     37     131072    YES        -1   475104     262144          2
+  64   alloc      88160     131072    YES    786432   344032     262144          2
+  65    free see     43      65536    YES        -1   409568     262144          2
+  66    free see     51      16384    YES        -1   425952     262144          2
+  67   alloc      35424      65536    YES    524288   360416     262144          2
+  68   alloc       7584       8192    YES    745472   352224     262144          2
+  69    free see     47      65536    YES        -1   417760     262144          2
+  70    free see     68       8192    YES        -1   425952     262144          2
+  71   alloc      60960      65536    YES    589824   360416     262144          2
+  72   alloc      36704      65536    YES    262144   294880     131072          2
+  73    free see     58     131072    YES        -1   425952     131072          2
+  74    free see     44      32768    YES        -1   458720     131072          2
+  75   alloc      44512      65536    YES    327680   393184     131072          2
+  76   alloc      34656      65536    YES    655360   327648     131072          2
+  77    free see     59         32    YES        -1   327680     131072          2
+  78   alloc      85024     131072    YES    131072   196608     131072          2
+  79    free see     56      65536    YES        -1   262144     131072          1
+  80   alloc      42080      65536    YES    720896   196608     131072          2
+  81   alloc      39520      65536    YES    917504   131072     131072          1
+  82   alloc      79840     131072    YES    393216        0          0          1
+  83    free see     80      65536    YES        -1    65536      65536          0
+  84    free see     61      65536    YES        -1   131072      65536          1
+  85   alloc      79840     131072     NO        -1   131072      65536          2
+  86   alloc     110816     131072     NO        -1   131072      65536          2
+  87   alloc      61664      65536    YES    720896    65536      65536          2
+  88   alloc      51808      65536    YES    983040        0          0          1
+  89   alloc      53152      65536     NO        -1        0          0          0
+  90    free see     67      65536    YES        -1    65536      65536          0
+
+ seq    type       size   act size   done  base adr  tot mem  lrgst chk  lngst lst
+  91    free see     62     131072    YES        -1   196608     131072          1
+  92    free see     78     131072    YES        -1   327680     262144          1
+  93    free see     64     131072    YES        -1   458752     262144          1
+  94    free see     75      65536    YES        -1   524288     262144          1
+  95    free see     72      65536    YES        -1   589824     262144          2
+  96    free see     76      65536    YES        -1   655360     262144          2
