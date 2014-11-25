@@ -23,6 +23,13 @@ static inline list_t * list_init() {
   return list;
 }  // end list_init
 
+static inline list_t * list_cons(list_t * list, void * head) {
+  list_t * new_list = list_init();
+  new_list->head = head;
+  new_list->tail = list;
+  return new_list;
+}  // end list_cons
+
 /******************************************************************************/
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
@@ -37,13 +44,6 @@ list_t * list_app(list_t * list, void * data) {
     return list;
   }  // end if (list == NULL)
 }  // end list_app
-
-list_t * list_cons(list_t * list, void * head) {
-  list_t * new_list = list_init();
-  new_list->head = head;
-  new_list->tail = list;
-  return new_list;
-}  // end list_cons
 
 void list_dispose(list_t * list) {
   if (list == NULL) return;
