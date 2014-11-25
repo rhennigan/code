@@ -143,7 +143,7 @@ list_t * list_map(list_t * list, void * (*f)(void * x)) {
   }  // end if (list == NULL)
 }
 
-void list_partition(list_t * list, cmp_fun pred, list_t ** d1, list_t ** d2) {
+lpart_t list_partition(list_t * list, cmp_fun pred) {
   while (list != NULL) {
     
   }  // end while (list != NULL)
