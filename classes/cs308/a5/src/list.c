@@ -94,7 +94,14 @@ void * list_find(list_t * list, void * h, cmp_fun eq) {
   }   // end if (list == NULL)
 }  // end list_find
 
-list_t * list_fromarray(void * array, size_t objsize, size_t length);
+list_t * list_fromarray(void * array, size_t objsize, size_t length) {
+  list_t * list = list_init();
+  list_t * tmp = list;
+  char * byte_array = (char *)array;
+  for (size_t i = 0; i < length; i++) {
+    
+  }
+}
 
 inline void * list_head(list_t * list) {
   if (list == NULL) {
