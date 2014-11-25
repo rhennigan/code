@@ -8,13 +8,11 @@
 #include "../lib/list.h"
 
 list_t * list_app(list_t * list, void * data) {
+  list_t *last = list_init();
+  last->head = data;
   if (list == NULL) {
-    list = list_init();
-    list->head = data;
-    return list;
+    return last;
   } else {
-    list_t *last = list_init(), *tmp = list;
-    last->head = data;
     return list;
   }
 }
