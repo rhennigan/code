@@ -15,5 +15,7 @@ int main(int argc, char *argv[]) {
   list_iter(list, &pint);
   printf("\n\nsizeof(int) = %lu\nsizeof(double) = %lu",
          sizeof(int), sizeof(double));
+  printf("\n\n");
+  list_dump(list);
   return 0;
 }
