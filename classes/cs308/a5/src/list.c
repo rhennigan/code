@@ -170,8 +170,10 @@ static inline list_t * merge(list_t * xxs, list_t * yys, cmp_fun lt) {
     list_t * ys = list_tail(yys);
     list_t * merged = merge(xs, ys, lt);
     if (lt(x, y)) {
-      return list_cons(merge
-    }
+      return list_cons(list_cons(merged, y), x);
+    } else {  // (!lt(x, y))
+      return list_cons(list_cons(merged, x), y);
+    }  // end if (lt(x, y))
   }  // end if (xs == NULL && ys == NULL)
 }
 
