@@ -1,4 +1,4 @@
-// list.c - basic cons list
+// list.h - a simple implementation of singly-linked lists
 // Copyright (C) 2014 Richard Hennigan
 
 #include "../lib/list.h"
