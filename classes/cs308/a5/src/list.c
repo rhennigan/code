@@ -196,17 +196,7 @@ list_t * list_sort(list_t * list, cmp_fun lt) {
     return NULL;
   } else {  // (list != NULL)
     void * pivot = list_head(list);
-    list_t * left = NULL;
-    list_t * right = NULL;
-    while (list != NULL) {
-      void * x = list_head(list);
-      if (lt(x, pivot)) {
-        left = list_cons(left, x);
-      } else {  // (!lt(x, pivot))
-        right = list_cons(right, x);
-      }  // end if (lt(x, pivot))
-      list = list_tail(list);
-    }  // end while (list != NULL)
+    
     return merge(list_sort(left, lt), list_sort(right, lt), lt);
   }  // end if (list == NULL)
 }  // end list_sort
