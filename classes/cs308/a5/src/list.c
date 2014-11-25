@@ -122,8 +122,12 @@ void list_iter(list_t * list, void (*f)(void * head)) {
 
 list_t * list_join(list_t * list1, list_t * list2) {
   list_t * list = list_copy(list1);
-  last_node(list)->next = list2;
-  return list;
+  if (list == NULL) {
+    return list2;
+  } else {
+    last_node(list)->next = list2;
+    return list;
+  }
 }  // end list_join
 
 size_t list_length(list_t * list) {
