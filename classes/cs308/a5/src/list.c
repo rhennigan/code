@@ -57,6 +57,8 @@ void * list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b)) {
   }   // end if (list == NULL)
 }  // end list_find
 
+list_t * list_fromarray(void * array, size_t objsize, size_t length);
+
 inline void * list_head(list_t * list) {
   if (list == NULL) {
     printf("list_head: list is empty\n");
@@ -81,6 +83,8 @@ void list_iter(list_t * list, void (*f)(void * head)) {
     tmp = list_tail(tmp);
   }  // end while (tmp != NULL)
 }  // end list_iter
+
+list_t * list_join(list_t * list1, list_t * list2);
 
 size_t list_length(list_t * list) {
   size_t len = 0;
@@ -116,3 +120,5 @@ inline list_t * list_tail(list_t * list) {
     return list->tail;
   }  // end if (list == NULL)
 }  // end list_tail
+
+void * list_toarray(list_t * list, size_t size);
