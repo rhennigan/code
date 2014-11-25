@@ -11,7 +11,7 @@ void pdouble(void * head) {
 }
 
 bool intlt(void * a, void * b) {
-  return (*(int*)a) < (*(int*)b);
+  return (*(int*)a) <= (*(int*)b);
 }
 
 int main(int argc, char *argv[]) {
