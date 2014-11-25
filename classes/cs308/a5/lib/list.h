@@ -15,6 +15,11 @@ typedef struct list_s {
   struct list_s * next;
 } list_t;
 
+typedef struct lpart_s {
+  list_t * psat;
+  list_t * comp;
+} lpart_t;
+
 typedef bool (*cmp_fun)(void * a, void * b);
 
 list_t * list_app(list_t * list, void * data);
