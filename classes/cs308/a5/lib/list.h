@@ -37,13 +37,13 @@ void *   list_toarray(list_t * list, size_t size);
     *list = list_pre(*list, mem);               \
   } while (0)
 
-#define list_range(start, end, step, type) do {             \
-    type range = ((end) - (start)) / (step);                \
-    type * mem = malloc(sizeof(type) * (step));             \
-    list_t * list = NULL;                                   \
-    for (type i = start; i <= end; i+=step) {               \
-                          \
-    }  /* end for (type i = start; i <= end; i+=step) */    \
+#define list_range(start, end, step, type) do {                 \
+    size_t count = (size_t)(((end) - (start)) / (step)) + 1;    \
+    type * mem = malloc(sizeof(type) * (step));                 \
+    list_t * list = NULL;                                       \
+    for (type i = start; i <= end; i+=step) {                   \
+                                                                \
+    }  /* end for (type i = start; i <= end; i+=step) */        \
   } while (0)
 
 #undef abs
