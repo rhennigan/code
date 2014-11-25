@@ -191,8 +191,7 @@ static inline list_t * merge(list_t * xxs, list_t * yys, cmp_fun lt) {
   }  // end if (xs == NULL && ys == NULL)
 }
 
-static inline list_t * merge_sort(
-    list_t * list, cmp_fun lt, list_t * left, list_t * right) {
+list_t * list_sort(list_t * list, cmp_fun lt) {
   if (list == NULL) {
     return NULL;
   } else {  // (list != NULL)
