@@ -16,10 +16,10 @@ bool intlt(void * a, void * b) {
 
 int main(int argc, char *argv[]) {
   printf("\n\n\n\n\n\n\n\n\n\n\n");
-  int array[20];
-  for (int i = 0; i < 20; i++)
+  int array[10];
+  for (int i = 0; i < 10; i++)
     array[i] = rand() % 100;
-  list_t * list = list_fromarray(array, sizeof(int), 20);
+  list_t * list = list_fromarray(array, sizeof(int), 10);
   list_iter(list, &pint);
   printf("\n\nsizeof(int) = %lu\nsizeof(double) = %lu",
          sizeof(int), sizeof(double));
