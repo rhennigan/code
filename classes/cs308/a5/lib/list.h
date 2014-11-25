@@ -38,8 +38,8 @@ void *   list_toarray(list_t * list, size_t size);
   } while (0)
 
 #define list_range(start, end, step, type) do {                 \
-    size_t count = (size_t)(((end) - (start)) / (step)) + 1;    \
-    type * mem = malloc(sizeof(type) * (step));                 \
+    size_t count = (size_t)abs(((end) - (start)) / (step)) + 1; \
+    type * mem = malloc(sizeof(type) * count);                  \
     list_t * list = NULL;                                       \
     for (type i = start; i <= end; i+=step) {                   \
                                                                 \
