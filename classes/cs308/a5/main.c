@@ -16,12 +16,17 @@ bool intlt(void * a, void * b) {
 
 int main(int argc, char *argv[]) {
   int array[20];
-  for (int i = 0; i < 20; i++) array[i] = rand() % 100;
+  for (int i = 0; i < 20; i++)
+    array[i] = rand() % 100;
   list_t * list = list_fromarray(array, sizeof(int), 20);
   list_iter(list, &pint);
   printf("\n\nsizeof(int) = %lu\nsizeof(double) = %lu",
          sizeof(int), sizeof(double));
   printf("\n\n");
   list_dump(list);
+
+  list_t * sorted = list_sort(list, &intlt);
+  list_iter(sorted, &pint);
+  list_dump(sorted);
   return 0;
 }
