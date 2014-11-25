@@ -53,13 +53,7 @@ list_t * list_copy(list_t * list) {
   if (list == NULL) {
     return NULL;
   } else {
-    list_t * new_list = list_init();
-    list_t * tmp = new_list;
-    tmp->head = list_head(list);
-    do {
-      
-    } while ((list = list_tail(list)) != NULL);
-    return new_list;
+    return list_cons(list_tail(list), list_head(list));
   }
 }
 
