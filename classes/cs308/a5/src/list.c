@@ -13,6 +13,10 @@ list_t * list_app(list_t * list, void * data) {
   if (list == NULL) {
     return last;
   } else {
+    list_t * tmp = list;
+    while (list_tail(tmp) != NULL) {
+      
+    }
     return list;
   }
 }
