@@ -29,6 +29,8 @@ list_t * list_reverse(list_t * list);
 list_t * list_tail(list_t * list);
 void *   list_toarray(list_t * list, size_t size);
 
+#define abs(x) ((x) < 0 ? -(x) : (x))
+
 #define list_cons_c(list, item, type) do {      \
     type * mem = malloc(sizeof(type));          \
     *mem = item;                                \
@@ -44,6 +46,6 @@ void *   list_toarray(list_t * list, size_t size);
     }  /* end for (type i = start; i <= end; i+=step) */    \
   } while (0)
 
-
+#undef abs
 
 #endif  // LIB_LIST_H_
