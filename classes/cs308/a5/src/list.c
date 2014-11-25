@@ -49,6 +49,10 @@ void list_app(list_t ** list, void * data) {
   *list = list_snoc(*list, data);
 }  // end list_app
 
+list_t * list_copy(list_t * list) {
+  list_t * new_list = list_init();
+}
+
 void list_dispose(list_t * list) {
   if (list == NULL) return;
   list_t ** next = &list->tail;
