@@ -14,7 +14,7 @@ typedef struct list_s {
   struct list_s * tail;
 } list_t;
 
-void     list_app(list_t * list, void * data);
+void     list_app(list_t ** list, void * data);
 void     list_dispose(list_t * list);
 void     list_dump(list_t * list);
 void *   list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b));
@@ -24,7 +24,7 @@ void     list_iter(list_t * list, void (*f)(void * head));
 list_t * list_join(list_t * list1, list_t * list2);
 size_t   list_length(list_t * list);
 list_t * list_map(list_t * list, void * (*f)(void * x));
-void     list_pre(list_t * list, void * data);
+void     list_pre(list_t ** list, void * data);
 list_t * list_reverse(list_t * list);
 list_t * list_tail(list_t * list);
 void *   list_toarray(list_t * list, size_t size);
