@@ -181,6 +181,7 @@ list_t * list_sort(list_t * list, cmp_fun lt) {
   if (list == NULL) {
     return NULL;
   } else {  // (list != NULL)
+    void * pivot = list_head(list);
     return NULL;
   }  // end if (list == NULL)
 }  // end list_sort
