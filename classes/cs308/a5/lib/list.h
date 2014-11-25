@@ -23,6 +23,7 @@ size_t   list_length(list_t * list);
 list_t * list_map(list_t * list, void * (*f)(void * x));
 list_t * list_reverse(list_t * list);
 list_t * list_tail(list_t * list);
+void *   list_toarray(list_t * list, size_t size);
 
 #define list_cons_c(list, item, type) do {      \
     type * mem = malloc(sizeof(type));          \
