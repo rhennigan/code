@@ -25,10 +25,7 @@ list_t * list_app(list_t * list, void * data) {
   if (list == NULL) {
     return last;
   } else {  // (list != NULL)
-    list_t * tmp = list;
-    do {
-      if (tmp->tail == NULL) tmp->tail = last;
-    } while ((tmp = list_tail(tmp)) != NULL);
+    last_node(list)->tail = last;
     return list;
   }  // end if (list == NULL)
 }  // end list_app
