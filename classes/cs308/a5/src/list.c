@@ -46,7 +46,11 @@ static inline list_t * list_snoc(list_t * list, void * data) {
 /******************************************************************************/
 
 list_t * list_app(list_t * list, void * data) {
-  *list = list_snoc(*list, data);
+  list_t * new_list = list_copy(list);
+  list_t * last = last_node(new_list);
+  last->tail = list_init();
+  last->tail->head = data;
+  return new_list;
 }  // end list_app
 
 list_t * list_copy(list_t * list) {
