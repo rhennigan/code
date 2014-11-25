@@ -12,7 +12,7 @@ list_t * list_app(list_t * list, void * data) {
   last->head = data;
   if (list == NULL) {
     return last;
-  } else {
+  } else {  // (list != NULL)
     list_t * tmp = list;
     do {
       if (tmp->tail == NULL) tmp->tail = last;
@@ -43,7 +43,7 @@ void list_dump(list_t * list) {
   printf(" list contents:\n");
   if (list == NULL) {
     printf("  (nil)\n");
-  } else {
+  } else {  // (list != NULL)
     while (list != NULL) {
       printf("  %p, %p\n", list_head(list), list_tail(list));
       list = list_tail(list);
@@ -113,7 +113,7 @@ inline list_t * list_tail(list_t * list) {
   if (list == NULL) {
     printf("list_tail: list is empty\n");
     exit(EXIT_FAILURE);
-  } else {
+  } else {  // (list != NULL)
     return list->tail;
   }  // end if (list == NULL)
 }
