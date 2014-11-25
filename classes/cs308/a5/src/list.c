@@ -52,10 +52,10 @@ void list_app(list_t ** list, void * data) {
 list_t * list_copy(list_t * list) {
   if (list == NULL) {
     return NULL;
-  } else {
+  } else {  // (list != NULL)
     return list_cons(list_copy(list_tail(list)), list_head(list));
-  }
-}
+  }  // end if (list == NULL)
+}  // end list_copy
 
 void list_dispose(list_t * list) {
   if (list == NULL) return;
