@@ -33,8 +33,8 @@ void list_dump(list_t * list) {
     while (list != NULL) {
       printf("  %p, %p\n", list_head(list), list_tail(list));
       list = list_tail(list);
-    }
-  }
+    }  // end while (list != NULL)
+  }  // end if (list == NULL)
 }
 
 void * list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b)) {
