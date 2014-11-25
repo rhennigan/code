@@ -1,4 +1,4 @@
-// list.h - basic cons list
+// list.h - a simple implementation of singly-linked lists
 // Copyright (C) 2014 Richard Hennigan
 
 #ifndef LIB_LIST_H_
@@ -35,10 +35,5 @@ void *   list_toarray(list_t * list, size_t size);
     *mem = item;                                \
     list = list_cons(list, mem);                \
   } while (0)
-
-typedef struct list2_s {
-  list_t * first;
-  list_t * last;
-} list2_t;
 
 #endif  // LIB_LIST_H_
