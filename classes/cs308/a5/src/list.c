@@ -98,8 +98,8 @@ list_t * list_fromarray(void * array, size_t objsize, size_t length) {
   list_t * list = list_init();
   list_t * tmp = list;
   char * byte_array = (char *)array;
-  for (size_t i = 0; i < length; i++) {
-    
+  for (size_t i = 0; i < length; i += objsize) {
+    tmp->head = byte_array
   }
 }
 
