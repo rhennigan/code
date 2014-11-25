@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-std=c99 -g -c
 LDFLAGS=-std=c99 -g
-BUILD=bst list
+BUILD=list
 EXECUTABLE=main
 
 SOURCES=$(BUILD:%=src/%.c)
