@@ -14,6 +14,8 @@ typedef struct list_s {
   struct list_s * tail;
 } list_t;
 
+typedef int32_t (*cmp_fun)(void * a, void * b);
+
 void     list_app(list_t ** list, void * data);
 void     list_dispose(list_t * list);
 void     list_dump(list_t * list);
