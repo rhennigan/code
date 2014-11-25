@@ -32,4 +32,9 @@ void *   list_toarray(list_t * list, size_t size);
     list = list_cons(list, mem);                \
   } while (0)
 
+typedef struct list2_s {
+  list_t * first;
+  list_t * last;
+} list2_t;
+
 #endif  // LIB_LIST_H_
