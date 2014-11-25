@@ -95,11 +95,10 @@ void * list_find(list_t * list, void * h, cmp_fun eq) {
 }  // end list_find
 
 list_t * list_fromarray(void * array, size_t objsize, size_t length) {
-  if (length == 0) {
-    return NULL;
-  } else {  // (length != 0)
+  list_t * list = NULL;
+  for (size_t i = (length-1) * objsize; i >= 0; i -= objsize) {
     
-  }  // end if (length == 0)
+  }
 }
 
 inline void * list_head(list_t * list) {
