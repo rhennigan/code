@@ -18,7 +18,7 @@ list_t * list_app(list_t * list, void * data) {
       if (tmp->tail == NULL) tmp->tail = last;
     } while ((tmp = list_tail(tmp)) != NULL);
     return list;
-  }
+  }  // end if (list == NULL)
 }
 
 list_t * list_cons(list_t * list, void * head) {
@@ -69,7 +69,7 @@ inline void * list_head(list_t * list) {
   return list->head;
 }
 
-list_t * list_init() {
+inline list_t * list_init() {
   list_t * list = malloc(sizeof(list_t));
   assert(list != NULL);
   list->head = NULL;
