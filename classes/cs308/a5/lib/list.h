@@ -16,8 +16,8 @@ typedef struct list_s {
 } list_t;
 
 typedef struct lpair_s {
-  list_t * psat;
-  list_t * comp;
+  list_t * left;
+  list_t * right;
 } lpair_t;
 
 typedef bool (*cmp_fun)(void * a, void * b);
@@ -33,7 +33,7 @@ void     list_iter(list_t * list, void (*f)(void * data));
 list_t * list_join(list_t * list1, list_t * list2);
 size_t   list_length(list_t * list);
 list_t * list_map(list_t * list, void * (*f)(void * x));
-lpart_t  list_partition(list_t * lst, cmp_fun pred);
+lpair_t  list_partition(list_t * lst, cmp_fun pred);
 list_t * list_pre(list_t * list, void * data);
 list_t * list_reverse(list_t * list);
 list_t * list_sort(list_t * list, cmp_fun lt);
