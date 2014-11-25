@@ -55,12 +55,10 @@ list_t * list_copy(list_t * list) {
   } else {
     list_t * new_list = list_init();
     list_t * tmp = new_list;
+    tmp->head = list_head(list);
     do {
       
     } while ((list = list_tail(list)) != NULL);
-    while (list != NULL) {
-      tmp->head = list_head(list);
-    }
     return new_list;
   }
 }
