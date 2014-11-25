@@ -54,8 +54,9 @@ list_t * list_copy(list_t * list) {
     return NULL;
   } else {
     list_t * new_list = list_init();
+    list_t * tmp = new_list;
     while (list != NULL) {
-      
+      tmp->head = list_head(list);
     }
     return new_list;
   }
