@@ -192,6 +192,9 @@ static inline list_t * merge(list_t * xxs, list_t * yys, cmp_fun lt) {
 }
 
 list_t * list_sort(list_t * list, cmp_fun lt) {
+  printf("\n\nsorting list: \n");
+  list_dump(list);
+  fflush(NULL);
   if (list == NULL) {
     return NULL;
   } else {  // (list != NULL)
