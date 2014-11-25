@@ -35,15 +35,16 @@ void *   list_toarray(list_t * list, size_t size);
 #define range_arr(start, end, step, type)                   \
   ((type)(malloc(sizeof(type) * count(start, end, step))))
 
-#define list_range(start, end, step, type) do {                 \
-    size_t count = (size_t)abs(((end) - (start)) / (step)) + 1; \
-    type * mem = malloc(sizeof(type) * count);                  \
-    list_t * list = NULL;                                       \
+#define list_range(list, start, end, step, type) do {           \
+                                                                \
     for (type i = start; i <= end; i+=step) {                   \
                                                                 \
     }  /* end for (type i = start; i <= end; i+=step) */        \
   } while (0)
 
 #undef abs
+#undef count
+#undef range_arr
+#undef list_range
 
 #endif  // LIB_LIST_H_
