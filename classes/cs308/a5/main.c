@@ -9,9 +9,9 @@ void pdouble(void * head) {
 }
 
 int main(int argc, char *argv[]) {
-  int array[100];
-  for (int i = 0; i < 100; i++) array[i] = (int)i;
-  list_t * list = list_fromarray(array, sizeof(int), 100);
+  int array[20];
+  for (int i = 0; i < 20; i++) array[i] = (int)i;
+  list_t * list = list_fromarray(array, sizeof(int), 20);
   list_iter(list, &pint);
   printf("\n\nsizeof(int) = %lu\nsizeof(double) = %lu",
          sizeof(int), sizeof(double));
