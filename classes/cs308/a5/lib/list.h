@@ -29,17 +29,19 @@ list_t * list_reverse(list_t * list);
 list_t * list_tail(list_t * list);
 void *   list_toarray(list_t * list, size_t size);
 
-#define list_range(start, end, step, type) do {             \
-    list_t * list = NULL;                                   \
-    for (type i = start; i <= end; i+=step) {               \
-                                                            \
-    }  /* end for (type i = start; i <= end; i+=step) */    \
-  } while (0)
-
 #define list_cons_c(list, item, type) do {      \
     type * mem = malloc(sizeof(type));          \
     *mem = item;                                \
-    list = list_cons(list, mem);                \
+    list = list_pre(list, mem);                 \
   } while (0)
+
+#define list_range(start, end, step, type) do {             \
+    list_t * list = NULL;                                   \
+    for (type i = start; i <= end; i+=step) {               \
+      list_pre(&list,                                        \
+    }  /* end for (type i = start; i <= end; i+=step) */    \
+  } while (0)
+
+
 
 #endif  // LIB_LIST_H_
