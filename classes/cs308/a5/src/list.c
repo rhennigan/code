@@ -14,9 +14,9 @@ list_t * list_app(list_t * list, void * data) {
     return last;
   } else {
     list_t * tmp = list;
-    while (list_tail(tmp) != NULL) {
-      
-    }
+    do {
+      if (tmp->tail == NULL) tmp->tail = last;
+    } while ((tmp = list_tail(tmp)) != NULL);
     return list;
   }
 }
