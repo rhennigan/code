@@ -56,7 +56,7 @@ void * list_find(list_t * list, void * h, bool (*cmp)(void * a, void * b)) {
     return NULL;
   } else if ((*cmp)(h, list_head(list))) {
     return list_head(list);
-  } else {
+  } else {  // (list != NULL && !(*cmp)(h, list_head(list)))
     return list_find(list_tail(list), h, (*cmp));
   }   // end if (list == NULL)
 }
@@ -65,7 +65,7 @@ inline void * list_head(list_t * list) {
   if (list == NULL) {
     printf("list_head: list is empty\n");
     exit(EXIT_FAILURE);
-  } else {
+  } else {  // (list != NULL)
     return list->head;
   }  // end if (list == NULL)
 }
