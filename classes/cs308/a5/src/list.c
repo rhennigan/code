@@ -196,7 +196,9 @@ list_t * list_sort(list_t * list, cmp_fun lt) {
     return NULL;
   } else {  // (list != NULL)
     void * pivot = list_head(list);
-    
+    lpair_t part = list_partition(list, lt, pivot);
+    part.left = list_sort(part.left, lt);
+    part.right = list_sort(part.right, lt);
     return merge(list_sort(left, lt), list_sort(right, lt), lt);
   }  // end if (list == NULL)
 }  // end list_sort
