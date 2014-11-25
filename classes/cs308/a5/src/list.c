@@ -201,7 +201,7 @@ list_t * list_sort(list_t * list, cmp_fun lt) {
     return list;
   } else {  // (list != NULL)
     void * pivot = list_head(list);
-    lpair_t part = list_partition(list, lt, pivot);
+    lpair_t part = list_partition(list_tail(list), lt, pivot);
     part.left = list_sort(part.left, lt);
     part.right = list_sort(part.right, lt);
     return merge(part.left, part.right, lt);
