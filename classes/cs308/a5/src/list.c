@@ -51,6 +51,7 @@ void list_app(list_t ** list, void * data) {
 
 list_t * list_copy(list_t * list) {
   list_t * new_list = NULL;
+  list_t * tmp = list_init();
   while (list != NULL) {
     
   }
