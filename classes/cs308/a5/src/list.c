@@ -144,11 +144,9 @@ list_t * list_map(list_t * list, void * (*f)(void * x)) {
 }
 
 void list_partition(list_t * list, cmp_fun pred, list_t ** d1, list_t ** d2) {
-  if (list == NULL) {
-    return;
-  } else {  // (list != NULL)
+  while (list != NULL) {
     
-  }  // end if (list == NULL)
+  }  // end while (list != NULL)
 }
 
 list_t * list_pre(list_t * list, void * data) {
