@@ -3,6 +3,10 @@
 
 #include "../lib/list.h"
 
+static inline list_t * last(list_t * list) {
+  
+}  // end last
+
 list_t * list_app(list_t * list, void * data) {
   list_t *last = list_init();
   last->head = data;
