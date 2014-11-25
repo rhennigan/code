@@ -168,6 +168,7 @@ static inline list_t * merge(list_t * xxs, list_t * yys, cmp_fun lt) {
     void * y = list_head(yys);
     list_t * xs = list_tail(xxs);
     list_t * ys = list_tail(yys);
+    list_t * merged = merge(xs, ys, lt);
     if (lt(x, y)) {
       return list_cons(merge
     }
