@@ -45,15 +45,8 @@ static inline list_t * list_snoc(list_t * list, void * data) {
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
 
-void list_app(list_t * list, void * data) {
-  list_t *last = list_init();
-  last->head = data;
-  if (list == NULL) {
-    return last;
-  } else {  // (list != NULL)
-    last_node(list)->tail = last;
-    return list;
-  }  // end if (list == NULL)
+void list_app(list_t ** list, void * data) {
+  *list = list_snoc(*list, data);
 }  // end list_app
 
 void list_dispose(list_t * list) {
@@ -126,6 +119,10 @@ list_t * list_map(list_t * list, void * (*f)(void * x)) {
     return list_cons(list_map(list_tail(list), f), f(list_head(list)));
   }  // end if (list == NULL)
 }
+
+void list_pre(list_t ** list, void * data) {
+  *list = list_cons(*list, data);
+}  // end list_app
 
 list_t * list_reverse(list_t * list) {
   list_t * new_list = NULL;
