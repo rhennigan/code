@@ -91,7 +91,7 @@ size_t list_length(list_t * list) {
   while (list != NULL) {
     len++;
     list = list_tail(list);
-  }
+  }  // end while (list != NULL)
   return len;
 }
 
@@ -105,7 +105,7 @@ list_t * list_reverse(list_t * list) {
   while (list != NULL) {
     new_list = list_cons(new_list, list_head(list));
     list = list_tail(list);
-  }
+  }  // end while (list != NULL)
   return new_list;
 }
 
@@ -113,6 +113,7 @@ inline list_t * list_tail(list_t * list) {
   if (list == NULL) {
     printf("list_tail: list is empty\n");
     exit(EXIT_FAILURE);
-  }
-  return list->tail;
+  } else {
+    return list->tail;
+  }  // end if (list == NULL)
 }
