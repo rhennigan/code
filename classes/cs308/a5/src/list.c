@@ -78,9 +78,10 @@ void list_dump(list_t * list) {
     printf("  (nil)\n");
   } else {  // (list != NULL)
     while (list != NULL) {
-      printf("  %p, %p\n", list_head(list), list_tail(list));
+      printf("  %p:%p\n", list, list_head(list));
       list = list_tail(list);
     }  // end while (list != NULL)
+    printf("  %p\n", list);
   }  // end if (list == NULL)
 }  // end list_dump
 
