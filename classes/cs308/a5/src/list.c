@@ -3,6 +3,10 @@
 
 #include "../lib/list.h"
 
+/******************************************************************************/
+/* PRIVATE FUNCTIONS                                                          */
+/******************************************************************************/
+
 static inline list_t * last_node(list_t * list) {
   assert(list != NULL);
   while (list->tail != NULL) {
@@ -10,6 +14,10 @@ static inline list_t * last_node(list_t * list) {
   }  // end while (list->tail != NULL)
   return list;
 }  // end last
+
+/******************************************************************************/
+/* PUBLIC FUNCTIONS                                                           */
+/******************************************************************************/
 
 list_t * list_app(list_t * list, void * data) {
   list_t *last = list_init();
