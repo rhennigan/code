@@ -72,6 +72,14 @@ int main(int argc, char *argv[]) {
   /* LOAD AND PROCESS REQUESTS                                                */
   /****************************************************************************/
   request_t * request = load_request(req_file);
+  switch (request->type) {
+    case ALLOC:
+      break;
+    case FREE:
+      break;
+    case NONE:
+      break;
+  }
 
   /****************************************************************************/
   /* CLEAN UP                                                                 */
