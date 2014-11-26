@@ -38,9 +38,6 @@ void print_mem_config() {
 }
 
 void print_output_header() {
-  /* char label[80]; */
-  /* char * mp = "MANAGEMENT POLICY"; */
-  /* char * ps = "POOL SIZE"; */
   char p[80];
   switch (policy) {
     case FIRST_FIT:
@@ -53,9 +50,15 @@ void print_output_header() {
       snprintf(p, 80, "Buddy System");
       break;
   }  // end switch (policy)
-  /* size_t s = pool_size; */
-  /* snprintf(label, 80, "%s = %s          %s = %lu KB", mp, p, ps, s); */
-  /* print_boxed(label, 80, 0); */
+
+  char cols[6][80] = {
+    "SERIAL-NUM",
+    "REQUEST",
+    "SIZE    ",
+    "ALLOC-ADDR  ",
+    "TOTAL-FREE  ",
+    "LARGEST-PART"
+  };
 
   /* Top bar */
   printf("\n%s", B_TL);
@@ -69,18 +72,12 @@ void print_output_header() {
   printf("     POOL SIZE = %lu KB        ", pool_size);
   printf("     %s\n", B_VT);
 
-  char cols[6][80] = {
-    "SERIAL-NUM",
-    "REQUEST",
-    "SIZE    ",
-    "ALLOC-ADDR  ",
-    "TOTAL-FREE  ",
-    "LARGEST-PART"
-  };
+  
   printf("%s", B_LM);
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 6; i++) {
     for (size_t j = 0; j < strlen(cols[i])+2; j++)
       printf("%s", B_HR);
+    if (i == 5) break;
     printf("%s", B_TM);
   }
   printf("%s\n", B_RM);
