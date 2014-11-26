@@ -3,5 +3,8 @@
 #define MAX_POOL_SIZE (1048576)
 
 int main(int argc, char *argv[]) {
+  assert(argc == 4);
+  char * policy_str = argv[1];
+  
   return 0;
 }
