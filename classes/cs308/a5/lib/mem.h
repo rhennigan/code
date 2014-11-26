@@ -40,10 +40,9 @@ typedef struct alloc_status_s {
   int     req_id;
   req_t   req_type;
   bytes_t req_size;
+  bool    req_granted;
   bytes_t total_free;
-  bytes_t total_alloc;
   bytes_t max_free;
-  bytes_t max_alloc;
   size_t  total_blocks;
 } alloc_status_t;
 
