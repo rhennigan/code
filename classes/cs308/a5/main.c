@@ -51,6 +51,7 @@ int main(int argc, char *argv[]) {
   init_block.size    = BYTES_TO_WORDS(pool_size);
   init_block.prev    = NULL;
   memory_block_list  = list_pre(NULL, &init_block);
+  init_block.curr    = memory_block_list;
 
   req_status_t init_req_status;
   init_req_status.req_id       = init_block.id;
