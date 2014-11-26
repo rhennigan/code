@@ -110,7 +110,8 @@ list_t * list_extremum(list_t * list, cmp_fun ex) {
   if (list == NULL) {
     return NULL;
   } else {  // (list != NULL)
-    
+    list_t * keep = list;
+    list_t * next = list;
   }  // end if (list == NULL)
 }  // end list_extremum
 
