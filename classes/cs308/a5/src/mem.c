@@ -35,10 +35,11 @@ list_t * first_free() {
   while (tmp != NULL) {
     if (((mem_block_t*)list_head(tmp))->is_free) {
       return tmp;
-    } else {
+    } else {  // not free, keep looking
       tmp = list_tail(tmp);
-    }
-  }
+    }  // end if (((mem_block_t*)list_head(tmp))->is_free)
+  }  // end while (tmp != NULL)
+  return NULL;
 }  // end first_free
 
 static bool match_prev(void * a, void * b) {
