@@ -42,6 +42,7 @@ typedef struct req_status_s {
 } req_status_t;
 
 /* Data for block list nodes */
+#define NOBODY (-1)
 typedef struct mem_block_s {
   int     owner;    // would likely be a pid in a real setting
   bool    is_free;

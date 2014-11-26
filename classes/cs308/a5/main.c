@@ -41,8 +41,11 @@ int main(int argc, char *argv[]) {
   /* SETUP MEMORY POOL                                                        */
   /****************************************************************************/
   print_mem_config();
+
   mem_block_t init_block;
-  memory_block_list = list_pre(NULL, &pool_size);
+  init_block.owner = NOBODY;
+  init_block.is_free = true;
+  memory_block_list = list_pre(NULL, &init_block);
 
   /****************************************************************************/
   /* CLEAN UP                                                                 */
