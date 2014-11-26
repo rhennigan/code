@@ -33,10 +33,10 @@ bool match_prev(void * a, void * b) {
   } else if (list_tail(current) == NULL) {
     return my_list == NULL;
   } else {
-    mem_block_t * my_block = list_head(my_list);
+    mem_block_t * current_block = list_head(list_tail(current));
+    mem_block_t * my_list_block = list_head(my_list);
+    return current_block->id;
   }
-  mem_block_t * current_block = list_head(current);
-  return ((mem_block_t*)a)->id == ((mem_block_t*)b)->id;
 }
 
 static inline list_t * get_prev(list_t * list) {
