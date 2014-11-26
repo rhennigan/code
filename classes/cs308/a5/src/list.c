@@ -106,7 +106,7 @@ void list_dump(list_t * list) {
   }  // end if (list == NULL)
 }  // end list_dump
 
-list_t * list_extremum(list_t * list, cmp_fun ex, void * cmp_arg) {
+list_t * list_extremum(list_t * list, cmp_fun ex) {
   if (list == NULL) {
     return NULL;
   } else {  // (list != NULL)
