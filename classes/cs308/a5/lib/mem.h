@@ -35,8 +35,8 @@ typedef struct req_status_s {
   req_t   req_type;
   bytes_t req_size;
   bool    req_granted;
-  bytes_t total_free;
-  bytes_t max_free;
+  words_t total_free;
+  words_t max_free;
   size_t  total_blocks;
 } req_status_t;
 
