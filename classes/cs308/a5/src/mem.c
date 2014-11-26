@@ -65,10 +65,10 @@ static inline void print_row(int row) {
       break;
   }
   printf("%s", B_VT);
-  printf("%1s %-9d %s", " ", sn, B_VT);
-  printf("%1s %-6s %s", " ", rq, B_VT);
+  printf("%1s %-9d %s",   " ", sn, B_VT);
+  printf("%1s %-6s %s",   " ", rq, B_VT);
   printf("%1s %9lu B %s", " ", sz, B_VT);
-  printf("%1s %-9p %s", " ", ad, B_VT);
+  printf("%1s %-9p %s",   " ", ad, B_VT);
   printf("%1s %7lu K %s", " ", tf, B_VT);
   printf("%1s %9lu K %s", " ", lp, B_VT);
   printf("\n");
@@ -142,12 +142,12 @@ void print_output(int from, int to) {
   print_row(0);
 
   /* Bottom of output table */
-  printf("%s", B_BL);
+  printf("%s", B_LM);
   for (int i = 0; i < 6; i++) {
-    for (size_t j = 0; j < strlen(cols[i])+2; j++)
+    for (size_t j = 0; j < (i == 2 ? 14 : strlen(cols[i])+2); j++)
       printf("%s", B_HR);
     if (i == 5) break;
-    printf("%s", B_BM);
+    printf("%s", B_CM);
   }
-  printf("%s\n", B_BR);
+  printf("%s\n", B_RM);
 }

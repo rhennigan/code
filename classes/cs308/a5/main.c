@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
 
   req_status_t init_req_status;
   init_req_status.req_id       = init_block.id;
-  init_req_status.req_type     = FREE;
+  init_req_status.req_type     = NONE;
   init_req_status.req_size     = 0;
   init_req_status.req_granted  = true;
   init_req_status.req_addr     = memory_pool;
