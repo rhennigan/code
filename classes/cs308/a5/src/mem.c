@@ -12,8 +12,19 @@ policy_t     policy;
 bytes_t      pool_size;
 
 /******************************************************************************/
+/* UNICODE CHARACTERS FOR TREE DRAWING                                        */
+/******************************************************************************/
+
+#define B_HR "\u2500"  // horizontal bar
+#define B_TL "\u250C"  // top-left box corner
+#define B_TR "\u2510"  // top-right box corner
+#define B_BL "\u2514"  // bottom-left box corner
+#define B_BR "\u2518"  // bottom-right box corner
+#define B_VT "\u2502"  // vertical bar
+
+/******************************************************************************/
 static inline void hline() {
-  printf("/");
+  printf("%s", B_VT);
   for (int i = 0; i < 78; i++)
     printf("*");
   printf("/\n");
