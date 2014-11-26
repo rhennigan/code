@@ -82,7 +82,19 @@ void print_output_header() {
   }
   printf("%s\n", B_RM);
 
+  /* Column labels */
   printf("%s", B_VT);
   for (int i = 0; i < 6; i++)
     printf(" %s %s", cols[i], B_VT);
+  printf("\n");
+
+  /* Bottom of column labels */
+  printf("%s", B_LM);
+  for (int i = 0; i < 6; i++) {
+    for (size_t j = 0; j < strlen(cols[i])+2; j++)
+      printf("%s", B_HR);
+    if (i == 5) break;
+    printf("%s", B_CM);
+  }
+  printf("%s\n", B_RM);
 }
