@@ -1,5 +1,6 @@
 #include <string.h>
 #include "lib/list.h"
+#include "lib/mem.h"
 
 #define MAX_POOL_SIZE (1048576)
 #define MIN_ALLOC (32)
