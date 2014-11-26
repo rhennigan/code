@@ -30,13 +30,12 @@ request_t * load_request(FILE * file) {
     char * saveptr;
     char * id_str   = strtok_r(buffer, " \n", &saveptr);
     char * type_str = strtok_r(NULL,   " \n", &saveptr);
-    char * size_str = strtok_r(NULL,   " \n", &saveptr);
     char * ref_str  = strtok_r(NULL,   " \n", &saveptr);
 
-    printf("id_str   = %s\n", id_str);
-    printf("type_str = %s\n", type_str);
-    printf("size_str = %s\n", size_str);
-    printf("ref_str  = %s\n", ref_str);
+    printf("id_str   = %s\t", id_str);
+    printf("type_str = %s\t", type_str);
+    printf("ref_str  = %s\t", ref_str);
+    printf("\n");
 
     return NULL;
   }
