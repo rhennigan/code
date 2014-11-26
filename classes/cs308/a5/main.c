@@ -7,7 +7,9 @@
 typedef enum { FIRST_FIT, BEST_FIT, BUDDY_SYSTEM } policy_t;
 
 int main(int argc, char *argv[]) {
-  /* LOAD ARGUMENTS */
+/******************************************************************************/
+/* READ COMMAND LINE ARGUMENTS                                                */
+/******************************************************************************/
   assert(argc == 4);
   policy_t policy;
   if (strcmp(argv[1], "first") == 0) {
