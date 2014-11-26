@@ -23,27 +23,27 @@ bytes_t      pool_size;
 #define B_VT "\u2502"  // vertical bar
 
 /******************************************************************************/
-static inline void tline() {
+static inline void tline(size_t width) {
   printf("%s", B_TL);
-  for (int i = 0; i < 78; i++)
+  for (size_t i = 0; i < width-2; i++)
     printf("%s", B_HR);
   printf("%s\n", B_TR);
 }
 
-static inline void bline() {
+static inline void bline(size_t width) {
   printf("%s", B_BL);
-  for (int i = 0; i < 78; i++)
+  for (size_t i = 0; i < width-2; i++)
     printf("%s", B_HR);
   printf("%s\n", B_BR);
 }
 
-static inline void print_header(const char * label) {
-  hline();
+static inline void print_boxed(const char * label) {
+  tline(80);
   printf("/* %s", label);
   for (size_t i = 0; i < 75-strlen(label); i++)
     printf(" ");
   printf("*/");
-  hline();
+  bline(80);
 }
 
 void print_usage(char * name) {
@@ -57,7 +57,7 @@ void print_usage(char * name) {
 
 /* Debugging info */
 void print_mem_config() {
-  print_header("MEM_CONFIG");
+  print_boxed("MEM_CONFIG");
   printf("MAX_POOL_SIZE_BYTES = %lu\n", MAX_POOL_SIZE_BYTES);
   printf("MIN_ALLOC_BYTES     = %lu\n", MIN_ALLOC_BYTES);
   printf("MAX_POOL_SIZE_WORDS = %lu\n", MAX_POOL_SIZE_WORDS);
