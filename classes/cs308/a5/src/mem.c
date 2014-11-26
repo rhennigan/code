@@ -25,11 +25,11 @@ mem_block_t * first_free(size_t min_size) {
   list_t * tmp = memory_block_list;
   while (tmp != NULL) {
     mem_block_t * block = (mem_block_t*)list_head(tmp);
-    if (block->is_free) {
+    if (block->is_free && (block->size > min_size)) {
       return block;
     } else {  // not free, keep looking
       tmp = list_tail(tmp);
-    }  // end if (((mem_block_t*)list_head(tmp))->is_free)
+    }  // end if (block->is_free && (block->size > min_size))
   }  // end while (tmp != NULL)
   return NULL;
 }  // end first_free
