@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* LOAD AND PROCESS REQUESTS                                                */
   /****************************************************************************/
-  for (int i = 0; i < 50; i++) {
+  for (int i = 0; i < 3; i++) {
     request_t * request = load_request(req_file);
     mem_block_t * block = allocate_memory(request);
     free(request);
