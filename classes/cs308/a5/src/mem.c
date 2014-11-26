@@ -51,6 +51,15 @@ void print_output_header() {
       break;
   }  // end switch (policy)
 
+  char s[80];
+  if (pool_size > 1048575) {
+    snprintf(s, 80, "%lu GB", pool_size / 1048576);
+  } else if (pool_size > 1023) {
+    snprintf(s, 80, "%lu MB", pool_size / 1024);
+  } else {
+    snprintf(s, 80, "%lu KB", pool_size);
+  }
+
   char cols[6][80] = {
     "SERIAL-NUM",
     "REQUEST",
