@@ -27,11 +27,12 @@ int main(int argc, char *argv[]) {
   printf("\n\n");
   list_dump(list);
 
-  list_t * sorted = list_sort(list, &intlt);
+  int pivot = 1;
+  list_t * filtered = list_filter(list, &intlt, &pivot);
   printf("\n\n\n\n\n\n\n\n\n\n\n");
-  list_iter(sorted, &pint);
+  list_iter(filtered, &pint);
   printf("\n\n");
-  list_dump(sorted);
+  list_dump(filtered);
 
   return 0;
 }
