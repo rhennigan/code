@@ -31,7 +31,7 @@ bool match_prev(void * a, void * b) {
   if (current == NULL) {
     return false;
   } else if (list_tail(current) == NULL) {
-    return false;
+    return my_list == NULL;
   } else {
     
   }
