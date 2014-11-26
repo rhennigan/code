@@ -28,9 +28,9 @@ typedef enum { FIRST_FIT, BEST_FIT, BUDDY_SYSTEM } policy_t;
 typedef size_t bytes_t;
 typedef size_t words_t;
 
-typedef enum { ALLOC, FREE } req_cmd_t;
+typedef enum { ALLOC, FREE } req_t;
 typedef struct request_s {
-  req_cmd_t cmd;
+  req_t req_type;
 } request_t;
 
 typedef struct alloc_status_s {
