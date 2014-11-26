@@ -26,10 +26,10 @@ request_t * load_request(FILE * file) {
   if (fgets(buffer, 80, file) == NULL) {
     return NULL;
   } else {
-    char id_str[20];
-    char type_str[20];
-    char size_str[20];
-    char ref_str[20];
+    char * id_str;
+    char * type_str;
+    char * size_str;
+    char * ref_str;
     char * saveptr;
     
   }
