@@ -35,19 +35,7 @@ mem_block_t * first_free(bytes_t size) {
   return NULL;
 }  // end first_free
 
-static bool match_prev(void * a, void * b) {
-  list_t * current = a;
-  list_t * my_list = b;
-  if (current == NULL) {
-    return false;
-  } else {  // (current != NULL)
-    return list_tail(current) == my_list;
-  }  // end if (current == NULL)
-}  // end match_prev
 
-static inline list_t * get_prev(list_t * list) {
-  return list_find(memory_block_list, list, &match_prev);
-}  // end get_prev
 
 /******************************************************************************/
 /* FORMATTING AND OUTPUT                                                      */
@@ -165,9 +153,6 @@ void print_output(int from, int to) {
   for (int i = from; i <= to; i++) {
     print_row(i);
   }
-  print_row(0);
-  print_row(0);
-  print_row(0);
 
   /* Bottom of output table */
   printf("%s", B_BL);
