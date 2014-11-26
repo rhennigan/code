@@ -5,6 +5,7 @@
 
 #include <string.h>
 #include "./list.h"
+#include "./io.h"
 
 /******************************************************************************/
 /* CONFIG OPTIONS                                                             */
