@@ -128,13 +128,9 @@ void split_block(mem_block_t * block, request_t * request) {
   alloc_block->curr = alloc_list_node;                             // 2
   alloc_block->next =   rem_list_node;                             // 2
 
-  alloc_block->prev    = block->prev;
-  // TODO: need to update memory_block_list and alloc_block->current ptr
-
-  
-  // rem_block->prev      = alloc_block->curr;
-  rem_block->curr      = list_pre(block->next, rem_block);
-  rem_block->next      = block->next;
+  rem_block->prev   =  prev_list_node;                             // 3
+  rem_block->curr   = alloc_list_node;                             // 3
+  rem_block->next   =   rem_list_node;                             // 3
 }
 
 void * allocate_memory(request_t * request) {
