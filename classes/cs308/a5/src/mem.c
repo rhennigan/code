@@ -28,6 +28,14 @@ static inline bool is_free(void * block_addr) {
 bool match_prev(void * a, void * b) {
   list_t * current = a;
   list_t * my_list = b;
+  if (current == NULL) {
+    return false;
+  } else if (list_tail(current) == NULL) {
+    return false;
+  } else {
+    
+  }
+  mem_block_t * current_block = list_head(current);
   return ((mem_block_t*)a)->id == ((mem_block_t*)b)->id;
 }
 
