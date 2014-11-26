@@ -16,13 +16,13 @@ static inline void hline() {
   printf("/");
   for (int i = 0; i < 78; i++)
     printf("*");
-  printf("/");
+  printf("/\n");
 }
 
 static inline void print_header(const char * label) {
   hline();
   printf("/* %s", label);
-  for (size_t i = 0; i < 76-strlen(label); i++)
+  for (size_t i = 0; i < 75-strlen(label); i++)
     printf(" ");
   printf("*/");
   hline();
@@ -39,7 +39,7 @@ void print_usage(char * name) {
 
 /* Debugging info */
 void print_mem_config() {
-  hline();
+  print_header("MEM_CONFIG");
   printf("MAX_POOL_SIZE_BYTES = %lu\n", MAX_POOL_SIZE_BYTES);
   printf("MIN_ALLOC_BYTES     = %lu\n", MIN_ALLOC_BYTES);
   printf("MAX_POOL_SIZE_WORDS = %lu\n", MAX_POOL_SIZE_WORDS);
