@@ -119,7 +119,7 @@ mem_block_t * split_block(mem_block_t * block, request_t * request) {
   }
 
   /**************** Update block pointers **************************************/
-  if (prev_list_node != NULL) {                                              // 1
+  if (prev_list_node != NULL) {  // not at beginning of list
     mem_block_t * prev_block = (mem_block_t *)prev_list_node->head;          // 1
     prev_block->next = alloc_list_node;                                      // 1
   }
