@@ -3,6 +3,16 @@
 #include <limits.h>
 #include "lib/mem.h"
 
+enum { CT_POUND, CT_PREPROC, CT_PREPROC_BODY, CT_PP };
+
+const char *token_names[] =
+{
+   [CT_POUND]        = "POUND",
+   [CT_PREPROC]      = "PREPROC",
+   [CT_PREPROC_BODY] = "PREPROC_BODY",
+   [CT_PP]           = "PP",
+};
+
 int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* READ COMMAND LINE ARGUMENTS                                              */
@@ -73,7 +83,7 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   request_t * request = load_request(req_file);
   
-
+  printf("test: %s\n", token_names[CT_POUND]);
   /****************************************************************************/
   /* CLEAN UP                                                                 */
   /****************************************************************************/
