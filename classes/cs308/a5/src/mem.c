@@ -48,7 +48,7 @@ static bool is_valid(void * block_addr, void * req_addr) {
     return false;
   } else {
     bytes_t block_size = WORDS_TO_BYTES(((mem_block_t*)block_addr)->size);
-    bytes_t req_size = ((request_t*)req_addr)->size;
+    bytes_t req_size   = ((request_t*)req_addr)->size;
   }
 }
 
