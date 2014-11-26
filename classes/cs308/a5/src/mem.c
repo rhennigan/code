@@ -21,12 +21,16 @@ char cols[6][80] = {
 };
 
 /******************************************************************************/
-static inline bool is_free(void * block_addr) {
-  return ((mem_block_t*)block_addr)->is_free;
+static inline bool is_free(void * addr) {
+  if (addr == NULL) {
+    return false;
+  } else {  // (addr != NULL)
+    return ((mem_block_t*)list_head(addr))->is_free;
+  }  // end if (addr == NULL)
 }  // end is_free
 
 list_t * first_free() {
-  
+  list_t * first = list_find
 }  // end first_free
 
 static bool match_prev(void * a, void * b) {
