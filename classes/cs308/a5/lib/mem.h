@@ -81,6 +81,7 @@ typedef struct mem_block_s {
   list_t * curr;
 } mem_block_t;
 
+/* Return value of reading a request from file */
 typedef struct request_s {
   int     id;
   req_t   type;
