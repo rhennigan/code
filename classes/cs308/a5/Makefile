@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-std=c99 -g -c
 LDFLAGS=-std=c99 -g
-BUILD=list
+BUILD=list mem
 EXECUTABLE=main
 
 SOURCES=$(BUILD:%=src/%.c)
