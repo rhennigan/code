@@ -76,7 +76,6 @@ int main(int argc, char *argv[]) {
     request_t * request = load_request(req_file);
     mem_block_t * block = allocate_memory(request);
     free(request);
-    free(block);
   }
 
   list_dump(memory_block_list);
