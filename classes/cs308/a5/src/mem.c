@@ -44,13 +44,16 @@ void print_output_header() {
   char p[80];
   switch (policy) {
     case FIRST_FIT:
+      snprintf(p, 80, "First Fit");
       break;
     case BEST_FIT:
+      snprintf(p, 80, "Best Fit");
       break;
     case BUDDY_SYSTEM:
+      snprintf(p, 80, "Buddy System");
       break;
   }
   snprintf(label, 80, "%s = %s          %s = %s KB",
-           mp, "mp", ps, "ps");
+           mp, p, ps, "ps");
   print_boxed(label, 80, 0);
 }
