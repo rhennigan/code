@@ -23,8 +23,14 @@ char cols[6][80] = {
 /******************************************************************************/
 request_t * load_request(FILE * file) {
   char buffer[80];
-  while (fgets(buffer, 80, file) != NULL) {
-    
+  if (fgets(buffer, 80, file) == NULL) {
+    return NULL;
+  } else {
+    char id_str[20];
+    char type_str[20];
+    char size_str[20];
+    char ref_str[20];
+    int i = 0;
   }
 }
 
