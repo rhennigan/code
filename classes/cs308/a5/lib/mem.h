@@ -26,8 +26,12 @@
 /******************************************************************************/
 /* TYPES                                                                      */
 /******************************************************************************/
+
+/* Policies */
 typedef enum {
-  FIRST_FIT, BEST_FIT, BUDDY_SYSTEM
+  FIRST_FIT,
+  BEST_FIT,
+  BUDDY_SYSTEM
 } policy_t;
 
 const char * policy_names[] = {
@@ -36,8 +40,11 @@ const char * policy_names[] = {
   [BUDDY_SYSTEM] = "BUDDY_SYSTEM"
 };
 
+/* Requests */
 typedef enum {
-  ALLOC, FREE, NONE
+  ALLOC,
+  FREE,
+  NONE
 } req_t;
 
 const char * req_type_names[] = {
