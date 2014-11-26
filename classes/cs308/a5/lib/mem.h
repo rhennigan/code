@@ -88,9 +88,7 @@ extern policy_t     policy;
 extern bytes_t      pool_size;
 
 /******************************************************************************/
-request_t *   load_request(FILE * file);
-mem_block_t * first_free(bytes_t size);
-mem_block_t * best_free(bytes_t size);
+request_t * load_request(FILE * file);
 
 /******************************************************************************/
 void process_request(request_t request);

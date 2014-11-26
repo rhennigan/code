@@ -74,6 +74,7 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   for (int i = 0; i < 50; i++) {
     request_t * request = load_request(req_file);
+    mem_block_t * block = allocate_memory(request);
   }
   
   /****************************************************************************/
