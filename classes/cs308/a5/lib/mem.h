@@ -61,7 +61,7 @@ typedef struct request_s {
   int     id;
   req_t   type;
   bytes_t size;
-  size_t  ref;
+  int     ref;
 } request_t;
 
 /******************************************************************************/

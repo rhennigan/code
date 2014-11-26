@@ -32,11 +32,6 @@ request_t * load_request(FILE * file) {
     char * type_str = strtok_r(NULL,   " \n", &saveptr);
     char * ref_str  = strtok_r(NULL,   " \n", &saveptr);
 
-    printf("id_str   = %s \t", id_str);
-    printf("type_str = %s \t", type_str);
-    printf("ref_str  = %s \t", ref_str);
-    printf("\n");
-
     request_t * request = malloc(sizeof(request_t));
     request->id   = atoi(id_str);
     request->type = strcmp(type_str, "alloc") == 0 ? ALLOC : FREE;
@@ -46,7 +41,7 @@ request_t * load_request(FILE * file) {
     printf("request->id = %d\n", request->id);
     printf("request->type = %d\n", request->type);
     printf("request->size = %lu\n", request->size);
-    printf("request->ref = %lu\n", request->ref);
+    printf("request->ref = %d\n", request->ref);
     printf("\n\n");
     return request;
   }
