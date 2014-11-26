@@ -31,7 +31,14 @@ static bool is_free(void * addr, void * discard) {
 }  // end is_free
 
 list_t * first_free() {
-  list_t * first = list_find(memory_block_list, NULL, &is_free);
+  list_t * tmp = memory_block_list;
+  while (tmp != NULL) {
+    if (((mem_block_t*)list_head(tmp))->is_free) {
+      return tmp;
+    } else {
+      tmp = list_tail(tmp);
+    }
+  }
 }  // end first_free
 
 static bool match_prev(void * a, void * b) {
