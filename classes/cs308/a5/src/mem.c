@@ -44,7 +44,12 @@ request_t * load_request(FILE * file) {
 
 /******************************************************************************/
 static bool size_ok(void * a, void * b) {
-  bytes_t size = ((request_t*)b)->size;
+  if (a == NULL) {
+    return false;
+  } else {
+    list_t * list = a;
+    bytes_t size = ((request_t*)b)->size;
+  }
 }
 
 mem_block_t * first_free(bytes_t size) {
