@@ -57,6 +57,13 @@ typedef struct mem_block_s {
   list_t * curr;
 } mem_block_t;
 
+typedef struct request_s {
+  int     id;
+  req_t   type;
+  bytes_t size;
+  int     ref;
+} request_t;
+
 /******************************************************************************/
 /* GLOBALS                                                                    */
 /******************************************************************************/
