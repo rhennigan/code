@@ -104,4 +104,9 @@ void print_output(int from, int to) {
     printf("%s", B_CM);
   }
   printf("%s\n", B_RM);
+
+  /* Print each row */
+  for (int i = from; i <= to; i++) {
+    print_row(req_history[i]);
+  }
 }
