@@ -55,7 +55,7 @@ static inline void print_row(int row) {
   char    rq[6];
   switch (req_history[row].req_type) {
     case ALLOC:
-      snprintf(rq, 5, "alloc");
+      snprintf(rq, 6, "alloc");
       break;
     case FREE:
       snprintf(rq, 5, "free");
@@ -65,10 +65,10 @@ static inline void print_row(int row) {
       break;
   }
   printf("%s", B_VT);
-  printf("%1s %-9d %s",   " ", sn, B_VT);
-  printf("%1s %-6s %s",   " ", rq, B_VT);
-  printf("%1s %9lu B %s",  " ", sz, B_VT);
-  printf("%1s %-9p %s",  " ", ad, B_VT);
+  printf("%1s %-9d %s", " ", sn, B_VT);
+  printf("%1s %-6s %s", " ", rq, B_VT);
+  printf("%1s %9lu B %s", " ", sz, B_VT);
+  printf("%1s %-9p %s", " ", ad, B_VT);
   printf("%1s %7lu K %s", " ", tf, B_VT);
   printf("%1s %9lu K %s", " ", lp, B_VT);
   printf("\n");
