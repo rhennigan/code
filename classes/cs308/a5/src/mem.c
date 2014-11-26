@@ -21,19 +21,11 @@ char cols[6][80] = {
 };
 
 /******************************************************************************/
-static bool is_free(void * addr, void * discard) {
-  if (discard != NULL) printf("discard != NULL: this might be a problem\n");
-  if (addr == NULL) {
-    return false;
-  } else {  // (addr != NULL)
-    return ((mem_block_t*)list_head(addr))->is_free;
-  }  // end if (addr == NULL)
-}  // end is_free
-
 list_t * first_free() {
   list_t * tmp = memory_block_list;
   while (tmp != NULL) {
-    if (((mem_block_t*)list_head(tmp))->is_free) {
+    mem_block_t block = *(mem_block_t*)list_head(tmp);
+    if (block.is_free) {
       return tmp;
     } else {  // not free, keep looking
       tmp = list_tail(tmp);
