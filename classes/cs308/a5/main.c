@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
            MAX_POOL_SIZE_KBYTES);
     exit(EXIT_FAILURE);
   } else {  // given pool size is greater than 0
-    pool_size = atoi(argv[2]);
+    pool_size = atoi(argv[2]) * 1024;  // convert KB to B
   }  // end if (!atoi(argv[2]))
 
   /* open requests file for reading */
