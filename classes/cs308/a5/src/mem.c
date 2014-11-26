@@ -27,7 +27,7 @@ void print_usage(char * name) {
 /* Debugging info */
 void print_mem_config() {
   print_boxed("MEM_CONFIG", 35, 0);
-  printf(" MAX_POOL_SIZE_MBYTES = %lu\n", MAX_POOL_SIZE_MBYTES);
+  printf(" MAX_POOL_SIZE_KBYTES = %lu\n", MAX_POOL_SIZE_KBYTES);
   printf(" MIN_ALLOC_BYTES      = %lu\n", MIN_ALLOC_BYTES);
   printf(" MAX_HISTORY_LENGTH   = %lu\n", MAX_HISTORY_LENGTH);
   printf("                           \n");
