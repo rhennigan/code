@@ -70,7 +70,7 @@ static inline void print_row(int row) {
   printf(" %-8lu %s",  sz, B_VT);
   printf(" %-12p %s",  ad, B_VT);
   printf(" %-12lu %s", tf, B_VT);
-  printf(" %-8lu %s",  lp, B_VT);
+  printf(" %-12lu %s", lp, B_VT);
   printf("\n");
 }
 
