@@ -36,8 +36,8 @@ static bool match_prev(void * a, void * b) {
 }  // end match_prev
 
 static inline list_t * get_prev(list_t * list) {
-  
-}
+  return list_find(memory_block_list, list, &match_prev);
+}  // end get_prev
 
 /******************************************************************************/
 /* FORMATTING AND OUTPUT                                                      */
