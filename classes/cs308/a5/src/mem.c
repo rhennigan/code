@@ -90,6 +90,13 @@ static mem_block_t * best_free(bytes_t size) {
 }
 
 /******************************************************************************/
+static bool larger(void * a, void * b) {
+  return (((mem_block_t*)a)->size > ((mem_block_t*)b)->size);
+}
+
+
+
+/******************************************************************************/
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   assert(block != NULL);
   list_t * prev_list_node = block->prev;
