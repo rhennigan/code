@@ -142,12 +142,12 @@ void print_output(int from, int to) {
   print_row(0);
 
   /* Bottom of output table */
-  printf("%s", B_LM);
+  printf("%s", B_BL);
   for (int i = 0; i < 6; i++) {
     for (size_t j = 0; j < (i == 2 ? 14 : strlen(cols[i])+2); j++)
       printf("%s", B_HR);
     if (i == 5) break;
-    printf("%s", B_CM);
+    printf("%s", B_BM);
   }
-  printf("%s\n", B_RM);
+  printf("%s\n", B_BR);
 }
