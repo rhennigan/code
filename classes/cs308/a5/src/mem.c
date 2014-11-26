@@ -5,8 +5,9 @@
 /******************************************************************************/
 /* GLOBALS                                                                    */
 /******************************************************************************/
-list_t * memory_free = NULL;
-void   * memory_pool[MAX_POOL_SIZE_WORDS];
+list_t *     memory_block_list = NULL;
+void *       memory_pool[MAX_POOL_SIZE_WORDS];
+req_status_t req_history[MAX_HISTORY_LENGTH];
 
 /******************************************************************************/
 void print_usage(char * name) {
