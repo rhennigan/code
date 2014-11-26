@@ -43,6 +43,10 @@ request_t * load_request(FILE * file) {
 }
 
 /******************************************************************************/
+static bool size_ok(void * a, void * b) {
+  bytes_t size = ((request_t*)b)->size;
+}
+
 mem_block_t * first_free(bytes_t size) {
   list_t * tmp = memory_block_list;
   words_t w_sz = BYTES_TO_WORDS(size);
@@ -58,7 +62,7 @@ mem_block_t * first_free(bytes_t size) {
 }  // end first_free
 
 mem_block_t * best_free(bytes_t size) {
-
+  list_t * tmp = list_filter(memory_block_list, 
 }
 
 void * allocate_memory(request_t * request) {
