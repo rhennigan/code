@@ -65,6 +65,9 @@ void print_output_header() {
     "LARGEST-PART"
   };
   printf("%s", B_LM);
+  for (int i = 0; i < 6; i++)
+    
+  printf("%s", B_RM);
 
   printf("%s", B_VT);
   for (int i = 0; i < 6; i++)
