@@ -37,6 +37,8 @@ void print_mem_config() {
   printf(" MIN_ALLOC_WORDS      = %lu\n", MIN_ALLOC_WORDS);
 }
 
+void print_row(int row);
+
 void print_output(int from, int to) {
   char p[80];
   switch (policy) {
@@ -107,7 +109,7 @@ void print_output(int from, int to) {
 
   /* Print each row */
   for (int i = from; i <= to; i++) {
-    print_row(req_history[i]);
+    print_row(i);
   }
 
   /* Bottom of output table */
