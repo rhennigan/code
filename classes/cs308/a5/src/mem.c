@@ -111,8 +111,6 @@ void split_block(mem_block_t * block, request_t * request) {
   list_t *   rem_list_node = list_pre(next_list_node, rem_block);
   list_t * alloc_list_node = list_pre(rem_list_node, alloc_block);
   
-
-  rem_list_node->head = rem_block;
   if (prev_list_node == NULL) {
     
   } else {
