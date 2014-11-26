@@ -42,6 +42,11 @@ request_t * load_request(FILE * file) {
     request->type = strcmp(type_str, "alloc") == 0 ? ALLOC : FREE;
     request->size = atoi(ref_str);
     request->ref  = atoi(ref_str);
+
+    printf("request->id = %d\n", request->id);
+    printf("request->type = %d\n", request->type);
+    printf("request->size = %ul\n", request->size);
+    printf("request->ref = %ul\n", request->ref);
     return request;
   }
 }
