@@ -51,6 +51,8 @@ static inline void print_boxed(const char * label, size_t width, size_t pad) {
   label_str[i++] = ' ';
   for (size_t j = 0; j < strlen(label); j++)
     label_str[i++] = label[j];
+  for (size_t j = 0; j < width-strlen(label); j++)
+    label_str[i++] = '*';
   snprintf(label_str, 81, "%s %s", B_VT, label);
   for (size_t i = strlen(label)+4; i < width; i++)
     label_str[i] = ' ';
