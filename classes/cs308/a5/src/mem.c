@@ -12,6 +12,18 @@ req_status_t req_history[MAX_HISTORY_LENGTH];
 policy_t     policy;
 bytes_t      pool_size;
 
+const char * policy_names[] = {
+  [FIRST_FIT]    = "FIRST_FIT",
+  [BEST_FIT]     = "BEST_FIT",
+  [BUDDY_SYSTEM] = "BUDDY_SYSTEM"
+};
+
+const char * req_type_names[] = {
+  [ALLOC] = "ALLOC",
+  [FREE]  = "FREE",
+  [NONE]  = "NONE"
+};
+
 char cols[6][80] = {
   "SERIAL-NUM",
   "REQUEST",
