@@ -59,7 +59,7 @@ void print_output_header() {
   char cols[6][80] = {
     "SERIAL-NUM",
     "REQUEST",
-    "SIZE",
+    "SIZE  ",
     "ALLOC-ADDR",
     "TOTAL-FREE",
     "LARGEST-PART"
