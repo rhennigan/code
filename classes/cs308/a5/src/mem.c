@@ -117,7 +117,10 @@ void split_block(mem_block_t * block, request_t * request) {
     prev_list_node->tail = alloc_list_node;
   }
 
-
+  /* Update block pointers */
+  if (prev_list_node != NULL) {
+    ((mem_block_t *)prev_list_node->head)->next = alloc_list_node;
+  }
   alloc_block->prev    = block->prev;
   // TODO: need to update memory_block_list and alloc_block->current ptr
 
