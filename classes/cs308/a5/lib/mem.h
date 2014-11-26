@@ -30,16 +30,11 @@ typedef struct alloc_status_s {
   size_t num_blocks;
 } alloc_status_t;
 
-typedef struct request_s {
+typedef struct mem_block_s {
+  int     owner;
   bool    is_allocated;
   void  * base_addr;
   size_t  words;
-} request_t;
-
-typedef struct mem_block_s {
-  void * addr;
-  size_t words;
-  int    owner;
 } mem_block_t;
 
 /******************************************************************************/
