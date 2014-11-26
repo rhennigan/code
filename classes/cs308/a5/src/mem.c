@@ -14,10 +14,10 @@ bytes_t      pool_size;
 char cols[6][80] = {
   "SERIAL-NUM",
   "REQUEST",
-  "    SIZE",
-  "  ALLOC-ADDR",
-  " TOTAL-FREE",
-  " LARGEST-PART"
+  "SIZE",
+  "ALLOC-ADDR",
+  "TOTAL-FREE",
+  "LARGEST-PART"
 };
 
 /******************************************************************************/
