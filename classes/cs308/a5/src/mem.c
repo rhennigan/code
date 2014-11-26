@@ -12,7 +12,7 @@ policy_t     policy;
 bytes_t      pool_size;
 
 /******************************************************************************/
-/* UNICODE CHARACTERS FOR TREE DRAWING                                        */
+/* UNICODE CHARACTERS FOR BOX DRAWING                                         */
 /******************************************************************************/
 
 #define B_HR "\u2500"  // horizontal bar
