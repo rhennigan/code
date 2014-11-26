@@ -21,6 +21,7 @@ int main(int argc, char *argv[]) {
   size_t   pool_size;
   FILE *   req_file;
 
+  /* get policy */
   if (strcmp(argv[1], "first") == 0) {
     policy = FIRST_FIT;
   } else if (strcmp(argv[1], "best") == 0) {
@@ -32,6 +33,7 @@ int main(int argc, char *argv[]) {
     exit(EXIT_FAILURE);
   }  // end if (strcmp(argv[1], "first") == 0)
 
+  /* get pool size */
   if (!atoi(argv[2])) {
     printf("error: the pool size must be a positive integer\n");
     exit(EXIT_FAILURE);
@@ -39,12 +41,17 @@ int main(int argc, char *argv[]) {
     pool_size = atoi(argv[2]);
   }  // end if (!atoi(argv[2]))
 
-  req_file = argv[3];
+  /* open requests file for reading */
+  req_file = fopen(argv[3], "r");
 
   /****************************************************************************/
   /* SETUP MEMORY POOL                                                        */
   /****************************************************************************/
 
+  /****************************************************************************/
+  /* CLEAN UP                                                                 */
+  /****************************************************************************/
+  fclose(req_file);
   return 0;
 }
 
