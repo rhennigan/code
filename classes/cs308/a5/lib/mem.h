@@ -67,6 +67,7 @@ typedef struct mem_block_s {
   words_t  size;
   list_t * prev;
   list_t * curr;
+  list_t * next;
 } mem_block_t;
 
 /* Return value of reading a request from file */
