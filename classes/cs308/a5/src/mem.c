@@ -72,7 +72,7 @@ void print_output_header() {
   printf("     POOL SIZE = %lu KB        ", pool_size);
   printf("     %s\n", B_VT);
 
-  
+  /* Separator between header and column labels */
   printf("%s", B_LM);
   for (int i = 0; i < 6; i++) {
     for (size_t j = 0; j < strlen(cols[i])+2; j++)
