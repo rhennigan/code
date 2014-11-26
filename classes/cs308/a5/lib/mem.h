@@ -56,7 +56,7 @@ extern void   * memory_pool[];
 extern req_status_t alloc_history[];  // for printing output
 
 /******************************************************************************/
-void process_request(policy_t p, int req_id, req_t rt, bytes_t size);
+void process_request(policy_t policy, int req_id, req_t rt, bytes_t size);
 void print_usage(char * name);
 void print_mem_config();
 
