@@ -50,7 +50,8 @@ int main(int argc, char *argv[]) {
   memory_block_list  = list_pre(NULL, &init_block);
 
   req_status_t init_req_status;
-  init_req_status.
+  init_req_status.req_id = init_block.id;
+  
 
   /****************************************************************************/
   /* CLEAN UP                                                                 */

@@ -27,7 +27,7 @@
 /* TYPES                                                                      */
 /******************************************************************************/
 typedef enum { FIRST_FIT, BEST_FIT, BUDDY_SYSTEM } policy_t;
-typedef enum { ALLOC, FREE } req_t;
+typedef enum { ALLOC, FREE, NONE } req_t;
 
 /* Type aliases to make units clear */
 typedef size_t bytes_t;
