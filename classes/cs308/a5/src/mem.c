@@ -21,11 +21,11 @@ char cols[6][80] = {
 };
 
 /******************************************************************************/
-mem_block_t first_free() {
+mem_block_t * first_free() {
   list_t * tmp = memory_block_list;
   while (tmp != NULL) {
-    mem_block_t block = *(mem_block_t*)list_head(tmp);
-    if (block.is_free) {
+    mem_block_t * block = (mem_block_t*)list_head(tmp);
+    if (block->is_free) {
       return block;
     } else {  // not free, keep looking
       tmp = list_tail(tmp);

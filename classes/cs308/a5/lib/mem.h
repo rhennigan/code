@@ -67,7 +67,7 @@ extern policy_t     policy;
 extern bytes_t      pool_size;
 
 /******************************************************************************/
-mem_block_t first_free();
+mem_block_t * first_free();
 list_t * best_free(list_t * block_list);
 /******************************************************************************/
 void process_request(policy_t policy, int req_id, req_t rt, bytes_t size);
