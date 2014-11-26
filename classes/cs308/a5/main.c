@@ -43,6 +43,9 @@ int main(int argc, char *argv[]) {
   /* SETUP MEMORY POOL                                                        */
   /****************************************************************************/
   printf("MAX_POOL_SIZE_BYTES = %lu\n", MAX_POOL_SIZE_BYTES);
+  printf("MIN_ALLOC_BYTES = %lu\n", MIN_ALLOC_BYTES);
+  printf("MAX_POOL_SIZE_WORDS = %lu\n", MAX_POOL_SIZE_WORDS);
+  printf("MIN_ALLOC_WORDS = %lu\n", MIN_ALLOC_WORDS);
 
   /****************************************************************************/
   /* CLEAN UP                                                                 */
