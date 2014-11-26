@@ -44,11 +44,12 @@ request_t * load_request(FILE * file) {
 
 /******************************************************************************/
 static bool is_valid(void * block_addr, void * req_addr) {
-  if (block_addr == NULL) {
+  if (block_addr == NULL || !((mem_block_t*)block_addr)->is_free) {
     return false;
   } else {
     bytes_t block_size = WORDS_TO_BYTES(((mem_block_t*)block_addr)->size);
     bytes_t req_size   = ((request_t*)req_addr)->size;
+    return block_size > req_size;
   }
 }
 
