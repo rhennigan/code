@@ -67,9 +67,13 @@ mem_block_t * first_free(bytes_t size) {
   return NULL;
 }  // end first_free
 
+static bytes_t lt(void * a, void * b) {
+  
+}
+
 mem_block_t * best_free(bytes_t size) {
   list_t * tmp = list_filter(memory_block_list, &is_valid, &size);
-  tmp = list_extremum(tmp, );
+  tmp = list_extremum(tmp, &lt);
 }
 
 void * allocate_memory(request_t * request) {
