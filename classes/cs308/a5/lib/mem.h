@@ -10,7 +10,7 @@
 /******************************************************************************/
 /* CONFIG OPTIONS                                                             */
 /******************************************************************************/
-#define MAX_POOL_SIZE_KBYTES  (1024ul)
+#define MAX_POOL_SIZE_KBYTES  (1048576ul)
 #define MIN_ALLOC_BYTES       (32ul)
 #define MAX_HISTORY_LENGTH    (1000ul)
 
