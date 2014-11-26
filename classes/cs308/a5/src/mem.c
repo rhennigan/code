@@ -140,11 +140,6 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
     next_block->prev = rem_list_node;                                        // 4
   }
 
-  /**************** Free old pointers ******************************************/
-  mem_block_t * curr_block = (mem_block_t *)curr_list_node->head;
-  free(curr_block);
-  free(curr_list_node);
-
   /*****************************************************************************/
   return alloc_block;
 }
