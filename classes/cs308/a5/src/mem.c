@@ -103,8 +103,8 @@ void split_block(mem_block_t * block, request_t * request) {
   rem_block->is_free   = false;
   rem_block->addr      = (char*)block->addr + request->size;
   rem_block->size      = block->size - alloc_block->size;
-  // TODO: prev for this block will point to the list containing alloc_block
-  rem_block->curr      = list_pre(block->next, &rem_block);
+  rem_block->prev      = alloc_block->curr;
+  rem_block->curr      = list_pre(block->next, rem_block);
 }
 
 void * allocate_memory(request_t * request) {
