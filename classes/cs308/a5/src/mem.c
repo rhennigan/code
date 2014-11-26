@@ -64,13 +64,13 @@ static inline void print_row(int row) {
       snprintf(rq, 5, "none");
       break;
   }
-  printf("%s ", B_VT);
-  printf(" %9d %s", sn, B_VT);
-  printf(" %7s %s", rq, B_VT);
+  printf("%s", B_VT);
   printf(" %10d %s", sn, B_VT);
-  printf(" %10d %s", sn, B_VT);
-  printf(" %10d %s", sn, B_VT);
-  printf(" %10d %s", sn, B_VT);
+  printf(" %7s %s",  rq, B_VT);
+  printf(" %8lu %s", sz, B_VT);
+  printf(" %1d %s", sn, B_VT);
+  printf(" %1d %s", sn, B_VT);
+  printf(" %1d %s", sn, B_VT);
   printf("\n");
 }
 
