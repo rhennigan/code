@@ -56,4 +56,5 @@ void print_output_header() {
   size_t s = pool_size;
   snprintf(label, 80, "%s = %s          %s = %lu KB", mp, p, ps, s);
   print_boxed(label, 80, 0);
+  char hdr_row[102];
 }
