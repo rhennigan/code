@@ -54,6 +54,7 @@ typedef struct mem_block_s {
   void   * addr;
   words_t  size;
   list_t * prev;
+  list_t * curr;
 } mem_block_t;
 
 /******************************************************************************/
