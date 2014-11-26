@@ -48,7 +48,7 @@ void print_mem_config() {
 
 static inline void print_row(int row) {
   int     sn = req_history[row].req_id;
-  bytes_t  s = req_history[row].req_size;
+  bytes_t sz = req_history[row].req_size;
   void *  ad = req_history[row].req_addr;
   bytes_t tf = WORDS_TO_BYTES(req_history[row].total_free);
   bytes_t lp = WORDS_TO_BYTES(req_history[row].max_free);
@@ -64,7 +64,12 @@ static inline void print_row(int row) {
       snprintf(rq, 5, "none");
       break;
   }
-  printf("%s", B_VT);
+  printf("%s ", B_VT);
+  printf(" %9d %s", sn, B_VT);
+  printf(" %7s %s", rq, B_VT);
+  printf(" %10d %s", sn, B_VT);
+  printf(" %10d %s", sn, B_VT);
+  printf(" %10d %s", sn, B_VT);
   printf(" %10d %s", sn, B_VT);
   printf("\n");
 }
