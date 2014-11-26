@@ -28,11 +28,11 @@ typedef enum { FIRST_FIT, BEST_FIT, BUDDY_SYSTEM } policy_t;
 typedef size_t bytes_t;
 typedef size_t words_t;
 
-/* Container for single memory management requests */
+/* For specifying the type of memory management requests */
 typedef enum { ALLOC, FREE } req_t;
 typedef struct request_s {
-  int     owner;
-  req_t   req_type;
+  int     id;
+  req_t   type;
   bytes_t size;
 } request_t;
 
