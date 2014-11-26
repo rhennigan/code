@@ -61,7 +61,7 @@ static inline void print_row(int row) {
       snprintf(rq, 5, "free");
       break;
     case NONE:
-      snprintf(rq, 5, "none");
+      snprintf(rq, 5, "init");
       break;
   }
   printf("%s", B_VT);
@@ -69,7 +69,7 @@ static inline void print_row(int row) {
   printf("%1s %-6s %s", " ", rq, B_VT);
   printf("%1s %-7lu %s", " ", sz, B_VT);
   printf("%1s %-11p %s", " ", ad, B_VT);
-  printf(" %-12lu %s", tf, B_VT);
+  printf("%1s %-11lu %s", " ", tf, B_VT);
   printf(" %-12lu %s", lp, B_VT);
   printf("\n");
 }
