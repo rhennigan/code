@@ -25,7 +25,9 @@ static inline bool is_free(void * block_addr) {
   return ((mem_block_t*)block_addr)->is_free;
 }  // end is_free
 
-bool match_heads(void * a, void * b) {
+bool match_prev(void * a, void * b) {
+  list_t * current = a;
+  list_t * my_list = b;
   return ((mem_block_t*)a)->id == ((mem_block_t*)b)->id;
 }
 
