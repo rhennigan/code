@@ -47,7 +47,7 @@ static bool size_ok(void * a, void * b) {
   if (a == NULL) {
     return false;
   } else {
-    list_t * list = a;
+    mem_block_t * block = (mem_block_t*)a;
     bytes_t size = ((request_t*)b)->size;
   }
 }
