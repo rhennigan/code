@@ -107,8 +107,8 @@ void split_block(mem_block_t * block, request_t * request) {
   rem_block->addr      = (char*)block->addr + request->size;
   rem_block->size      = block->size - alloc_block->size;
 
-  /**************** Update list pointers ****************/
-  /* (1, prev) -> (2, alloc) -> (3, rem) -> (4, next)   */
+  /**************** Update list pointers *****************************/
+  /* (1, prev) -> (2, alloc) -> (3, rem) -> (4, next)                */
   list_t *   rem_list_node = list_pre(next_list_node, rem_block);  // 3
   list_t * alloc_list_node = list_pre(rem_list_node, alloc_block); // 2
   
@@ -118,11 +118,15 @@ void split_block(mem_block_t * block, request_t * request) {
     prev_list_node->tail = alloc_list_node;                        // 1
   }
 
-  /**************** Update block pointers ***************/
+  /**************** Update block pointers ****************************/
   if (prev_list_node != NULL) {
     mem_block_t * prev_block = (mem_block_t *)prev_list_node->head;
     prev_block->next = alloc_list_node;                            // 1
   }
+
+  alloc_block->prev = prev_list_node;
+  alloc_block->curr = curr_list_node;
+  alloc_block->next = next_list_node;
 
   alloc_block->prev    = block->prev;
   // TODO: need to update memory_block_list and alloc_block->current ptr
