@@ -57,6 +57,10 @@ mem_block_t * first_free(bytes_t size) {
   return NULL;
 }  // end first_free
 
+mem_block_t * best_free(bytes_t size) {
+
+}
+
 void * allocate_memory(request_t * request) {
   mem_block_t * target = NULL;
   switch (policy) {

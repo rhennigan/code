@@ -76,7 +76,7 @@ extern bytes_t      pool_size;
 /******************************************************************************/
 request_t *   load_request(FILE * file);
 mem_block_t * first_free(bytes_t size);
-list_t *      best_free(list_t * block_list);
+mem_block_t * best_free(bytes_t size);
 
 /******************************************************************************/
 void process_request(request_t request);
