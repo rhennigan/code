@@ -27,12 +27,11 @@ request_t * load_request(FILE * file) {
   if (fgets(buffer, 80, file) == NULL) {
     return NULL;
   } else {
-    char * id_str;
-    char * type_str;
-    char * size_str;
-    char * ref_str;
     char * saveptr;
-    id_str = strtok_r(buffer, " ", &saveptr);
+    char * id_str = strtok_r(buffer, " ", &saveptr);
+    char * type_str = strtok_r(buffer, " ", &saveptr);
+    char * size_str = strtok_r(buffer, " ", &saveptr);
+    char * ref_str = strtok_r(buffer, " ", &saveptr);
   }
 }
 
