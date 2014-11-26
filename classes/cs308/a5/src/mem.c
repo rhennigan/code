@@ -98,6 +98,8 @@ void * allocate_memory(request_t * request) {
       target = best_free(request->size);
       break;
     case BUDDY_SYSTEM:
+      printf("not yet implemented\n");
+      exit(EXIT_FAILURE);  // TODO: implement buddy system split func
       break;
   }
   return target;
