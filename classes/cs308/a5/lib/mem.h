@@ -45,11 +45,11 @@ typedef struct req_status_s {
 } req_status_t;
 
 /* Data for block list nodes */
-#define NOBODY (-1)
+#define NOBODY (0)
 typedef struct mem_block_s {
-  int     owner;    // would likely be a pid in a real setting
+  int     id;
   bool    is_free;
-  void  * addr;     // base address of block
+  void  * addr;
   words_t size;
 } mem_block_t;
 

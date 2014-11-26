@@ -43,13 +43,14 @@ int main(int argc, char *argv[]) {
   print_mem_config();
 
   mem_block_t init_block;
-  init_block.owner   = NOBODY;
+  init_block.id      = NOBODY;
   init_block.is_free = true;
   init_block.addr    = memory_pool;
   init_block.size    = BYTES_TO_WORDS(pool_size);
   memory_block_list  = list_pre(NULL, &init_block);
 
   req_status_t init_req_status;
+  init_req_status.
 
   /****************************************************************************/
   /* CLEAN UP                                                                 */
