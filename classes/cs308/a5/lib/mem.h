@@ -65,7 +65,7 @@ extern policy_t     policy;
 extern bytes_t      pool_size;
 
 /******************************************************************************/
-bool     is_free(void * block);
+bool     is_free(void * block_addr);
 list_t * get_prev(list_t * list);
 /******************************************************************************/
 void process_request(policy_t policy, int req_id, req_t rt, bytes_t size);
