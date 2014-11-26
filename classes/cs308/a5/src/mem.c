@@ -91,6 +91,7 @@ static mem_block_t * best_free(bytes_t size) {
 
 /******************************************************************************/
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
+  assert(block != NULL);
   list_t * prev_list_node = block->prev;
   list_t * curr_list_node = block->curr;
   list_t * next_list_node = block->next;
@@ -140,9 +141,9 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   }
 
   /**************** Free old pointers ******************************************/
-  mem_block_t * curr_block = (mem_block_t *)curr_list_node->head;
-  free(curr_block);
-  free(curr_list_node);
+  /* mem_block_t * curr_block = (mem_block_t *)curr_list_node->head; */
+  /* free(curr_block); */
+  /* free(curr_list_node); */
 
   /*****************************************************************************/
   return alloc_block;
