@@ -14,6 +14,8 @@
 #define MIN_ALLOC_BYTES       (32ul)
 #define MAX_HISTORY_LENGTH    (1000ul)
 
+#define BYTES_TO_WORDS(bytes) (bytes / WORD_SIZE_BYTES)
+#define WORDS_TO_BYTES(words) (words * WORD_SIZE_BYTES)
 /******************************************************************************/
 #define MAX_POOL_SIZE_BYTES   (1024ul * MAX_POOL_SIZE_KBYTES)
 #define WORD_SIZE_BYTES       (sizeof(void *))
