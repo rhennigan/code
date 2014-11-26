@@ -64,7 +64,8 @@ void print_output_header() {
     "TOTAL-FREE  ",
     "LARGEST-PART"
   };
-  printf("%s", B_TL);
+  printf("%s", B_LM);
+
   printf("%s", B_VT);
   for (int i = 0; i < 6; i++)
     printf(" %s %s", cols[i], B_VT);
