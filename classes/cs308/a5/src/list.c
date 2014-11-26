@@ -41,6 +41,27 @@ static inline list_t * list_snoc(list_t * list, void * data) {
   }  // end if (list == NULL)
 }  // end list_snoc
 
+static inline list_t * merge(list_t * xxs, list_t * yys, cmp_fun lt) {
+  if (xxs == NULL && yys == NULL) {
+    return NULL;
+  } else if (xxs == NULL) {
+    return yys;
+  } else if (yys == NULL) {
+    return xxs;
+  } else {  // (xs != NULL && ys != NULL)
+    void * x = list_head(xxs);
+    void * y = list_head(yys);
+    list_t * xs = list_tail(xxs);
+    list_t * ys = list_tail(yys);
+    list_t * merged = merge(xs, ys, lt);
+    if (lt(x, y)) {
+      return list_cons(list_cons(merged, y), x);
+    } else {  // (!lt(x, y))
+      return list_cons(list_cons(merged, x), y);
+    }  // end if (lt(x, y))
+  }  // end if (xs == NULL && ys == NULL)
+}  // end merge
+
 /******************************************************************************/
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
@@ -84,6 +105,11 @@ void list_dump(list_t * list) {
     printf("  %p\n", list);
   }  // end if (list == NULL)
 }  // end list_dump
+
+list_t * list_filter(list_t * list, cmp_fun pred, void * cmp_arg) {
+  lpair_t pair = list_partition(list, pred, cmp_arg);
+  return pair.left;
+}  // end list_filter
 
 void * list_find(list_t * list, void * h, cmp_fun eq) {
   if (list == NULL) {
@@ -173,27 +199,6 @@ list_t * list_reverse(list_t * list) {
   }  // end while (list != NULL)
   return new_list;
 }  // end list_reverse
-
-static inline list_t * merge(list_t * xxs, list_t * yys, cmp_fun lt) {
-  if (xxs == NULL && yys == NULL) {
-    return NULL;
-  } else if (xxs == NULL) {
-    return yys;
-  } else if (yys == NULL) {
-    return xxs;
-  } else {  // (xs != NULL && ys != NULL)
-    void * x = list_head(xxs);
-    void * y = list_head(yys);
-    list_t * xs = list_tail(xxs);
-    list_t * ys = list_tail(yys);
-    list_t * merged = merge(xs, ys, lt);
-    if (lt(x, y)) {
-      return list_cons(list_cons(merged, y), x);
-    } else {  // (!lt(x, y))
-      return list_cons(list_cons(merged, x), y);
-    }  // end if (lt(x, y))
-  }  // end if (xs == NULL && ys == NULL)
-}
 
 list_t * list_sort(list_t * list, cmp_fun lt) {
   printf("\n\nsorting list: \n");
