@@ -18,6 +18,9 @@ int main(int argc, char *argv[]) {
   }
 
   policy_t policy;
+  size_t pool_size;
+  char * req_file;
+
   if (strcmp(argv[1], "first") == 0) {
     policy = FIRST_FIT;
   } else if (strcmp(argv[1], "best") == 0) {
@@ -29,8 +32,8 @@ int main(int argc, char *argv[]) {
     exit(EXIT_FAILURE);
   }
 
-  size_t pool_size = atoi(argv[2]);
-  char * req_file = argv[3];
+  pool_size = atoi(argv[2]);
+  req_file = argv[3];
 
   /****************************************************************************/
   /* SETUP MEMORY POOL                                                        */
