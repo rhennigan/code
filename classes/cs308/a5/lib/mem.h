@@ -23,14 +23,13 @@
 /* TYPES                                                                      */
 /******************************************************************************/
 typedef enum { FIRST_FIT, BEST_FIT, BUDDY_SYSTEM } policy_t;
+typedef enum { ALLOC, FREE } req_t;
 
 /* Type aliases to make units clear */
 typedef size_t bytes_t;
 typedef size_t words_t;
 
-/* For specifying the type of memory management requests */
-typedef enum { ALLOC, FREE } req_t;
-
+/* Results of a memory management request */
 typedef struct req_status_s {
   int     req_id;
   req_t   req_type;
