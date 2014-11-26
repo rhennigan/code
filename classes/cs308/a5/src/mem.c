@@ -21,8 +21,8 @@ char cols[6][80] = {
 };
 
 /******************************************************************************/
-bool is_free(void * block_addr) {
-  mem_block_t block = *(mem_block_t*)block_addr;
+inline bool is_free(void * block_addr) {
+  return ((mem_block_t*)block_addr)->is_free;
 }
 
 list_t * get_prev(list_t * list);
