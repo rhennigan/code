@@ -6,6 +6,8 @@
 
 typedef enum { FIRST_FIT, BEST_FIT, BUDDY_SYSTEM } policy_t;
 
+void print_usage(char * name);
+
 int main(int argc, char *argv[]) {
 /******************************************************************************/
 /* READ COMMAND LINE ARGUMENTS                                                */
@@ -19,15 +21,19 @@ int main(int argc, char *argv[]) {
   } else if (strcmp(argv[1], "buddy") == 0) {
     policy = BUDDY_SYSTEM;
   } else {
-    printf("error reading arguments\n");
-    printf("usage:\n");
-    printf("%s ", argv[0]);
-    printf("[policy : first|best|buddy] ");
-    printf("[pool_size : int] ");
-    printf("[req_file : string]\n");
+    print_usage(argv[0]);
     exit(EXIT_FAILURE);
   }
   size_t pool_size = atoi(argv[2]);
   char * req_file = argv[3];
   return 0;
+}
+
+void print_usage(char * name) {
+  printf("error reading arguments\n");
+  printf("usage:\n");
+  printf("%s ", name);
+  printf("[policy : first|best|buddy] ");
+  printf("[pool_size : int] ");
+  printf("[req_file : string]\n");
 }
