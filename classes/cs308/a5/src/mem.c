@@ -58,16 +58,16 @@ void print_output_header() {
   /* print_boxed(label, 80, 0); */
 
   /* Top bar */
-  printf("%s", B_TL);
+  printf("\n%s", B_TL);
   for (int i = 0; i < 78; i++)
     printf("%s", B_HR);
   printf("%s\n", B_TR);
 
   /* Header label */
   printf("%s", B_VT);
-  printf("     MANAGEMENT POLICY = %s     ", p);
-  printf("     POOL SIZE = %lu KB         ", pool_size);
-  printf("  %s\n", B_VT);
+  printf("     MANAGEMENT POLICY = %s    ", p);
+  printf("     POOL SIZE = %lu KB        ", pool_size);
+  printf("     %s\n", B_VT);
 
   char cols[6][80] = {
     "SERIAL-NUM",
