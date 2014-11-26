@@ -25,6 +25,10 @@ static inline bool is_free(void * block_addr) {
   return ((mem_block_t*)block_addr)->is_free;
 }  // end is_free
 
+list_t * first_free() {
+  
+}  // end first_free
+
 static bool match_prev(void * a, void * b) {
   list_t * current = a;
   list_t * my_list = b;
