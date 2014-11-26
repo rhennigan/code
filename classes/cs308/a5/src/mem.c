@@ -31,7 +31,7 @@ request_t * load_request(FILE * file) {
     char * id_str   = strtok_r(buffer, " ", &saveptr);
     char * type_str = strtok_r(NULL,   " ", &saveptr);
     char * size_str = strtok_r(NULL,   " ", &saveptr);
-    char * ref_str  = strtok_r(NULL,   " ", &saveptr);
+    char * ref_str  = strtok_r(NULL,  "\n", &saveptr);
 
     printf("id_str   = %s\n", id_str);
     printf("type_str = %s\n", type_str);
