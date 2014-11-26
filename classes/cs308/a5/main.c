@@ -49,6 +49,7 @@ int main(int argc, char *argv[]) {
   init_block.is_free = true;
   init_block.addr    = memory_pool;
   init_block.size    = BYTES_TO_WORDS(pool_size);
+  init_block.prev    = NULL;
   memory_block_list  = list_pre(NULL, &init_block);
 
   req_status_t init_req_status;

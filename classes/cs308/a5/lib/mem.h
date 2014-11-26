@@ -49,10 +49,11 @@ typedef struct req_status_s {
 /* Data for block list nodes */
 #define NOBODY (0)
 typedef struct mem_block_s {
-  int     id;
-  bool    is_free;
-  void  * addr;
-  words_t size;
+  int      id;
+  bool     is_free;
+  void   * addr;
+  words_t  size;
+  list_t * prev;
 } mem_block_t;
 
 /******************************************************************************/
