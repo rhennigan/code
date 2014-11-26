@@ -65,8 +65,8 @@ void print_output_header() {
 
   /* Header label */
   printf("%s", B_VT);
-  printf("    MANAGEMENT POLICY = %s", p);
-  printf("    POOL SIZE = %lu KB", pool_size);
+  printf("    MANAGEMENT POLICY = %s    ", p);
+  printf("    POOL SIZE = %lu KB        ", pool_size);
   printf("%s\n", B_VT);
 
   char cols[6][80] = {
