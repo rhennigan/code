@@ -26,7 +26,7 @@ mem_block_t * first_free(bytes_t size) {
   words_t w_sz = BYTES_TO_WORDS(size);
   while (tmp != NULL) {
     mem_block_t * block = (mem_block_t*)list_head(tmp);
-    if (block->is_free && (block->size > size)) {
+    if (block->is_free && (block->size > w_sz)) {
       return block;
     } else {  // not free, keep looking
       tmp = list_tail(tmp);
