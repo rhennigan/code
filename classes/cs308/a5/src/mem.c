@@ -24,6 +24,7 @@ bytes_t      pool_size;
 
 /******************************************************************************/
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
 
 static inline void tline(size_t width) {
   printf("%s", B_TL);
