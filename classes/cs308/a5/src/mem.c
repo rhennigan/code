@@ -65,8 +65,7 @@ static inline void print_row(int row) {
       break;
   }
   printf("%s", B_VT);
-  for (int i = 0; i < 6; i++)
-    printf(" %s %s", cols[i], B_VT);
+  printf(" %10d %s", sn, B_VT);
   printf("\n");
 }
 
