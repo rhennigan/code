@@ -65,7 +65,7 @@ static bool is_valid(void * block_addr, void * size_addr) {
   }  // end if (block_addr == NULL || !((mem_block_t*)block_addr)->is_free)
 }  // end is_valid
 
-mem_block_t * first_free(bytes_t size) {
+static mem_block_t * first_free(bytes_t size) {
   list_t * tmp = list_filter(memory_block_list, &is_valid, &size);
   if (tmp == NULL) {
     return NULL;
@@ -79,7 +79,7 @@ static bool smaller(void * a, void * b) {
   return (((mem_block_t*)a)->size < ((mem_block_t*)b)->size);
 }
 
-mem_block_t * best_free(bytes_t size) {
+static mem_block_t * best_free(bytes_t size) {
   list_t * tmp = list_filter(memory_block_list, &is_valid, &size);
   tmp = list_extremum(tmp, &smaller);
   if (tmp == NULL) {
