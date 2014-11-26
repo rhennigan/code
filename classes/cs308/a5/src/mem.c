@@ -21,11 +21,12 @@ char cols[6][80] = {
 };
 
 /******************************************************************************/
-mem_block_t * first_free(size_t min_size) {
+mem_block_t * first_free(bytes_t size) {
   list_t * tmp = memory_block_list;
+  words_t w_sz = BYTES_TO_WORDS(size);
   while (tmp != NULL) {
     mem_block_t * block = (mem_block_t*)list_head(tmp);
-    if (block->is_free && (block->size > min_size)) {
+    if (block->is_free && (block->size > size)) {
       return block;
     } else {  // not free, keep looking
       tmp = list_tail(tmp);
