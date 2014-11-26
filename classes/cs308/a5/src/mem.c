@@ -119,9 +119,9 @@ void print_output(int from, int to) {
 
   /* Column labels */
   printf("%s", B_VT);
-  printf(" %15s %s", cols[0], B_VT);
-  printf(" %s %s", cols[1], B_VT);
-  printf(" %s %s", cols[2], B_VT);
+  printf(" %9s %s", cols[0], B_VT);
+  printf(" %7s %s", cols[1], B_VT);
+  printf(" %12s %s", cols[2], B_VT);
   printf(" %s %s", cols[3], B_VT);
   printf(" %s %s", cols[4], B_VT);
   printf(" %s %s", cols[5], B_VT);
