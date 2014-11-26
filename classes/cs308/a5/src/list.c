@@ -1,4 +1,4 @@
-// list.h - a simple implementation of singly-linked lists
+// list.h - a simple implementation of doubly-linked lists
 // Copyright (C) 2014 Richard Hennigan
 
 #include "../lib/list.h"
