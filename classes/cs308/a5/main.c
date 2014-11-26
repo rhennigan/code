@@ -2,7 +2,7 @@
 
 #include "lib/mem.h"
 
-extern void * memory_pool;
+
 
 int main(int argc, char *argv[]) {
   /****************************************************************************/
