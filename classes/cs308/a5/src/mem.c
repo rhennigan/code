@@ -136,6 +136,8 @@ void split_block(mem_block_t * block, request_t * request) {
     mem_block_t * next_block = (mem_block_t *)next_list_node->head;          // 4
     next_block->prev = rem_list_node;                                        // 4
   }
+
+  /**************** Free old pointers ******************************************/
 }
 
 void * allocate_memory(request_t * request) {
