@@ -51,6 +51,7 @@ static inline void print_row(int row) {
   bytes_t  s = req_history[row].req_size;
   void *  ad = req_history[row].req_addr;
   bytes_t tf = WORDS_TO_BYTES(req_history[row].total_free);
+  bytes_t lp = WORDS_TO_BYTES(req_history[row].max_free);
   char * rq;
   printf("%s", B_VT);
   for (int i = 0; i < 6; i++)
