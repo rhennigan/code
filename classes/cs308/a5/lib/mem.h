@@ -38,10 +38,10 @@ typedef struct alloc_status_s {
 } alloc_status_t;
 
 typedef struct mem_block_s {
-  int    owner;    // would likely be a pid in a real setting
-  bool   is_free;
-  void * addr;     // base address of block
-  size_t size;     // in words
+  int     owner;    // would likely be a pid in a real setting
+  bool    is_free;
+  void  * addr;     // base address of block
+  words_t size;
 } mem_block_t;
 
 /******************************************************************************/
