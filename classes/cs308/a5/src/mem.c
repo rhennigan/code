@@ -69,8 +69,8 @@ static inline void print_row(int row) {
   printf("%1s %-6s %s",   " ", rq, B_VT);
   printf("%1s %10luB %s",  " ", sz, B_VT);
   printf("%1s %-9p %s",  " ", ad, B_VT);
-  printf("%1s %-8luKB %s", " ", tf, B_VT);
-  printf("%1s %-9luKB %s", " ", lp, B_VT);
+  printf("%1s %7luKB %s", " ", tf, B_VT);
+  printf("%1s %9luKB %s", " ", lp, B_VT);
   printf("\n");
 }
 
