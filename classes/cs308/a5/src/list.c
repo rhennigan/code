@@ -122,6 +122,7 @@ list_t * list_extremum(list_t * list, cmp_fun ex) {
 
 list_t * list_filter(list_t * list, cmp_fun pred, void * cmp_arg) {
   lpair_t pair = list_partition(list, pred, cmp_arg);
+  list_dispose(pair.right);
   return pair.left;
 }  // end list_filter
 
