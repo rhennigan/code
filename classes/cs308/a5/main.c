@@ -56,7 +56,8 @@ int main(int argc, char *argv[]) {
   init_req_status.req_granted  = true;
   init_req_status.total_free   = init_block.size;
   init_req_status.max_free     = init_block.size;
-  init_req_status.total_blocks = 1;
+  init_req_status.blocks_free  = 1;
+  init_req_status.blocks_alloc = 0;
 
   /****************************************************************************/
   /* CLEAN UP                                                                 */

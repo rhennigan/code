@@ -41,7 +41,8 @@ typedef struct req_status_s {
   bool    req_granted;
   words_t total_free;
   words_t max_free;
-  size_t  total_blocks;
+  size_t  blocks_free;
+  size_t  blocks_alloc;
 } req_status_t;
 
 /* Data for block list nodes */
