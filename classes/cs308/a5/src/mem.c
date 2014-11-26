@@ -44,10 +44,10 @@ void print_output_header() {
   char p[80];
   switch (policy) {
     case FIRST_FIT:
-      snprintf(p, 80, "First Fit");
+      snprintf(p, 80, "First Fit   ");
       break;
     case BEST_FIT:
-      snprintf(p, 80, "Best Fit");
+      snprintf(p, 80, "Best Fit    ");
       break;
     case BUDDY_SYSTEM:
       snprintf(p, 80, "Buddy System");
@@ -65,9 +65,9 @@ void print_output_header() {
 
   /* Header label */
   printf("%s", B_VT);
-  printf("    MANAGEMENT POLICY = %s    ", p);
-  printf("    POOL SIZE = %lu KB        ", pool_size);
-  printf("%s\n", B_VT);
+  printf("     MANAGEMENT POLICY = %s     ", p);
+  printf("     POOL SIZE = %lu KB         ", pool_size);
+  printf("  %s\n", B_VT);
 
   char cols[6][80] = {
     "SERIAL-NUM",
