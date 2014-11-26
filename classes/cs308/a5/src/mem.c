@@ -45,7 +45,7 @@ request_t * load_request(FILE * file) {
 
     printf("request->id = %d\n", request->id);
     printf("request->type = %d\n", request->type);
-    printf("request->size = %ul\n", request->size);
+    printf("request->size = %lu\n", request->size);
     printf("request->ref = %ul\n", request->ref);
     return request;
   }
