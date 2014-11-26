@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
     stat->req_type    = request->type;
     stat->req_size    = request->size;
     stat->req_granted = block == NULL ? false : true;
-    stat->req_addr    = block == NULL ? NULL : block->addr;
+    stat->req_addr    = stat->req_granted ? block->addr : NULL;
 
     /* Clean up */
     free(request);
