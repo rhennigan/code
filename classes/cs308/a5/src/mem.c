@@ -1,0 +1,27 @@
+// mem.c
+
+#include "../lib/mem.h"
+
+/******************************************************************************/
+/* GLOBALS                                                                    */
+/******************************************************************************/
+list_t * memory_free = NULL;
+void   * memory_pool[MAX_POOL_SIZE_WORDS];
+
+/******************************************************************************/
+void print_usage(char * name) {
+  printf("error reading arguments\n");
+  printf("usage:\n");
+  printf("%s ", name);
+  printf("[policy:(first|best|buddy)] ");
+  printf("[pool_size:int] ");
+  printf("[req_file:string]\n");
+}
+
+/* Debugging info */
+void print_mem_config() {
+  printf("MAX_POOL_SIZE_BYTES = %lu\n", MAX_POOL_SIZE_BYTES);
+  printf("MIN_ALLOC_BYTES     = %lu\n", MIN_ALLOC_BYTES);
+  printf("MAX_POOL_SIZE_WORDS = %lu\n", MAX_POOL_SIZE_WORDS);
+  printf("MIN_ALLOC_WORDS     = %lu\n", MIN_ALLOC_WORDS);
+}
