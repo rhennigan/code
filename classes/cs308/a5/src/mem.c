@@ -100,11 +100,12 @@ void split_block(mem_block_t * block, request_t * request) {
   // TODO: need to update memory_block_list and alloc_block->current ptr
 
   rem_block->id        = NOBODY;
-  rem_block->is_free   = false;
+  rem_block->is_free   = true;
   rem_block->addr      = (char*)block->addr + request->size;
   rem_block->size      = block->size - alloc_block->size;
   rem_block->prev      = alloc_block->curr;
   rem_block->curr      = list_pre(block->next, rem_block);
+  rem_block->next      = block->next;
 }
 
 void * allocate_memory(request_t * request) {
