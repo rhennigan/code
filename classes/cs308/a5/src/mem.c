@@ -30,10 +30,10 @@ bool match_prev(void * a, void * b) {
   list_t * my_list = b;
   if (current == NULL) {
     return false;
-  } else {
+  } else {  // (current != NULL)
     return list_tail(current) == my_list;
-  }
-}
+  }  // end if (current == NULL)
+}  // end match_prev
 
 static inline list_t * get_prev(list_t * list) {
   
