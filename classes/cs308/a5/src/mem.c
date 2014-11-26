@@ -52,9 +52,9 @@ void print_output_header() {
   }  // end switch (policy)
 
   char s[80];
-  if (pool_size > 1048575) {
+  if (pool_size > 10485760) {
     snprintf(s, 80, "%lu GB", pool_size / 1048576);
-  } else if (pool_size > 1023) {
+  } else if (pool_size > 10240) {
     snprintf(s, 80, "%lu MB", pool_size / 1024);
   } else {  // no unit conversion
     snprintf(s, 80, "%lu KB", pool_size);
