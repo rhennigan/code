@@ -124,10 +124,10 @@ list_t * list_join(list_t * list1, list_t * list2) {
   list_t * list = list_copy(list1);
   if (list == NULL) {
     return list2;
-  } else {
+  } else {  // (list != NULL)
     last_node(list)->next = list2;
     return list;
-  }
+  }  // end if (list == NULL)
 }  // end list_join
 
 size_t list_length(list_t * list) {
