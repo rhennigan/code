@@ -18,6 +18,7 @@ static inline list_t * last_node(list_t * list) {
 static inline list_t * list_init() {
   list_t * list = malloc(sizeof(list_t));
   assert(list != NULL);
+  list->prev = NULL;
   list->head = NULL;
   list->next = NULL;
   return list;
