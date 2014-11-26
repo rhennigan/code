@@ -37,12 +37,14 @@ typedef struct request_s {
 } request_t;
 
 typedef struct alloc_status_s {
+  int     req_id;
+  req_t   req_type;
+  bytes_t req_size;
   bytes_t total_free;
   bytes_t total_alloc;
   bytes_t max_free;
   bytes_t max_alloc;
   size_t  total_blocks;
-  int     request_num;
 } alloc_status_t;
 
 typedef struct mem_block_s {
