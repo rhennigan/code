@@ -32,7 +32,13 @@ int main(int argc, char *argv[]) {
     exit(EXIT_FAILURE);
   }
 
-  pool_size = atoi(argv[2]);
+  if (!atoi(argv[2])) {
+    printf("error: the pool size must be a positive integer\n");
+    exit(EXIT_FAILURE);
+  } else {
+    pool_size = atoi(argv[2]);
+  }
+
   req_file = argv[3];
 
   /****************************************************************************/
