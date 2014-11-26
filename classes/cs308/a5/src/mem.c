@@ -1,5 +1,6 @@
 // mem.c
 
+#include <string.h>
 #include "../lib/mem.h"
 
 /******************************************************************************/
@@ -31,7 +32,7 @@ request_t * load_request(FILE * file) {
     char * size_str;
     char * ref_str;
     char * saveptr;
-    
+    id_str = strtok_r(buffer, " ", &saveptr);
   }
 }
 
