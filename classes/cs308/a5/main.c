@@ -74,6 +74,8 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   for (int i = 0; i < 4; i++) {
     request_t * request = load_request(req_file);
+    req_status_t * stat = malloc(sizeof(req_status_t));
+    stat->req_id = request->id;
     // if request type is alloc
     mem_block_t * block = allocate_memory(request);
     free(request);
