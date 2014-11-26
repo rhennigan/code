@@ -95,7 +95,7 @@ void split_block(mem_block_t * block, request_t * request) {
   alloc_block.addr    = block->addr;
   alloc_block.size    = BYTES_TO_WORDS(request->size);
   alloc_block.prev    = block->prev;
-  memory_block_list  = list_pre(NULL, &init_block);
+  memory_block_list   = list_pre(memory_block_list, &alloc_block);
   init_block.curr    = memory_block_list;
 }
 
