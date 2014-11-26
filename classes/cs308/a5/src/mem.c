@@ -62,13 +62,13 @@ mem_block_t * first_free(bytes_t size) {
   }
 }  // end first_free
 
-static bool lt(void * a, void * b) {
+static bool smaller(void * a, void * b) {
   return (((mem_block_t*)a)->size < ((mem_block_t*)b)->size);
 }
 
 mem_block_t * best_free(bytes_t size) {
   list_t * tmp = list_filter(memory_block_list, &is_valid, &size);
-  tmp = list_extremum(tmp, &lt);
+  tmp = list_extremum(tmp, &smaller);
   if (tmp == NULL) {
     return NULL;
   } else {
@@ -83,6 +83,7 @@ void * allocate_memory(request_t * request) {
       target = first_free(request->size);
       break;
     case BEST_FIT:
+      target = best_free(request->size);
       break;
     case BUDDY_SYSTEM:
       break;
