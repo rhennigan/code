@@ -47,18 +47,19 @@ static inline void bline(size_t width, size_t pad) {
 static inline void print_boxed(const char * label, size_t width, size_t pad) {
   char label_str[86];
   size_t inspad = (width-strlen(label)-4) / 2;
+  printf("inspad = %d\n", inspad);
   size_t i = 0;
   for (size_t j = 0; j < pad; j++)
     label_str[i++] = ' ';
   label_str[i++] = 0xe2;
   label_str[i++] = 0x94;
   label_str[i++] = 0x82;
-  label_str[i++] = ' ';
+  for (size_t j = 0; j < inspad; j++)
+    label_str[i++] = '*';
   for (size_t j = 0; j < strlen(label); j++)
     label_str[i++] = label[j];
-  for (size_t j = 0; j < width-strlen(label)-4; j++)
+  for (size_t j = 0; j < inspad; j++)
     label_str[i++] = '*';
-  label_str[i++] = ' ';
   label_str[i++] = 0xe2;
   label_str[i++] = 0x94;
   label_str[i++] = 0x82;
