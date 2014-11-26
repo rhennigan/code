@@ -58,10 +58,10 @@ typedef struct mem_block_s {
 } mem_block_t;
 
 typedef struct request_s {
-  int     id;
-  req_t   type;
-  bytes_t size;
-  int     ref;
+  int          id;
+  req_t        type;
+  bytes_t      size;
+  unsigned int ref;
 } request_t;
 
 /******************************************************************************/
