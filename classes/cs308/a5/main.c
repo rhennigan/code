@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
   printf("\n\n\n");
   char * vbar = "\u2502";
   for (size_t i = 0; i < strlen(vbar); i++)
-    printf("%x\n", vbar[i]);
+    printf("0x%1x\n", (unsigned)vbar[i]);
 
   /****************************************************************************/
   /* CLEAN UP                                                                 */
