@@ -19,7 +19,7 @@ static inline void hline() {
   printf("/");
 }
 
-static inline void header(const char * label) {
+static inline void print_header(const char * label) {
   hline();
   
   hline();
