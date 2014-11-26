@@ -6,6 +6,11 @@
 
 typedef enum { FIRST_FIT, BEST_FIT, BUDDY_SYSTEM } policy_t;
 
+/******************************************************************************/
+/* GLOBAL VARIABLES                                                           */
+/******************************************************************************/
+void * memory_pool[MAX_POOL_SIZE];
+
 void print_usage(char * name);
 
 int main(int argc, char *argv[]) {
