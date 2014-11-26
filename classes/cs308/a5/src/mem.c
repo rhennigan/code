@@ -78,9 +78,9 @@ void print_output_header() {
     "LARGEST-PART"
   };
   printf("%s", B_LM);
-  for (int i = 0; i < 6; i++) {
+  for (int i = 0; i < 5; i++) {
     for (size_t j = 0; j < strlen(cols[i])+2; j++)
-      printf(" ");
+      printf("%s", B_HR);
     printf("%s", B_TM);
   }
   printf("%s\n", B_RM);
