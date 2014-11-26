@@ -30,6 +30,10 @@ int main(int argc, char *argv[]) {
   if (!atoi(argv[2])) {
     printf("error: the pool size must be a positive integer\n");
     exit(EXIT_FAILURE);
+  } else if ((size_t)atoi(argv[2]) > MAX_POOL_SIZE_KBYTES) {
+    printf("error: the pool size exceeds the maximum of %lu KB\n",
+           MAX_POOL_SIZE_KBYTES);
+    exit(EXIT_FAILURE);
   } else {  // given pool size is greater than 0
     pool_size = atoi(argv[2]);
   }  // end if (!atoi(argv[2]))
