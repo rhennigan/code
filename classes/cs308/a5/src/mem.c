@@ -104,7 +104,7 @@ void print_output(int from, int to) {
   /* Header label */
   printf("%s", B_VT);
   printf("     MANAGEMENT POLICY = %-12s   ", p);
-  printf("     POOL SIZE = %-7s        ", s);
+  printf("     POOL SIZE = %-7s       ", s);
   printf("     %s\n", B_VT);
 
   /* Separator between header and column labels */
