@@ -67,5 +67,6 @@ extern bytes_t      pool_size;
 void process_request(policy_t policy, int req_id, req_t rt, bytes_t size);
 void print_usage(char * name);
 void print_mem_config();
+void print_output_header();
 
 #endif  // LIB_MEM_H_

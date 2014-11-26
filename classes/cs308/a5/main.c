@@ -40,8 +40,6 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* SETUP MEMORY POOL                                                        */
   /****************************************************************************/
-  print_mem_config();
-
   mem_block_t init_block;
   init_block.id      = NOBODY;
   init_block.is_free = true;
@@ -59,6 +57,9 @@ int main(int argc, char *argv[]) {
   init_req_status.blocks_free  = 1;
   init_req_status.blocks_alloc = 0;
   req_history[0]               = init_req_status;
+
+  print_mem_config();
+  print_output_header();
 
   /****************************************************************************/
   /* CLEAN UP                                                                 */
