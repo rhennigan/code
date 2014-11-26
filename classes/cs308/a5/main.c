@@ -43,9 +43,11 @@ int main(int argc, char *argv[]) {
   print_mem_config();
 
   mem_block_t init_block;
-  init_block.owner = NOBODY;
+  init_block.owner   = NOBODY;
   init_block.is_free = true;
-  memory_block_list = list_pre(NULL, &init_block);
+  init_block.addr    = memory_pool;
+  init_block.size    = BYTES_TO_WORDS(pool_size);
+  memory_block_list  = list_pre(NULL, &init_block);
 
   /****************************************************************************/
   /* CLEAN UP                                                                 */
