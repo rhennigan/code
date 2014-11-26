@@ -157,6 +157,7 @@ void * allocate_memory(request_t * request) {
       break;
     case BEST_FIT:
       target = best_free(request->size);
+      alloc_block = split_block(target, request);
       break;
     case BUDDY_SYSTEM:
       printf("not yet implemented\n");
