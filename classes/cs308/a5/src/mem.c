@@ -58,12 +58,13 @@ mem_block_t * first_free(bytes_t size) {
 }  // end first_free
 
 void * allocate_memory(request_t * request) {
-  switch (request->type) {
-    case ALLOC:
+  mem_block_t * target;
+  switch (policy) {
+    case FIRST_FIT:
       break;
-    case FREE:
+    case BEST_FIT:
       break;
-    case NONE:
+    case BUDDY_SYSTEM:
       break;
   }
   return NULL;
