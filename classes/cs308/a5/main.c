@@ -1,8 +1,7 @@
 // main.c
 
+#include <limits.h>
 #include "lib/mem.h"
-
-
 
 int main(int argc, char *argv[]) {
   /****************************************************************************/
