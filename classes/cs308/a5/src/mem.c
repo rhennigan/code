@@ -47,7 +47,10 @@ void print_mem_config() {
 }
 
 static inline void print_row(int row) {
-  int sn = req_history[row].req_id;
+  int    sn = req_history[row].req_id;
+  bytes_t s = req_history[row].req_size;
+  void * ad = req_history[row].req_addr;
+  char * rq;
   printf("%s", B_VT);
   for (int i = 0; i < 6; i++)
     printf(" %s %s", cols[i], B_VT);
