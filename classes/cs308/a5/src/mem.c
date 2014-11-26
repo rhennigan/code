@@ -63,6 +63,11 @@ void print_output_header() {
     printf("%s", B_HR);
   printf("%s\n", B_TR);
 
+  /* Header label */
+  printf("%s", B_VT);
+  printf("    MANAGEMENT POLICY = %s", "FF");
+  printf("%s\n", B_VT);
+
   char cols[6][80] = {
     "SERIAL-NUM",
     "REQUEST",
