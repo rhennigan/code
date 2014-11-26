@@ -30,21 +30,8 @@ request_t * load_request(FILE * file) {
     char type_str[20];
     char size_str[20];
     char ref_str[20];
-    char * c = buffer;
-
-    int i = 0;
-    while (*(c++) != ' ') {
-      id_str[i++] = *c;
-    }
-    id_str[i] = '\0';
-
-    while (*(c++) == ' ') {}
+    char * saveptr;
     
-    i = 0;
-    while (*(c++) != ' ') {
-      id_str[i++] = *c;
-    }
-    id_str[i] = '\0';
   }
 }
 
