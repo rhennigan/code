@@ -149,20 +149,20 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
 }
 
 void * allocate_memory(request_t * request) {
-  mem_block_t * target = NULL;
+  mem_block_t * alloc_block = NULL;
   switch (policy) {
     case FIRST_FIT:
-      target = first_free(request->size);
+      mem_block_t *target = first_free(request->size);
       break;
     case BEST_FIT:
-      target = best_free(request->size);
+      mem_block_t *target = best_free(request->size);
       break;
     case BUDDY_SYSTEM:
       printf("not yet implemented\n");
       exit(EXIT_FAILURE);  // TODO: implement buddy system split func
       break;
   }
-  return target;
+  return alloc_block;
 }
 
 
