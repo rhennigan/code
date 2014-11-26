@@ -148,7 +148,7 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   return alloc_block;
 }
 
-void * allocate_memory(request_t * request) {
+mem_block_t * allocate_memory(request_t * request) {
   mem_block_t * target, * alloc_block = NULL;
   switch (policy) {
     case FIRST_FIT:
