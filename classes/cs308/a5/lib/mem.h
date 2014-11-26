@@ -30,13 +30,8 @@ typedef size_t words_t;
 
 /* For specifying the type of memory management requests */
 typedef enum { ALLOC, FREE } req_t;
-typedef struct request_s {
-  int     id;
-  req_t   type;
-  bytes_t size;
-} request_t;
 
-typedef struct alloc_status_s {
+typedef struct req_status_s {
   int     req_id;
   req_t   req_type;
   bytes_t req_size;
@@ -44,7 +39,7 @@ typedef struct alloc_status_s {
   bytes_t total_free;
   bytes_t max_free;
   size_t  total_blocks;
-} alloc_status_t;
+} req_status_t;
 
 typedef struct mem_block_s {
   int     owner;    // would likely be a pid in a real setting
@@ -58,7 +53,7 @@ typedef struct mem_block_s {
 /******************************************************************************/
 extern list_t * memory_block_list;      // elements have type mem_block_t*
 extern void   * memory_pool[];
-extern alloc_status_t alloc_history[];  // for printing output
+extern req_status_t alloc_history[];  // for printing output
 
 /******************************************************************************/
 void print_usage(char * name);
