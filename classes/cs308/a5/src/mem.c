@@ -37,7 +37,7 @@ void print_mem_config() {
   printf(" MIN_ALLOC_WORDS      = %lu\n", MIN_ALLOC_WORDS);
 }
 
-void print_output_header() {
+void print_output() {
   char p[80];
   switch (policy) {
     case FIRST_FIT:

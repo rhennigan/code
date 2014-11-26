@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
   req_history[0]               = init_req_status;
 
   print_mem_config();
-  print_output_header();
+  print_output();
 
   /****************************************************************************/
   /* CLEAN UP                                                                 */
