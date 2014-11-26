@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
   /* CLEAN UP                                                                 */
   /****************************************************************************/
   fclose(req_file);
-  return 0;
+  exit(EXIT_SUCCESS);
 }
 
 void print_usage(char * name) {
