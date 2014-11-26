@@ -9,25 +9,24 @@
 
 static inline list_t * last_node(list_t * list) {
   assert(list != NULL);
-  while (list->next != NULL) {
+  while (list->tail != NULL) {
     list = list_tail(list);
-  }  // end while (list->next != NULL)
+  }  // end while (list->tail != NULL)
   return list;
 }  // end last_node
 
 static inline list_t * list_init() {
   list_t * list = malloc(sizeof(list_t));
   assert(list != NULL);
-  list->prev = NULL;
   list->head = NULL;
-  list->next = NULL;
+  list->tail = NULL;
   return list;
 }  // end list_init
 
 static inline list_t * list_cons(list_t * list, void * data) {
   list_t * new_list = list_init();
   new_list->head = data;
-  new_list->next = list;
+  new_list->tail = list;
   return new_list;
 }  // end list_cons
 
@@ -37,7 +36,7 @@ static inline list_t * list_snoc(list_t * list, void * data) {
   if (list == NULL) {
     return last;
   } else {  // (list != NULL)
-    last_node(list)->next = last;
+    last_node(list)->tail = last;
     return list;
   }  // end if (list == NULL)
 }  // end list_snoc
@@ -70,8 +69,8 @@ static inline list_t * merge(list_t * xxs, list_t * yys, cmp_fun lt) {
 list_t * list_app(list_t * list, void * data) {
   list_t * new_list = list_copy(list);
   list_t * last = last_node(new_list);
-  last->next = list_init();
-  last->next->head = data;
+  last->tail = list_init();
+  last->tail->head = data;
   return new_list;
 }  // end list_app
 
@@ -85,10 +84,10 @@ list_t * list_copy(list_t * list) {
 
 void list_dispose(list_t * list) {
   if (list == NULL) return;
-  list_t ** next = &list->next;
+  list_t ** tail = &list->tail;
   free(list);
   list = NULL;
-  list_dispose(*next);
+  list_dispose(*tail);
 }  // end list_dispose
 
 void list_dump(list_t * list) {
@@ -152,7 +151,7 @@ list_t * list_join(list_t * list1, list_t * list2) {
   if (list == NULL) {
     return list2;
   } else {  // (list != NULL)
-    last_node(list)->next = list2;
+    last_node(list)->tail = list2;
     return list;
   }  // end if (list == NULL)
 }  // end list_join
@@ -223,8 +222,8 @@ inline list_t * list_tail(list_t * list) {
     printf("list_tail: list is empty\n");
     exit(EXIT_FAILURE);
   } else {  // (list != NULL)
-    return list->next;
+    return list->tail;
   }  // end if (list == NULL)
-}  // end list_next
+}  // end list_tail
 
 void * list_toarray(list_t * list, size_t size);
