@@ -57,6 +57,17 @@ mem_block_t * first_free(bytes_t size) {
   return NULL;
 }  // end first_free
 
+void * allocate_memory(request_t * request) {
+  switch (request->type) {
+    case ALLOC:
+      break;
+    case FREE:
+      break;
+    case NONE:
+      break;
+  }
+  return NULL;
+}
 
 
 /******************************************************************************/
