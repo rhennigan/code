@@ -26,14 +26,18 @@ bytes_t      pool_size;
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
-static inline void tline(size_t width) {
+static inline void tline(size_t width, size_t pad) {
+  for (size_t i = 0; i < pad; i++)
+    printf(" ");
   printf("%s", B_TL);
   for (size_t i = 0; i < width-2; i++)
     printf("%s", B_HR);
   printf("%s\n", B_TR);
 }
 
-static inline void bline(size_t width) {
+static inline void bline(size_t width, size_t pad) {
+  for (size_t i = 0; i < pad; i++)
+    printf(" ");
   printf("%s", B_BL);
   for (size_t i = 0; i < width-2; i++)
     printf("%s", B_HR);
@@ -51,7 +55,7 @@ static inline void print_boxed(const char * label, size_t width, size_t pad) {
   label_str[i++] = ' ';
   for (size_t j = 0; j < strlen(label); j++)
     label_str[i++] = label[j];
-  for (size_t j = 0; j < width-strlen(label); j++)
+  for (size_t j = 0; j < width-strlen(label)-4; j++)
     label_str[i++] = '*';
   label_str[i++] = ' ';
   label_str[i++] = 0xe2;
@@ -59,9 +63,9 @@ static inline void print_boxed(const char * label, size_t width, size_t pad) {
   label_str[i++] = 0x82;
   label_str[i++] = '\n';
   label_str[i++] = '\0';
-  tline(width);
+  tline(width, pad);
   printf("%s %s\n", label_str, B_VT);
-  bline(width);
+  bline(width, pad);
 }
 
 void print_usage(char * name) {
