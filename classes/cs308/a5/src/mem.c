@@ -47,6 +47,8 @@ void print_mem_config() {
 }
 
 static inline void print_row(int row) {
+  char buffer[80];
+  
   printf("%s", B_VT);
   for (int i = 0; i < 6; i++)
     printf(" %s %s", cols[i], B_VT);
