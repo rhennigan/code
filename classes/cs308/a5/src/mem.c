@@ -30,12 +30,8 @@ bool match_prev(void * a, void * b) {
   list_t * my_list = b;
   if (current == NULL) {
     return false;
-  } else if (list_tail(current) == NULL) {
-    return my_list == NULL;
   } else {
-    mem_block_t * current_block = list_head(list_tail(current));
-    mem_block_t * my_list_block = list_head(my_list);
-    return current_block->id;
+    return list_tail(current) == my_list;
   }
 }
 
