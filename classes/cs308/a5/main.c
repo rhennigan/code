@@ -12,7 +12,11 @@ int main(int argc, char *argv[]) {
 /******************************************************************************/
 /* READ COMMAND LINE ARGUMENTS                                                */
 /******************************************************************************/
-  assert(argc == 4);
+  if (argc != 4) {
+    print_usage(argv[0]);
+    exit(EXIT_FAILURE);
+  }
+
   policy_t policy;
   if (strcmp(argv[1], "first") == 0) {
     policy = FIRST_FIT;
@@ -24,6 +28,7 @@ int main(int argc, char *argv[]) {
     print_usage(argv[0]);
     exit(EXIT_FAILURE);
   }
+
   size_t pool_size = atoi(argv[2]);
   char * req_file = argv[3];
   return 0;
