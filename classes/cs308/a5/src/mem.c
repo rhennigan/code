@@ -21,7 +21,10 @@ static inline void hline() {
 
 static inline void print_header(const char * label) {
   hline();
-  
+  printf("/* %s", label);
+  for (size_t i = 0; i < 76-strlen(label); i++)
+    printf(" ");
+  printf("*/");
   hline();
 }
 
