@@ -3,7 +3,7 @@
 #include "../lib/mem.h"
 
 /******************************************************************************/
-/* GLOBALS                                                                    */
+/* GLOBAL DEFINITIONS                                                         */
 /******************************************************************************/
 list_t *     memory_block_list = NULL;
 void *       memory_pool[MAX_POOL_SIZE_WORDS];

@@ -54,6 +54,8 @@ typedef struct mem_block_s {
 extern list_t *     memory_block_list;  // elements have type mem_block_t*
 extern void *       memory_pool[];
 extern req_status_t req_history[];      // for printing output
+extern policy_t     policy;
+extern bytes_t      pool_size;
 
 /******************************************************************************/
 void process_request(policy_t policy, int req_id, req_t rt, bytes_t size);

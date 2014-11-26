@@ -12,9 +12,7 @@ int main(int argc, char *argv[]) {
     exit(EXIT_FAILURE);
   }  // end if (argc != 4)
 
-  policy_t policy;
-  size_t   pool_size;
-  FILE *   req_file;
+  FILE * req_file;
 
   /* get policy */
   if (strcmp(argv[1], "first") == 0) {
