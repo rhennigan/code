@@ -1,6 +1,6 @@
 CC=gcc
-CFLAGS=-std=c99 -g -c
-LDFLAGS=-std=c99 -g
+CFLAGS=-std=gnu99 -g -c
+LDFLAGS=-std=gnu99 -g
 BUILD=list mem io
 EXECUTABLE=main
 
