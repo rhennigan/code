@@ -38,11 +38,6 @@ request_t * load_request(FILE * file) {
     request->size = atoi(ref_str);
     request->ref  = atoi(ref_str);
 
-    printf("request->id = %d\n", request->id);
-    printf("request->type = %d\n", request->type);
-    printf("request->size = %lu\n", request->size);
-    printf("request->ref = %d\n", request->ref);
-    printf("\n\n");
     return request;
   }
 }
