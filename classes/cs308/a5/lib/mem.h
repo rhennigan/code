@@ -47,7 +47,7 @@ typedef struct mem_block_s {
 /******************************************************************************/
 /* GLOBALS                                                                    */
 /******************************************************************************/
-extern list_t * memory_block_list;
+extern list_t * memory_block_list;  // elements have type mem_block_t*
 extern void   * memory_pool[];
 
 /******************************************************************************/
