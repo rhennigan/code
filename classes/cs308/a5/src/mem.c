@@ -68,9 +68,9 @@ static inline void print_row(int row) {
   printf(" %10d %s", sn, B_VT);
   printf(" %7s %s",  rq, B_VT);
   printf(" %8lu %s", sz, B_VT);
-  printf(" %1d %s", sn, B_VT);
-  printf(" %1d %s", sn, B_VT);
-  printf(" %1d %s", sn, B_VT);
+  printf(" %12p %s", ad, B_VT);
+  printf(" %8lu %s", tf, B_VT);
+  printf(" %8lu %s", lp, B_VT);
   printf("\n");
 }
 
