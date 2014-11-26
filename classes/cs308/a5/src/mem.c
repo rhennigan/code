@@ -38,11 +38,12 @@ static inline void bline(size_t width) {
 }
 
 static inline void print_boxed(const char * label) {
+  size_t len = strlen(label);
   tline(80);
-  printf("/* %s", label);
-  for (size_t i = 0; i < 75-strlen(label); i++)
+  printf("%s %s", B_VT, label);
+  for (size_t i = 0; i < 76-len; i++)
     printf(" ");
-  printf("*/");
+  printf("%s\n", B_VT);
   bline(80);
 }
 
