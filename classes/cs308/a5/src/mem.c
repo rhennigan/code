@@ -46,12 +46,12 @@ request_t * load_request(FILE * file) {
 static bool is_valid(void * block_addr, void * req_addr) {
   if (block_addr == NULL || !((mem_block_t*)block_addr)->is_free) {
     return false;
-  } else {
+  } else {  // block is free, check size
     bytes_t block_size = WORDS_TO_BYTES(((mem_block_t*)block_addr)->size);
     bytes_t req_size   = ((request_t*)req_addr)->size;
     return block_size > req_size;
-  }
-}
+  }  // end if (block_addr == NULL || !((mem_block_t*)block_addr)->is_free)
+}  // end is_valid
 
 mem_block_t * first_free(bytes_t size) {
   list_t * tmp = memory_block_list;
