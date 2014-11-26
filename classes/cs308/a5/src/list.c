@@ -117,6 +117,7 @@ list_t * list_extremum(list_t * list, cmp_fun ex) {
         keep = next;
       }  // end if (ex(list_head(next), list_head(keep)))
     }  // end while (list_tail(next) != NULL)
+    return keep;
   }  // end if (list == NULL)
 }  // end list_extremum
 
