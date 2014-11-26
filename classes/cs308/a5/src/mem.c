@@ -57,10 +57,11 @@ void print_output_header() {
   snprintf(label, 80, "%s = %s          %s = %lu KB", mp, p, ps, s);
   print_boxed(label, 80, 0);
   char hdr_row[102];
-  char cols[6][80] = {"SERIAL-NUM",
-                      "REQUEST",
-                      "SIZE",
-                      "ALLOC-ADDR",
-                      "TOTAL-FREE",
-                      "LARGEST-PART"};
+  char cols[6][80] = {
+    "SERIAL-NUM",
+    "REQUEST",
+    "SIZE",
+    "ALLOC-ADDR",
+    "TOTAL-FREE",
+    "LARGEST-PART"};
 }
