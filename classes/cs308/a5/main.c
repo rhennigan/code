@@ -80,9 +80,11 @@ int main(int argc, char *argv[]) {
 
     /* Populate status entry */
     req_status_t * stat = malloc(sizeof(req_status_t));
-    stat->req_id   = request->id;
-    stat->req_type = request->type;
-    stat->req_size = request->size;
+    stat->req_id      = request->id;
+    stat->req_type    = request->type;
+    stat->req_size    = request->size;
+    stat->req_granted = block == NULL ? false : true;
+    stat->req_addr    = block == NULL ? NULL : block->addr;
 
     /* Clean up */
     free(request);
