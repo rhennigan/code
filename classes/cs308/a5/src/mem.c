@@ -40,8 +40,8 @@ static inline void bline(size_t width) {
   printf("%s\n", B_BR);
 }
 
-static inline void print_boxed(const char * label, size_t min_width) {
-  size_t len = strlen(label);
+static inline void print_boxed(const char * label, size_t width) {
+  size_t len = MAX(strlen(label)+2, width);
   tline(80);
   printf("%s %s", B_VT, label);
   for (size_t i = 0; i < 76-len; i++)
@@ -61,7 +61,7 @@ void print_usage(char * name) {
 
 /* Debugging info */
 void print_mem_config() {
-  print_boxed("MEM_CONFIG");
+  print_boxed("MEM_CONFIG", 40);
   printf("MAX_POOL_SIZE_BYTES = %lu\n", MAX_POOL_SIZE_BYTES);
   printf("MIN_ALLOC_BYTES     = %lu\n", MIN_ALLOC_BYTES);
   printf("MAX_POOL_SIZE_WORDS = %lu\n", MAX_POOL_SIZE_WORDS);
