@@ -25,7 +25,13 @@ static inline bool is_free(void * block_addr) {
   return ((mem_block_t*)block_addr)->is_free;
 }  // end is_free
 
-static inline list_t * get_prev(list_t * list);
+bool match_heads(void * a, void * b) {
+  return ((mem_block_t*)a)->id == ((mem_block_t*)b)->id;
+}
+
+static inline list_t * get_prev(list_t * list) {
+  
+}
 
 /******************************************************************************/
 /* FORMATTING AND OUTPUT                                                      */
