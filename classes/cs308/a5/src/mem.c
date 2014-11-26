@@ -11,6 +11,15 @@ req_status_t req_history[MAX_HISTORY_LENGTH];
 policy_t     policy;
 bytes_t      pool_size;
 
+char cols[6][80] = {
+  "SERIAL-NUM",
+  "REQUEST",
+  "SIZE    ",
+  "ALLOC-ADDR  ",
+  "TOTAL-FREE  ",
+  "LARGEST-PART"
+};
+
 /******************************************************************************/
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
@@ -37,7 +46,12 @@ void print_mem_config() {
   printf(" MIN_ALLOC_WORDS      = %lu\n", MIN_ALLOC_WORDS);
 }
 
-void print_row(int row);
+static inline void print_row(int row) {
+  printf("%s", B_VT);
+  for (int i = 0; i < 6; i++)
+    printf(" %s %s", cols[i], B_VT);
+  printf("\n");
+}
 
 void print_output(int from, int to) {
   char p[80];
@@ -59,15 +73,6 @@ void print_output(int from, int to) {
   } else {  // no unit conversion
     snprintf(s, 80, "%lu KB", pool_size);
   }  // end if (pool_size > 1048575)
-
-  char cols[6][80] = {
-    "SERIAL-NUM",
-    "REQUEST",
-    "SIZE    ",
-    "ALLOC-ADDR  ",
-    "TOTAL-FREE  ",
-    "LARGEST-PART"
-  };
 
   /* Top bar */
   printf("\n%s", B_TL);
