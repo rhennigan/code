@@ -52,8 +52,7 @@ void print_output_header() {
     case BUDDY_SYSTEM:
       snprintf(p, 80, "Buddy System");
       break;
-  }
-  snprintf(label, 80, "%s = %s          %s = %s KB",
-           mp, p, ps, "ps");
+  }  // end switch (policy)
+  snprintf(label, 80, "%s = %s          %s = %s KB", mp, p, ps, "ps");
   print_boxed(label, 80, 0);
 }
