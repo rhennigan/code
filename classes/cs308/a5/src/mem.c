@@ -41,6 +41,7 @@ void print_output_header() {
   char label[80];
   char * mp = "MANAGEMENT POLICY";
   char * ps = "POOL SIZE";
-  snprintf(label, 80, "%s = %s     %s = %s KB", mp, "mp", ps, "ps");
+  snprintf(label, 80, "%s = %s          %s = %s KB",
+           mp, "mp", ps, "ps");
   print_boxed(label, 80, 0);
 }
