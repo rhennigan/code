@@ -109,6 +109,9 @@ void split_block(mem_block_t * block, request_t * request) {
 
   /* Update list pointers */
   curr_list_node->head = rem_block;
+  if (prev_list_node != NULL) {
+    prev_list_node->tail = list_pre(curr_list_node, alloc_block);
+  }
 
 
   alloc_block->prev    = block->prev;
