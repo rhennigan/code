@@ -23,6 +23,8 @@ bytes_t      pool_size;
 #define B_VT "\u2502"  // vertical bar
 
 /******************************************************************************/
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+
 static inline void tline(size_t width) {
   printf("%s", B_TL);
   for (size_t i = 0; i < width-2; i++)
@@ -37,7 +39,7 @@ static inline void bline(size_t width) {
   printf("%s\n", B_BR);
 }
 
-static inline void print_boxed(const char * label) {
+static inline void print_boxed(const char * label, size_t min_width) {
   size_t len = strlen(label);
   tline(80);
   printf("%s %s", B_VT, label);
