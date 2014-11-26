@@ -25,9 +25,10 @@
 typedef enum { FIRST_FIT, BEST_FIT, BUDDY_SYSTEM } policy_t;
 
 typedef struct alloc_status_s {
-  size_t bytes_free;
-  size_t largest_bl;
-  size_t num_blocks;
+  size_t total_bytes_free;
+  size_t max_bytes_free;
+  size_t       num_blocks;
+  unsigned int request_num;
 } alloc_status_t;
 
 typedef struct mem_block_s {
