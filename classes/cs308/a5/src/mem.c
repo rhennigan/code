@@ -110,7 +110,7 @@ void print_output(int from, int to) {
   /* Separator between header and column labels */
   printf("%s", B_LM);
   for (int i = 0; i < 6; i++) {
-    for (size_t j = 0; j < strlen(cols[i])+2; j++)
+    for (size_t j = 0; j < (i == 2 ? 14 : strlen(cols[i])+2); j++)
       printf("%s", B_HR);
     if (i == 5) break;
     printf("%s", B_TM);
@@ -126,7 +126,7 @@ void print_output(int from, int to) {
   /* Bottom of column labels */
   printf("%s", B_LM);
   for (int i = 0; i < 6; i++) {
-    for (size_t j = 0; j < strlen(cols[i])+2; j++)
+    for (size_t j = 0; j < (i == 2 ? 14 : strlen(cols[i])+2); j++)
       printf("%s", B_HR);
     if (i == 5) break;
     printf("%s", B_CM);
