@@ -41,6 +41,7 @@ void print_boxed(const char * label, size_t width, size_t pad) {
   label_str[i++] = 0x82;
   label_str[i++] = '\n';
   label_str[i++] = '\0';
+  printf("\n");
   tline(width, pad);
   printf("%s", label_str);
   bline(width, pad);
