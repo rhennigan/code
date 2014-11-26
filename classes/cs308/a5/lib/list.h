@@ -10,8 +10,8 @@
 #include <stdio.h>
 
 typedef struct list_s {
+  void * head;
   struct list_s * prev;
-  void *          head;
   struct list_s * next;
 } list_t;
 
@@ -27,9 +27,9 @@ list_t * list_copy(list_t * list);
 void     list_dispose(list_t * list);
 void     list_dump(list_t * list);
 list_t * list_filter(list_t * list, cmp_fun pred, void * cmp_arg);
-void *   list_find(list_t * list, void * h, cmp_fun eq);
+void   * list_find(list_t * list, void * h, cmp_fun eq);
 list_t * list_fromarray(void * array, size_t objsize, size_t length);
-void *   list_head(list_t * list);
+void   * list_head(list_t * list);
 void     list_iter(list_t * list, void (*f)(void * data));
 list_t * list_join(list_t * list1, list_t * list2);
 size_t   list_length(list_t * list);
@@ -39,6 +39,6 @@ list_t * list_pre(list_t * list, void * data);
 list_t * list_reverse(list_t * list);
 list_t * list_sort(list_t * list, cmp_fun lt);
 list_t * list_tail(list_t * list);
-void *   list_toarray(list_t * list, size_t size);
+void   * list_toarray(list_t * list, size_t size);
 
 #endif  // LIB_LIST_H_
