@@ -65,7 +65,7 @@ static inline void print_row(int row) {
       break;
   }
   printf("%s", B_VT);
-  printf(" %-10d %s",  sn, B_VT);
+  printf("%5s %-5d %s",  " ", sn, B_VT);
   printf(" %-7s %s",   rq, B_VT);
   printf(" %-8lu %s",  sz, B_VT);
   printf(" %-12p %s",  ad, B_VT);
