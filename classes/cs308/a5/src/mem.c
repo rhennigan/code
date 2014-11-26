@@ -68,6 +68,7 @@ void print_output_header() {
   for (int i = 0; i < 6; i++) {
     for (size_t j = 0; j < strlen(cols[i])+2; j++)
       printf(" ");
+    printf("%s", B_TM);
   }
     
   printf("%s", B_RM);

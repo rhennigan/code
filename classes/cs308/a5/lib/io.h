@@ -19,6 +19,8 @@
 #define B_VT "\u2502"  // vertical bar
 #define B_LM "\u251C"  // left-middle join
 #define B_RM "\u2524"  // right-middle join
+#define B_TM "\u252C"  // top-middle join
+#define B_BM "\u2534"  // bottom-middle join
 
 /******************************************************************************/
 void print_boxed(const char * label, size_t width, size_t pad);
