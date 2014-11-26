@@ -52,7 +52,16 @@ static inline void print_row(int row) {
   void *  ad = req_history[row].req_addr;
   bytes_t tf = WORDS_TO_BYTES(req_history[row].total_free);
   bytes_t lp = WORDS_TO_BYTES(req_history[row].max_free);
-  char * rq;
+  char    rq[80];
+  switch (req_history[row].req_type) {
+    case ALLOC:
+      snprintf(rq, 80, "First Fit");
+      break;
+    case FREE:
+      break;
+    case NONE:
+      break;
+  }
   printf("%s", B_VT);
   for (int i = 0; i < 6; i++)
     printf(" %s %s", cols[i], B_VT);
