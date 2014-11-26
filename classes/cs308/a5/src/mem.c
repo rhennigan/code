@@ -88,8 +88,15 @@ mem_block_t * best_free(bytes_t size) {
   }
 }
 
-void split_block(mem_block_t * block, words_t size) {
-  
+void split_block(mem_block_t * block, request_t * request) {
+  mem_block_t alloc_block, rem_block;
+  alloc_block.id      = request->id;
+  alloc_block.is_free = false;
+  init_block.addr    = memory_pool;
+  init_block.size    = BYTES_TO_WORDS(pool_size);
+  init_block.prev    = NULL;
+  memory_block_list  = list_pre(NULL, &init_block);
+  init_block.curr    = memory_block_list;
 }
 
 void * allocate_memory(request_t * request) {
