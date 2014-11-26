@@ -21,7 +21,8 @@ char cols[6][80] = {
 };
 
 /******************************************************************************/
-static inline bool is_free(void * addr) {
+static inline bool is_free(void * addr, void * discard) {
+  if (discard != NULL) printf("discard != NULL: this might be a problem\n");
   if (addr == NULL) {
     return false;
   } else {  // (addr != NULL)
@@ -30,7 +31,7 @@ static inline bool is_free(void * addr) {
 }  // end is_free
 
 list_t * first_free() {
-  list_t * first = list_find
+  list_t * first = list_find(memory_block_list, NULL, 
 }  // end first_free
 
 static bool match_prev(void * a, void * b) {
