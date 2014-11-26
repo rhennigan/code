@@ -88,7 +88,7 @@ mem_block_t * best_free(bytes_t size) {
   }
 }
 
-mem_block_t * split_block(mem_block_t * block, request_t * request) {
+static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   list_t * prev_list_node = block->prev;
   list_t * curr_list_node = block->curr;
   list_t * next_list_node = block->next;
