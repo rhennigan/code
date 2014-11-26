@@ -67,8 +67,8 @@ mem_block_t * first_free(bytes_t size) {
   return NULL;
 }  // end first_free
 
-static bytes_t lt(void * a, void * b) {
-  
+static bool lt(void * a, void * b) {
+  return (((mem_block_t*)a)->size < ((mem_block_t*)b)->size);
 }
 
 mem_block_t * best_free(bytes_t size) {
