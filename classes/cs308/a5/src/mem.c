@@ -52,14 +52,16 @@ static inline void print_row(int row) {
   void *  ad = req_history[row].req_addr;
   bytes_t tf = WORDS_TO_BYTES(req_history[row].total_free);
   bytes_t lp = WORDS_TO_BYTES(req_history[row].max_free);
-  char    rq[80];
+  char    rq[6];
   switch (req_history[row].req_type) {
     case ALLOC:
-      snprintf(rq, 80, "First Fit");
+      snprintf(rq, 5, "alloc");
       break;
     case FREE:
+      snprintf(rq, 5, "free");
       break;
     case NONE:
+      snprintf(rq, 5, "none");
       break;
   }
   printf("%s", B_VT);
