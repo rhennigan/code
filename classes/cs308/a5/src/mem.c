@@ -67,10 +67,10 @@ static inline void print_row(int row) {
   printf("%s", B_VT);
   printf("%1s %-9d %s",   " ", sn, B_VT);
   printf("%1s %-6s %s",   " ", rq, B_VT);
-  printf("%1s %10luB %s",  " ", sz, B_VT);
+  printf("%1s %9lu B %s",  " ", sz, B_VT);
   printf("%1s %-9p %s",  " ", ad, B_VT);
-  printf("%1s %7luKB %s", " ", tf, B_VT);
-  printf("%1s %9luKB %s", " ", lp, B_VT);
+  printf("%1s %7lu K %s", " ", tf, B_VT);
+  printf("%1s %9lu K %s", " ", lp, B_VT);
   printf("\n");
 }
 
