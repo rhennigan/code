@@ -10,12 +10,12 @@
 /******************************************************************************/
 /* CONFIG OPTIONS                                                             */
 /******************************************************************************/
-#define MAX_POOL_SIZE_MBYTES  (1024ul)
+#define MAX_POOL_SIZE_KBYTES  (1024ul)
 #define MIN_ALLOC_BYTES       (32ul)
 #define MAX_HISTORY_LENGTH    (1000ul)
 
 /******************************************************************************/
-#define MAX_POOL_SIZE_BYTES   (1048576ul * MAX_POOL_SIZE_MBYTES)
+#define MAX_POOL_SIZE_BYTES   (1024ul * MAX_POOL_SIZE_KBYTES)
 #define WORD_SIZE_BYTES       (sizeof(void *))
 #define MAX_POOL_SIZE_WORDS   (MAX_POOL_SIZE_BYTES / WORD_SIZE_BYTES)
 #define MIN_ALLOC_WORDS       (MIN_ALLOC_BYTES / WORD_SIZE_BYTES)
