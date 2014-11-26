@@ -53,6 +53,7 @@ void print_output_header() {
       snprintf(p, 80, "Buddy System");
       break;
   }  // end switch (policy)
-  snprintf(label, 80, "%s = %s          %s = %s KB", mp, p, ps, "ps");
+  size_t s = pool_size;
+  snprintf(label, 80, "%s = %s          %s = %lu KB", mp, p, ps, s);
   print_boxed(label, 80, 0);
 }
