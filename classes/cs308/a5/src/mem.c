@@ -128,9 +128,9 @@ void split_block(mem_block_t * block, request_t * request) {
   alloc_block->curr = alloc_list_node;                             // 2
   alloc_block->next =   rem_list_node;                             // 2
 
-  rem_block->prev   =  prev_list_node;                             // 3
-  rem_block->curr   = alloc_list_node;                             // 3
-  rem_block->next   =   rem_list_node;                             // 3
+  rem_block->prev   = alloc_list_node;                             // 3
+  rem_block->curr   =   rem_list_node;                             // 3
+  rem_block->next   =  next_list_node;                             // 3
 }
 
 void * allocate_memory(request_t * request) {
