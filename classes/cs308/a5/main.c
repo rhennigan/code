@@ -38,7 +38,7 @@ void print_usage(char * name) {
   printf("error reading arguments\n");
   printf("usage:\n");
   printf("%s ", name);
-  printf("[policy : first|best|buddy] ");
-  printf("[pool_size : int] ");
-  printf("[req_file : string]\n");
+  printf("[policy:(first|best|buddy)] ");
+  printf("[pool_size:int] ");
+  printf("[req_file:string]\n");
 }
