@@ -74,10 +74,12 @@ extern policy_t     policy;
 extern bytes_t      pool_size;
 
 /******************************************************************************/
+request_t load_request(FILE * file);
 mem_block_t * first_free(bytes_t size);
 list_t * best_free(list_t * block_list);
+
 /******************************************************************************/
-void process_request(policy_t policy, int req_id, req_t rt, bytes_t size);
+void process_request(request_t request);
 void print_usage(char * name);
 void print_mem_config();
 void print_output(int from, int to);
