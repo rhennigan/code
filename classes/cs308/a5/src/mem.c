@@ -132,9 +132,9 @@ void split_block(mem_block_t * block, request_t * request) {
   rem_block->curr   =   rem_list_node;                                       // 3
   rem_block->next   =  next_list_node;                                       // 3
 
-  if (next_list_node != NULL) {
-    mem_block_t * next_block = (mem_block_t *)next_list_node->head;
-    next_block->prev = rem_list_node;
+  if (next_list_node != NULL) {                                              // 4
+    mem_block_t * next_block = (mem_block_t *)next_list_node->head;          // 4
+    next_block->prev = rem_list_node;                                        // 4
   }
 }
 
