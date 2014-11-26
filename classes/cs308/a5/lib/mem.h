@@ -27,7 +27,20 @@
 /* TYPES                                                                      */
 /******************************************************************************/
 typedef enum { FIRST_FIT, BEST_FIT, BUDDY_SYSTEM } policy_t;
+
+const char * policy_names[] = {
+  [FIRST_FIT]    = "FIRST_FIT",
+  [BEST_FIT]     = "BEST_FIT",
+  [BUDDY_SYSTEM] = "BUDDY_SYSTEM"
+};
+
 typedef enum { ALLOC, FREE, NONE } req_t;
+
+const char * req_type_names[] = {
+  [ALLOC] = "ALLOC",
+  [FREE]  = "FREE",
+  [NONE]  = "NONE"
+};
 
 /* Type aliases to make units clear */
 typedef size_t bytes_t;
