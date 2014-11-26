@@ -56,6 +56,13 @@ void print_output_header() {
   /* size_t s = pool_size; */
   /* snprintf(label, 80, "%s = %s          %s = %lu KB", mp, p, ps, s); */
   /* print_boxed(label, 80, 0); */
+
+  /* Top bar */
+  printf("%s", B_TL);
+  for (int i = 0; i < 78; i++)
+    printf("%s", B_HR);
+  printf("%s\n", B_TR);
+
   char cols[6][80] = {
     "SERIAL-NUM",
     "REQUEST",
