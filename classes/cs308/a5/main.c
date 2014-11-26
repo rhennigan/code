@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
   if (argc != 4) {
     print_usage(argv[0]);
     exit(EXIT_FAILURE);
-  }
+  }  // end if (argc != 4)
 
   policy_t policy;
   size_t pool_size;
@@ -27,10 +27,10 @@ int main(int argc, char *argv[]) {
     policy = BEST_FIT;
   } else if (strcmp(argv[1], "buddy") == 0) {
     policy = BUDDY_SYSTEM;
-  } else {
+  } else {  // unknown policy name
     print_usage(argv[0]);
     exit(EXIT_FAILURE);
-  }
+  }  // end if (strcmp(argv[1], "first") == 0)
 
   if (!atoi(argv[2])) {
     printf("error: the pool size must be a positive integer\n");
