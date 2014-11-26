@@ -95,7 +95,8 @@ void split_block(mem_block_t * block, request_t * request) {
 
   mem_block_t * alloc_block = malloc(sizeof(mem_block_t));
   mem_block_t * rem_block   = malloc(sizeof(mem_block_t));
-  
+
+  /* Fill in new block information */
   alloc_block->id      = request->id;
   alloc_block->is_free = false;
   alloc_block->addr    = block->addr;
@@ -105,7 +106,11 @@ void split_block(mem_block_t * block, request_t * request) {
   rem_block->is_free   = true;
   rem_block->addr      = (char*)block->addr + request->size;
   rem_block->size      = block->size - alloc_block->size;
-  
+
+  /* Update list pointers */
+  curr_list_node->head = rem_block;
+
+
   alloc_block->prev    = block->prev;
   // TODO: need to update memory_block_list and alloc_block->current ptr
 
