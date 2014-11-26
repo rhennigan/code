@@ -21,6 +21,7 @@
 #define B_RM "\u2524"  // right-middle join
 #define B_TM "\u252C"  // top-middle join
 #define B_BM "\u2534"  // bottom-middle join
+#define B_CM "\u253C"  // center-middle join
 
 /******************************************************************************/
 void print_boxed(const char * label, size_t width, size_t pad);
