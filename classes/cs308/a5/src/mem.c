@@ -64,7 +64,7 @@ void print_usage(char * name) {
 
 /* Debugging info */
 void print_mem_config() {
-  print_boxed("MEM_CONFIG", 40);
+  /* print_boxed("MEM_CONFIG", 40); */
   printf("MAX_POOL_SIZE_BYTES = %lu\n", MAX_POOL_SIZE_BYTES);
   printf("MIN_ALLOC_BYTES     = %lu\n", MIN_ALLOC_BYTES);
   printf("MAX_POOL_SIZE_WORDS = %lu\n", MAX_POOL_SIZE_WORDS);
