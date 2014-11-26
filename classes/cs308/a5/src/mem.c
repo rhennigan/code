@@ -137,6 +137,9 @@ void print_output(int from, int to) {
   for (int i = from; i <= to; i++) {
     print_row(i);
   }
+  print_row(0);
+  print_row(0);
+  print_row(0);
 
   /* Bottom of output table */
   printf("%s", B_BL);
