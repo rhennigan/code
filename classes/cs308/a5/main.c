@@ -19,7 +19,7 @@ bool intlt(void * a, void * b) {
 int main(int argc, char *argv[]) {
   int array[COUNT];
   for (int i = 0; i < COUNT; i++)
-    array[i] = rand() % 100;
+    array[i] = rand() % 10;
   list_t * list = list_fromarray(array, sizeof(int), COUNT);
 
   printf("\n\n\n\n\n\n\n\n\n\n\n");
