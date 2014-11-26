@@ -37,7 +37,9 @@ request_t * load_request(FILE * file) {
     printf("ref_str  = %s \t", ref_str);
     printf("\n");
 
-    return NULL;
+    request_t * request = malloc(sizeof(request_t));
+
+    return request;
   }
 }
 
