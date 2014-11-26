@@ -133,7 +133,7 @@ list_t * list_find(list_t * list, list_t * match, cmp_fun eq) {
     return list;
   } else {  // (list != NULL && !(*cmp)(h, list_head(list)))
     return list_find(list_tail(list), match, (*eq));
-  }   // end if (list == NULL)
+  }  // end if (list == NULL)
 }  // end list_find
 
 list_t * list_fromarray(void * array, size_t objsize, size_t length) {
