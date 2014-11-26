@@ -38,24 +38,24 @@ void print_mem_config() {
 }
 
 void print_output_header() {
-  char label[80];
-  char * mp = "MANAGEMENT POLICY";
-  char * ps = "POOL SIZE";
-  char p[80];
-  switch (policy) {
-    case FIRST_FIT:
-      snprintf(p, 80, "First Fit");
-      break;
-    case BEST_FIT:
-      snprintf(p, 80, "Best Fit");
-      break;
-    case BUDDY_SYSTEM:
-      snprintf(p, 80, "Buddy System");
-      break;
-  }  // end switch (policy)
-  size_t s = pool_size;
-  snprintf(label, 80, "%s = %s          %s = %lu KB", mp, p, ps, s);
-  print_boxed(label, 80, 0);
+  /* char label[80]; */
+  /* char * mp = "MANAGEMENT POLICY"; */
+  /* char * ps = "POOL SIZE"; */
+  /* char p[80]; */
+  /* switch (policy) { */
+  /*   case FIRST_FIT: */
+  /*     snprintf(p, 80, "First Fit"); */
+  /*     break; */
+  /*   case BEST_FIT: */
+  /*     snprintf(p, 80, "Best Fit"); */
+  /*     break; */
+  /*   case BUDDY_SYSTEM: */
+  /*     snprintf(p, 80, "Buddy System"); */
+  /*     break; */
+  /* }  // end switch (policy) */
+  /* size_t s = pool_size; */
+  /* snprintf(label, 80, "%s = %s          %s = %lu KB", mp, p, ps, s); */
+  /* print_boxed(label, 80, 0); */
   char cols[6][80] = {
     "SERIAL-NUM",
     "REQUEST",
