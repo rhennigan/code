@@ -43,12 +43,12 @@ request_t * load_request(FILE * file) {
 }
 
 /******************************************************************************/
-static bool size_ok(void * a, void * b) {
-  if (a == NULL) {
+static bool is_valid(void * block_addr, void * req_addr) {
+  if (block_addr == NULL) {
     return false;
   } else {
-    mem_block_t * block = (mem_block_t*)a;
-    bytes_t size = ((request_t*)b)->size;
+    mem_block_t * block = (mem_block_t*)block_addr;
+    bytes_t size = ((request_t*)req_addr)->size;
   }
 }
 
