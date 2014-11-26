@@ -1,4 +1,4 @@
-// list.h - a simple implementation of doubly-linked lists
+// list.h - a simple implementation of singly-linked lists
 // Copyright (C) 2014 Richard Hennigan
 
 #ifndef LIB_LIST_H_
@@ -11,8 +11,7 @@
 
 typedef struct list_s {
   void * head;
-  struct list_s * prev;
-  struct list_s * next;
+  struct list_s * tail;
 } list_t;
 
 typedef struct lpair_s {
