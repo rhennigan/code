@@ -74,6 +74,7 @@ mem_block_t * first_free(bytes_t size) {
   }
 }  // end first_free
 
+/******************************************************************************/
 static bool smaller(void * a, void * b) {
   return (((mem_block_t*)a)->size < ((mem_block_t*)b)->size);
 }
@@ -88,6 +89,7 @@ mem_block_t * best_free(bytes_t size) {
   }
 }
 
+/******************************************************************************/
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   list_t * prev_list_node = block->prev;
   list_t * curr_list_node = block->curr;
