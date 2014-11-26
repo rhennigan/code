@@ -106,6 +106,10 @@ void list_dump(list_t * list) {
   }  // end if (list == NULL)
 }  // end list_dump
 
+list_t * list_extremum(list_t * list, cmp_fun ex) {
+  
+}  // end list_extremum
+
 list_t * list_filter(list_t * list, cmp_fun pred, void * cmp_arg) {
   lpair_t pair = list_partition(list, pred, cmp_arg);
   return pair.left;
