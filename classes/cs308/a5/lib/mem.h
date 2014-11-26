@@ -24,11 +24,15 @@
 /******************************************************************************/
 typedef enum { FIRST_FIT, BEST_FIT, BUDDY_SYSTEM } policy_t;
 
+/* Type aliases to make units clear */
+typedef size_t bytes_t;
+typedef size_t words_t;
+
 typedef struct alloc_status_s {
-  size_t total_free;
-  size_t total_alloc;
-  size_t largest_free;
-  size_t largest_alloc;
+  bytes_t total_free;
+  bytes_t total_alloc;
+  bytes_t max_free;
+  bytes_t max_alloc;
   size_t total_blocks;
   int    request_num;
 } alloc_status_t;
