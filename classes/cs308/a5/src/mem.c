@@ -119,8 +119,12 @@ void print_output(int from, int to) {
 
   /* Column labels */
   printf("%s", B_VT);
-  for (int i = 0; i < 6; i++)
-    printf(" %s %s", cols[i], B_VT);
+  printf(" %15s %s", cols[0], B_VT);
+  printf(" %s %s", cols[1], B_VT);
+  printf(" %s %s", cols[2], B_VT);
+  printf(" %s %s", cols[3], B_VT);
+  printf(" %s %s", cols[4], B_VT);
+  printf(" %s %s", cols[5], B_VT);
   printf("\n");
 
   /* Bottom of column labels */
