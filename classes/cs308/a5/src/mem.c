@@ -30,6 +30,13 @@ static inline void tline() {
   printf("%s\n", B_TR);
 }
 
+static inline void bline() {
+  printf("%s", B_BL);
+  for (int i = 0; i < 78; i++)
+    printf("%s", B_HR);
+  printf("%s\n", B_BR);
+}
+
 static inline void print_header(const char * label) {
   hline();
   printf("/* %s", label);
