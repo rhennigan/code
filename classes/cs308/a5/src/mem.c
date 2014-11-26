@@ -56,9 +56,9 @@ void print_output_header() {
     snprintf(s, 80, "%lu GB", pool_size / 1048576);
   } else if (pool_size > 1023) {
     snprintf(s, 80, "%lu MB", pool_size / 1024);
-  } else {
+  } else {  // no unit conversion
     snprintf(s, 80, "%lu KB", pool_size);
-  }
+  }  // end if (pool_size > 1048575)
 
   char cols[6][80] = {
     "SERIAL-NUM",
@@ -78,7 +78,7 @@ void print_output_header() {
   /* Header label */
   printf("%s", B_VT);
   printf("     MANAGEMENT POLICY = %-12s   ", p);
-  printf("     POOL SIZE = %-5lu KB        ", pool_size);
+  printf("     POOL SIZE = %-8s        ", s);
   printf("     %s\n", B_VT);
 
   /* Separator between header and column labels */
