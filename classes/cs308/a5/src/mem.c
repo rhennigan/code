@@ -89,6 +89,7 @@ mem_block_t * best_free(bytes_t size) {
 }
 
 void split_block(mem_block_t * block, request_t * request) {
+  list_t * list_node = block->curr;
   mem_block_t * alloc_block = malloc(sizeof(mem_block_t));
   mem_block_t * rem_block   = malloc(sizeof(mem_block_t));
   
@@ -103,7 +104,7 @@ void split_block(mem_block_t * block, request_t * request) {
   rem_block->is_free   = true;
   rem_block->addr      = (char*)block->addr + request->size;
   rem_block->size      = block->size - alloc_block->size;
-  rem_block->prev      = alloc_block->curr;
+  // rem_block->prev      = alloc_block->curr;
   rem_block->curr      = list_pre(block->next, rem_block);
   rem_block->next      = block->next;
 }
