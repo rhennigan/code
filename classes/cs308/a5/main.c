@@ -78,6 +78,8 @@ int main(int argc, char *argv[]) {
     free(request);
     free(block);
   }
+
+  list_dump(memory_block_list);
   
   /****************************************************************************/
   /* CLEAN UP                                                                 */
