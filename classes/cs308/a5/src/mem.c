@@ -108,13 +108,13 @@ void split_block(mem_block_t * block, request_t * request) {
   rem_block->size      = block->size - alloc_block->size;
 
   /************ Update list pointers ************/
-  list_t *   rem_list_node = list_pre(next_list_node, rem_block);
-  list_t * alloc_list_node = list_pre(rem_list_node, alloc_block);
+  list_t *   rem_list_node = list_pre(next_list_node, rem_block);  // 3
+  list_t * alloc_list_node = list_pre(rem_list_node, alloc_block); // 2
   
   if (prev_list_node == NULL) {  // curr_list_node is full memory_block_list
     memory_block_list = alloc_list_node;
   } else {  // otherwise insert new blocks after the previous node
-    prev_list_node->tail = alloc_list_node;
+    prev_list_node->tail = alloc_list_node;                        // 1
   }
 
   /************ Update block pointers ************/
