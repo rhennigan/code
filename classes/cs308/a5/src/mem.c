@@ -90,12 +90,19 @@ mem_block_t * best_free(bytes_t size) {
 
 void split_block(mem_block_t * block, request_t * request) {
   mem_block_t alloc_block, rem_block;
+  
   alloc_block.id      = request->id;
   alloc_block.is_free = false;
   alloc_block.addr    = block->addr;
   alloc_block.size    = BYTES_TO_WORDS(request->size);
   alloc_block.prev    = block->prev;
   // TODO: need to update memory_block_list and alloc_block->current ptr
+
+  rem_block.id        = NOBODY;
+  rem_block.is_free   = false;
+  rem_block.addr      = (char*)block->addr + request->size;
+  rem_block.size      = block->size - alloc_block.size;
+  // TODO: prev for this block will point to the list containing alloc_block
 }
 
 void * allocate_memory(request_t * request) {
