@@ -141,6 +141,7 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   }
 
   /*****************************************************************************/
+  free(curr_list_node);
   return alloc_block;
 }
 

@@ -84,10 +84,9 @@ list_t * list_copy(list_t * list) {
 
 void list_dispose(list_t * list) {
   if (list == NULL) return;
-  list_t ** tail = &list->tail;
+  list_t * tail = list->tail;
   free(list);
-  list = NULL;
-  list_dispose(*tail);
+  list_dispose(tail);
 }  // end list_dispose
 
 void list_dump(list_t * list) {
