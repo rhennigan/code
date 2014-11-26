@@ -32,5 +32,7 @@ void print_mem_config() {
   printf(" MAX_HISTORY_LENGTH   = %lu\n", MAX_HISTORY_LENGTH);
   printf("                           \n");
   printf(" MAX_POOL_SIZE_BYTES  = %lu\n", MAX_POOL_SIZE_BYTES);
+  printf(" WORD_SIZE_BYTES      = %lu\n", WORD_SIZE_BYTES);
+  printf(" MAX_POOL_SIZE_WORDS  = %lu\n", MAX_POOL_SIZE_WORDS);
   printf(" MIN_ALLOC_WORDS      = %lu\n", MIN_ALLOC_WORDS);
 }
