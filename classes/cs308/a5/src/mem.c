@@ -111,9 +111,9 @@ void split_block(mem_block_t * block, request_t * request) {
   list_t *   rem_list_node = list_pre(next_list_node, rem_block);
   list_t * alloc_list_node = list_pre(rem_list_node, alloc_block);
   
-  if (prev_list_node == NULL) {
-    
-  } else {
+  if (prev_list_node == NULL) {  // curr_list_node is full memory_block_list
+    memory_block_list = alloc_list_node;
+  } else {  // insert new blocks after the previous node
     prev_list_node->tail = alloc_list_node;
     ((mem_block_t *)prev_list_node->head)->next = prev_list_node->tail;
   }
