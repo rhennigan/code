@@ -68,8 +68,8 @@ void print_output_header() {
 
   /* Header label */
   printf("%s", B_VT);
-  printf("     MANAGEMENT POLICY = %12s   ", p);
-  printf("     POOL SIZE = %5lu KB        ", pool_size);
+  printf("     MANAGEMENT POLICY = %-12s   ", p);
+  printf("     POOL SIZE = %-5lu KB        ", pool_size);
   printf("     %s\n", B_VT);
 
   /* Separator between header and column labels */
