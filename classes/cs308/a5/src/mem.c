@@ -59,9 +59,9 @@ void print_output_header() {
   char cols[6][80] = {
     "SERIAL-NUM",
     "REQUEST",
-    "SIZE  ",
-    "ALLOC-ADDR",
-    "TOTAL-FREE",
+    "SIZE   ",
+    "ALLOC-ADDR ",
+    "TOTAL-FREE  ",
     "LARGEST-PART"
   };
   printf("%s", B_VT);
