@@ -18,8 +18,8 @@ int main(int argc, char *argv[]) {
   }  // end if (argc != 4)
 
   policy_t policy;
-  size_t pool_size;
-  char * req_file;
+  size_t   pool_size;
+  FILE *   req_file;
 
   if (strcmp(argv[1], "first") == 0) {
     policy = FIRST_FIT;
@@ -35,9 +35,9 @@ int main(int argc, char *argv[]) {
   if (!atoi(argv[2])) {
     printf("error: the pool size must be a positive integer\n");
     exit(EXIT_FAILURE);
-  } else {
+  } else {  // given pool size is greater than 0
     pool_size = atoi(argv[2]);
-  }
+  }  // end if (!atoi(argv[2]))
 
   req_file = argv[3];
 
