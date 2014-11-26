@@ -19,6 +19,12 @@ static inline void hline() {
   printf("/");
 }
 
+static inline void header(const char * label) {
+  hline();
+  
+  hline();
+}
+
 void print_usage(char * name) {
   printf("error reading arguments\n");
   printf("usage:\n");
