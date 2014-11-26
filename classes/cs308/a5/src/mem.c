@@ -56,12 +56,15 @@ void print_output_header() {
   size_t s = pool_size;
   snprintf(label, 80, "%s = %s          %s = %lu KB", mp, p, ps, s);
   print_boxed(label, 80, 0);
-  char hdr_row[102];
   char cols[6][80] = {
     "SERIAL-NUM",
     "REQUEST",
     "SIZE",
     "ALLOC-ADDR",
     "TOTAL-FREE",
-    "LARGEST-PART"};
+    "LARGEST-PART"
+  };
+  printf("%s", B_VT);
+  for (int i = 0; i < 6; i++)
+    printf(" %s %s", cols[i], B_VT);
 }
