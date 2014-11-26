@@ -141,6 +141,9 @@ mem_block_t * split_block(mem_block_t * block, request_t * request) {
   mem_block_t * curr_block = (mem_block_t *)curr_list_node->head;
   free(curr_block);
   list_dispose(curr_list_node);
+
+  /*****************************************************************************/
+  return alloc_block;
 }
 
 void * allocate_memory(request_t * request) {
