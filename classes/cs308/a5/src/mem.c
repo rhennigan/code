@@ -109,4 +109,14 @@ void print_output(int from, int to) {
   for (int i = from; i <= to; i++) {
     print_row(req_history[i]);
   }
+
+  /* Bottom of output table */
+  printf("%s", B_BL);
+  for (int i = 0; i < 6; i++) {
+    for (size_t j = 0; j < strlen(cols[i])+2; j++)
+      printf("%s", B_HR);
+    if (i == 5) break;
+    printf("%s", B_BM);
+  }
+  printf("%s\n", B_BR);
 }
