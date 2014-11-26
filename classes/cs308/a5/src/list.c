@@ -112,13 +112,13 @@ list_t * list_filter(list_t * list, cmp_fun pred, void * cmp_arg) {
   return pair.left;
 }  // end list_filter
 
-void * list_find(list_t * list, void * h, cmp_fun eq) {
+void * list_find(list_t * list, void * data, cmp_fun eq) {
   if (list == NULL) {
     return NULL;
-  } else if ((*eq)(h, list_head(list))) {
+  } else if ((*eq)(data, list_head(list))) {
     return list_head(list);
   } else {  // (list != NULL && !(*cmp)(h, list_head(list)))
-    return list_find(list_tail(list), h, (*eq));
+    return list_find(list_tail(list), data, (*eq));
   }   // end if (list == NULL)
 }  // end list_find
 
