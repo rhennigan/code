@@ -90,7 +90,7 @@ void print_output(int from, int to) {
 
   char s[80];
   if (pool_size > 1023) {
-    snprintf(s, 80, "%.2f MB", (double)pool_size / (double)1024);
+    snprintf(s, 80, "%4.2f MB", (double)pool_size / (double)1024);
   } else {  // no unit conversion
     snprintf(s, 80, "%lu KB", pool_size);
   }  // end if (pool_size > 1048575)
@@ -104,7 +104,7 @@ void print_output(int from, int to) {
   /* Header label */
   printf("%s", B_VT);
   printf("     MANAGEMENT POLICY = %-12s   ", p);
-  printf("     POOL SIZE = %-8s        ", s);
+  printf("     POOL SIZE = %-7s        ", s);
   printf("     %s\n", B_VT);
 
   /* Separator between header and column labels */
