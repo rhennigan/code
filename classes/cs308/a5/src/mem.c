@@ -23,11 +23,11 @@ bytes_t      pool_size;
 #define B_VT "\u2502"  // vertical bar
 
 /******************************************************************************/
-static inline void hline() {
-  printf("%s", B_VT);
+static inline void tline() {
+  printf("%s", B_TL);
   for (int i = 0; i < 78; i++)
-    printf("*");
-  printf("/\n");
+    printf("%s", B_HR);
+  printf("%s\n", B_TR);
 }
 
 static inline void print_header(const char * label) {
