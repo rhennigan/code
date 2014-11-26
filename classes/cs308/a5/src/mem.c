@@ -88,6 +88,10 @@ mem_block_t * best_free(bytes_t size) {
   }
 }
 
+void split_block(mem_block_t * block) {
+  
+}
+
 void * allocate_memory(request_t * request) {
   mem_block_t * target = NULL;
   switch (policy) {
