@@ -245,8 +245,8 @@ static void print_block(void * block_addr) {
   char *  free = block.is_free ? "FREE" : "USED";
   void *  addr = block.addr;
   bytes_t size = WORDS_TO_BYTES(block.size);
-  float   pcnt = (float)size / (float)pool_size;
-  printf("%4d\t%10s\t%10p\t%8lu B\t%5.2f %\n", blid, free, addr, size, pcnt);
+  double  pcnt = 100.0 * (double)size / (double)pool_size;
+  printf("%4d\t%10s\t%10p\t%8lu B\t%5.2f %%\n", blid, free, addr, size, pcnt);
 }
 
 void memory_dump() {
