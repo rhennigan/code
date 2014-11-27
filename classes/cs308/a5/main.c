@@ -72,23 +72,24 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* LOAD AND PROCESS REQUESTS                                                */
   /****************************************************************************/
-  for (int i = 0; i < 4; i++) {
+  for (int i = 1; i < 5; i++) {
     request_t * request = load_request(req_file);
     
     // if request type is alloc
     mem_block_t * block = allocate_memory(request);
 
     /* Populate status entry */
-    req_status_t * stat = malloc(sizeof(req_status_t));
-    stat->req_id        = request->id;
-    stat->req_type      = request->type;
-    stat->req_size      = request->size;
-    stat->req_granted   = block == NULL ? false : true;
-    stat->req_addr      = stat->req_granted ? block->addr : NULL;
-    stat->total_free    = total_free();
-    stat->max_free      = max_free();
-    stat->blocks_free   = blocks_free();
-    stat->blocks_alloc  = blocks_alloc();
+    req_status_t stat;
+    stat.req_id        = request->id;
+    stat.req_type      = request->type;
+    stat.req_size      = request->size;
+    stat.req_granted   = block == NULL ? false : true;
+    stat.req_addr      = stat.req_granted ? block->addr : NULL;
+    stat.total_free    = total_free();
+    stat.max_free      = max_free();
+    stat.blocks_free   = blocks_free();
+    stat.blocks_alloc  = blocks_alloc();
+    req_history[i]     = stat;
 
     /* Clean up */
     free(request);
