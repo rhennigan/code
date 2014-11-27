@@ -245,11 +245,12 @@ static void print_block(void * block_addr) {
   char *  free = block.is_free ? "FREE" : "USED";
   void *  addr = block.addr;
   bytes_t size = WORDS_TO_BYTES(block.size);
-  printf("%10d\t%10s\t%10p\t%8lu B\n", blid, free, addr, size);
+  printf("%4d\t%10s\t%10p\t%8lu B\n", blid, free, addr, size);
 }
 
 void memory_dump() {
   printf("\n\n");
+  print_boxed("CURRENT MEMORY BLOCKS");
   list_iter(memory_block_list, &print_block);
   printf("\n\n");
 }
