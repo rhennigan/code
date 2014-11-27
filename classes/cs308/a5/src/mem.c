@@ -57,7 +57,7 @@ request_t * load_request(FILE * file) {
 /******************************************************************************/
 /* FREEING FUNCTIONS                                                          */
 /******************************************************************************/
-static bool match_id(list_t * block_list, void * id_addr) {
+static bool match_id(void * block_list, void * id_addr) {
   int id = *(int*)id_addr;
   mem_block_t block = *(mem_block_t*)list_head(block_list);
   return id == block.id;
