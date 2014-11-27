@@ -79,6 +79,12 @@ mem_block_t * free_memory(request_t * request) {
 }
 
 mem_block_t * merge_block(mem_block_t * block) {
+  assert(block != NULL);
+
+  list_t * prev_list = block->prev;
+  list_t * curr_list = block->curr;
+  list_t * next_list = block->next;
+
   
 }
 
