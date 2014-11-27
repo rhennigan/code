@@ -309,8 +309,8 @@ static void print_size(void * x) {
   printf("%lu ", *(bytes_t*)x);
 }
 
-void print_sizes() {
-  list_iter(history_list, &print_size);
+void print_sizes(list_t * sh) {
+  list_iter(sh, &print_size);
 }
 
 /******************************************************************************/

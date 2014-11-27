@@ -100,7 +100,7 @@ size_t   blocks_free();
 size_t   blocks_alloc();
 int      total_granted();
 list_t * size_history();
-void print_sizes();
+void print_sizes(list_t * sh);
 
 /******************************************************************************/
 void process_request(request_t request);
