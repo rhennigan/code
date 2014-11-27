@@ -90,6 +90,11 @@ static mem_block_t * best_free(bytes_t size) {
 }
 
 /******************************************************************************/
+static mem_block_t * buddy_free(bytes_t size) {
+  
+}
+
+/******************************************************************************/
 static bool larger(void * a, void * b) {
   return (((mem_block_t*)a)->size > ((mem_block_t*)b)->size);
 }
