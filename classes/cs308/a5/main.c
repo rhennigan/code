@@ -97,8 +97,8 @@ int main(int argc, char *argv[]) {
       req_status_t stat;
       stat.req_id       = request->id;
       stat.req_type     = request->type;
-      stat.req_size     = 0;
-      stat.req_granted  = success;
+      stat.req_size     = block->size;
+      stat.req_granted  = block == NULL ? false : true;
       stat.req_addr     = NULL;
       stat.total_free   = total_free();
       stat.max_free     = max_free();
