@@ -372,10 +372,14 @@ void md_free() {
   printf("\n\n");
 }
 
+static bool not_valid(void * block_addr, void * size_addr) {
+  return !is_valid(block_addr, size_addr);
+}
+
 void md_alloc() {
   char label[66];
   size_t count = 0;
-  list_t * ab  = list_filter(memory_block_list, &larger, &count);
+  list_t * ab  = list_filter(memory_block_list, &not_valid, &count);
   size_t free  = blocks_free();
   size_t alloc = blocks_alloc();
   double avail = (double)WORDS_TO_BYTES(100*total_free()) / (double)pool_size;
