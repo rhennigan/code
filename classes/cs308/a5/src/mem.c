@@ -62,9 +62,10 @@ static bool match_id(list_t * block_list, void * id_addr) {
   mem_block_t block = *(mem_block_t*)list_head(block_list);
   return id == block.id;
 }
-/* void free_memory(request_t * request) { */
+
+void free_memory(request_t * request) {
   
-/* } */
+}
 
 /******************************************************************************/
 /* ALLOCATION FUNCTIONS                                                       */
