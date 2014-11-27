@@ -3,7 +3,7 @@
 #include <limits.h>
 #include "lib/mem.h"
 
-#define STEPS 15
+#define STEPS 6
 
 int main(int argc, char *argv[]) {
   /****************************************************************************/
@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* LOAD AND PROCESS REQUESTS                                                */
   /****************************************************************************/
-  for (int i = 1; i < STEPS+1; i++) {
+  for (int i = 1; i < STEPS; i++) {
     request_t * request = load_request(req_file);
     
     if (request->type == ALLOC) {
@@ -115,7 +115,7 @@ int main(int argc, char *argv[]) {
   /* OUTPUT                                                                   */
   /****************************************************************************/
   print_mem_config();
-  print_output(0, 5);
+  print_output(0, STEPS);
   list_dump(memory_block_list);
   memory_dump();
   
