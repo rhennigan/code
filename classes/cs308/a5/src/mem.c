@@ -107,8 +107,8 @@ words_t largest_free() {
 }
 
 words_t total_free() {
-  bytes_t size = 1;
-  list_t * free_blocks = list_filter(memory_block_list, &is_valid, &size);
+  words_t total = 0;
+  list_t * free_blocks = list_filter(memory_block_list, &is_valid, &total);
 }
 
 /******************************************************************************/
