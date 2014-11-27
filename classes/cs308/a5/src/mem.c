@@ -94,12 +94,13 @@ static bool larger(void * a, void * b) {
   return (((mem_block_t*)a)->size > ((mem_block_t*)b)->size);
 }
 
-static mem_block_t * largest_free() {
+static size_t largest_free() {
   list_t * tmp = list_extremum(memory_block_list, &larger);
   if (tmp == NULL) {  // no free blocks available
-    return NULL;
+    return 0;
   } else {
     mem_block_t * block = (mem_block_t*)list_head(tmp);
+    return block->size;
   }
 }
 
