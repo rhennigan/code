@@ -78,6 +78,10 @@ mem_block_t * free_memory(request_t * request) {
   }
 }
 
+static inline bool can_merge(list_t * block_list) {
+  if (block != NULL && 
+}
+
 mem_block_t * merge_block(mem_block_t * block) {
   assert(block != NULL);
 
