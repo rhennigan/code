@@ -85,6 +85,8 @@ int main(int argc, char *argv[]) {
     stat->req_size    = request->size;
     stat->req_granted = block == NULL ? false : true;
     stat->req_addr    = stat->req_granted ? block->addr : NULL;
+    // stat->total_free
+    stat->max_free    = largest_free();
 
     /* Clean up */
     free(request);
