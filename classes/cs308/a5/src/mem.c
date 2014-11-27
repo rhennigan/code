@@ -291,7 +291,6 @@ int total_granted() {
 static void * p_req_size(void * x, void * y) {
   list_t  * list     = x;
   bytes_t * req_size = &((req_status_t*)y)->req_size;
-  printf("%lu\n", *req_size);
   list_t  * node     = list_pre(NULL, req_size);
   if (list != NULL)
     list->tail = node;
