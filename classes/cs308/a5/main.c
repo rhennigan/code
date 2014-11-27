@@ -132,7 +132,7 @@ int main(int argc, char *argv[]) {
   list_t * sh = size_history();
   // list_dump(sh);
 
-  print_sizes(sh);
+  print_failed();
   
   /****************************************************************************/
   /* CLEAN UP                                                                 */

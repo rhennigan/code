@@ -290,7 +290,7 @@ int total_granted() {
   return *(int*)list_foldl(history_list, &total, &plus);
 }
 
-static void print_failed(void * x) {
+static void print_failed_aux(void * x) {
   req_status_t * stat = (req_status_t*)x;
   bool ra = stat->req_type == ALLOC;
   bool rg = stat->req_granted;
@@ -299,6 +299,10 @@ static void print_failed(void * x) {
     bytes_t req_size = stat->req_size;
     printf("Failed Req %d is size %lu\n", req_id, req_size);
   }
+}
+
+void print_failed() {
+  list_iter(history_list, &print_failed_aux);
 }
 
 static void * p_req_size(void * x, void * y) {
