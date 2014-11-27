@@ -57,7 +57,9 @@ request_t * load_request(FILE * file) {
 /******************************************************************************/
 /* FREEING FUNCTIONS                                                          */
 /******************************************************************************/
-/* static bool match_id(void *  */
+static bool match_id(list_t * list_node, void * id_addr) {
+  int id = *(int*)id_addr;
+}
 /* void free_memory(request_t * request) { */
   
 /* } */
