@@ -108,6 +108,9 @@ mem_block_t * merge_block(mem_block_t * curr_block) {
   }
 
   /* See if block can be merged left */
+  if (can_merge(prev_list)) {
+    
+  }
 
   return NULL;
 }
