@@ -256,7 +256,7 @@ void memory_dump() {
   char * label;
   size_t free  = blocks_free();
   size_t alloc = blocks_alloc();
-  double avail = 100.0 * (double)WORDS_TO_BYTES(total_free()) / (double)pool_size;
+  double avail = (double)WORDS_TO_BYTES(100*total_free()) / (double)pool_size;
   printf("\n\n");
   print_boxed("CURRENT MEMORY BLOCKS", 64, 0);
   list_iter(memory_block_list, &print_block);
