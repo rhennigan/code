@@ -40,6 +40,7 @@ request_t * load_request(FILE * file) {
     return NULL;
   } else {
     printf("load_request buffer: %s\n", buffer);
+    fflush(NULL);
     char * saveptr;
     char * id_str   = strtok_r(buffer, " \n", &saveptr);
     char * type_str = strtok_r(NULL,   " \n", &saveptr);
