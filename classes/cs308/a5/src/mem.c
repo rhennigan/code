@@ -282,8 +282,8 @@ static void * plus(void * x, void * y) {
 }
 
 int total_granted() {
-  int * total = 0;
-  return list_foldl(history_list, total, &plus);
+  int total = 0;
+  return *(int*)list_foldl(history_list, &total, &plus);
 }
 
 /******************************************************************************/
