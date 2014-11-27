@@ -117,7 +117,7 @@ int main(int argc, char *argv[]) {
     /* Clean up */
     free(request);
 
-    if (i < 10) md_full();
+    if (i < 10) { md_full(); print_output(0, i-1); }
   }
 
   list_t * tmp = list_reverse(history_list);
