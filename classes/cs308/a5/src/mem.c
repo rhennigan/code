@@ -411,3 +411,8 @@ void print_output(int from, int to) {
   }
   printf("%s\n", B_BR);
 }
+
+int void_to_int(void * v) {
+  int i = 0;
+  
+}
