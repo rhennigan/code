@@ -29,6 +29,7 @@ list_t * list_extremum(list_t * list, cmp_fun ex);
 list_t * list_filter(list_t * list, cmp_fun pred, void * cmp_arg);
 list_t * list_find(list_t * list, void * match, cmp_fun eq);
 void *   list_foldl(list_t * list, void * acc, void * (*f)(void * x));
+void *   list_foldr(list_t * list, void * acc, void * (*f)(void * x));
 list_t * list_fromarray(void * array, size_t objsize, size_t length);
 void   * list_head(list_t * list);
 void     list_iter(list_t * list, void (*f)(void * data));
