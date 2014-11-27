@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
       
     } else {  // request type is FREE
       mem_block_t * block = free_memory(request);
-      assert(block != NULL);
+      // assert(block != NULL);
       
       /* Populate status entry */
       req_status_t stat;
