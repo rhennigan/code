@@ -290,20 +290,7 @@ int total_granted() {
   return *(int*)list_foldl(history_list, &total, &plus);
 }
 
-static void print_failed_aux(void * x) {
-  req_status_t * stat = (req_status_t*)x;
-  bool ra = stat->req_type == ALLOC;
-  bool rg = stat->req_granted;
-  if (ra && !rg) {
-    int req_id = stat->req_id;
-    bytes_t req_size = stat->req_size;
-    printf("Failed Req %d is size %lu\n", req_id, req_size);
-  }
-}
 
-void print_failed() {
-  list_iter(history_list, &print_failed_aux);
-}
 
 static void * p_req_size(void * x, void * y) {
   list_t  * list = x;
@@ -328,13 +315,7 @@ list_t * size_history() {
   return r;
 }
 
-static void print_size(void * x) {
-  printf("%lu ", *(bytes_t*)x);
-}
 
-void print_sizes(list_t * sh) {
-  list_iter(sh, &print_size);
-}
 
 /******************************************************************************/
 /* FORMATTING AND OUTPUT                                                      */
@@ -575,3 +556,25 @@ void print_output(int from, int to) {
   printf("%s\n", B_BR);
 }
 
+static void print_failed_aux(void * x) {
+  req_status_t * stat = (req_status_t*)x;
+  bool ra = stat->req_type == ALLOC;
+  bool rg = stat->req_granted;
+  if (ra && !rg) {
+    int req_id = stat->req_id;
+    bytes_t req_size = stat->req_size;
+    printf("Failed Req %d is size %lu\n", req_id, req_size);
+  }
+}
+
+void print_failed() {
+  list_iter(history_list, &print_failed_aux);
+}
+
+static void print_size(void * x) {
+  printf("%lu ", *(bytes_t*)x);
+}
+
+void print_sizes(list_t * sh) {
+  list_iter(sh, &print_size);
+}
