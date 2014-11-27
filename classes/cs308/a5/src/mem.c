@@ -413,6 +413,6 @@ void print_output(int from, int to) {
 }
 
 unsigned long long void_to_num(void * v) {
-  unsigned long long i = 0;
-  i |= v;
+  unsigned long long i = (unsigned long long)v;
+  return i;
 }
