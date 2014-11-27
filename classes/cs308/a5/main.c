@@ -125,6 +125,12 @@ int main(int argc, char *argv[]) {
   print_output(0, i-1);
   list_dump(memory_block_list);
   md_full();
+
+  int tg = total_granted();
+  printf("total_granted = %d\n", tg);
+  
+  list_t * sh = size_history();
+  list_dump(sh);
   
   /****************************************************************************/
   /* CLEAN UP                                                                 */
