@@ -414,7 +414,4 @@ void print_output(int from, int to) {
 
 #include <stdint.h>
 
-uint64_t void_to_num(void * v) {
-  uint64_t i = (uint64_t)v;
-  return i;
-}
+inline uint64_t void_to_num(void * v) { return (uint64_t)v; }
