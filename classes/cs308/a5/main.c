@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
   init_req_status.blocks_alloc = 0;
   req_history[0]               = init_req_status;
   
-  list_pre(history_list, req_history);
+  history_list = list_pre(history_list, req_history);
 
   /****************************************************************************/
   /* LOAD AND PROCESS REQUESTS                                                */
@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
       stat.blocks_free     = blocks_free();
       stat.blocks_alloc    = blocks_alloc();
       req_history[i]       = stat;
-      list_pre(history_list, req_history+i);
+      history_list = list_pre(history_list, req_history+i);
       
     } else {  // request type is FREE
       mem_block_t * block = free_memory(request);
@@ -111,7 +111,7 @@ int main(int argc, char *argv[]) {
       stat.blocks_free     = blocks_free();
       stat.blocks_alloc    = blocks_alloc();
       req_history[i]       = stat;
-      list_pre(history_list, req_history+i);
+      history_list = list_pre(history_list, req_history+i);
     }
 
     /* Clean up */
