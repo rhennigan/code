@@ -57,17 +57,17 @@ request_t * load_request(FILE * file) {
 /******************************************************************************/
 /* FREEING FUNCTIONS                                                          */
 /******************************************************************************/
-static bool match_id(void * block_list, void * id_addr) {
-  int id = *(int*)id_addr;
+static bool match_ref(void * block_list, void * ref_addr) {
+  int ref = *(int*)ref_addr;
   mem_block_t block = *(mem_block_t*)list_head(block_list);
-  return id == block.id;
+  return ref == block.id;
 }
 
 static void print_block(void * block_addr);
 
 void free_memory(request_t * request) {
-  int id = request->id;
-  list_t * curr_list_node = list_find(memory_block_list, &id, &match_id);
+  int ref = request->ref;
+  list_t * curr_list_node = list_find(memory_block_list, &ref, &match_ref);
   assert(curr_list_node != NULL);
   print_block(list_head(curr_list_node));
 }
