@@ -110,7 +110,10 @@ mem_block_t * merge_block(mem_block_t * curr_block) {
   /* See if block can be merged left */
   if (can_merge(prev_list)) {
     mem_block_t * prev_block = list_head(prev_list);
-    prev_block->size += curr_block->size;
+    prev_block->size += curr_block->size;            // 1
+
+    list_t * new_next_list = curr_block->next;
+    prev_list->tail = new_next_list;                 // 2
   }
 
   return NULL;
