@@ -63,9 +63,13 @@ static bool match_id(list_t * block_list, void * id_addr) {
   return id == block.id;
 }
 
+static void print_block(void * block_addr);
+
 void free_memory(request_t * request) {
   int id = request->id;
   list_t * curr_list_node = list_find(memory_block_list, &id, &match_id);
+  assert(curr_list_node != NULL);
+  print_block(list_head(curr_list_node));
 }
 
 /******************************************************************************/
