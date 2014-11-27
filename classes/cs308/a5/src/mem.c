@@ -296,6 +296,7 @@ static void * p_req_size(void * x, void * y) {
 }
 
 list_t * size_history() {
+  list_t * list = NULL;
   
 }
 
