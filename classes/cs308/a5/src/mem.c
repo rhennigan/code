@@ -126,7 +126,9 @@ size_t blocks_free() {
   return count;
 }
 
-size_t blocks_alloc();
+size_t blocks_alloc() {
+  return list_length(memory_block_list) - blocks_free();
+}
 
 /******************************************************************************/
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
