@@ -176,7 +176,9 @@ static bool larger(void * a, void * b) {
 }
 
 words_t max_free() {
-  list_t * tmp = list_extremum(memory_block_list, &larger);
+  words_t total = 0;
+  list_t * free = list_filter(memory_block_list, &is_valid, &total);
+  list_t * tmp = list_extremum(free, &larger);
   if (tmp == NULL) {  // no free blocks available
     // list_dispose(tmp)
     return 0;
