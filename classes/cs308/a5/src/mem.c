@@ -297,10 +297,10 @@ void print_output(int from, int to) {
   if (pool_size >= 1048576) {
     snprintf(s, 80, "%4.2f MB", (double)pool_size / (double)1048576);
   } else if (pool_size >= 1024) {
-    snprintf(s, 80, "%4.2f MB", (double)pool_size / (double)1024);
+    snprintf(s, 80, "%4.2f KB", (double)pool_size / (double)1024);
   } else {  // no unit conversion
-    snprintf(s, 80, "%lu KB", pool_size);
-  }  // end if (pool_size > 1048575)
+    snprintf(s, 80, "%lu B", pool_size);
+  }  // end if (pool_size > 1048576)
 
   /* Top bar */
   printf("\n%s", B_TL);
