@@ -57,9 +57,10 @@ request_t * load_request(FILE * file) {
 /******************************************************************************/
 /* FREEING FUNCTIONS                                                          */
 /******************************************************************************/
-void free_memory(request_t * request) {
+/* static bool match_id(void *  */
+/* void free_memory(request_t * request) { */
   
-}
+/* } */
 
 /******************************************************************************/
 /* ALLOCATION FUNCTIONS                                                       */

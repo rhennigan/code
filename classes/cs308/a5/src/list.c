@@ -126,7 +126,7 @@ list_t * list_filter(list_t * list, cmp_fun pred, void * cmp_arg) {
   return pair.left;
 }  // end list_filter
 
-list_t * list_find(list_t * list, list_t * match, cmp_fun eq) {
+list_t * list_find(list_t * list, void * match, cmp_fun eq) {
   if (list == NULL) {
     return NULL;
   } else if ((*eq)(list, match)) {
