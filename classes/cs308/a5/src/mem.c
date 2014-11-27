@@ -99,6 +99,10 @@ mem_block_t * merge_block(mem_block_t * curr_block) {
     list_t * new_next_list = next_block->next;
     curr_list->tail  = new_next_list;                // 2
     curr_block->next = new_next_list;                // 3
+
+    if (new_next_list != NULL && list_head(new_next_list) != NULL) {
+      mem_block_t * new_next_block = list_head(new_next_list);
+    }
   }
 
   return NULL;
