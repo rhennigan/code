@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
       req_status_t stat;
       stat.req_id       = request->id;
       stat.req_type     = request->type;
-      stat.req_size     = request->size;
+      stat.req_size     = 0;
       stat.req_granted  = success;
       stat.req_addr     = NULL;
       stat.total_free   = total_free();
