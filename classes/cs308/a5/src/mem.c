@@ -111,9 +111,11 @@ words_t total_free() {
   list_t * free = list_filter(memory_block_list, &is_valid, &total);
   list_t * temp = free;
   while (temp != NULL) {
-    
+    total += ((mem_block_t*)list_head(temp))->size;
     temp = list_tail(temp);
   }
+  // list_dispose(free);
+  return total;
 }
 
 /******************************************************************************/
