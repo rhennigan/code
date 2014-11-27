@@ -3,7 +3,7 @@
 #include <limits.h>
 #include "lib/mem.h"
 
-#define STEPS 214
+#define STEPS 8
 
 int main(int argc, char *argv[]) {
   /****************************************************************************/
@@ -111,6 +111,7 @@ int main(int argc, char *argv[]) {
 
     /* Clean up */
     free(request);
+    print_output(0, i);
   }
 
   /****************************************************************************/
