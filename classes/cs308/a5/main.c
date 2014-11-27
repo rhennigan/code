@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* LOAD AND PROCESS REQUESTS                                                */
   /****************************************************************************/
-  for (int i = 0; i < STEPS; i++) {
+  for (int i = 0; true; i++) {
     request_t * request = load_request(req_file);
     if (request == NULL) break;
     
@@ -111,9 +111,6 @@ int main(int argc, char *argv[]) {
 
     /* Clean up */
     free(request);
-    print_output(0, i);
-    list_dump(memory_block_list);
-    md_full();
   }
 
   /****************************************************************************/
