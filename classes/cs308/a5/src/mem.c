@@ -259,7 +259,7 @@ void memory_dump() {
   double avail = (double)WORDS_TO_BYTES(100*total_free()) / (double)pool_size;
 
   snprintf(label, sizeof(label),
-           "CURRENT MEMORY: %lu used | %lu free | %.2f%% avail",
+           "CURRENT MEMORY: %lu used | %lu free | %.2f %% avail",
            alloc, free, avail);
 
   printf("\n\n");
