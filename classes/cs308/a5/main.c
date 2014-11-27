@@ -80,13 +80,15 @@ int main(int argc, char *argv[]) {
 
     /* Populate status entry */
     req_status_t * stat = malloc(sizeof(req_status_t));
-    stat->req_id      = request->id;
-    stat->req_type    = request->type;
-    stat->req_size    = request->size;
-    stat->req_granted = block == NULL ? false : true;
-    stat->req_addr    = stat->req_granted ? block->addr : NULL;
-    stat->total_free  = total_free();
-    stat->max_free    = max_free();
+    stat->req_id        = request->id;
+    stat->req_type      = request->type;
+    stat->req_size      = request->size;
+    stat->req_granted   = block == NULL ? false : true;
+    stat->req_addr      = stat->req_granted ? block->addr : NULL;
+    stat->total_free    = total_free();
+    stat->max_free      = max_free();
+    stat->blocks_free   = blocks_free();
+    stat->blocks_alloc  = blocks_alloc();
 
     /* Clean up */
     free(request);
