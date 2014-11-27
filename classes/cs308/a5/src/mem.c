@@ -98,7 +98,7 @@ static mem_block_t * buddy_free(bytes_t size) {
     mem_block_t * block = list_head(tmp);
     words_t req_words = BYTES_TO_WORDS(size);
     assert(block != NULL);
-    if (req_words << 1 < block->size) {  // block can be split
+    while (req_words << 1 < block->size) {  // block can be split
       
     }
     
