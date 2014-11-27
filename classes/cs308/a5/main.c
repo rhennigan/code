@@ -71,8 +71,9 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* LOAD AND PROCESS REQUESTS                                                */
   /****************************************************************************/
-  for (int i = 1; i < STEPS+1; i++) {
+  while (1) {
     request_t * request = load_request(req_file);
+    if (request == NULL) break;
     
     if (request->type == ALLOC) {
       mem_block_t * block = allocate_memory(request);
