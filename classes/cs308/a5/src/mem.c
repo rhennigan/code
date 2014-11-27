@@ -239,13 +239,17 @@ void print_usage(char * name) {
 }
 
 /* Debugging info */
-void print_block(void * block_addr) {
+static void print_block(void * block_addr) {
   mem_block_t block = *(mem_block_t*)block_addr;
   int     blid = block.id;
   char *  free = block.is_free ? "FREE" : "USED";
   void *  addr = block.addr;
   bytes_t size = WORDS_TO_BYTES(block.size);
-  printf("%d\t%s
+  printf("%d\t%s\t%p\t%lu B\n", blid, free, addr, size);
+}
+
+void memory_dump() {
+  list_iter(memory_block_list, &print_block);
 }
 
 void print_mem_config() {
