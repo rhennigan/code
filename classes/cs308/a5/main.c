@@ -130,7 +130,7 @@ int main(int argc, char *argv[]) {
   printf("total_granted = %d\n", tg);
   
   list_t * sh = size_history();
-  list_dump(sh);
+  // list_dump(sh);
 
   print_sizes();
   
