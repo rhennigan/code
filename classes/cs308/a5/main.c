@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* LOAD AND PROCESS REQUESTS                                                */
   /****************************************************************************/
-  for (int i = 0; true; i++) {
+  for (int i = 0; i < STEPS; i++) {
     request_t * request = load_request(req_file);
     if (request == NULL) break;
     
