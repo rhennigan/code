@@ -354,6 +354,22 @@ void memory_dump() {
   printf("\n\n");
 }
 
+void memory_dump_free() {
+  char label[66];
+  size_t free  = blocks_free();
+  size_t alloc = blocks_alloc();
+  double avail = (double)WORDS_TO_BYTES(100*total_free()) / (double)pool_size;
+
+  snprintf(label, sizeof(label),
+           "CURRENT MEMORY: %lu used | %lu free | %.2f %% avail",
+           alloc, free, avail);
+
+  printf("\n\n");
+  print_boxed(label, 64, 0);
+  list_iter(memory_block_list, &print_block);
+  printf("\n\n");
+}
+
 void print_mem_config() {
   print_boxed("MEMORY CONFIG", 40, 0);
   printf(" MAX_POOL_SIZE_KBYTES = %lu\n", MAX_POOL_SIZE_KBYTES);
