@@ -133,6 +133,7 @@ size_t blocks_alloc() {
 /******************************************************************************/
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   assert(block != NULL);
+
   list_t * prev_list_node = block->prev;
   list_t * curr_list_node = block->curr;
   list_t * next_list_node = block->next;
