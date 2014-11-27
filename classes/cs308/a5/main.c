@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
       req_history[i]    = stat;
       
     } else {  // request type is FREE
-      bool success = free_memory(request);
+      mem_block_t * block = free_memory(request);
 
       /* Populate status entry */
       req_status_t stat;
