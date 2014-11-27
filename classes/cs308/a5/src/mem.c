@@ -292,7 +292,7 @@ int total_granted() {
 static void * p_req_size(void * x, void * y) {
   list_t  * list = x;
   bytes_t * req_size;
-  if (((req_status_t*)y)->req_granted) {
+  if (((req_status_t*)y)->req_addr != NULL) {
     req_size = &((req_status_t*)y)->req_size;
   } else {
     req_size = &nb;
