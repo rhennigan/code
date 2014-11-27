@@ -203,7 +203,7 @@ static mem_block_t * buddy_split(bytes_t size) {
       block = split_block(block, &split_req);
     }
     
-    return list_head(tmp);
+    return block;
   }
 }
 
