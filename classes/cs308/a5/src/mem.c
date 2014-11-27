@@ -290,8 +290,6 @@ int total_granted() {
   return *(int*)list_foldl(history_list, &total, &plus);
 }
 
-
-
 static void * p_req_size(void * x, void * y) {
   list_t  * list = x;
   bytes_t * req_size;
@@ -314,8 +312,6 @@ list_t * size_history() {
   list_dispose(list);
   return r;
 }
-
-
 
 /******************************************************************************/
 /* FORMATTING AND OUTPUT                                                      */
