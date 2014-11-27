@@ -105,6 +105,9 @@ mem_block_t * merge_block(mem_block_t * curr_block) {
       mem_block_t * new_next_block = list_head(new_next_list);
       new_next_block->prev = curr_list;              // 4
     }
+
+    free(next_block);                                // 5
+    free(next_list);                                 // 6
   }
 
   /* See if block can be merged left */
@@ -115,6 +118,11 @@ mem_block_t * merge_block(mem_block_t * curr_block) {
     list_t * new_next_list = curr_block->next;
     prev_list->tail  = new_next_list;                // 2
     prev_block->next = new_next_list;                // 3
+
+    if (new_next_list != NULL && list_head(new_next_list) != NULL) {
+      mem_block_t * new_next_block = list_head(new_next_list);
+      new_next_block->prev = prev_list;
+    }
   }
 
   return NULL;
