@@ -94,10 +94,10 @@ mem_block_t * merge_block(mem_block_t * curr_block) {
 
   if (can_merge(next_list)) {
     mem_block_t * next_block = list_head(next_list);
-    curr_block->size += next_block->size;
+    curr_block->size += next_block->size;            // 1
 
     list_t * new_next_list = next_block->next;
-    curr_list->tail = new_next_list;
+    curr_list->tail = new_next_list;                 // 2
   }
 
   return NULL;
