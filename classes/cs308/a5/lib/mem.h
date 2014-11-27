@@ -94,10 +94,12 @@ mem_block_t * allocate_memory(request_t * request);
 mem_block_t * free_memory(request_t * request);
 
 /******************************************************************************/
-words_t total_free();
-words_t max_free();
-size_t  blocks_free();
-size_t  blocks_alloc();
+words_t  total_free();
+words_t  max_free();
+size_t   blocks_free();
+size_t   blocks_alloc();
+int      total_granted();
+list_t * size_history();
 
 /******************************************************************************/
 void process_request(request_t request);
