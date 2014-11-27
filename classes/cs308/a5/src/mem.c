@@ -291,10 +291,13 @@ int total_granted() {
 }
 
 static void print_failed(void * x) {
-  bool ra = ((req_status_t*)x)->req_type == ALLOC;
-  bool rg = ((req_status_t*)x)->req_granted;
+  req_status_t * stat = (req_status_t*)x;
+  bool ra = stat->req_type == ALLOC;
+  bool rg = stat->req_granted;
   if (ra && !rg) {
-    printf(" ");
+    int req_id = stat->req_id;
+    bytes_t req_size = stat->req_size;
+    printf("Failed Req %d is size %lu\n", req_id, req_size);
   }
 }
 
