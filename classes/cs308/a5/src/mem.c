@@ -91,6 +91,8 @@ mem_block_t * merge_block(mem_block_t * block) {
   list_t * curr_list = block->curr;
   list_t * next_list = block->next;
 
+  
+
   return NULL;
 }
 
