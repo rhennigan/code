@@ -375,7 +375,7 @@ void md_free() {
 void md_alloc() {
   char label[66];
   size_t count = 0;
-  list_t * fb  = list_filter(memory_block_list, &is_valid, &count);
+  list_t * ab  = list_filter(memory_block_list, &larger, &count);
   size_t free  = blocks_free();
   size_t alloc = blocks_alloc();
   double avail = (double)WORDS_TO_BYTES(100*total_free()) / (double)pool_size;
@@ -386,7 +386,7 @@ void md_alloc() {
 
   printf("\n\n");
   print_boxed(label, 64, 0);
-  list_iter(fb, &print_block);
+  list_iter(ab, &print_block);
   printf("\n\n");
 }
 
