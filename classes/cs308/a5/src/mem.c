@@ -203,7 +203,7 @@ static mem_block_t * buddy_split(request_t * request) {
       bytes_t   s_bytes   = WORDS_TO_BYTES(block->size >> 1);
       request_t split_req = { NOBODY, ALLOC, s_bytes, 0 };
       block = split_block(block, &split_req);
-      block->id = request->id;
+      if (block != NULL) block->id = request->id;
     }
     
     return block;
@@ -222,7 +222,7 @@ mem_block_t * allocate_memory(request_t * request) {
       alloc_block = split_block(target, request);
       break;
     case BUDDY_SYSTEM:
-      alloc_block = buddy_split(request->size);
+      alloc_block = buddy_split(request);
       break;
   }
   return alloc_block;
