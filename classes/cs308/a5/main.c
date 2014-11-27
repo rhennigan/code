@@ -3,6 +3,8 @@
 #include <limits.h>
 #include "lib/mem.h"
 
+#define STEPS 15
+
 int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* READ COMMAND LINE ARGUMENTS                                              */
@@ -69,7 +71,7 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* LOAD AND PROCESS REQUESTS                                                */
   /****************************************************************************/
-  for (int i = 1; i < 6; i++) {
+  for (int i = 1; i < STEPS+1; i++) {
     request_t * request = load_request(req_file);
     
     if (request->type == ALLOC) {
