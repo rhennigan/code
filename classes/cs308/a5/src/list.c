@@ -126,7 +126,15 @@ list_t * list_filter(list_t * list, cmp_fun pred, void * cmp_arg) {
   return pair.left;
 }  // end list_filter
 
-void * list_foldl(list_t * list, void * acc, void * (*f)(void * x, void * y));
+void * list_foldl(list_t * list, void * acc, void * (*f)(void * x, void * y)) {
+  if (list == NULL) {
+    return acc;
+  } else {
+    void   * x  = list_head(list);
+    list_t * xs = list_tail(list);
+    
+  }
+}
 
 void * list_foldr(list_t * list, void * acc, void * (*f)(void * x, void * y)) {
   if (list == NULL) {
