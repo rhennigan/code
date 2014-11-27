@@ -129,7 +129,12 @@ list_t * list_filter(list_t * list, cmp_fun pred, void * cmp_arg) {
 void * list_foldl(list_t * list, void * acc, void * (*f)(void * x));
 
 void * list_foldr(list_t * list, void * acc, void * (*f)(void * x)) {
-  
+  if (list == NULL) {
+    return acc;
+  } else {
+    void   * x  = list_head(list);
+    list_t * xs = list_tail(list);
+  }
 }
 
 list_t * list_find(list_t * list, void * match, cmp_fun eq) {
