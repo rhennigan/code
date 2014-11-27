@@ -113,7 +113,8 @@ mem_block_t * merge_block(mem_block_t * curr_block) {
     prev_block->size += curr_block->size;            // 1
 
     list_t * new_next_list = curr_block->next;
-    prev_list->tail = new_next_list;                 // 2
+    prev_list->tail  = new_next_list;                // 2
+    prev_block->next = new_next_list;                // 3
   }
 
   return NULL;
