@@ -39,6 +39,7 @@ request_t * load_request(FILE * file) {
   if (fgets(buffer, 80, file) == NULL) {
     return NULL;
   } else {
+    printf("load_request buffer: %s\n", buffer);
     char * saveptr;
     char * id_str   = strtok_r(buffer, " \n", &saveptr);
     char * type_str = strtok_r(NULL,   " \n", &saveptr);
