@@ -296,7 +296,7 @@ static void * p_req_size(void * x, void * y) {
   } else {
     req_size = (bytes_t*)(&((req_status_t*)y)->req_granted);
   }
-  list_t  * node     = list_pre(NULL, req_size);
+  list_t * node = list_pre(NULL, req_size);
   if (list != NULL)
     list->tail = node;
   return node;
