@@ -241,6 +241,9 @@ void print_usage(char * name) {
 /* Debugging info */
 void print_block(void * block_addr) {
   mem_block_t block = *(mem_block_t*)block_addr;
+  int   id = block.id;
+  bool   f = block.is_free;
+  void * a = block.addr;
 }
 
 void print_mem_config() {
