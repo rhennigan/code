@@ -118,7 +118,14 @@ words_t total_free() {
   return total;
 }
 
-size_t blocks_free();
+size_t blocks_free() {
+  size_t count = 0;
+  list_t * free = list_filter(memory_block_list, &is_valid, &count);
+  count = list_length(free);
+  // list_dispose(free);
+  return count;
+}
+
 size_t blocks_alloc();
 
 /******************************************************************************/
