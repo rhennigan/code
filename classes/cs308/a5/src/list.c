@@ -142,7 +142,7 @@ void * list_foldr(list_t * list, void * acc, void * (*f)(void * x, void * y)) {
   } else {
     void   * x  = list_head(list);
     list_t * xs = list_tail(list);
-    return f(x, list_foldr(xs, acc, f));
+    return f(x, list_foldr(xs, acc, f));  // aka "the stack smasher"
   }
 }
 
