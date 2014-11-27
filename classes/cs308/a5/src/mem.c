@@ -13,6 +13,7 @@ req_status_t req_history[MAX_HISTORY_LENGTH];
 list_t *     history_list = NULL;
 policy_t     policy;
 bytes_t      pool_size;
+bytes_t      nb = 0;
 
 const char * policy_names[] = {
   [FIRST_FIT]    = "FIRST_FIT",
@@ -294,7 +295,7 @@ static void * p_req_size(void * x, void * y) {
   if (((req_status_t*)y)->req_granted) {
     req_size = &((req_status_t*)y)->req_size;
   } else {
-    req_size = (bytes_t*)(&((req_status_t*)y)->req_granted);
+    req_size = &nb;
   }
   list_t * node = list_pre(NULL, req_size);
   if (list != NULL)

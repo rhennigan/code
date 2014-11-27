@@ -87,6 +87,7 @@ extern req_status_t req_history[];      // for printing output
 extern list_t *     history_list;       // have list functions for output ready
 extern policy_t     policy;
 extern bytes_t      pool_size;
+extern bytes_t      nb;
 
 /******************************************************************************/
 request_t *   load_request(FILE * file);
