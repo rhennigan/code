@@ -126,9 +126,9 @@ list_t * list_filter(list_t * list, cmp_fun pred, void * cmp_arg) {
   return pair.left;
 }  // end list_filter
 
-void * list_foldl(list_t * list, void * acc, void * (*f)(void * x));
+void * list_foldl(list_t * list, void * acc, void * (*f)(void * x, void * y));
 
-void * list_foldr(list_t * list, void * acc, void * (*f)(void * x)) {
+void * list_foldr(list_t * list, void * acc, void * (*f)(void * x, void * y)) {
   if (list == NULL) {
     return acc;
   } else {
