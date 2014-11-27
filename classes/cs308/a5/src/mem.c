@@ -296,8 +296,9 @@ static void * p_req_size(void * x, void * y) {
 }
 
 list_t * size_history() {
-  list_t * list = NULL;
-  
+  bytes_t * req_size = &((req_status_t*)list_head(history_list))->req_size;
+  list_t * list = list_pre(NULL, req_size);
+  list_t * node = list_tail(list);
 }
 
 /******************************************************************************/
