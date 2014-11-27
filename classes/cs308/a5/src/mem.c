@@ -178,44 +178,6 @@ static bool larger(void * a, void * b) {
   return (((mem_block_t*)a)->size > ((mem_block_t*)b)->size);
 }
 
-words_t max_free() {
-  words_t total = 0;
-  list_t * free = list_filter(memory_block_list, &is_valid, &total);
-  list_t * tmp = list_extremum(free, &larger);
-  if (tmp == NULL) {  // no free blocks available
-    // list_dispose(tmp)
-    return 0;
-  } else {
-    mem_block_t * block = (mem_block_t*)list_head(tmp);
-    // list_dispose(tmp)
-    return block->size;
-  }
-}
-
-words_t total_free() {
-  words_t total = 0;
-  list_t * free = list_filter(memory_block_list, &is_valid, &total);
-  list_t * temp = free;
-  while (temp != NULL) {
-    total += ((mem_block_t*)list_head(temp))->size;
-    temp = list_tail(temp);
-  }
-  // list_dispose(free);
-  return total;
-}
-
-size_t blocks_free() {
-  size_t count = 0;
-  list_t * free = list_filter(memory_block_list, &is_valid, &count);
-  count = list_length(free);
-  // list_dispose(free);
-  return count;
-}
-
-size_t blocks_alloc() {
-  return list_length(memory_block_list) - blocks_free();
-}
-
 /******************************************************************************/
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   if (block == NULL) return NULL;
@@ -318,6 +280,44 @@ mem_block_t * allocate_memory(request_t * request) {
 /******************************************************************************/
 /* FORMATTING AND OUTPUT                                                      */
 /******************************************************************************/
+words_t max_free() {
+  words_t total = 0;
+  list_t * free = list_filter(memory_block_list, &is_valid, &total);
+  list_t * tmp = list_extremum(free, &larger);
+  if (tmp == NULL) {  // no free blocks available
+    // list_dispose(tmp)
+    return 0;
+  } else {
+    mem_block_t * block = (mem_block_t*)list_head(tmp);
+    // list_dispose(tmp)
+    return block->size;
+  }
+}
+
+words_t total_free() {
+  words_t total = 0;
+  list_t * free = list_filter(memory_block_list, &is_valid, &total);
+  list_t * temp = free;
+  while (temp != NULL) {
+    total += ((mem_block_t*)list_head(temp))->size;
+    temp = list_tail(temp);
+  }
+  // list_dispose(free);
+  return total;
+}
+
+size_t blocks_free() {
+  size_t count = 0;
+  list_t * free = list_filter(memory_block_list, &is_valid, &count);
+  count = list_length(free);
+  // list_dispose(free);
+  return count;
+}
+
+size_t blocks_alloc() {
+  return list_length(memory_block_list) - blocks_free();
+}
+
 void print_usage(char * name) {
   printf("error reading arguments\n");
   printf("usage:\n");
