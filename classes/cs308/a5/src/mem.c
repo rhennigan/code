@@ -10,6 +10,7 @@
 list_t *     memory_block_list = NULL;
 void *       memory_pool[MAX_POOL_SIZE_WORDS];
 req_status_t req_history[MAX_HISTORY_LENGTH];
+list_t *     history_list = NULL;
 policy_t     policy;
 bytes_t      pool_size;
 
