@@ -94,7 +94,7 @@ static bool larger(void * a, void * b) {
   return (((mem_block_t*)a)->size > ((mem_block_t*)b)->size);
 }
 
-words_t largest_free() {
+words_t max_free() {
   list_t * tmp = list_extremum(memory_block_list, &larger);
   if (tmp == NULL) {  // no free blocks available
     // list_dispose(tmp)
@@ -117,6 +117,9 @@ words_t total_free() {
   // list_dispose(free);
   return total;
 }
+
+size_t blocks_free();
+size_t blocks_alloc();
 
 /******************************************************************************/
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
