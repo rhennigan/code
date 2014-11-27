@@ -271,8 +271,8 @@ void print_usage(char * name) {
 
 /* Debugging info */
 static inline uint64_t void_to_num(void * v) { return (uint64_t)v; }
-static inline uint64_t offset_addr(void * a) {
-  return void_to_num(a) - void_to_num(memory_pool);
+static inline int64_t offset_addr(void * a, void * base) {
+  return void_to_num(a) - void_to_num(base);
 }
 
 static void print_block(void * block_addr) {
