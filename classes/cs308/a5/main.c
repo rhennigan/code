@@ -119,7 +119,7 @@ int main(int argc, char *argv[]) {
   print_mem_config();
   print_output(0, STEPS);
   list_dump(memory_block_list);
-  memory_dump();
+  md_full();
   
   /****************************************************************************/
   /* CLEAN UP                                                                 */

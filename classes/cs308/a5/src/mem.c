@@ -338,7 +338,7 @@ static void print_block(void * block_addr) {
   printf(" %-6d\t%10s\t%10lu\t%8lu B\t%5.2f%%\n", blid, free, addr, size, pcnt);
 }
 
-void md_all() {
+void md_full() {
   char label[66];
   size_t free  = blocks_free();
   size_t alloc = blocks_alloc();

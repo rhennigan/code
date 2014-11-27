@@ -103,6 +103,8 @@ void process_request(request_t request);
 void print_usage(char * name);
 void print_mem_config();
 void print_output(int from, int to);
-void memory_dump();
+void md_full();
+void md_free();
+void md_alloc();
 
 #endif  // LIB_MEM_H_
