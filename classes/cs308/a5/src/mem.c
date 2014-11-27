@@ -219,8 +219,8 @@ mem_block_t * allocate_memory(request_t * request) {
       alloc_block = split_block(target, request);
       break;
     case BUDDY_SYSTEM:
-      printf("not yet implemented\n");
-      exit(EXIT_FAILURE);  // TODO: implement buddy system split func
+      target = first_free(request->size);
+      alloc_block = buddy_free(
       break;
   }
   return alloc_block;
