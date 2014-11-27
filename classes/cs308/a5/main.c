@@ -3,7 +3,7 @@
 #include <limits.h>
 #include "lib/mem.h"
 
-#define STEPS 25
+#define STEPS 150
 
 int main(int argc, char *argv[]) {
   /****************************************************************************/
