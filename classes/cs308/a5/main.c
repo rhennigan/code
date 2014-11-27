@@ -112,6 +112,8 @@ int main(int argc, char *argv[]) {
     /* Clean up */
     free(request);
     print_output(0, i);
+    list_dump(memory_block_list);
+    md_full();
   }
 
   /****************************************************************************/
