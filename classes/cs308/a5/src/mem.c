@@ -66,7 +66,7 @@ static bool match_ref(void * block_list, void * ref_addr) {
   return ref == block.id;
 }
 
-static void print_block(void * block_addr);
+// static void print_block(void * block_addr);
 
 mem_block_t * free_memory(request_t * request) {
   int ref = request->ref;
