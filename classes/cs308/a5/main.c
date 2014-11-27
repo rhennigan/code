@@ -71,7 +71,8 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* LOAD AND PROCESS REQUESTS                                                */
   /****************************************************************************/
-  for (int i = 0; true; i++) {
+  int i;
+  for (i = 0; true; i++) {
     request_t * request = load_request(req_file);
     if (request == NULL) break;
     
@@ -117,7 +118,7 @@ int main(int argc, char *argv[]) {
   /* OUTPUT                                                                   */
   /****************************************************************************/
   print_mem_config();
-  print_output(0, STEPS);
+  print_output(0, i-1);
   list_dump(memory_block_list);
   md_full();
   
