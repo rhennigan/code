@@ -253,6 +253,9 @@ static void print_block(void * block_addr) {
 }
 
 void memory_dump() {
+  char * label;
+  size_t free  = blocks_free();
+  size_t alloc = blocks_alloc();
   printf("\n\n");
   print_boxed("CURRENT MEMORY BLOCKS", 64, 0);
   list_iter(memory_block_list, &print_block);
