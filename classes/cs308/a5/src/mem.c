@@ -125,6 +125,11 @@ mem_block_t * merge_block(mem_block_t * curr_block) {
     }
 
     free(curr_block);                                // 5
+    free(curr_list);                                 // 6
+
+    return prev_block;
+  } else {
+    return curr_block;
   }
 
   return NULL;
