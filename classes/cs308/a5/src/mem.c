@@ -66,18 +66,6 @@ static bool match_ref(void * block_list, void * ref_addr) {
 
 // static void print_block(void * block_addr);
 
-mem_block_t * free_memory(request_t * request) {
-  int ref = request->ref;
-  list_t * curr_list_node = list_find(memory_block_list, &ref, &match_ref);
-  if (curr_list_node == NULL || list_head(curr_list_node) == NULL) {
-    return NULL;
-  } else {
-    mem_block_t * block = list_head(curr_list_node);
-    block->is_free = true;
-    return block;
-  }
-}
-
 static inline bool can_merge(list_t * block_list) {
   return block_list != NULL
       && list_head(block_list) != NULL
@@ -131,8 +119,18 @@ mem_block_t * merge_block(mem_block_t * curr_block) {
   } else {
     return curr_block;
   }
+}
 
-  return NULL;
+mem_block_t * free_memory(request_t * request) {
+  int ref = request->ref;
+  list_t * curr_list_node = list_find(memory_block_list, &ref, &match_ref);
+  if (curr_list_node == NULL || list_head(curr_list_node) == NULL) {
+    return NULL;
+  } else {
+    mem_block_t * block = list_head(curr_list_node);
+    block->is_free = true;
+    return merge_block(block);
+  }
 }
 
 /******************************************************************************/
