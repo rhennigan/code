@@ -203,6 +203,7 @@ static mem_block_t * buddy_split(request_t * request) {
       bytes_t   s_bytes   = WORDS_TO_BYTES(block->size >> 1);
       request_t split_req = { NOBODY, ALLOC, s_bytes, 0 };
       block = split_block(block, &split_req);
+      block->id = request->id;
     }
     
     return block;
