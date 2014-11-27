@@ -84,6 +84,7 @@ typedef struct request_s {
 extern list_t *     memory_block_list;  // elements have type mem_block_t*
 extern void *       memory_pool[];
 extern req_status_t req_history[];      // for printing output
+extern list_t *     history_list;       // have list functions for output ready
 extern policy_t     policy;
 extern bytes_t      pool_size;
 
