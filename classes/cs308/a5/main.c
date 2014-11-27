@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
       req_status_t stat;
       stat.req_id       = request->id;
       stat.req_type     = request->type;
-      stat.req_size     = block->size;
+      stat.req_size     = WORDS_TO_BYTES(block->size);
       stat.req_granted  = block == NULL ? false : true;
       stat.req_addr     = NULL;
       stat.total_free   = total_free();
