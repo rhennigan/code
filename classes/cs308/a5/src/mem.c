@@ -94,7 +94,7 @@ static bool larger(void * a, void * b) {
   return (((mem_block_t*)a)->size > ((mem_block_t*)b)->size);
 }
 
-size_t largest_free() {
+words_t largest_free() {
   list_t * tmp = list_extremum(memory_block_list, &larger);
   if (tmp == NULL) {  // no free blocks available
     // list_dispose(tmp)
