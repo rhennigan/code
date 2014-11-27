@@ -87,9 +87,9 @@ int main(int argc, char *argv[]) {
       stat.blocks_free  = blocks_free();
       stat.blocks_alloc = blocks_alloc();
       req_history[i]    = stat;
+      
     } else {  // request type is FREE
-
-      free_memory(request);
+      bool success = free_memory(request);
     }
 
     /* Clean up */
