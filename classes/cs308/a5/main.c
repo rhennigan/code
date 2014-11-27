@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* LOAD AND PROCESS REQUESTS                                                */
   /****************************************************************************/
-  for (int i = 1; i < 5; i++) {
+  for (int i = 1; i < 6; i++) {
     request_t * request = load_request(req_file);
     
     if (request->type == ALLOC) {
@@ -100,7 +100,7 @@ int main(int argc, char *argv[]) {
   /* OUTPUT                                                                   */
   /****************************************************************************/
   print_mem_config();
-  print_output(0, 4);
+  print_output(0, 5);
   list_dump(memory_block_list);
   memory_dump();
   
