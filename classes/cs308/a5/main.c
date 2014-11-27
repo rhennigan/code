@@ -83,16 +83,17 @@ int main(int argc, char *argv[]) {
 
       /* Populate status entry */
       req_status_t stat;
-      stat.req_id       = request->id;
-      stat.req_type     = request->type;
-      stat.req_size     = request->size;
-      stat.req_granted  = block == NULL ? false : true;
-      stat.req_addr     = stat.req_granted ? block->addr : NULL;
-      stat.total_free   = total_free();
-      stat.max_free     = max_free();
-      stat.blocks_free  = blocks_free();
-      stat.blocks_alloc = blocks_alloc();
-      req_history[i]    = stat;
+      stat.req_id          = request->id;
+      stat.req_type        = request->type;
+      stat.req_size        = request->size;
+      stat.req_granted     = block == NULL ? false : true;
+      stat.req_addr        = stat.req_granted ? block->addr : NULL;
+      stat.total_free      = total_free();
+      stat.max_free        = max_free();
+      stat.blocks_free     = blocks_free();
+      stat.blocks_alloc    = blocks_alloc();
+      req_history[i]       = stat;
+      list_pre(history_list, req_history+i);
       
     } else {  // request type is FREE
       mem_block_t * block = free_memory(request);
@@ -100,16 +101,17 @@ int main(int argc, char *argv[]) {
       
       /* Populate status entry */
       req_status_t stat;
-      stat.req_id       = request->id;
-      stat.req_type     = request->type;
-      stat.req_size     = block == NULL ? 0 : WORDS_TO_BYTES(block->size);
-      stat.req_granted  = block == NULL ? false : true;
-      stat.req_addr     = stat.req_granted ? block->addr : NULL;
-      stat.total_free   = total_free();
-      stat.max_free     = max_free();
-      stat.blocks_free  = blocks_free();
-      stat.blocks_alloc = blocks_alloc();
-      req_history[i]    = stat;
+      stat.req_id          = request->id;
+      stat.req_type        = request->type;
+      stat.req_size        = block == NULL ? 0 : WORDS_TO_BYTES(block->size);
+      stat.req_granted     = block == NULL ? false : true;
+      stat.req_addr        = stat.req_granted ? block->addr : NULL;
+      stat.total_free      = total_free();
+      stat.max_free        = max_free();
+      stat.blocks_free     = blocks_free();
+      stat.blocks_alloc    = blocks_alloc();
+      req_history[i]       = stat;
+      list_pre(history_list, req_history+i);
     }
 
     /* Clean up */
