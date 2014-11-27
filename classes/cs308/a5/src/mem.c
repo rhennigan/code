@@ -277,7 +277,7 @@ mem_block_t * allocate_memory(request_t * request) {
 }
 
 static void * plus(void * x, void * y) {
-  int z = *(int*)x + *(int*)y;
+  *(int*)x = *(int*)x + *(int*)y;
   return x;
 }
 
