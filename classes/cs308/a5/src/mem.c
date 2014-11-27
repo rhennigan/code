@@ -123,6 +123,8 @@ mem_block_t * merge_block(mem_block_t * curr_block) {
       mem_block_t * new_next_block = list_head(new_next_list);
       new_next_block->prev = prev_list;
     }
+
+    free(curr_block);                                // 5
   }
 
   return NULL;
