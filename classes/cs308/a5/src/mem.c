@@ -274,8 +274,8 @@ static inline void print_row(int row) {
   printf("%1s %-6s %s",   " ", rq, B_VT);
   printf("%1s %9lu B %s", " ", sz, B_VT);
   printf("%1s %-9p %s",   " ", ad, B_VT);
-  printf("%1s %7lu K %s", " ", tf, B_VT);
-  printf("%1s %9lu K %s", " ", lp, B_VT);
+  printf("%1s %7lu B %s", " ", tf, B_VT);
+  printf("%1s %9lu B %s", " ", lp, B_VT);
   printf("\n");
 }
 
