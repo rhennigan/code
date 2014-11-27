@@ -286,6 +286,14 @@ int total_granted() {
   return *(int*)list_foldl(history_list, &total, &plus);
 }
 
+static void * get_size(void * x, void * y) {
+  list_t * list = x;
+}
+
+list_t * size_history() {
+  
+}
+
 /******************************************************************************/
 /* FORMATTING AND OUTPUT                                                      */
 /******************************************************************************/
