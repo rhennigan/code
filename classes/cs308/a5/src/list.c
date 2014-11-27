@@ -132,7 +132,7 @@ void * list_foldl(list_t * list, void * acc, void * (*f)(void * x, void * y)) {
   } else {
     void   * x  = list_head(list);
     list_t * xs = list_tail(list);
-    
+    return list_foldl(xs, f(acc, x), f);
   }
 }
 
