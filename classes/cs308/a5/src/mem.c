@@ -64,7 +64,8 @@ static bool match_id(list_t * block_list, void * id_addr) {
 }
 
 void free_memory(request_t * request) {
-  
+  int id = request->id;
+  list_t * curr_list_node = list_find(memory_block_list, &id, &match_id);
 }
 
 /******************************************************************************/
