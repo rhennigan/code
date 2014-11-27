@@ -356,6 +356,8 @@ void memory_dump() {
 
 void memory_dump_free() {
   char label[66];
+  size_t count = 0;
+  list_t * fb  = list_filter(memory_block_list, &is_valid, &count);
   size_t free  = blocks_free();
   size_t alloc = blocks_alloc();
   double avail = (double)WORDS_TO_BYTES(100*total_free()) / (double)pool_size;
@@ -366,7 +368,7 @@ void memory_dump_free() {
 
   printf("\n\n");
   print_boxed(label, 64, 0);
-  list_iter(memory_block_list, &print_block);
+  list_iter(fb, &print_block);
   printf("\n\n");
 }
 
