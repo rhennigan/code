@@ -249,7 +249,9 @@ static void print_block(void * block_addr) {
 }
 
 void memory_dump() {
+  printf("\n\n");
   list_iter(memory_block_list, &print_block);
+  printf("\n\n");
 }
 
 void print_mem_config() {
