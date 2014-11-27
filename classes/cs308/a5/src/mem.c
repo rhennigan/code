@@ -147,7 +147,9 @@ static bool is_valid(void * block_addr, void * size_addr) {
 }  // end is_valid
 
 static mem_block_t * first_free(bytes_t size) {
-  list_t * tmp = list_filter(memory_block_list, &is_valid, &size);
+  list_t * tmpr = list_filter(memory_block_list, &is_valid, &size);
+  list_t * tmp = list_reverse(tmpr);
+  list_dispose(tmpr);
   if (tmp == NULL) {
     return NULL;
   } else {
