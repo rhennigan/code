@@ -188,7 +188,7 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
 }
 
 /******************************************************************************/
-static mem_block_t * buddy_free(bytes_t size) {
+static mem_block_t * buddy_split(bytes_t size) {
   list_t * tmp = list_filter(memory_block_list, &is_valid, &size);
   if (tmp == NULL) {
     return NULL;
@@ -219,8 +219,7 @@ mem_block_t * allocate_memory(request_t * request) {
       alloc_block = split_block(target, request);
       break;
     case BUDDY_SYSTEM:
-      target = first_free(request->size);
-      alloc_block = buddy_free(
+      alloc_block = buddy_split(request->size);
       break;
   }
   return alloc_block;
