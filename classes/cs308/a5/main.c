@@ -67,6 +67,7 @@ int main(int argc, char *argv[]) {
   init_req_status.blocks_free  = 1;
   init_req_status.blocks_alloc = 0;
   req_history[0]               = init_req_status;
+  list_pre(history_list, req_history);
 
   /****************************************************************************/
   /* LOAD AND PROCESS REQUESTS                                                */
