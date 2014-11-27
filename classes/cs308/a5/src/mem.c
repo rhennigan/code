@@ -301,8 +301,10 @@ static void * p_req_size(void * x, void * y) {
 list_t * size_history() {
   bytes_t * req_size = &((req_status_t*)list_head(history_list))->req_size;
   list_t * list = list_pre(NULL, req_size);
-  list_foldl(history_list, list, &p_req_size);
-  return list_tail(list);
+  list_foldl(list_tail(history_list), list, &p_req_size);
+  list_t * r = list_reverse(list);
+  list_dispose(list);
+  return r;
 }
 
 static void print_size(void * x) {
