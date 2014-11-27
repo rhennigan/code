@@ -412,7 +412,7 @@ void print_output(int from, int to) {
   printf("%s\n", B_BR);
 }
 
-long int void_to_int(void * v) {
-  long int i = 0;
+unsigned long long void_to_num(void * v) {
+  unsigned long long i = 0;
   i |= v;
 }
