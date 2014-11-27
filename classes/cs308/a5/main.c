@@ -126,6 +126,8 @@ int main(int argc, char *argv[]) {
   list_dump(memory_block_list);
   md_full();
 
+  list_dump(history_list);
+  
   int tg = total_granted();
   printf("total_granted = %d\n", tg);
   
