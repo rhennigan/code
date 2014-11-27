@@ -72,7 +72,7 @@ static inline bool can_merge(list_t * block_list) {
       && ((mem_block_t*)list_head(block_list))->is_free;
 }
 
-mem_block_t * merge_block(mem_block_t * curr_block) {
+static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   assert(curr_block != NULL);
   assert(curr_block->is_free);
 
