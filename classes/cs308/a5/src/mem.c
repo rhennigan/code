@@ -188,7 +188,9 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
 }
 
 /******************************************************************************/
-static mem_block_t * buddy_split(bytes_t size) {
+static mem_block_t * buddy_split(request_t * request) {
+  assert(request != NULL);
+  bytes_t size = request->size;
   list_t * tmp = list_filter(memory_block_list, &is_valid, &size);
   if (tmp == NULL) {
     return NULL;
