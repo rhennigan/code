@@ -241,9 +241,10 @@ void print_usage(char * name) {
 /* Debugging info */
 void print_block(void * block_addr) {
   mem_block_t block = *(mem_block_t*)block_addr;
-  int    id   = block.id;
-  bool   free = block.is_free;
-  void * addr = block.addr;
+  int     blid = block.id;
+  bool    free = block.is_free;
+  void *  addr = block.addr;
+  bytes_t size = WORDS_TO_BYTES(block.size);
 }
 
 void print_mem_config() {
