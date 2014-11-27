@@ -97,7 +97,7 @@ static mem_block_t * buddy_free(bytes_t size) {
   } else {
     mem_block_t * block = list_head(tmp);
     assert(block != NULL);
-
+    words_t words = BYTES_TO_WORDS(size);
     
     return list_head(tmp);
   }
