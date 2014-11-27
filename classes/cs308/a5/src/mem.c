@@ -1,6 +1,7 @@
 // mem.c
 
 #include <string.h>
+#include <stdint.h>
 #include "../lib/mem.h"
 
 /******************************************************************************/
@@ -269,6 +270,7 @@ void print_usage(char * name) {
 }
 
 /* Debugging info */
+static inline uint64_t void_to_num(void * v) { return (uint64_t)v; }
 static void print_block(void * block_addr) {
   mem_block_t block = *(mem_block_t*)block_addr;
   int     blid = block.id;
@@ -412,6 +414,3 @@ void print_output(int from, int to) {
   printf("%s\n", B_BR);
 }
 
-#include <stdint.h>
-
-inline uint64_t void_to_num(void * v) { return (uint64_t)v; }
