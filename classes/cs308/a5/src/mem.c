@@ -335,7 +335,7 @@ static void print_block(void * block_addr) {
   int64_t addr = offset_addr(block.addr, memory_pool);
   bytes_t size = WORDS_TO_BYTES(block.size);
   double  pcnt = 100.0 * (double)size / (double)pool_size;
-  printf(" %d\t%10s\t%10lu\t%8lu B\t%5.2f %%\n", blid, free, addr, size, pcnt);
+  printf(" %-6d\t%10s\t%10lu\t%8lu B\t%5.2f%%\n", blid, free, addr, size, pcnt);
 }
 
 void memory_dump() {
