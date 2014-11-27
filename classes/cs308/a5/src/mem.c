@@ -290,6 +290,14 @@ int total_granted() {
   return *(int*)list_foldl(history_list, &total, &plus);
 }
 
+static void print_failed(void * x) {
+  bool ra = ((req_status_t*)x)->req_type == ALLOC;
+  bool rg = ((req_status_t*)x)->req_granted;
+  if (ra && !rg) {
+    printf(" ");
+  }
+}
+
 static void * p_req_size(void * x, void * y) {
   list_t  * list = x;
   bytes_t * req_size;
