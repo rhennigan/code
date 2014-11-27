@@ -250,7 +250,7 @@ static void print_block(void * block_addr) {
 
 void memory_dump() {
   printf("\n\n");
-  print_boxed("CURRENT MEMORY BLOCKS");
+  print_boxed("CURRENT MEMORY BLOCKS", 60, 0);
   list_iter(memory_block_list, &print_block);
   printf("\n\n");
 }
