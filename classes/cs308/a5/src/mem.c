@@ -294,7 +294,9 @@ void print_output(int from, int to) {
   }  // end switch (policy)
 
   char s[80];
-  if (pool_size > 1023) {
+  if (pool_size >= 1048576) {
+    snprintf(s, 80, "%4.2f MB", (double)pool_size / (double)1048576);
+  } else if (pool_size >= 1024) {
     snprintf(s, 80, "%4.2f MB", (double)pool_size / (double)1024);
   } else {  // no unit conversion
     snprintf(s, 80, "%lu KB", pool_size);
