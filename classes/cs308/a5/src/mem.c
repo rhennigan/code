@@ -86,13 +86,14 @@ static inline bool can_merge(list_t * block_list) {
 
 mem_block_t * merge_block(mem_block_t * curr_block) {
   assert(curr_block != NULL);
+  assert(curr_block->is_free);
 
-  list_t * prev_list = block->prev;
-  list_t * curr_list = block->curr;
-  list_t * next_list = block->next;
+  list_t * prev_list = curr_block->prev;
+  list_t * curr_list = curr_block->curr;
+  list_t * next_list = curr_block->next;
 
   if (can_merge(next_list)) {
-    
+    mem_block_t * next_block = list_head(next_list);
   }
 
   return NULL;
