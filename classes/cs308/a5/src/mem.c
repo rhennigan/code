@@ -69,7 +69,8 @@ void free_memory(request_t * request) {
   int ref = request->ref;
   list_t * curr_list_node = list_find(memory_block_list, &ref, &match_ref);
   assert(curr_list_node != NULL);
-  print_block(list_head(curr_list_node));
+  mem_block_t * block = list_head(curr_list_node);
+  block->is_free = true;
 }
 
 /******************************************************************************/
