@@ -65,7 +65,7 @@ static bool match_ref(void * block_list, void * ref_addr) {
 
 static void print_block(void * block_addr);
 
-void free_memory(request_t * request) {
+int free_memory(request_t * request) {
   int ref = request->ref;
   list_t * curr_list_node = list_find(memory_block_list, &ref, &match_ref);
   assert(curr_list_node != NULL);

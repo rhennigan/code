@@ -90,7 +90,7 @@ extern bytes_t      pool_size;
 /******************************************************************************/
 request_t *   load_request(FILE * file);
 mem_block_t * allocate_memory(request_t * request);
-void          free_memory(request_t * request);
+int           free_memory(request_t * request);
 
 /******************************************************************************/
 words_t total_free();
