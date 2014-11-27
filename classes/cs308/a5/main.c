@@ -118,6 +118,9 @@ int main(int argc, char *argv[]) {
     free(request);
   }
 
+  list_t * tmp = list_reverse(history_list);
+  list_dispose(history_list);
+  history_list = tmp;
   /****************************************************************************/
   /* OUTPUT                                                                   */
   /****************************************************************************/
