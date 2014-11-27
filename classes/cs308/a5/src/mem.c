@@ -106,6 +106,11 @@ words_t largest_free() {
   }
 }
 
+words_t total_free() {
+  bytes_t size = 1;
+  list_t * tmp = list_filter(memory_block_list, &is_valid, &size);
+}
+
 /******************************************************************************/
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   assert(block != NULL);
