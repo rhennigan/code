@@ -239,6 +239,10 @@ void print_usage(char * name) {
 }
 
 /* Debugging info */
+void print_block(void * block_addr) {
+  mem_block_t block = *(mem_block_t*)block_addr;
+}
+
 void print_mem_config() {
   print_boxed("MEMORY CONFIG", 40, 0);
   printf(" MAX_POOL_SIZE_KBYTES = %lu\n", MAX_POOL_SIZE_KBYTES);
