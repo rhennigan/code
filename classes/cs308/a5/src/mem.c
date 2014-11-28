@@ -58,6 +58,12 @@ request_t * load_request(FILE * file) {
 }
 
 /******************************************************************************/
+static inline uint64_t void_to_num(void * v) { return (uint64_t)v; }
+static inline int64_t offset_addr(void * a, void * base) {
+  return void_to_num(a) - void_to_num(base);
+}
+
+/******************************************************************************/
 /* FREEING FUNCTIONS                                                          */
 /******************************************************************************/
 static bool match_ref(void * block_list, void * ref_addr) {
@@ -73,7 +79,7 @@ static inline bool can_merge(list_t * block_list) {
       && block_list != NULL
       && list_head(block_list) != NULL) {
     mem_block_t * block = list_head(block_list);
-    bytes_t base_addr = WORDS_TO_BYTES(offset_addr(block.addr, memory_pool));
+    bytes_t base_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
     void * buddy_addr = this_block.addr ^ 
     return true;
   } else {
@@ -407,11 +413,6 @@ void print_usage(char * name) {
 }
 
 /* Debugging info */
-static inline uint64_t void_to_num(void * v) { return (uint64_t)v; }
-static inline int64_t offset_addr(void * a, void * base) {
-  return void_to_num(a) - void_to_num(base);
-}
-
 static const char * free_str = "\x1b[32mFREE\x1b[0m";
 static const char * used_str = "\x1b[31mUSED\x1b[0m";
 static const char * free_blk = "\x1b[32m\u258A\x1b[0m";
