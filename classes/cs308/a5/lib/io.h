@@ -24,6 +24,28 @@
 #define B_CM "\u253C"  // center-middle join
 
 /******************************************************************************/
+/* COLOR DEFINITIONS FOR TERMINAL OUTPUT                                      */
+/******************************************************************************/
+#ifdef USE_COLOR_TERM
+  #define C_RED     "\x1b[31m"
+  #define C_GREEN   "\x1b[32m"
+  #define C_YELLOW  "\x1b[33m"
+  #define C_BLUE    "\x1b[34m"
+  #define C_MAGENTA "\x1b[35m"
+  #define C_CYAN    "\x1b[36m"
+  #define C_RESET   "\x1b[0m"
+#else
+  #define C_RED     ""
+  #define C_GREEN   ""
+  #define C_YELLOW  ""
+  #define C_BLUE    ""
+  #define C_MAGENTA ""
+  #define C_CYAN    ""
+  #define C_RESET   ""
+#endif
+
+
+/******************************************************************************/
 void print_boxed(const char * label, size_t width, size_t pad);
 
 #endif  // LIB_IO_H_
