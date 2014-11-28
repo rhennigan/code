@@ -183,13 +183,6 @@ static bool larger(void * a, void * b) {
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   if (block == NULL) return NULL;
 
-  list_t * prev_list_node = block->prev;
-  list_t * curr_list_node = block->curr;
-  list_t * next_list_node = block->next;
-
-  mem_block_t * alloc_block = malloc(sizeof(mem_block_t));
-  mem_block_t * rem_block   = malloc(sizeof(mem_block_t));
-
   /* Block size */
   words_t req_words = BYTES_TO_WORDS(request->size);
   words_t req_size  = policy == BUDDY_SYSTEM ?
@@ -197,6 +190,15 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
                           block->size >> 1 :
                           block->size :
                         req_words;
+
+  if (req_size == req_words) return block;
+
+  list_t * prev_list_node = block->prev;
+  list_t * curr_list_node = block->curr;
+  list_t * next_list_node = block->next;
+
+  mem_block_t * alloc_block = malloc(sizeof(mem_block_t));
+  mem_block_t * rem_block   = malloc(sizeof(mem_block_t));
 
   /* Fill in new block information */
   alloc_block->id      = request->id;
