@@ -419,7 +419,7 @@ void md_full() {
            alloc, free, avail);
 
   printf("\n\n");
-  print_boxed(label, 66, 0);
+  print_boxed(label, 67, 0);
 
   printf("%s", B_TL);
   for (int i = 0; i < 65; i++) printf("%s", B_HR);
