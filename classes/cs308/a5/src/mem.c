@@ -296,9 +296,9 @@ void fix_links() {
   list_t * curr = memory_block_list;
   list_t * next = list_tail(curr);
   
+  ((mem_block_t*)list_head(curr))->prev = prev;
   ((mem_block_t*)list_head(curr))->curr = curr;
-  ((mem_block_t*)list_head(curr))->curr = curr;
-  ((mem_block_t*)list_head(curr))->curr = curr;
+  ((mem_block_t*)list_head(curr))->next = next;
   if (next == NULL) {
     return;
   }
