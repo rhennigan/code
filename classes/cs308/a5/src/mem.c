@@ -101,7 +101,8 @@ static inline bool can_merge(list_t * block_list) {
 }
 
 static inline bool can_merge_b(mem_block_t * block, list_t * list) {
-  if (list == NULL || list_head(list) == NULL) {
+  if (list == NULL || list_head(list) == NULL ||
+      !((mem_block_t*)list_head(list))->is_free) {
     return false;
   } else {
     mem_block_t * testb = list_head(list);
