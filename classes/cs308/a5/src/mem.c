@@ -405,10 +405,10 @@ static void print_mem_gfx(void * block_addr) {
   mem_block_t  block = *(mem_block_t*)block_addr;
   bytes_t      bsize = 64 * WORDS_TO_BYTES(block.size);
   bytes_t      psize = pool_size;
-  size_t       p_cnt = bsize / psize - 1;
+  int          p_cnt = bsize / psize - 1;
   const char * bchar = block.is_free ? free_blk : used_blk;
   const char * echar = block.is_free ? free_end : used_end;
-  for (size_t i = 0; i < p_cnt; i++) printf("%s", bchar);
+  for (int i = 0; i < p_cnt; i++) printf("%s", bchar);
   printf("%s", echar);
 }
 
