@@ -74,8 +74,8 @@ static bool match_ref(void * block_list, void * ref_addr) {
 
 // static void print_block(void * block_addr);
 
-static bool match_offset_addr(void * block_list, void * o_addr) {
-  bytes_t offset_addr = *(bytes_t *)o_addr;
+static bool match_rel_addr(void * block_list, void * r_addr) {
+  bytes_t base_addr = *(bytes_t *)r_addr;
   mem_block_t block = *(mem_block_t*)list_head(block_list);
 }
 
