@@ -93,15 +93,15 @@ static inline bool can_merge_b(mem_block_t * block, list_t * list) {
   }
 }
 
-static inline bool can_merge(mem_block_t * block, list_t * block_list) {
-  if (policy == BUDDY_SYSTEM) {
-    return can_merge_b(block, block_list);
-  } else {
-    return block_list != NULL
-        && list_head(block_list) != NULL
-        && ((mem_block_t*)list_head(block_list))->is_free;
-  }
-}
+/* static inline bool can_merge(mem_block_t * block, list_t * block_list) { */
+/*   if (policy == BUDDY_SYSTEM) { */
+/*     return can_merge_b(block, block_list); */
+/*   } else { */
+/*     return block_list != NULL */
+/*         && list_head(block_list) != NULL */
+/*         && ((mem_block_t*)list_head(block_list))->is_free; */
+/*   } */
+/* } */
 
 static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   assert(curr_block != NULL);
