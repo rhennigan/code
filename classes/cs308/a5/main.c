@@ -6,6 +6,7 @@ void check_links() {
   list_t * prev = NULL;
   list_t * curr = memory_block_list;
   list_t * next = list_tail(curr);
+  printf("\n\n----------------\n");
   while (1) {
     mem_block_t * block = ((mem_block_t*)list_head(curr));
     block->prev = prev;
@@ -91,7 +92,6 @@ int main(int argc, char *argv[]) {
   for (i = 0; argc == 5 ? i < atoi(argv[4]) : true; i++) {
     check_links();
     fix_links();
-    check_links();
     request_t * request = load_request(req_file);
     if (request == NULL) break;
     
