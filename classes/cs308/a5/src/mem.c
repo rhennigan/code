@@ -397,7 +397,7 @@ static void print_block(void * block_addr) {
   void *       vadr = block.addr;
   bytes_t      size = WORDS_TO_BYTES(block.size);
   double       pcnt = 100.0 * (double)size / (double)pool_size;
-  const char * pstr = " %-4d%5s%9p%8lu%8lu B%5.2f%%\n";
+  const char * pstr = " %-4d%5s%9p%6lu%7luB%6.2f%%\n";
   printf(pstr, blid, free, vadr, addr, size, pcnt);
 }
 
