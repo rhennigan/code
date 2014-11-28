@@ -388,8 +388,8 @@ static const char * free_str = "\x1b[32mFREE\x1b[0m";
 static const char * used_str = "\x1b[31mUSED\x1b[0m";
 static const char * free_blk = "\x1b[32m\u2588\x1b[0m";
 static const char * used_blk = "\x1b[31m\u2588\x1b[0m";
-static const char * free_end = "\x1b[32m\u2589\x1b[0m";
-static const char * used_end = "\x1b[31m\u2589\x1b[0m";
+static const char * free_end = "\x1b[32m+\x1b[0m";
+static const char * used_end = "\x1b[31m+\x1b[0m";
 
 static void print_block(void * block_addr) {
   mem_block_t  block = *(mem_block_t*)block_addr;
