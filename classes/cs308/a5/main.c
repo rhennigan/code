@@ -1,9 +1,9 @@
 // main.c
 
+#define USE_COLOR_TERM
+
 #include <limits.h>
 #include "lib/mem.h"
-
-#define STEPS 8
 
 int main(int argc, char *argv[]) {
   /****************************************************************************/
