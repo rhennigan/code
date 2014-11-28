@@ -124,9 +124,7 @@ int main(int argc, char *argv[]) {
   /* OUTPUT                                                                   */
   /****************************************************************************/
   print_mem_config();
-  print_output(0, i-1);
-  list_dump(memory_block_list);
-  md_full();
+  if (argc != 5) { print_output(0, i-1); md_full(); }
   
   int tg = total_granted();
   printf("total_granted = %d\n", tg);
