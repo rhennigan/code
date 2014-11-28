@@ -135,7 +135,7 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
     free(next_block);                                // 5
     free(next_list);                                 // 6
 
-    merged = true;
+    return merge_block(curr_block);
   }
 
   /* See if block can be merged left */
