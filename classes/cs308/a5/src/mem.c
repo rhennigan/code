@@ -272,7 +272,7 @@ mem_block_t * allocate_memory(request_t * request) {
       break;
     case BUDDY_SYSTEM:
       target = first_free(request->size);
-      alloc_block = buddy_split(request);
+      alloc_block = split_block(target, request);
       break;
   }
   return alloc_block;
