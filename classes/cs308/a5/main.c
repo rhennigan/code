@@ -114,7 +114,7 @@ int main(int argc, char *argv[]) {
     /* Clean up */
     free(request);
 
-    if (argc == 5) { print_output(0, i); md_full(); }
+    if (argc == 5) { print_output(i, i); md_full(); }
   }
 
   list_t * tmp = list_reverse(history_list);
@@ -124,7 +124,8 @@ int main(int argc, char *argv[]) {
   /* OUTPUT                                                                   */
   /****************************************************************************/
   print_mem_config();
-  if (argc != 5) { print_output(0, i-1); md_full(); }
+  print_output(0, i-1);
+  md_full();
   
   int tg = total_granted();
   printf("total_granted = %d\n", tg);
