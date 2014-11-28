@@ -12,10 +12,10 @@ void check_links() {
     block->prev = prev;
     block->curr = curr;
     block->next = next;
-    int64_t paddr = prev ? rel_addr(block_from_list(prev)->addr) : 0;
-    int64_t caddr = curr ? rel_addr(block_from_list(curr)->addr) : 0;
-    int64_t naddr = next ? rel_addr(block_from_list(next)->addr) : 0;
-    printf("\"%lu\" -> \"%lu\", \"%lu\" -> \"%lu\",\n", caddr, paddr, caddr, naddr);
+    int64_t paddr = prev ? rel_addr(block_from_list(prev)->addr) : -1;
+    int64_t caddr = curr ? rel_addr(block_from_list(curr)->addr) : -1;
+    int64_t naddr = next ? rel_addr(block_from_list(next)->addr) : -1;
+    printf("\"%ld\" -> \"%ld\", \"%ld\" -> \"%ld\",\n", caddr, paddr, caddr, naddr);
     if (next == NULL) break;
     prev = curr;
     curr = next;
