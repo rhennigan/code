@@ -238,6 +238,10 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
 
   /*****************************************************************************/
   free(curr_list_node);
+
+  /* Might need to keep splitting if using buddy allocation */
+  
+
   return alloc_block;
 }
 
