@@ -400,7 +400,11 @@ static void print_block(void * block_addr) {
   double       pcnt = 100.0 * (double)size / (double)pool_size;
   const char * pstr = " %-4d%5s%9p%6lu%7luB%6.2f%%\n";
   printf(" %-4d", blid);
-  
+  printf("%5s", free);
+  printf("%9p", vadr);
+  printf("%6lu", addr);
+  printf("%7lu", size);
+  printf("%7lu", wrds);
   printf(pstr, blid, free, vadr, addr, size, pcnt);
 }
 
