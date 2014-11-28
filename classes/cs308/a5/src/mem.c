@@ -180,6 +180,10 @@ static bool larger(void * a, void * b) {
 }
 
 /******************************************************************************/
+static inline check_merge(list_t * block_list) {
+  
+}
+
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   if (block == NULL) return NULL;
 
