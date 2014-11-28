@@ -197,6 +197,8 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
                         req_words;
 
   if (req_size == block->size) {
+    block->id      = request->id;
+    block->is_free = false;
     return block;
   } else {
 
