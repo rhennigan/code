@@ -190,6 +190,9 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   mem_block_t * alloc_block = malloc(sizeof(mem_block_t));
   mem_block_t * rem_block   = malloc(sizeof(mem_block_t));
 
+  /* Block size */
+  words_t req_size = BYTES_TO_WORDS(request->size);
+
   /* Fill in new block information */
   alloc_block->id      = request->id;
   alloc_block->is_free = false;
