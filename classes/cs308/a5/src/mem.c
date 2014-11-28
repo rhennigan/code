@@ -82,7 +82,7 @@ static bool match_addr(void * block_list, void * r_addr) {
 }
 
 static inline bool is_right(mem_block_t * block) {
-  return WORDS_TO_BYTES(offset_addr(block->addr, memory_pool))/block->size % 2;
+  return offset_addr(block->addr, memory_pool)/block->size % 2;
 }
 
 static inline bool can_merge(mem_block_t * block, list_t * list) {
