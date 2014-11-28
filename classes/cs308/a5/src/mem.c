@@ -387,7 +387,7 @@ static inline int64_t offset_addr(void * a, void * base) {
 static void print_block(void * block_addr) {
   mem_block_t block = *(mem_block_t*)block_addr;
   int     blid = block.id;
-  char *  free = block.is_free ? "FREE" : "USED";
+  char *  free = block.is_free ? C_GREEN"FREE"C_RESET : C_RED"USED"C_RESET;
   int64_t addr = offset_addr(block.addr, memory_pool);
   bytes_t size = WORDS_TO_BYTES(block.size);
   double  pcnt = 100.0 * (double)size / (double)pool_size;
