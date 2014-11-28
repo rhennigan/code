@@ -81,6 +81,10 @@ static bool match_addr(void * block_list, void * r_addr) {
   return base_addr == block_addr;
 }
 
+static inline bool is_right(mem_block_t * block) {
+  return WORDS_TO_BYTES(offset_addr(block->addr, memory_pool)) / block->size % 2;
+}
+
 static inline bool can_merge(mem_block_t * block, list_t * list) {
   if (list == NULL || list_head(list) == NULL ||
       ((mem_block_t*)list_head(list)) == block ||
