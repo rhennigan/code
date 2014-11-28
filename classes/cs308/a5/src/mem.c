@@ -388,12 +388,12 @@ static const char * free_str = "\x1b[32mFREE\x1b[0m";
 static const char * used_str = "\x1b[31mUSED\x1b[0m";
 
 static void print_block(void * block_addr) {
-  mem_block_t block = *(mem_block_t*)block_addr;
-  int     blid = block.id;
-  char *  free = block.is_free ? free_str : used_str;
-  int64_t addr = offset_addr(block.addr, memory_pool);
-  bytes_t size = WORDS_TO_BYTES(block.size);
-  double  pcnt = 100.0 * (double)size / (double)pool_size;
+  mem_block_t  block = *(mem_block_t*)block_addr;
+  int          blid = block.id;
+  const char * free = block.is_free ? free_str : used_str;
+  int64_t      addr = offset_addr(block.addr, memory_pool);
+  bytes_t      size = WORDS_TO_BYTES(block.size);
+  double       pcnt = 100.0 * (double)size / (double)pool_size;
   printf(" %-6d\t%10s\t%10lu\t%8lu B\t%5.2f%%\n", blid, free, addr, size, pcnt);
 }
 
