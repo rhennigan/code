@@ -121,7 +121,9 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
       mem_block_t * new_next_block = list_head(new_next_list);
       new_next_block->prev = curr_list;              // 4
 
-      curr_block = merge_block(curr_block);
+      if (can_merge(curr_list)) {
+        curr_block = merge_block(curr_block);
+      }
       /* /\* Recursively merge right *\/ */
       /* if (new_next_block->is_free) { */
       /*   new_next_block = merge_block(new_next_block); */
