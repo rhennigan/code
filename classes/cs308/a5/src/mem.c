@@ -419,7 +419,7 @@ void md_full() {
            alloc, free, avail);
 
   printf("\n\n");
-  print_boxed(label, 64, 0);
+  print_boxed(label, 66, 0);
   printf(" ");
   list_iter(memory_block_list, &print_mem_gfx);
   printf("\n");
