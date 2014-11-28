@@ -62,6 +62,9 @@ static inline uint64_t void_to_num(void * v) { return (uint64_t)v; }
 static inline int64_t offset_addr(void * a, void * base) {
   return void_to_num(a) - void_to_num(base);
 }
+int64_t rel_addr(void * a) {
+  return void_to_num(a) - void_to_num(memory_pool);
+}
 
 /******************************************************************************/
 /* FREEING FUNCTIONS                                                          */
