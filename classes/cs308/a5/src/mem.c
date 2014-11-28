@@ -300,7 +300,7 @@ void fix_links() {
     block->prev = prev;
     block->curr = curr;
     block->next = next;
-    merge_block(block);
+    if (block->is_free) merge_block(block);
     if (next == NULL) break;
     prev = curr;
     curr = next;
