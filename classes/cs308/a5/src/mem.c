@@ -395,12 +395,14 @@ static void print_block(void * block_addr) {
   const char * free = block.is_free ? free_str : used_str;
   void *       vadr = block.addr;
   int64_t      addr = offset_addr(block.addr, memory_pool);
+  void *       vrel = (void *)addr;
   bytes_t      size = WORDS_TO_BYTES(block.size);
   words_t      wrds = block.size;
   double       pcnt = 100.0 * (double)size / (double)pool_size;
   printf(" %-4d", blid);
   printf("%5s", free);
   printf("%9p", vadr);
+  printf("%9p", vrel);
   printf("%6lu", addr);
   printf("%7lu", size);
   printf("%7lu", wrds);
