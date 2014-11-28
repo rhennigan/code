@@ -384,13 +384,13 @@ static inline int64_t offset_addr(void * a, void * base) {
   return void_to_num(a) - void_to_num(base);
 }
 
-const char * free_str = "\x1b[32mFREE\x1b[0m";
-const char * used_str = "\x1b[31mUSED\x1b[0m";
+static const char * free_str = "\x1b[32mFREE\x1b[0m";
+static const char * used_str = "\x1b[31mUSED\x1b[0m";
 
 static void print_block(void * block_addr) {
   mem_block_t block = *(mem_block_t*)block_addr;
   int     blid = block.id;
-  char *  free = block.is_free ? C_GREEN"FREE"C_RESET : C_RED"USED"C_RESET;
+  char *  free = block.is_free ? free_str : used_str;
   int64_t addr = offset_addr(block.addr, memory_pool);
   bytes_t size = WORDS_TO_BYTES(block.size);
   double  pcnt = 100.0 * (double)size / (double)pool_size;
