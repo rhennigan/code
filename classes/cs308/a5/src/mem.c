@@ -192,7 +192,11 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
 
   /* Block size */
   words_t req_words = BYTES_TO_WORDS(request->size);
-  words_t req_size = policy == BUDDY_SYSTEM ? block->size >> 1 > req_words ? block->size >> 1 : block->size : BYTES_TO_WORDS(request->size);
+  words_t req_size = policy == BUDDY_SYSTEM ?
+                     block->size >> 1 > req_words ?
+                     block->size >> 1 :
+                     block->size :
+                     req_words;
 
   /* Fill in new block information */
   alloc_block->id      = request->id;
