@@ -388,8 +388,6 @@ static const char * free_str = "\x1b[32mFREE\x1b[0m";
 static const char * used_str = "\x1b[31mUSED\x1b[0m";
 static const char * free_blk = "\x1b[32m\u2588\x1b[0m";
 static const char * used_blk = "\x1b[31m\u2588\x1b[0m";
-static const char * free_end = "\x1b[32m+\x1b[0m";
-static const char * used_end = "\x1b[31m+\x1b[0m";
 
 static void print_block(void * block_addr) {
   mem_block_t  block = *(mem_block_t*)block_addr;
@@ -405,11 +403,9 @@ static void print_mem_gfx(void * block_addr) {
   mem_block_t  block = *(mem_block_t*)block_addr;
   bytes_t      bsize = 64 * WORDS_TO_BYTES(block.size);
   bytes_t      psize = pool_size;
-  int          p_cnt = bsize / psize - 1;
+  int          p_cnt = bsize / psize;
   const char * bchar = block.is_free ? free_blk : used_blk;
-  const char * echar = block.is_free ? free_end : used_end;
   for (int i = 0; i < p_cnt; i++) printf("%s", bchar);
-  printf("%s", echar);
 }
 
 void md_full() {
