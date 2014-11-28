@@ -95,7 +95,7 @@ static inline bool can_merge(mem_block_t * block, list_t * list) {
     if (block_right && !testb_right) {
       return block_addr - block->size == testb_addr;
     } else if (!block_right && testb_right) {
-      
+      return block_addr + block->size == testb_addr;
     } else {
       return false;
     }
