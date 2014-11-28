@@ -291,6 +291,10 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   }
 }
 
+void fix_links() {
+  list_t * curr = memory_block_list;
+}
+
 /******************************************************************************/
 /* static mem_block_t * buddy_split(request_t * request) { */
 /*   assert(request != NULL); */
