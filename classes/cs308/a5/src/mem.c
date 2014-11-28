@@ -159,11 +159,9 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
     free(curr_block);                                // 5
     free(curr_list);                                 // 6
 
-    merged = true;
-
-    return prev_block;
+    return merge_block(prev_block);
   } else {
-    return merged ? merge_block(curr_block) : curr_block;
+    return curr_block;
   }
 }
 
