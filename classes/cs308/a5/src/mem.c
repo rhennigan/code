@@ -66,6 +66,10 @@ int64_t rel_addr(void * a) {
   return void_to_num(a) - void_to_num(memory_pool);
 }
 
+mem_block_t * block_from_list(list_t * list) {
+  return list ? list_head(list) : NULL;
+}
+
 /******************************************************************************/
 /* FREEING FUNCTIONS                                                          */
 /******************************************************************************/
