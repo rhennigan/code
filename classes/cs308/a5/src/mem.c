@@ -203,7 +203,7 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
 
   rem_block->id        = NOBODY;
   rem_block->is_free   = true;
-  rem_block->addr      = (char*)block->addr + request->size;
+  rem_block->addr      = (char*)block->addr + req_size;
   rem_block->size      = block->size - alloc_block->size;
 
   /**************** Update list pointers ***************************************/
