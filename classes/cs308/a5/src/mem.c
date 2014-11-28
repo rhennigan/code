@@ -135,7 +135,7 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   }
 
   /* See if block can be merged left */
-  if (can_merge_b(curr_block, next_list)) {
+  if (can_merge_b(curr_block, prev_list)) {
     mem_block_t * prev_block = list_head(prev_list);
     prev_block->size += curr_block->size;            // 1
 
