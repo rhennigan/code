@@ -420,7 +420,10 @@ void md_full() {
 
   printf("\n\n");
   print_boxed(label, 66, 0);
-  
+
+  printf("%s", B_TL);
+  for (int i = 0; i < 64; i++) printf("%s", B_HR);
+  printf("%s\n", B_TR);
   printf("%s ", B_VT);
   list_iter(memory_block_list, &print_mem_gfx);
   printf("\n");
