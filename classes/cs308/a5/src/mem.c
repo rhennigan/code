@@ -198,9 +198,7 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
 
   if (req_size == block->size) return block;
 
-  list_t * prev_list_node = block->prev;
-  list_t * curr_list_node = block->curr;
-  list_t * next_list_node = block->next;
+  
 
   mem_block_t * alloc_block = malloc(sizeof(mem_block_t));
   mem_block_t * rem_block   = malloc(sizeof(mem_block_t));
@@ -215,6 +213,10 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   rem_block->is_free   = true;
   rem_block->addr      = (char*)block->addr + req_size;
   rem_block->size      = block->size - alloc_block->size;
+
+  list_t * prev_list_node = block->prev;
+  list_t * curr_list_node = block->curr;
+  list_t * next_list_node = block->next;
 
   /**************** Update list pointers ***************************************/
   /* (1, prev) -> (2, alloc) -> (3, rem) -> (4, next)                          */
