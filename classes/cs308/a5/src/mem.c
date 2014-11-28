@@ -80,7 +80,8 @@ static inline bool can_merge(list_t * block_list) {
       && list_head(block_list) != NULL) {
     mem_block_t * block = list_head(block_list);
     bytes_t base_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
-    void * buddy_addr = this_block.addr ^ 
+    bytes_t buddy_addr = base_addr ^ block->size;
+    list_t * buddy_lst = list_find(memory_block_list, 
     return true;
   } else {
     return block_list != NULL
