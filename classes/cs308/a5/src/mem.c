@@ -255,6 +255,8 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
       next_block->prev = rem_list_node;                                      // 4
     }
 
+    rem_block = merge_block(rem_block);
+
     /***************************************************************************/
     free(curr_list_node);
 
