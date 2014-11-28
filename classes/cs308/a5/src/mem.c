@@ -74,7 +74,7 @@ static bool match_ref(void * block_list, void * ref_addr) {
 
 // static void print_block(void * block_addr);
 
-static bool match_rel_addr(void * block_list, void * r_addr) {
+static bool match_addr(void * block_list, void * r_addr) {
   bytes_t base_addr = *(bytes_t *)r_addr;
   mem_block_t *block = (mem_block_t*)list_head(block_list);
   bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
@@ -88,8 +88,12 @@ static inline bool can_merge(list_t * block_list) {
     mem_block_t * block = list_head(block_list);
     bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
     bytes_t buddy_addr = block_addr ^ block->size;
-    list_t * buddy_lst = list_find(memory_block_list, 
-    return true;
+    list_t * buddy_lst = list_find(memory_block_list, &buddy_addr, &match_addr);
+    if (buddy_lst == NULL) {
+      return false;
+    } else {
+      return true;
+    }
   } else {
     return block_list != NULL
         && list_head(block_list) != NULL
