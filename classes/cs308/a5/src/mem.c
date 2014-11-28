@@ -295,13 +295,12 @@ void fix_links() {
   list_t * prev = NULL;
   list_t * curr = memory_block_list;
   list_t * next = list_tail(curr);
-
-  while (next != NULL) {
+  while (1) {
     mem_block_t * block = ((mem_block_t*)list_head(curr));
     block->prev = prev;
     block->curr = curr;
     block->next = next;
-
+    if (next == NULL) break;
     prev = curr;
     curr = next;
     next = list_tail(next);
