@@ -401,14 +401,14 @@ static void print_block(void * block_addr) {
   bytes_t      size = WORDS_TO_BYTES(block.size);
   words_t      wrds = block.size;
   double       pcnt = 100.0 * (double)size / (double)pool_size;
-  printf(" %-4d", blid);
-  printf("%5s", free);
-  printf("%9p", vadr);
-  printf("%9p", vrel);
-  printf("%6lu", addr);
-  printf("%7lu", size);
-  printf("%7lu", wrds);
-  printf("%6.2f%%", pcnt);
+  printf(" %-5d", blid);
+  printf("%6s", free);
+  printf("%10p", vadr);
+  printf("%10p", vrel);
+  printf("%7lu", addr);
+  printf("%8lu", size);
+  printf("%8lu", wrds);
+  printf("%7.2f%%", pcnt);
   printf("\n");
 }
 
