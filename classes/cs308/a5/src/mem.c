@@ -243,7 +243,7 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   free(curr_list_node);
 
   /* Might need to keep splitting if using buddy allocation */
-  if (alloc_block->size >> 1 > BYTES_TO_WORDS(request->size)) {
+  if (alloc_block->size >> 1 > req_words) {
     return split_block(alloc_block, request);
   } else {
     return alloc_block;
