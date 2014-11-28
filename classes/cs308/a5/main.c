@@ -72,6 +72,7 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   int i;
   for (i = 0; argc == 5 ? i < atoi(argv[4]) : true; i++) {
+    fix_links();
     request_t * request = load_request(req_file);
     if (request == NULL) break;
     
