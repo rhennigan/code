@@ -16,7 +16,7 @@ void check_links() {
     int64_t naddr = next ? rel_addr(block_from_list(next)->addr) : -1;
     /* printf("\"%ld\" -> \"%ld\", \"%ld\" -> \"%ld\",\n",
        caddr, paddr, caddr, naddr); */
-    bool pair = caddr ^ block->size == naddr;
+    bool pair = (int64_t)(caddr ^ block->size) == naddr;
     printf("%s%ld -> %ld: xor = %ld, addr = %ld\n",
            pair ? C_GREEN : C_RESET,
            WORDS_TO_BYTES(caddr), WORDS_TO_BYTES(naddr),
