@@ -394,6 +394,7 @@ static void print_block(void * block_addr) {
   int          blid = block.id;
   const char * free = block.is_free ? free_str : used_str;
   int64_t      addr = offset_addr(block.addr, memory_pool);
+  void *       vadr = block.addr;
   bytes_t      size = WORDS_TO_BYTES(block.size);
   double       pcnt = 100.0 * (double)size / (double)pool_size;
   printf(" %-6d\t%10s\t%10lu\t%8lu B\t%5.2f%%\n", blid, free, addr, size, pcnt);
