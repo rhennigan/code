@@ -402,8 +402,8 @@ static void print_block(void * block_addr) {
   words_t      wrds = block.size;
   double       pcnt = 100.0 * (double)size / (double)pool_size;
   printf(" %-5d", blid);
-  printf("%6s", free);
-  printf("%10p", vadr);
+  printf("%8s", free);
+  printf("%11p", vadr);
   printf("%10p", vrel);
   printf("%7lu", addr);
   printf("%8lu", size);
