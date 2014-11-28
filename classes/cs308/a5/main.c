@@ -12,7 +12,7 @@ void check_links() {
     block->prev = prev;
     block->curr = curr;
     block->next = next;
-    printf("%p -> %p -> %p\n", prev, curr, next);
+    printf("\"%p -> %p\", \"%p -> %p\"\n", prev, curr, curr, next);
     if (next == NULL) break;
     prev = curr;
     curr = next;
