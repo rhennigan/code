@@ -426,6 +426,8 @@ void md_full() {
   printf("%s\n%s ", B_TR, B_VT);
   list_iter(memory_block_list, &print_mem_gfx);
   printf(" %s\n%s", B_VT, B_BL);
+  for (int i = 0; i < 65; i++) printf("%s", B_HR);
+  printf("%s\n", B_BR);
 
   list_iter(memory_block_list, &print_block);
   printf("\n\n");
