@@ -401,6 +401,7 @@ static void print_block(void * block_addr) {
 
 static void print_mem_gfx(void * block_addr) {
   mem_block_t  block = *(mem_block_t*)block_addr;
+  bytes_t      bsize = WORDS_TO_BYTES(block.size);
   const char * bchar = block.is_free ? free_blk : used_blk;
   printf("%s", bchar);
 }
@@ -417,6 +418,7 @@ void md_full() {
 
   printf("\n\n");
   print_boxed(label, 64, 0);
+  
   list_iter(memory_block_list, &print_block);
   printf("\n\n");
 }
