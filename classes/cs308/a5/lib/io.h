@@ -46,6 +46,12 @@
   #define C_RESET   ""
 #endif
 
+#define WAIT() do {                                     \
+    char ch;                                            \
+    printf("Press [ENTER] to continue...");             \
+    fflush(stdout);                                     \
+    while ((ch = getchar()) != '\n' && ch != EOF) {}    \
+  } while (0);
 
 /******************************************************************************/
 void print_boxed(const char * label, size_t width, size_t pad);
