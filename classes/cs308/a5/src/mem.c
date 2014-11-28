@@ -297,6 +297,8 @@ void fix_links() {
   list_t * next = list_tail(curr);
   
   ((mem_block_t*)list_head(curr))->curr = curr;
+  ((mem_block_t*)list_head(curr))->curr = curr;
+  ((mem_block_t*)list_head(curr))->curr = curr;
   if (next == NULL) {
     return;
   }
