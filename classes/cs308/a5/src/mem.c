@@ -431,9 +431,8 @@ static void print_mem_gfx(void * block_addr) {
   bytes_t end_addr   = base_addr + block_size;
   size_t start_step  = base_addr / step_size;
   size_t end_step    = end_addr / step_size;
-  int          p_cnt = block_count * block_size / pool_size;
   const char * bchar = block.is_free ? free_blk : used_blk;
-  for (int i = 0; i < p_cnt; i++) printf("%s", bchar);
+  for (size_t i = start_step; i < end_step; i++) printf("%s", bchar);
 }
 
 static inline void mem_bar_gfx() {
