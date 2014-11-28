@@ -1,8 +1,5 @@
 // main.c
 
-#define USE_COLOR_TERM
-
-#include <limits.h>
 #include "lib/mem.h"
 
 int main(int argc, char *argv[]) {

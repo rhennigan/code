@@ -3,6 +3,8 @@
 #ifndef LIB_IO_H_
 #define LIB_IO_H_
 
+#define USE_COLOR_TERM
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
