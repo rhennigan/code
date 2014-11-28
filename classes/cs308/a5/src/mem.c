@@ -414,7 +414,7 @@ static void print_block(void * block_addr) {
 
 static void print_mem_gfx(void * block_addr) {
   mem_block_t  block = *(mem_block_t*)block_addr;
-  bytes_t      bsize = 64 * WORDS_TO_BYTES(block.size);
+  bytes_t      bsize = 64 * WORDS_TO_BYTES(block.size) - 1;
   bytes_t      psize = pool_size;
   int          p_cnt = bsize / psize;
   const char * bchar = block.is_free ? free_blk : used_blk;
