@@ -19,6 +19,7 @@ void check_links() {
     bool pair = (int64_t)(caddr ^ block->size) == naddr;
     bool cfree = curr ? block_from_list(curr)->is_free : false;
     bool nfree = next ? block_from_list(next)->is_free : false;
+    bool merge = pair && cfree && nfree;
     printf("%s%ld -> %ld: xor = %ld, addr = %ld\n",
            pair && cfree && nfree ? C_GREEN : C_RESET,
            WORDS_TO_BYTES(caddr), WORDS_TO_BYTES(naddr),
