@@ -422,12 +422,16 @@ static void print_block(void * block_addr) {
   printf("\n");
 }
 
+static const int block_count = 64;
 static void print_mem_gfx(void * block_addr) {
   mem_block_t  block = *(mem_block_t*)block_addr;
-  bytes_t      bsize = 64 * WORDS_TO_BYTES(block.size);
+  bytes_t      bsize = WORDS_TO_BYTES(block.size);
   bytes_t      psize = pool_size;
-  bytes_t      steps = pool_size / 64;
-  int          p_cnt = bsize / psize;
+  bytes_t      steps = pool_size / block_count;
+  bytes_t      baddr = WORDS_TO_BYTES(offset_addr(block.addr, memory_pool));
+  bytes_t      eaddr = 
+  size_t       start = baddr / steps;
+  int          p_cnt = block_count * bsize / psize;
   const char * bchar = block.is_free ? free_blk : used_blk;
   for (int i = 0; i < p_cnt; i++) printf("%s", bchar);
 }
