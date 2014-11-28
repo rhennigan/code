@@ -94,7 +94,9 @@ static inline bool can_merge(list_t * block_list) {
         && ((mem_block_t*)list_head(block_list))->is_free
         && ((mem_block_t*)list_head(buddy_lst))->is_free;
   } else {
-    return ((mem_block_t*)list_head(block_list))->is_free;
+    return block_list != NULL
+        && list_head(block_list) != NULL
+        && ((mem_block_t*)list_head(block_list))->is_free;
   }
 }
 
