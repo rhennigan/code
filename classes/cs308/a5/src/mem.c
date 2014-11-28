@@ -403,8 +403,9 @@ static void print_mem_gfx(void * block_addr) {
   mem_block_t  block = *(mem_block_t*)block_addr;
   bytes_t      bsize = 64 * WORDS_TO_BYTES(block.size);
   bytes_t      psize = 64 * pool_size;
+  size_t       p_cnt = bsize / psize;
   const char * bchar = block.is_free ? free_blk : used_blk;
-  printf("%s", bchar);
+  for (size_t i = 0; i < p_cnt; i++) printf("%s", bchar);
 }
 
 void md_full() {
