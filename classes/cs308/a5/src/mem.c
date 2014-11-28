@@ -403,11 +403,11 @@ static void print_block(void * block_addr) {
   double       pcnt = 100.0 * (double)size / (double)pool_size;
   printf(" %-5d", blid);
   printf("%8s", free);
-  printf("%11p", vadr);
+  printf("%12p", vadr);
   printf("%10p", vrel);
   printf("%7lu", addr);
-  printf("%8lu", size);
-  printf("%8lu", wrds);
+  printf("%9luB", size);
+  printf("%8luW", wrds);
   printf("%7.2f%%", pcnt);
   printf("\n");
 }
