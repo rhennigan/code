@@ -429,7 +429,8 @@ static void print_mem_gfx(void * block_addr) {
   bytes_t step_size  = pool_size / block_count;
   bytes_t base_addr  = WORDS_TO_BYTES(offset_addr(block.addr, memory_pool));
   bytes_t end_addr   = base_addr + block_size;
-  size_t       start = baddr / step_size;
+  size_t start_step  = base_addr / step_size;
+  size_t end_step    = end_addr / step_size;
   int          p_cnt = block_count * block_size / pool_size;
   const char * bchar = block.is_free ? free_blk : used_blk;
   for (int i = 0; i < p_cnt; i++) printf("%s", bchar);
