@@ -458,6 +458,7 @@ static void print_block(void * block_addr) {
   mem_block_t  block = *(mem_block_t*)block_addr;
   int          blid = block.id;
   const char * free = block.is_free ? free_str : used_str;
+  char         side = is_right(&block) ? 'R' : 'L';
   void *       vadr = block.addr;
   int64_t      addr = WORDS_TO_BYTES(offset_addr(block.addr, memory_pool));
   void *       vrel = (void *)addr;
