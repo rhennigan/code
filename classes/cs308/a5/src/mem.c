@@ -83,6 +83,7 @@ static bool match_addr(void * block_list, void * r_addr) {
 
 static inline bool can_merge(mem_block_t * block, list_t * list) {
   if (list == NULL || list_head(list) == NULL ||
+      ((mem_block_t*)list_head(list)) == block ||
       !((mem_block_t*)list_head(list))->is_free) {
     return false;
   } else {
