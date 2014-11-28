@@ -248,27 +248,27 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
 }
 
 /******************************************************************************/
-static mem_block_t * buddy_split(request_t * request) {
-  assert(request != NULL);
-  bytes_t size = request->size;
-  list_t * tmp = list_filter(memory_block_list, &is_valid, &size);
-  if (tmp == NULL) {
-    return NULL;
-  } else {
-    mem_block_t * block = list_head(tmp);
-    words_t req_words = BYTES_TO_WORDS(size);
-    assert(block != NULL);
+/* static mem_block_t * buddy_split(request_t * request) { */
+/*   assert(request != NULL); */
+/*   bytes_t size = request->size; */
+/*   list_t * tmp = list_filter(memory_block_list, &is_valid, &size); */
+/*   if (tmp == NULL) { */
+/*     return NULL; */
+/*   } else { */
+/*     mem_block_t * block = list_head(tmp); */
+/*     words_t req_words = BYTES_TO_WORDS(size); */
+/*     assert(block != NULL); */
 
-    while ((req_words << 1) < block->size) {  // block can be split
-      bytes_t   s_bytes   = WORDS_TO_BYTES(block->size >> 1);
-      request_t split_req = { NOBODY, ALLOC, s_bytes, 0 };
-      block = split_block(block, &split_req);
-      if (block != NULL) block->id = request->id;
-    }
+/*     while ((req_words << 1) < block->size) {  // block can be split */
+/*       bytes_t   s_bytes   = WORDS_TO_BYTES(block->size >> 1); */
+/*       request_t split_req = { NOBODY, ALLOC, s_bytes, 0 }; */
+/*       block = split_block(block, &split_req); */
+/*       if (block != NULL) block->id = request->id; */
+/*     } */
     
-    return block;
-  }
-}
+/*     return block; */
+/*   } */
+/* } */
 
 mem_block_t * allocate_memory(request_t * request) {
   mem_block_t * target, * alloc_block = NULL;
