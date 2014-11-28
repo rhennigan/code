@@ -408,6 +408,16 @@ static void print_mem_gfx(void * block_addr) {
   for (int i = 0; i < p_cnt; i++) printf("%s", bchar);
 }
 
+static inline void mem_bar_gfx() {
+  printf("%s", B_TL);
+  for (int i = 0; i < 65; i++) printf("%s", B_HR);
+  printf("%s\n%s ", B_TR, B_VT);
+  list_iter(memory_block_list, &print_mem_gfx);
+  printf(" %s\n%s", B_VT, B_BL);
+  for (int i = 0; i < 65; i++) printf("%s", B_HR);
+  printf("%s\n", B_BR);
+}
+
 void md_full() {
   char label[66];
   size_t free  = blocks_free();
@@ -420,16 +430,8 @@ void md_full() {
 
   printf("\n\n");
   print_boxed(label, 67, 0);
-
-  printf("%s", B_TL);
-  for (int i = 0; i < 65; i++) printf("%s", B_HR);
-  printf("%s\n%s ", B_TR, B_VT);
-  list_iter(memory_block_list, &print_mem_gfx);
-  printf(" %s\n%s", B_VT, B_BL);
-  for (int i = 0; i < 65; i++) printf("%s", B_HR);
-  printf("%s\n", B_BR);
-
   list_iter(memory_block_list, &print_block);
+  mem_bar_gfx();
   printf("\n\n");
 }
 
