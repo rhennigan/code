@@ -462,7 +462,7 @@ void print_mem_config() {
 static inline void print_row(int row) {
   int     sn = req_history[row].req_id;
   bytes_t sz = req_history[row].req_size;
-  int64_t ad = offset_addr(req_history[row].req_addr, memory_pool);
+  int64_t ad = offset_addr(req_history[row].req_addr, memory_pool) * WORD_SIZE_BYTES;
   bytes_t tf = WORDS_TO_BYTES(req_history[row].total_free);
   bytes_t lp = WORDS_TO_BYTES(req_history[row].max_free);
   char    rq[6];
