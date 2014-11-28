@@ -294,7 +294,7 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
 void fix_links() {
   list_t * curr = memory_block_list;
   list_t * next = list_tail(curr);
-  if (() == NULL) {
+  if (next == NULL) {
     return;
   }
 }
