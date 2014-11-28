@@ -396,7 +396,7 @@ static void print_block(void * block_addr) {
   int          blid = block.id;
   const char * free = block.is_free ? free_str : used_str;
   void *       vadr = block.addr;
-  int64_t      addr = offset_addr(block.addr, memory_pool);
+  int64_t      addr = WORDS_TO_BYTES(offset_addr(block.addr, memory_pool));
   void *       vrel = (void *)addr;
   bytes_t      size = WORDS_TO_BYTES(block.size);
   words_t      wrds = block.size;
