@@ -18,7 +18,8 @@ void check_links() {
     /* printf("\"%ld\" -> \"%ld\", \"%ld\" -> \"%ld\",\n",
        caddr, paddr, caddr, naddr); */
     printf("%ld -> %ld: xor = %ld, size = %ld\n",
-           caddr, naddr, caddr ^ naddr, block->size);
+           WORDS_TO_BYTES(caddr), WORDS_TO_BYTES(naddr),
+           caddr ^ naddr, block->size);
     if (next == NULL) break;
     prev = curr;
     curr = next;
