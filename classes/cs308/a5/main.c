@@ -17,6 +17,7 @@ void check_links() {
     /* printf("\"%ld\" -> \"%ld\", \"%ld\" -> \"%ld\",\n",
        caddr, paddr, caddr, naddr); */
     bool pair = (int64_t)(caddr ^ block->size) == naddr;
+    bool free = curr ? block_from_list(curr)->is_free : false;
     printf("%s%ld -> %ld: xor = %ld, addr = %ld\n",
            pair ? C_GREEN : C_RESET,
            WORDS_TO_BYTES(caddr), WORDS_TO_BYTES(naddr),
