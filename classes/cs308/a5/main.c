@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* READ COMMAND LINE ARGUMENTS                                              */
   /****************************************************************************/
-  if (argc != 4) {
+  if (argc < 4 || argc > 5) {
     print_usage(argv[0]);
     exit(EXIT_FAILURE);
   }  // end if (argc != 4)
