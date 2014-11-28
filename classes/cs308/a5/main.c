@@ -12,7 +12,9 @@ void check_links() {
     block->prev = prev;
     block->curr = curr;
     block->next = next;
-    int64_t paddr = prev ? rel_addr((mem_block_t*)list_head(prev)->addr) : 0;
+    int64_t paddr = prev ? rel_addr(block_from_list(prev)->addr) : 0;
+    int64_t caddr = curr ? rel_addr(block_from_list(curr)->addr) : 0;
+    int64_t naddr = next ? rel_addr(block_from_list(next)->addr) : 0;
     printf("\"%p\" -> \"%p\", \"%p\" -> \"%p\",\n", curr, prev, curr, next);
     if (next == NULL) break;
     prev = curr;
