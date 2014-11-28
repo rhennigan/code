@@ -301,6 +301,10 @@ void fix_links() {
     block->prev = prev;
     block->curr = curr;
     block->next = next;
+
+    prev = curr;
+    curr = next;
+    next = list_tail(next);
   }
 }
 
