@@ -423,11 +423,11 @@ static void print_mem_gfx(void * block_addr) {
 
 static inline void mem_bar_gfx() {
   printf("%s", B_TL);
-  for (int i = 0; i < 65; i++) printf("%s", B_HR);
+  for (int i = 0; i < 66; i++) printf("%s", B_HR);
   printf("%s\n%s ", B_TR, B_VT);
   list_iter(memory_block_list, &print_mem_gfx);
   printf(" %s\n%s", B_VT, B_BL);
-  for (int i = 0; i < 65; i++) printf("%s", B_HR);
+  for (int i = 0; i < 66; i++) printf("%s", B_HR);
   printf("%s\n", B_BR);
 }
 
@@ -442,7 +442,7 @@ void md_full() {
            alloc, free, avail);
 
   printf("\n\n");
-  print_boxed(label, 67, 0);
+  print_boxed(label, 68, 0);
   list_iter(memory_block_list, &print_block);
   mem_bar_gfx();
   printf("\n\n");
