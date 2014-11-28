@@ -82,7 +82,7 @@ static bool match_addr(void * block_list, void * r_addr) {
 }
 
 static inline bool can_merge(list_t * block_list) {
-  if (false && policy == BUDDY_SYSTEM  /* temporarily disabled this part */
+  if (policy == BUDDY_SYSTEM
       && block_list != NULL
       && list_head(block_list) != NULL) {
     mem_block_t * block = list_head(block_list);
