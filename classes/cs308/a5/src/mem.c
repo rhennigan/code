@@ -287,7 +287,7 @@ static void * plus(void * x, void * y) {
 
 int total_granted() {
   int total = 0;
-  return *(int*)list_foldl(history_list, &total, &plus);
+  return *(int*)list_foldl(history_list, &total, &plus) - 1;
 }
 
 static void * p_req_size(void * x, void * y) {
