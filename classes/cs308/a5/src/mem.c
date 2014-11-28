@@ -90,6 +90,8 @@ static inline bool can_merge(mem_block_t * block, list_t * list) {
     mem_block_t * testb = list_head(list);
     bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
     bytes_t testb_addr = WORDS_TO_BYTES(offset_addr(testb->addr, memory_pool));
+    bool block_right = block_addr / block->size % 2;
+    bool testb_right = testb_addr / testb->size % 2;
     return (block_addr ^ block->size) == testb_addr;
   }
 }
