@@ -101,8 +101,13 @@ static inline bool can_merge(list_t * block_list) {
 }
 
 static inline bool can_merge_b(mem_block_t * block, list_t * list) {
-  bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
-  bytes_t buddy_addr = block_addr ^ block->size;
+  if (list == NULL || list_head(list) == NULL) {
+    return false;
+  } else {
+    mem_block_t * test_block = list_head(list);
+    bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
+    bytes_t buddy_addr = block_addr ^ block->size;
+  }
 }
 
 static inline mem_block_t * merge_block(mem_block_t * curr_block) {
