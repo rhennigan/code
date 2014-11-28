@@ -422,11 +422,10 @@ void md_full() {
   print_boxed(label, 66, 0);
 
   printf("%s", B_TL);
-  for (int i = 0; i < 64; i++) printf("%s", B_HR);
-  printf("%s\n", B_TR);
-  printf("%s ", B_VT);
+  for (int i = 0; i < 65; i++) printf("%s", B_HR);
+  printf("%s\n%s ", B_TR, B_VT);
   list_iter(memory_block_list, &print_mem_gfx);
-  printf("\n");
+  printf(" %s\n%s", B_VT, B_BL);
 
   list_iter(memory_block_list, &print_block);
   printf("\n\n");
