@@ -196,7 +196,7 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
                           block->size :
                         req_words;
 
-  if (req_size == req_words) return block;
+  if (req_size == block->size) return block;
 
   list_t * prev_list_node = block->prev;
   list_t * curr_list_node = block->curr;
