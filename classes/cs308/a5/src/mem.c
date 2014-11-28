@@ -103,8 +103,6 @@ static inline bool can_merge(mem_block_t * block, list_t * block_list) {
   }
 }
 
-
-
 static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   assert(curr_block != NULL);
   assert(curr_block->is_free);
@@ -114,9 +112,7 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   list_t * next_list = curr_block->next;
 
   /* See if block can be merged right */
-  if (policy == BUDDY_SYSTEM ?
-      can_merge_b(curr_block, next_list) :
-      can_merge(next_list)) {
+  if (can_merge_b(curr_block, next_list)) {
     mem_block_t * next_block = list_head(next_list);
     curr_block->size += next_block->size;            // 1
 
@@ -139,7 +135,7 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   }
 
   /* See if block can be merged left */
-  if (can_merge(prev_list)) {
+  if (can_merge_b(curr_block, next_list)) {
     mem_block_t * prev_block = list_head(prev_list);
     prev_block->size += curr_block->size;            // 1
 
