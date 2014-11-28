@@ -108,8 +108,6 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   assert(curr_block != NULL);
   assert(curr_block->is_free);
 
-  bool merged = false;
-
   list_t * prev_list = curr_block->prev;
   list_t * curr_list = curr_block->curr;
   list_t * next_list = curr_block->next;
