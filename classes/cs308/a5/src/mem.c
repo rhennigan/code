@@ -384,6 +384,9 @@ static inline int64_t offset_addr(void * a, void * base) {
   return void_to_num(a) - void_to_num(base);
 }
 
+const char * free_str = "\x1b[32mFREE\x1b[0m";
+const char * used_str = "\x1b[31mUSED\x1b[0m";
+
 static void print_block(void * block_addr) {
   mem_block_t block = *(mem_block_t*)block_addr;
   int     blid = block.id;
