@@ -81,7 +81,7 @@ static bool match_addr(void * block_list, void * r_addr) {
   return base_addr == block_addr;
 }
 
-static inline bool can_merge_b(mem_block_t * block, list_t * list) {
+static inline bool can_merge(mem_block_t * block, list_t * list) {
   if (list == NULL || list_head(list) == NULL ||
       !((mem_block_t*)list_head(list))->is_free) {
     return false;
@@ -114,7 +114,7 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   list_t * next_list = curr_block->next;
 
   /* See if block can be merged right */
-  if (can_merge_b(curr_block, next_list)) {
+  if (can_merge(curr_block, next_list)) {
     mem_block_t * next_block = list_head(next_list);
     curr_block->size += next_block->size;            // 1
 
@@ -127,17 +127,19 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
       new_next_block->prev = curr_list;              // 4
 
       /* Recursively merge right */
-      if (new_next_block->is_free) {
-        new_next_block = merge_block(new_next_block);
-      }
+      /* if (new_next_block->is_free) { */
+      /*   new_next_block = merge_block(new_next_block); */
+      /* } */
     }
 
     free(next_block);                                // 5
     free(next_list);                                 // 6
+
+    merged = true;
   }
 
   /* See if block can be merged left */
-  if (can_merge_b(curr_block, prev_list)) {
+  if (can_merge(curr_block, prev_list)) {
     mem_block_t * prev_block = list_head(prev_list);
     prev_block->size += curr_block->size;            // 1
 
@@ -150,9 +152,9 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
       new_next_block->prev = prev_list;              // 4
 
       /* Recursively merge left */
-      if (new_next_block->is_free) {
-        new_next_block = merge_block(new_next_block);
-      }
+      /* if (new_next_block->is_free) { */
+      /*   new_next_block = merge_block(new_next_block); */
+      /* } */
     }
 
     free(curr_block);                                // 5
