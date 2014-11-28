@@ -107,7 +107,7 @@ static inline bool can_merge_b(mem_block_t * block, list_t * list) {
     mem_block_t * testb = list_head(list);
     bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
     bytes_t testb_addr = WORDS_TO_BYTES(offset_addr(testb->addr, memory_pool));
-    bytes_t buddy_addr = block_addr ^ block->size;
+    return (block_addr ^ block->size) == testb_addr;
   }
 }
 
