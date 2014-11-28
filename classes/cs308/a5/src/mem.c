@@ -94,6 +94,11 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
     if (new_next_list != NULL && list_head(new_next_list) != NULL) {
       mem_block_t * new_next_block = list_head(new_next_list);
       new_next_block->prev = curr_list;              // 4
+
+      /* Recursively merge right */
+      if (new_next_block->is_free) {
+        new_next_block = merge_block(new_next_block);
+      }
     }
 
     free(next_block);                                // 5
@@ -180,10 +185,6 @@ static bool larger(void * a, void * b) {
 }
 
 /******************************************************************************/
-static inline check_merge(list_t * block_list) {
-  
-}
-
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   if (block == NULL) return NULL;
 
