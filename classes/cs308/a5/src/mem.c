@@ -312,7 +312,6 @@ void fix_links() {
     block->prev = prev;
     block->curr = curr;
     block->next = next;
-    if (block->is_free) merge_block(block);
     if (next == NULL) break;
     prev = curr;
     curr = next;
