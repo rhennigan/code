@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
   /* LOAD AND PROCESS REQUESTS                                                */
   /****************************************************************************/
   int i;
-  for (i = 0; true; i++) {
+  for (i = 0; argc == 5 ? i < atoi(argv[4]) : true; i++) {
     request_t * request = load_request(req_file);
     if (request == NULL) break;
     
