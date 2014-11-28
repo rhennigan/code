@@ -94,6 +94,8 @@ request_t *   load_request(FILE * file);
 mem_block_t * allocate_memory(request_t * request);
 mem_block_t * free_memory(request_t * request);
 void          fix_links();
+int64_t       rel_addr(void * a);
+mem_block_t * block_from_list(list_t * list);
 
 /******************************************************************************/
 words_t  total_free();
