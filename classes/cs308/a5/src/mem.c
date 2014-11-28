@@ -196,64 +196,67 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
                           block->size :
                         req_words;
 
-  if (req_size == block->size) return block;
-
-  /* Fill in new block information */
-  mem_block_t * alloc_block = req_size == block->size ? block :
-                              malloc(sizeof(mem_block_t));
-  alloc_block->id      = request->id;
-  alloc_block->is_free = false;
-  alloc_block->addr    = block->addr;
-  alloc_block->size    = req_size;
-
-  mem_block_t * rem_block   = malloc(sizeof(mem_block_t));
-  rem_block->id        = NOBODY;
-  rem_block->is_free   = true;
-  rem_block->addr      = (char*)block->addr + req_size;
-  rem_block->size      = block->size - alloc_block->size;
-
-  list_t * prev_list_node = block->prev;
-  list_t * curr_list_node = block->curr;
-  list_t * next_list_node = block->next;
-
-  /**************** Update list pointers ***************************************/
-  /* (1, prev) -> (2, alloc) -> (3, rem) -> (4, next)                          */
-  list_t *   rem_list_node = list_pre(next_list_node, rem_block);            // 3
-  list_t * alloc_list_node = list_pre(rem_list_node, alloc_block);           // 2
-  
-  if (prev_list_node == NULL) {  // curr_list_node is full memory_block_list
-    memory_block_list = alloc_list_node;
-  } else {  // otherwise insert new blocks after the previous node
-    prev_list_node->tail = alloc_list_node;                                  // 1
-  }
-
-  /**************** Update block pointers **************************************/
-  if (prev_list_node != NULL) {  // not at beginning of list
-    mem_block_t * prev_block = (mem_block_t *)prev_list_node->head;          // 1
-    prev_block->next = alloc_list_node;                                      // 1
-  }
-
-  alloc_block->prev =  prev_list_node;                                       // 2
-  alloc_block->curr = alloc_list_node;                                       // 2
-  alloc_block->next =   rem_list_node;                                       // 2
-
-  rem_block->prev   = alloc_list_node;                                       // 3
-  rem_block->curr   =   rem_list_node;                                       // 3
-  rem_block->next   =  next_list_node;                                       // 3
-
-  if (next_list_node != NULL) {                                              // 4
-    mem_block_t * next_block = (mem_block_t *)next_list_node->head;          // 4
-    next_block->prev = rem_list_node;                                        // 4
-  }
-
-  /*****************************************************************************/
-  free(curr_list_node);
-
-  /* Might need to keep splitting if using buddy allocation */
-  if (alloc_block->size >> 1 > req_words) {
-    return split_block(alloc_block, request);
+  if (req_size == block->size) {
+    return block;
   } else {
-    return alloc_block;
+
+    /* Fill in new block information */
+    mem_block_t * alloc_block = malloc(sizeof(mem_block_t));
+    mem_block_t * rem_block   = malloc(sizeof(mem_block_t));
+  
+    alloc_block->id      = request->id;
+    alloc_block->is_free = false;
+    alloc_block->addr    = block->addr;
+    alloc_block->size    = req_size;
+
+    rem_block->id        = NOBODY;
+    rem_block->is_free   = true;
+    rem_block->addr      = (char*)block->addr + req_size;
+    rem_block->size      = block->size - alloc_block->size;
+
+    list_t * prev_list_node = block->prev;
+    list_t * curr_list_node = block->curr;
+    list_t * next_list_node = block->next;
+
+    /**************** Update list pointers ***************************************/
+    /* (1, prev) -> (2, alloc) -> (3, rem) -> (4, next)                          */
+    list_t *   rem_list_node = list_pre(next_list_node, rem_block);            // 3
+    list_t * alloc_list_node = list_pre(rem_list_node, alloc_block);           // 2
+  
+    if (prev_list_node == NULL) {  // curr_list_node is full memory_block_list
+      memory_block_list = alloc_list_node;
+    } else {  // otherwise insert new blocks after the previous node
+      prev_list_node->tail = alloc_list_node;                                  // 1
+    }
+
+    /**************** Update block pointers **************************************/
+    if (prev_list_node != NULL) {  // not at beginning of list
+      mem_block_t * prev_block = (mem_block_t *)prev_list_node->head;          // 1
+      prev_block->next = alloc_list_node;                                      // 1
+    }
+
+    alloc_block->prev =  prev_list_node;                                       // 2
+    alloc_block->curr = alloc_list_node;                                       // 2
+    alloc_block->next =   rem_list_node;                                       // 2
+
+    rem_block->prev   = alloc_list_node;                                       // 3
+    rem_block->curr   =   rem_list_node;                                       // 3
+    rem_block->next   =  next_list_node;                                       // 3
+
+    if (next_list_node != NULL) {                                              // 4
+      mem_block_t * next_block = (mem_block_t *)next_list_node->head;          // 4
+      next_block->prev = rem_list_node;                                        // 4
+    }
+
+    /*****************************************************************************/
+    free(curr_list_node);
+
+    /* Might need to keep splitting if using buddy allocation */
+    if (alloc_block->size >> 1 > req_words) {
+      return split_block(alloc_block, request);
+    } else {
+      return alloc_block;
+    }
   }
 }
 
