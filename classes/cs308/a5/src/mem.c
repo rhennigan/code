@@ -199,7 +199,8 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   if (req_size == block->size) return block;
 
   /* Fill in new block information */
-  mem_block_t * alloc_block = malloc(sizeof(mem_block_t));
+  mem_block_t * alloc_block = req_size == block->size ? block :
+                              malloc(sizeof(mem_block_t));
   alloc_block->id      = request->id;
   alloc_block->is_free = false;
   alloc_block->addr    = block->addr;
