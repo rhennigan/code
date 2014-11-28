@@ -399,6 +399,12 @@ static void print_block(void * block_addr) {
   printf(" %-6d\t%10s\t%10lu\t%8lu B\t%5.2f%%\n", blid, free, addr, size, pcnt);
 }
 
+static void print_mem_gfx(void * block_addr) {
+  mem_block_t  block = *(mem_block_t*)block_addr;
+  const char * bchar = block.is_free ? free_blk : used_blk;
+  printf("%s", bchar);
+}
+
 void md_full() {
   char label[66];
   size_t free  = blocks_free();
