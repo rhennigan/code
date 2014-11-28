@@ -396,8 +396,11 @@ static void print_block(void * block_addr) {
   int64_t      addr = offset_addr(block.addr, memory_pool);
   void *       vadr = block.addr;
   bytes_t      size = WORDS_TO_BYTES(block.size);
+  words_t      wrds = block.size;
   double       pcnt = 100.0 * (double)size / (double)pool_size;
   const char * pstr = " %-4d%5s%9p%6lu%7luB%6.2f%%\n";
+  printf(" %-4d", blid);
+  
   printf(pstr, blid, free, vadr, addr, size, pcnt);
 }
 
