@@ -17,6 +17,7 @@ void check_links() {
     int64_t naddr = next ? rel_addr(block_from_list(next)->addr) : -1;
     /* printf("\"%ld\" -> \"%ld\", \"%ld\" -> \"%ld\",\n",
        caddr, paddr, caddr, naddr); */
+    printf("%l\n", caddr ^ naddr);
     if (next == NULL) break;
     prev = curr;
     curr = next;
