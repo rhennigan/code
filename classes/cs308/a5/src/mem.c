@@ -69,7 +69,11 @@ static bool match_ref(void * block_list, void * ref_addr) {
 // static void print_block(void * block_addr);
 
 static inline bool can_merge(list_t * block_list) {
-  if (policy == BUDDY_SYSTEM) {
+  if (policy == BUDDY_SYSTEM
+      && block_list != NULL
+      && list_head(block_list) != NULL) {
+    mem_block_t * this_block = list_head(block_list);
+    void * buddy_addr =
     return true;
   } else {
     return block_list != NULL
