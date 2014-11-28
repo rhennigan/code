@@ -462,7 +462,7 @@ void print_mem_config() {
 static inline void print_row(int row) {
   int     sn = req_history[row].req_id;
   bytes_t sz = req_history[row].req_size;
-  void *  ad = offset_addr(req_history[row].req_addr, memory_pool);
+  int64_t ad = offset_addr(req_history[row].req_addr, memory_pool);
   bytes_t tf = WORDS_TO_BYTES(req_history[row].total_free);
   bytes_t lp = WORDS_TO_BYTES(req_history[row].max_free);
   char    rq[6];
@@ -481,7 +481,7 @@ static inline void print_row(int row) {
   printf("%1s %-9d %s",   " ", sn, B_VT);
   printf("%1s %-6s %s",   " ", rq, B_VT);
   printf("%1s %9lu B %s", " ", sz, B_VT);
-  printf("%1s %-9p %s",   " ", ad, B_VT);
+  printf("%1s %-9ld %s",   " ", ad, B_VT);
   printf("%1s %7lu B %s", " ", tf, B_VT);
   printf("%1s %9lu B %s", " ", lp, B_VT);
   printf("\n");
