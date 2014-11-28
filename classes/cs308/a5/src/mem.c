@@ -81,25 +81,6 @@ static bool match_addr(void * block_list, void * r_addr) {
   return base_addr == block_addr;
 }
 
-static inline bool can_merge(list_t * block_list) {
-  if (policy == BUDDY_SYSTEM
-      && block_list != NULL
-      && list_head(block_list) != NULL) {
-    mem_block_t * block = list_head(block_list);
-    bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
-    bytes_t buddy_addr = block_addr ^ block->size;
-    list_t * buddy_lst = list_find(memory_block_list, &buddy_addr, &match_addr);
-    return buddy_lst != NULL
-        && list_head(buddy_lst) != NULL
-        && ((mem_block_t*)list_head(block_list))->is_free
-        && ((mem_block_t*)list_head(buddy_lst))->is_free;
-  } else {
-    return block_list != NULL
-        && list_head(block_list) != NULL
-        && ((mem_block_t*)list_head(block_list))->is_free;
-  }
-}
-
 static inline bool can_merge_b(mem_block_t * block, list_t * list) {
   if (list == NULL || list_head(list) == NULL ||
       !((mem_block_t*)list_head(list))->is_free) {
@@ -112,6 +93,18 @@ static inline bool can_merge_b(mem_block_t * block, list_t * list) {
   }
 }
 
+static inline bool can_merge(mem_block_t * block, list_t * block_list) {
+  if (policy == BUDDY_SYSTEM) {
+    return can_merge_b(block, block_list);
+  } else {
+    return block_list != NULL
+        && list_head(block_list) != NULL
+        && ((mem_block_t*)list_head(block_list))->is_free;
+  }
+}
+
+
+
 static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   assert(curr_block != NULL);
   assert(curr_block->is_free);
@@ -121,7 +114,9 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   list_t * next_list = curr_block->next;
 
   /* See if block can be merged right */
-  if (can_merge(next_list)) {
+  if (policy == BUDDY_SYSTEM ?
+      can_merge_b(curr_block, next_list) :
+      can_merge(next_list)) {
     mem_block_t * next_block = list_head(next_list);
     curr_block->size += next_block->size;            // 1
 
@@ -133,9 +128,6 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
       mem_block_t * new_next_block = list_head(new_next_list);
       new_next_block->prev = curr_list;              // 4
 
-      if (can_merge(curr_list)) {
-        curr_block = merge_block(curr_block);
-      }
       /* /\* Recursively merge right *\/ */
       /* if (new_next_block->is_free) { */
       /*   new_next_block = merge_block(new_next_block); */
@@ -159,7 +151,6 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
       mem_block_t * new_next_block = list_head(new_next_list);
       new_next_block->prev = prev_list;              // 4
 
-      curr_block = merge_block(curr_block);
       /* Recursively merge left */
       /* if (new_next_block->is_free) { */
       /*   new_next_block = merge_block(new_next_block); */
