@@ -93,6 +93,7 @@ extern bytes_t      nb;
 request_t *   load_request(FILE * file);
 mem_block_t * allocate_memory(request_t * request);
 mem_block_t * free_memory(request_t * request);
+void          fix_links();
 
 /******************************************************************************/
 words_t  total_free();
