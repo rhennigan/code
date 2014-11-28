@@ -191,8 +191,10 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   mem_block_t * rem_block   = malloc(sizeof(mem_block_t));
 
   /* Block size */
+  words_t req_words = BYTES_TO_WORDS(request->size);
   words_t req_size = policy == BUDDY_SYSTEM ?
-                     block->size >> 1 :
+      block->size >> 1 > BYTES_TO_WORDS(request->size) ?
+      :
                      BYTES_TO_WORDS(request->size);
 
   /* Fill in new block information */
