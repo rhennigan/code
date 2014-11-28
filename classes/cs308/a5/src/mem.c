@@ -90,16 +90,11 @@ static inline bool can_merge(list_t * block_list) {
     bytes_t buddy_addr = block_addr ^ block->size;
     list_t * buddy_lst = list_find(memory_block_list, &buddy_addr, &match_addr);
     return buddy_lst != NULL
-        && list_head(buddy_lst) != NULL;
-    if (buddy_lst == NULL) {
-      return false;
-    } else {
-      return true;
-    }
+        && list_head(buddy_lst) != NULL
+        && ((mem_block_t*)list_head(block_list))->is_free
+        && ((mem_block_t*)list_head(buddy_lst))->is_free;
   } else {
-    return block_list != NULL
-        && list_head(block_list) != NULL
-        && ((mem_block_t*)list_head(block_list))->is_free;
+    return ((mem_block_t*)list_head(block_list))->is_free;
   }
 }
 
