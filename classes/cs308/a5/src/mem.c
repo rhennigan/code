@@ -27,9 +27,6 @@ const char * req_type_names[] = {
   [NONE]  = "NONE"
 };
 
-
-
-
 /******************************************************************************/
 /* PRIVATE PROTOTYPES                                                         */
 /******************************************************************************/
@@ -502,8 +499,6 @@ size_t blocks_alloc() {
 /******************************************************************************/
 /* FORMATTING AND OUTPUT                                                      */
 /******************************************************************************/
-
-
 void print_usage(char * name) {
   printf("error reading arguments\n");
   printf("usage:\n");
@@ -514,9 +509,6 @@ void print_usage(char * name) {
 }
 
 /* Debugging info */
-
-/* static const char * free_blk = "\x1b[32m\u2591\x1b[0m"; */
-
 static void print_block(void * block_addr) {
   mem_block_t  block = *(mem_block_t*)block_addr;
   int          blid = block.id;

@@ -144,7 +144,6 @@ int main(int argc, char *argv[]) {
 
   int tg = total_granted();
 
-  WAIT();
   print_failed();
   printf("total_granted = %d\n", tg);
   
