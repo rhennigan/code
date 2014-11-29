@@ -102,16 +102,18 @@ size_t blocks_alloc();
 void print_output(int from, int to);
 void md_full();
 void check_links();
+int total_granted();
+void print_failed();
 /* void          fix_links(); */
 /* int64_t       rel_addr(void * a); */
 /* mem_block_t * block_from_list(list_t * list); */
 
 /******************************************************************************/
 
-/* int      total_granted(); */
+
 /* list_t * size_history(); */
 /* void print_sizes(list_t * sh); */
-/* void print_failed(); */
+
 
 /******************************************************************************/
 /* void process_request(request_t request); */
