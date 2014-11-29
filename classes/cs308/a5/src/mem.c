@@ -78,13 +78,6 @@ static bool match_ref(void * block_list, void * ref_addr) {
   return ref == block.id;
 }
 
-/* static bool match_addr(void * block_list, void * r_addr) { */
-/*   bytes_t base_addr = *(bytes_t *)r_addr; */
-/*   mem_block_t *block = (mem_block_t*)list_head(block_list); */
-/*   bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool)); */
-/*   return base_addr == block_addr; */
-/* } */
-
 static bool smaller(void * a, void * b) {
   return (((mem_block_t*)a)->size < ((mem_block_t*)b)->size);
 }
@@ -125,11 +118,11 @@ static inline int64_t offset_addr(void * a, void * base) {
   return void_to_num(a) - void_to_num(base);
 }
 
-int64_t rel_addr(void * a) {
+static inline int64_t rel_addr(void * a) {
   return a ? (int64_t)(void_to_num(a) - void_to_num(memory_pool)) : -1;
 }
 
-mem_block_t * block_from_list(list_t * list) {
+static inline mem_block_t * block_from_list(list_t * list) {
   return list ? list_head(list) : NULL;
 }
 
