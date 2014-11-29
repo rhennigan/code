@@ -39,7 +39,6 @@ char cols[6][80] = {
 /******************************************************************************/
 /* AUXILLARY LIST HELPER FUNCTIONS                                            */
 /******************************************************************************/
-
 /* Predicates */
 static bool match_ref(void * block_list, void * ref_addr) {
   int ref = *(int*)ref_addr;
@@ -47,11 +46,16 @@ static bool match_ref(void * block_list, void * ref_addr) {
   return ref == block.id;
 }
 
+static inline int64_t offset_addr(void * a, void * base);
 static bool match_addr(void * block_list, void * r_addr) {
   bytes_t base_addr = *(bytes_t *)r_addr;
   mem_block_t *block = (mem_block_t*)list_head(block_list);
   bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
   return base_addr == block_addr;
+}
+
+static inline bool is_right(mem_block_t * block) {
+  return offset_addr(block->addr, memory_pool)/block->size % 2;
 }
 
 /* Comparison operators */
@@ -79,10 +83,14 @@ request_t * load_request(FILE * file) {
 }
 
 /******************************************************************************/
-static inline uint64_t void_to_num(void * v) { return (uint64_t)v; }
+static inline uint64_t void_to_num(void * v) {
+  return (uint64_t)v;
+}
+
 static inline int64_t offset_addr(void * a, void * base) {
   return void_to_num(a) - void_to_num(base);
 }
+
 int64_t rel_addr(void * a) {
   return a ? (int64_t)(void_to_num(a) - void_to_num(memory_pool)) : -1;
 }
@@ -95,14 +103,6 @@ mem_block_t * block_from_list(list_t * list) {
 /* FREEING FUNCTIONS                                                          */
 /******************************************************************************/
 
-
-// static void print_block(void * block_addr);
-
-
-
-static inline bool is_right(mem_block_t * block) {
-  return offset_addr(block->addr, memory_pool)/block->size % 2;
-}
 
 static inline bool can_merge(mem_block_t * block, list_t * list) {
   if (list == NULL || list_head(list) == NULL ||
