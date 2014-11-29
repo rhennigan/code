@@ -37,8 +37,10 @@ char cols[6][80] = {
 };
 
 /******************************************************************************/
-/* AUXILLARY LIST PREDICATE FUNCTIONS                                         */
+/* AUXILLARY LIST HELPER FUNCTIONS                                            */
 /******************************************************************************/
+
+/* Predicates */
 static bool match_ref(void * block_list, void * ref_addr) {
   int ref = *(int*)ref_addr;
   mem_block_t block = *(mem_block_t*)list_head(block_list);
@@ -51,6 +53,9 @@ static bool match_addr(void * block_list, void * r_addr) {
   bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
   return base_addr == block_addr;
 }
+
+/* Comparison operators */
+
 
 /******************************************************************************/
 request_t * load_request(FILE * file) {
