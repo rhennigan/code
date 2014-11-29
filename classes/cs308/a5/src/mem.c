@@ -37,9 +37,13 @@ char cols[6][80] = {
 };
 
 /******************************************************************************/
-/* PROTOTYPES                                                                 */
+/* PRIVATE PROTOTYPES                                                         */
 /******************************************************************************/
 static inline int64_t offset_addr(void * a, void * base);
+static bool match_ref(void * block_list, void * ref_addr);
+static bool match_addr(void * block_list, void * r_addr);
+static inline bool is_right(mem_block_t * block);
+static bool is_valid(void * block_addr, void * size_addr);
 
 /******************************************************************************/
 /* AUXILLARY LIST HELPER FUNCTIONS                                            */
