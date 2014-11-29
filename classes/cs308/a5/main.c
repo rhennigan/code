@@ -9,6 +9,7 @@ void check_links() {
   printf("\n\n----------------\n");
   while (1) {
     mem_block_t * cblock = block_from_list(curr);
+    mem_block_t * nblock = block_from_list(next);
     cblock->prev = prev;
     cblock->curr = curr;
     cblock->next = next;
