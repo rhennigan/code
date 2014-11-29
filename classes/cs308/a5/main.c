@@ -8,22 +8,22 @@ void check_links() {
   list_t * next = list_tail(curr);
   printf("\n\n----------------\n");
   while (1) {
-    mem_block_t * block = ((mem_block_t*)list_head(curr));
-    block->prev = prev;
-    block->curr = curr;
-    block->next = next;
+    mem_block_t * cblock = block_from_list(curr);
+    cblock->prev = prev;
+    cblock->curr = curr;
+    cblock->next = next;
     int64_t caddr = curr ? rel_addr(block_from_list(curr)->addr) : -1;
     int64_t naddr = next ? rel_addr(block_from_list(next)->addr) : -1;
     /* printf("\"%ld\" -> \"%ld\", \"%ld\" -> \"%ld\",\n",
        caddr, paddr, caddr, naddr); */
-    bool pair = (int64_t)(caddr ^ block->size) == naddr;
+    bool pair = (int64_t)(caddr ^ cblock->size) == naddr;
     bool cfree = curr ? block_from_list(curr)->is_free : false;
     bool nfree = next ? block_from_list(next)->is_free : false;
     bool merge = pair && cfree && nfree;
     printf("%s%ld -> %ld: xor = %ld, addr = %ld\n",
            pair && cfree && nfree ? C_GREEN : C_RESET,
            WORDS_TO_BYTES(caddr), WORDS_TO_BYTES(naddr),
-           caddr ^ block->size, naddr);
+           caddr ^ cblock->size, naddr);
     if (next == NULL) break;
     prev = curr;
     curr = next;
