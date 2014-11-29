@@ -40,9 +40,15 @@ char cols[6][80] = {
 /******************************************************************************/
 /* PRIVATE PROTOTYPES                                                         */
 /******************************************************************************/
+static inline bool is_right(mem_block_t * block);
+static bool is_valid(void * block_addr, void * size_addr);
+static bool match_ref(void * block_list, void * ref_addr);
+static bool smaller(void * a, void * b);
+static bool larger(void * a, void * b);
+
 static inline int64_t offset_addr(void * a, void * base);
 static bool match_ref(void * block_list, void * ref_addr);
-static bool match_addr(void * block_list, void * r_addr);
+/* static bool match_addr(void * block_list, void * r_addr); */
 static inline bool is_right(mem_block_t * block);
 static bool is_valid(void * block_addr, void * size_addr);
 
@@ -74,12 +80,12 @@ static bool match_ref(void * block_list, void * ref_addr) {
   return ref == block.id;
 }
 
-static bool match_addr(void * block_list, void * r_addr) {
-  bytes_t base_addr = *(bytes_t *)r_addr;
-  mem_block_t *block = (mem_block_t*)list_head(block_list);
-  bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
-  return base_addr == block_addr;
-}
+/* static bool match_addr(void * block_list, void * r_addr) { */
+/*   bytes_t base_addr = *(bytes_t *)r_addr; */
+/*   mem_block_t *block = (mem_block_t*)list_head(block_list); */
+/*   bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool)); */
+/*   return base_addr == block_addr; */
+/* } */
 
 static bool smaller(void * a, void * b) {
   return (((mem_block_t*)a)->size < ((mem_block_t*)b)->size);
