@@ -36,6 +36,7 @@ char cols[6][80] = {
   "LARGEST-PART"
 };
 
+
 /******************************************************************************/
 /* PRIVATE PROTOTYPES                                                         */
 /******************************************************************************/
@@ -44,6 +45,7 @@ static bool match_ref(void * block_list, void * ref_addr);
 static bool match_addr(void * block_list, void * r_addr);
 static inline bool is_right(mem_block_t * block);
 static bool is_valid(void * block_addr, void * size_addr);
+
 
 /******************************************************************************/
 /* AUXILLARY LIST HELPER FUNCTIONS                                            */
@@ -63,6 +65,7 @@ static bool is_valid(void * block_addr, void * size_addr) {
   }  // end if (block_addr == NULL || !((mem_block_t*)block_addr)->is_free)
 }  // end is_valid
 
+
 /* Comparison operators */
 static bool match_ref(void * block_list, void * ref_addr) {
   int ref = *(int*)ref_addr;
@@ -79,6 +82,10 @@ static bool match_addr(void * block_list, void * r_addr) {
 
 static bool smaller(void * a, void * b) {
   return (((mem_block_t*)a)->size < ((mem_block_t*)b)->size);
+}
+
+static bool larger(void * a, void * b) {
+  return (((mem_block_t*)a)->size > ((mem_block_t*)b)->size);
 }
 
 
@@ -103,6 +110,7 @@ request_t * load_request(FILE * file) {
   }
 }
 
+
 /******************************************************************************/
 static inline uint64_t void_to_num(void * v) {
   return (uint64_t)v;
@@ -119,7 +127,6 @@ int64_t rel_addr(void * a) {
 mem_block_t * block_from_list(list_t * list) {
   return list ? list_head(list) : NULL;
 }
-
 
 
 /******************************************************************************/
@@ -223,9 +230,6 @@ static mem_block_t * first_free(bytes_t size) {
   }
 }  // end first_free
 
-/******************************************************************************/
-
-
 static mem_block_t * best_free(bytes_t size) {
   list_t * tmp = list_filter(memory_block_list, &is_valid, &size);
   tmp = list_extremum(tmp, &smaller);
@@ -237,9 +241,7 @@ static mem_block_t * best_free(bytes_t size) {
 }
 
 /******************************************************************************/
-static bool larger(void * a, void * b) {
-  return (((mem_block_t*)a)->size > ((mem_block_t*)b)->size);
-}
+
 
 /******************************************************************************/
 static mem_block_t * split_block(mem_block_t * block, request_t * request) {
