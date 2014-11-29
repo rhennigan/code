@@ -2,7 +2,6 @@
 
 #include <string.h>
 #include <stdint.h>
-#include <limits.h>
 #include "../lib/mem.h"
 
 /******************************************************************************/
@@ -60,11 +59,11 @@ request_t * load_request(FILE * file) {
 
 /******************************************************************************/
 static inline uint64_t void_to_num(void * v) { return (uint64_t)v; }
-static inline uint64_t offset_addr(void * a, void * base) {
+static inline int64_t offset_addr(void * a, void * base) {
   return void_to_num(a) - void_to_num(base);
 }
-uint64_t rel_addr(void * a) {
-  return offset_addr(a, memory_pool);
+int64_t rel_addr(void * a) {
+  return a ? (int64_t)(void_to_num(a) - void_to_num(memory_pool)) : -1;
 }
 
 mem_block_t * block_from_list(list_t * list) {

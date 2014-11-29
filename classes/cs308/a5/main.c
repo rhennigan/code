@@ -1,6 +1,5 @@
 // main.c
 
-#include <stdint.h>
 #include "lib/mem.h"
 
 void check_links() {
@@ -14,8 +13,8 @@ void check_links() {
     cblock->prev = prev;
     cblock->curr = curr;
     cblock->next = next;
-    uint64_t caddr = rel_addr(cblock);
-    uint64_t naddr = rel_addr(nblock);
+    int64_t caddr = curr ? rel_addr(block_from_list(curr)->addr) : -1;
+    int64_t naddr = next ? rel_addr(block_from_list(next)->addr) : -1;
     /* printf("\"%ld\" -> \"%ld\", \"%ld\" -> \"%ld\",\n",
        caddr, paddr, caddr, naddr); */
     bool pair = (int64_t)(caddr ^ cblock->size) == naddr;
