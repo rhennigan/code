@@ -37,6 +37,11 @@ char cols[6][80] = {
 };
 
 /******************************************************************************/
+/* PROTOTYPES                                                                 */
+/******************************************************************************/
+static inline int64_t offset_addr(void * a, void * base);
+
+/******************************************************************************/
 /* AUXILLARY LIST HELPER FUNCTIONS                                            */
 /******************************************************************************/
 /* Predicates */
@@ -46,7 +51,6 @@ static bool match_ref(void * block_list, void * ref_addr) {
   return ref == block.id;
 }
 
-static inline int64_t offset_addr(void * a, void * base);
 static bool match_addr(void * block_list, void * r_addr) {
   bytes_t base_addr = *(bytes_t *)r_addr;
   mem_block_t *block = (mem_block_t*)list_head(block_list);
@@ -108,6 +112,8 @@ int64_t rel_addr(void * a) {
 mem_block_t * block_from_list(list_t * list) {
   return list ? list_head(list) : NULL;
 }
+
+
 
 /******************************************************************************/
 /* FREEING FUNCTIONS                                                          */
