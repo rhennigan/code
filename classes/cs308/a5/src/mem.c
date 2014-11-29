@@ -37,6 +37,22 @@ char cols[6][80] = {
 };
 
 /******************************************************************************/
+/* AUXILLARY LIST PREDICATE FUNCTIONS                                         */
+/******************************************************************************/
+static bool match_ref(void * block_list, void * ref_addr) {
+  int ref = *(int*)ref_addr;
+  mem_block_t block = *(mem_block_t*)list_head(block_list);
+  return ref == block.id;
+}
+
+static bool match_addr(void * block_list, void * r_addr) {
+  bytes_t base_addr = *(bytes_t *)r_addr;
+  mem_block_t *block = (mem_block_t*)list_head(block_list);
+  bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
+  return base_addr == block_addr;
+}
+
+/******************************************************************************/
 request_t * load_request(FILE * file) {
   char buffer[80];
   if (fgets(buffer, 80, file) == NULL) {
@@ -73,20 +89,11 @@ mem_block_t * block_from_list(list_t * list) {
 /******************************************************************************/
 /* FREEING FUNCTIONS                                                          */
 /******************************************************************************/
-static bool match_ref(void * block_list, void * ref_addr) {
-  int ref = *(int*)ref_addr;
-  mem_block_t block = *(mem_block_t*)list_head(block_list);
-  return ref == block.id;
-}
+
 
 // static void print_block(void * block_addr);
 
-static bool match_addr(void * block_list, void * r_addr) {
-  bytes_t base_addr = *(bytes_t *)r_addr;
-  mem_block_t *block = (mem_block_t*)list_head(block_list);
-  bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
-  return base_addr == block_addr;
-}
+
 
 static inline bool is_right(mem_block_t * block) {
   return offset_addr(block->addr, memory_pool)/block->size % 2;
