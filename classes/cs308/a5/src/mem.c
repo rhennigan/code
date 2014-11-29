@@ -49,19 +49,6 @@ static bool is_valid(void * block_addr, void * size_addr);
 /* AUXILLARY LIST HELPER FUNCTIONS                                            */
 /******************************************************************************/
 /* Predicates */
-static bool match_ref(void * block_list, void * ref_addr) {
-  int ref = *(int*)ref_addr;
-  mem_block_t block = *(mem_block_t*)list_head(block_list);
-  return ref == block.id;
-}
-
-static bool match_addr(void * block_list, void * r_addr) {
-  bytes_t base_addr = *(bytes_t *)r_addr;
-  mem_block_t *block = (mem_block_t*)list_head(block_list);
-  bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
-  return base_addr == block_addr;
-}
-
 static inline bool is_right(mem_block_t * block) {
   return offset_addr(block->addr, memory_pool)/block->size % 2;
 }
@@ -77,6 +64,22 @@ static bool is_valid(void * block_addr, void * size_addr) {
 }  // end is_valid
 
 /* Comparison operators */
+static bool match_ref(void * block_list, void * ref_addr) {
+  int ref = *(int*)ref_addr;
+  mem_block_t block = *(mem_block_t*)list_head(block_list);
+  return ref == block.id;
+}
+
+static bool match_addr(void * block_list, void * r_addr) {
+  bytes_t base_addr = *(bytes_t *)r_addr;
+  mem_block_t *block = (mem_block_t*)list_head(block_list);
+  bytes_t block_addr = WORDS_TO_BYTES(offset_addr(block->addr, memory_pool));
+  return base_addr == block_addr;
+}
+
+static bool smaller(void * a, void * b) {
+  return (((mem_block_t*)a)->size < ((mem_block_t*)b)->size);
+}
 
 
 /******************************************************************************/
@@ -221,9 +224,7 @@ static mem_block_t * first_free(bytes_t size) {
 }  // end first_free
 
 /******************************************************************************/
-static bool smaller(void * a, void * b) {
-  return (((mem_block_t*)a)->size < ((mem_block_t*)b)->size);
-}
+
 
 static mem_block_t * best_free(bytes_t size) {
   list_t * tmp = list_filter(memory_block_list, &is_valid, &size);
