@@ -505,7 +505,7 @@ void print_usage(char * name) {
   printf("%s ", name);
   printf("[policy:(first|best|buddy)] ");
   printf("[pool_size:int] ");
-  printf("[req_file:string]");
+  printf("[req_file:string] ");
   printf("[lines:int(optional)]\n");
 }
 
