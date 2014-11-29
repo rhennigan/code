@@ -189,7 +189,7 @@ int main(int argc, char *argv[]) {
   /* OUTPUT                                                                   */
   /****************************************************************************/
   print_output(0, i-1);
-  WAIT();
+
   int tg = total_granted();
   /* list_t * sh = size_history(); */
   // list_dump(sh);
