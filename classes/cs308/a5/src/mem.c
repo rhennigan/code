@@ -46,6 +46,11 @@ static bool match_ref(void * block_list, void * ref_addr);
 static bool smaller(void * a, void * b);
 static bool larger(void * a, void * b);
 
+static inline uint64_t void_to_num(void * v);
+static inline int64_t offset_addr(void * a, void * base);
+int64_t rel_addr(void * a);
+mem_block_t * block_from_list(list_t * list);
+
 static inline int64_t offset_addr(void * a, void * base);
 static bool match_ref(void * block_list, void * ref_addr);
 /* static bool match_addr(void * block_list, void * r_addr); */
