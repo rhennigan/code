@@ -56,6 +56,7 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block);
 
 static inline mem_block_t * first_free(bytes_t size);
 static inline mem_block_t * best_free(bytes_t size);
+static inline mem_block_t * split_block(mem_block_t * block, request_t * req);
 
 /******************************************************************************/
 /* AUXILLARY LIST HELPER FUNCTIONS                                            */
