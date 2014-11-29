@@ -51,6 +51,10 @@ static inline int64_t       offset_addr(void * a, void * base);
 static inline int64_t       rel_addr(void * a);
 static inline mem_block_t * block_from_list(list_t * list);
 
+static inline bool can_merge(mem_block_t * block, list_t * list);
+static inline mem_block_t * merge_block(mem_block_t * curr_block);
+/* static mem_block_t * free_memory(request_t * request); */
+
 /******************************************************************************/
 /* AUXILLARY LIST HELPER FUNCTIONS                                            */
 /******************************************************************************/
@@ -202,17 +206,17 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   }
 }
 
-mem_block_t * free_memory(request_t * request) {
-  int ref = request->ref;
-  list_t * curr_list_node = list_find(memory_block_list, &ref, &match_ref);
-  if (curr_list_node == NULL || list_head(curr_list_node) == NULL) {
-    return NULL;
-  } else {
-    mem_block_t * block = list_head(curr_list_node);
-    block->is_free = true;
-    return merge_block(block);
-  }
-}
+/* static mem_block_t * free_memory(request_t * request) { */
+/*   int ref = request->ref; */
+/*   list_t * curr_list_node = list_find(memory_block_list, &ref, &match_ref); */
+/*   if (curr_list_node == NULL || list_head(curr_list_node) == NULL) { */
+/*     return NULL; */
+/*   } else { */
+/*     mem_block_t * block = list_head(curr_list_node); */
+/*     block->is_free = true; */
+/*     return merge_block(block); */
+/*   } */
+/* } */
 
 void check_links() {
   list_t * prev = NULL;
