@@ -381,45 +381,6 @@ static mem_block_t * split_block(mem_block_t * block, request_t * request) {
   }
 }
 
-/* void fix_links() { */
-/*   list_t * prev = NULL; */
-/*   list_t * curr = memory_block_list; */
-/*   list_t * next = list_tail(curr); */
-/*   while (1) { */
-/*     mem_block_t * block = ((mem_block_t*)list_head(curr)); */
-/*     block->prev = prev; */
-/*     block->curr = curr; */
-/*     block->next = next; */
-/*     if (next == NULL) break; */
-/*     prev = curr; */
-/*     curr = next; */
-/*     next = list_tail(next); */
-/*   } */
-/* } */
-
-/******************************************************************************/
-/* static mem_block_t * buddy_split(request_t * request) { */
-/*   assert(request != NULL); */
-/*   bytes_t size = request->size; */
-/*   list_t * tmp = list_filter(memory_block_list, &is_valid, &size); */
-/*   if (tmp == NULL) { */
-/*     return NULL; */
-/*   } else { */
-/*     mem_block_t * block = list_head(tmp); */
-/*     words_t req_words = BYTES_TO_WORDS(size); */
-/*     assert(block != NULL); */
-
-/*     while ((req_words << 1) < block->size) {  // block can be split */
-/*       bytes_t   s_bytes   = WORDS_TO_BYTES(block->size >> 1); */
-/*       request_t split_req = { NOBODY, ALLOC, s_bytes, 0 }; */
-/*       block = split_block(block, &split_req); */
-/*       if (block != NULL) block->id = request->id; */
-/*     } */
-    
-/*     return block; */
-/*   } */
-/* } */
-
 mem_block_t * allocate_memory(request_t * request) {
   mem_block_t * target, * alloc_block = NULL;
   switch (policy) {
@@ -482,29 +443,6 @@ size_t blocks_free() {
 size_t blocks_alloc() {
   return list_length(memory_block_list) - blocks_free();
 }
-
-/* static void * p_req_size(void * x, void * y) { */
-/*   list_t  * list = x; */
-/*   bytes_t * req_size; */
-/*   if (((req_status_t*)y)->req_addr != NULL) { */
-/*     req_size = &((req_status_t*)y)->req_size; */
-/*   } else { */
-/*     req_size = &nb; */
-/*   } */
-/*   list_t * node = list_pre(NULL, req_size); */
-/*   if (list != NULL) */
-/*     list->tail = node; */
-/*   return node; */
-/* } */
-
-/* list_t * size_history() { */
-/*   bytes_t * req_size = &((req_status_t*)list_head(history_list))->req_size; */
-/*   list_t * list = list_pre(NULL, req_size); */
-/*   list_foldl(list_tail(history_list), list, &p_req_size); */
-/*   list_t * r = list_reverse(list); */
-/*   list_dispose(list); */
-/*   return r; */
-/* } */
 
 /******************************************************************************/
 /* FORMATTING AND OUTPUT                                                      */
