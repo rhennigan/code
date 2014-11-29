@@ -90,30 +90,30 @@ extern bytes_t      pool_size;
 extern bytes_t      nb;
 
 /******************************************************************************/
-request_t *   load_request(FILE * file);
-mem_block_t * allocate_memory(request_t * request);
-mem_block_t * free_memory(request_t * request);
-void          fix_links();
-int64_t       rel_addr(void * a);
-mem_block_t * block_from_list(list_t * list);
+/* request_t *   load_request(FILE * file); */
+/* mem_block_t * allocate_memory(request_t * request); */
+/* mem_block_t * free_memory(request_t * request); */
+/* void          fix_links(); */
+/* int64_t       rel_addr(void * a); */
+/* mem_block_t * block_from_list(list_t * list); */
 
 /******************************************************************************/
-words_t  total_free();
-words_t  max_free();
-size_t   blocks_free();
-size_t   blocks_alloc();
-int      total_granted();
-list_t * size_history();
-void print_sizes(list_t * sh);
-void print_failed();
+/* words_t  total_free(); */
+/* words_t  max_free(); */
+/* size_t   blocks_free(); */
+/* size_t   blocks_alloc(); */
+/* int      total_granted(); */
+/* list_t * size_history(); */
+/* void print_sizes(list_t * sh); */
+/* void print_failed(); */
 
 /******************************************************************************/
-void process_request(request_t request);
+/* void process_request(request_t request); */
 void print_usage(char * name);
 void print_mem_config();
-void print_output(int from, int to);
-void md_full();
-void md_free();
-void md_alloc();
+/* void print_output(int from, int to); */
+/* void md_full(); */
+/* void md_free(); */
+/* void md_alloc(); */
 
 #endif  // LIB_MEM_H_
