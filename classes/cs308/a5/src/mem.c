@@ -51,8 +51,11 @@ static inline int64_t       offset_addr(void * a, void * base);
 static inline int64_t       rel_addr(void * a);
 static inline mem_block_t * block_from_list(list_t * list);
 
-static inline bool can_merge(mem_block_t * block, list_t * list);
+static inline bool          can_merge(mem_block_t * block, list_t * list);
 static inline mem_block_t * merge_block(mem_block_t * curr_block);
+
+static inline mem_block_t * first_free(bytes_t size);
+static inline mem_block_t * best_free(bytes_t size);
 
 /******************************************************************************/
 /* AUXILLARY LIST HELPER FUNCTIONS                                            */
