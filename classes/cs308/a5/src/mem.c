@@ -625,16 +625,17 @@ void md_alloc() {
 void print_mem_config() {
   printf("\n\n\n\n");
   print_boxed("MEMORY CONFIG", 40, 0);
-  printf(" MAX_POOL_SIZE_KBYTES = %lu\n", MAX_POOL_SIZE_KBYTES);
-  printf(" MIN_ALLOC_BYTES      = %lu\n", MIN_ALLOC_BYTES);
-  printf(" MAX_HISTORY_LENGTH   = %lu\n", MAX_HISTORY_LENGTH);
+  printf(" MAX_POOL_SIZE_KBYTES = %lu\n",  MAX_POOL_SIZE_KBYTES);
+  printf(" MIN_ALLOC_BYTES      = %lu\n",  MIN_ALLOC_BYTES);
+  printf(" MAX_HISTORY_LENGTH   = %lu\n",  MAX_HISTORY_LENGTH);
   printf("                           \n");
-  printf(" MAX_POOL_SIZE_BYTES  = %lu\n", MAX_POOL_SIZE_BYTES);
-  printf(" WORD_SIZE_BYTES      = %lu\n", WORD_SIZE_BYTES);
-  printf(" MAX_POOL_SIZE_WORDS  = %lu\n", MAX_POOL_SIZE_WORDS);
-  printf(" MIN_ALLOC_WORDS      = %lu\n", MIN_ALLOC_WORDS);
+  printf(" MAX_POOL_SIZE_BYTES  = %lu\n",  MAX_POOL_SIZE_BYTES);
+  printf(" WORD_SIZE_BYTES      = %lu\n",  WORD_SIZE_BYTES);
+  printf(" MAX_POOL_SIZE_WORDS  = %lu\n",  MAX_POOL_SIZE_WORDS);
+  printf(" MIN_ALLOC_WORDS      = %lu\n",  MIN_ALLOC_WORDS);
   printf("                           \n");
-  printf(" POLICY               = %s\n", policy_names[policy]);
+  printf(" POLICY               = %s\n",   policy_names[policy]);
+  printf(" POOL_SIZE            = %luB\n", pool_size);
   printf("\n\n\n\n");
 }
 
