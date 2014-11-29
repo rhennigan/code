@@ -46,11 +46,10 @@
   #define C_RESET   ""
 #endif
 
-#define WAIT() do {                                     \
-    char ch;                                            \
-    printf("Press [ENTER] to continue...");             \
-    fflush(stdout);                                     \
-    while ((ch = getchar()) != '\n' && ch != EOF) {}    \
+#define WAIT() do {                             \
+    printf("Press [ENTER] to continue...");     \
+    fflush(stdout);                             \
+    getchar();                                  \
   } while (0);
 
 /******************************************************************************/
