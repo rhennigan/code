@@ -532,7 +532,7 @@ static void print_block(void * block_addr) {
   words_t      wrds = block.size;
   double       pcnt = 100.0 * (double)size / (double)pool_size;
   blid == 0 ? printf("       ") : printf("   %-4d", blid);
-  printf("%7s", free);
+  printf("%4s", free);
   printf("%2c", side);
   printf("%12p", vadr);
   printf("%10p", vrel);
