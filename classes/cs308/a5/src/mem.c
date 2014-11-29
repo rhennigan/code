@@ -27,14 +27,7 @@ const char * req_type_names[] = {
   [NONE]  = "NONE"
 };
 
-char cols[6][80] = {
-  "SERIAL-NUM",
-  "REQUEST",
-  "SIZE",
-  "ALLOC-ADDR",
-  "TOTAL-FREE",
-  "LARGEST-PART"
-};
+
 
 
 /******************************************************************************/
@@ -58,6 +51,20 @@ static inline mem_block_t * merge_block(mem_block_t * curr_block);
 static inline mem_block_t * first_free(bytes_t size);
 static inline mem_block_t * best_free(bytes_t size);
 static inline mem_block_t * split_block(mem_block_t * block, request_t * req);
+
+/******************************************************************************/
+static const char * free_str = "\x1b[32mFREE\x1b[0m";
+static const char * used_str = "\x1b[31mUSED\x1b[0m";
+static const char * free_blk = "\x1b[32m\u2591\x1b[0m";
+static const char * used_blk = "\x1b[31m\u258A\x1b[0m";
+static const char cols[6][80] = {
+  "SERIAL-NUM",
+  "REQUEST",
+  "SIZE",
+  "ALLOC-ADDR",
+  "TOTAL-FREE",
+  "LARGEST-PART"
+};
 
 /******************************************************************************/
 /* AUXILLARY LIST HELPER FUNCTIONS                                            */
@@ -506,10 +513,7 @@ void print_usage(char * name) {
 }
 
 /* Debugging info */
-static const char * free_str = "\x1b[32mFREE\x1b[0m";
-static const char * used_str = "\x1b[31mUSED\x1b[0m";
-static const char * free_blk = "\x1b[32m\u2591\x1b[0m";
-static const char * used_blk = "\x1b[31m\u258A\x1b[0m";
+
 /* static const char * free_blk = "\x1b[32m\u2591\x1b[0m"; */
 
 static void print_block(void * block_addr) {
