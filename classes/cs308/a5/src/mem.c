@@ -48,8 +48,8 @@ static bool larger(void * a, void * b);
 
 static inline uint64_t void_to_num(void * v);
 static inline int64_t offset_addr(void * a, void * base);
-int64_t rel_addr(void * a);
-mem_block_t * block_from_list(list_t * list);
+static inline int64_t rel_addr(void * a);
+static inline mem_block_t * block_from_list(list_t * list);
 
 static inline int64_t offset_addr(void * a, void * base);
 static bool match_ref(void * block_list, void * ref_addr);
@@ -225,6 +225,41 @@ mem_block_t * free_memory(request_t * request) {
     mem_block_t * block = list_head(curr_list_node);
     block->is_free = true;
     return merge_block(block);
+  }
+}
+
+void check_links() {
+  list_t * prev = NULL;
+  list_t * curr = memory_block_list;
+  list_t * next = list_tail(curr);
+  while (1) {
+    mem_block_t * cblock = block_from_list(curr);
+    mem_block_t * nblock = block_from_list(next);
+    cblock->prev = prev;
+    cblock->curr = curr;
+    cblock->next = next;
+    int64_t caddr = cblock ? rel_addr(cblock->addr) : -1;
+    int64_t naddr = nblock ? rel_addr(nblock->addr) : -1;
+    int64_t nsize = nblock ? (int64_t)nblock->size : -1;
+    bool pair = policy != BUDDY_SYSTEM || (int64_t)(caddr ^ nsize) == naddr;
+    bool cfree = cblock ? cblock->is_free : false;
+    bool nfree = nblock ? nblock->is_free : false;
+    bool merge = pair && cfree && nfree;
+
+    if (merge) {
+      cblock->size += nblock->size;
+      cblock->next = list_tail(next);
+      curr->tail = list_tail(next);
+      if (next && list_head(next)) free(list_head(next));
+      if (next) free(next);
+      check_links();
+      return;
+    }
+
+    if (next == NULL) break;
+    prev = curr;
+    curr = next;
+    next = list_tail(next);
   }
 }
 
@@ -729,37 +764,4 @@ void print_sizes(list_t * sh) {
   list_iter(sh, &print_size);
 }
 
-void check_links() {
-  list_t * prev = NULL;
-  list_t * curr = memory_block_list;
-  list_t * next = list_tail(curr);
-  while (1) {
-    mem_block_t * cblock = block_from_list(curr);
-    mem_block_t * nblock = block_from_list(next);
-    cblock->prev = prev;
-    cblock->curr = curr;
-    cblock->next = next;
-    int64_t caddr = cblock ? rel_addr(cblock->addr) : -1;
-    int64_t naddr = nblock ? rel_addr(nblock->addr) : -1;
-    int64_t nsize = nblock ? (int64_t)nblock->size : -1;
-    bool pair = policy != BUDDY_SYSTEM || (int64_t)(caddr ^ nsize) == naddr;
-    bool cfree = cblock ? cblock->is_free : false;
-    bool nfree = nblock ? nblock->is_free : false;
-    bool merge = pair && cfree && nfree;
 
-    if (merge) {
-      cblock->size += nblock->size;
-      cblock->next = list_tail(next);
-      curr->tail = list_tail(next);
-      if (next && list_head(next)) free(list_head(next));
-      if (next) free(next);
-      check_links();
-      return;
-    }
-
-    if (next == NULL) break;
-    prev = curr;
-    curr = next;
-    next = list_tail(next);
-  }
-}
