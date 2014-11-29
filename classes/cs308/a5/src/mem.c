@@ -1,6 +1,6 @@
 // mem.c
 
-#define USE_COLOR_TERM 1
+#define USE_COLOR_TERM
 
 #include <string.h>
 #include <stdint.h>
