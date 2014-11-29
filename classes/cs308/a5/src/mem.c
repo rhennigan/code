@@ -40,11 +40,12 @@ char cols[6][80] = {
 /******************************************************************************/
 /* PRIVATE PROTOTYPES                                                         */
 /******************************************************************************/
-static bool is_right(mem_block_t * block);
-static bool is_valid(void * block_addr, void * size_addr);
-static bool match_ref(void * block_list, void * ref_addr);
-static bool smaller(void * a, void * b);
-static bool larger(void * a, void * b);
+static bool   is_right(mem_block_t * block);
+static bool   is_valid(void * block_addr, void * size_addr);
+static bool   match_ref(void * block_list, void * ref_addr);
+static bool   smaller(void * a, void * b);
+static bool   larger(void * a, void * b);
+static void * plus(void * x, void * y);
 
 static inline uint64_t      void_to_num(void * v);
 static inline int64_t       offset_addr(void * a, void * base);
@@ -93,6 +94,14 @@ static bool larger(void * a, void * b) {
   return (((mem_block_t*)a)->size > ((mem_block_t*)b)->size);
 }
 
+/* Fold accumulators */
+static void * plus(void * x, void * y) {
+  int sum = *(int*)x;
+  bool ra = ((req_status_t*)y)->req_type == ALLOC;
+  bool rg = ((req_status_t*)y)->req_granted;
+  *(int*)x = ra && rg ? sum + 1 : sum;
+  return x;
+}
 
 /******************************************************************************/
 request_t * load_request(FILE * file) {
@@ -418,13 +427,7 @@ mem_block_t * allocate_memory(request_t * request) {
   return alloc_block;
 }
 
-static void * plus(void * x, void * y) {
-  int sum = *(int*)x;
-  bool ra = ((req_status_t*)y)->req_type == ALLOC;
-  bool rg = ((req_status_t*)y)->req_granted;
-  *(int*)x = ra && rg ? sum + 1 : sum;
-  return x;
-}
+
 
 int total_granted() {
   int total = 0;
