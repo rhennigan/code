@@ -17,7 +17,7 @@ void check_links() {
     int64_t naddr = next ? rel_addr(block_from_list(next)->addr) : -1;
     /* printf("\"%ld\" -> \"%ld\", \"%ld\" -> \"%ld\",\n",
        caddr, paddr, caddr, naddr); */
-    bool pair = (int64_t)(caddr ^ cblock->size) == naddr;
+    bool pair = (int64_t)(caddr ^ naddr) == (int64_t)nblock->size;
     bool cfree = curr ? block_from_list(curr)->is_free : false;
     bool nfree = next ? block_from_list(next)->is_free : false;
     bool merge = pair && cfree && nfree;
