@@ -1,6 +1,6 @@
 // mem.c
 
-// #define USE_COLOR_TERM
+#define USE_COLOR_TERM 1
 
 #include <string.h>
 #include <stdint.h>
@@ -52,17 +52,17 @@ static inline mem_block_t * best_free(bytes_t size);
 static inline mem_block_t * split_block(mem_block_t * block, request_t * req);
 
 /******************************************************************************/
-/* #ifdef USE_COLOR_TERM */
-/* static const char * free_str  = "\x1b[32mFREE\x1b[0m"; */
-/* static const char * used_str  = "\x1b[31mUSED\x1b[0m"; */
-/* static const char * free_blk  = "\x1b[32m\u2591\x1b[0m"; */
-/* static const char * used_blk  = "\x1b[31m\u258A\x1b[0m"; */
-/* #else */
+#ifdef USE_COLOR_TERM
+static const char * free_str  = "\x1b[32mFREE\x1b[0m";
+static const char * used_str  = "\x1b[31mUSED\x1b[0m";
+static const char * free_blk  = "\x1b[32m\u2591\x1b[0m";
+static const char * used_blk  = "\x1b[31m\u258A\x1b[0m";
+#else
 static const char * free_str  = "FREE";
 static const char * used_str  = "USED";
 static const char * free_blk  = "\u2591";
 static const char * used_blk  = "\u258A";
-/* #endif */
+#endif
 
 static const char cols[6][80] = { "SERIAL-NUM",
                                   "REQUEST",
