@@ -3,49 +3,6 @@
 #include <limits.h>
 #include "lib/mem.h"
 
-void check_links() {
-  list_t * prev = NULL;
-  list_t * curr = memory_block_list;
-  list_t * next = list_tail(curr);
-  while (1) {
-    mem_block_t * cblock = block_from_list(curr);
-    mem_block_t * nblock = block_from_list(next);
-    cblock->prev = prev;
-    cblock->curr = curr;
-    cblock->next = next;
-    int64_t caddr = cblock ? rel_addr(cblock->addr) : -1;
-    int64_t naddr = nblock ? rel_addr(nblock->addr) : -1;
-    /* int64_t caddr = curr ? rel_addr(block_from_list(curr)->addr) : -1; */
-    /* int64_t naddr = next ? rel_addr(block_from_list(next)->addr) : -1; */
-    int64_t nsize = nblock ? (int64_t)nblock->size : -1;
-    bool pair = policy != BUDDY_SYSTEM || (int64_t)(caddr ^ nsize) == naddr;
-    bool cfree = cblock ? cblock->is_free : false;
-    bool nfree = nblock ? nblock->is_free : false;
-    /* bool cfree = curr ? block_from_list(curr)->is_free : false; */
-    /* bool nfree = next ? block_from_list(next)->is_free : false; */
-    bool merge = pair && cfree && nfree;
-
-    if (merge) {
-      cblock->size += nblock->size;
-      cblock->next = list_tail(next);
-      curr->tail = list_tail(next);
-      if (next && list_head(next)) free(list_head(next));
-      if (next) free(next);
-      check_links();
-      return;
-    }
-
-    /* printf("%s%ld -> %ld: xor = %ld, addr = %ld\n", */
-    /*        merge ? C_GREEN : C_RESET, */
-    /*        WORDS_TO_BYTES(caddr), WORDS_TO_BYTES(naddr), */
-    /*        caddr ^ cblock->size, naddr); */
-    if (next == NULL) break;
-    prev = curr;
-    curr = next;
-    next = list_tail(next);
-  }
-}
-
 int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* READ COMMAND LINE ARGUMENTS                                              */
@@ -167,12 +124,6 @@ int main(int argc, char *argv[]) {
     /* Clean up */
     free(request);
     check_links();
-
-    /* if ((i+1) % 20 == 0) { */
-    /*   WAIT(); */
-    /*   print_output(i-19, i); */
-    /*   md_full(); */
-    /* } */
     
     if (argc == 5) {
       print_output(i, i);
@@ -185,18 +136,18 @@ int main(int argc, char *argv[]) {
   list_t * tmp = list_reverse(history_list);
   list_dispose(history_list);
   history_list = tmp;
+  
   /****************************************************************************/
   /* OUTPUT                                                                   */
   /****************************************************************************/
   print_output(0, i-1);
 
   int tg = total_granted();
-  /* list_t * sh = size_history(); */
-  // list_dump(sh);
 
   WAIT();
   print_failed();
   printf("total_granted = %d\n", tg);
+  
   /****************************************************************************/
   /* CLEAN UP                                                                 */
   /****************************************************************************/
