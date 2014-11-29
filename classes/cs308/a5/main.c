@@ -1,30 +1,44 @@
 // main.c
 
+#include <limits.h>
 #include "lib/mem.h"
 
 void check_links() {
   list_t * prev = NULL;
   list_t * curr = memory_block_list;
   list_t * next = list_tail(curr);
-  printf("\n\n----------------\n");
   while (1) {
     mem_block_t * cblock = block_from_list(curr);
     mem_block_t * nblock = block_from_list(next);
     cblock->prev = prev;
     cblock->curr = curr;
     cblock->next = next;
-    int64_t caddr = curr ? rel_addr(block_from_list(curr)->addr) : -1;
-    int64_t naddr = next ? rel_addr(block_from_list(next)->addr) : -1;
-    /* printf("\"%ld\" -> \"%ld\", \"%ld\" -> \"%ld\",\n",
-       caddr, paddr, caddr, naddr); */
-    bool pair = (int64_t)(caddr ^ cblock->size) == naddr;
-    bool cfree = curr ? block_from_list(curr)->is_free : false;
-    bool nfree = next ? block_from_list(next)->is_free : false;
+    int64_t caddr = cblock ? rel_addr(cblock->addr) : -1;
+    int64_t naddr = nblock ? rel_addr(nblock->addr) : -1;
+    /* int64_t caddr = curr ? rel_addr(block_from_list(curr)->addr) : -1; */
+    /* int64_t naddr = next ? rel_addr(block_from_list(next)->addr) : -1; */
+    int64_t nsize = nblock ? (int64_t)nblock->size : -1;
+    bool pair = policy != BUDDY_SYSTEM || (int64_t)(caddr ^ nsize) == naddr;
+    bool cfree = cblock ? cblock->is_free : false;
+    bool nfree = nblock ? nblock->is_free : false;
+    /* bool cfree = curr ? block_from_list(curr)->is_free : false; */
+    /* bool nfree = next ? block_from_list(next)->is_free : false; */
     bool merge = pair && cfree && nfree;
-    printf("%s%ld -> %ld: xor = %ld, addr = %ld\n",
-           pair && cfree && nfree ? C_GREEN : C_RESET,
-           WORDS_TO_BYTES(caddr), WORDS_TO_BYTES(naddr),
-           caddr ^ cblock->size, naddr);
+
+    if (merge) {
+      cblock->size += nblock->size;
+      cblock->next = list_tail(next);
+      curr->tail = list_tail(next);
+      if (next && list_head(next)) free(list_head(next));
+      if (next) free(next);
+      check_links();
+      return;
+    }
+
+    /* printf("%s%ld -> %ld: xor = %ld, addr = %ld\n", */
+    /*        merge ? C_GREEN : C_RESET, */
+    /*        WORDS_TO_BYTES(caddr), WORDS_TO_BYTES(naddr), */
+    /*        caddr ^ cblock->size, naddr); */
     if (next == NULL) break;
     prev = curr;
     curr = next;
@@ -73,6 +87,8 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* SETUP MEMORY POOL                                                        */
   /****************************************************************************/
+  print_mem_config();
+
   mem_block_t init_block;
   init_block.id      = NOBODY;
   init_block.is_free = true;
@@ -102,9 +118,6 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   int i;
   for (i = 0; argc == 5 ? i < atoi(argv[4]) : true; i++) {
-    fix_links();
-    check_links();
-    
     request_t * request = load_request(req_file);
     if (request == NULL) break;
     
@@ -124,6 +137,13 @@ int main(int argc, char *argv[]) {
       stat.blocks_alloc    = blocks_alloc();
       req_history[i]       = stat;
       history_list = list_pre(history_list, req_history+i);
+      if (!stat.req_granted) {
+        char label[40];
+        snprintf(label, 40, "ALLOCATION REQUEST %d FAILED", i-1);
+        print_boxed(label, 40, 0);
+        print_output(i, i);
+        md_full();
+      }
       
     } else {  // request type is FREE
       mem_block_t * block = free_memory(request);
@@ -146,8 +166,20 @@ int main(int argc, char *argv[]) {
 
     /* Clean up */
     free(request);
+    check_links();
 
-    if (argc == 5) { print_output(i, i); md_full(); WAIT();}
+    /* if ((i+1) % 20 == 0) { */
+    /*   WAIT(); */
+    /*   print_output(i-19, i); */
+    /*   md_full(); */
+    /* } */
+    
+    if (argc == 5) {
+      print_output(i, i);
+      md_full();
+      WAIT();
+      printf("\n\n\n\n\n\n\n");
+    }
   }
 
   list_t * tmp = list_reverse(history_list);
@@ -156,18 +188,19 @@ int main(int argc, char *argv[]) {
   /****************************************************************************/
   /* OUTPUT                                                                   */
   /****************************************************************************/
-  print_mem_config();
-  print_output(0, i-1);
-  md_full();
+  /* WAIT(); */
+  /* print_output(0, i-1); */
+
+  /* WAIT(); */
+  /* md_full(); */
   
   int tg = total_granted();
-  printf("total_granted = %d\n", tg);
-  
   /* list_t * sh = size_history(); */
   // list_dump(sh);
 
+  WAIT();
   print_failed();
-  
+  printf("total_granted = %d\n", tg);
   /****************************************************************************/
   /* CLEAN UP                                                                 */
   /****************************************************************************/

@@ -459,6 +459,7 @@ static const char * free_str = "\x1b[32mFREE\x1b[0m";
 static const char * used_str = "\x1b[31mUSED\x1b[0m";
 static const char * free_blk = "\x1b[32m\u258A\x1b[0m";
 static const char * used_blk = "\x1b[31m\u258A\x1b[0m";
+/* static const char * free_blk = "\x1b[32m\u2591\x1b[0m"; */
 
 static void print_block(void * block_addr) {
   mem_block_t  block = *(mem_block_t*)block_addr;
@@ -471,7 +472,7 @@ static void print_block(void * block_addr) {
   bytes_t      size = WORDS_TO_BYTES(block.size);
   words_t      wrds = block.size;
   double       pcnt = 100.0 * (double)size / (double)pool_size;
-  blid == 0 ? printf("     ") : printf(" %-4d", blid);
+  blid == 0 ? printf("       ") : printf("   %-4d", blid);
   printf("%7s", free);
   printf("%2c", side);
   printf("%12p", vadr);
@@ -497,17 +498,17 @@ static void print_mem_gfx(void * block_addr) {
 }
 
 static inline void mem_bar_gfx() {
-  printf("%s", B_TL);
-  for (int i = 0; i < 66; i++) printf("%s", B_HR);
-  printf("%s\n%s ", B_TR, B_VT);
+  printf("  %s", B_TL);
+  for (int i = 0; i < block_count + 2; i++) printf("%s", B_HR);
+  printf("%s\n  %s ", B_TR, B_VT);
   list_iter(memory_block_list, &print_mem_gfx);
-  printf(" %s\n%s", B_VT, B_BL);
-  for (int i = 0; i < 66; i++) printf("%s", B_HR);
+  printf(" %s\n  %s", B_VT, B_BL);
+  for (int i = 0; i < block_count + 2; i++) printf("%s", B_HR);
   printf("%s\n", B_BR);
 }
 
 void md_full() {
-  char label[66];
+  char label[block_count + 2];
   size_t free  = blocks_free();
   size_t alloc = blocks_alloc();
   double avail = (double)WORDS_TO_BYTES(100*total_free()) / (double)pool_size;
@@ -516,11 +517,10 @@ void md_full() {
            "CURRENT MEMORY: %lu used | %lu free | %.2f %% avail",
            alloc, free, avail);
 
-  printf("\n\n");
-  print_boxed(label, 68, 0);
+  print_boxed(label, block_count + 4, 2);
   list_iter(memory_block_list, &print_block);
   mem_bar_gfx();
-  printf("\n\n");
+  printf("\n");
 }
 
 void md_free() {
@@ -535,10 +535,10 @@ void md_free() {
            "CURRENT MEMORY: %lu used | %lu free | %.2f %% avail",
            alloc, free, avail);
 
-  printf("\n\n");
+  printf("\n");
   print_boxed(label, 64, 0);
   list_iter(fb, &print_block);
-  printf("\n\n");
+  printf("\n");
 }
 
 static bool not_valid(void * block_addr, void * size_addr) {
@@ -557,13 +557,14 @@ void md_alloc() {
            "CURRENT MEMORY: %lu used | %lu free | %.2f %% avail",
            alloc, free, avail);
 
-  printf("\n\n");
+  printf("\n");
   print_boxed(label, 64, 0);
   list_iter(ab, &print_block);
-  printf("\n\n");
+  printf("\n");
 }
 
 void print_mem_config() {
+  printf("\n\n\n\n");
   print_boxed("MEMORY CONFIG", 40, 0);
   printf(" MAX_POOL_SIZE_KBYTES = %lu\n", MAX_POOL_SIZE_KBYTES);
   printf(" MIN_ALLOC_BYTES      = %lu\n", MIN_ALLOC_BYTES);
@@ -573,13 +574,15 @@ void print_mem_config() {
   printf(" WORD_SIZE_BYTES      = %lu\n", WORD_SIZE_BYTES);
   printf(" MAX_POOL_SIZE_WORDS  = %lu\n", MAX_POOL_SIZE_WORDS);
   printf(" MIN_ALLOC_WORDS      = %lu\n", MIN_ALLOC_WORDS);
+  printf("\n\n\n\n");
 }
 
 static inline void print_row(int row) {
   int     sn = req_history[row].req_id;
   bytes_t sz = req_history[row].req_size;
-  int64_t ad = offset_addr(req_history[row].req_addr, memory_pool) *
-               WORD_SIZE_BYTES;
+  /* int64_t ad = offset_addr(req_history[row].req_addr, memory_pool) * */
+  /*              WORD_SIZE_BYTES; */
+  void *  ad = req_history[row].req_addr;
   bytes_t tf = WORDS_TO_BYTES(req_history[row].total_free);
   bytes_t lp = WORDS_TO_BYTES(req_history[row].max_free);
   char    rq[6];
@@ -598,7 +601,7 @@ static inline void print_row(int row) {
   printf("%1s %-9d %s",   " ", sn, B_VT);
   printf("%1s %-6s %s",   " ", rq, B_VT);
   printf("%1s %9lu B %s", " ", sz, B_VT);
-  printf("%1s %-9ld %s",   " ", ad, B_VT);
+  printf("%1s %-9p %s",   " ", ad, B_VT);
   printf("%1s %7lu B %s", " ", tf, B_VT);
   printf("%1s %9lu B %s", " ", lp, B_VT);
   printf("\n");
