@@ -66,6 +66,7 @@ static bool is_valid(void * block_addr, void * size_addr) {
 }  // end is_valid
 
 
+/******************************************************************************/
 /* Comparison operators */
 static bool match_ref(void * block_list, void * ref_addr) {
   int ref = *(int*)ref_addr;
