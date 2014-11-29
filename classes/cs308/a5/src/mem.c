@@ -1,5 +1,7 @@
 // mem.c
 
+// #define USE_COLOR_TERM
+
 #include <string.h>
 #include <stdint.h>
 #include "../lib/mem.h"
