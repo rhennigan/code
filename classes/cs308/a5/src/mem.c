@@ -634,7 +634,7 @@ void print_mem_config() {
   printf(" MAX_POOL_SIZE_WORDS  = %lu\n", MAX_POOL_SIZE_WORDS);
   printf(" MIN_ALLOC_WORDS      = %lu\n", MIN_ALLOC_WORDS);
   printf("                           \n");
-  printf(" MAX_POOL_SIZE_BYTES  = %lu\n", MAX_POOL_SIZE_BYTES);
+  printf(" POLICY               = %s\n", policy_names[policy]);
   printf("\n\n\n\n");
 }
 
