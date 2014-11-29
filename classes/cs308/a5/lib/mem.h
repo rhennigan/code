@@ -99,6 +99,9 @@ words_t total_free();
 words_t max_free();
 size_t blocks_free();
 size_t blocks_alloc();
+void print_output(int from, int to);
+void md_full();
+void check_links();
 /* void          fix_links(); */
 /* int64_t       rel_addr(void * a); */
 /* mem_block_t * block_from_list(list_t * list); */
@@ -113,8 +116,7 @@ size_t blocks_alloc();
 /******************************************************************************/
 /* void process_request(request_t request); */
 
-/* void print_output(int from, int to); */
-/* void md_full(); */
+
 /* void md_free(); */
 /* void md_alloc(); */
 
