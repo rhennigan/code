@@ -58,6 +58,16 @@ static inline bool is_right(mem_block_t * block) {
   return offset_addr(block->addr, memory_pool)/block->size % 2;
 }
 
+static bool is_valid(void * block_addr, void * size_addr) {
+  if (block_addr == NULL || !((mem_block_t*)block_addr)->is_free) {
+    return false;
+  } else {  // block is free, check size
+    bytes_t block_size = WORDS_TO_BYTES(((mem_block_t*)block_addr)->size);
+    bytes_t req_size   = *((bytes_t*)size_addr);
+    return block_size > req_size;
+  }  // end if (block_addr == NULL || !((mem_block_t*)block_addr)->is_free)
+}  // end is_valid
+
 /* Comparison operators */
 
 
@@ -102,8 +112,6 @@ mem_block_t * block_from_list(list_t * list) {
 /******************************************************************************/
 /* FREEING FUNCTIONS                                                          */
 /******************************************************************************/
-
-
 static inline bool can_merge(mem_block_t * block, list_t * list) {
   if (list == NULL || list_head(list) == NULL ||
       ((mem_block_t*)list_head(list)) == block ||
@@ -124,16 +132,6 @@ static inline bool can_merge(mem_block_t * block, list_t * list) {
     }
   }
 }
-
-/* static inline bool can_merge(mem_block_t * block, list_t * block_list) { */
-/*   if (policy == BUDDY_SYSTEM) { */
-/*     return can_merge_b(block, block_list); */
-/*   } else { */
-/*     return block_list != NULL */
-/*         && list_head(block_list) != NULL */
-/*         && ((mem_block_t*)list_head(block_list))->is_free; */
-/*   } */
-/* } */
 
 static inline mem_block_t * merge_block(mem_block_t * curr_block) {
   assert(curr_block != NULL);
@@ -201,16 +199,6 @@ mem_block_t * free_memory(request_t * request) {
 /******************************************************************************/
 /* ALLOCATION FUNCTIONS                                                       */
 /******************************************************************************/
-static bool is_valid(void * block_addr, void * size_addr) {
-  if (block_addr == NULL || !((mem_block_t*)block_addr)->is_free) {
-    return false;
-  } else {  // block is free, check size
-    bytes_t block_size = WORDS_TO_BYTES(((mem_block_t*)block_addr)->size);
-    bytes_t req_size   = *((bytes_t*)size_addr);
-    return block_size > req_size;
-  }  // end if (block_addr == NULL || !((mem_block_t*)block_addr)->is_free)
-}  // end is_valid
-
 static mem_block_t * first_free(bytes_t size) {
   list_t * tmpr = list_filter(memory_block_list, &is_valid, &size);
   list_t * tmp = list_reverse(tmpr);
