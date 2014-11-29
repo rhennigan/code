@@ -53,18 +53,16 @@ static inline mem_block_t * best_free(bytes_t size);
 static inline mem_block_t * split_block(mem_block_t * block, request_t * req);
 
 /******************************************************************************/
-static const char * free_str = "\x1b[32mFREE\x1b[0m";
-static const char * used_str = "\x1b[31mUSED\x1b[0m";
-static const char * free_blk = "\x1b[32m\u2591\x1b[0m";
-static const char * used_blk = "\x1b[31m\u258A\x1b[0m";
-static const char cols[6][80] = {
-  "SERIAL-NUM",
-  "REQUEST",
-  "SIZE",
-  "ALLOC-ADDR",
-  "TOTAL-FREE",
-  "LARGEST-PART"
-};
+static const char * free_str  = "\x1b[32mFREE\x1b[0m";
+static const char * used_str  = "\x1b[31mUSED\x1b[0m";
+static const char * free_blk  = "\x1b[32m\u2591\x1b[0m";
+static const char * used_blk  = "\x1b[31m\u258A\x1b[0m";
+static const char cols[6][80] = { "SERIAL-NUM",
+                                  "REQUEST",
+                                  "SIZE",
+                                  "ALLOC-ADDR",
+                                  "TOTAL-FREE",
+                                  "LARGEST-PART" };
 
 /******************************************************************************/
 /* AUXILLARY LIST HELPER FUNCTIONS                                            */
@@ -434,37 +432,12 @@ mem_block_t * allocate_memory(request_t * request) {
   return alloc_block;
 }
 
+/******************************************************************************/
 int total_granted() {
   int total = 0;
   return *(int*)list_foldl(history_list, &total, &plus) - 1;
 }
 
-/* static void * p_req_size(void * x, void * y) { */
-/*   list_t  * list = x; */
-/*   bytes_t * req_size; */
-/*   if (((req_status_t*)y)->req_addr != NULL) { */
-/*     req_size = &((req_status_t*)y)->req_size; */
-/*   } else { */
-/*     req_size = &nb; */
-/*   } */
-/*   list_t * node = list_pre(NULL, req_size); */
-/*   if (list != NULL) */
-/*     list->tail = node; */
-/*   return node; */
-/* } */
-
-/* list_t * size_history() { */
-/*   bytes_t * req_size = &((req_status_t*)list_head(history_list))->req_size; */
-/*   list_t * list = list_pre(NULL, req_size); */
-/*   list_foldl(list_tail(history_list), list, &p_req_size); */
-/*   list_t * r = list_reverse(list); */
-/*   list_dispose(list); */
-/*   return r; */
-/* } */
-
-/******************************************************************************/
-/* FORMATTING AND OUTPUT                                                      */
-/******************************************************************************/
 words_t max_free() {
   words_t total = 0;
   list_t * free = list_filter(memory_block_list, &is_valid, &total);
@@ -502,6 +475,34 @@ size_t blocks_free() {
 size_t blocks_alloc() {
   return list_length(memory_block_list) - blocks_free();
 }
+
+/* static void * p_req_size(void * x, void * y) { */
+/*   list_t  * list = x; */
+/*   bytes_t * req_size; */
+/*   if (((req_status_t*)y)->req_addr != NULL) { */
+/*     req_size = &((req_status_t*)y)->req_size; */
+/*   } else { */
+/*     req_size = &nb; */
+/*   } */
+/*   list_t * node = list_pre(NULL, req_size); */
+/*   if (list != NULL) */
+/*     list->tail = node; */
+/*   return node; */
+/* } */
+
+/* list_t * size_history() { */
+/*   bytes_t * req_size = &((req_status_t*)list_head(history_list))->req_size; */
+/*   list_t * list = list_pre(NULL, req_size); */
+/*   list_foldl(list_tail(history_list), list, &p_req_size); */
+/*   list_t * r = list_reverse(list); */
+/*   list_dispose(list); */
+/*   return r; */
+/* } */
+
+/******************************************************************************/
+/* FORMATTING AND OUTPUT                                                      */
+/******************************************************************************/
+
 
 void print_usage(char * name) {
   printf("error reading arguments\n");
