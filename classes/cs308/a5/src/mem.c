@@ -64,7 +64,7 @@ static inline uint64_t offset_addr(void * a, void * base) {
   return void_to_num(a) - void_to_num(base);
 }
 int64_t rel_addr(void * a) {
-  return a == NULL ? -1 : (int64_t)offset_addr(a, memory_pool);
+  return offset_addr(a, memory_pool);
 }
 
 mem_block_t * block_from_list(list_t * list) {
