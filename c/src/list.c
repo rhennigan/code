@@ -187,8 +187,9 @@ list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
 }  // end list_find
 
 list_t * list_fromarray(void * array, size_t objsize, size_t length) {
-  list_t * list = malloc(sizeof(list_t) * length);
-  for (int i = (length-1) * objsize; i >= 0; i -= objsize) {
+  const size_t lsize = sizeof(list_t);
+  list_t * list = malloc(lsize * length);
+  for (size_t i = 0; i < length; i++) {
     list = list_cons(list, (char*)array + i);
   }  // end for (int i = (length-1) * objsize; i >= 0; i -= objsize)
   return list;
