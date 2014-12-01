@@ -66,9 +66,14 @@ static inline list_t * list_snoc(list_t * list, void * data) {
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
 list_t * list_app(list_t * list, data_t head) {
-  list_t * last    = last_node(list);
-  last->tail       = list_init();
-  last->tail->head = head;
+  if (list == NULL) {
+    list             = list_init();
+    list->head       = head;
+  } else {
+    list_t * last    = last_node(list);
+    last->tail       = list_init();
+    last->tail->head = head;
+  }
   return list;
 }  // end list_app
 
