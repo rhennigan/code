@@ -2,9 +2,9 @@
 #include <stdint.h>
 #include "lib/list.h"
 
-#define COUNT 1000000
-#define TYPE int
-#define FMT "%d"
+#define COUNT 10000
+#define TYPE uint64_t
+#define FMT "%lu"
 
 void print(data_t head) {
   printf(FMT" ", *(TYPE*)head);
@@ -37,9 +37,9 @@ int main(int argc, char *argv[]) {
   /* total2 = *(TYPE*)list_foldl(list, &total2, plus); */
   /* total3 = *(TYPE*)list_foldr(list, &total3, plus); */
 
-  printf("total1 = %d, time1 = %d\n", total1, time1);
-  printf("total2 = %d\n", total2);
-  printf("total3 = %d\n", total3);
+  printf("total1 = %lu, time1 = %d\n", total1, time1);
+  printf("total2 = %lu\n", total2);
+  printf("total3 = %lu\n", total3);
 
   list_dispose(list);
   return 0;
