@@ -1,3 +1,4 @@
+#include <time.h>
 #include "lib/list.h"
 
 #define COUNT 20
@@ -35,7 +36,9 @@ int main(int argc, char *argv[]) {
   TYPE total2 = 0;
   TYPE total3 = 0;
 
+  int start1 = time(NULL);
   total1 = *(TYPE*)list_fold(list, &total1, plus);
+  int end1 = time(NULL) - start1;
   total2 = *(TYPE*)list_foldl(list, &total2, plus);
   total3 = *(TYPE*)list_foldr(list, &total3, plus);
 
