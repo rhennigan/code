@@ -41,6 +41,7 @@ list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg);
 void   * list_fold(list_t * list, void * acc, fold_f f);
 void   * list_foldl(list_t * list, void * acc, fold_f f);
 void   * list_foldr(list_t * list, void * acc, fold_f f);
+bool     list_forall(list_t * list, dyn_pred_f pred, void * dep_arg);
 list_t * list_fromarray(void * array, size_t objsize, size_t length);
 void   * list_head(list_t * list);
 void     list_iter(list_t * list, iter_f f);
