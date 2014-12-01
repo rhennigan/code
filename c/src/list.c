@@ -18,16 +18,14 @@ static inline list_t * last_node(list_t * list) {
 
 static inline list_t * list_init() {
   list_t * list = malloc(sizeof(list_t));
-  if (list == NULL) {
-    return NULL;
-  } else {
+  if (list != NULL) {
     list->head = NULL;
     list->tail = NULL;
-    return list;
   }
+  return list;
 }
 
-static inline list_t * list_cons(list_t * list, void * data) {
+static inline list_t * list_cons(list_t * list, data_t data) {
   list_t * new_list = list_init();
   new_list->head = data;
   new_list->tail = list;
