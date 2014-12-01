@@ -22,7 +22,7 @@ bool lt(data_t head1, data_t head2) { return *(TYPE*)head1 < *(TYPE*)head2; }
   action;                                                       \
   diff = clock() - start;                                       \
   msec = diff * 1000 / CLOCKS_PER_SEC;                          \
-  printf("%s = %d.%d\n", label, msec/1000, msec%1000);          \
+  printf("%s = %f\n", label, (double)msec/1000.0);              \
   } while (0);
 
 int main(int argc, char *argv[]) {
