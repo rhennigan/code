@@ -282,7 +282,7 @@ inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
     list->tail = NULL;
     list_t * left = list_sort(part.left, lt);
     list_t * right = list_sort(part.right, lt);
-    return list_join(left, right);
+    return list_join(left, list_join(list, right));
   }  // end if (list == NULL)
 }  // end list_sort
 
