@@ -139,7 +139,7 @@ list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
   }
 }  // end list_filter
 
-void * list_foldl(list_t * list, void * acc, void * (*f)(void * x, void * y)) {
+void * list_foldl(list_t * list, void * acc, fold_f f) {
   if (list == NULL) {
     return acc;
   } else {
