@@ -27,6 +27,7 @@ int main(int argc, char *argv[]) {
   clock_t start, diff;
   int msec;
   TYPE * array;
+  list_t * list;
   uint64_t COUNT = atol(argv[1]);
   
   printf("array size = %lu\n", sizeof(TYPE) * COUNT);
@@ -38,11 +39,8 @@ int main(int argc, char *argv[]) {
            array[i] = rand() % COUNT;
          },"fill array time");
 
-  start = clock();
-  list_t * list = list_fromarray(array, sizeof(TYPE), COUNT);
-  diff = clock() - start;
-  msec = diff * 1000 / CLOCKS_PER_SEC;
-  printf("fill list time  = %d.%d\n", msec/1000, msec%1000);
+
+  TIMING(list = list_fromarray(array, sizeof(TYPE), COUNT);, "fill list time");
 
   TYPE total = 0;
 
