@@ -11,7 +11,9 @@ static inline list_t * last_node(list_t * list) {
   if (list == NULL) {
     return NULL;
   } else {
-    while ((list = list->tail) != NULL) {}
+    while (list->tail != NULL) {
+      list = list->tail;
+    }
     return list;
   }
 }
@@ -48,15 +50,15 @@ static inline list_t * list_snoc(list_t * list, data_t data) {
 /******************************************************************************/
 inline list_t * list_app(list_t * list, data_t head) {
   if (list == NULL) {
-    list             = list_init();
-    list->head       = head;
+    list       = list_init();
+    list->head = head;
   } else {
     list_t * last    = last_node(list);
     last->tail       = list_init();
     last->tail->head = head;
   }
   return list;
-}  // end list_app
+}
 
 inline list_t * list_copy(list_t * list) {
   if (list == NULL) {
