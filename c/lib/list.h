@@ -26,7 +26,7 @@ typedef bool   (*sta_pred_f)(data_t head);
 typedef bool   (*dyn_pred_f)(data_t head, void * dep_arg);
 typedef data_t (*fold_f)(data_t head1, data_t head2);
 
-list_t * list_app(list_t * list, void * data);
+void     list_app(list_t * list, void * data);
 list_t * list_copy(list_t * list);
 void     list_dispose(list_t * list);
 void     list_dump(list_t * list);
