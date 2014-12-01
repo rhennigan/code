@@ -19,9 +19,9 @@ typedef struct lpair_s {
   list_t * right;
 } lpair_t;
 
-typedef bool (*cmp_fun)(void * a, void * b);
-typedef bool (*pred_fun_st)(void * a);
-typedef bool (*pred_fun_dy)(void * a, void * dep_args);
+typedef bool (*cmp_f)(void * head1, void * head2);
+typedef bool (*sta_pred_f)(void * head);
+typedef bool (*dyn_pred_f)(void * head, void * dep_args);
 
 list_t * list_app(list_t * list, void * data);
 list_t * list_copy(list_t * list);
