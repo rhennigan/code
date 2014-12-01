@@ -20,6 +20,12 @@ int main(int argc, char *argv[]) {
   TYPE * array = malloc(sizeof(TYPE) * COUNT);
   assert(array != NULL);
 
+clock_t start = clock(), diff;
+ProcessIntenseFunction();
+diff = clock() - start;
+
+int msec = diff * 1000 / CLOCKS_PER_SEC;
+printf("Time taken %d seconds %d milliseconds", msec/1000, msec%1000);
   int start = time(NULL);
   for (TYPE i = 0; i < COUNT; i++) {
     array[i] = i;
