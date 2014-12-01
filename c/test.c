@@ -55,5 +55,6 @@ int main(int argc, char *argv[]) {
 
   free(array);
   free(list);
+  free(sorted);
   return 0;
 }
