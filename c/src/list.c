@@ -8,18 +8,21 @@
 /******************************************************************************/
 
 static inline list_t * last_node(list_t * list) {
-  assert(list != NULL);
-  while (list->tail != NULL) {
-    list = list_tail(list);
+  if (list == NULL) {
+    return NULL;
+  } else {
+    while (list->tail != NULL) {
+      list = list_tail(list);
+    }
+    return list;
   }
-  return list;
 }
 
 static inline list_t * list_init() {
   list_t * list = malloc(sizeof(list_t));
   assert(list != NULL);
-  list->head = NULL;
-  list->tail = NULL;
+  list->head   = NULL;
+  list->tail   = NULL;
   return list;
 }
 
