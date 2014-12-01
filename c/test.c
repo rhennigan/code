@@ -21,13 +21,13 @@ bool lt(data_t head1, data_t head2) { return *(TYPE*)head1 < *(TYPE*)head2; }
   start = clock();                                              \
   action;                                                       \
   diff = clock() - start;                                       \
-  msec = diff * 1000 / CLOCKS_PER_SEC;                          \
-  printf("%s = %f\n", label, (double)msec/1000.0);              \
+  msec = (double)diff * 1000.0 / (double)CLOCKS_PER_SEC;        \
+  printf("%s = %f\n", label, msec/1000.0);                      \
   } while (0);
 
 int main(int argc, char *argv[]) {
   clock_t start, diff;
-  int msec;
+  double msec;
   TYPE * array;
   list_t * list, * sorted;
   uint64_t COUNT = atol(argv[1]);
