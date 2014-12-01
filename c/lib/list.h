@@ -50,7 +50,7 @@ list_t * list_map(list_t * list, map_f f);
 lpair_t  list_partition(list_t * lst, dyn_pred_f pred, void * dep_arg);
 list_t * list_pre(list_t * list, data_t data);
 list_t * list_reverse(list_t * list);
-list_t * list_skip(list_t * list);
+list_t * list_skip(list_t * list, size_t n);
 list_t * list_sort(list_t * list, sta_cmp_f cmp);
 list_t * list_tail(list_t * list);
 data_t * list_toarray(list_t * list, size_t obj_size);

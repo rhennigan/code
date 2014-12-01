@@ -273,6 +273,10 @@ inline list_t * list_reverse(list_t * list) {
   return new_list;
 }  // end list_reverse
 
+inline list_t * list_skip(list_t * list, size_t n) {
+  
+}
+
 inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
   if (list == NULL) {
     return NULL;
