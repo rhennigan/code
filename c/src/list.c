@@ -118,9 +118,14 @@ list_t * list_extremum(list_t * list, dyn_cmp_f ex, void * dep_arg) {
 }  // end list_extremum
 
 list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
-  lpair_t pair = list_partition(list, pred, dep_arg);
-  list_dispose(pair.right);
-  return pair.left;
+  if (list == NULL) {
+    return NULL;
+  } else {
+    
+  }
+  /* lpair_t pair = list_partition(list, pred, dep_arg); */
+  /* list_dispose(pair.right); */
+  /* return pair.left; */
 }  // end list_filter
 
 void * list_foldl(list_t * list, void * acc, void * (*f)(void * x, void * y)) {
