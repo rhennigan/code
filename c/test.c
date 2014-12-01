@@ -25,8 +25,10 @@ int main(int argc, char *argv[]) {
     array[i] = i;
   }
   printf("fill array time = %d\n", (int)time(NULL) - start);
-  
+
+  start = time(NULL);
   list_t * list = list_fromarray(array, sizeof(TYPE), COUNT);
+  printf("fill list time = %d\n", (int)time(NULL) - start);
 
   TYPE total1 = 0;
   TYPE total2 = 0;
