@@ -65,7 +65,7 @@ static inline list_t * list_snoc(list_t * list, void * data) {
 /******************************************************************************/
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
-list_t * list_app(list_t * list, data_t head) {
+inline list_t * list_app(list_t * list, data_t head) {
   if (list == NULL) {
     list             = list_init();
     list->head       = head;
@@ -77,7 +77,7 @@ list_t * list_app(list_t * list, data_t head) {
   return list;
 }  // end list_app
 
-list_t * list_copy(list_t * list) {
+inline list_t * list_copy(list_t * list) {
   if (list == NULL) {
     return NULL;
   } else {  // (list != NULL)
@@ -85,7 +85,7 @@ list_t * list_copy(list_t * list) {
   }  // end if (list == NULL)
 }  // end list_copy
 
-void list_dispose(list_t * list) {
+inline void list_dispose(list_t * list) {
   list_t * tail;
   while (list != NULL) {
     tail = list_tail(list);
@@ -94,7 +94,7 @@ void list_dispose(list_t * list) {
   }
 }
 
-void list_dump(list_t * list) {
+inline void list_dump(list_t * list) {
   printf("\nlist_dump: %p\n", list);
   printf("-------------------\n");
   printf(" list size: %lu\n", list_length(list));
@@ -110,7 +110,7 @@ void list_dump(list_t * list) {
   }  // end if (list == NULL)
 }  // end list_dump
 
-list_t * list_extremum(list_t * list, dyn_cmp_f ex, void * dep_arg) {
+inline list_t * list_extremum(list_t * list, dyn_cmp_f ex, void * dep_arg) {
   if (list == NULL) {
     return NULL;
   } else {  // (list != NULL)
@@ -125,7 +125,7 @@ list_t * list_extremum(list_t * list, dyn_cmp_f ex, void * dep_arg) {
   }  // end if (list == NULL)
 }  // end list_extremum
 
-list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
+inline list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
   if (list == NULL) {
     return NULL;
   } else {
@@ -147,7 +147,7 @@ list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
   }
 }  // end list_filter
 
-void * list_fold(list_t * list, void * acc, fold_f f) {
+inline void * list_fold(list_t * list, void * acc, fold_f f) {
   while (list != NULL) {
     acc  = f(acc, list_head(list));
     list = list_tail(list);
@@ -155,7 +155,7 @@ void * list_fold(list_t * list, void * acc, fold_f f) {
   return acc;
 }
 
-void * list_foldl(list_t * list, void * acc, fold_f f) {
+inline void * list_foldl(list_t * list, void * acc, fold_f f) {
   if (list == NULL) {
     return acc;
   } else {
@@ -165,7 +165,7 @@ void * list_foldl(list_t * list, void * acc, fold_f f) {
   }
 }
 
-void * list_foldr(list_t * list, void * acc, fold_f f) {
+inline void * list_foldr(list_t * list, void * acc, fold_f f) {
   if (list == NULL) {
     return acc;
   } else {
@@ -175,7 +175,7 @@ void * list_foldr(list_t * list, void * acc, fold_f f) {
   }
 }
 
-list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
+inline list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
   while (list != NULL) {
     if (pred(list_head(list), dep_arg)) {
       break;
@@ -186,7 +186,7 @@ list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
   return list;
 }  // end list_find
 
-list_t * list_fromarray(void * array, size_t objsize, size_t length) {
+inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
   const size_t lsize = sizeof(list_t);
   list_t * list = malloc(lsize * length);
   if (list == NULL) {
@@ -217,14 +217,14 @@ inline void * list_head(list_t * list) {
   }  // end if (list == NULL)
 }  // end list_head
 
-void list_iter(list_t * list, iter_f f) {
+inline void list_iter(list_t * list, iter_f f) {
   while (list != NULL) {
     f(list_head(list));
     list = list_tail(list);
   }  // end while (tmp != NULL)
 }  // end list_iter
 
-list_t * list_join(list_t * list1, list_t * list2) {
+inline list_t * list_join(list_t * list1, list_t * list2) {
   if (list1 == NULL) {
     return list2;
   } else {  // (list1 != NULL)
@@ -233,7 +233,7 @@ list_t * list_join(list_t * list1, list_t * list2) {
   }  // end if (list1 == NULL)
 }  // end list_join
 
-size_t list_length(list_t * list) {
+inline size_t list_length(list_t * list) {
   size_t len = 0;
   while (list != NULL) {
     len++;
@@ -242,7 +242,7 @@ size_t list_length(list_t * list) {
   return len;
 }  // end list_length
 
-list_t * list_map(list_t * list, map_f f) {
+inline list_t * list_map(list_t * list, map_f f) {
   if (list == NULL) {
     return NULL;
   } else {  // (list != NULL)
@@ -250,7 +250,7 @@ list_t * list_map(list_t * list, map_f f) {
   }  // end if (list == NULL)
 }
 
-lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
+inline lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
   lpair_t pair = { NULL, NULL };
   while (list != NULL) {
     data_t x = list_head(list);
@@ -264,7 +264,7 @@ lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
   return pair;
 }
 
-list_t * list_pre(list_t * list, void * data) {
+inline list_t * list_pre(list_t * list, void * data) {
   if (list == NULL) {
     list = list_init();
     list->head = data;
@@ -276,7 +276,7 @@ list_t * list_pre(list_t * list, void * data) {
   return list;
 }
 
-list_t * list_reverse(list_t * list) {
+inline list_t * list_reverse(list_t * list) {
   list_t * new_list = NULL;
   while (list != NULL) {
     new_list = list_cons(new_list, list_head(list));
@@ -285,7 +285,7 @@ list_t * list_reverse(list_t * list) {
   return new_list;
 }  // end list_reverse
 
-list_t * list_sort(list_t * list, sta_cmp_f lt) {
+inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
   if (list == NULL) {
     return NULL;
   } else if (list_tail(list) == NULL) {
@@ -308,7 +308,7 @@ inline list_t * list_tail(list_t * list) {
   }  // end if (list == NULL)
 }  // end list_tail
 
-data_t * list_toarray(list_t * list, size_t obj_size) {
+inline data_t * list_toarray(list_t * list, size_t obj_size) {
   size_t len = list_length(list);
   data_t * array = malloc(obj_size * len);
   for (size_t i = 0; i < len; i++) {
