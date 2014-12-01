@@ -160,13 +160,20 @@ void * list_foldr(list_t * list, void * acc, fold_f f) {
 }
 
 list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
-  if (list == NULL) {
-    return NULL;
-  } else if (pred(list, dep_arg)) {
-    return list;
-  } else {  // (list != NULL && !(*cmp)(h, list_head(list)))
-    return list_find(list_tail(list), pred, dep_arg);
-  }  // end if (list == NULL)
+  while (list != NULL) {
+    if (pred(list_head(list), dep_arg)) {
+      return list;
+    } else {
+      list = list_tail(list);
+    }
+  }
+  /* if (list == NULL) { */
+  /*   return NULL; */
+  /* } else if (pred(list, dep_arg)) { */
+  /*   return list; */
+  /* } else {  // (list != NULL && !(*cmp)(h, list_head(list))) */
+  /*   return list_find(list_tail(list), pred, dep_arg); */
+  /* }  // end if (list == NULL) */
 }  // end list_find
 
 list_t * list_fromarray(void * array, size_t objsize, size_t length) {
