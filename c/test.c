@@ -50,6 +50,9 @@ int main(int argc, char *argv[]) {
 
   TIMING(sorted = list_sort(list, lt);, "sort time");
 
+  total = 0;
+  TIMING(total = *(TYPE*)list_fold(sorted, &total, plus);, "sorted fold time");
+
   free(array);
   free(list);
   return 0;
