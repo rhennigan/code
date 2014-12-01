@@ -37,30 +37,14 @@ int main(int argc, char *argv[]) {
   msec = diff * 1000 / CLOCKS_PER_SEC;
   printf("fill list time  = %d.%d\n", msec/1000, msec%1000);
 
-  TYPE total1 = 0;
-  TYPE total2 = 0;
-  TYPE total3 = 0;
+  TYPE total = 0;
 
   start = clock();
-  total1 = *(TYPE*)list_fold(list, &total1, plus);
+  total = *(TYPE*)list_fold(list, &total, plus);
   diff = clock() - start;
   msec = diff * 1000 / CLOCKS_PER_SEC;
   printf("list_fold time  = %d.%d\n\n", msec/1000, msec%1000);
-  printf("list_fold total = %lu\n", total1);
-
-  /* start = clock(); */
-  /* total2 = *(TYPE*)list_foldl(list, &total2, plus); */
-  /* diff = clock() - start; */
-  /* msec = diff * 1000 / CLOCKS_PER_SEC; */
-  /* printf("list_foldl time = %d seconds %d milliseconds\n", msec/1000, msec%1000); */
-  /* printf("list_foldl total = %lu\n", total2); */
-
-  /* start = clock(); */
-  /* total3 = *(TYPE*)list_foldr(list, &total3, plus); */
-  /* diff = clock() - start; */
-  /* msec = diff * 1000 / CLOCKS_PER_SEC; */
-  /* printf("list_foldr time = %d seconds %d milliseconds\n", msec/1000, msec%1000); */
-  /* printf("list_foldr total = %lu\n", total3); */
+  printf("list_fold total = %lu\n", total);
 
   free(array);
   free(list);
