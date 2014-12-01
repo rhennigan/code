@@ -47,6 +47,7 @@ void     list_iter(list_t * list, iter_f f);
 list_t * list_join(list_t * list1, list_t * list2);
 size_t   list_length(list_t * list);
 list_t * list_map(list_t * list, map_f f);
+data_t   list_nth(list_t * list, size_t n);
 lpair_t  list_partition(list_t * lst, dyn_pred_f pred, void * dep_arg);
 list_t * list_pre(list_t * list, data_t data);
 list_t * list_reverse(list_t * list);
