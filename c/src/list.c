@@ -269,19 +269,7 @@ list_t * list_reverse(list_t * list) {
   return new_list;
 }  // end list_reverse
 
-list_t * list_reverse2(list_t * list) {
-  list_t * temp = list;
-  list_t * tail = list;
-  while (temp != NULL) {
-    tail = list_tail(temp);
-    
-  }
-}
-
-list_t * list_sort(list_t * list, cmp_f lt) {
-  printf("\n\nsorting list: \n");
-  list_dump(list);
-  fflush(NULL);
+list_t * list_sort(list_t * list, sta_cmp_f lt) {
   if (list == NULL) {
     return NULL;
   } else if (list_tail(list) == NULL) {
