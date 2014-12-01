@@ -149,10 +149,10 @@ void * list_foldr(list_t * list, void * acc, void * (*f)(void * x, void * y)) {
 list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
   if (list == NULL) {
     return NULL;
-  } else if ((*eq)(list, match)) {
+  } else if (pred(list, dep_arg)) {
     return list;
   } else {  // (list != NULL && !(*cmp)(h, list_head(list)))
-    return list_find(list_tail(list), match, (*eq));
+    return list_find(list_tail(list), pred, dep_arg);
   }  // end if (list == NULL)
 }  // end list_find
 
