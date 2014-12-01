@@ -30,8 +30,6 @@ int main(int argc, char *argv[]) {
   list_t * list = list_fromarray(array, sizeof(TYPE), COUNT);
   printf("fill list time = %d\n", (int)time(NULL) - start);
 
-  list_iter(list, print);
-
   TYPE total1 = 0;
   TYPE total2 = 0;
   TYPE total3 = 0;
