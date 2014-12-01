@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
   clock_t start, diff;
   int msec;
   TYPE * array;
-  list_t * list;
+  list_t * list, * sorted;
   uint64_t COUNT = atol(argv[1]);
   
   printf("array size = %lu\n", sizeof(TYPE) * COUNT);
@@ -47,6 +47,8 @@ int main(int argc, char *argv[]) {
   TYPE total = 0;
 
   TIMING(total = *(TYPE*)list_fold(list, &total, plus);, "fold time");
+
+  TIMING(sorted = list_sort(list, lt);, "sort time");
 
   free(array);
   free(list);
