@@ -45,15 +45,15 @@ int main(int argc, char *argv[]) {
            array[(int)i] = (TYPE)rand() / (TYPE)INT_MAX;
          },"fill array time");
 
-  printf("array contents\n");
-  printf("--------------\n");
-  for (size_t i = 0; i < COUNT; i++) {
-    printf("  %p\n", &array[(int)i]);
-  }
+  /* printf("array contents\n"); */
+  /* printf("--------------\n"); */
+  /* for (size_t i = 0; i < COUNT; i++) { */
+  /*   printf("  %p\n", &array[(int)i]); */
+  /* } */
 
   TIMING(list = list_fromarray(array, sizeof(TYPE), COUNT);, "fill list time");
-  list_dump(list);
-  list_iter(list, print);
+  /* list_dump(list); */
+  /* list_iter(list, print); */
   list_t * free_ptr = list;
 
   TYPE total = 0;
@@ -61,8 +61,8 @@ int main(int argc, char *argv[]) {
   TIMING(total = *(TYPE*)list_fold(list, &total, plus);, "fold time");
 
   TIMING(sorted = list_sort(list, lt);, "sort time");
-  list_dump(sorted);
-  list_iter(sorted, print);
+  /* list_dump(sorted); */
+  /* list_iter(sorted, print); */
 
   total = 0;
   TIMING(total = *(TYPE*)list_fold(sorted, &total, plus);, "sorted fold time");
