@@ -21,7 +21,7 @@ typedef struct lpair_s {
   list_t * right;
 } lpair_t;
 
-typedef int    (*cmp_f)(data_t head1, data_t head2);
+typedef bool   (*cmp_f)(data_t head1, data_t head2);
 typedef bool   (*sta_pred_f)(data_t head);
 typedef bool   (*dyn_pred_f)(data_t head, void * dep_arg);
 typedef data_t (*fold_f)(data_t head1, data_t head2);
@@ -44,7 +44,7 @@ list_t * list_map(list_t * list, void * (*f)(void * x));
 lpair_t  list_partition(list_t * lst, dyn_pred_f pred, void * dep_arg);
 list_t * list_pre(list_t * list, void * data);
 list_t * list_reverse(list_t * list);
-list_t * list_sort(list_t * list, cmp_f lt);
+list_t * list_sort(list_t * list, cmp_f cmp);
 list_t * list_tail(list_t * list);
 void   * list_toarray(list_t * list, size_t obj_size);
 
