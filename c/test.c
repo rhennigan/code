@@ -31,12 +31,17 @@ int main(int argc, char *argv[]) {
   total1 = *(TYPE*)list_fold(list, &total1, plus);
   int time1 = time(NULL) - start1;
 
-  /* total2 = *(TYPE*)list_foldl(list, &total2, plus); */
-  /* total3 = *(TYPE*)list_foldr(list, &total3, plus); */
+  int start2 = time(NULL);
+  total2 = *(TYPE*)list_fold(list, &total2, plus);
+  int time2 = time(NULL) - start2;
+
+  int start3 = time(NULL);
+  total3 = *(TYPE*)list_fold(list, &total3, plus);
+  int time3 = time(NULL) - start3;
 
   printf("total1 = %lu, time1 = %d\n", total1, time1);
-  printf("total2 = %lu\n", total2);
-  printf("total3 = %lu\n", total3);
+  printf("total2 = %lu, time2 = %d\n", total2, time2);
+  printf("total3 = %lu, time3 = %d\n", total3, time3);
 
   list_dispose(list);
   return 0;
