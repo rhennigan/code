@@ -242,9 +242,10 @@ inline lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
       list->tail = pair.left;
       pair.left = list;
     } else {
-      pair.right = list_cons(pair.right, x);
+      list->tail = pair.right;
+      pair.right = list;
     }
-    list = list_tail(list);
+    list = next;
   }
   return pair;
 }
