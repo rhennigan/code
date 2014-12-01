@@ -277,7 +277,7 @@ inline list_t * list_reverse(list_t * list) {
   return new_list;
 }  // end list_reverse
 
-inline list_t * list_skip(list_t * list, size_t n) {
+inline list_t * list_skip(list_t * list, long int n) {
   while (n--) list = list_tail(list);
   return list;
 }
