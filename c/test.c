@@ -1,4 +1,5 @@
 #include <time.h>
+#include <stdint.h>
 #include "lib/list.h"
 
 #define COUNT 1000000
@@ -33,8 +34,8 @@ int main(int argc, char *argv[]) {
   total1 = *(TYPE*)list_fold(list, &total1, plus);
   int time1 = time(NULL) - start1;
 
-  total2 = *(TYPE*)list_foldl(list, &total2, plus);
-  total3 = *(TYPE*)list_foldr(list, &total3, plus);
+  /* total2 = *(TYPE*)list_foldl(list, &total2, plus); */
+  /* total3 = *(TYPE*)list_foldr(list, &total3, plus); */
 
   printf("total1 = %d, time1 = %d\n", total1, time1);
   printf("total2 = %d\n", total2);
