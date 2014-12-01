@@ -8,6 +8,10 @@ void print(data_t head) {
   printf(FMT" ", *(TYPE*)head);
 }
 
+void * plus(void * acc, data_t head) {
+  *(TYPE*)acc += *(TYPE*)head;
+}
+
 int main(int argc, char *argv[]) {
   TYPE array1[COUNT];
   TYPE array2[COUNT];
