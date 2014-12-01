@@ -120,8 +120,8 @@ list_t * list_extremum(list_t * list, cmp_f ex) {
   }  // end if (list == NULL)
 }  // end list_extremum
 
-list_t * list_filter(list_t * list, cmp_fun pred, void * cmp_arg) {
-  lpair_t pair = list_partition(list, pred, cmp_arg);
+list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
+  lpair_t pair = list_partition(list, pred, dep_arg);
   list_dispose(pair.right);
   return pair.left;
 }  // end list_filter
