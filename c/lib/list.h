@@ -21,10 +21,10 @@ typedef struct lpair_s {
   list_t * right;
 } lpair_t;
 
-typedef int    (*cmp_f)(void * head1, void * head2);
-typedef bool   (*sta_pred_f)(void * head);
-typedef bool   (*dyn_pred_f)(void * head, void * dep_arg);
-typedef void * (*fold_f)(void * head1, void * head2);
+typedef int    (*cmp_f)(addr_t head1, addr_t head2);
+typedef bool   (*sta_pred_f)(addr_t head);
+typedef bool   (*dyn_pred_f)(addr_t head, void * dep_arg);
+typedef addr_t (*fold_f)(void * head1, void * head2);
 
 list_t * list_app(list_t * list, void * data);
 list_t * list_copy(list_t * list);
