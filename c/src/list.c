@@ -120,7 +120,7 @@ inline list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
       if (pred(list_head(list), dep_arg)) {
         tmp->head = list_head(list);
         tmp->tail = list_init();
-        tmp = list_tail(tmp);        
+        tmp       = list_tail(tmp);        
       }
     }
     if (list_head(filtered) == NULL) {
