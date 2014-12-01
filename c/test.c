@@ -17,15 +17,11 @@ void * plus(void * acc, data_t head) {
 
 int main(int argc, char *argv[]) {
   uint64_t COUNT = atoi(argv[1]);
-  TYPE array1[COUNT];
-  TYPE array2[COUNT];
+  TYPE array[COUNT];
   for (TYPE i = 0; i < COUNT; i++) {
-    array1[i] = i;
-    array2[i] = COUNT + i;
+    array[i] = i;
   }
-  list_t * list1 = list_fromarray(array1, sizeof(TYPE), COUNT);
-  list_t * list2 = list_fromarray(array2, sizeof(TYPE), COUNT);
-  list_t * list = list_join(list1, list2);
+  list_t * list = list_fromarray(array, sizeof(TYPE), COUNT);
 
   TYPE total1 = 0;
   TYPE total2 = 0;
