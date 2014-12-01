@@ -297,6 +297,7 @@ data_t * list_toarray(list_t * list, size_t obj_size) {
   data_t * array = malloc(obj_size * len);
   for (size_t i = 0; i < len; i++) {
     array[i] = list_head(list);
+    list = list_tail(list);
   }
   return array;
 }
