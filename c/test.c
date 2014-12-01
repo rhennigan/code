@@ -38,21 +38,23 @@ int main(int argc, char *argv[]) {
   TYPE total2 = 0;
   TYPE total3 = 0;
 
-  int start1 = time(NULL);
+  start = clock();
   total1 = *(TYPE*)list_fold(list, &total1, plus);
-  int time1 = time(NULL) - start1;
+  diff = clock() - start;
+  msec = diff * 1000 / CLOCKS_PER_SEC;
+  printf("fill list time = %d seconds %d milliseconds\n", msec/1000, msec%1000);
 
-  int start2 = time(NULL);
+  start = clock();
   total2 = *(TYPE*)list_fold(list, &total2, plus);
-  int time2 = time(NULL) - start2;
+  diff = clock() - start;
+  msec = diff * 1000 / CLOCKS_PER_SEC;
+  printf("fill list time = %d seconds %d milliseconds\n", msec/1000, msec%1000);
 
-  int start3 = time(NULL);
+  start = clock();
   total3 = *(TYPE*)list_fold(list, &total3, plus);
-  int time3 = time(NULL) - start3;
-
-  printf("total1 = %lu, time1 = %d\n", total1, time1);
-  printf("total2 = %lu, time2 = %d\n", total2, time2);
-  printf("total3 = %lu, time3 = %d\n", total3, time3);
+  diff = clock() - start;
+  msec = diff * 1000 / CLOCKS_PER_SEC;
+  printf("fill list time = %d seconds %d milliseconds\n", msec/1000, msec%1000);
 
   free(list);
   return 0;
