@@ -292,4 +292,6 @@ inline list_t * list_tail(list_t * list) {
   }  // end if (list == NULL)
 }  // end list_tail
 
-void * list_toarray(list_t * list, size_t size);
+data_t * list_toarray(list_t * list, size_t size) {
+  
+}

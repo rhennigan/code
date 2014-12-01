@@ -50,6 +50,6 @@ list_t * list_pre(list_t * list, void * data);
 list_t * list_reverse(list_t * list);
 list_t * list_sort(list_t * list, sta_cmp_f cmp);
 list_t * list_tail(list_t * list);
-void   * list_toarray(list_t * list, size_t obj_size);
+data_t * list_toarray(list_t * list, size_t obj_size);
 
 #endif  // LIB_LIST_H_
