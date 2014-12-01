@@ -25,7 +25,7 @@ typedef bool   (*sta_cmp_f)(data_t head1, data_t head2);
 typedef bool   (*dyn_cmp_f)(data_t head1, data_t head2, void * dep_arg);
 typedef bool   (*sta_pred_f)(data_t head);
 typedef bool   (*dyn_pred_f)(data_t head, void * dep_arg);
-typedef data_t (*fold_f)(void * acc, data_t head);
+typedef void * (*fold_f)(void * acc, data_t head);
 
 void     list_app(list_t * list, void * data);
 list_t * list_copy(list_t * list);
