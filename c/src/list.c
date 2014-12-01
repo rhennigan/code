@@ -123,7 +123,11 @@ list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
   } else {
     list_t * filtered = NULL;
     list_t * tmp = filtered;
-    
+    while ((list = list_tail(list)) != NULL) {
+      if (pred(list_head(list), dep_arg)) {
+
+      }
+    }
   }
   /* lpair_t pair = list_partition(list, pred, dep_arg); */
   /* list_dispose(pair.right); */
