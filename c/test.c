@@ -32,6 +32,9 @@ int main(int argc, char *argv[]) {
   list_dump(list);
 
   TYPE total1 = 0;
+  TYPE total2 = 0;
+  TYPE total3 = 0;
+
   total1 = *(TYPE*)list_fold(list, &total1, plus);
   printf("total = %d\n", total1);
 
