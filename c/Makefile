@@ -1,6 +1,6 @@
 CC=gcc
-CFLAGS=-std=gnu99 -g -c -Wall
-LDFLAGS=-std=gnu99 -g -Wall
+CFLAGS=-std=gnu99 -c -Wall
+LDFLAGS=-std=gnu99 -Wall
 BUILD=list
 EXECUTABLE=test
 
