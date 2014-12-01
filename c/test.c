@@ -17,7 +17,7 @@ void * plus(void * acc, data_t head) {
 
 #define TIMING(action, label) do {                              \
   start = clock();                                              \
-  action;                                                       \
+  action                                                        \
   diff = clock() - start;                                       \
   msec = diff * 1000 / CLOCKS_PER_SEC;                          \
   printf("%s = %d.%d\n", label, msec/1000, msec%1000);          \
@@ -37,9 +37,6 @@ int main(int argc, char *argv[]) {
   for (TYPE i = 0; i < COUNT; i++) {
     array[i] = rand() % COUNT;
   }, "fill array time");
-  diff = clock() - start;
-  int msec = diff * 1000 / CLOCKS_PER_SEC;
-  printf("fill array time = %d.%d\n", msec/1000, msec%1000);
 
   start = clock();
   list_t * list = list_fromarray(array, sizeof(TYPE), COUNT);
