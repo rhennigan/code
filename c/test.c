@@ -35,10 +35,6 @@ int main(int argc, char *argv[]) {
   list_t * list, * sorted;
   uint64_t COUNT = atol(argv[1]);
   
-  printf("array size = %lu\n", sizeof(TYPE) * COUNT);
-  printf("list size = %lu\n", sizeof(list_t) * COUNT);
-
-
   TIMING(array = malloc(sizeof(TYPE) * COUNT);
          assert(array != NULL);
          for (TYPE i = 0; i < COUNT; i++) {
@@ -61,6 +57,7 @@ int main(int argc, char *argv[]) {
   TIMING(total = *(TYPE*)list_fold(list, &total, plus);, "fold time");
 
   TIMING(sorted = list_sort(list, lt);, "sort time");
+  printf("counter = %ld\n", counter);
   /* list_dump(sorted); */
   /* list_iter(sorted, print); */
 
