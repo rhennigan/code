@@ -208,11 +208,11 @@ list_t * list_map(list_t * list, void * (*f)(void * x)) {
   }  // end if (list == NULL)
 }
 
-lpair_t list_partition(list_t * list, cmp_fun pred, void * pivot) {
+lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
   lpair_t pair = { NULL, NULL };
   while (list != NULL) {
     void * x = list_head(list);
-    if (pred(x, pivot)) {
+    if (pred(x, dep_arg)) {
       pair.left = list_cons(pair.left, x);
     } else {  // (!pred(x, pivot))
       pair.right = list_cons(pair.right, x);
