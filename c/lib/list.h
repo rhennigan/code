@@ -19,17 +19,18 @@ typedef struct lpair_s {
   list_t * right;
 } lpair_t;
 
-typedef bool (*cmp_f)(void * head1, void * head2);
-typedef bool (*sta_pred_f)(void * head);
-typedef bool (*dyn_pred_f)(void * head, void * dep_args);
+typedef int    (*cmp_f)(void * head1, void * head2);
+typedef bool   (*sta_pred_f)(void * head);
+typedef bool   (*dyn_pred_f)(void * head, void * dep_arg);
+typedef void * (*fold_f)(void * head1, void * head2);
 
 list_t * list_app(list_t * list, void * data);
 list_t * list_copy(list_t * list);
 void     list_dispose(list_t * list);
 void     list_dump(list_t * list);
 list_t * list_extremum(list_t * list, cmp_f ex);
-list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_args);
-list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_args);
+list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg);
+list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg);
 void *   list_foldl(list_t * list, void * acc, void * (*f)(void * x, void * y));
 void *   list_foldr(list_t * list, void * acc, void * (*f)(void * x, void * y));
 list_t * list_fromarray(void * array, size_t objsize, size_t length);
