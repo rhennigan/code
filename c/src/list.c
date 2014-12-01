@@ -227,12 +227,21 @@ inline size_t list_length(list_t * list) {
   return len;
 }  // end list_length
 
+/* inline list_t * list_map(list_t * list, map_f f) { */
+/*   if (list == NULL) { */
+/*     return NULL; */
+/*   } else {  // (list != NULL) */
+/*     return list_cons(list_map(list_tail(list), f), f(list_head(list))); */
+/*   }  // end if (list == NULL) */
+/* } */
+
 inline list_t * list_map(list_t * list, map_f f) {
-  if (list == NULL) {
-    return NULL;
-  } else {  // (list != NULL)
-    return list_cons(list_map(list_tail(list), f), f(list_head(list)));
-  }  // end if (list == NULL)
+  list_t * tmp = list;
+  while (tmp != NULL) {
+    tmp->head = f(tmp->head);
+    tmp = tmp->tail;
+  }
+  return list;
 }
 
 inline data_t list_nth(list_t * list, long int n) {
