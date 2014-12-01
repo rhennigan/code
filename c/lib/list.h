@@ -9,10 +9,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef void * addr_t;
+typedef void * data_t;
 
 typedef struct list_s {
-  addr_t head;
+  data_t head;
   struct list_s * tail;
 } list_t;
 
@@ -21,10 +21,10 @@ typedef struct lpair_s {
   list_t * right;
 } lpair_t;
 
-typedef int    (*cmp_f)(addr_t head1, addr_t head2);
-typedef bool   (*sta_pred_f)(addr_t head);
-typedef bool   (*dyn_pred_f)(addr_t head, void * dep_arg);
-typedef addr_t (*fold_f)(void * head1, void * head2);
+typedef int    (*cmp_f)(data_t head1, data_t head2);
+typedef bool   (*sta_pred_f)(data_t head);
+typedef bool   (*dyn_pred_f)(data_t head, void * dep_arg);
+typedef data_t (*fold_f)(data_t head1, data_t head2);
 
 list_t * list_app(list_t * list, void * data);
 list_t * list_copy(list_t * list);
