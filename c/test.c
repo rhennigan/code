@@ -1,5 +1,6 @@
 #include <time.h>
 #include <stdint.h>
+#include <limits.h>
 #include "lib/list.h"
 
 // #define COUNT 100000
@@ -7,7 +8,7 @@
 #define FMT "%f"
 
 void print(data_t head) {
-  printf(FMT" ", *(TYPE*)head);
+  printf(FMT"\n", *(TYPE*)head);
 }
 
 void * plus(void * acc, data_t head) {
@@ -41,7 +42,7 @@ int main(int argc, char *argv[]) {
   TIMING(array = malloc(sizeof(TYPE) * COUNT);
          assert(array != NULL);
          for (TYPE i = 0; i < COUNT; i++) {
-           array[(int)i] = (TYPE)(rand() % COUNT);
+           array[(int)i] = (TYPE)rand() / (TYPE)INT_MAX;
          },"fill array time");
 
   printf("array contents\n");
