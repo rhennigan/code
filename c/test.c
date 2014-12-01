@@ -52,6 +52,7 @@ int main(int argc, char *argv[]) {
 
   TIMING(list = list_fromarray(array, sizeof(TYPE), COUNT);, "fill list time");
   list_dump(list);
+  list_iter(list, print);
 
   TYPE total = 0;
 
@@ -59,6 +60,7 @@ int main(int argc, char *argv[]) {
 
   TIMING(sorted = list_sort(list, lt);, "sort time");
   list_dump(sorted);
+  list_iter(sorted, print);
 
   total = 0;
   TIMING(total = *(TYPE*)list_fold(sorted, &total, plus);, "sorted fold time");
