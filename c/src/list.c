@@ -102,7 +102,7 @@ void list_dump(list_t * list) {
   }  // end if (list == NULL)
 }  // end list_dump
 
-list_t * list_extremum(list_t * list, cmp_f ex) {
+list_t * list_extremum(list_t * list, dyn_cmp_f ex, void * dep_arg) {
   if (list == NULL) {
     return NULL;
   } else {  // (list != NULL)
