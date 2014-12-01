@@ -235,6 +235,10 @@ inline list_t * list_map(list_t * list, map_f f) {
   }  // end if (list == NULL)
 }
 
+inline data_t list_nth(list_t * list, size_t n) {
+  return list_head(list_skip(list, n));
+}
+
 inline lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
   lpair_t pair = { NULL, NULL };
   while (list != NULL) {
@@ -274,9 +278,7 @@ inline list_t * list_reverse(list_t * list) {
 }  // end list_reverse
 
 inline list_t * list_skip(list_t * list, size_t n) {
-  while (n--) {
-    list = list_tail(list);
-  }
+  while (n--) list = list_tail(list);
   return list;
 }
 
