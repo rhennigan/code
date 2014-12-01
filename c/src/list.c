@@ -285,7 +285,7 @@ inline list_t * list_reverse(list_t * list) {
 inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
   size_t   len   = list_length(list);
   data_t * array = list_toarray(list, sizeof(data_t));
-  list_dispose(list);
+  // list_dispose(list);
   qsort(array, len, sizeof(data_t), lt);
   list = list_fromarray(array, sizeof(data_t), len);
   free(array);
