@@ -29,7 +29,7 @@ typedef void * (*fold_f)(void * acc, data_t head);
 typedef void   (*iter_f)(data_t data);
 typedef data_t (*map_f)(data_t data);
 
-void     list_app(list_t * list, void * data);
+list_t * list_app(list_t * list, void * data);
 list_t * list_copy(list_t * list);
 void     list_dispose(list_t * list);
 void     list_dump(list_t * list);
@@ -46,7 +46,7 @@ list_t * list_join(list_t * list1, list_t * list2);
 size_t   list_length(list_t * list);
 list_t * list_map(list_t * list, void * (*f)(void * x));
 lpair_t  list_partition(list_t * lst, dyn_pred_f pred, void * dep_arg);
-void     list_pre(list_t * list, void * data);
+list_t * list_pre(list_t * list, void * data);
 list_t * list_reverse(list_t * list);
 list_t * list_sort(list_t * list, sta_cmp_f cmp);
 list_t * list_tail(list_t * list);

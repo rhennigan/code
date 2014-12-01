@@ -65,10 +65,11 @@ static inline list_t * list_snoc(list_t * list, void * data) {
 /******************************************************************************/
 /* PUBLIC FUNCTIONS                                                           */
 /******************************************************************************/
-void list_app(list_t * list, data_t head) {
+list_t * list_app(list_t * list, data_t head) {
   list_t * last    = last_node(list);
   last->tail       = list_init();
   last->tail->head = head;
+  return list;
 }  // end list_app
 
 list_t * list_copy(list_t * list) {
@@ -246,7 +247,7 @@ void list_pre(list_t * list, void * data) {
   list_t * new_tail = list_cons(list_tail(list), list_head(list));
   list->head = data;
   list->tail = new_tail;
-}  // end list_app
+}
 
 list_t * list_reverse(list_t * list) {
   list_t * new_list = NULL;
