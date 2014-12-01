@@ -36,7 +36,9 @@ int main(int argc, char *argv[]) {
   
   printf("array size = %lu\n", sizeof(TYPE) * COUNT);
   printf("list size = %lu\n", sizeof(list_t) * COUNT);
-  
+
+  printf("array contents\n");
+  printf("--------------\n");
   TIMING(array = malloc(sizeof(TYPE) * COUNT);
          assert(array != NULL);
          for (TYPE i = 0; i < COUNT; i++) {
