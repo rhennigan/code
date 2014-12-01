@@ -283,7 +283,9 @@ inline list_t * list_reverse(list_t * list) {
 /* }  // end list_sort */
 
 inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
-  
+  size_t   len   = list_length(list);
+  data_t * array = list_toarray(list, sizeof(data_t));
+  qsort(array, len, sizeof(data_t), lt);
 }
 
 inline list_t * list_tail(list_t * list) {
