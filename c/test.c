@@ -1,7 +1,7 @@
 #include <time.h>
 #include "lib/list.h"
 
-#define COUNT 100000000
+#define COUNT 1000000
 #define TYPE int
 #define FMT "%d"
 
