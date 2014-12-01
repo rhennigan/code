@@ -17,13 +17,13 @@ void * plus(void * acc, data_t head) {
 
 int main(int argc, char *argv[]) {
   uint64_t COUNT = atol(argv[1]);
-  TYPE * array = malloc(sizeof(TYPE) * COUNT);
-  assert(array != NULL);
-
+  
   printf("array size = %lu\n", sizeof(TYPE) * COUNT);
   printf("list size = %lu\n", sizeof(list_t) * COUNT);
   
   clock_t start = clock(), diff;
+  TYPE * array = malloc(sizeof(TYPE) * COUNT);
+  assert(array != NULL);
   for (TYPE i = 0; i < COUNT; i++) {
     array[i] = i;
   }
