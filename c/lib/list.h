@@ -31,7 +31,7 @@ void     list_dump(list_t * list);
 list_t * list_extremum(list_t * list, cmp_f ex);
 list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg);
 list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg);
-void *   list_foldl(list_t * list, void * acc, void * (*f)(void * x, void * y));
+void *   list_foldl(list_t * list, void * acc, fold_f fold_fun);
 void *   list_foldr(list_t * list, void * acc, void * (*f)(void * x, void * y));
 list_t * list_fromarray(void * array, size_t objsize, size_t length);
 void   * list_head(list_t * list);
