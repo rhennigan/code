@@ -37,15 +37,18 @@ int main(int argc, char *argv[]) {
   printf("array size = %lu\n", sizeof(TYPE) * COUNT);
   printf("list size = %lu\n", sizeof(list_t) * COUNT);
 
-  printf("array contents\n");
-  printf("--------------\n");
+
   TIMING(array = malloc(sizeof(TYPE) * COUNT);
          assert(array != NULL);
          for (TYPE i = 0; i < COUNT; i++) {
            array[(int)i] = (TYPE)(rand() % COUNT);
-           printf("  %p\n", &array[(int)i]);
          },"fill array time");
 
+  printf("array contents\n");
+  printf("--------------\n");
+  for (size_t i = 0; i < COUNT; i++) {
+    printf("  %p\n", &array[(int)i]);
+  }
 
   TIMING(list = list_fromarray(array, sizeof(TYPE), COUNT);, "fill list time");
 
