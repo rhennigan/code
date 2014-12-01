@@ -248,10 +248,11 @@ lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
   return pair;
 }
 
-void list_pre(list_t * list, void * data) {
+list_t * list_pre(list_t * list, void * data) {
   list_t * new_tail = list_cons(list_tail(list), list_head(list));
   list->head = data;
   list->tail = new_tail;
+  return list;
 }
 
 list_t * list_reverse(list_t * list) {
