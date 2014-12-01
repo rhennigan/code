@@ -173,15 +173,18 @@ inline list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
 
 inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
   const size_t lsize = sizeof(list_t);
-  list_t * list = malloc(lsize * length);
+  list_t *     list  = malloc(lsize * length);
+
   if (list == NULL) {
     printf("not enough memory to create a list of %lu elements\n", length);
     exit(EXIT_FAILURE);
   }
+
   for (size_t i = 0; i < length; i++) {
     list[i].head = (char*)array + i*objsize;
     list[i].tail = i+1 == length ? NULL : &list[i+1];
-  } 
+  }
+
   return list;
 }
 
