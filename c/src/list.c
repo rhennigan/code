@@ -287,6 +287,9 @@ inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
   data_t * array = list_toarray(list, sizeof(data_t));
   list_dispose(list);
   qsort(array, len, sizeof(data_t), lt);
+  list = list_fromarray(array, sizeof(data_t), len);
+  free(array);
+  return list;
 }
 
 inline list_t * list_tail(list_t * list) {
