@@ -16,7 +16,7 @@ void * plus(void * acc, data_t head) {
 }
 
 bool lt(void * head1, void * head2) {
-  return *(TYPE*)head1 - *(TYPE*)head2;
+  return *(TYPE*)head1 < *(TYPE*)head2;
 }
 
 #define TIMING(action, label) do {                              \
