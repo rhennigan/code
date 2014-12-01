@@ -21,7 +21,7 @@ typedef struct lpair_s {
   list_t * right;
 } lpair_t;
 
-typedef int    (*sta_cmp_f)(const data_t head1, const data_t head2);
+typedef int    (*sta_cmp_f)(const void * head1, const void * head2);
 typedef bool   (*dyn_cmp_f)(data_t head1, data_t head2, void * dep_arg);
 typedef bool   (*sta_pred_f)(data_t head);
 typedef bool   (*dyn_pred_f)(data_t head, void * dep_arg);
