@@ -125,13 +125,9 @@ list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
     list_t * tmp = filtered;
     while ((list = list_tail(list)) != NULL) {
       if (pred(list_head(list), dep_arg)) {
-        if (tmp == NULL) {
-          tmp = list_init();
-        } else {
-          tmp->tail = list_init();
-          tmp = list_tail(tmp);
-        }
         tmp->head = list_head(list);
+        tmp->tail = list_init();
+        tmp = list_tail(tmp);        
       }
     }
   }
