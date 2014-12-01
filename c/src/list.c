@@ -269,13 +269,22 @@ inline list_t * list_pre(list_t * list, void * data) {
 }
 
 inline list_t * list_reverse(list_t * list) {
-  list_t * new_list = NULL;
+  list_t * reversed = NULL;
+  list_t * tmp = list;
   while (list != NULL) {
-    new_list = list_cons(new_list, list_head(list));
-    list = list_tail(list);
-  }  // end while (list != NULL)
-  return new_list;
-}  // end list_reverse
+    tmp = list_tail(list);
+    list->tail = reversed;
+  }
+}
+
+/* inline list_t * list_reverse(list_t * list) { */
+/*   list_t * new_list = NULL; */
+/*   while (list != NULL) { */
+/*     new_list = list_cons(new_list, list_head(list)); */
+/*     list = list_tail(list); */
+/*   }  // end while (list != NULL) */
+/*   return new_list; */
+/* }  // end list_reverse */
 
 inline list_t * list_skip(list_t * list, long int n) {
   while (n--) list = list_tail(list);
