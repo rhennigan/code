@@ -162,12 +162,12 @@ void * list_foldr(list_t * list, void * acc, fold_f f) {
 list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
   while (list != NULL) {
     if (pred(list_head(list), dep_arg)) {
-      return list;
+      break;;
     } else {
       list = list_tail(list);
     }
   }
-  return NULL;
+  return list;
   /* if (list == NULL) { */
   /*   return NULL; */
   /* } else if (pred(list, dep_arg)) { */
