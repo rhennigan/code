@@ -9,8 +9,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+typedef void * addr_t;
+
 typedef struct list_s {
-  void * head;
+  addr_t head;
   struct list_s * tail;
 } list_t;
 
