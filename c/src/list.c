@@ -203,13 +203,12 @@ void list_iter(list_t * list, iter_f f) {
 }  // end list_iter
 
 list_t * list_join(list_t * list1, list_t * list2) {
-  list_t * list = list_copy(list1);
-  if (list == NULL) {
+  if (list1 == NULL) {
     return list2;
-  } else {  // (list != NULL)
-    last_node(list)->tail = list2;
-    return list;
-  }  // end if (list == NULL)
+  } else {  // (list1 != NULL)
+    last_node(list1)->tail = list2;
+    return list1;
+  }  // end if (list1 == NULL)
 }  // end list_join
 
 size_t list_length(list_t * list) {
