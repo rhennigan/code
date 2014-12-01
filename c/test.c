@@ -43,6 +43,7 @@ int main(int argc, char *argv[]) {
          assert(array != NULL);
          for (TYPE i = 0; i < COUNT; i++) {
            array[(int)i] = (TYPE)(rand() % COUNT);
+           printf("  %p\n", &array[(int)i]);
          },"fill array time");
 
 
