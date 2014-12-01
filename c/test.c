@@ -26,17 +26,17 @@ void * plus(void * acc, data_t head) {
 int main(int argc, char *argv[]) {
   clock_t start, diff;
   int msec;
+  TYPE * array;
   uint64_t COUNT = atol(argv[1]);
   
   printf("array size = %lu\n", sizeof(TYPE) * COUNT);
   printf("list size = %lu\n", sizeof(list_t) * COUNT);
   
-  TIMING(
-  TYPE * array = malloc(sizeof(TYPE) * COUNT);
-  assert(array != NULL);
-  for (TYPE i = 0; i < COUNT; i++) {
-    array[i] = rand() % COUNT;
-  }, "fill array time");
+  TIMING(array = malloc(sizeof(TYPE) * COUNT);
+         assert(array != NULL);
+         for (TYPE i = 0; i < COUNT; i++) {
+           array[i] = rand() % COUNT;
+         },"fill array time");
 
   start = clock();
   list_t * list = list_fromarray(array, sizeof(TYPE), COUNT);
