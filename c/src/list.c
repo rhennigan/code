@@ -159,7 +159,7 @@ list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
 list_t * list_fromarray(void * array, size_t objsize, size_t length) {
   list_t * list = NULL;
   for (int i = (length-1) * objsize; i >= 0; i -= objsize) {
-    list = list_cons(list, array+i);
+    list = list_cons(list, (char*)array + objsize*i);
   }  // end for (int i = (length-1) * objsize; i >= 0; i -= objsize)
   return list;
 }  // end list_fromarray
@@ -235,7 +235,7 @@ list_t * list_reverse(list_t * list) {
   return new_list;
 }  // end list_reverse
 
-list_t * list_sort(list_t * list, cmp_fun lt) {
+list_t * list_sort(list_t * list, cmp_f lt) {
   printf("\n\nsorting list: \n");
   list_dump(list);
   fflush(NULL);
