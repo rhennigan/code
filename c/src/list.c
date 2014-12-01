@@ -235,7 +235,7 @@ inline list_t * list_map(list_t * list, map_f f) {
   }  // end if (list == NULL)
 }
 
-inline data_t list_nth(list_t * list, size_t n) {
+inline data_t list_nth(list_t * list, long int n) {
   return list_head(list_skip(list, n));
 }
 
