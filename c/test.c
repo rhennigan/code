@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
   TIMING(array = malloc(sizeof(TYPE) * COUNT);
          assert(array != NULL);
          for (TYPE i = 0; i < COUNT; i++) {
-           array[i] = rand() % COUNT;
+           array[(int)i] = (TYPE)(rand() % COUNT);
          },"fill array time");
 
 
