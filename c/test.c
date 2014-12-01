@@ -3,8 +3,8 @@
 #include "lib/list.h"
 
 // #define COUNT 100000
-#define TYPE uint64_t
-#define FMT "%lu"
+#define TYPE double
+#define FMT "%f"
 
 void print(data_t head) {
   printf(FMT" ", *(TYPE*)head);
