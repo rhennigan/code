@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include "lib/list.h"
 
-#define COUNT 10000
+#define COUNT 100000
 #define TYPE uint64_t
 #define FMT "%lu"
 
