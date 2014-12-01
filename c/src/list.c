@@ -272,9 +272,12 @@ inline list_t * list_reverse(list_t * list) {
   list_t * reversed = NULL;
   list_t * tmp = list;
   while (list != NULL) {
-    tmp = list_tail(list);
+    tmp        = list_tail(list);
     list->tail = reversed;
+    reversed   = list;
+    list       = tmp;
   }
+  return reversed;
 }
 
 /* inline list_t * list_reverse(list_t * list) { */
