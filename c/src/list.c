@@ -11,7 +11,7 @@ static inline list_t * last_node(list_t * list) {
   if (list == NULL) {
     return NULL;
   } else {
-    while ((list = list_tail(list)) != NULL) {}
+    while ((list = list->tail) != NULL) {}
     return list;
   }
 }
