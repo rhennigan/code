@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include "lib/list.h"
 
-#define COUNT 100000
+// #define COUNT 100000
 #define TYPE uint64_t
 #define FMT "%lu"
 
@@ -16,6 +16,7 @@ void * plus(void * acc, data_t head) {
 }
 
 int main(int argc, char *argv[]) {
+  uint64_t COUNT = atoi(argv[1]);
   TYPE array1[COUNT];
   TYPE array2[COUNT];
   for (TYPE i = 0; i < COUNT; i++) {
