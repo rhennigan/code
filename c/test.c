@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
   TYPE * array = malloc(sizeof(TYPE) * COUNT);
   assert(array != NULL);
   for (TYPE i = 0; i < COUNT; i++) {
-    array[i] = i;
+    array[i] = rand() % COUNT;
   }
   diff = clock() - start;
   int msec = diff * 1000 / CLOCKS_PER_SEC;
