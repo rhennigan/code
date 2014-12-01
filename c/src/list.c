@@ -278,9 +278,9 @@ inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
     return list;
   } else {  // (list != NULL)
     void * pivot = list_head(list);
-    lpair_t part = list_partition(list_tail(list), lt, pivot);
+    lpair_t part = list_partition(list, lt, pivot);
     list_t * left = list_sort(part.left, lt);
-    list_t * right = list_cons(list_sort(part.right, lt), pivot);
+    list_t * right = list_cons(part.right, lt);
     return list_join(left, right);
   }  // end if (list == NULL)
 }  // end list_sort
