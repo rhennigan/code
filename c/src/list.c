@@ -195,11 +195,10 @@ inline void * list_head(list_t * list) {
   }  // end if (list == NULL)
 }  // end list_head
 
-void list_iter(list_t * list, void (*f)(void * head)) {
-  list_t * tmp = list;
-  while (tmp != NULL) {
-    (*f)(tmp->head);
-    tmp = list_tail(tmp);
+void list_iter(list_t * list, iter_f f) {
+  while (list != NULL) {
+    f(list_head(list));
+    list = list_tail(list);
   }  // end while (tmp != NULL)
 }  // end list_iter
 
