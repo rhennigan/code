@@ -220,7 +220,7 @@ size_t list_length(list_t * list) {
   return len;
 }  // end list_length
 
-list_t * list_map(list_t * list, void * (*f)(void * x)) {
+list_t * list_map(list_t * list, map_f f) {
   if (list == NULL) {
     return NULL;
   } else {  // (list != NULL)
