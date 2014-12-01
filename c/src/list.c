@@ -11,9 +11,9 @@ static inline list_t * last_node(list_t * list) {
   assert(list != NULL);
   while (list->tail != NULL) {
     list = list_tail(list);
-  }  // end while (list->tail != NULL)
+  }
   return list;
-}  // end last_node
+}
 
 static inline list_t * list_init() {
   list_t * list = malloc(sizeof(list_t));
@@ -21,46 +21,25 @@ static inline list_t * list_init() {
   list->head = NULL;
   list->tail = NULL;
   return list;
-}  // end list_init
+}
 
 static inline list_t * list_cons(list_t * list, void * data) {
   list_t * new_list = list_init();
   new_list->head = data;
   new_list->tail = list;
   return new_list;
-}  // end list_cons
+}
 
 static inline list_t * list_snoc(list_t * list, void * data) {
   list_t *last = list_init();
   last->head = data;
   if (list == NULL) {
     return last;
-  } else {  // (list != NULL)
+  } else {
     last_node(list)->tail = last;
     return list;
-  }  // end if (list == NULL)
-}  // end list_snoc
-
-/* static inline list_t * merge(list_t * xxs, list_t * yys, cmp_fun lt) { */
-/*   if (xxs == NULL && yys == NULL) { */
-/*     return NULL; */
-/*   } else if (xxs == NULL) { */
-/*     return yys; */
-/*   } else if (yys == NULL) { */
-/*     return xxs; */
-/*   } else {  // (xs != NULL && ys != NULL) */
-/*     void * x = list_head(xxs); */
-/*     void * y = list_head(yys); */
-/*     list_t * xs = list_tail(xxs); */
-/*     list_t * ys = list_tail(yys); */
-/*     list_t * merged = merge(xs, ys, lt); */
-/*     if (lt(x, y)) { */
-/*       return list_cons(list_cons(merged, y), x); */
-/*     } else {  // (!lt(x, y)) */
-/*       return list_cons(list_cons(merged, x), y); */
-/*     }  // end if (lt(x, y)) */
-/*   }  // end if (xs == NULL && ys == NULL) */
-/* }  // end merge */
+  }
+}
 
 /******************************************************************************/
 /* PUBLIC FUNCTIONS                                                           */
