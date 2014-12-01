@@ -231,14 +231,14 @@ list_t * list_map(list_t * list, map_f f) {
 lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
   lpair_t pair = { NULL, NULL };
   while (list != NULL) {
-    void * x = list_head(list);
+    data_t x = list_head(list);
     if (pred(x, dep_arg)) {
       pair.left = list_cons(pair.left, x);
-    } else {  // (!pred(x, pivot))
+    } else {
       pair.right = list_cons(pair.right, x);
-    }  // end if (pred(x, pivot))
+    }
     list = list_tail(list);
-  }  // end while (list != NULL)
+  }
   return pair;
 }
 
