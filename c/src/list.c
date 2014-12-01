@@ -190,8 +190,8 @@ list_t * list_fromarray(void * array, size_t objsize, size_t length) {
   const size_t lsize = sizeof(list_t);
   list_t * list = malloc(lsize * length);
   for (size_t i = 0; i < length; i++) {
-    list[i].head = (char*)array + i;
-    list[i].tail = i+1 == length ? NULL : list[i+1];
+    list[i].head = (char*)array + i*objsize;
+    list[i].tail = i+1 == length ? NULL : &list[i+1];
   } 
   return list;
 }
