@@ -17,7 +17,7 @@ void * plus(void * acc, data_t head) {
 
 int main(int argc, char *argv[]) {
   uint64_t COUNT = atol(argv[1]);
-  TYPE array[COUNT];
+  TYPE * array = malloc(sizeof(TYPE) * COUNT);
   for (TYPE i = 0; i < COUNT; i++) {
     array[i] = i;
   }
