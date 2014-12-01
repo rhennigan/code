@@ -62,6 +62,7 @@ int main(int argc, char *argv[]) {
   /* printf("list_foldr time = %d seconds %d milliseconds\n", msec/1000, msec%1000); */
   /* printf("list_foldr total = %lu\n", total3); */
 
+  free(array);
   free(list);
   return 0;
 }
