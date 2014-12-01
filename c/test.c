@@ -25,7 +25,7 @@ bool lt(void * head1, void * head2) {
   action;                                                       \
   diff = clock() - start;                                       \
   msec = (double)diff * 1000.0 / (double)CLOCKS_PER_SEC;        \
-  printf("%-20s = %.6f\n", label, msec/1000.0);                \
+  printf("%-20s = %.6f\n", label, msec/1000.0);                 \
   } while (0);
 
 int main(int argc, char *argv[]) {
