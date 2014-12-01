@@ -238,6 +238,7 @@ inline lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
   while (list != NULL) {
     data_t x = list_head(list);
     if (pred(x, dep_arg)) {
+      list_t * next = list_tail(list);
       pair.left = list_cons(pair.left, x);
     } else {
       pair.right = list_cons(pair.right, x);
