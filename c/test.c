@@ -15,7 +15,9 @@ void * plus(void * acc, data_t head) {
   return acc;
 }
 
-int lt(data_t head1, data_t head2) { return *(TYPE*)head1 - *(TYPE*)head2; }
+int lt(const void * head1, const void * head2) {
+  return *(TYPE*)head1 - *(TYPE*)head2;
+}
 
 #define TIMING(action, label) do {                              \
   start = clock();                                              \
