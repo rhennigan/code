@@ -167,6 +167,7 @@ list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
       list = list_tail(list);
     }
   }
+  return NULL;
   /* if (list == NULL) { */
   /*   return NULL; */
   /* } else if (pred(list, dep_arg)) { */
