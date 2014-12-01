@@ -149,7 +149,7 @@ void * list_foldl(list_t * list, void * acc, fold_f f) {
   }
 }
 
-void * list_foldr(list_t * list, void * acc, void * (*f)(void * x, void * y)) {
+void * list_foldr(list_t * list, void * acc, fold_f f) {
   if (list == NULL) {
     return acc;
   } else {
