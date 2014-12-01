@@ -36,7 +36,12 @@ int main(int argc, char *argv[]) {
   TYPE total3 = 0;
 
   total1 = *(TYPE*)list_fold(list, &total1, plus);
-  printf("total = %d\n", total1);
+  total2 = *(TYPE*)list_foldl(list, &total2, plus);
+  total3 = *(TYPE*)list_foldr(list, &total3, plus);
+
+  printf("total1 = %d\n", total1);
+  printf("total2 = %d\n", total2);
+  printf("total3 = %d\n", total3);
 
   list_dispose(list);
   return 0;
