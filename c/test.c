@@ -45,19 +45,19 @@ int main(int argc, char *argv[]) {
   printf("list_fold time = %d seconds %d milliseconds\n", msec/1000, msec%1000);
   printf("list_fold total = %lu\n", total1);
 
-  start = clock();
-  total2 = *(TYPE*)list_foldl(list, &total2, plus);
-  diff = clock() - start;
-  msec = diff * 1000 / CLOCKS_PER_SEC;
-  printf("list_foldl time = %d seconds %d milliseconds\n", msec/1000, msec%1000);
-  printf("list_foldl total = %lu\n", total2);
+  /* start = clock(); */
+  /* total2 = *(TYPE*)list_foldl(list, &total2, plus); */
+  /* diff = clock() - start; */
+  /* msec = diff * 1000 / CLOCKS_PER_SEC; */
+  /* printf("list_foldl time = %d seconds %d milliseconds\n", msec/1000, msec%1000); */
+  /* printf("list_foldl total = %lu\n", total2); */
 
-  start = clock();
-  total3 = *(TYPE*)list_foldr(list, &total3, plus);
-  diff = clock() - start;
-  msec = diff * 1000 / CLOCKS_PER_SEC;
-  printf("list_foldr time = %d seconds %d milliseconds\n", msec/1000, msec%1000);
-  printf("list_foldr total = %lu\n", total3);
+  /* start = clock(); */
+  /* total3 = *(TYPE*)list_foldr(list, &total3, plus); */
+  /* diff = clock() - start; */
+  /* msec = diff * 1000 / CLOCKS_PER_SEC; */
+  /* printf("list_foldr time = %d seconds %d milliseconds\n", msec/1000, msec%1000); */
+  /* printf("list_foldr total = %lu\n", total3); */
 
   free(list);
   return 0;
