@@ -26,6 +26,7 @@ typedef bool   (*dyn_cmp_f)(data_t head1, data_t head2, void * dep_arg);
 typedef bool   (*sta_pred_f)(data_t head);
 typedef bool   (*dyn_pred_f)(data_t head, void * dep_arg);
 typedef void * (*fold_f)(void * acc, data_t head);
+typedef void   (*iter_f)(data_t data);
 typedef data_t (*map_f)(data_t data);
 
 void     list_app(list_t * list, void * data);
@@ -39,7 +40,7 @@ void *   list_foldl(list_t * list, void * acc, fold_f f);
 void *   list_foldr(list_t * list, void * acc, fold_f f);
 list_t * list_fromarray(void * array, size_t objsize, size_t length);
 void   * list_head(list_t * list);
-void     list_iter(list_t * list, void (*f)(void * data));
+void     list_iter(list_t * list, iter_f f);
 list_t * list_join(list_t * list1, list_t * list2);
 size_t   list_length(list_t * list);
 list_t * list_map(list_t * list, void * (*f)(void * x));
