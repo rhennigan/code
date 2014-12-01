@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
   list_t * list = list_fromarray(array, sizeof(TYPE), COUNT);
   diff = clock() - start;
   msec = diff * 1000 / CLOCKS_PER_SEC;
-  printf("fill list time = %d seconds %d milliseconds\n", msec/1000, msec%1000);
+  printf("fill list time = %d seconds %d milliseconds\n\n\n", msec/1000, msec%1000);
 
   TYPE total1 = 0;
   TYPE total2 = 0;
@@ -50,12 +50,14 @@ int main(int argc, char *argv[]) {
   diff = clock() - start;
   msec = diff * 1000 / CLOCKS_PER_SEC;
   printf("list_foldl time = %d seconds %d milliseconds\n", msec/1000, msec%1000);
+  printf("list_foldl total = %lu\n", total2);
 
   start = clock();
   total3 = *(TYPE*)list_foldr(list, &total3, plus);
   diff = clock() - start;
   msec = diff * 1000 / CLOCKS_PER_SEC;
   printf("list_foldr time = %d seconds %d milliseconds\n", msec/1000, msec%1000);
+  printf("list_foldr total = %lu\n", total3);
 
   free(list);
   return 0;
