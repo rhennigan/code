@@ -41,26 +41,26 @@ static inline list_t * list_snoc(list_t * list, void * data) {
   }  // end if (list == NULL)
 }  // end list_snoc
 
-static inline list_t * merge(list_t * xxs, list_t * yys, cmp_fun lt) {
-  if (xxs == NULL && yys == NULL) {
-    return NULL;
-  } else if (xxs == NULL) {
-    return yys;
-  } else if (yys == NULL) {
-    return xxs;
-  } else {  // (xs != NULL && ys != NULL)
-    void * x = list_head(xxs);
-    void * y = list_head(yys);
-    list_t * xs = list_tail(xxs);
-    list_t * ys = list_tail(yys);
-    list_t * merged = merge(xs, ys, lt);
-    if (lt(x, y)) {
-      return list_cons(list_cons(merged, y), x);
-    } else {  // (!lt(x, y))
-      return list_cons(list_cons(merged, x), y);
-    }  // end if (lt(x, y))
-  }  // end if (xs == NULL && ys == NULL)
-}  // end merge
+/* static inline list_t * merge(list_t * xxs, list_t * yys, cmp_fun lt) { */
+/*   if (xxs == NULL && yys == NULL) { */
+/*     return NULL; */
+/*   } else if (xxs == NULL) { */
+/*     return yys; */
+/*   } else if (yys == NULL) { */
+/*     return xxs; */
+/*   } else {  // (xs != NULL && ys != NULL) */
+/*     void * x = list_head(xxs); */
+/*     void * y = list_head(yys); */
+/*     list_t * xs = list_tail(xxs); */
+/*     list_t * ys = list_tail(yys); */
+/*     list_t * merged = merge(xs, ys, lt); */
+/*     if (lt(x, y)) { */
+/*       return list_cons(list_cons(merged, y), x); */
+/*     } else {  // (!lt(x, y)) */
+/*       return list_cons(list_cons(merged, x), y); */
+/*     }  // end if (lt(x, y)) */
+/*   }  // end if (xs == NULL && ys == NULL) */
+/* }  // end merge */
 
 /******************************************************************************/
 /* PUBLIC FUNCTIONS                                                           */
