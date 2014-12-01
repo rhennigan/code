@@ -130,6 +130,12 @@ list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
         tmp = list_tail(tmp);        
       }
     }
+    if (list_head(filtered) == NULL) {
+      free(filtered);
+      return NULL;
+    } else {
+      return filtered;
+    }
   }
   /* lpair_t pair = list_partition(list, pred, dep_arg); */
   /* list_dispose(pair.right); */
