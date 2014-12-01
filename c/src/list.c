@@ -32,8 +32,8 @@ static inline list_t * list_cons(list_t * list, data_t data) {
   return new_list;
 }
 
-static inline list_t * list_snoc(list_t * list, void * data) {
-  list_t *last = list_init();
+static inline list_t * list_snoc(list_t * list, data_t data) {
+  list_t * last = list_init();
   last->head = data;
   if (list == NULL) {
     return last;
