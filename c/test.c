@@ -51,12 +51,14 @@ int main(int argc, char *argv[]) {
   }
 
   TIMING(list = list_fromarray(array, sizeof(TYPE), COUNT);, "fill list time");
+  list_dump(list);
 
   TYPE total = 0;
 
   TIMING(total = *(TYPE*)list_fold(list, &total, plus);, "fold time");
 
   TIMING(sorted = list_sort(list, lt);, "sort time");
+  list_dump(sorted);
 
   total = 0;
   TIMING(total = *(TYPE*)list_fold(sorted, &total, plus);, "sorted fold time");
