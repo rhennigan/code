@@ -1,7 +1,7 @@
 #include <time.h>
 #include "lib/list.h"
 
-#define COUNT 20
+#define COUNT 100000000
 #define TYPE int
 #define FMT "%d"
 
@@ -23,14 +23,7 @@ int main(int argc, char *argv[]) {
   }
   list_t * list1 = list_fromarray(array1, sizeof(TYPE), COUNT);
   list_t * list2 = list_fromarray(array2, sizeof(TYPE), COUNT);
-  list_iter(list1, print);
-  printf("\n");
-  list_iter(list2, print);
-  list_dump(list1);
-  list_dump(list2);
   list_t * list = list_join(list1, list2);
-  list_iter(list, print);
-  list_dump(list);
 
   TYPE total1 = 0;
   TYPE total2 = 0;
@@ -38,11 +31,12 @@ int main(int argc, char *argv[]) {
 
   int start1 = time(NULL);
   total1 = *(TYPE*)list_fold(list, &total1, plus);
-  int end1 = time(NULL) - start1;
+  int time1 = time(NULL) - start1;
+
   total2 = *(TYPE*)list_foldl(list, &total2, plus);
   total3 = *(TYPE*)list_foldr(list, &total3, plus);
 
-  printf("total1 = %d\n", total1);
+  printf("total1 = %d, time1 = %d\n", total1, time1);
   printf("total2 = %d\n", total2);
   printf("total3 = %d\n", total3);
 
