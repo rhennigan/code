@@ -15,7 +15,7 @@ void * plus(void * acc, data_t head) {
   return acc;
 }
 
-int lt(const void * head1, const void * head2) {
+bool lt(void * head1, void * head2) {
   return *(TYPE*)head1 - *(TYPE*)head2;
 }
 
