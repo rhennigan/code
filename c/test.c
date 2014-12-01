@@ -19,9 +19,13 @@ int main(int argc, char *argv[]) {
   uint64_t COUNT = atol(argv[1]);
   TYPE * array = malloc(sizeof(TYPE) * COUNT);
   assert(array != NULL);
+
+  int start = time(NULL);
   for (TYPE i = 0; i < COUNT; i++) {
     array[i] = i;
   }
+  printf("fill array time = %d\n", (int)time(NULL) - start);
+  
   list_t * list = list_fromarray(array, sizeof(TYPE), COUNT);
 
   TYPE total1 = 0;
