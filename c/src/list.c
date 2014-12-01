@@ -139,6 +139,14 @@ list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
   }
 }  // end list_filter
 
+void * list_fold(list_t * list, void * acc, fold_f f) {
+  while (list != NULL) {
+    acc  = f(acc, list_head(list));
+    list = list_tail(list);
+  }
+  return acc;
+}
+
 void * list_foldl(list_t * list, void * acc, fold_f f) {
   if (list == NULL) {
     return acc;
