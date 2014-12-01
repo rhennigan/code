@@ -15,12 +15,13 @@ void * plus(void * acc, data_t head) {
   return acc;
 }
 
-#define TIMING(action, label)                                   \
+#define TIMING(action, label) do {                              \
   start = clock();                                              \
   action;                                                       \
   diff = clock() - start;                                       \
   msec = diff * 1000 / CLOCKS_PER_SEC;                          \
-  printf("%s = %d.%d\n", label, msec/1000, msec%1000);
+  printf("%s = %d.%d\n", label, msec/1000, msec%1000);          \
+  } while {0}
 
 int main(int argc, char *argv[]) {
   uint64_t COUNT = atol(argv[1]);
