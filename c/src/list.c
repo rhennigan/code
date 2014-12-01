@@ -280,7 +280,7 @@ inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
     void * pivot = list_head(list);
     lpair_t part = list_partition(list_tail(list), lt, pivot);
     list->tail = NULL;
-    list_t * left = list_sort(part.left, lt);
+    list_t * left  = list_sort(part.left,  lt);
     list_t * right = list_sort(part.right, lt);
     return list_join(left, list_join(list, right));
   }  // end if (list == NULL)
