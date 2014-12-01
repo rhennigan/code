@@ -57,6 +57,6 @@ int main(int argc, char *argv[]) {
 
   free(array);
   free(list);
-  free(sorted);
+  list_dispose(sorted);
   return 0;
 }
