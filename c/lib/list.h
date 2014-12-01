@@ -44,8 +44,8 @@ list_t * list_map(list_t * list, void * (*f)(void * x));
 lpair_t  list_partition(list_t * lst, dyn_pred_f pred, void * dep_arg);
 list_t * list_pre(list_t * list, void * data);
 list_t * list_reverse(list_t * list);
-list_t * list_sort(list_t * list, cmp_fun lt);
+list_t * list_sort(list_t * list, cmp_f lt);
 list_t * list_tail(list_t * list);
-void   * list_toarray(list_t * list, size_t size);
+void   * list_toarray(list_t * list, size_t obj_size);
 
 #endif  // LIB_LIST_H_
