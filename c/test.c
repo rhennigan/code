@@ -44,12 +44,7 @@ int main(int argc, char *argv[]) {
 
   TYPE total = 0;
 
-  start = clock();
-  total = *(TYPE*)list_fold(list, &total, plus);
-  diff = clock() - start;
-  msec = diff * 1000 / CLOCKS_PER_SEC;
-  printf("list_fold time  = %d.%d\n\n", msec/1000, msec%1000);
-  printf("list_fold total = %lu\n", total);
+  TIMING(total = *(TYPE*)list_fold(list, &total, plus);, "fold time");
 
   free(array);
   free(list);
