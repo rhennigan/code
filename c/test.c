@@ -30,6 +30,11 @@ int main(int argc, char *argv[]) {
   list_t * list = list_join(list1, list2);
   list_iter(list, print);
   list_dump(list);
+
+  TYPE total1 = 0;
+  total1 = *(TYPE*)list_fold(list, &total1, plus);
+  printf("total = %d\n", total1);
+
   list_dispose(list);
   return 0;
 }
