@@ -10,6 +10,7 @@ void print(data_t head) {
 
 void * plus(void * acc, data_t head) {
   *(TYPE*)acc += *(TYPE*)head;
+  return acc;
 }
 
 int main(int argc, char *argv[]) {
