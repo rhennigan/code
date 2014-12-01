@@ -34,6 +34,7 @@ int main(int argc, char *argv[]) {
   TYPE * array;
   list_t * list, * sorted;
   uint64_t COUNT = atol(argv[1]);
+  srand(time(NULL));
   
   TIMING(array = malloc(sizeof(TYPE) * COUNT);
          assert(array != NULL);
