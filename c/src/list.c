@@ -270,8 +270,10 @@ list_t * list_reverse(list_t * list) {
 }  // end list_reverse
 
 list_t * list_reverse2(list_t * list) {
+  list_t * temp = list;
   list_t * tail = list;
   while (tail != NULL) {
+    tail = list_tail(tail);
     
   }
 }
