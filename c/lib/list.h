@@ -21,7 +21,8 @@ typedef struct lpair_s {
   list_t * right;
 } lpair_t;
 
-typedef bool   (*cmp_f)(data_t head1, data_t head2);
+typedef bool   (*sta_cmp_f)(data_t head1, data_t head2);
+typedef bool   (*dyn_cmp_f)(data_t head1, data_t head2, void * dep_arg);
 typedef bool   (*sta_pred_f)(data_t head);
 typedef bool   (*dyn_pred_f)(data_t head, void * dep_arg);
 typedef data_t (*fold_f)(data_t head1, data_t head2);
@@ -30,7 +31,7 @@ void     list_app(list_t * list, void * data);
 list_t * list_copy(list_t * list);
 void     list_dispose(list_t * list);
 void     list_dump(list_t * list);
-list_t * list_extremum(list_t * list, cmp_f ex);
+list_t * list_extremum(list_t * list, sta_cmp_f ex);
 list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg);
 list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg);
 void *   list_foldl(list_t * list, void * acc, fold_f f);
@@ -44,7 +45,7 @@ list_t * list_map(list_t * list, void * (*f)(void * x));
 lpair_t  list_partition(list_t * lst, dyn_pred_f pred, void * dep_arg);
 list_t * list_pre(list_t * list, void * data);
 list_t * list_reverse(list_t * list);
-list_t * list_sort(list_t * list, cmp_f cmp);
+list_t * list_sort(list_t * list, sta_cmp_f cmp);
 list_t * list_tail(list_t * list);
 void   * list_toarray(list_t * list, size_t obj_size);
 
