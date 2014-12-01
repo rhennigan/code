@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+extern long int counter;
+
 typedef void * data_t;
 
 typedef struct list_s {
