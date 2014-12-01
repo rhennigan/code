@@ -23,8 +23,8 @@ static inline list_t * list_init() {
   if (list == NULL) {
     return NULL;
   } else {
-    list->head   = NULL;
-    list->tail   = NULL;
+    list->head = NULL;
+    list->tail = NULL;
     return list;
   }
 }
