@@ -137,7 +137,7 @@ const char * vert = C_On_Black C_BIWhite B_VT C_OFF;
 
 static inline void pv(size_t depth) {
   for (size_t i = 0; i < depth / 2; i++)
-    printf("%s ", vert);
+    printf(" %s", vert);
 }
 
 static inline bool ndir(fsys_node_t * f_info) {
