@@ -39,6 +39,7 @@ typedef struct fsys_node_s {
   struct timespec st_atim;        /* time of last access */
   struct timespec st_mtim;        /* time of last modification */
   struct timespec st_ctim;        /* time of last status change */
+  list_t *        sub_nodes;
 } fsys_node_t;
 
 list_t * dir_list(char * dir_name, size_t depth);
