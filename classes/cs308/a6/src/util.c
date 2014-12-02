@@ -162,7 +162,7 @@ void display_fs_node(void * node_addr) {
   printf("%s st_size     = %lu\n", os, f_info->st_size);
   printf("%s st_blksize  = %lu\n", os, f_info->st_blksize);
   printf("%s st_blocks   = %lu\n", os, f_info->st_blocks);
-  printf("%s st_atim     = %s\n",  os, ctime(&f_info->st_atim));
+  printf("%s st_atim     = %s\n",  os, ctime(&(*f_info).st_atim));
   printf("\n");
 }
 
