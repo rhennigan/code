@@ -2,8 +2,9 @@
 #include "lib/util.h"
 
 int main(int argc, char *argv[]) {
+  char ret_dir[1024];
+  getcwd(ret_dir, sizeof(ret_dir));
   const char * dir_name = argv[1];
-  printf("dir_name = %s\n", dir_name);
   chdir(dir_name);
   list_t * entries = dir_list(".", 0);
   list_iter(entries, &display_fs_node);
