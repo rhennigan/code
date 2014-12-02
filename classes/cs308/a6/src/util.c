@@ -1,5 +1,4 @@
 #include "../lib/util.h"
-#include "../lib/term_color.h"
 
 const char * type_names[] = {
   [DT_BLK]     = "block device",

@@ -7,6 +7,7 @@
 #include <string.h>  /* memset */
 #include <stdbool.h>
 #include "list.h"
+#include "term_color.h"
 
 typedef struct fsys_node_s {
   ino_t          d_ino;
