@@ -15,12 +15,12 @@ const char * type_names[] = {
 const char * type_colors[] = {
   [DT_BLK]     = C_GREEN,
   [DT_CHR]     = C_YELLOW,
-  [DT_DIR]     = C_BLUE,
+  [DT_DIR]     = C_BBLUE,
   [DT_FIFO]    = C_PURPLE,
   [DT_LNK]     = C_CYAN,
   [DT_REG]     = C_WHITE,
-  [DT_SOCK]    = C_RESET,
-  [DT_UNKNOWN] = C_RED
+  [DT_SOCK]    = C_RED,
+  [DT_UNKNOWN] = C_BRED
 };
 
 /****************************************************************************/
@@ -63,7 +63,7 @@ void display_fs_node(void * node_addr) {
 
   int type = node->d_type;
 
-  printf("%s%s%s%s\n",          os, type_colors[type], node->d_name, C_RESET);
+  printf("%s%s%s%s\n",          os, type_colors[type], node->d_name, C_OFF);
   printf("%s d_ino    = %ld\n", os, node->d_ino);
   printf("%s d_off    = %ld\n", os, node->d_off);
   printf("%s d_reclen = %u\n",  os, node->d_reclen);

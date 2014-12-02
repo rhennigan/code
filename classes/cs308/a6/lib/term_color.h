@@ -92,14 +92,14 @@
   #define C_WHITE         ""    // White
 
   /* Bold */
-  #define C_BBlack        ""    // Black
-  #define C_BRed          ""    // Red
-  #define C_BGreen        ""    // Green
-  #define C_BYellow       ""    // Yellow
-  #define C_BBlue         ""    // Blue
-  #define C_BPurple       ""    // Purple
-  #define C_BCyan         ""    // Cyan
-  #define C_BWhite        ""    // White
+  #define C_BBLACK        ""    // Black
+  #define C_BRED          ""    // Red
+  #define C_BGREEN        ""    // Green
+  #define C_BYELLOW       ""    // Yellow
+  #define C_BBLUE         ""    // Blue
+  #define C_BPURPLE       ""    // Purple
+  #define C_BCYAN         ""    // Cyan
+  #define C_BWHITE        ""    // White
 
   /* Underline */
   #define C_UBlack        ""    // Black
