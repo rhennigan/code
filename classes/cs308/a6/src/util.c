@@ -96,6 +96,8 @@ void display_fs_node(void * node_addr) {
 
   int    type = f_info->d_type;
   mode_t mode = f_info->st_mode;
+  char * mstr = "d rwx rwx rwx";
+  mstr[1] = '5';
 
   printf("%s%s %s %s\n",        os, type_colors[type], f_info->d_name, C_OFF);
   printf("%s d_ino    = %ld\n", os, f_info->d_ino);
