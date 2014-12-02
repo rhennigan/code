@@ -91,6 +91,8 @@ void display_fs_node(void * node_addr) {
   printf("%s d_off    = %ld\n", os, f_info->d_off);
   printf("%s d_reclen = %u\n",  os, f_info->d_reclen);
   printf("%s d_type   = %s\n",  os, type_names[type]);
+  printf("%s dev_maj  = %u\n",  os, f_info->dev_maj);
+  printf("%s dev_min  = %u\n",  os, f_info->dev_min);
   printf("\n");
 }
 
