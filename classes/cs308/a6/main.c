@@ -7,6 +7,8 @@ int main(int argc, char *argv[]) {
     list_iter(entries, &display_fs_node);
     list_iter(entries, &free);
     list_dispose(entries);
+    printf("%d, %d, %d, %d, %d, %d, %d, %d\n",
+           DT_BLK, DT_CHR, DT_DIR, DT_FIFO, DT_LNK, DT_REG, DT_SOCK, DT_UNKNOWN);
     exit(EXIT_SUCCESS);
   } else {
     char ret_dir[1024];
