@@ -164,13 +164,13 @@ void display_fs_node(void * node_addr) {
     b = f_info->d_name[i] == '/' ? i : b;
 
   printf("%s%s %s %s\n", os, lbl_color, f_info->d_name + b, C_OFF);
-  printf("%s  %s ", os, mstr);
-  printf("%s  %s ", os, user_name);
-  printf("%s  %s ", os, gr_name);
-  printf("%s   st_nlink    = %lu\n", os, f_info->st_nlink);
-  printf("%s   st_size     = %lu\n", os, f_info->st_size);
-  printf("%s   d_ino       = %ld\n", os, f_info->d_ino);
-  printf("%s  %s ", os, ctime(&f_info->mtime));
+  printf("%s  %s ",  os, mstr);
+  printf("%s  %s ",  os, user_name);
+  printf("%s  %s ",  os, gr_name);
+  printf("%s  %lu ", os, f_info->st_nlink);
+  printf("%s  %lu ", os, f_info->st_size);
+  printf("%s  %ld\n", os, f_info->d_ino);
+  printf("%s  %s\n", os, ctime(&f_info->mtime));
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
   /* printf("%s d_reclen    = %u\n",  os, f_info->d_reclen); */
   /* printf("%s d_type      = %s\n",  os, type_names[type]); */
