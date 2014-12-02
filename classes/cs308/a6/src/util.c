@@ -141,11 +141,12 @@ static inline void pv(size_t depth) {
 }
 
 static inline bool ndir(fsys_node_t * f_info) {
-  S_ISDIR(f_info->st_mode) &&
-      !(f_info->d_name[nlen-1] == '.' &&
-        (f_info->d_name[nlen-2] == '/' ||
-         (f_info->d_name[nlen-2] == '.' &&
-          f_info->d_name[nlen-3] == '/')))
+  size_t nlen = strlen(f_info->d_name);
+  return S_ISDIR(f_info->st_mode) &&
+         !(f_info->d_name[nlen-1] == '.' &&
+          (f_info->d_name[nlen-2] == '/' ||
+          (f_info->d_name[nlen-2] == '.' &&
+           f_info->d_name[nlen-3] == '/')));
 }
 
 /****************************************************************************/
