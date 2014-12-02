@@ -27,14 +27,16 @@ const char * type_colors[] = {
 /****************************************************************************/
 list_t * dir_list(char * dir_name, size_t depth) {
   const size_t cdepth = depth;
-  printf("dir_list(%s, %lu)\n", dir_name, depth);
   DIR * dir = opendir(dir_name);
+
   if (!dir) {
     perror("dir_list opendir");
     exit(EXIT_FAILURE);
   }
+
   list_t * entries = NULL;
   struct dirent * entry;
+
   while ((entry = readdir(dir)) != NULL) {
     struct stat file_stat;
     fsys_node_t * f_info = malloc(sizeof(fsys_node_t));
@@ -55,9 +57,6 @@ list_t * dir_list(char * dir_name, size_t depth) {
       exit(EXIT_FAILURE);
     }
     snprintf(f_info->d_name, NAME_MAX, "%s", name);
-
-    printf("\n\ndepth = %lu\n\n", depth);
-    /* assert(depth <= 4); */
 
     f_info->d_ino      = entry->d_ino;
     f_info->d_off      = entry->d_off;
@@ -102,6 +101,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
 
     entries = list_pre(entries, f_info);
   }
+
   if (closedir(dir) == -1) {
     perror("closedir");
     exit(EXIT_FAILURE);
