@@ -24,6 +24,7 @@ const char * type_colors[] = {
 
 /****************************************************************************/
 list_t * dir_list(char * dir_name, size_t depth) {
+  printf("dir_list(%s, %lu)\n", dir_name, depth);
   DIR * dir = opendir(dir_name);
   if (!dir) {
     perror("dir_list opendir");
