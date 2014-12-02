@@ -55,6 +55,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
     }
     snprintf(f_info->d_name, NAME_MAX, "%s", name);
 
+    printf("\n\ndepth = %lu\n\n", depth);
     /* assert(depth <= 4); */
 
     f_info->d_ino      = entry->d_ino;
