@@ -100,7 +100,7 @@ void display_fs_node(void * node_addr) {
   memset(mstr, '|', 12);
   mstr[12] = '\0';
 
-  mstr[0] = S_ISDIR(mode)    ? 'd' : '-';
+  mstr[0] = S_ISDIR(mode)     ? 'd' : '-';
 
   mstr[2]  = (mode & S_IRUSR) ? 'r' : '-';
   mstr[3]  = (mode & S_IWUSR) ? 'w' : '-';
