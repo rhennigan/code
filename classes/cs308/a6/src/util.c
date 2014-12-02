@@ -32,28 +32,28 @@ list_t * dir_list(char * dir_name, size_t depth) {
   list_t * entries = NULL;
   struct dirent * entry;
   while ((entry = readdir(dir)) != NULL) {
-    struct stat file_info;
-    fsys_node_t * node = malloc(sizeof(fsys_node_t));
-    if (node == NULL) {
+    struct stat file_stat;
+    fsys_node_t * f_info = malloc(sizeof(fsys_node_t));
+    if (f_info == NULL) {
       perror("malloc");
       exit(EXIT_FAILURE);
     }
 
     char * name = entry->d_name;
-    if (stat(name, &file_info) == -1) {
+    if (stat(name, &file_stat) == -1) {
       perror("stat");
       exit(EXIT_FAILURE);
     }
-    snprintf(node->d_name, NAME_MAX, "%s", name);
+    snprintf(f_info->d_name, NAME_MAX, "%s", name);
 
-    node->d_ino      = entry->d_ino;
-    node->d_off      = entry->d_off;
-    node->d_reclen   = entry->d_reclen;
-    node->d_type     = entry->d_type;
-    node->depth      = depth;
-    node->st_dev     = file_info->st_dev;
+    f_info->d_ino      = entry->d_ino;
+    f_info->d_off      = entry->d_off;
+    f_info->d_reclen   = entry->d_reclen;
+    f_info->d_type     = entry->d_type;
+    f_info->depth      = depth;
+    f_info->st_dev     = file_stat.st_dev;
 
-    entries          = list_pre(entries, node);
+    entries          = list_pre(entries, f_info);
   }
   if (closedir(dir) == -1) {
     perror("closedir");
@@ -64,18 +64,18 @@ list_t * dir_list(char * dir_name, size_t depth) {
 
 /****************************************************************************/
 void display_fs_node(void * node_addr) {
-  fsys_node_t * node = (fsys_node_t *)node_addr;
+  fsys_node_t * f_info = (fsys_node_t *)node_addr;
 
-  char os[node->depth+1];
-  memset(os, ' ', node->depth);
-  os[node->depth] = '\0';
+  char os[f_info->depth+1];
+  memset(os, ' ', f_info->depth);
+  os[f_info->depth] = '\0';
 
-  int type = node->d_type;
+  int type = f_info->d_type;
 
-  printf("%s%s%s%s\n",          os, type_colors[type], node->d_name, C_OFF);
-  printf("%s d_ino    = %ld\n", os, node->d_ino);
-  printf("%s d_off    = %ld\n", os, node->d_off);
-  printf("%s d_reclen = %u\n",  os, node->d_reclen);
+  printf("%s%s%s%s\n",          os, type_colors[type], f_info->d_name, C_OFF);
+  printf("%s d_ino    = %ld\n", os, f_info->d_ino);
+  printf("%s d_off    = %ld\n", os, f_info->d_off);
+  printf("%s d_reclen = %u\n",  os, f_info->d_reclen);
   printf("%s d_type   = %s\n",  os, type_names[type]);
   printf("\n");
 }
