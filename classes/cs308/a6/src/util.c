@@ -108,8 +108,8 @@ list_t * dir_list(char * dir_name, size_t depth) {
 void display_fs_node(void * node_addr) {
   fsys_node_t * f_info = (fsys_node_t *)node_addr;
 
-  char os[f_info->depth+1];
-  memset(os, ' ', f_info->depth);
+  char os[20];
+  memset(os, ' ', 20);
   os[f_info->depth] = '\0';
 
   int    type     = f_info->d_type;
