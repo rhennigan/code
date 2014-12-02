@@ -65,10 +65,10 @@ inline list_t * list_app(list_t * list, data_t head) {
 inline list_t * list_copy(list_t * list) {
   if (list == NULL) {
     return NULL;
-  } else {  // (list != NULL)
+  } else {
     return list_cons(list_copy(list_tail(list)), list_head(list));
-  }  // end if (list == NULL)
-}  // end list_copy
+  }
+}
 
 inline void list_dispose(list_t * list) {
   list_t * tail;
@@ -86,29 +86,28 @@ inline void list_dump(list_t * list) {
   printf(" list contents:\n");
   if (list == NULL) {
     printf("  (nil)\n");
-  } else {  // (list != NULL)
+  } else {
     while (list != NULL) {
       printf("  %p (%p)\n", list, list_head(list));
       list = list_tail(list);
-    }  // end while (list != NULL)
+    }
     printf("  %p\n", list);
-  }  // end if (list == NULL)
-}  // end list_dump
+  }
+}
 
 inline list_t * list_extremum(list_t * list, dyn_cmp_f ex, void * dep_arg) {
   if (list == NULL) {
     return NULL;
-  } else {  // (list != NULL)
+  } else {
     list_t * keep = list;
     list_t * next = list;
     while ((next = list_tail(next)) != NULL) {
-      if (ex(list_head(next), list_head(keep), dep_arg)) {
+      if (ex(list_head(next), list_head(keep), dep_arg))
         keep = next;
-      }  // end if (ex(list_head(next), list_head(keep)))
-    }  // end while (list_tail(next) != NULL)
+    }
     return keep;
-  }  // end if (list == NULL)
-}  // end list_extremum
+  }
+}
 
 inline list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
   if (list == NULL) {
@@ -169,7 +168,7 @@ inline list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
     }
   }
   return list;
-}  // end list_find
+} 
 
 inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
   const size_t lsize = sizeof(list_t);
