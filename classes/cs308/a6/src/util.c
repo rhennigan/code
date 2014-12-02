@@ -102,7 +102,7 @@ list_t * dir_list(const char * d_name, size_t depth) {
     f_info->d_ino      = entry->d_ino;
     f_info->d_off      = entry->d_off;
     f_info->d_reclen   = entry->d_reclen;
-    f_info->d_type     = entry->d_type;
+    f_info->d_type     = fix_type(file_stat.st_mode);
     f_info->depth      = MIN(20, cdepth);
     f_info->st_dev     = file_stat.st_dev;
     f_info->dev_maj    = major(file_stat.st_dev);
