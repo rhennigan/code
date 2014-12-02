@@ -184,7 +184,7 @@ void display_fs_node(void * node_addr) {
   bool exec_b = (mode & S_IXUSR) || (mode & S_IXGRP) || (mode & S_IXOTH);
   const char * lbl_color = (type == DT_REG && exec_b) ?
                            C_On_Black C_BIGreen :
-                           type_colors[type];
+                           C_On_Black type_colors[type];
   size_t b = 2;
   for (size_t i = b; i < strlen(f_info->d_name); i++)
     b = f_info->d_name[i] == '/' ? i : b;
