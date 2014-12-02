@@ -263,7 +263,7 @@ void display_fs_node(void * node_addr) {
     list_iter(f_info->sub_nodes, &display_fs_node);
     pv(f_info->depth);
     printf(" %s", C_BIWhite B_BL);
-    for (int i = 0; i < 50; i++)
+    for (size_t i = 0; i < (79 - f_info->depth * 2); i++)
       printf("%s", B_HR);
     printf("%s\n", C_OFF);
   }
