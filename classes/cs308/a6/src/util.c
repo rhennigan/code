@@ -158,7 +158,8 @@ void display_fs_node(void * node_addr) {
 
   char os[40];
   memset(os, ' ', 40);
-  for (size_t i = 0; i < f_info->depth; i+=2) {
+  size_t i;
+  for (i = 0; i < f_info->depth; i+=2) {
     os[i] = '|';
   }
   os[39] = '\0';
@@ -213,7 +214,7 @@ void display_fs_node(void * node_addr) {
                            C_BIGreen :
                            type_colors[type];
   size_t b = 2;
-  for (size_t i = b; i < strlen(f_info->d_name); i++)
+  for (i = b; i < strlen(f_info->d_name); i++)
     b = f_info->d_name[i] == '/' ? i + 1: b;
 
   pv(f_info->depth);
@@ -264,7 +265,8 @@ void display_fs_node(void * node_addr) {
     list_iter(f_info->sub_nodes, &display_fs_node);
     pv(f_info->depth);
     printf(" %s", C_BIWhite B_BL);
-    for (size_t i = 0; i < 58; i++)
+    size_t i;
+    for (i = 0; i < 58; i++)
       printf("%s", B_HR);
     printf("%s\n", C_OFF);
   }
