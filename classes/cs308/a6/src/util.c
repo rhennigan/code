@@ -40,12 +40,16 @@ list_t * dir_list(char * dir_name, size_t depth) {
     }
 
     char * name = entry->d_name;
-    stat(name, &fstat);
+    if (stat(name, &fstat) == -1) {
+      perror("stat");
+      exit(EXIT_FAILURE);
+    }
+    snprintf(node->d_name, NAME_MAX, "%s", name);
+
     node->d_ino      = entry->d_ino;
     node->d_off      = entry->d_off;
     node->d_reclen   = entry->d_reclen;
     node->d_type     = entry->d_type;
-    snprintf(node->d_name, NAME_MAX, "%s", entry->d_name);
     node->depth      = depth;
     entries          = list_pre(entries, node);
   }
