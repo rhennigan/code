@@ -97,19 +97,20 @@ void display_fs_node(void * node_addr) {
   int    type = f_info->d_type;
   mode_t mode = f_info->st_mode;
   char * mstr = "d rwx rwx rwx";
+
   mstr[0] = S_ISDIR(mode)    ? 'd' : '-';
 
   mstr[2]  = (mode & S_IRUSR) ? 'r' : '-';
   mstr[3]  = (mode & S_IWUSR) ? 'w' : '-';
   mstr[4]  = (mode & S_IXUSR) ? 'x' : '-';
 
-  mstr[6]  = (mode & S_IRUSR) ? 'r' : '-';
-  mstr[7]  = (mode & S_IWUSR) ? 'w' : '-';
-  mstr[8]  = (mode & S_IXUSR) ? 'x' : '-';
+  mstr[6]  = (mode & S_IRGRP) ? 'r' : '-';
+  mstr[7]  = (mode & S_IWGRP) ? 'w' : '-';
+  mstr[8]  = (mode & S_IXGRP) ? 'x' : '-';
 
-  mstr[10] = (mode & S_IRUSR) ? 'r' : '-';
-  mstr[11] = (mode & S_IWUSR) ? 'w' : '-';
-  mstr[12] = (mode & S_IXUSR) ? 'x' : '-';
+  mstr[10] = (mode & S_IROTH) ? 'r' : '-';
+  mstr[11] = (mode & S_IWOTH) ? 'w' : '-';
+  mstr[12] = (mode & S_IXOTH) ? 'x' : '-';
 
   printf("%s%s %s %s\n",        os, type_colors[type], f_info->d_name, C_OFF);
   printf("%s d_ino    = %ld\n", os, f_info->d_ino);
@@ -128,7 +129,7 @@ void display_fs_node(void * node_addr) {
   printf("%s S_ISFIFO = %s\n",  os, S_ISFIFO(mode) ? "true" : "false");
   printf("%s S_ISLNK  = %s\n",  os, S_ISLNK(mode)  ? "true" : "false");
   printf("%s S_ISSOCK = %s\n",  os, S_ISSOCK(mode) ? "true" : "false");
-  printf("%s S_ISUID  = %d\n",  os, S_ISUID & mode);
+  printf("%s mstr     = %s\n",  os, mstr);
   printf("\n");
 }
 
