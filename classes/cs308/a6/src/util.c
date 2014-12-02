@@ -202,6 +202,7 @@ void display_fs_node(void * node_addr) {
   /* char ** gr_mem  = gr->gr_mem; */
 
   bool exec_b = (mode & S_IXUSR) || (mode & S_IXGRP) || (mode & S_IXOTH);
+  const char * lbl_bg    = ndir(f_info) ? C_On_Blue : C_On_Black;
   const char * lbl_color = (type == DT_REG && exec_b) ?
                            C_BIGreen :
                            type_colors[type];
