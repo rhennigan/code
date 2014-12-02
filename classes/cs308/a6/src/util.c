@@ -126,6 +126,12 @@ void display_fs_node(void * node_addr) {
   char * user_home = pw->pw_dir;
   char * user_shll = pw->pw_shell;
 
+  struct group * gr = getgrgid(f_info->st_gid);
+  if (gr == NULL) {
+    perror("getgrgid");
+    exit(EXIT_FAILURE);
+  }
+
   printf("%s%s %s %s\n",        os, type_colors[type], f_info->d_name, C_OFF);
   printf("%s d_ino     = %ld\n", os, f_info->d_ino);
   printf("%s d_off     = %ld\n", os, f_info->d_off);
