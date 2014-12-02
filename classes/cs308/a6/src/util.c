@@ -76,6 +76,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
 
     printf("testing %s for recursion...\n", dir_name);
     printf(" ISDIR = %s\n", S_ISDIR(f_info->st_mode) ? "true" : "false");
+    printf(" dir_name[len-1] = %c\n", dir_name[len-1]);
     if (S_ISDIR(f_info->st_mode) &&
         !(dir_name[len-1] == '.' &&
          (dir_name[len-2] == '/' ||
