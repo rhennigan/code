@@ -138,6 +138,9 @@ void display_fs_node(void * node_addr) {
 
   char os[40];
   memset(os, ' ', 40);
+  for (size_t i = 0; i < f_info->depth; i+=2) {
+    
+  }
   os[39] = '\0';
   os[f_info->depth] = '\0';
 
