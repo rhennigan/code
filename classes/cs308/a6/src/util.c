@@ -164,9 +164,9 @@ void display_fs_node(void * node_addr) {
     b = f_info->d_name[i] == '/' ? i : b;
 
   printf("%s%s %s %s\n", os, lbl_color, f_info->d_name + b, C_OFF);
-  printf("%s  %s",  os, mstr);
-  printf("%s  %s",  os, user_name);
-  printf("%s  %s\n",  os, gr_name);
+  printf("%s  %s", os, mstr);
+  printf(" %s", user_name);
+  printf(" %s\n", gr_name);
   printf("%s  %lu", os, f_info->st_nlink);
   printf("%s  %lu", os, f_info->st_size);
   printf("%s  %ld\n", os, f_info->d_ino);
