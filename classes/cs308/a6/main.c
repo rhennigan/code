@@ -6,13 +6,6 @@ int main(int argc, char *argv[]) {
   list_iter(entries, &display_fs_node);
   list_iter(entries, &free);
   list_dispose(entries);
-
-  char * test = C_On_Black C_BIWhite B_VT C_OFF;
-  printf("strlen = %ld\n", strlen(test));
-  printf("test = %s\n", test);
-  for (int i = 0; i < 3; i++)
-    printf("%c", test[i]);
-  return 0;
 }
 
 /* EXAMPLE */
