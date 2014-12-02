@@ -131,6 +131,17 @@ inline list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
   }
 }  // list_filter
 
+inline list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
+  while (list != NULL) {
+    if (pred(list_head(list), dep_arg)) {
+      break;
+    } else {
+      list = list_tail(list);
+    }
+  }
+  return list;
+}  // list_find
+
 inline void * list_fold(list_t * list, void * acc, fold_f f) {
   while (list != NULL) {
     acc  = f(acc, list_head(list));
@@ -158,17 +169,6 @@ inline void * list_foldr(list_t * list, void * acc, fold_f f) {
     return f(x, list_foldr(xs, acc, f));  // aka "the stack smasher"
   }
 }  // list_foldr
-
-inline list_t * list_find(list_t * list, dyn_pred_f pred, void * dep_arg) {
-  while (list != NULL) {
-    if (pred(list_head(list), dep_arg)) {
-      break;
-    } else {
-      list = list_tail(list);
-    }
-  }
-  return list;
-}  // list_find
 
 inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
   const size_t lsize = sizeof(list_t);
