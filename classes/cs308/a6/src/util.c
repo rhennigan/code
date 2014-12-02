@@ -40,7 +40,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
     }
 
     char * name = entry->d_name;
-    if (stat(name, &file_stat) == -1) {
+    if (lstat(name, &file_stat) == -1) {
       perror("stat");
       exit(EXIT_FAILURE);
     }
