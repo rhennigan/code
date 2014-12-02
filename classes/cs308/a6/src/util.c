@@ -12,13 +12,13 @@ const char * type_names[] = {
 };
 
 const char * type_colors[] = {
-  [DT_BLK]     = C_GREEN,
-  [DT_CHR]     = C_YELLOW,
+  [DT_BLK]     = C_BIGreen,
+  [DT_CHR]     = C_BIYellow,
   [DT_DIR]     = C_BIBlue,
-  [DT_FIFO]    = C_PURPLE,
-  [DT_LNK]     = C_CYAN,
+  [DT_FIFO]    = C_BIPurple,
+  [DT_LNK]     = C_BICyan,
   [DT_REG]     = C_BIWhite,
-  [DT_SOCK]    = C_RED,
+  [DT_SOCK]    = C_BIRed,
   [DT_UNKNOWN] = C_On_Red C_BIWhite
 };
 
