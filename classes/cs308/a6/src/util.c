@@ -94,9 +94,9 @@ void display_fs_node(void * node_addr) {
   memset(os, ' ', f_info->depth);
   os[f_info->depth] = '\0';
 
-  int    type = f_info->d_type;
-  mode_t mode = f_info->st_mode;
-  char * mstr = " |   |   |   ";
+  int    type     = f_info->d_type;
+  mode_t mode     = f_info->st_mode;
+  char   mstr[13] = " |   |   |   ";
   /* memset(mstr, '|', 12); */
   /* mstr[12] = '\0'; */
 
