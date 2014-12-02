@@ -55,7 +55,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
     }
     snprintf(f_info->d_name, NAME_MAX, "%s", name);
 
-    assert(depth <= 4);
+    /* assert(depth <= 4); */
 
     f_info->d_ino      = entry->d_ino;
     f_info->d_off      = entry->d_off;
@@ -78,7 +78,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
     f_info->mtime      = file_stat.st_mtime;
     f_info->ctime      = file_stat.st_ctime;
 
-    assert(f_info->depth <=4);
+    /* assert(f_info->depth <=4); */
 
     size_t nlen = strlen(name);
     printf("\ntesting %s for recursion...\n", name);
@@ -92,7 +92,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
           name[nlen-3] == '/')))) {
       printf(" %s is a subdirectory!\n", name);
       printf(" %s has depth (%lu, %lu)\n", name, depth, f_info->depth);
-      f_info->sub_nodes = dir_list(f_info->d_name, depth+2);
+      f_info->sub_nodes = dir_list(f_info->d_name, f_info->depth+2);
     } else {
       printf(" %s is NOT a subdirectory!\n", name);
       f_info->sub_nodes = NULL;
