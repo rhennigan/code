@@ -65,6 +65,8 @@ static inline char * byte_str(unsigned long b) {
 
 /****************************************************************************/
 list_t * dir_list(const char * d_name, size_t depth) {
+  printf("dir_list(%s, %lu)\n", d_name, depth);
+  fflush(NULL);
   const char * dir_name = d_name;
   const size_t cdepth = depth;
   DIR * dir = opendir(dir_name);
