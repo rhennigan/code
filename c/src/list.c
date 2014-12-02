@@ -248,7 +248,7 @@ inline list_t * list_map(list_t * list, map_f f) {
   list_t * tmp = list;
   while (tmp != NULL) {
     tmp->head = f(tmp->head);
-    tmp = tmp->tail;
+    tmp       = tmp->tail;
   }
   return list;
 }  // list_map
