@@ -164,6 +164,7 @@ void display_fs_node(void * node_addr) {
     b = f_info->d_name[i] == '/' ? i : b;
 
   printf("%s%s %s %s\n", os, lbl_color, f_info->d_name + b, C_OFF);
+  printf("%s  %s\n",  os, mstr);
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
   /* printf("%s d_reclen    = %u\n",  os, f_info->d_reclen); */
   /* printf("%s d_type      = %s\n",  os, type_names[type]); */
@@ -171,7 +172,7 @@ void display_fs_node(void * node_addr) {
   /* printf("%s dev_min     = %u\n",  os, f_info->dev_min); */
   /* printf("%s st_ino      = %ld\n", os, f_info->st_ino); */
   /* printf("%s st_mode     = %u\n",  os, f_info->st_mode); */
-  printf("%s   mstr        = %s\n",  os, mstr);
+  /* printf("%s   mstr        = %s\n",  os, mstr); */
   /* printf("%s st_uid      = %d\n",  os, f_info->st_uid); */
   printf("%s   user_name   = %s\n",  os, user_name);
   /* printf("%s user_pw     = %s\n",  os, user_pw); */
