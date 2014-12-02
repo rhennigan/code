@@ -42,7 +42,8 @@ list_t * dir_list(char * dir_name, size_t depth) {
 
     size_t len = strlen(dir_name);
     char path[len+2];
-    snprintf(path, strlen(dir_name), "%s", dir_name);
+    snprintf(path, len+1, "%s", dir_name);
+    printf("dir_name = %s, len = %lu, path = %s\n", dir_name, len, path);
     char * name = strcat(path, entry->d_name);
     if (lstat(name, &file_stat) == -1) {
       printf("%s\n", name);
