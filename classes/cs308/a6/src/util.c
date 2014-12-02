@@ -80,16 +80,6 @@ list_t * dir_list(char * dir_name, size_t depth) {
 }
 
 /****************************************************************************/
-static inline const char * int_to_binary(unsigned int x) {
-    static char b[33];
-    b[0] = '\0';
-    for (unsigned int z = INT_MAX/2+1; z > 0; z >>= 1) {
-      strcat(b, ((x & z) == z) ? "1" : "0");
-    }
-    return b;
-}
-
-/****************************************************************************/
 void display_fs_node(void * node_addr) {
   fsys_node_t * f_info = (fsys_node_t *)node_addr;
 
