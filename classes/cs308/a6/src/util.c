@@ -114,6 +114,12 @@ void display_fs_node(void * node_addr) {
   mstr[11] = (mode & S_IWOTH) ? 'w' : '-';
   mstr[12] = (mode & S_IXOTH) ? 'x' : '-';
 
+  struct passwd * pw = getpwuid(f_info->st_uid);
+  if (pw == NULL) {
+    perror("getpwuid");
+    exit(EXIT_FAILURE);
+  }
+
   printf("%s%s %s %s\n",        os, type_colors[type], f_info->d_name, C_OFF);
   printf("%s d_ino    = %ld\n", os, f_info->d_ino);
   printf("%s d_off    = %ld\n", os, f_info->d_off);
