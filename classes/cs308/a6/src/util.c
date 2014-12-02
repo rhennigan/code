@@ -79,11 +79,10 @@ list_t * dir_list(char * dir_name, size_t depth) {
          (dir_name[len-2] == '/' ||
          (dir_name[len-2] == '.' &&
           dir_name[len-3] == '/')))) {
-      
+      f_info->sub_nodes = dir_list(f_info->d_name, depth+1);
+    } else {
+      f_info->sub_nodes = NULL;
     }
-    f_info->sub_nodes  = S_ISDIR(f_info->st_mode) ?
-                         dir_list(f_info->d_name, depth+1) :
-                         NULL;
 
     entries = list_pre(entries, f_info);
   }
