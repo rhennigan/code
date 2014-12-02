@@ -5,6 +5,7 @@
 #include <dirent.h>
 #include <sys/stat.h>      // file type/prot macros
 #include <sys/sysmacros.h> // major/minor macros
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <pwd.h>
@@ -13,6 +14,7 @@
 #include <limits.h>
 #include <string.h>
 #include <assert.h>
+#include <fcntl.h>
 #include "list.h"
 #include "term_color.h"
 
