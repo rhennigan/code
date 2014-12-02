@@ -73,6 +73,13 @@ list_t * dir_list(char * dir_name, size_t depth) {
     f_info->atime      = file_stat.st_atime;
     f_info->mtime      = file_stat.st_mtime;
     f_info->ctime      = file_stat.st_ctime;
+
+    if (!(dir_name[len-1] == '.' &&
+        (dir_name[len-2] == '/' ||
+         (dir_name[len-2] == '.' &&
+          dir_name[len-3] == '/')))) {
+      
+    }
     f_info->sub_nodes  = S_ISDIR(f_info->st_mode) ?
                          dir_list(f_info->d_name, depth+1) :
                          NULL;
