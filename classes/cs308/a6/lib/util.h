@@ -36,9 +36,9 @@ typedef struct fsys_node_s {
   off_t           st_size;        /* total size, in bytes */
   blksize_t       st_blksize;     /* blocksize for filesystem I/O */
   blkcnt_t        st_blocks;      /* number of 512B blocks allocated */
-  struct timespec st_atim;        /* time of last access */
-  struct timespec st_mtim;        /* time of last modification */
-  struct timespec st_ctim;        /* time of last status change */
+  time_t          st_atime;        /* time of last access */
+  time_t          st_mtime;        /* time of last modification */
+  struct timespec st_ctime;        /* time of last status change */
   list_t *        sub_nodes;
 } fsys_node_t;
 
