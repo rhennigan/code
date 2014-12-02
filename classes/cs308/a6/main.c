@@ -9,16 +9,19 @@ int main(int argc, char *argv[]) {
     list_dispose(entries);
     exit(EXIT_SUCCESS);
   } else {
-  char ret_dir[1024];
-  getcwd(ret_dir, sizeof(ret_dir));
-  
-  const char * dir_name = argv[i];
-  chdir(dir_name);
-  list_t * entries = dir_list(".", 0);
-  list_iter(entries, &display_fs_node);
-  list_iter(entries, &free);
-  list_dispose(entries);
-  exit(EXIT_SUCCESS);
+    char ret_dir[1024];
+    getcwd(ret_dir, sizeof(ret_dir));
+    for (int i = 1; i < argc; i++) { 
+      const char * dir_name = argv[i];
+      chdir(dir_name);
+      list_t * entries = dir_list(".", 0);
+      list_iter(entries, &display_fs_node);
+      list_iter(entries, &free);
+      list_dispose(entries);
+      chdir(ret_dir);
+    }
+    exit(EXIT_SUCCESS);
+  }
 }
 
 /* EXAMPLE */
