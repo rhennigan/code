@@ -155,6 +155,7 @@ void display_fs_node(void * node_addr) {
   printf("%s gr_name   = %s\n",  os, gr_name);
   printf("%s gr_pw     = %s\n",  os, gr_pw);
   printf("%s gr_mem[0] = %s\n",  os, gr_mem[0]);
+  printf("%s rdev_maj  = %u\n",  os, major(f_info->st_rdev));
   printf("\n");
 }
 
