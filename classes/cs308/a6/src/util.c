@@ -137,25 +137,26 @@ void display_fs_node(void * node_addr) {
   char ** gr_mem  = gr->gr_mem;
 
   printf("%s%s %s %s\n",        os, type_colors[type], f_info->d_name, C_OFF);
-  printf("%s d_ino     = %ld\n", os, f_info->d_ino);
-  printf("%s d_off     = %ld\n", os, f_info->d_off);
-  printf("%s d_reclen  = %u\n",  os, f_info->d_reclen);
-  printf("%s d_type    = %s\n",  os, type_names[type]);
-  printf("%s dev_maj   = %u\n",  os, f_info->dev_maj);
-  printf("%s dev_min   = %u\n",  os, f_info->dev_min);
-  printf("%s st_ino    = %ld\n", os, f_info->st_ino);
-  printf("%s st_mode   = %u\n",  os, f_info->st_mode);
-  printf("%s mstr      = %s\n",  os, mstr);
-  printf("%s st_uid    = %d\n",  os, f_info->st_uid);
-  printf("%s user_name = %s\n",  os, user_name);
-  printf("%s user_pw   = %s\n",  os, user_pw);
-  printf("%s user_info = %s\n",  os, user_info);
-  printf("%s user_home = %s\n",  os, user_home);
-  printf("%s user_shll = %s\n",  os, user_shll);
-  printf("%s gr_name   = %s\n",  os, gr_name);
-  printf("%s gr_pw     = %s\n",  os, gr_pw);
-  printf("%s gr_mem[0] = %s\n",  os, gr_mem[0]);
-  printf("%s rdev_maj  = %u\n",  os, major(f_info->st_rdev));
+  printf("%s d_ino       = %ld\n", os, f_info->d_ino);
+  printf("%s d_off       = %ld\n", os, f_info->d_off);
+  printf("%s d_reclen    = %u\n",  os, f_info->d_reclen);
+  printf("%s d_type      = %s\n",  os, type_names[type]);
+  printf("%s dev_maj     = %u\n",  os, f_info->dev_maj);
+  printf("%s dev_min     = %u\n",  os, f_info->dev_min);
+  printf("%s st_ino      = %ld\n", os, f_info->st_ino);
+  printf("%s st_mode     = %u\n",  os, f_info->st_mode);
+  printf("%s mstr        = %s\n",  os, mstr);
+  printf("%s st_uid      = %d\n",  os, f_info->st_uid);
+  printf("%s user_name   = %s\n",  os, user_name);
+  printf("%s user_pw     = %s\n",  os, user_pw);
+  printf("%s user_info   = %s\n",  os, user_info);
+  printf("%s user_home   = %s\n",  os, user_home);
+  printf("%s user_shll   = %s\n",  os, user_shll);
+  printf("%s gr_name     = %s\n",  os, gr_name);
+  printf("%s gr_pw       = %s\n",  os, gr_pw);
+  printf("%s gr_mem[0]   = %s\n",  os, gr_mem[0]);
+  
+  printf("%s st_rdev_maj = %u\n",  os, major(f_info->st_rdev));
   printf("\n");
 }
 
