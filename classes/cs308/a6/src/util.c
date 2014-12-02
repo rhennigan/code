@@ -77,8 +77,8 @@ list_t * dir_list(char * dir_name, size_t depth) {
 }
 
 /****************************************************************************/
-static inline const char * byte_to_binary(unsigned int x) {
-    static char b[9];
+static inline const char * int_to_binary(unsigned int x) {
+    static char b[33];
     b[0] = '\0';
     for (unsigned int z = 128; z > 0; z >>= 1)
         strcat(b, ((x & z) == z) ? "1" : "0");
@@ -105,7 +105,7 @@ void display_fs_node(void * node_addr) {
   printf("%s dev_min  = %u\n",  os, f_info->dev_min);
   printf("%s st_ino   = %ld\n", os, f_info->st_ino);
   printf("%s st_mode  = %u\n",  os, f_info->st_mode);
-  printf("%s st_mode2 = %s\n",  os, byte_to_binary(f_info->st_mode));
+  printf("%s st_mode2 = %s\n",  os, int_to_binary(f_info->st_mode));
   printf("%s S_ISREG  = %s\n",  os, S_ISREG(mode)  ? "true" : "false");
   printf("%s S_ISDIR  = %s\n",  os, S_ISDIR(mode)  ? "true" : "false");
   printf("%s S_ISCHR  = %s\n",  os, S_ISCHR(mode)  ? "true" : "false");
