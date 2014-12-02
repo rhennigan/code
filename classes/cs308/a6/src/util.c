@@ -32,7 +32,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
   list_t * entries = NULL;
   struct dirent * entry;
   while ((entry = readdir(dir)) != NULL) {
-    struct stat fstat;
+    struct stat file_info;
     fsys_node_t * node = malloc(sizeof(fsys_node_t));
     if (node == NULL) {
       perror("malloc");
@@ -40,7 +40,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
     }
 
     char * name = entry->d_name;
-    if (stat(name, &fstat) == -1) {
+    if (stat(name, &file_info) == -1) {
       perror("stat");
       exit(EXIT_FAILURE);
     }
@@ -51,6 +51,8 @@ list_t * dir_list(char * dir_name, size_t depth) {
     node->d_reclen   = entry->d_reclen;
     node->d_type     = entry->d_type;
     node->depth      = depth;
+    node->st_dev     = file_info->st_dev;
+
     entries          = list_pre(entries, node);
   }
   if (closedir(dir) == -1) {
