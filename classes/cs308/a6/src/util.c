@@ -83,21 +83,14 @@ list_t * dir_list(char * dir_name, size_t depth) {
     f_info->ctime      = file_stat.st_ctime;
 
     size_t nlen = strlen(name);
-    printf("\ntesting %s for recursion...\n", name);
-    printf(" ISDIR = %s\n", S_ISDIR(f_info->st_mode) ? "true" : "false");
-    printf(" name[nlen-1] = %c\n", name[nlen-1]);
-    printf(" name[nlen-2] = %c\n", name[nlen-2]);
 
     if (S_ISDIR(f_info->st_mode) &&
         !(name[nlen-1] == '.' &&
          (name[nlen-2] == '/' ||
          (name[nlen-2] == '.' &&
           name[nlen-3] == '/')))) {
-      printf(" %s is a subdirectory!\n", name);
-      printf(" %s has depth (%lu, %lu)\n", name, depth, f_info->depth);
       f_info->sub_nodes = dir_list(f_info->d_name, cdepth+2);
     } else {
-      printf(" %s is NOT a subdirectory!\n", name);
       f_info->sub_nodes = NULL;
     }
 
