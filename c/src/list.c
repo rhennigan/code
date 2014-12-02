@@ -312,8 +312,8 @@ inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
   if (list == NULL || list->tail == NULL) {
     return list;
   } else {
-    void * pivot   = list->head;
-    lpair_t part   = list_partition(list->tail, lt, pivot);
+    void *   pivot = list->head;
+    lpair_t  part  = list_partition(list->tail, lt, pivot);
     list->tail     = NULL;
     list_t * left  = list_sort(part.left,  lt);
     list_t * right = list_sort(part.right, lt);
@@ -331,7 +331,7 @@ inline list_t * list_tail(list_t * list) {
 }  // list_tail
 
 inline data_t * list_toarray(list_t * list, size_t obj_size) {
-  size_t len     = list_length(list);
+  size_t   len   = list_length(list);
   data_t * array = malloc(obj_size * len);
   for (size_t i = 0; i < len; i++) {
     array[i] = list->head;
