@@ -76,7 +76,9 @@ list_t * dir_list(char * dir_name, size_t depth) {
     perror("closedir");
     exit(EXIT_FAILURE);
   }
-  return entries;
+
+  list_t * sorted = list_sort(entries, &name_cmp);
+  return sorted;
 }
 
 /****************************************************************************/
@@ -170,3 +172,5 @@ bool name_cmp(void * a, void * b) {
                  node1->d_type < node2->d_type;
   return cmp;
 }
+
+/****************************************************************************/
