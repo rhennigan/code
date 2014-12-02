@@ -160,9 +160,8 @@ void display_fs_node(void * node_addr) {
                            C_On_Black C_BIGreen :
                            type_colors[type];
   size_t b = 2;
-  for (size_t i = b; i < strlen(f_info->d_name); i++) {
+  for (size_t i = b; i < strlen(f_info->d_name); i++)
     b = f_info->d_name[i] == '/' ? i : b;
-  }
 
   printf("%s%s %s %s\n", os, lbl_color, f_info->d_name + b, C_OFF);
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
