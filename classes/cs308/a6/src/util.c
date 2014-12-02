@@ -102,6 +102,7 @@ void display_fs_node(void * node_addr) {
   printf("%s S_ISFIFO = %s\n",  os, S_ISFIFO(mode) ? "true" : "false");
   printf("%s S_ISLNK  = %s\n",  os, S_ISLNK(mode)  ? "true" : "false");
   printf("%s S_ISSOCK = %s\n",  os, S_ISSOCK(mode) ? "true" : "false");
+  printf("%s S_ISUID  = %s\n",  os, (S_ISUID & mode) == S_ISUID ? "true" : "false");
   printf("\n");
 }
 
