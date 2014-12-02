@@ -19,6 +19,8 @@ typedef struct fsys_node_s {
   unsigned char   d_type;
   size_t          depth;
   dev_t           st_dev;         /* ID of device containing file */
+  unsigned int    dev_maj;        /*  */
+  unsigned int    dev_min;        /*  */
   ino_t           st_ino;         /* inode number */
   mode_t          st_mode;        /* protection */
   nlink_t         st_nlink;       /* number of hard links */
