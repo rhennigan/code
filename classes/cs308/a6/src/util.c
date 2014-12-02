@@ -77,10 +77,10 @@ list_t * dir_list(char * dir_name, size_t depth) {
 }
 
 /****************************************************************************/
-static inline const char * int_to_binary(unsigned int x) {
+static inline const char * int_to_binary(int x) {
     static char b[33];
     b[0] = '\0';
-    for (unsigned int z = 128; z > 0; z >>= 1)
+    for (int z = INT_MAX; z > 0; z >>= 1)
         strcat(b, ((x & z) == z) ? "1" : "0");
     return b;
 }

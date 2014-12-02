@@ -8,6 +8,7 @@
 #include <stdbool.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <limits.h>
 #include "list.h"
 #include "term_color.h"
 
