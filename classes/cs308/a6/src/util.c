@@ -133,7 +133,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
 }
 
 /****************************************************************************/
-const char * vert = C_On_Black C_BIWhite B_VT C_OFF;
+const char * vert = C_BIWhite B_VT C_OFF;
 
 static inline void pv(size_t depth) {
   for (size_t i = 0; i < depth / 2; i++)
@@ -209,7 +209,7 @@ void display_fs_node(void * node_addr) {
   for (size_t i = b; i < strlen(f_info->d_name); i++)
     b = f_info->d_name[i] == '/' ? i : b;
 
-  char * leftc = ndir(f_info) ? C_On_Black C_BIWhite B_TL : C_On_Black;
+  char * leftc = ndir(f_info) ? C_BIWhite B_TL : C_On_Black;
   pv(f_info->depth);
   printf(" %s%s %-16s %s", leftc, lbl_color, f_info->d_name + b, C_OFF);
   printf(" %s%s%s", lbl_color, type_names[type], C_OFF);
@@ -257,7 +257,7 @@ void display_fs_node(void * node_addr) {
   if (f_info->sub_nodes != NULL) {
     list_iter(f_info->sub_nodes, &display_fs_node);
     pv(f_info->depth);
-    printf(" %s\n", C_On_Black C_BIWhite B_BL B_HR C_OFF);
+    printf(" %s\n", C_BIWhite B_BL B_HR C_OFF);
   }
 }
 
