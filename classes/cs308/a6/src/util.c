@@ -200,10 +200,11 @@ void display_fs_node(void * node_addr) {
     b = f_info->d_name[i] == '/' ? i : b;
 
   pv(f_info->depth);
-  printf("%s%s%s %-16s %s", os, C_On_Black, lbl_color, f_info->d_name + b, C_OFF);
+  printf("%s%s %-16s %s", C_On_Black, lbl_color, f_info->d_name + b, C_OFF);
   printf(" %s%s%s", lbl_color, type_names[type], C_OFF);
   printf(" %s",       ctime(&f_info->mtime));
-  printf("%s  %s",     os, mstr);
+  pv(f_info->depth);
+  printf(" %s", mstr);
   printf(" %s",        user_name);
   printf(" %s",        gr_name);
   printf(" %lu",       f_info->st_nlink);
