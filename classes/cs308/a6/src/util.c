@@ -232,6 +232,7 @@ void display_fs_node(void * node_addr) {
 
   if (f_info->sub_nodes != NULL) {
     list_iter(f_info->sub_nodes, &display_fs_node);
+    printf("\n");
   }
 }
 

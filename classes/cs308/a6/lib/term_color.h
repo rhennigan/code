@@ -153,4 +153,16 @@
 
 #endif  // _USE_COLOR_TERM
 
+#define B_HR "\u2500"  // horizontal bar
+#define B_TL "\u250C"  // top-left box corner
+#define B_TR "\u2510"  // top-right box corner
+#define B_BL "\u2514"  // bottom-left box corner
+#define B_BR "\u2518"  // bottom-right box corner
+#define B_VT "\u2502"  // vertical bar
+#define B_LM "\u251C"  // left-middle join
+#define B_RM "\u2524"  // right-middle join
+#define B_TM "\u252C"  // top-middle join
+#define B_BM "\u2534"  // bottom-middle join
+#define B_CM "\u253C"  // center-middle join
+
 #endif  // _LIB_TERM_COLOR_H
