@@ -18,7 +18,7 @@ static inline list_t * last_node(list_t * list) {
     }
     return list;
   }
-}
+}  // last_node
 
 static inline list_t * list_init() {
   list_t * list = malloc(sizeof(list_t));
@@ -27,14 +27,14 @@ static inline list_t * list_init() {
     list->tail = NULL;
   }
   return list;
-}
+}  // list_init
 
 static inline list_t * list_cons(list_t * list, data_t data) {
   list_t * new_list = list_init();
   new_list->head = data;
   new_list->tail = list;
   return new_list;
-}
+}  // list_cons
 
 static inline list_t * list_snoc(list_t * list, data_t data) {
   list_t * last = list_init();
@@ -45,7 +45,7 @@ static inline list_t * list_snoc(list_t * list, data_t data) {
     last_node(list)->tail = last;
     return list;
   }
-}
+}  // list_snoc
 
 /******************************************************************************/
 /* PUBLIC FUNCTIONS                                                           */
@@ -60,7 +60,7 @@ inline list_t * list_app(list_t * list, data_t head) {
     last->tail->head = head;
   }
   return list;
-}
+}  // list_app
 
 inline list_t * list_copy(list_t * list) {
   if (list == NULL) {
@@ -68,7 +68,7 @@ inline list_t * list_copy(list_t * list) {
   } else {
     return list_cons(list_copy(list_tail(list)), list_head(list));
   }
-}
+}  // list_copy
 
 inline void list_dispose(list_t * list) {
   list_t * tail;
@@ -77,7 +77,7 @@ inline void list_dispose(list_t * list) {
     free(list);
     list = tail;
   }
-}
+}  // list_dispose
 
 inline void list_dump(list_t * list) {
   printf("\nlist_dump: %p\n", list);
@@ -93,7 +93,7 @@ inline void list_dump(list_t * list) {
     }
     printf("  %p\n", list);
   }
-}
+}  // list_dump
 
 inline list_t * list_extremum(list_t * list, dyn_cmp_f ex, void * dep_arg) {
   if (list == NULL) {
@@ -107,7 +107,7 @@ inline list_t * list_extremum(list_t * list, dyn_cmp_f ex, void * dep_arg) {
     }
     return keep;
   }
-}
+}  // list_extremum
 
 inline list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
   if (list == NULL) {
@@ -129,7 +129,7 @@ inline list_t * list_filter(list_t * list, dyn_pred_f pred, void * dep_arg) {
       return filtered;
     }
   }
-}  // end list_filter
+}  // list_filter
 
 inline void * list_fold(list_t * list, void * acc, fold_f f) {
   while (list != NULL) {
