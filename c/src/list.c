@@ -171,11 +171,15 @@ inline void * list_foldr(list_t * list, void * acc, fold_f f) {
 }  // list_foldr
 
 inline bool list_forall(list_t * list, dyn_pred_f pred, void * dep_arg) {
-  bool satisfied = true;
-  while (list != NULL) {
-    if (!pred(list->head, dep_arg)) return false;
+  if (list == NULL) {
+    return true;
+  } else {
+    while (list != NULL) {
+      if (!pred(list->head, dep_arg)) return false;
+      list = list->tail;
+    }
+    return true;
   }
-  return satisfied;
 }
 
 inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
