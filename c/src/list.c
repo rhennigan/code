@@ -187,16 +187,16 @@ inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
     double mem;
     if (req >= 1073741824) {
       units = "GB";
-      mem = (double)req / 1073741824.0;
+      mem   = (double)req / 1073741824.0;
     } else if (req >= 1048576) {
       units = "MB";
-      mem = (double)req / 1048576.0;
+      mem   = (double)req / 1048576.0;
     } else if (req >= 1024) {
       units = "KB";
-      mem = (double)req / 1024.0;
+      mem   = (double)req / 1024.0;
     } else {
       units = "B";
-      mem = (double)req;
+      mem   = (double)req;
     }
     fprintf(stderr, "list_fromarray: not enough memory (%.3f %s required)\n",
             mem, units);
