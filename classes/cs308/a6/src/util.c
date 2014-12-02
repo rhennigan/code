@@ -140,6 +140,14 @@ static inline void pv(size_t depth) {
     printf("%s ", vert);
 }
 
+static inline bool ndir(fsys_node_t * f_info) {
+  S_ISDIR(f_info->st_mode) &&
+      !(name[nlen-1] == '.' &&
+        (name[nlen-2] == '/' ||
+         (name[nlen-2] == '.' &&
+          name[nlen-3] == '/')))
+}
+
 /****************************************************************************/
 void display_fs_node(void * node_addr) {
   fsys_node_t * f_info = (fsys_node_t *)node_addr;
