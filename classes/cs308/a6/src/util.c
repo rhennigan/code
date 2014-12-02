@@ -75,7 +75,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
     f_info->ctime      = file_stat.st_ctime;
 
     size_t nlen = strlen(name);
-    printf("testing %s for recursion...\n", name);
+    printf("\ntesting %s for recursion...\n", name);
     printf(" ISDIR = %s\n", S_ISDIR(f_info->st_mode) ? "true" : "false");
     printf(" name[nlen-1] = %c\n", name[nlen-1]);
     if (S_ISDIR(f_info->st_mode) &&
