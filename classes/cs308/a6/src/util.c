@@ -22,6 +22,8 @@ const char * type_colors[] = {
   [DT_UNKNOWN] = C_On_Red C_BIWhite
 };
 
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+
 /****************************************************************************/
 list_t * dir_list(char * dir_name, size_t depth) {
   printf("dir_list(%s, %lu)\n", dir_name, depth);
