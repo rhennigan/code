@@ -95,12 +95,12 @@ void display_fs_node(void * node_addr) {
   printf("%s dev_maj  = %u\n",  os, f_info->dev_maj);
   printf("%s dev_min  = %u\n",  os, f_info->dev_min);
   printf("%s st_ino   = %ld\n", os, f_info->st_ino);
-  printf("%s S_ISREG  = %s\n",  os, S_ISREG(mode) ? "true" : "false");
-  printf("%s S_ISDIR  = %s\n",  os, S_ISDIR(mode) ? "true" : "false");
-  printf("%s S_ISCHR  = %s\n",  os, S_ISCHR(mode) ? "true" : "false");
-  printf("%s S_ISBLK  = %s\n",  os, S_ISBLK(mode) ? "true" : "false");
+  printf("%s S_ISREG  = %s\n",  os, S_ISREG(mode)  ? "true" : "false");
+  printf("%s S_ISDIR  = %s\n",  os, S_ISDIR(mode)  ? "true" : "false");
+  printf("%s S_ISCHR  = %s\n",  os, S_ISCHR(mode)  ? "true" : "false");
+  printf("%s S_ISBLK  = %s\n",  os, S_ISBLK(mode)  ? "true" : "false");
   printf("%s S_ISFIFO = %s\n",  os, S_ISFIFO(mode) ? "true" : "false");
-  printf("%s S_ISLNK  = %s\n",  os, S_ISLNK(mode) ? "true" : "false");
+  printf("%s S_ISLNK  = %s\n",  os, S_ISLNK(mode)  ? "true" : "false");
   printf("%s S_ISSOCK = %s\n",  os, S_ISSOCK(mode) ? "true" : "false");
   printf("\n");
 }
