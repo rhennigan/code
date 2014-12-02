@@ -31,13 +31,16 @@ list_t * dir_list(char * dir_name, size_t depth) {
   }
   list_t * entries = NULL;
   struct dirent * entry;
-  struct stat   * fstat;
   while ((entry = readdir(dir)) != NULL) {
+    struct stat fstat;
     fsys_node_t * node = malloc(sizeof(fsys_node_t));
     if (node == NULL) {
       perror("malloc");
       exit(EXIT_FAILURE);
     }
+
+    char * name = entry->d_name;
+    stat(name, &fstat);
     node->d_ino      = entry->d_ino;
     node->d_off      = entry->d_off;
     node->d_reclen   = entry->d_reclen;
