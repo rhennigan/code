@@ -22,6 +22,17 @@ const char * type_colors[] = {
   [DT_UNKNOWN] = C_On_Red C_BIWhite
 };
 
+enum units {
+  BYTES,
+  KBYTES,
+  MBYTES,
+  GBYTES
+};
+
+const char * units[] = {
+  
+}
+
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 /****************************************************************************/
