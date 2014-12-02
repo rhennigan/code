@@ -331,11 +331,11 @@ inline list_t * list_tail(list_t * list) {
 }  // list_tail
 
 inline data_t * list_toarray(list_t * list, size_t obj_size) {
-  size_t len = list_length(list);
+  size_t len     = list_length(list);
   data_t * array = malloc(obj_size * len);
   for (size_t i = 0; i < len; i++) {
-    array[i] = list_head(list);
-    list = list_tail(list);
+    array[i] = list->head;
+    list     = list->tail;
   }
   return array;
 }  // list_toarray
