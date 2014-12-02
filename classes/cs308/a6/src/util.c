@@ -41,7 +41,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
 
     char * name = entry->d_name;
     if (lstat(name, &file_stat) == -1) {
-      perror("stat");
+      perror("lstat");
       exit(EXIT_FAILURE);
     }
     snprintf(f_info->d_name, NAME_MAX, "%s", name);
