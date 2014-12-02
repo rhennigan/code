@@ -203,15 +203,13 @@ void display_fs_node(void * node_addr) {
 
   bool exec_b = (mode & S_IXUSR) || (mode & S_IXGRP) || (mode & S_IXOTH);
   const char * lbl_color = (type == DT_REG && exec_b) ?
-                             C_BIGreen :
-                             ndir(f_info) ?
-                               C_On_Blue C_IWhite :
-                               type_colors[type];
+                           C_BIGreen :
+                           type_colors[type];
   size_t b = 2;
   for (size_t i = b; i < strlen(f_info->d_name); i++)
     b = f_info->d_name[i] == '/' ? i : b;
 
-  char * leftc = ndir(f_info) ? C_On_Blue C_BIWhite B_TL : C_On_Black;
+  char * leftc = ndir(f_info) ? C_On_Blue C_BIWhite B_TL : lbl_color;
   pv(f_info->depth);
   printf(" %s%s %-16s %s", leftc, lbl_color, f_info->d_name + b, C_OFF);
   printf(" %s%s%s", lbl_color, type_names[type], C_OFF);
