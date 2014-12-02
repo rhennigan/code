@@ -145,6 +145,10 @@ void display_fs_node(void * node_addr) {
   printf("%s mstr      = %s\n",  os, mstr);
   printf("%s st_uid    = %d\n",  os, f_info->st_uid);
   printf("%s user_name = %s\n",  os, user_name);
+  printf("%s user_pw   = %s\n",  os, user_pw);
+  printf("%s user_info = %s\n",  os, user_info);
+  printf("%s user_home = %s\n",  os, user_home);
+  printf("%s user_shll = %s\n",  os, user_shll);
   printf("\n");
 }
 
