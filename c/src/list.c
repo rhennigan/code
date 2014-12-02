@@ -276,7 +276,7 @@ inline lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
 
 inline list_t * list_pre(list_t * list, void * data) {
   if (list == NULL) {
-    list = list_init();
+    list       = list_init();
     list->head = data;
   } else {
     list_t * new_tail = list_cons(list_tail(list), list_head(list));
@@ -285,6 +285,12 @@ inline list_t * list_pre(list_t * list, void * data) {
   }
   return list;
 }  // list_pre
+
+inline list_t * list_repack(list_t * list, size_t obj_size) {
+  data_t * array       = list_toarray(list, obj_size);
+  size_t   length      = list_length(list);
+  list_t * packed_list = list_fromarray(array, obj_size, 
+}
 
 inline list_t * list_reverse(list_t * list) {
   list_t * reversed = NULL;
