@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>  /* memset */
 #include <stdbool.h>
+#include <sys/stat.h>
 #include "list.h"
 #include "term_color.h"
 
