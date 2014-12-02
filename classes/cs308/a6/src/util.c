@@ -30,7 +30,7 @@ enum units {
 };
 
 const char * units[] = {
-  [BYTES]  = C_OFF              "B"  C_OFF,
+  [BYTES]  = C_GREEN            "B"  C_OFF,
   [KBYTES] = C_YELLOW           "KB" C_OFF,
   [MBYTES] = C_RED              "MB" C_OFF,
   [GBYTES] = C_On_Red C_BIWhite "GB" C_OFF
