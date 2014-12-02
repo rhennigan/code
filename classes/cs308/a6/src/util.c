@@ -1,0 +1,115 @@
+#include "../lib/util.h"
+
+const char * type_names[] = {
+  [DT_BLK]     = "block device",
+  [DT_CHR]     = "character device",
+  [DT_DIR]     = "directory",
+  [DT_FIFO]    = "named pipe (FIFO)",
+  [DT_LNK]     = "symbolic link",
+  [DT_REG]     = "regular file",
+  [DT_SOCK]    = "UNIX domain socket",
+  [DT_UNKNOWN] = "unknown"
+};
+
+#ifdef _USE_COLOR_TERM
+  #define C_RED         "\033[0;31m"
+  #define C_YELLOW      "\033[0;33m"
+  #define C_GREEN       "\033[0;32m"
+  #define C_OCHRE       "\033[38;5;95m"
+  #define C_BLUE        "\033[01;34m"
+  #define C_WHITE       "\033[0;37m"
+  #define C_CYAN        "\033[00;36m"
+  #define C_RESET       "\033[0m"
+  #define C_BOLD_RED    "\033[1;31m"
+  #define C_BOLD_YELLOW "\033[1;33m"
+  #define C_BOLD_GREEN  "\033[1;32m"
+  #define C_BOLD_OCHRE  "\033[38;5;95m"
+  #define C_BOLD_BLUE   "\033[1;34m"
+  #define C_BOLD_WHITE  "\033[1;37m"
+#else
+  #define C_RED         "\033[0;31m"
+  #define C_YELLOW      "\033[0;33m"
+  #define C_GREEN       "\033[0;32m"
+  #define C_OCHRE       "\033[38;5;95m"
+  #define C_BLUE        "\033[01;34m"
+  #define C_WHITE       "\033[0;37m"
+  #define C_CYAN        "\033[00;36m"
+  #define C_RESET       "\033[0m"
+  #define C_BOLD_RED    "\033[1;31m"
+  #define C_BOLD_YELLOW "\033[1;33m"
+  #define C_BOLD_GREEN  "\033[1;32m"
+  #define C_BOLD_OCHRE  "\033[38;5;95m"
+  #define C_BOLD_BLUE   "\033[1;34m"
+  #define C_BOLD_WHITE  "\033[1;37m"
+#endif  // _USE_COLOR_TERM
+
+const char * type_colors[] = {
+  [DT_BLK]     = C_GREEN,
+  [DT_CHR]     = C_YELLOW,
+  [DT_DIR]     = C_BLUE,
+  [DT_FIFO]    = C_MAGENTA,
+  [DT_LNK]     = C_CYAN,
+  [DT_REG]     = C_EXTRA,
+  [DT_SOCK]    = C_RESET,
+  [DT_UNKNOWN] = C_RED
+};
+
+/****************************************************************************/
+list_t * dir_list(char * dir_name, size_t depth) {
+  DIR * dir = opendir(dir_name);
+  if (!dir) {
+    perror("dir_list opendir");
+    exit(EXIT_FAILURE);
+  }
+  list_t * entries = NULL;
+  struct dirent * entry;
+  while ((entry = readdir(dir)) != NULL) {
+    fsys_node_t * node = malloc(sizeof(fsys_node_t));
+    if (node == NULL) {
+      perror("malloc");
+      exit(EXIT_FAILURE);
+    }
+    node->d_ino      = entry->d_ino;
+    node->d_off      = entry->d_off;
+    node->d_reclen   = entry->d_reclen;
+    node->d_type     = entry->d_type;
+    snprintf(node->d_name, NAME_MAX, "%s", entry->d_name);
+    node->depth      = depth;
+    entries          = list_pre(entries, node);
+  }
+  if (closedir(dir) == -1) {
+    perror("closedir");
+    exit(EXIT_FAILURE);
+  }
+  return entries;
+}
+
+/****************************************************************************/
+void display_fs_node(void * node_addr) {
+  fsys_node_t * node = (fsys_node_t *)node_addr;
+
+  char os[node->depth+1];
+  memset(os, ' ', node->depth);
+  os[node->depth] = '\0';
+
+  int type = node->d_type;
+
+  printf("%s%s%s%s\n",          os, type_colors[type], node->d_name, C_RESET);
+  printf("%s d_ino    = %ld\n", os, node->d_ino);
+  printf("%s d_off    = %ld\n", os, node->d_off);
+  printf("%s d_reclen = %u\n",  os, node->d_reclen);
+  printf("%s d_type   = %s\n",  os, type_names[type]);
+  printf("\n");
+}
+
+/****************************************************************************/
+bool name_cmp(void * a, void * b) {
+  fsys_node_t * node1 = a;
+  fsys_node_t * node2 = b;
+  char * str1  = node1->d_name;
+  char * str2  = node2->d_name;
+  bool   cmp   = node1->d_type == node2->d_type ?
+                 strcmp(str1, str2) < 1 :
+                 node1->d_type < node2->d_type;
+  return cmp;
+}
