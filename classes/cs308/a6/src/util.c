@@ -94,7 +94,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
           name[nlen-3] == '/')))) {
       printf(" %s is a subdirectory!\n", name);
       printf(" %s has depth (%lu, %lu)\n", name, depth, f_info->depth);
-      f_info->sub_nodes = dir_list(f_info->d_name, f_info->depth+2);
+      f_info->sub_nodes = dir_list(f_info->d_name, cdepth+2);
     } else {
       printf(" %s is NOT a subdirectory!\n", name);
       f_info->sub_nodes = NULL;
