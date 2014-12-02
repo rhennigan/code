@@ -84,7 +84,8 @@ void display_fs_node(void * node_addr) {
   memset(os, ' ', f_info->depth);
   os[f_info->depth] = '\0';
 
-  int type = f_info->d_type;
+  int    type = f_info->d_type;
+  mode_t mode = f_info->st_mode;
 
   printf("%s%s%s%s\n",          os, type_colors[type], f_info->d_name, C_OFF);
   printf("%s d_ino    = %ld\n", os, f_info->d_ino);
@@ -94,6 +95,13 @@ void display_fs_node(void * node_addr) {
   printf("%s dev_maj  = %u\n",  os, f_info->dev_maj);
   printf("%s dev_min  = %u\n",  os, f_info->dev_min);
   printf("%s st_ino   = %ld\n", os, f_info->st_ino);
+  printf("%s S_ISREG  = %s\n",  os, S_ISREG(mode) ? "true" : "false");
+  printf("%s S_ISREG  = %s\n",  os, S_ISREG(mode) ? "true" : "false");
+  printf("%s S_ISREG  = %s\n",  os, S_ISREG(mode) ? "true" : "false");
+  printf("%s S_ISREG  = %s\n",  os, S_ISREG(mode) ? "true" : "false");
+  printf("%s S_ISREG  = %s\n",  os, S_ISREG(mode) ? "true" : "false");
+  printf("%s S_ISREG  = %s\n",  os, S_ISREG(mode) ? "true" : "false");
+  printf("%s S_ISREG  = %s\n",  os, S_ISREG(mode) ? "true" : "false");
   printf("\n");
 }
 
