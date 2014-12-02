@@ -81,7 +81,6 @@ static inline const char * int_to_binary(int x) {
     static char b[33];
     b[0] = '\0';
     for (int z = INT_MAX/2+1; z > 0; z >>= 1) {
-      printf("x = %d, z = %d, x & z = %d\n", x, z, x & z);
       strcat(b, ((x & z) == z) ? "1" : "0");
     }
     return b;
