@@ -40,12 +40,14 @@ const char * units[] = {
 
 /****************************************************************************/
 static inline char * byte_str(unsigned long b) {
-  char str[7];
+  static char str[80];
   unsigned long i = 0;
-  while (b > 99999) {
+  while (b > 9999) {
     i++;
     b /= 1024;
   }
+  snprintf(str, 80, "%lu%s", b, units[i]);
+  return str;
 }
 
 /****************************************************************************/
