@@ -179,6 +179,7 @@ void display_fs_node(void * node_addr) {
   printf("%s atime       = %s",    os, ctime(&f_info->atime));
   printf("%s mtime       = %s",    os, ctime(&f_info->mtime));
   printf("%s ctime       = %s",    os, ctime(&f_info->ctime));
+  printf("%s sub_nodes   = %p\n",  os, f_info->sub_nodes);
   printf("\n");
 }
 
