@@ -199,7 +199,8 @@ inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
             mem, units);
     exit(EXIT_FAILURE);
   } else {
-    for (size_t i = 0; i < length; i++) {
+    size_t i;
+    for (i = 0; i < length; i++) {
       list[i].head = (char*)array + i*objsize;
       list[i].tail = i+1 == length ? NULL : &list[i+1];
     }
@@ -332,7 +333,8 @@ inline list_t * list_tail(list_t * list) {
 inline data_t * list_toarray(list_t * list, size_t obj_size) {
   size_t   len   = list_length(list);
   data_t * array = malloc(obj_size * len);
-  for (size_t i = 0; i < len; i++) {
+  size_t i;
+  for (i = 0; i < len; i++) {
     array[i] = list->head;
     list     = list->tail;
   }
