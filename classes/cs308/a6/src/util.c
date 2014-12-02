@@ -138,7 +138,8 @@ list_t * dir_list(const char * d_name, size_t depth) {
 const char * vert = C_BIWhite B_VT C_OFF;
 
 static inline void pv(size_t depth) {
-  for (size_t i = 0; i < depth / 2; i++)
+  size_t i;
+  for (i = 0; i < depth / 2; i++)
     printf(" %s", vert);
 }
 
