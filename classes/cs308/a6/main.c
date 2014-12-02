@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[]) {
   char   * dir_name = ".";
-  list_t * entries = dir_list(dir_name, 2);
+  list_t * entries = dir_list(dir_name, 0);
   list_iter(entries, &display_fs_node);
   list_iter(entries, &free);
   list_dispose(entries);
