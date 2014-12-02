@@ -191,9 +191,8 @@ inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
       units = "B";
       mem = (double)req;
     }
-    fprintf(stderr,
-            "not enough memory to create list of %lu elements (%.3f %s required)\n",
-            length, mem, units);
+    fprintf(stderr, "list_fromarray: not enough memory (%.3f %s required)\n",
+            mem, units);
     exit(EXIT_FAILURE);
   } else {
     for (size_t i = 0; i < length; i++) {
