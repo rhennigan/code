@@ -313,7 +313,7 @@ inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
 
 inline list_t * list_tail(list_t * list) {
   if (list == NULL) {
-    printf("list_tail: list is empty\n");
+    fprintf(stderr, "list_tail: list is empty\n");
     exit(EXIT_FAILURE);
   } else {
     return list->tail;
@@ -328,4 +328,4 @@ inline data_t * list_toarray(list_t * list, size_t obj_size) {
     list = list_tail(list);
   }
   return array;
-}
+}  // list_toarray
