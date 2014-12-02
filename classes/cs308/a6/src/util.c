@@ -39,7 +39,7 @@ const char * units[] = {
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 /****************************************************************************/
-static inline unsigned char fix_type() {
+static inline unsigned char fix_type(mode_t mode) {
   return 0;
 }
 
