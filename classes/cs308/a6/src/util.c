@@ -30,10 +30,10 @@ enum units {
 };
 
 const char * units[] = {
-  [BYTES]  = C_OFF    "B ",
-  [KBYTES] = C_GREEN  "KB",
-  [MBYTES] = C_YELLOW "MB",
-  [GBYTES] = C_RED    "GB"
+  [BYTES]  = C_OFF    "B " C_OFF,
+  [KBYTES] = C_GREEN  "KB" C_OFF,
+  [MBYTES] = C_YELLOW "MB" C_OFF,
+  [GBYTES] = C_RED    "GB" C_OFF
 };
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
