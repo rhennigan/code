@@ -17,14 +17,14 @@
   #define C_WHITE         "\e[0;37m"    // White
 
   /* Bold */
-  #define C_BBlack        "\e[1;30m"    // Black
-  #define C_BRed          "\e[1;31m"    // Red
-  #define C_BGreen        "\e[1;32m"    // Green
-  #define C_BYellow       "\e[1;33m"    // Yellow
-  #define C_BBlue         "\e[1;34m"    // Blue
-  #define C_BPurple       "\e[1;35m"    // Purple
-  #define C_BCyan         "\e[1;36m"    // Cyan
-  #define C_BWhite        "\e[1;37m"    // White
+  #define C_BBLACK        "\e[1;30m"    // Black
+  #define C_BRED          "\e[1;31m"    // Red
+  #define C_BGREEN        "\e[1;32m"    // Green
+  #define C_BYELLOW       "\e[1;33m"    // Yellow
+  #define C_BBLUE         "\e[1;34m"    // Blue
+  #define C_BPURPLE       "\e[1;35m"    // Purple
+  #define C_BCYAN         "\e[1;36m"    // Cyan
+  #define C_BWHITE        "\e[1;37m"    // White
 
   /* Underline */
   #define C_UBlack        "\e[4;30m"    // Black
