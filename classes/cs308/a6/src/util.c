@@ -196,7 +196,7 @@ void display_fs_node(void * node_addr) {
   printf(" %s",        user_name);
   printf(" %s",        gr_name);
   printf(" %lu",       f_info->st_nlink);
-  printf(" %6s",        byte_str(f_info->st_size));
+  printf(" %-8s",        byte_str(f_info->st_size));
   printf(" %ld\n",     f_info->d_ino);
   
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
