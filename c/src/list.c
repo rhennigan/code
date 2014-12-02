@@ -276,7 +276,7 @@ inline list_t * list_pre(list_t * list, void * data) {
     list->tail = new_tail;
   }
   return list;
-}
+}  // list_pre
 
 inline list_t * list_reverse(list_t * list) {
   list_t * reversed = NULL;
@@ -288,28 +288,19 @@ inline list_t * list_reverse(list_t * list) {
     list       = tmp;
   }
   return reversed;
-}
-
-/* inline list_t * list_reverse(list_t * list) { */
-/*   list_t * new_list = NULL; */
-/*   while (list != NULL) { */
-/*     new_list = list_cons(new_list, list_head(list)); */
-/*     list = list_tail(list); */
-/*   }  // end while (list != NULL) */
-/*   return new_list; */
-/* }  // end list_reverse */
+}  // list_reverse
 
 inline list_t * list_skip(list_t * list, long int n) {
   while (n--) list = list_tail(list);
   return list;
-}
+}  // list_skip
 
 inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
   if (list == NULL) {
     return NULL;
   } else if (list_tail(list) == NULL) {
     return list;
-  } else {  // (list != NULL)
+  } else {
     counter++;
     void * pivot = list_head(list);
     lpair_t part = list_partition(list_tail(list), lt, pivot);
@@ -317,26 +308,17 @@ inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
     list_t * left  = list_sort(part.left,  lt);
     list_t * right = list_sort(part.right, lt);
     return list_join(left, list_join(list, right));
-  }  // end if (list == NULL)
-}  // end list_sort
-
-/* inline list_t * list_sort(list_t * list, sta_cmp_f lt) { */
-/*   size_t   len   = list_length(list); */
-/*   data_t * array = list_toarray(list, sizeof(data_t)); */
-/*   qsort(array, len, sizeof(data_t), lt); */
-/*   list = list_fromarray(array, sizeof(data_t), len); */
-/*   free(array); */
-/*   return list; */
-/* } */
+  }
+}  // list_sort
 
 inline list_t * list_tail(list_t * list) {
   if (list == NULL) {
     printf("list_tail: list is empty\n");
     exit(EXIT_FAILURE);
-  } else {  // (list != NULL)
+  } else {
     return list->tail;
-  }  // end if (list == NULL)
-}  // end list_tail
+  }
+}  // list_tail
 
 inline data_t * list_toarray(list_t * list, size_t obj_size) {
   size_t len = list_length(list);
