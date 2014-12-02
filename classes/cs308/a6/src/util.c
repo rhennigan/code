@@ -31,6 +31,7 @@ list_t * dir_list(char * dir_name, size_t depth) {
   }
   list_t * entries = NULL;
   struct dirent * entry;
+  struct stat   * fstat;
   while ((entry = readdir(dir)) != NULL) {
     fsys_node_t * node = malloc(sizeof(fsys_node_t));
     if (node == NULL) {
