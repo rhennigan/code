@@ -12,45 +12,13 @@ const char * type_names[] = {
   [DT_UNKNOWN] = "unknown"
 };
 
-#ifdef _USE_COLOR_TERM
-  #define C_RED         "\033[0;31m"
-  #define C_YELLOW      "\033[0;33m"
-  #define C_GREEN       "\033[0;32m"
-  #define C_OCHRE       "\033[38;5;95m"
-  #define C_BLUE        "\033[01;34m"
-  #define C_WHITE       "\033[0;37m"
-  #define C_CYAN        "\033[00;36m"
-  #define C_RESET       "\033[0m"
-  #define C_BOLD_RED    "\033[1;31m"
-  #define C_BOLD_YELLOW "\033[1;33m"
-  #define C_BOLD_GREEN  "\033[1;32m"
-  #define C_BOLD_OCHRE  "\033[38;5;95m"
-  #define C_BOLD_BLUE   "\033[1;34m"
-  #define C_BOLD_WHITE  "\033[1;37m"
-#else
-  #define C_RED         "\033[0;31m"
-  #define C_YELLOW      "\033[0;33m"
-  #define C_GREEN       "\033[0;32m"
-  #define C_OCHRE       "\033[38;5;95m"
-  #define C_BLUE        "\033[01;34m"
-  #define C_WHITE       "\033[0;37m"
-  #define C_CYAN        "\033[00;36m"
-  #define C_RESET       "\033[0m"
-  #define C_BOLD_RED    "\033[1;31m"
-  #define C_BOLD_YELLOW "\033[1;33m"
-  #define C_BOLD_GREEN  "\033[1;32m"
-  #define C_BOLD_OCHRE  "\033[38;5;95m"
-  #define C_BOLD_BLUE   "\033[1;34m"
-  #define C_BOLD_WHITE  "\033[1;37m"
-#endif  // _USE_COLOR_TERM
-
 const char * type_colors[] = {
   [DT_BLK]     = C_GREEN,
   [DT_CHR]     = C_YELLOW,
   [DT_DIR]     = C_BLUE,
-  [DT_FIFO]    = C_MAGENTA,
+  [DT_FIFO]    = C_PURPLE,
   [DT_LNK]     = C_CYAN,
-  [DT_REG]     = C_EXTRA,
+  [DT_REG]     = C_WHITE,
   [DT_SOCK]    = C_RESET,
   [DT_UNKNOWN] = C_RED
 };
