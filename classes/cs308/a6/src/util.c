@@ -96,9 +96,9 @@ void display_fs_node(void * node_addr) {
 
   int    type = f_info->d_type;
   mode_t mode = f_info->st_mode;
-  char   mstr[13];
-  memset(mstr, '|', 12);
-  mstr[12] = '\0';
+  char * mstr = " |   |   |   ";
+  /* memset(mstr, '|', 12); */
+  /* mstr[12] = '\0'; */
 
   mstr[0] = S_ISDIR(mode)     ? 'd' : '-';
 
