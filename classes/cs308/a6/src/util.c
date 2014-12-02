@@ -81,7 +81,7 @@ list_t * dir_list(const char * d_name, size_t depth) {
 
     char * name = strcat(path, entry->d_name);
 
-    if (lstat(name, &file_stat) == -1) {
+    if (stat(name, &file_stat) == -1) {
       perror("lstat");
       exit(EXIT_FAILURE);
     }
