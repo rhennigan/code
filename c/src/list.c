@@ -188,7 +188,8 @@ inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
       units = "KB";
       mem = (double)req / 1024.0;
     } else {
-      units =
+      units = "B";
+      mem = (double)req;
     }
     fprintf(stderr, "not enough memory to create list of %lu elements\n", length);
     exit(EXIT_FAILURE);
