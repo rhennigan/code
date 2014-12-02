@@ -256,7 +256,7 @@ void display_fs_node(void * node_addr) {
   if (f_info->sub_nodes != NULL) {
     list_iter(f_info->sub_nodes, &display_fs_node);
     pv(f_info->depth);
-    printf("\n");
+    printf("%s\n", C_On_Black C_BIWhite B_BL C_OFF);
   }
 }
 
