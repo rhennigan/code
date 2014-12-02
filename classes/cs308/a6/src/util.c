@@ -39,6 +39,16 @@ const char * units[] = {
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 /****************************************************************************/
+static inline char * byte_str(unsigned long b) {
+  char str[7];
+  unsigned long i = 0;
+  while (b > 99999) {
+    i++;
+    b /= 1024;
+  }
+}
+
+/****************************************************************************/
 list_t * dir_list(char * dir_name, size_t depth) {
   const size_t cdepth = depth;
   DIR * dir = opendir(dir_name);
