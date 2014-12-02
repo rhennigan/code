@@ -289,8 +289,9 @@ inline list_t * list_pre(list_t * list, void * data) {
 inline list_t * list_repack(list_t * list, size_t obj_size) {
   data_t * array       = list_toarray(list, obj_size);
   size_t   length      = list_length(list);
-  list_t * packed_list = list_fromarray(array, obj_size, 
-}
+  list_t * packed_list = list_fromarray(array, obj_size, length);
+  return packed_list;
+}  // list_repack
 
 inline list_t * list_reverse(list_t * list) {
   list_t * reversed = NULL;
