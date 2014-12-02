@@ -172,14 +172,14 @@ void display_fs_node(void * node_addr) {
   /* printf("%s dev_min     = %u\n",  os, f_info->dev_min); */
   /* printf("%s st_ino      = %ld\n", os, f_info->st_ino); */
   /* printf("%s st_mode     = %u\n",  os, f_info->st_mode); */
-  printf("%s mstr        = %s\n",  os, mstr);
+  printf("%s   mstr        = %s\n",  os, mstr);
   /* printf("%s st_uid      = %d\n",  os, f_info->st_uid); */
-  printf("%s user_name   = %s\n",  os, user_name);
+  printf("%s   user_name   = %s\n",  os, user_name);
   /* printf("%s user_pw     = %s\n",  os, user_pw); */
   /* printf("%s user_info   = %s\n",  os, user_info); */
   /* printf("%s user_home   = %s\n",  os, user_home); */
   /* printf("%s user_shll   = %s\n",  os, user_shll); */
-  printf("%s gr_name     = %s\n",  os, gr_name);
+  printf("%s   gr_name     = %s\n",  os, gr_name);
   /* printf("%s gr_pw       = %s\n",  os, gr_pw); */
   /* printf("%s gr_mem[0]   = %s\n",  os, gr_mem[0]); */
   /* printf("%s st_rdev     = %lu\n", os, f_info->st_rdev); */
@@ -188,10 +188,10 @@ void display_fs_node(void * node_addr) {
   /* printf("%s st_blksize  = %lu\n", os, f_info->st_blksize); */
   /* printf("%s st_blocks   = %lu\n", os, f_info->st_blocks); */
   /* printf("%s atime       = %s",    os, ctime(&f_info->atime)); */
-  printf("%s mtime       = %s",    os, ctime(&f_info->mtime));
-  printf("%s st_nlink    = %lu\n", os, f_info->st_nlink);
-  printf("%s st_size     = %lu\n", os, f_info->st_size);
-  printf("%s d_ino       = %ld\n", os, f_info->d_ino);
+  printf("%s   mtime       = %s",    os, ctime(&f_info->mtime));
+  printf("%s   st_nlink    = %lu\n", os, f_info->st_nlink);
+  printf("%s   st_size     = %lu\n", os, f_info->st_size);
+  printf("%s   d_ino       = %ld\n", os, f_info->d_ino);
   /* printf("%s ctime       = %s",    os, ctime(&f_info->ctime)); */
   /* printf("%s sub_nodes   = %p\n",  os, f_info->sub_nodes); */
   printf("\n");
