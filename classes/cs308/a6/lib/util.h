@@ -3,15 +3,17 @@
 
 #define _FILE_OFFSET_BITS 64
 
-#include<sys/types.h>
-#include<dirent.h>
-#include<sys/stat.h>      // file type/prot macros
-#include<sys/sysmacros.h> // major/minor macros
-#include<stdio.h>
-#include<stdlib.h>
-#include<pwd.h>
-#include<grp.h>
-#include<time.h>
+#include <sys/types.h>
+#include <dirent.h>
+#include <sys/stat.h>      // file type/prot macros
+#include <sys/sysmacros.h> // major/minor macros
+#include <stdio.h>
+#include <stdlib.h>
+#include <pwd.h>
+#include <grp.h>
+#include <time.h>
+#include <limits.h>
+#include <string.h>
 #include "list.h"
 #include "term_color.h"
 
