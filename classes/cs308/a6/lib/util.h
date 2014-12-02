@@ -1,6 +1,10 @@
 #ifndef _LIB_UTIL_H
 #define _LIB_UTIL_H
 
+#ifndef NAME_MAX
+#define NAME_MAX 512
+#endif
+
 #include <sys/types.h>
 #include <dirent.h>
 #include <sys/stat.h>      // file type/prot macros
