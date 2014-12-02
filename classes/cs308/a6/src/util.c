@@ -166,10 +166,10 @@ void display_fs_node(void * node_addr) {
   printf("%s%s %s %s\n", os, lbl_color, f_info->d_name + b, C_OFF);
   printf("%s  %s", os, mstr);
   printf(" %s", user_name);
-  printf(" %s\n", gr_name);
-  printf("%s  %lu", os, f_info->st_nlink);
-  printf("%s  %lu", os, f_info->st_size);
-  printf("%s  %ld\n", os, f_info->d_ino);
+  printf(" %s", gr_name);
+  printf(" %lu",f_info->st_nlink);
+  printf(" %lu", f_info->st_size);
+  printf(" %ld\n", f_info->d_ino);
   printf("%s  %s", os, ctime(&f_info->mtime));
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
   /* printf("%s d_reclen    = %u\n",  os, f_info->d_reclen); */
