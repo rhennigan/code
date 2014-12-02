@@ -7,3 +7,15 @@ int main(int argc, char *argv[]) {
   list_iter(entries, &display_fs_node);
   return 0;
 }
+
+/* EXAMPLE */
+/*******************************************/
+/* FILENAME:                  alpha */
+/* FILE_TYPE:                 ordinary */
+/* PERMISSIONS:               rw- r-- r-- */
+/* OWNER_NAME:                jedwards */
+/* GROUP_NAM:                 grad */
+/* DATE_OF_LAST_MODIFICATION: Mar 30 08:11 2003 */
+/* LINK_COUNT:                2 */
+/* SIZE_IN_BYTES:             1345 (or 12, 6 dev info) */
+/* INODE_NUMBER:              347  */
