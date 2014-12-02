@@ -160,7 +160,7 @@ void display_fs_node(void * node_addr) {
                            C_On_Black C_BIGreen :
                            type_colors[type];
 
-  printf("%s%s %s %s\n", os, lbl_color, f_info->d_name, C_OFF);
+  printf("%s%s %s %s\n", os, lbl_color, f_info->d_name + 2, C_OFF);
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
   /* printf("%s d_reclen    = %u\n",  os, f_info->d_reclen); */
   printf("%s d_type      = %s\n",  os, type_names[type]);
