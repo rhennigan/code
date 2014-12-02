@@ -159,6 +159,9 @@ void display_fs_node(void * node_addr) {
   printf("%s st_rdev     = %lu\n", os, f_info->st_rdev);
   printf("%s st_rdev_maj = %u\n",  os, major(f_info->st_rdev));
   printf("%s st_rdev_min = %u\n",  os, minor(f_info->st_rdev));
+  printf("%s st_size     = %lu\n", os, f_info->st_size);
+  printf("%s st_blksize  = %lu\n", os, f_info->st_blksize);
+  printf("%s st_blocks   = %lu\n", os, f_info->st_blocks);
   printf("\n");
 }
 
