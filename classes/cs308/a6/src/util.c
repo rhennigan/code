@@ -204,8 +204,8 @@ void display_fs_node(void * node_addr) {
   printf("%s%s %-16s %s", C_On_Black, lbl_color, f_info->d_name + b, C_OFF);
   printf(" %s%s%s", lbl_color, type_names[type], C_OFF);
   printf(" %s",       ctime(&f_info->mtime));
-  pv(f_info->depth);
-  printf("%s%s", type == DT_DIR ? vert : " ", mstr);
+  pv(f_info->depth + 2*(type == DT_DIR));
+  printf(" %s", mstr);
   printf(" %s",        user_name);
   printf(" %s",        gr_name);
   printf(" %lu",       f_info->st_nlink);
