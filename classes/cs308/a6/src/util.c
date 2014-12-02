@@ -140,10 +140,10 @@ void display_fs_node(void * node_addr) {
   }
 
   char * user_name = pw->pw_name;
-  char * user_pw   = pw->pw_passwd;
-  char * user_info = pw->pw_gecos;
-  char * user_home = pw->pw_dir;
-  char * user_shll = pw->pw_shell;
+  /* char * user_pw   = pw->pw_passwd; */
+  /* char * user_info = pw->pw_gecos; */
+  /* char * user_home = pw->pw_dir; */
+  /* char * user_shll = pw->pw_shell; */
 
   struct group * gr = getgrgid(f_info->st_gid);
   if (gr == NULL) {
@@ -152,8 +152,8 @@ void display_fs_node(void * node_addr) {
   }
 
   char *  gr_name = gr->gr_name;
-  char *  gr_pw   = gr->gr_passwd;
-  char ** gr_mem  = gr->gr_mem;
+  /* char *  gr_pw   = gr->gr_passwd; */
+  /* char ** gr_mem  = gr->gr_mem; */
 
   printf("%s%s %s %s\n", os, type_colors[type], f_info->d_name, C_OFF);
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
