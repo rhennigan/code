@@ -4,17 +4,17 @@
 #ifdef _USE_COLOR_TERM
 
   /* Reset */
-  #define Color_Off     "\e[0m"       // Text Reset
+  #define C_OFF           "\e[0m"       // Text Reset
 
   /* Regular Colors */
-  #define Black         "\e[0;30m"    // Black
-  #define Red           "\e[0;31m"    // Red
-  #define Green         "\e[0;32m"    // Green
-  #define Yellow        "\e[0;33m"    // Yellow
-  #define Blue          "\e[0;34m"    // Blue
-  #define Purple        "\e[0;35m"    // Purple
-  #define Cyan          "\e[0;36m"    // Cyan
-  #define White         "\e[0;37m"    // White
+  #define C_BLACK         "\e[0;30m"    // Black
+  #define C_RED           "\e[0;31m"    // Red
+  #define C_GREEN         "\e[0;32m"    // Green
+  #define C_YELLOW        "\e[0;33m"    // Yellow
+  #define C_BLUE          "\e[0;34m"    // Blue
+  #define C_PURPLE        "\e[0;35m"    // Purple
+  #define C_CYAN          "\e[0;36m"    // Cyan
+  #define C_WHITE         "\e[0;37m"    // White
 
   /* Bold */
   #define BBlack        "\e[1;30m"    // Black
