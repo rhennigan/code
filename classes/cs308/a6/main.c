@@ -1,9 +1,11 @@
+#include <unistd.h>
 #include "lib/util.h"
 
 int main(int argc, char *argv[]) {
   const char * dir_name = argv[1];
   printf("dir_name = %s\n", dir_name);
-  list_t * entries = dir_list(dir_name, 0);
+  chdir(dir_name);
+  list_t * entries = dir_list(".", 0);
   list_iter(entries, &display_fs_node);
   list_iter(entries, &free);
   list_dispose(entries);
