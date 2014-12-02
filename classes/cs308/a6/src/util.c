@@ -52,6 +52,8 @@ list_t * dir_list(char * dir_name, size_t depth) {
     f_info->d_type     = entry->d_type;
     f_info->depth      = depth;
     f_info->st_dev     = file_stat.st_dev;
+    f_info->dev_maj    = major(file_stat.st_dev);
+    f_info->dev_min    = minor(file_stat.st_dev);
     f_info->st_ino     = file_stat.st_ino;
     f_info->st_mode    = file_stat.st_mode;
     f_info->st_nlink   = file_stat.st_nlink;
