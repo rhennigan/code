@@ -55,6 +55,8 @@ list_t * dir_list(char * dir_name, size_t depth) {
     }
     snprintf(f_info->d_name, NAME_MAX, "%s", name);
 
+    assert(depth <= 4);
+
     f_info->d_ino      = entry->d_ino;
     f_info->d_off      = entry->d_off;
     f_info->d_reclen   = entry->d_reclen;
@@ -75,6 +77,8 @@ list_t * dir_list(char * dir_name, size_t depth) {
     f_info->atime      = file_stat.st_atime;
     f_info->mtime      = file_stat.st_mtime;
     f_info->ctime      = file_stat.st_ctime;
+
+    assert(f_info->depth <=4);
 
     size_t nlen = strlen(name);
     printf("\ntesting %s for recursion...\n", name);
