@@ -52,6 +52,18 @@ list_t * dir_list(char * dir_name, size_t depth) {
     f_info->d_type     = entry->d_type;
     f_info->depth      = depth;
     f_info->st_dev     = file_stat.st_dev;
+    f_info->st_ino     = file_stat.st_ino;
+    f_info->st_mode    = file_stat.st_mode;
+    f_info->st_nlink   = file_stat.st_nlink;
+    f_info->st_uid     = file_stat.st_uid;
+    f_info->st_gid     = file_stat.st_gid;
+    f_info->st_rdev    = file_stat.st_rdev;
+    f_info->st_size    = file_stat.st_size;
+    f_info->st_blksize = file_stat.st_blksize;
+    f_info->st_blocks  = file_stat.st_blocks;
+    f_info->st_atim    = file_stat.st_atim;
+    f_info->st_mtim    = file_stat.st_mtim;
+    f_info->st_ctim    = file_stat.st_ctim;
 
     entries          = list_pre(entries, f_info);
   }
