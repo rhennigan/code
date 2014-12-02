@@ -23,6 +23,15 @@ const char * type_colors[] = {
 };
 
 /****************************************************************************/
+const char * byte_to_binary(int x) {
+    static char b[9];
+    b[0] = '\0';
+    for (int z = 128; z > 0; z >>= 1)
+        strcat(b, ((x & z) == z) ? "1" : "0");
+    return b;
+}
+
+/****************************************************************************/
 list_t * dir_list(char * dir_name, size_t depth) {
   DIR * dir = opendir(dir_name);
   if (!dir) {
