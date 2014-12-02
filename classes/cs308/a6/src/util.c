@@ -251,11 +251,11 @@ void display_fs_node(void * node_addr) {
   /* printf("%s   d_ino       = %ld\n", os, f_info->d_ino); */
   /* printf("%s ctime       = %s",    os, ctime(&f_info->ctime)); */
   /* printf("%s sub_nodes   = %p\n",  os, f_info->sub_nodes); */
-  pv(f_info->depth);
   printf("\n");
 
   if (f_info->sub_nodes != NULL) {
     list_iter(f_info->sub_nodes, &display_fs_node);
+    pv(f_info->depth);
     printf("\n");
   }
 }
