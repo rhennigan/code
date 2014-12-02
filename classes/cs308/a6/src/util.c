@@ -34,7 +34,7 @@ const char * units[] = {
   [KBYTES] = C_GREEN  "KB",
   [MBYTES] = C_YELLOW "MB",
   [GBYTES] = C_RED    "GB"
-}
+};
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
