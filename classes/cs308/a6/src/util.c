@@ -163,7 +163,7 @@ void display_fs_node(void * node_addr) {
   printf("%s%s %s %s\n", os, lbl_color, f_info->d_name + 2, C_OFF);
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
   /* printf("%s d_reclen    = %u\n",  os, f_info->d_reclen); */
-  printf("%s d_type      = %s\n",  os, type_names[type]);
+  /* printf("%s d_type      = %s\n",  os, type_names[type]); */
   /* printf("%s dev_maj     = %u\n",  os, f_info->dev_maj); */
   /* printf("%s dev_min     = %u\n",  os, f_info->dev_min); */
   /* printf("%s st_ino      = %ld\n", os, f_info->st_ino); */
