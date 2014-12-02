@@ -136,7 +136,7 @@ void display_fs_node(void * node_addr) {
   char *  gr_pw   = gr->gr_passwd;
   char ** gr_mem  = gr->gr_mem;
 
-  printf("%s%s %s %s\n",        os, type_colors[type], f_info->d_name, C_OFF);
+  printf("%s%s %s %s\n", os, type_colors[type], f_info->d_name, C_OFF);
   printf("%s d_ino       = %ld\n", os, f_info->d_ino);
   printf("%s d_off       = %ld\n", os, f_info->d_off);
   printf("%s d_reclen    = %u\n",  os, f_info->d_reclen);
@@ -155,8 +155,9 @@ void display_fs_node(void * node_addr) {
   printf("%s gr_name     = %s\n",  os, gr_name);
   printf("%s gr_pw       = %s\n",  os, gr_pw);
   printf("%s gr_mem[0]   = %s\n",  os, gr_mem[0]);
-  
+  printf("%s st_rdev     = %lu\n", os, f_info->st_rdev);
   printf("%s st_rdev_maj = %u\n",  os, major(f_info->st_rdev));
+  printf("%s st_rdev_min = %u\n",  os, minor(f_info->st_rdev));
   printf("\n");
 }
 
