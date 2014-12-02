@@ -205,7 +205,7 @@ void display_fs_node(void * node_addr) {
   const char * lbl_color = (type == DT_REG && exec_b) ?
                              C_BIGreen :
                              ndir(f_info) ?
-                               C_IWhite :
+                               C_On_Blue C_IWhite :
                                type_colors[type];
   size_t b = 2;
   for (size_t i = b; i < strlen(f_info->d_name); i++)
