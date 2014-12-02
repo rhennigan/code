@@ -176,7 +176,7 @@ inline bool list_forall(list_t * list, dyn_pred_f pred, void * dep_arg) {
     list = list->tail;
   }
   return true;
-}
+}  // list_forall
 
 inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
   const size_t lsize = sizeof(list_t);
