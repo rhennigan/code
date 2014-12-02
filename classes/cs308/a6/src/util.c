@@ -98,7 +98,18 @@ void display_fs_node(void * node_addr) {
   mode_t mode = f_info->st_mode;
   char * mstr = "d rwx rwx rwx";
   mstr[0] = S_ISDIR(mode)    ? 'd' : '-';
-  mstr[2] = (mode & S_IRUSR) ? 'r' : '-';
+
+  mstr[2]  = (mode & S_IRUSR) ? 'r' : '-';
+  mstr[3]  = (mode & S_IWUSR) ? 'w' : '-';
+  mstr[4]  = (mode & S_IXUSR) ? 'x' : '-';
+
+  mstr[6]  = (mode & S_IRUSR) ? 'r' : '-';
+  mstr[7]  = (mode & S_IWUSR) ? 'w' : '-';
+  mstr[8]  = (mode & S_IXUSR) ? 'x' : '-';
+
+  mstr[10] = (mode & S_IRUSR) ? 'r' : '-';
+  mstr[11] = (mode & S_IWUSR) ? 'w' : '-';
+  mstr[12] = (mode & S_IXUSR) ? 'x' : '-';
 
   printf("%s%s %s %s\n",        os, type_colors[type], f_info->d_name, C_OFF);
   printf("%s d_ino    = %ld\n", os, f_info->d_ino);
