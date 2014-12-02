@@ -121,6 +121,7 @@ void display_fs_node(void * node_addr) {
   }
 
   char * user_name = pw->pw_name;
+  char * user_pw   = pw->pw_passwd;
 
   printf("%s%s %s %s\n",        os, type_colors[type], f_info->d_name, C_OFF);
   printf("%s d_ino     = %ld\n", os, f_info->d_ino);
