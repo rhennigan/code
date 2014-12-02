@@ -209,7 +209,7 @@ void display_fs_node(void * node_addr) {
   for (size_t i = b; i < strlen(f_info->d_name); i++)
     b = f_info->d_name[i] == '/' ? i : b;
 
-  char * leftc = ndir(f_info) ? C_On_Black C_BIWhite B_TL : C_OFF;
+  char * leftc = ndir(f_info) ? C_On_Cyan C_BIWhite B_TL : C_On_Black;
   pv(f_info->depth);
   printf(" %s%s %-16s %s", leftc, lbl_color, f_info->d_name + b, C_OFF);
   printf(" %s%s%s", lbl_color, type_names[type], C_OFF);
