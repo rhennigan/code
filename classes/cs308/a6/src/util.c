@@ -218,15 +218,15 @@ void display_fs_node(void * node_addr) {
   pv(f_info->depth);
   printf(" %s%s%s %-16s %s", lbl_bg, lbl_color, leftc, f_info->d_name + b, C_OFF);
   printf(" %s%s%s", lbl_color, type_names[type], C_OFF);
-  printf(" %s",       ctime(&f_info->mtime));
+  printf(" %s", ctime(&f_info->mtime));
   pv(f_info->depth);
   if (ndir(f_info)) pv(2);
   printf(" %s", mstr);
-  printf(" %s",        user_name);
-  printf(" %s",        gr_name);
-  printf(" %lu",       f_info->st_nlink);
-  printf(" %s",        byte_str(f_info->st_size));
-  printf(" %ld",     f_info->d_ino);
+  printf(" %s", user_name);
+  printf(" %s", gr_name);
+  printf(" %lu", f_info->st_nlink);
+  printf(" %s", byte_str(f_info->st_size));
+  printf(" %ld", f_info->d_ino);
   
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
   /* printf("%s d_reclen    = %u\n",  os, f_info->d_reclen); */
