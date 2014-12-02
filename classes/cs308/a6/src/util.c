@@ -40,13 +40,13 @@ const char * units[] = {
 
 /****************************************************************************/
 static inline unsigned char fix_type(mode_t m) {
-  if (S_ISREG(m)) {
-    return DT_REG;
-  } else if (S_ISDIR(m)) {
-    return DT_DIR;
-  } else {
-    return DT_UNKNOWN;
-  }
+  return S_ISREG(m) ?
+      DT_REG :
+      S_ISDIR(m) ?
+      DT_DIR :
+      S_ISCHR(m) ?
+      DT_CHR :
+      DT_UNKNOWN;
 }
 
 /****************************************************************************/
