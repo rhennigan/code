@@ -241,7 +241,7 @@ void display_fs_node(void * node_addr) {
   printf(" %s", gr_name);
   printf(" %lu", f_info->st_nlink);
   printf(" %s", byte_str(f_info->st_size));
-  printf(" %ld", f_info->st_ino);
+  printf(" %ld", (long)f_info->st_ino);
   
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
   /* printf("%s d_reclen    = %u\n",  os, f_info->d_reclen); */
