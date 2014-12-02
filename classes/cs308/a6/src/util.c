@@ -159,6 +159,10 @@ void display_fs_node(void * node_addr) {
   const char * lbl_color = (type == DT_REG && exec_b) ?
                            C_On_Black C_BIGreen :
                            type_colors[type];
+  int b = 2;
+  for (int i = b; i < strlen(f_info->d_name); i++) {
+    b = f_info->d_name[i] == '/' ? i : b;
+  }
 
   printf("%s%s %s %s\n", os, lbl_color, f_info->d_name + 2, C_OFF);
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
