@@ -175,7 +175,22 @@ inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
   const size_t lsize = sizeof(list_t);
   list_t *     list  = malloc(lsize * length);
   if (list == NULL) {
-    printf("not enough memory to create a list of %lu elements\n", length);
+    size_t req = lsize * length;
+    char * units;
+    double mem;
+    if (req >= 1073741824) {
+      units = "GB";
+      mem = (double)req / 1073741824.0;
+    } else if (req >= 1048576) {
+      units = "MB";
+      mem = (double)req / 1048576.0;
+    } else if (req >= 1024) {
+      units = "KB";
+      mem = (double)req / 1024.0;
+    } else {
+      units =
+    }
+    fprintf(stderr, "not enough memory to create list of %lu elements\n", length);
     exit(EXIT_FAILURE);
   } else {
     for (size_t i = 0; i < length; i++) {
