@@ -51,7 +51,8 @@ static inline char * byte_str(unsigned long b) {
 }
 
 /****************************************************************************/
-list_t * dir_list(char * dir_name, size_t depth) {
+list_t * dir_list(char * d_name, size_t depth) {
+  const char * dir_name = d_name;
   const size_t cdepth = depth;
   DIR * dir = opendir(dir_name);
 
