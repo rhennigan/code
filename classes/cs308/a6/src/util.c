@@ -117,21 +117,21 @@ void display_fs_node(void * node_addr) {
 
   int    type     = f_info->d_type;
   mode_t mode     = f_info->st_mode;
-  char   mstr[14] = " |   |   |   ";
+  char   mstr[11] = "          ";
 
-  mstr[0] = S_ISDIR(mode)     ? 'd' : '-';
+  mstr[0] = S_ISDIR(mode)    ? 'd' : '-';
 
-  mstr[2]  = (mode & S_IRUSR) ? 'r' : '-';
-  mstr[3]  = (mode & S_IWUSR) ? 'w' : '-';
-  mstr[4]  = (mode & S_IXUSR) ? 'x' : '-';
+  mstr[1] = (mode & S_IRUSR) ? 'r' : '-';
+  mstr[2] = (mode & S_IWUSR) ? 'w' : '-';
+  mstr[3] = (mode & S_IXUSR) ? 'x' : '-';
 
-  mstr[6]  = (mode & S_IRGRP) ? 'r' : '-';
-  mstr[7]  = (mode & S_IWGRP) ? 'w' : '-';
-  mstr[8]  = (mode & S_IXGRP) ? 'x' : '-';
+  mstr[4] = (mode & S_IRGRP) ? 'r' : '-';
+  mstr[5] = (mode & S_IWGRP) ? 'w' : '-';
+  mstr[6] = (mode & S_IXGRP) ? 'x' : '-';
 
-  mstr[10] = (mode & S_IROTH) ? 'r' : '-';
-  mstr[11] = (mode & S_IWOTH) ? 'w' : '-';
-  mstr[12] = (mode & S_IXOTH) ? 'x' : '-';
+  mstr[7] = (mode & S_IROTH) ? 'r' : '-';
+  mstr[8] = (mode & S_IWOTH) ? 'w' : '-';
+  mstr[9] = (mode & S_IXOTH) ? 'x' : '-';
 
   struct passwd * pw = getpwuid(f_info->st_uid);
   if (pw == NULL) {
