@@ -39,6 +39,11 @@ const char * units[] = {
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 /****************************************************************************/
+static inline unsigned char fix_type() {
+  return 0;
+}
+
+/****************************************************************************/
 static inline char * byte_str(unsigned long b) {
   static char str[80];
   unsigned long i = 0;
