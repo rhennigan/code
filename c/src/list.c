@@ -3,8 +3,6 @@
 
 #include "../lib/list.h"
 
-long int counter = 0;
-
 /******************************************************************************/
 /* PRIVATE FUNCTIONS                                                          */
 /******************************************************************************/
@@ -311,12 +309,9 @@ inline list_t * list_skip(list_t * list, long int n) {
 }  // list_skip
 
 inline list_t * list_sort(list_t * list, sta_cmp_f lt) {
-  if (list == NULL) {
-    return NULL;
-  } else if (list_tail(list) == NULL) {
+  if (list == NULL || list->tail == NULL) {
     return list;
   } else {
-    counter++;
     void * pivot = list_head(list);
     lpair_t part = list_partition(list_tail(list), lt, pivot);
     list->tail = NULL;
