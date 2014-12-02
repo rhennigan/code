@@ -2,7 +2,7 @@
 #define _LIB_UTIL_H
 
 #ifndef NAME_MAX
-#define NAME_MAX 512
+#define NAME_MAX 4096
 #endif
 
 #include <sys/types.h>
