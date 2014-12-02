@@ -40,13 +40,14 @@ const char * units[] = {
 
 /****************************************************************************/
 static inline unsigned char fix_type(mode_t m) {
-  return (m & S_IFMT) == S_IFREG ? DT_REG
-       : (m & S_IFMT) == S_IFDIR ? DT_DIR
-       : (m & S_IFMT) == S_IFCHR ? DT_CHR
-       : (m & S_IFMT) == S_IFBLK ? DT_BLK
-       : S_ISFIFO(m) ? DT_FIFO
-       : (m & S_IFMT) == S_IFLNK ? DT_LNK
-       : S_ISSOCK(m) ? DT_SOCK
+  mode_t masked = m & S_IFMT;
+  return masked == S_IFREG ? DT_REG
+       : masked == S_IFDIR ? DT_DIR
+       : masked == S_IFCHR ? DT_CHR
+       : masked == S_IFBLK ? DT_BLK
+       : masked == S_IFIFO ? DT_FIFO
+       : masked == S_IFLNK ? DT_LNK
+       : masked == S_IFSOCK ? DT_SOCK
        : DT_UNKNOWN;
 }
 
