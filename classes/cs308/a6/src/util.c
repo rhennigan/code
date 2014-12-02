@@ -126,7 +126,7 @@ list_t * dir_list(const char * d_name, size_t depth) {
 
     size_t nlen = strlen(name);
 
-    if (cdepth <= 6 && S_ISDIR(f_info->st_mode) &&
+    if (cdepth <= 4 && S_ISDIR(f_info->st_mode) &&
         !(name[nlen-1] == '.' &&
          (name[nlen-2] == '/' ||
          (name[nlen-2] == '.' &&
