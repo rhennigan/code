@@ -133,6 +133,13 @@ list_t * dir_list(char * dir_name, size_t depth) {
 }
 
 /****************************************************************************/
+static inline void pv(size_t depth) {
+  const char * v = C_On_Black C_BIWhite B_VT C_OFF;
+  for (size_t i = 0; i < depth / 2; i++)
+    printf("%s ", v);
+}
+
+/****************************************************************************/
 void display_fs_node(void * node_addr) {
   fsys_node_t * f_info = (fsys_node_t *)node_addr;
 
@@ -192,9 +199,7 @@ void display_fs_node(void * node_addr) {
   for (size_t i = b; i < strlen(f_info->d_name); i++)
     b = f_info->d_name[i] == '/' ? i : b;
 
-  const char * v = C_On_Black C_BIWhite B_VT C_OFF;
-  for (size_t i = 0; i < f_info->depth / 2; i++)
-    printf("%s ", v);
+  pv(f_info->depth);
   printf("%s%s%s %-16s %s", os, C_On_Black, lbl_color, f_info->d_name + b, C_OFF);
   printf(" %s%s%s", lbl_color, type_names[type], C_OFF);
   printf(" %s",       ctime(&f_info->mtime));
