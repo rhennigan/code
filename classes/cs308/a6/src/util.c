@@ -96,7 +96,7 @@ void display_fs_node(void * node_addr) {
 
   int    type = f_info->d_type;
   mode_t mode = f_info->st_mode;
-  char * mstr = "d rwx rwx rwx";
+  char   mstr[13];
 
   mstr[0] = S_ISDIR(mode)    ? 'd' : '-';
 
