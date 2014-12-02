@@ -1,6 +1,6 @@
 CC=gcc
-CFLAGS=-std=gnu99 -g -c -Wall -D_USE_COLOR_TERM -D_FILE_OFFSET_BITS=64
-LDFLAGS=-std=gnu99 -g -Wall
+CFLAGS=-std=c99 -g -c -Wall -D_USE_COLOR_TERM -D_FILE_OFFSET_BITS=64
+LDFLAGS=-std=c99 -g -Wall
 BUILD=util list
 EXECUTABLE=main
 
