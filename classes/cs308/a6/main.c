@@ -2,14 +2,23 @@
 #include "lib/util.h"
 
 int main(int argc, char *argv[]) {
+  if (argc == 1) {
+    list_t * entries = dir_list(".", 0);
+    list_iter(entries, &display_fs_node);
+    list_iter(entries, &free);
+    list_dispose(entries);
+    exit(EXIT_SUCCESS);
+  } else {
   char ret_dir[1024];
   getcwd(ret_dir, sizeof(ret_dir));
-  const char * dir_name = argv[1];
+  
+  const char * dir_name = argv[i];
   chdir(dir_name);
   list_t * entries = dir_list(".", 0);
   list_iter(entries, &display_fs_node);
   list_iter(entries, &free);
   list_dispose(entries);
+  exit(EXIT_SUCCESS);
 }
 
 /* EXAMPLE */
