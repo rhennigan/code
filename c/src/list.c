@@ -215,34 +215,26 @@ inline void list_iter(list_t * list, iter_f f) {
   while (list != NULL) {
     f(list_head(list));
     list = list_tail(list);
-  }  // end while (tmp != NULL)
-}  // end list_iter
+  }
+}  // list_iter
 
 inline list_t * list_join(list_t * list1, list_t * list2) {
   if (list1 == NULL) {
     return list2;
-  } else {  // (list1 != NULL)
+  } else { 
     last_node(list1)->tail = list2;
     return list1;
-  }  // end if (list1 == NULL)
-}  // end list_join
+  }
+}  // list_join
 
 inline size_t list_length(list_t * list) {
   size_t len = 0;
   while (list != NULL) {
     len++;
     list = list_tail(list);
-  }  // end while (list != NULL)
+  }
   return len;
-}  // end list_length
-
-/* inline list_t * list_map(list_t * list, map_f f) { */
-/*   if (list == NULL) { */
-/*     return NULL; */
-/*   } else {  // (list != NULL) */
-/*     return list_cons(list_map(list_tail(list), f), f(list_head(list))); */
-/*   }  // end if (list == NULL) */
-/* } */
+}  // list_length
 
 inline list_t * list_map(list_t * list, map_f f) {
   list_t * tmp = list;
@@ -251,11 +243,11 @@ inline list_t * list_map(list_t * list, map_f f) {
     tmp = tmp->tail;
   }
   return list;
-}
+}  // list_map
 
 inline data_t list_nth(list_t * list, long int n) {
   return list_head(list_skip(list, n));
-}
+}  // list_nth
 
 inline lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
   lpair_t pair = { NULL, NULL };
@@ -272,7 +264,7 @@ inline lpair_t list_partition(list_t * list, dyn_pred_f pred, void * dep_arg) {
     list = next;
   }
   return pair;
-}
+}  // list_partition
 
 inline list_t * list_pre(list_t * list, void * data) {
   if (list == NULL) {
