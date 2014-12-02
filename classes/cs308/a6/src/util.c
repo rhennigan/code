@@ -48,8 +48,6 @@ list_t * dir_list(char * dir_name, size_t depth) {
 
     char * name = strcat(path, entry->d_name);
     if (lstat(name, &file_stat) == -1) {
-      printf("%s\n", name);
-      fflush(NULL);
       perror("lstat");
       exit(EXIT_FAILURE);
     }
