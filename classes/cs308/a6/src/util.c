@@ -155,6 +155,8 @@ void display_fs_node(void * node_addr) {
   /* char *  gr_pw   = gr->gr_passwd; */
   /* char ** gr_mem  = gr->gr_mem; */
 
+  bool exec_b = (mode & S_IXUSR) || (mode & S_IXGRP) || (mode & S_IXOTH);
+
   printf("%s%s %s %s\n", os, type_colors[type], f_info->d_name, C_OFF);
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
   /* printf("%s d_reclen    = %u\n",  os, f_info->d_reclen); */
