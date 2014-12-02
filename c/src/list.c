@@ -203,22 +203,14 @@ inline list_t * list_fromarray(void * array, size_t objsize, size_t length) {
   }
 }
 
-/* list_t * list_fromarray(void * array, size_t objsize, size_t length) { */
-/*   list_t * list = NULL; */
-/*   for (int i = (length-1) * objsize; i >= 0; i -= objsize) { */
-/*     list = list_cons(list, (char*)array + i); */
-/*   }  // end for (int i = (length-1) * objsize; i >= 0; i -= objsize) */
-/*   return list; */
-/* }  // end list_fromarray */
-
 inline void * list_head(list_t * list) {
   if (list == NULL) {
-    printf("list_head: list is empty\n");
+    fprintf(stderr, "list_head: list is empty\n");
     exit(EXIT_FAILURE);
-  } else {  // (list != NULL)
+  } else {
     return list->head;
-  }  // end if (list == NULL)
-}  // end list_head
+  }
+}
 
 inline void list_iter(list_t * list, iter_f f) {
   while (list != NULL) {
