@@ -1,6 +1,8 @@
 #ifndef _LIB_UTIL_H
 #define _LIB_UTIL_H
 
+#define _FILE_OFFSET_BITS 64
+
 #include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
