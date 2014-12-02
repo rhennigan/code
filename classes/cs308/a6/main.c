@@ -1,7 +1,7 @@
 #include "lib/util.h"
 
 int main(int argc, char *argv[]) {
-  char   * dir_name = ".";
+  char   * dir_name = "lib";
   list_t * entries = dir_list(dir_name, 2);
   list_iter(entries, &display_fs_node);
   list_iter(entries, &free);
