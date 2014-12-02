@@ -193,7 +193,8 @@ void display_fs_node(void * node_addr) {
     b = f_info->d_name[i] == '/' ? i : b;
 
   const char * v = C_On_Black C_BIWhite B_VT C_OFF;
-
+  for (size_t i = 0; i < f_info->depth / 2; i++)
+    printf("%s ", v);
   printf("%s%s%s %-16s %s", os, C_On_Black, lbl_color, f_info->d_name + b, C_OFF);
   printf(" %s%s%s", lbl_color, type_names[type], C_OFF);
   printf(" %s",       ctime(&f_info->mtime));
