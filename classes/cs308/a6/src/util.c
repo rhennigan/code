@@ -40,10 +40,10 @@ const char * units[] = {
 
 /****************************************************************************/
 static inline unsigned char fix_type(mode_t m) {
-  return (m & S_IREG) == S_IFREG ? DT_REG
-       : S_ISDIR(m)  ? DT_DIR
+  return (m & S_IFMT) == S_IFREG ? DT_REG
+       : (m & S_IFMT) == S_IFDIR ? DT_DIR
        : (m & S_IFMT) == S_IFCHR ? DT_CHR
-       : S_ISBLK(m)  ? DT_BLK
+       : (m & S_IFMT) == S_IFBLK ? DT_BLK
        : S_ISFIFO(m) ? DT_FIFO
        : (m & S_IFMT) == S_IFLNK ? DT_LNK
        : S_ISSOCK(m) ? DT_SOCK
