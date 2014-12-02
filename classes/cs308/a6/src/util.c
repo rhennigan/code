@@ -190,7 +190,7 @@ void display_fs_node(void * node_addr) {
     b = f_info->d_name[i] == '/' ? i : b;
 
   printf("%s%s %16s %s", os, lbl_color, f_info->d_name + b, C_OFF);
-  printf(" %s", type_names[type]);
+  printf(" %s%s%s", type_colors[type], type_names[type], C_OFF);
   printf(" %s",       ctime(&f_info->mtime));
   printf("%s  %s",     os, mstr);
   printf(" %s",        user_name);
