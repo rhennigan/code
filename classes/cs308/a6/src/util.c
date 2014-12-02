@@ -181,6 +181,8 @@ void display_fs_node(void * node_addr) {
   printf("%s ctime       = %s",    os, ctime(&f_info->ctime));
   printf("%s sub_nodes   = %p\n",  os, f_info->sub_nodes);
   printf("\n");
+
+  list_iter(f_info->sub_nodes, &display_fs_node);
 }
 
 /****************************************************************************/
