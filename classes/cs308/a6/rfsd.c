@@ -17,7 +17,6 @@ int main(int argc, char *argv[]) {
     } else {
       char ret_dir[1024];
       getcwd(ret_dir, sizeof(ret_dir));
-      printf("cwd = %s\n", ret_dir);
       int i;
       for (i = 1; i < argc; i++) {
         printf("\n\n");
