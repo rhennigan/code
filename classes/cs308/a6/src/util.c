@@ -49,7 +49,8 @@ void display_usage(char * name) {
   printf("%s --setup        : ", name+b);
   printf("create a set of sample directories and files for testing\n");
   printf("%s (no arguments) : ", name+b);
-  printf("show the filesystem structure relative to the current working directory\n");
+  printf("show the filesystem structure relative to the current");
+  printf("                           working directory\n");
 }
 
 /****************************************************************************/
