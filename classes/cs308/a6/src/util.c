@@ -379,6 +379,11 @@ void create_test_files() {
   mkdirp("misc/random_files");
   mkdirp("misc/random_files/more_files");
   mkdirp("misc/extras");
+
+  create_rand("misc/random_files/random1",            26214400);
+  create_rand("misc/random_files/random2",            512000);
+  create_rand("misc/random_files/more_files/random3", 5000);
+  create_rand("misc/random_files/more_files/random4", 10);
 }
 
 /****************************************************************************/
