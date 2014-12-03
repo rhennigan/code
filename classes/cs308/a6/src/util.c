@@ -388,10 +388,10 @@ void create_test_files() {
   create_rand("misc/random_files/more_files/random3", 5000);
   create_rand("misc/random_files/more_files/random4", 10);
 
-  create_fifo("misc/extras/fifo1");
+  create_fifo("misc/fifo1");
   create_fifo("misc/extras/fifo2");
 
-  create_socket("misc/extras/socket1");
+  create_socket("misc/socket1");
   create_socket("misc/extras/socket2");
   create_socket("misc/extras/socket3");
 }
