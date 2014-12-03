@@ -368,6 +368,15 @@ void create_rand(char * rand_path, size_t size) {
 }
 
 /****************************************************************************/
+void create_link(const char * target, const char * linkpath) {
+  int result = symlink(target, linkpath);
+  if (result == -1) {
+    perror("symlink");
+    exit(EXIT_FAILURE);
+  }
+}
+
+/****************************************************************************/
 static inline void mkdirp(char * dir) {
   mode_t dir_modes = S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH;
   int result = mkdir(dir, dir_modes);
