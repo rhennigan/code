@@ -327,10 +327,8 @@ void create_fifo(char * fifo_path) {
 
 /****************************************************************************/
 void create_rand(char * rand_path, size_t size) {
-  char   buffer[BUFSIZ];
   int    urandom = open("/dev/urandom", O_RDONLY);
   int    randomf = open(rand_path, O_WRONLY);
-  size_t total_b = 0;
 
   if (urandom == -1) {
     perror("open urandom");
@@ -342,8 +340,8 @@ void create_rand(char * rand_path, size_t size) {
     exit(EXIT_FAILURE);
   }
 
-  while (total_b < size) {
-    size_t bytes_read = read(urandom, buffer, sizeof(buffer));
+  size_t bytes_read = read(urandom, randomf, size);
+
   }
 }
 
