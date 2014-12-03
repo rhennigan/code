@@ -97,6 +97,8 @@ static inline char * byte_str(unsigned long b) {
 list_t * dir_list(const char * d_name, size_t depth) {
   const char * dir_name = d_name;
   const size_t cdepth = depth;
+  u_int64_t nc = node_count;
+  printf("nc = %lu\n", nc);
   DIR * dir = opendir(dir_name);
 
   if (!dir) {
