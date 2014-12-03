@@ -1,5 +1,9 @@
 #include <unistd.h>
+#include <sys/socket.h>
+#include <sys/un.h>
 #include "lib/util.h"
+
+void create_socket();
 
 int main(int argc, char *argv[]) {
   if (argc == 1) {
@@ -38,3 +42,11 @@ int main(int argc, char *argv[]) {
 /* LINK_COUNT:                2 */
 /* SIZE_IN_BYTES:             1345 (or 12, 6 dev info) */
 /* INODE_NUMBER:              347  */
+
+void create_socket() {
+  struct sockaddr_un addr;
+  memset(&addr, 0, sizeof(addr));
+  addr.sun_family = AF_UNIX;
+  strncpy(addr.sun_path, "socket", sizeof(addr.sun_path)-1);
+  bind(fd, (struct sockaddr*)&addr, sizeof(addr));
+}
