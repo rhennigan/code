@@ -3,6 +3,8 @@
 
 #include "../lib/list.h"
 
+u_int64_t node_count = 0;
+
 /******************************************************************************/
 /* PRIVATE FUNCTIONS                                                          */
 /******************************************************************************/
@@ -19,6 +21,7 @@ static inline list_t * last_node(list_t * list) {
 
 static inline list_t * list_init() {
   list_t * list = malloc(sizeof(list_t));
+  node_count++;
   if (list != NULL) {
     list->head = NULL;
     list->tail = NULL;
@@ -72,6 +75,7 @@ inline void list_dispose(list_t * list) {
   while (list != NULL) {
     tail = list_tail(list);
     free(list);
+    node_count--;
     list = tail;
   }
 }  // list_dispose
