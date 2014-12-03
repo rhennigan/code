@@ -168,15 +168,16 @@ static inline bool ndir(fsys_node_t * f_info) {
 /****************************************************************************/
 void display_fs_node(void * node_addr) {
   fsys_node_t * f_info = (fsys_node_t *)node_addr;
+  u_int i;
 
-  char os[40];
-  memset(os, ' ', 40);
-  size_t i;
-  for (i = 0; i < f_info->depth; i+=2) {
-    os[i] = '|';
-  }
-  os[39] = '\0';
-  os[f_info->depth] = '\0';
+  /* char os[40]; */
+  /* memset(os, ' ', 40); */
+  /* size_t i; */
+  /* for (i = 0; i < f_info->depth; i+=2) { */
+  /*   os[i] = '|'; */
+  /* } */
+  /* os[39] = '\0'; */
+  /* os[f_info->depth] = '\0'; */
 
   int    type     = f_info->d_type;
   mode_t mode     = f_info->st_mode;
