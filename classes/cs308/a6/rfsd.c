@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
       getcwd(ret_dir, sizeof(ret_dir));
       for (int i = 1; i < argc; i++) {
         const char * dir_name = argv[i];
-        display_label(dir_name, C_On_Blue, C_WHITE, 30);
+        display_label(dir_name);
         chdir(dir_name);
         list_t * entries = dir_list(".", 1);
         list_iter(entries, &display_fs_node);
