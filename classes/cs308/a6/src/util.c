@@ -302,6 +302,7 @@ bool name_cmp(void * a, void * b) {
 /* FUNCTIONS FOR CREATING TEST FILES */
 /****************************************************************************/
 static inline void create_socket(char * socket_path) {
+  printf(" creating socket: %s\n", socket_path);
   struct sockaddr_un addr;
   int fd = socket(AF_UNIX, SOCK_STREAM, 0);
 
@@ -323,11 +324,13 @@ static inline void create_socket(char * socket_path) {
 
 /****************************************************************************/
 static inline void create_fifo(char * fifo_path) {
+  printf(" creating fifo: %s\n", fifo_path);
   mkfifo(fifo_path, 0666);
 }
 
 /****************************************************************************/
 static inline void create_rand(char * rand_path, size_t size) {
+  printf(" creating random file: %s (%lu bytes)\n", rand_path, size);
   char   buffer[BUFSIZ];
   mode_t mode    = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
   int    urandom = open("/dev/urandom", O_RDONLY);
