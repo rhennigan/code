@@ -44,6 +44,7 @@ int main(int argc, char *argv[]) {
 /* INODE_NUMBER:              347  */
 
 void create_socket() {
+  struct sockaddr_un addr;
   char * socket_path = "misc/socket_test";
   int    fd          = socket(AF_UNIX, SOCK_STREAM, 0);
 
