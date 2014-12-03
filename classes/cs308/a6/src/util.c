@@ -324,6 +324,6 @@ void create_socket() {
 /****************************************************************************/
 void create_fifo() {
   char * fifo_path = "misc/fifo_test";
-  int fd = open(fifo_path, O_RDONLY);
+  mkfifo(fifo_path, 0666);
 }
 
