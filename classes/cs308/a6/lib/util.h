@@ -9,6 +9,8 @@
 #include <dirent.h>
 #include <sys/stat.h>      // file type/prot macros
 #include <sys/sysmacros.h> // major/minor macros
+#include <sys/socket.h>
+#include <sys/un.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>

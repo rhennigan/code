@@ -298,4 +298,23 @@ bool name_cmp(void * a, void * b) {
 }
 
 /****************************************************************************/
+void create_socket() {
+  struct sockaddr_un addr;
+  char * socket_path = "misc/socket_test";
+  int    fd          = socket(AF_UNIX, SOCK_STREAM, 0);
 
+  if (fd == -1) {
+    perror("socket error");
+    exit(EXIT_FAILURE);
+  }
+
+  memset(&addr, 0, sizeof(addr));
+  addr.sun_family = AF_UNIX;
+  strncpy(addr.sun_path, socket_path, sizeof(addr.sun_path)-1);
+  unlink(socket_path);
+
+  if (bind(fd, (struct sockaddr*)&addr, sizeof(addr)) == -1) {
+    perror("bind error");
+    exit(EXIT_FAILURE);
+  }
+}
