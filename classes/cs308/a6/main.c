@@ -13,6 +13,7 @@ int main(int argc, char *argv[]) {
       exit(EXIT_SUCCESS);
     } else if (strcmp(argv[1], "--help") == 0) {
       display_usage(argv[0]);
+      exit(EXIT_SUCCESS);
     } else {
       char ret_dir[1024];
       getcwd(ret_dir, sizeof(ret_dir));

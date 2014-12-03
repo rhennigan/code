@@ -41,7 +41,7 @@ const char * units[] = {
 void display_usage(char * name) {
   u_int i, b = 0;
   for (i = 0; i < strlen(name); i++)
-    b = name[i] == '/' ? i : b;
+    b = name[i] == '/' ? i+1 : b;
   printf("%s usage:\n", name+b);
 }
 
