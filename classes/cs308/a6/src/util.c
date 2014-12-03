@@ -272,8 +272,11 @@ void display_fs_node(void * node_addr) {
   printf(" %s%-4s%s", type_colors[type], type_names[type], C_OFF);
   printf(" %s", ctime(&f_info->mtime));
   pv(f_info->depth);
-  if (ndir(f_info)) pv(2);
-  if (!ndir(f_info)) printf(" ");
+  if (ndir(f_info)) {
+    pv(2);
+  } else {
+    printf("  ");
+  }
   printf(" %s", mstr);
   printf(" %s", user_name);
   printf(" %s", gr_name);
