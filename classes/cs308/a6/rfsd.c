@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
         const char * dir_name = argv[i];
         display_label(dir_name);
         chdir(dir_name);
-        list_t * entries = dir_list(".", 1);
+        list_t * entries = dir_list(".", 2);
         list_iter(entries, &display_fs_node);
         list_iter(entries, &free);
         list_dispose(entries);
