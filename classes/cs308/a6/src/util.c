@@ -273,6 +273,7 @@ void display_fs_node(void * node_addr) {
   printf(" %s", ctime(&f_info->mtime));
   pv(f_info->depth);
   if (ndir(f_info)) pv(2);
+  if (!ndir(f_info)) printf(" ");
   printf(" %s", mstr);
   printf(" %s", user_name);
   printf(" %s", gr_name);
