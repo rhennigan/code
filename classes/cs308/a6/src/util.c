@@ -382,7 +382,7 @@ static inline void create_symlink(const char * target, const char * lpath) {
 
 /****************************************************************************/
 static inline void create_link(const char * target, const char * lpath) {
-  printf(" creating link: %s -> %s\n", lpath, target);
+  printf(" creating link: %s -> %s\n", target, lpath);
   int result = link(target, lpath);
   if (result == -1 && errno != EEXIST) {
     perror("link");
