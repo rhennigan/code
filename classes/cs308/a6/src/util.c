@@ -186,8 +186,8 @@ static inline bool ndir(fsys_node_t * f_info) {
 }
 
 /****************************************************************************/
-inline display_label(char * test, char * bg, char * fg, size_t w) {
-  
+inline display_label(char * text, char * bg, char * fg, size_t w) {
+  printf("%s%s%s%s", bg, fg, text, C_OFF);
 }
 
 /****************************************************************************/
