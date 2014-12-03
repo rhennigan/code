@@ -155,6 +155,7 @@ static inline void pv(size_t depth) {
     printf(" %s", vert);
 }
 
+/****************************************************************************/
 static inline bool ndir(fsys_node_t * f_info) {
   size_t nlen = strlen(f_info->d_name);
   return S_ISDIR(f_info->st_mode) &&
