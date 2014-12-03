@@ -5,6 +5,8 @@
   #define NAME_MAX 512
 #endif
 
+#define DEPTH_LIMIT 12
+
 #include <assert.h>
 #include <dirent.h>
 #include <errno.h>
