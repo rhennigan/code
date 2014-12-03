@@ -1,15 +1,26 @@
 #include "../lib/util.h"
 
 /****************************************************************************/
+/* const char * type_names[] = { */
+/*   [DT_BLK]     = "block device", */
+/*   [DT_CHR]     = "character device", */
+/*   [DT_DIR]     = "directory", */
+/*   [DT_FIFO]    = "named pipe (FIFO)", */
+/*   [DT_LNK]     = "symbolic link", */
+/*   [DT_REG]     = "regular file", */
+/*   [DT_SOCK]    = "UNIX domain socket", */
+/*   [DT_UNKNOWN] = "unknown" */
+/* }; */
+
 const char * type_names[] = {
-  [DT_BLK]     = "block device",
-  [DT_CHR]     = "character device",
-  [DT_DIR]     = "directory",
-  [DT_FIFO]    = "named pipe (FIFO)",
-  [DT_LNK]     = "symbolic link",
-  [DT_REG]     = "regular file",
-  [DT_SOCK]    = "UNIX domain socket",
-  [DT_UNKNOWN] = "unknown"
+  [DT_BLK]     = "BLK",
+  [DT_CHR]     = "CHR",
+  [DT_DIR]     = "DIR",
+  [DT_FIFO]    = "FIFO",
+  [DT_LNK]     = "LNK",
+  [DT_REG]     = "REG",
+  [DT_SOCK]    = "SOCK",
+  [DT_UNKNOWN] = "????"
 };
 
 const char * type_colors[] = {
@@ -258,7 +269,7 @@ void display_fs_node(void * node_addr) {
 
   pv(f_info->depth);
   printf(" %s%s%s %-16s %s", lbl_bg, lbl_color, leftc, f_info->d_name + b, C_OFF);
-  printf(" %s%-18s%s", lbl_color, type_names[type], C_OFF);
+  printf(" %s%-4s%s", lbl_color, type_names[type], C_OFF);
   printf(" %s", ctime(&f_info->mtime));
   pv(f_info->depth);
   if (ndir(f_info)) pv(2);
