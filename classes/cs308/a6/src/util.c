@@ -344,6 +344,12 @@ void create_rand(char * rand_path, size_t size) {
 
   while (tot_r < size) {
     bytes_read =  read(urandom, buffer, BUFSIZ);
+
+    if (bytes_read < BUFSIZ) {
+      perror("read urandom");
+      exit(EXIT_FAILURE);
+    }
+
     bytes_sent = write(randomf, buffer, BUFSIZ);
   }
 }
