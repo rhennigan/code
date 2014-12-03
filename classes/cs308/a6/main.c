@@ -1,4 +1,3 @@
-#include <unistd.h>
 #include "lib/util.h"
 
 int main(int argc, char *argv[]) {
@@ -7,25 +6,31 @@ int main(int argc, char *argv[]) {
     list_iter(entries, &display_fs_node);
     list_iter(entries, &free);
     list_dispose(entries);
-    printf("%d, %d, %d, %d, %d, %d, %d, %d\n",
-           DT_BLK, DT_CHR, DT_DIR, DT_FIFO, DT_LNK, DT_REG, DT_SOCK, DT_UNKNOWN);
     exit(EXIT_SUCCESS);
   } else {
-    char ret_dir[1024];
-    getcwd(ret_dir, sizeof(ret_dir));
-    printf("cwd = %s\n", ret_dir);
-    int i;
-    for (i = 1; i < argc; i++) {
-      printf("\n\n");
-      const char * dir_name = argv[i];
-      chdir(dir_name);
-      list_t * entries = dir_list(".", 0);
-      list_iter(entries, &display_fs_node);
-      list_iter(entries, &free);
-      list_dispose(entries);
-      chdir(ret_dir);
+    if (strcmp(argv[1], "--setup") == 0) {
+      create_test_files();
+      exit(EXIT_SUCCESS);
+    } else if (strcmp(argv[1], "--help") == 0) {
+      display_usage(argv[0]);
+      exit(EXIT_SUCCESS);
+    } else {
+      char ret_dir[1024];
+      getcwd(ret_dir, sizeof(ret_dir));
+      printf("cwd = %s\n", ret_dir);
+      int i;
+      for (i = 1; i < argc; i++) {
+        printf("\n\n");
+        const char * dir_name = argv[i];
+        chdir(dir_name);
+        list_t * entries = dir_list(".", 0);
+        list_iter(entries, &display_fs_node);
+        list_iter(entries, &free);
+        list_dispose(entries);
+        chdir(ret_dir);
+      }
+      exit(EXIT_SUCCESS);
     }
-    exit(EXIT_SUCCESS);
   }
 }
 

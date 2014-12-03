@@ -2,26 +2,31 @@
 #define _LIB_UTIL_H
 
 #ifndef NAME_MAX
-#define NAME_MAX 512
+#define NAME_MAX 4096
 #endif
 
-#include <sys/types.h>
+#include <assert.h>
 #include <dirent.h>
-#include <sys/stat.h>      // file type/prot macros
-#include <sys/sysmacros.h> // major/minor macros
-#include <unistd.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <limits.h>
+#include <pwd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <pwd.h>
-#include <grp.h>
-#include <time.h>
-#include <limits.h>
 #include <string.h>
-#include <assert.h>
-#include <fcntl.h>
+#include <sys/socket.h>
+#include <sys/stat.h>      // file type/prot macros
+#include <sys/sysmacros.h> // major/minor macros
+#include <sys/types.h>
+#include <sys/un.h>
+#include <time.h>
+#include <unistd.h>
+
 #include "list.h"
 #include "term_color.h"
 
+// TODO: remove unused fields
 typedef struct fsys_node_s {
   char            d_name[NAME_MAX];
   ino_t           d_ino;
@@ -50,5 +55,9 @@ typedef struct fsys_node_s {
 list_t * dir_list(const char * dir_name, size_t depth);
 void     display_fs_node(void * node_addr);
 bool     name_cmp(void * a, void * b);
+void     create_test_files();
+void     display_usage(char * name);
+
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 #endif  // _LIB_UTIL_H

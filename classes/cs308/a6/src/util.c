@@ -1,5 +1,6 @@
 #include "../lib/util.h"
 
+/****************************************************************************/
 const char * type_names[] = {
   [DT_BLK]     = "block device",
   [DT_CHR]     = "character device",
@@ -36,7 +37,25 @@ const char * units[] = {
   [GBYTES] = C_On_Red C_BIWhite "GB" C_OFF
 };
 
-#define MIN(a, b) ((a) < (b) ? (a) : (b))
+/****************************************************************************/
+void display_usage(char * name) {
+  u_int i, b = 0;
+  for (i = 0; i < strlen(name); i++)
+    b = name[i] == '/' ? i+1 : b;
+  printf("%s usage:\n", name+b);
+  printf("---------------------------------------------------------------\n");
+  printf("%s --help            : ", name+b);
+  printf("display this help screen.\n");
+  printf("%s --setup           : ", name+b);
+  printf("create a set of sample directories and files for");
+  printf("                                testing.\n");
+  printf("%s (no arguments)    : ", name+b);
+  printf("show the filesystem structure relative to the current");
+  printf("                           working directory.\n");
+  printf("%s path1 path2 [...] : ", name+b);
+  printf("show the filesystem structure relative to each path");
+  printf("                             given in {path1, path2, ...}.\n");
+}
 
 /****************************************************************************/
 static inline unsigned char fix_type(mode_t m) {
@@ -124,7 +143,7 @@ list_t * dir_list(const char * d_name, size_t depth) {
 
     size_t nlen = strlen(name);
 
-    if (cdepth < 10 && S_ISDIR(f_info->st_mode) &&
+    if (cdepth <= 8 && S_ISDIR(f_info->st_mode) &&
         !(name[nlen-1] == '.' &&
          (name[nlen-2] == '/' ||
          (name[nlen-2] == '.' &&
@@ -156,6 +175,7 @@ static inline void pv(size_t depth) {
     printf(" %s", vert);
 }
 
+/****************************************************************************/
 static inline bool ndir(fsys_node_t * f_info) {
   size_t nlen = strlen(f_info->d_name);
   return S_ISDIR(f_info->st_mode) &&
@@ -168,15 +188,16 @@ static inline bool ndir(fsys_node_t * f_info) {
 /****************************************************************************/
 void display_fs_node(void * node_addr) {
   fsys_node_t * f_info = (fsys_node_t *)node_addr;
+  u_int i;
 
-  char os[40];
-  memset(os, ' ', 40);
-  size_t i;
-  for (i = 0; i < f_info->depth; i+=2) {
-    os[i] = '|';
-  }
-  os[39] = '\0';
-  os[f_info->depth] = '\0';
+  /* char os[40]; */
+  /* memset(os, ' ', 40); */
+  /* size_t i; */
+  /* for (i = 0; i < f_info->depth; i+=2) { */
+  /*   os[i] = '|'; */
+  /* } */
+  /* os[39] = '\0'; */
+  /* os[f_info->depth] = '\0'; */
 
   int    type     = f_info->d_type;
   mode_t mode     = f_info->st_mode;
@@ -298,4 +319,131 @@ bool name_cmp(void * a, void * b) {
 }
 
 /****************************************************************************/
+/* FUNCTIONS FOR CREATING TEST FILES */
+/****************************************************************************/
+static inline void create_socket(char * socket_path) {
+  printf(" creating socket: %s\n", socket_path);
+  struct sockaddr_un addr;
+  int fd = socket(AF_UNIX, SOCK_STREAM, 0);
 
+  if (fd == -1) {
+    perror("socket error");
+    exit(EXIT_FAILURE);
+  }
+
+  memset(&addr, 0, sizeof(addr));
+  addr.sun_family = AF_UNIX;
+  strncpy(addr.sun_path, socket_path, sizeof(addr.sun_path)-1);
+  unlink(socket_path);
+
+  if (bind(fd, (struct sockaddr*)&addr, sizeof(addr)) == -1) {
+    perror("bind error");
+    exit(EXIT_FAILURE);
+  }
+}
+
+/****************************************************************************/
+static inline void create_fifo(char * fifo_path) {
+  printf(" creating fifo: %s\n", fifo_path);
+  mkfifo(fifo_path, 0666);
+}
+
+/****************************************************************************/
+static inline void create_rand(char * rand_path, size_t size) {
+  printf(" creating random file: %s (%lu bytes)\n", rand_path, size);
+  char   buffer[BUFSIZ];
+  mode_t mode    = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
+  int    urandom = open("/dev/urandom", O_RDONLY);
+  int    randomf = open(rand_path, O_WRONLY | O_CREAT | O_TRUNC, mode);
+  size_t total   = 0;
+
+  if (urandom == -1) {
+    perror("open urandom");
+    exit(EXIT_FAILURE);
+  }
+
+  if (randomf == -1) {
+    perror("open randomf");
+    exit(EXIT_FAILURE);
+  }
+
+  while (total < size) {
+    size_t bytes_read = read(urandom, buffer, BUFSIZ);
+
+    if (bytes_read < BUFSIZ) {
+      perror("read urandom");
+      exit(EXIT_FAILURE);
+    }
+
+    size_t to_send    = MIN(size - total, BUFSIZ);
+    size_t bytes_sent = write(randomf, buffer, to_send);
+
+    if (bytes_sent != to_send) {
+      perror("write randomf");
+      exit(EXIT_FAILURE);
+    }
+
+    total += bytes_sent;
+  }
+
+  close(urandom);
+  close(randomf);
+}
+
+/****************************************************************************/
+static inline void create_symlink(const char * target, const char * lpath) {
+  printf(" creating symlink: %s -> %s\n", target, lpath);
+  int result = symlink(target, lpath);
+  if (result == -1 && errno != EEXIST) {
+    perror("symlink");
+    exit(EXIT_FAILURE);
+  }
+}
+
+/****************************************************************************/
+static inline void create_link(const char * target, const char * lpath) {
+  printf(" creating link: %s -> %s\n", target, lpath);
+  int result = link(target, lpath);
+  if (result == -1 && errno != EEXIST) {
+    perror("link");
+    exit(EXIT_FAILURE);
+  }
+}
+
+/****************************************************************************/
+static inline void mkdirp(char * dir) {
+  printf(" creating directory: %s\n", dir);
+  mode_t dir_modes = S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH;
+  int result = mkdir(dir, dir_modes);
+  if (result == -1 && errno != EEXIST) {
+    perror("mkdir");
+    exit(EXIT_FAILURE);
+  };
+}
+
+/****************************************************************************/
+void create_test_files() {
+  printf("creating test files...\n");
+  
+  mkdirp("misc");
+  mkdirp("misc/random_files");
+  mkdirp("misc/random_files/more_files");
+  mkdirp("misc/extras");
+
+  create_fifo("misc/fifo1");
+  create_fifo("misc/extras/fifo2");
+
+  create_socket("misc/socket1");
+  create_socket("misc/extras/socket2");
+  create_socket("misc/extras/socket3");
+
+  create_symlink("/dev/null", "misc/devnull");
+  /* create_link("lib", "misc/extras/lib"); */
+  
+  create_rand("misc/random_files/random1",            26214400);
+  create_rand("misc/random_files/random2",            512000);
+  create_rand("misc/random_files/more_files/random3", 5000);
+  create_rand("misc/random_files/more_files/random4", 10);
+
+  printf("done!\n");
+}
