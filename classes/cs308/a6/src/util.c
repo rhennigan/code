@@ -412,6 +412,8 @@ void create_test_files() {
   create_socket("misc/socket1");
   create_socket("misc/extras/socket2");
   create_socket("misc/extras/socket3");
+
+  create_symlink("/dev/null", "misc/devnull");
 }
 
 /****************************************************************************/
