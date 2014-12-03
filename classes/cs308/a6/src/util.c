@@ -54,7 +54,7 @@ void display_usage(char * name) {
   printf("                           working directory.\n");
   printf("%s path1 path2 [...] : ", name+b);
   printf("show the filesystem structure relative to each path");
-  printf("                             given in path1 path2 [...]\n");
+  printf("                             given in {path1, path2, ...}.\n");
 }
 
 /****************************************************************************/
