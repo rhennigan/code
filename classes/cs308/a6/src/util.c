@@ -341,8 +341,6 @@ void create_rand(char * rand_path, size_t size) {
   }
 
   size_t bytes_read = read(urandom, randomf, size);
-
-  }
 }
 
 /****************************************************************************/

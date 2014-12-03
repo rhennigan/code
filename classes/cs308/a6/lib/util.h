@@ -56,5 +56,6 @@ void     display_fs_node(void * node_addr);
 bool     name_cmp(void * a, void * b);
 void     create_socket(char * socket_path);
 void     create_fifo(char * fifo_path);
+void     create_rand(char * rand_path, size_t size);
 
 #endif  // _LIB_UTIL_H
