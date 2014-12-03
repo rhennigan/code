@@ -369,6 +369,7 @@ void create_test_files() {
   char * dir_misc  = "misc";
   char * dir_rand1 = "misc/random_files";
   char * dir_rand2 = "misc/random_files/more_files";
+  char * dir_extra = "misc/extras";
 }
 
 /****************************************************************************/
