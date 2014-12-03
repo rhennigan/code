@@ -61,6 +61,6 @@ void create_socket() {
 
   if (bind(fd, (struct sockaddr*)&addr, sizeof(addr)) == -1) {
     perror("bind error");
-    exit(-1);
+    exit(EXIT_FAILURE);
   }
 }
