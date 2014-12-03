@@ -366,7 +366,9 @@ void create_rand(char * rand_path, size_t size) {
 
 /****************************************************************************/
 void create_test_files() {
-  
+  char * dir_misc  = "misc";
+  char * dir_rand1 = "misc/random_files";
+  char * dir_rand2 = "misc/random_files/more_files";
 }
 
 /****************************************************************************/
