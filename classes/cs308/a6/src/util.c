@@ -16,11 +16,11 @@ const char * type_names[] = {
   [DT_BLK]     = "BLK",
   [DT_CHR]     = "CHR",
   [DT_DIR]     = "DIR",
-  [DT_FIFO]    = "FIFO",
+  [DT_FIFO]    = "FIF",
   [DT_LNK]     = "LNK",
   [DT_REG]     = "REG",
-  [DT_SOCK]    = "SOCK",
-  [DT_UNKNOWN] = "????"
+  [DT_SOCK]    = "SCK",
+  [DT_UNKNOWN] = "???"
 };
 
 const char * type_colors[] = {
@@ -269,7 +269,7 @@ void display_fs_node(void * node_addr) {
 
   pv(f_info->depth);
   printf(" %s%s%s %-16s %s", lbl_bg, lbl_color, leftc, f_info->d_name + b, C_OFF);
-  printf(" %s%-4s%s", type_colors[type], type_names[type], C_OFF);
+  printf(" %s%-3s%s", type_colors[type], type_names[type], C_OFF);
   printf(" %s", ctime(&f_info->mtime));
   pv(f_info->depth);
   if (ndir(f_info)) {
