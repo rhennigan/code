@@ -369,6 +369,7 @@ static inline void create_rand(char * rand_path, size_t size) {
 
 /****************************************************************************/
 static inline void create_symlink(const char * target, const char * lpath) {
+  printf(" creating symlink: %s -> %s\n", lpath, target);
   int result = symlink(target, lpath);
   if (result == -1 && errno != EEXIST) {
     perror("symlink");
@@ -378,6 +379,7 @@ static inline void create_symlink(const char * target, const char * lpath) {
 
 /****************************************************************************/
 static inline void create_link(const char * target, const char * lpath) {
+  printf(" creating link: %s -> %s\n", lpath, target);
   int result = link(target, lpath);
   if (result == -1 && errno != EEXIST) {
     perror("link");
