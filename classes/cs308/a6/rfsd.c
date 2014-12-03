@@ -19,7 +19,6 @@ int main(int argc, char *argv[]) {
       getcwd(ret_dir, sizeof(ret_dir));
       int i;
       for (i = 1; i < argc; i++) {
-        printf("\n\n");
         const char * dir_name = argv[i];
         chdir(dir_name);
         list_t * entries = dir_list(".", 0);
@@ -27,6 +26,7 @@ int main(int argc, char *argv[]) {
         list_iter(entries, &free);
         list_dispose(entries);
         chdir(ret_dir);
+        printf("\n\n");
       }
       exit(EXIT_SUCCESS);
     }
