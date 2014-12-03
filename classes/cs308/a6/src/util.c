@@ -303,7 +303,7 @@ bool name_cmp(void * a, void * b) {
 void create_socket() {
   struct sockaddr_un addr;
   char * socket_path = "misc/socket_test";
-  int    fd          = socket(AF_UNIX, SOCK_STREAM, 0);
+  int fd = socket(AF_UNIX, SOCK_STREAM, 0);
 
   if (fd == -1) {
     perror("socket error");
@@ -320,3 +320,9 @@ void create_socket() {
     exit(EXIT_FAILURE);
   }
 }
+
+/****************************************************************************/
+void create_fifo() {
+  
+}
+
