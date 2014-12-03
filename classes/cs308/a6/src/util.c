@@ -95,6 +95,7 @@ static inline char * byte_str(unsigned long b) {
 
 /****************************************************************************/
 list_t * dir_list(const char * d_name, const u_int depth) {
+  printf("running dir_list(%s, %u)\n", d_name, depth);
   const char * dir_name = d_name;
   const size_t cdepth = depth;
   DIR * dir = opendir(dir_name);
