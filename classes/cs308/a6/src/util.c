@@ -362,6 +362,9 @@ void create_rand(char * rand_path, size_t size) {
 
     total += bytes_sent;
   }
+
+  close(urandom);
+  close(randomf);
 }
 
 /****************************************************************************/
