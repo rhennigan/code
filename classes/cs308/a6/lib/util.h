@@ -52,11 +52,12 @@ typedef struct fsys_node_s {
   list_t *        sub_nodes;
 } fsys_node_t;
 
-list_t * dir_list(const char * dir_name, size_t depth);
-void     display_fs_node(void * node_addr);
-bool     name_cmp(void * a, void * b);
-void     create_test_files();
-void     display_usage(char * name);
+list_t *    dir_list(const char * dir_name, size_t depth);
+inline void display_label(char * text, char * bg, char * fg, size_t w);
+void        display_fs_node(void * node_addr);
+bool        name_cmp(void * a, void * b);
+void        create_test_files();
+void        display_usage(char * name);
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
