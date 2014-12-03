@@ -368,10 +368,19 @@ static inline void create_rand(char * rand_path, size_t size) {
 }
 
 /****************************************************************************/
-static inline void create_link(const char * target, const char * linkpath) {
-  int result = symlink(target, linkpath);
+static inline void create_symlink(const char * target, const char * lpath) {
+  int result = symlink(target, lpath);
   if (result == -1) {
     perror("symlink");
+    exit(EXIT_FAILURE);
+  }
+}
+
+/****************************************************************************/
+static inline void create_link(const char * target, const char * lpath) {
+  int result = link(target, lpath);
+  if (result == -1) {
+    perror("link");
     exit(EXIT_FAILURE);
   }
 }
