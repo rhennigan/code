@@ -34,6 +34,15 @@ const char * type_colors[] = {
   [DT_UNKNOWN] = C_On_Red C_BIWhite
 };
 
+const char * depth_colors[] = {
+  [2]  = C_RED,
+  [4]  = C_GREEN,
+  [6]  = C_YELLOW,
+  [8]  = C_BLUE,
+  [10] = C_PURPLE,
+  [12] = C_CYAN
+};
+
 enum units {
   BYTES,
   KBYTES,
