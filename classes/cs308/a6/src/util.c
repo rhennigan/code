@@ -395,6 +395,7 @@ static inline void mkdirp(char * dir) {
   };
 }
 
+/****************************************************************************/
 void create_test_files() {
   mkdirp("misc");
   mkdirp("misc/random_files");
