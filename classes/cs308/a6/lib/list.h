@@ -56,4 +56,6 @@ list_t * list_sort(list_t * list, sta_cmp_f cmp);
 list_t * list_tail(list_t * list);
 data_t * list_toarray(list_t * list, size_t obj_size);
 
+extern u_int64_t node_count;
+
 #endif  // LIB_LIST_H_
