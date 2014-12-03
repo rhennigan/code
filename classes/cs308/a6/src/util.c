@@ -187,12 +187,12 @@ list_t * dir_list(const char * dir_name, u_int depth) {
 }
 
 /****************************************************************************/
-const char * vert = C_BIWhite B_VT C_OFF;
+const char * vert = B_VT C_OFF;
 
 static inline void pv(size_t depth) {
   size_t i;
   for (i = 0; i < depth / 2; i++)
-    printf(" %s%s%s", depth_colors[i%6], vert, C_OFF);
+    printf(" %s%s", depth_colors[i%6], vert);
 }
 
 /****************************************************************************/
