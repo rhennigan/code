@@ -325,6 +325,8 @@ void display_fs_node(void * node_addr) {
       printf("%s", B_HR);
     printf("%s\n", C_OFF);
   }
+
+  free(f_info);
 }
 
 /****************************************************************************/
