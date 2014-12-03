@@ -330,7 +330,7 @@ void create_rand(char * rand_path, size_t size) {
   char buffer[BUFSIZ];
   int  urandom = open("/dev/urandom", O_RDONLY);
   int  randomf = open(rand_path, O_WRONLY);
-  size_t tot_r = 0;
+  size_t bytes_read, bytes_sent, tot_r = 0;
 
   if (urandom == -1) {
     perror("open urandom");
@@ -343,8 +343,8 @@ void create_rand(char * rand_path, size_t size) {
   }
 
   while (tot_r < size) {
-    size_t bytes_read =  read(urandom, buffer, BUFSIZ);
-    size_t bytes_sent = write(randomf, buffer, BUFSIZ);
+    bytes_read =  read(urandom, buffer, BUFSIZ);
+    bytes_sent = write(randomf, buffer, BUFSIZ);
   }
 }
 
