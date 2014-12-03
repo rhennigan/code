@@ -193,7 +193,7 @@ inline void display_label(const char * text, char * bg, char * fg, size_t w) {
   for (u_int i = 0; i < N; i++)
     lbl_txt[i] = text[i];
   lbl_txt[w+1] = '\0';
-  printf("%s%s%s%s\n", bg, fg, lbl_txt, C_OFF);
+  printf("%s%s%s%s\n", C_On_Blue, C_BIWhite, lbl_txt, C_OFF);
 }
 
 /****************************************************************************/
