@@ -300,9 +300,8 @@ bool name_cmp(void * a, void * b) {
 /****************************************************************************/
 /* FUNCTIONS FOR CREATING TEST FILES */
 /****************************************************************************/
-void create_socket() {
+void create_socket(char * socket_path) {
   struct sockaddr_un addr;
-  char * socket_path = "misc/socket_test";
   int fd = socket(AF_UNIX, SOCK_STREAM, 0);
 
   if (fd == -1) {
@@ -322,8 +321,7 @@ void create_socket() {
 }
 
 /****************************************************************************/
-void create_fifo() {
-  char * fifo_path = "misc/fifo_test";
+void create_fifo(char * fifo_path) {
   mkfifo(fifo_path, 0666);
 }
 
