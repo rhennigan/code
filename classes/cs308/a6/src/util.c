@@ -270,7 +270,8 @@ void display_fs_node(void * node_addr) {
   pv(f_info->depth);
   printf(" %s%s%s %-16s %s", lbl_bg, lbl_color, leftc, f_info->d_name + b, C_OFF);
   printf(" %s%-3s%s", type_colors[type], type_names[type], C_OFF);
-  printf(" %s", ctime(&f_info->mtime));
+  /* printf(" %s", ctime(&f_info->mtime)); */
+   printf(" %s", ctime(&f_info->mtime));
   pv(f_info->depth);
   if (ndir(f_info)) {
     pv(2);
