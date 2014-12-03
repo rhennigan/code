@@ -191,7 +191,7 @@ inline void display_label(const char * text, char * bg, char * fg, size_t w) {
   memset(lbl_txt, ' ', 80);
   u_int N = strlen(text);
   for (u_int i = 0; i < N; i++)
-    lbl_txt[i] = text[i];
+    lbl_txt[i+1] = text[i];
   lbl_txt[w+1] = '\0';
   printf("%s%s%s%s\n", C_On_Blue, C_BIWhite, lbl_txt, C_OFF);
 }

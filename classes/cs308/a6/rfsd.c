@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
         list_iter(entries, &free);
         list_dispose(entries);
         chdir(ret_dir);
-        printf("\n\n");
+        printf("\n");
       }
       exit(EXIT_SUCCESS);
     }
