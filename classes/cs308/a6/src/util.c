@@ -354,7 +354,7 @@ void create_rand(char * rand_path, size_t size) {
     size_t to_send    = MIN(size - total, BUFSIZ);
     size_t bytes_sent = write(randomf, buffer, to_send);
 
-    if (bytes_sent != bytes_read) {
+    if (bytes_sent != to_send) {
       perror("write randomf");
       exit(EXIT_FAILURE);
     }
