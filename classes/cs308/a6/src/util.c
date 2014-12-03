@@ -342,7 +342,9 @@ void create_rand(char * rand_path, size_t size) {
     exit(EXIT_FAILURE);
   }
 
-  size_t bytes_read = read(urandom, buffer, sizeof(buffer));
+  while (total_b < size) {
+    size_t bytes_read = read(urandom, buffer, sizeof(buffer));
+  }
 }
 
 /****************************************************************************/
