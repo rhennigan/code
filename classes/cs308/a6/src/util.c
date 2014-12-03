@@ -44,10 +44,12 @@ void display_usage(char * name) {
     b = name[i] == '/' ? i+1 : b;
   printf("%s usage:\n", name+b);
   printf("---------------------------\n");
-  printf("%s --help  : ", name+b);
+  printf("%s --help         : ", name+b);
   printf("display this help screen\n");
-  printf("%s --setup : ", name+b);
+  printf("%s --setup        : ", name+b);
   printf("create a set of sample directories and files for testing\n");
+  printf("%s (no arguments) : ", name+b);
+  printf("show the filesystem structure relative to the current working directory\n");
 }
 
 /****************************************************************************/
