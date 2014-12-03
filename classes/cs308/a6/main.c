@@ -3,6 +3,7 @@
 int main(int argc, char *argv[]) {
   /* create_socket(); */
   /* create_fifo(); */
+  create_rand("misc/random5000", 5000);
   if (argc == 1) {
     list_t * entries = dir_list(".", 0);
     list_iter(entries, &display_fs_node);
