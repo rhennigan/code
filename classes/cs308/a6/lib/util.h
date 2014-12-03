@@ -2,7 +2,7 @@
 #define _LIB_UTIL_H
 
 #ifndef NAME_MAX
-  #define NAME_MAX 4096
+  #define NAME_MAX 512
 #endif
 
 #include <assert.h>

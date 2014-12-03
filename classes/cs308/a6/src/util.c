@@ -120,7 +120,7 @@ list_t * dir_list(const char * d_name, const u_int depth) {
     }
 
     size_t len = strlen(dir_name);
-    char path[len+2];
+    char path[NAME_MAX];
     snprintf(path, len+1, "%s", dir_name);
     path[len]   = '/';
     path[len+1] = '\0';
