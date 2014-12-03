@@ -61,6 +61,4 @@ void     display_usage(char * name);
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
-extern u_int64_t node_count;
-
 #endif  // _LIB_UTIL_H

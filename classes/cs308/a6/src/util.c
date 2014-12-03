@@ -95,7 +95,6 @@ static inline char * byte_str(unsigned long b) {
 
 /****************************************************************************/
 list_t * dir_list(const char * d_name, const u_int depth) {
-  printf("running dir_list(%s, %u)\n", d_name, depth);
   const char * dir_name = d_name;
   const size_t cdepth = depth;
   DIR * dir = opendir(dir_name);
@@ -109,8 +108,6 @@ list_t * dir_list(const char * d_name, const u_int depth) {
   struct dirent * entry;
 
   while ((entry = readdir(dir)) != NULL) {
-    u_int64_t nc = node_count;
-    printf("d_name = %s, depth = %u, nc = %lu\n", d_name, depth, nc);
     struct stat file_stat;
     fsys_node_t * f_info = malloc(sizeof(fsys_node_t));
 
