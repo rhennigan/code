@@ -12,6 +12,8 @@
 /*   [DT_UNKNOWN] = "unknown" */
 /* }; */
 
+u_int64_t malloc_count = 0;
+
 const char * type_names[] = {
   [DT_BLK]     = "BLK",
   [DT_CHR]     = "CHR",
@@ -110,6 +112,7 @@ list_t * dir_list(const char * d_name, size_t depth) {
   while ((entry = readdir(dir)) != NULL) {
     struct stat file_stat;
     fsys_node_t * f_info = malloc(sizeof(fsys_node_t));
+    malloc_count++;
 
     if (f_info == NULL) {
       perror("malloc");
