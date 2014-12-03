@@ -11,6 +11,8 @@ int main(int argc, char *argv[]) {
     if (strcmp(argv[1], "--setup") == 0) {
       create_test_files();
       exit(EXIT_SUCCESS);
+    } else if (strcmp(argv[1], "--help") == 0) {
+      display_usage();
     } else {
       char ret_dir[1024];
       getcwd(ret_dir, sizeof(ret_dir));
