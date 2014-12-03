@@ -317,6 +317,7 @@ void display_fs_node(void * node_addr) {
 
   if (f_info->sub_nodes != NULL) {
     list_iter(f_info->sub_nodes, &display_fs_node);
+    list_dispose(f_info->sub_nodes);
     pv(f_info->depth);
     printf(" %s", C_BIWhite B_BL);
     size_t i;
