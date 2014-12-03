@@ -135,7 +135,7 @@ list_t * dir_list(const char * dir_name, u_int depth) {
     f_info->d_off      = entry->d_off;
     f_info->d_reclen   = entry->d_reclen;
     f_info->d_type     = fix_type(file_stat.st_mode);
-    f_info->depth      = MIN(20, cdepth);
+    f_info->depth      = depth;
     f_info->st_dev     = file_stat.st_dev;
     f_info->dev_maj    = major(file_stat.st_dev);
     f_info->dev_min    = minor(file_stat.st_dev);
@@ -154,15 +154,13 @@ list_t * dir_list(const char * dir_name, u_int depth) {
 
     size_t nlen = strlen(name);
 
-    if (cdepth <= 8 && S_ISDIR(f_info->st_mode) &&
+    if (depth <= 8 && S_ISDIR(f_info->st_mode) &&
         !(name[nlen-1] == '.' &&
          (name[nlen-2] == '/' ||
          (name[nlen-2] == '.' &&
           name[nlen-3] == '/')))) {
       const char * dlname = f_info->d_name;
-      const u_int ndepth = cdepth + 2;
-      printf("calling dir_list(%s, %u)\n", dlname, ndepth);
-      f_info->sub_nodes = dir_list(dlname, ndepth);
+      f_info->sub_nodes = dir_list(dlname, depth+2);
     } else {
       f_info->sub_nodes = NULL;
     }
