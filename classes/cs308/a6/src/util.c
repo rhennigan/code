@@ -255,6 +255,10 @@ void display_fs_node(void * node_addr) {
   /* char *  gr_pw   = gr->gr_passwd; */
   /* char ** gr_mem  = gr->gr_mem; */
 
+  /* Truncate user and group names to 8 characters */
+  user_name[8] = '\0';
+  gr_name[8] = '\0';
+
   bool exec_b = (mode & S_IXUSR) || (mode & S_IXGRP) || (mode & S_IXOTH);
 
   const char * leftc     = ndir(f_info) ? B_TL : " ";
