@@ -301,7 +301,7 @@ bool name_cmp(void * a, void * b) {
 /****************************************************************************/
 /* FUNCTIONS FOR CREATING TEST FILES */
 /****************************************************************************/
-void create_socket(char * socket_path) {
+static inline void create_socket(char * socket_path) {
   struct sockaddr_un addr;
   int fd = socket(AF_UNIX, SOCK_STREAM, 0);
 
@@ -322,12 +322,12 @@ void create_socket(char * socket_path) {
 }
 
 /****************************************************************************/
-void create_fifo(char * fifo_path) {
+static inline void create_fifo(char * fifo_path) {
   mkfifo(fifo_path, 0666);
 }
 
 /****************************************************************************/
-void create_rand(char * rand_path, size_t size) {
+static inline void create_rand(char * rand_path, size_t size) {
   char   buffer[BUFSIZ];
   mode_t mode    = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
   int    urandom = open("/dev/urandom", O_RDONLY);
@@ -368,7 +368,7 @@ void create_rand(char * rand_path, size_t size) {
 }
 
 /****************************************************************************/
-void create_link(const char * target, const char * linkpath) {
+static inline void create_link(const char * target, const char * linkpath) {
   int result = symlink(target, linkpath);
   if (result == -1) {
     perror("symlink");
