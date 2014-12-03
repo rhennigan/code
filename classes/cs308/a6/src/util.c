@@ -1,5 +1,6 @@
 #include "../lib/util.h"
 
+/****************************************************************************/
 const char * type_names[] = {
   [DT_BLK]     = "block device",
   [DT_CHR]     = "character device",
@@ -35,8 +36,6 @@ const char * units[] = {
   [MBYTES] = C_RED              "MB" C_OFF,
   [GBYTES] = C_On_Red C_BIWhite "GB" C_OFF
 };
-
-#define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 /****************************************************************************/
 static inline unsigned char fix_type(mode_t m) {

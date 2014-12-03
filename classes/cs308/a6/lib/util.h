@@ -58,4 +58,6 @@ void     create_socket(char * socket_path);
 void     create_fifo(char * fifo_path);
 void     create_rand(char * rand_path, size_t size);
 
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+
 #endif  // _LIB_UTIL_H
