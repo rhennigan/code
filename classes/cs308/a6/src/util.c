@@ -370,6 +370,15 @@ void create_test_files() {
   char * dir_rand1 = "misc/random_files";
   char * dir_rand2 = "misc/random_files/more_files";
   char * dir_extra = "misc/extras";
+  mode_t dir_modes = S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH;
+
+  int result;
+
+  result = mkdir(dir_misc, dir_modes);
+  if (result == -1 && errno != EEXIST) {
+    perror("mkdir misc");
+    exit(EXIT_FAILURE);
+  }
 }
 
 /****************************************************************************/

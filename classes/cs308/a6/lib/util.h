@@ -7,6 +7,7 @@
 
 #include <assert.h>
 #include <dirent.h>
+#include <errno.h>
 #include <fcntl.h>
 #include <grp.h>
 #include <limits.h>
