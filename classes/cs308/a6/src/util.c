@@ -298,6 +298,8 @@ bool name_cmp(void * a, void * b) {
 }
 
 /****************************************************************************/
+/* FUNCTIONS FOR CREATING TEST FILES */
+/****************************************************************************/
 void create_socket() {
   struct sockaddr_un addr;
   char * socket_path = "misc/socket_test";
