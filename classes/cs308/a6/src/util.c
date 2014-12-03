@@ -266,7 +266,7 @@ void display_fs_node(void * node_addr) {
 
   /* Truncate user and group names to 8 characters */
   user_name[8] = '\0';
-  gr_name[8] = '\0';
+  gr_name[8]   = '\0';
 
   bool exec_b = (mode & S_IXUSR) || (mode & S_IXGRP) || (mode & S_IXOTH);
 
