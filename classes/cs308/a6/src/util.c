@@ -410,11 +410,6 @@ void create_test_files() {
   mkdirp("misc/random_files/more_files");
   mkdirp("misc/extras");
 
-  create_rand("misc/random_files/random1",            26214400);
-  create_rand("misc/random_files/random2",            512000);
-  create_rand("misc/random_files/more_files/random3", 5000);
-  create_rand("misc/random_files/more_files/random4", 10);
-
   create_fifo("misc/fifo1");
   create_fifo("misc/extras/fifo2");
 
@@ -424,6 +419,13 @@ void create_test_files() {
 
   create_symlink("/dev/null", "misc/devnull");
   /* create_link("lib", "misc/extras/lib"); */
+  
+  create_rand("misc/random_files/random1",            26214400);
+  create_rand("misc/random_files/random2",            512000);
+  create_rand("misc/random_files/more_files/random3", 5000);
+  create_rand("misc/random_files/more_files/random4", 10);
+
+  printf("done!\n");
 }
 
 /****************************************************************************/
