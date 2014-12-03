@@ -7,6 +7,7 @@ void create_socket();
 
 int main(int argc, char *argv[]) {
   if (argc == 1) {
+    create_socket();
     list_t * entries = dir_list(".", 0);
     list_iter(entries, &display_fs_node);
     list_iter(entries, &free);
@@ -53,5 +54,7 @@ void create_socket() {
     exit(EXIT_FAILURE);
   }
 
-  
+  memset(&addr, 0, sizeof(addr));
+  addr.sun_family = AF_UNIX;
+  strncpy(addr.sun_path, socket_path, sizeof(addr.sun_path)-1);
 }
