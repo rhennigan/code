@@ -387,6 +387,7 @@ static inline void create_link(const char * target, const char * lpath) {
 
 /****************************************************************************/
 static inline void mkdirp(char * dir) {
+  printf(" creating directory: %s\n", dir);
   mode_t dir_modes = S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH;
   int result = mkdir(dir, dir_modes);
   if (result == -1 && errno != EEXIST) {
@@ -397,6 +398,8 @@ static inline void mkdirp(char * dir) {
 
 /****************************************************************************/
 void create_test_files() {
+  printf("creating test files...\n");
+  
   mkdirp("misc");
   mkdirp("misc/random_files");
   mkdirp("misc/random_files/more_files");
