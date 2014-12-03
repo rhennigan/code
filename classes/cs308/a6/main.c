@@ -44,9 +44,13 @@ int main(int argc, char *argv[]) {
 /* INODE_NUMBER:              347  */
 
 void create_socket() {
-  struct sockaddr_un addr;
-  memset(&addr, 0, sizeof(addr));
-  addr.sun_family = AF_UNIX;
-  strncpy(addr.sun_path, "socket", sizeof(addr.sun_path)-1);
-  bind(fd, (struct sockaddr*)&addr, sizeof(addr));
+  char * socket_path = "misc/socket_test";
+  int    fd          = socket(AF_UNIX, SOCK_STREAM, 0);
+
+  if (fd == -1) {
+    perror("socket error");
+    exit(EXIT_FAILURE);
+  }
+
+  
 }
