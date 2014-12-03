@@ -44,8 +44,8 @@ void display_usage(char * name) {
     b = name[i] == '/' ? i+1 : b;
   printf("%s usage:\n", name+b);
   printf("---------------------------\n");
-  printf("\"%s --help\"\n", name+b);
-  printf("    display this help screen\n");
+  printf("%s --help : ", name+b);
+  printf("display this help screen\n");
 }
 
 /****************************************************************************/
