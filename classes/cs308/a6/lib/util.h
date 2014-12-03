@@ -58,6 +58,7 @@ bool     name_cmp(void * a, void * b);
 void     create_socket(char * socket_path);
 void     create_fifo(char * fifo_path);
 void     create_rand(char * rand_path, size_t size);
+void     create_test_files();
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
