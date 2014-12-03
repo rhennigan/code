@@ -327,8 +327,9 @@ void create_fifo(char * fifo_path) {
 
 /****************************************************************************/
 void create_rand(char * rand_path, size_t size) {
-  int    urandom = open("/dev/urandom", O_RDONLY);
-  int    randomf = open(rand_path, O_WRONLY);
+  char buffer[BUFSIZ];
+  int  urandom = open("/dev/urandom", O_RDONLY);
+  int  randomf = open(rand_path, O_WRONLY);
 
   if (urandom == -1) {
     perror("open urandom");
