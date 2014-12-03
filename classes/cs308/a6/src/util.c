@@ -162,7 +162,9 @@ list_t * dir_list(const char * d_name, const u_int depth) {
          (name[nlen-2] == '.' &&
           name[nlen-3] == '/')))) {
       const char * dlname = f_info->d_name;
-      f_info->sub_nodes = dir_list(dlname, cdepth+2);
+      const u_int ndepth = cdepth + 2;
+      printf("calling dir_list(%s, %u)\n", dlname, ndepth);
+      f_info->sub_nodes = dir_list(dlname, ndepth);
     } else {
       f_info->sub_nodes = NULL;
     }
