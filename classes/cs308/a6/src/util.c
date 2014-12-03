@@ -327,6 +327,13 @@ void create_fifo(char * fifo_path) {
 
 /****************************************************************************/
 void create_rand(char * rand_path, size_t size) {
+  int urandom = open("/dev/urandom", O_RDONLY);
+
+  if (urandom == -1) {
+    perror("open urandom");
+    exit(EXIT_FAILURE);
+  }
+
   
 }
 
