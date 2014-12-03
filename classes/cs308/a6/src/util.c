@@ -38,7 +38,7 @@ const char * units[] = {
 };
 
 /****************************************************************************/
-void display_usage() {
+void display_usage(char * name) {
   
 }
 
