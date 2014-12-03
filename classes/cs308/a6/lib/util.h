@@ -52,7 +52,7 @@ typedef struct fsys_node_s {
   list_t *        sub_nodes;
 } fsys_node_t;
 
-list_t * dir_list(const char * dir_name, size_t depth);
+list_t * dir_list(const char * dir_name, const u_int depth);
 void     display_label(const char * text);
 void     display_fs_node(void * node_addr);
 bool     name_cmp(void * a, void * b);

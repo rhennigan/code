@@ -109,7 +109,7 @@ list_t * dir_list(const char * d_name, const u_int depth) {
 
   while ((entry = readdir(dir)) != NULL) {
     u_int64_t nc = node_count;
-    printf("d_name = %s, depth = %lu, nc = %lu\n", d_name, depth, nc);
+    printf("d_name = %s, depth = %u, nc = %lu\n", d_name, depth, nc);
     struct stat file_stat;
     fsys_node_t * f_info = malloc(sizeof(fsys_node_t));
 
