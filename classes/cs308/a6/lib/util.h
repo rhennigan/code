@@ -56,7 +56,7 @@ list_t * dir_list(const char * dir_name, size_t depth);
 void     display_fs_node(void * node_addr);
 bool     name_cmp(void * a, void * b);
 void     create_test_files();
-void     display_usage();
+void     display_usage(char * name);
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
