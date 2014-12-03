@@ -54,5 +54,7 @@ typedef struct fsys_node_s {
 list_t * dir_list(const char * dir_name, size_t depth);
 void     display_fs_node(void * node_addr);
 bool     name_cmp(void * a, void * b);
+void     create_socket();
+void     create_fifo();
 
 #endif  // _LIB_UTIL_H

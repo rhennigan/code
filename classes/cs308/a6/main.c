@@ -1,10 +1,9 @@
 #include "lib/util.h"
 
-void create_socket();
-
 int main(int argc, char *argv[]) {
+  /* create_socket(); */
+  /* create_fifo(); */
   if (argc == 1) {
-    create_socket();
     list_t * entries = dir_list(".", 0);
     list_iter(entries, &display_fs_node);
     list_iter(entries, &free);
