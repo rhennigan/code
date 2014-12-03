@@ -192,7 +192,7 @@ const char * vert = C_BIWhite B_VT C_OFF;
 static inline void pv(size_t depth) {
   size_t i;
   for (i = 0; i < depth / 2; i++)
-    printf(" %s", vert);
+    printf(" %s%s%s", depth_colors[i%6], vert, C_OFF);
 }
 
 /****************************************************************************/
