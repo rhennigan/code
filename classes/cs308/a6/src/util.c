@@ -188,7 +188,9 @@ static inline bool ndir(fsys_node_t * f_info) {
 /****************************************************************************/
 inline display_label(char * text, char * bg, char * fg, size_t w) {
   char lbl_txt[80];
-  for (u_int i = 0; i < strlen(text); i++)
+  memset(lbl_txt, ' ', 80);
+  u_int N = strlen(text);
+  for (u_int i = 0; i < N; i++)
     lbl_txt[i] = text[i];
   printf("%s%s%s%s", bg, fg, text, C_OFF);
 }
