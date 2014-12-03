@@ -271,7 +271,7 @@ void display_fs_node(void * node_addr) {
   strftime(time_str, 80, "%F %T", localtime(&f_info->mtime));
   
   pv(f_info->depth);
-  printf(" %s%s%s %-16s %s", lbl_bg, lbl_color, leftc, f_info->d_name + b, C_OFF);
+  printf(" %s%s%s %-20s %s", lbl_bg, lbl_color, leftc, f_info->d_name + b, C_OFF);
   printf(" %s%-3s%s", type_colors[type], type_names[type], C_OFF);
   /* printf(" %s", ctime(&f_info->mtime)); */
   printf(" %s\n", time_str);
@@ -285,7 +285,7 @@ void display_fs_node(void * node_addr) {
   printf(" %s", user_name);
   printf(" %s", gr_name);
   printf(" %lu", f_info->st_nlink);
-  printf(" %s", byte_str(f_info->st_size));
+  printf(" %5s", byte_str(f_info->st_size));
   printf(" %lu", (unsigned long)f_info->st_ino);
   
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
