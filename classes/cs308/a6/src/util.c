@@ -35,12 +35,12 @@ const char * type_colors[] = {
 };
 
 const char * depth_colors[] = {
-  [2]  = C_RED,
-  [4]  = C_GREEN,
-  [6]  = C_YELLOW,
-  [8]  = C_BLUE,
-  [10] = C_PURPLE,
-  [12] = C_CYAN
+  [0] = C_RED,
+  [1] = C_GREEN,
+  [2] = C_YELLOW,
+  [3] = C_BLUE,
+  [4] = C_PURPLE,
+  [5] = C_CYAN
 };
 
 enum units {
