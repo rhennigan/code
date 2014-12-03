@@ -282,8 +282,8 @@ void display_fs_node(void * node_addr) {
     printf("  ");
   }
   printf(" %s", mstr);
-  printf(" %s", user_name);
-  printf(" %s", gr_name);
+  printf(" %8s", user_name);
+  printf(" %8s", gr_name);
   printf(" %lu", f_info->st_nlink);
   printf(" %16s", byte_str(f_info->st_size));
   printf(" %lu", (unsigned long)f_info->st_ino);
