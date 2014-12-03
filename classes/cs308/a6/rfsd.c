@@ -6,14 +6,11 @@ int main(int argc, char *argv[]) {
     list_iter(entries, &display_fs_node);
     list_iter(entries, &free);
     list_dispose(entries);
-    exit(EXIT_SUCCESS);
   } else {
     if (strcmp(argv[1], "--setup") == 0) {
       create_test_files();
-      exit(EXIT_SUCCESS);
     } else if (strcmp(argv[1], "--help") == 0) {
       display_usage(argv[0]);
-      exit(EXIT_SUCCESS);
     } else {
       char ret_dir[1024];
       getcwd(ret_dir, sizeof(ret_dir));
@@ -28,9 +25,9 @@ int main(int argc, char *argv[]) {
         chdir(ret_dir);
         printf("\n");
       }
-      exit(EXIT_SUCCESS);
     }
   }
+  exit(EXIT_SUCCESS);
 }
 
 /* EXAMPLE */
