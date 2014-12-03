@@ -186,6 +186,11 @@ static inline bool ndir(fsys_node_t * f_info) {
 }
 
 /****************************************************************************/
+inline display_label(char * test, char * bg, char * fg, size_t w) {
+  
+}
+
+/****************************************************************************/
 void display_fs_node(void * node_addr) {
   fsys_node_t * f_info = (fsys_node_t *)node_addr;
   u_int i;
