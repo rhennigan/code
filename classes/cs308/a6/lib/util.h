@@ -54,6 +54,7 @@ typedef struct fsys_node_s {
   list_t *        sub_nodes;
 } fsys_node_t;
 
+bool     is_dir(const char * path);
 list_t * dir_list(const char * dir_name, u_int depth);
 void     display_label(const char * text);
 void     display_fs_node(void * node_addr);
