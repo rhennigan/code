@@ -296,7 +296,7 @@ void display_fs_node(void * node_addr) {
   printf(" %-8s", gr_name);
   printf(" %2lu", f_info->st_nlink);
   printf(" %16s", byte_str(f_info->st_size));
-  printf(" %10lu", (unsigned long)f_info->st_ino);
+  printf(" %10lu", (u_int64_t)f_info->st_ino);
   printf("\n");
 
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
