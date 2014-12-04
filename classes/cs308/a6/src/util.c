@@ -462,8 +462,8 @@ void create_test_files() {
   create_socket("misc/extras/socket3");
 
   create_symlink("/dev/null", "misc/devnull");
-  create_symlink("lib", "misc/link_to_lib");
-  /* create_link("lib", "misc/extras/lib"); */
+  create_symlink("lib", "misc/symlink_to_lib");
+  create_link("misc/extras/link_to_src", "src");
   
   create_rand("misc/random_files/random1",            26214400);
   create_rand("misc/random_files/random2",            512000);
