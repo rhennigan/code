@@ -230,6 +230,7 @@ void display_fs_node(void * node_addr) {
   mstr[8] = (mode & S_IWOTH) ? 'w' : '-';
   mstr[9] = (mode & S_IXOTH) ? 'x' : '-';
 
+  /* Get user and group names */
   struct passwd * pw = getpwuid(f_info->st_uid);
   struct group  * gr = getgrgid(f_info->st_gid);
 
@@ -250,7 +251,7 @@ void display_fs_node(void * node_addr) {
   user_name[8] = '\0';
   gr_name[8]   = '\0';
 
-  /* Indicates if file has execute permissions */
+  /* Indicate if file has execute permissions */
   bool exec_b = (mode & S_IXUSR) || (mode & S_IXGRP) || (mode & S_IXOTH);
 
   const char * leftc     = ndir(f_info) ? B_TL : " ";
@@ -259,10 +260,13 @@ void display_fs_node(void * node_addr) {
                            (type == DT_REG && exec_b) ?
                            C_BIGreen :
                            type_colors[type];
+
+  /* Strip leading characters in path name to show only base file name */
   size_t b = 2;
   for (u_int i = b; i < strlen(f_info->d_name); i++)
     b = f_info->d_name[i] == '/' ? i + 1: b;
 
+  /* File modification timestamp */
   char time_str[80];
   strftime(time_str, 80, "%F %T", localtime(&f_info->mtime));
   
