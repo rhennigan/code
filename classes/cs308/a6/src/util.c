@@ -146,14 +146,14 @@ list_t * dir_list(const char * dir_name, u_int depth) {
       exit(EXIT_FAILURE);
     }
 
-    snprintf(f_info->d_name, NAME_MAX, "%s", name);
+    snprintf(f_info->name, NAME_MAX, "%s", name);
 
     /* f_info->d_ino      = entry->d_ino; */
     /* f_info->d_off      = entry->d_off; */
     /* f_info->d_reclen   = entry->d_reclen; */
-    f_info->d_type     = fix_type(file_stat.st_mode);
+    f_info->type       = fix_type(file_stat.st_mode);
     f_info->depth      = depth;
-    f_info->st_dev     = file_stat.st_dev;
+    /* f_info->st_dev     = file_stat.st_dev; */
     f_info->dev_maj    = major(file_stat.st_dev);
     f_info->dev_min    = minor(file_stat.st_dev);
     f_info->st_ino     = file_stat.st_ino;

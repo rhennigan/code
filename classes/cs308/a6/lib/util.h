@@ -36,7 +36,7 @@ typedef struct fsys_node_s {
   /* unsigned short  d_reclen; */
   unsigned char   type;
   size_t          depth;
-  dev_t           st_dev;         /* ID of device containing file */
+  /* dev_t           st_dev; */         /* ID of device containing file */
   unsigned int    dev_maj;        /* class ID of device containing file */
   unsigned int    dev_min;        /* instance ID of device containing file */
   ino_t           st_ino;         /* inode number */
