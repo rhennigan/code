@@ -461,8 +461,8 @@ void create_test_files() {
   create_socket("misc/extras/socket2");
   create_socket("misc/extras/socket3");
 
-  create_link("src/util.c", "misc/hardlink_to_util.c");
-  create_symlink("src/util.c", "misc/symlink_to_util.c");
+  create_link("misc/socket1", "misc/hardlink_to_socket1");
+  create_symlink("misc/socket1", "misc/symlink_to_socket1");
   /* create_link("/dev/null", "misc/devnull"); */
   
   create_rand("misc/random_files/random1",            26214400);
