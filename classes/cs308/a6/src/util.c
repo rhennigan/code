@@ -176,7 +176,7 @@ list_t * dir_list(const char * dir_name, u_int depth) {
          (name[nlen-2] == '/' ||
          (name[nlen-2] == '.' &&
           name[nlen-3] == '/')))) {
-      const char * dlname = f_info->d_name;
+      const char * dlname = f_info->name;
       f_info->sub_nodes = dir_list(dlname, depth+2);
     } else {
       f_info->sub_nodes = NULL;
@@ -205,12 +205,12 @@ static inline void pv(size_t depth) {
 
 /****************************************************************************/
 static inline bool ndir(fsys_node_t * f_info) {
-  size_t nlen = strlen(f_info->d_name);
+  size_t nlen = strlen(f_info->name);
   return S_ISDIR(f_info->st_mode) &&
-         !(f_info->d_name[nlen-1] == '.' &&
-          (f_info->d_name[nlen-2] == '/' ||
-          (f_info->d_name[nlen-2] == '.' &&
-           f_info->d_name[nlen-3] == '/')));
+         !(f_info->name[nlen-1] == '.' &&
+          (f_info->name[nlen-2] == '/' ||
+          (f_info->name[nlen-2] == '.' &&
+           f_info->name[nlen-3] == '/')));
 }
 
 /****************************************************************************/
@@ -222,7 +222,7 @@ inline void display_label(const char * text) {
 void display_fs_node(void * node_addr) {
   fsys_node_t * f_info = (fsys_node_t *)node_addr;
 
-  int    type     = f_info->d_type;
+  int    type     = f_info->type;
   mode_t mode     = f_info->st_mode;
   char   mstr[11] = "          ";
 
@@ -273,15 +273,15 @@ void display_fs_node(void * node_addr) {
 
   /* Strip leading characters in path name to show only base file name */
   size_t b = 2;
-  for (u_int i = b; i < strlen(f_info->d_name); i++)
-    b = f_info->d_name[i] == '/' ? i + 1: b;
+  for (u_int i = b; i < strlen(f_info->name); i++)
+    b = f_info->name[i] == '/' ? i + 1: b;
 
   /* File modification timestamp */
   char time_str[80];
   strftime(time_str, 80, "%F %T", localtime(&f_info->mtime));
   
   pv(f_info->depth);
-  printf(" %s%s%s %-23s %s", lbl_bg, lbl_color, leftc, f_info->d_name + b, C_OFF);
+  printf(" %s%s%s %-23s %s", lbl_bg, lbl_color, leftc, f_info->name + b, C_OFF);
   printf(" %s%-3s%s", type_colors[type], type_names[type], C_OFF);
   printf(" %s\n", time_str);
   pv(f_info->depth);
@@ -344,11 +344,11 @@ void display_fs_node(void * node_addr) {
 bool name_cmp(void * a, void * b) {
   fsys_node_t * node1 = a;
   fsys_node_t * node2 = b;
-  char * str1  = node1->d_name;
-  char * str2  = node2->d_name;
-  bool   cmp   = node1->d_type == node2->d_type ?
+  char * str1  = node1->name;
+  char * str2  = node2->name;
+  bool   cmp   = node1->type == node2->type ?
                  strcmp(str1, str2) < 1 :
-                 node1->d_type < node2->d_type;
+                 node1->type < node2->type;
   return cmp;
 }
 
