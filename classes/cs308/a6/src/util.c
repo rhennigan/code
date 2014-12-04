@@ -213,8 +213,6 @@ inline void display_label(const char * text) {
 /****************************************************************************/
 void display_fs_node(void * node_addr) {
   fsys_node_t * f_info = (fsys_node_t *)node_addr;
-  u_int i;
-
   /* char os[40]; */
   /* memset(os, ' ', 40); */
   /* size_t i; */
@@ -277,7 +275,7 @@ void display_fs_node(void * node_addr) {
                            C_BIGreen :
                            type_colors[type];
   size_t b = 2;
-  for (i = b; i < strlen(f_info->d_name); i++)
+  for (u_int i = b; i < strlen(f_info->d_name); i++)
     b = f_info->d_name[i] == '/' ? i + 1: b;
 
   char time_str[80];
@@ -300,7 +298,8 @@ void display_fs_node(void * node_addr) {
   printf(" %2lu", f_info->st_nlink);
   printf(" %16s", byte_str(f_info->st_size));
   printf(" %10lu", (unsigned long)f_info->st_ino);
-  
+  printf("\n");
+
   /* printf("%s d_off       = %ld\n", os, f_info->d_off); */
   /* printf("%s d_reclen    = %u\n",  os, f_info->d_reclen); */
   /* printf("%s d_type      = %s\n",  os, type_names[type]); */
@@ -330,7 +329,6 @@ void display_fs_node(void * node_addr) {
   /* printf("%s   d_ino       = %ld\n", os, f_info->d_ino); */
   /* printf("%s ctime       = %s",    os, ctime(&f_info->ctime)); */
   /* printf("%s sub_nodes   = %p\n",  os, f_info->sub_nodes); */
-  printf("\n");
 
   if (f_info->sub_nodes != NULL) {
     list_iter(f_info->sub_nodes, &display_fs_node);
@@ -338,8 +336,7 @@ void display_fs_node(void * node_addr) {
     list_dispose(f_info->sub_nodes);
     pv(f_info->depth);
     printf(" %s", C_BIWhite B_BL);
-    size_t i;
-    for (i = 0; i < 50; i++)
+    for (u_int i = 0; i < 50; i++)
       printf("%s", B_HR);
     printf("%s\n", C_OFF);
   }
