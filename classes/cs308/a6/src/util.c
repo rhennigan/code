@@ -463,7 +463,7 @@ void create_test_files() {
 
   create_symlink("/dev/null", "misc/devnull");
   create_symlink("lib", "misc/symlink_to_lib");
-  create_link("misc/extras/link_to_src", "src");
+  create_link("src", "misc/extras/link_to_src");
   
   create_rand("misc/random_files/random1",            26214400);
   create_rand("misc/random_files/random2",            512000);
