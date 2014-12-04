@@ -30,11 +30,11 @@
 
 // TODO: remove unused fields
 typedef struct fsys_node_s {
-  char            d_name[NAME_MAX];
-  ino_t           d_ino;
-  off_t           d_off;
-  unsigned short  d_reclen;
-  unsigned char   d_type;
+  char            name[NAME_MAX];
+  /* ino_t           d_ino; */
+  /* off_t           d_off; */
+  /* unsigned short  d_reclen; */
+  unsigned char   type;
   size_t          depth;
   dev_t           st_dev;         /* ID of device containing file */
   unsigned int    dev_maj;        /* class ID of device containing file */
