@@ -104,8 +104,6 @@ static inline char * byte_str(unsigned long b) {
 
 /****************************************************************************/
 list_t * dir_list(const char * dir_name, u_int depth) {
-  /* const char * dir_name = d_name; */
-  /* const size_t cdepth = depth; */
   DIR * dir = opendir(dir_name);
 
   if (!dir) {
@@ -213,14 +211,6 @@ inline void display_label(const char * text) {
 /****************************************************************************/
 void display_fs_node(void * node_addr) {
   fsys_node_t * f_info = (fsys_node_t *)node_addr;
-  /* char os[40]; */
-  /* memset(os, ' ', 40); */
-  /* size_t i; */
-  /* for (i = 0; i < f_info->depth; i+=2) { */
-  /*   os[i] = '|'; */
-  /* } */
-  /* os[39] = '\0'; */
-  /* os[f_info->depth] = '\0'; */
 
   int    type     = f_info->d_type;
   mode_t mode     = f_info->st_mode;
@@ -241,31 +231,26 @@ void display_fs_node(void * node_addr) {
   mstr[9] = (mode & S_IXOTH) ? 'x' : '-';
 
   struct passwd * pw = getpwuid(f_info->st_uid);
+  struct group  * gr = getgrgid(f_info->st_gid);
+
   if (pw == NULL) {
     perror("getpwuid");
     exit(EXIT_FAILURE);
   }
 
-  char * user_name = pw->pw_name;
-  /* char * user_pw   = pw->pw_passwd; */
-  /* char * user_info = pw->pw_gecos; */
-  /* char * user_home = pw->pw_dir; */
-  /* char * user_shll = pw->pw_shell; */
-
-  struct group * gr = getgrgid(f_info->st_gid);
   if (gr == NULL) {
     perror("getgrgid");
     exit(EXIT_FAILURE);
   }
 
-  char *  gr_name = gr->gr_name;
-  /* char *  gr_pw   = gr->gr_passwd; */
-  /* char ** gr_mem  = gr->gr_mem; */
+  char * user_name = pw->pw_name;
+  char * gr_name   = gr->gr_name;
 
   /* Truncate user and group names to 8 characters */
   user_name[8] = '\0';
   gr_name[8]   = '\0';
 
+  /* Indicates if file has execute permissions */
   bool exec_b = (mode & S_IXUSR) || (mode & S_IXGRP) || (mode & S_IXOTH);
 
   const char * leftc     = ndir(f_info) ? B_TL : " ";
