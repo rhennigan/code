@@ -103,6 +103,16 @@ static inline char * byte_str(unsigned long b) {
 }
 
 /****************************************************************************/
+inline bool is_dir(const char * path) {
+  struct stat fs;
+  if (lstat(path, &fs) == -1) {
+    perror("lstat");
+    exit(EXIT_FAILURE);
+  }
+  return S_ISDIR(fs.st_mode);
+}
+
+/****************************************************************************/
 list_t * dir_list(const char * dir_name, u_int depth) {
   DIR * dir = opendir(dir_name);
 
