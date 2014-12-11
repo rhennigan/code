@@ -8,6 +8,7 @@ int main(int argc, char *argv[]) {
     list_iter(entries, &display_fs_node);
     list_iter(entries, &free);
     list_dispose(entries);
+
   } else {
     if (strcmp(argv[1], "--setup") == 0) {
       create_test_files();
@@ -17,8 +18,8 @@ int main(int argc, char *argv[]) {
       char ret_dir[1024];
       getcwd(ret_dir, sizeof(ret_dir));
       for (int i = 1; i < argc; i++) {
-        const char * dir_name = argv[i];
-        display_label(dir_name);
+        const char * path = argv[i];
+        display_label(path);
         chdir(dir_name);
         list_t * entries = dir_list(".", 2);
         list_iter(entries, &display_fs_node);
@@ -32,15 +33,7 @@ int main(int argc, char *argv[]) {
   exit(EXIT_SUCCESS);
 }
 
-bool is_file(const char * path) {
-  struct stat file_stat;
-  if (lstat(path, &file_stat) == -1) {
-    perror("lstat");
-    exit(EXIT_FAILURE);
-  }
-  unsigned char type = fix_type(file_stat.st_mode);
-  
-}
+
 
 /* EXAMPLE */
 /*******************************************/
