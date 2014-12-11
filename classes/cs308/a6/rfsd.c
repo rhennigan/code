@@ -18,8 +18,6 @@ int main(int argc, char *argv[]) {
       char ret_dir[1024];
       getcwd(ret_dir, sizeof(ret_dir));
       
-      list_t * arg_paths = NULL;
-      
       for (int i = 1; i < argc; i++) {
         if (is_dir(argv[i])) {
           const char * dir_name = argv[i];
@@ -31,6 +29,9 @@ int main(int argc, char *argv[]) {
           list_dispose(entries);
           chdir(ret_dir);
           printf("\n");
+
+        } else {
+          
         }
       }
     }
