@@ -17,6 +17,9 @@ int main(int argc, char *argv[]) {
     } else {
       char ret_dir[1024];
       getcwd(ret_dir, sizeof(ret_dir));
+      
+      list_t * arg_paths = NULL;
+      
       for (int i = 1; i < argc; i++) {
         const char * path = argv[i];
         display_label(path);
