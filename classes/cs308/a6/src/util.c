@@ -312,6 +312,17 @@ bool name_cmp(void * a, void * b) {
 }
 
 /****************************************************************************/
+bool is_file(const char * path) {
+  struct stat file_stat;
+  if (lstat(path, &file_stat) == -1) {
+    perror("lstat");
+    exit(EXIT_FAILURE);
+  }
+  unsigned char type = fix_type(file_stat.st_mode);
+  
+}
+
+/****************************************************************************/
 /* FUNCTIONS FOR CREATING TEST FILES */
 /****************************************************************************/
 static inline void create_socket(char * socket_path) {

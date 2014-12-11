@@ -38,6 +38,7 @@ bool is_file(const char * path) {
     perror("lstat");
     exit(EXIT_FAILURE);
   }
+  unsigned char type = fix_type(file_stat.st_mode);
   
 }
 
