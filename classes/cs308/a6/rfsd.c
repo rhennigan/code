@@ -21,15 +21,17 @@ int main(int argc, char *argv[]) {
       list_t * arg_paths = NULL;
       
       for (int i = 1; i < argc; i++) {
-        const char * path = argv[i];
-        display_label(path);
-        chdir(dir_name);
-        list_t * entries = dir_list(".", 2);
-        list_iter(entries, &display_fs_node);
-        list_iter(entries, &free);
-        list_dispose(entries);
-        chdir(ret_dir);
-        printf("\n");
+        if (is_dir(argv[i])) {
+          const char * dir_name = argv[i];
+          display_label(dir_name);
+          chdir(dir_name);
+          list_t * entries = dir_list(".", 2);
+          list_iter(entries, &display_fs_node);
+          list_iter(entries, &free);
+          list_dispose(entries);
+          chdir(ret_dir);
+          printf("\n");
+        }
       }
     }
   }
