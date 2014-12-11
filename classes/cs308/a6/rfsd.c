@@ -33,6 +33,11 @@ int main(int argc, char *argv[]) {
 }
 
 bool is_file(const char * path) {
+  struct stat file_stat;
+  if (lstat(path, &file_stat) == -1) {
+    perror("lstat");
+    exit(EXIT_FAILURE);
+  }
   
 }
 
