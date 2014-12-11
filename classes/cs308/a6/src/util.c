@@ -298,7 +298,7 @@ void display_fs_node(void * node_addr) {
                            type_colors[type];
 
   /* Strip leading characters in path name to show only base file name */
-  size_t b = 2;
+  size_t b = 0;
   for (u_int i = b; i < strlen(f_info->name); i++)
     b = f_info->name[i] == '/' ? i + 1: b;
 
