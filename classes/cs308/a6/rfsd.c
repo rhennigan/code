@@ -1,5 +1,7 @@
 #include "lib/util.h"
 
+bool is_file(const char * path);
+
 int main(int argc, char *argv[]) {
   if (argc == 1) {
     list_t * entries = dir_list(".", 0);
