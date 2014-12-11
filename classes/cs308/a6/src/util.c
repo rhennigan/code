@@ -184,6 +184,43 @@ list_t * dir_list(const char * dir_name, u_int depth) {
 }
 
 /****************************************************************************/
+fsys_node_t * file_list(const char * name, u_int depth) {
+  struct stat file_stat;
+  fsys_node_t * f_info = malloc(sizeof(fsys_node_t));
+
+  if (f_info == NULL) {
+    perror("malloc");
+    exit(EXIT_FAILURE);
+  }
+
+  if (lstat(name, &file_stat) == -1) {
+    perror("lstat");
+    exit(EXIT_FAILURE);
+  }
+
+  snprintf(f_info->name, NAME_MAX, "%s", name);
+
+  f_info->type       = fix_type(file_stat.st_mode);
+  f_info->depth      = depth;
+  f_info->dev_maj    = major(file_stat.st_dev);
+  f_info->dev_min    = minor(file_stat.st_dev);
+  f_info->st_ino     = file_stat.st_ino;
+  f_info->st_mode    = file_stat.st_mode;
+  f_info->st_nlink   = file_stat.st_nlink;
+  f_info->st_uid     = file_stat.st_uid;
+  f_info->st_gid     = file_stat.st_gid;
+  f_info->st_rdev    = file_stat.st_rdev;
+  f_info->st_size    = file_stat.st_size;
+  f_info->st_blksize = file_stat.st_blksize;
+  f_info->st_blocks  = file_stat.st_blocks;
+  f_info->atime      = file_stat.st_atime;
+  f_info->mtime      = file_stat.st_mtime;
+  f_info->ctime      = file_stat.st_ctime;
+
+  return f_info;
+}
+
+/****************************************************************************/
 const char * vert = B_VT C_OFF;
 
 static inline void pv(size_t depth) {
