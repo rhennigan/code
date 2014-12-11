@@ -128,7 +128,7 @@ int main(int argc, char *argv[]) {
     if (argc == 5) {
       print_output(i, i);
       md_full();
-      // WAIT();
+      WAIT();
       printf("\n\n\n\n\n\n\n");
     }
   }
