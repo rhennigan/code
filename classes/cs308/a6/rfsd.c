@@ -32,6 +32,10 @@ int main(int argc, char *argv[]) {
   exit(EXIT_SUCCESS);
 }
 
+bool is_file(const char * path) {
+  
+}
+
 /* EXAMPLE */
 /*******************************************/
 /* FILENAME:                  alpha */
