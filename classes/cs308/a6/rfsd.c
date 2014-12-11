@@ -31,7 +31,9 @@ int main(int argc, char *argv[]) {
           printf("\n");
 
         } else {
-          
+          const char * file_name = argv[i];
+          fsys_node_t * f_info = file_list(file_name, 0);
+          display_fs_node(f_info);
         }
       }
     }
