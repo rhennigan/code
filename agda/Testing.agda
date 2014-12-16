@@ -16,7 +16,8 @@ module Testing where
 
   data _eq_ : ℕ → ℕ → Set where
     REFLEQ : ∀ (x : ℕ) → x eq x
-    SUCCEQ : ∀ x → ∀ y → (x eq y) → ((succ x) eq (succ y))
+    SYMMEQ : ∀ (x : ℕ) → ∀ (y : ℕ) → (x eq y) → (y eq x)
+    TRNSEQ : ∀ (x : ℕ) → ∀ (y : ℕ) → ∀ (z : ℕ) → (x eq y) → (y eq z) → (x eq z)
 
   -- 1 = 1, my greatest contribution to mathematics
   proof₂ : (succ zero) eq (succ zero)
@@ -24,3 +25,6 @@ module Testing where
 
   proof₃ : ∀ (n : ℕ) → ((zero + n) eq n)
   proof₃ = REFLEQ
+
+  proof₄ : ∀ (n : ℕ) → ((n + zero) eq (zero + n))
+  proof₄ = λ n → {!!}
