@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo $(git status -s | sed 's/?? //g') >> .gitignore
+git status -s | grep '??' | sed 's/?? //g' >> .gitignore
