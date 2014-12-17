@@ -6,6 +6,6 @@
 
 int main(int argc, char *argv[])
 {
-  
+  char date[11], time[9];
   return 0;
 }
