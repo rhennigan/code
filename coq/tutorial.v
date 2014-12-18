@@ -13,3 +13,4 @@ Section Minimal_Logic.
     Proof.
       intros.
       split.
+      hint.
