@@ -7,22 +7,14 @@ Section Minimal_Logic.
     auto.
   Qed.
 
-  Print distr_imp.
-
-  Lemma conj_commutative : A /\ B -> B /\ A.
+  Lemma conj_commutative : B /\ A -> A /\ B.
   Proof.
-    intros.
-    elim H.
+    intro    suppose_B_and_A.
+    destruct suppose_B_and_A as [B_True A_True].
     split.
-    apply H1.
-    apply H0.
+    apply    A_True.
+    apply    B_True.
   Qed.
-
-  Print conj_commutative.
-
-  Check conj.
-
-  Print conj.
 
   Lemma disj_commutative : A \/ B -> B \/ A.
   Proof.
