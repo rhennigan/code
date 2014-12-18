@@ -26,5 +26,5 @@ Print conj.
 
 Lemma disj_commutative : A \/ B -> B \/ A.
 Proof.
-intros.
-elim H.
+intro supposeAorB.
+elim supposeAorB.
