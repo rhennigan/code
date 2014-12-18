@@ -101,4 +101,4 @@ Infix "iff" := if_and_only_if (at level 95, no associativity).
 
 Variables P Q : Prop.
 
-Print (if_and_only_if P Q).
+Eval compute in (P iff Q).
