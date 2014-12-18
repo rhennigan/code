@@ -71,11 +71,8 @@ Print contrapositive.
 
 Lemma neg_implication : ~ (A -> B) -> (A /\ ~ B).
 Proof.
-  apply contrapositive.
   intro suppose_not_A_im_B.
-  
   unfold not in suppose_not_A_im_B.
-  intros.
   split.
 
 Lemma Peirce_neg_alt : ~ (((A -> B) -> A) -> A) -> False.
