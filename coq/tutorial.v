@@ -73,7 +73,8 @@ Lemma neg_implication : ~ (A -> B) -> A /\ ~ B.
 Proof.
   intro suppose_not_A_im_B.
   unfold not in suppose_not_A_im_B.
-  
+  split.
+  assert (A /\ ~ B).
 
 Lemma Peirce_neg_alt : ~ (((A -> B) -> A) -> A) -> False.
 Proof.
