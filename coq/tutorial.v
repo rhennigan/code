@@ -29,13 +29,13 @@ Section Minimal_Logic.
     intros suppose_A_Prop suppose_B_Prop. (* Let A, B be propositions *)
     intro  suppose_A_or_B.                (* Assume A \/ B, need to show B \/ A *)
     elim   suppose_A_or_B.                (* Break into two subproofs: A -> B \/ A and B -> B \/ A *)
-    intro supposeA.                 (* Assume A to prove first part, need to show B \/ A *)
-    clear supposeAorB.              (* Don't need this assumption anymore *)
+    intro  suppose_A_True.                 (* Assume A to prove first part, need to show B \/ A *)
+    clear  suppose_A_or_B.              (* Don't need this assumption anymore *)
     right.                          (* Disjunction derivation rule for A in B \/ A *)
-    apply supposeA.                 (* A -> A, so done with first part *)
-    intro supposeB.                 (* Assume B to show B \/ A *)
+    apply suppose_A_True.                 (* A -> A, so done with first part *)
+    intro suppose_B_True.                 (* Assume B to show B \/ A *)
     left.                           (* This time we need the left side *)
-    apply supposeB.                 (* Done with second part, proof complete *)
+    apply suppose_B_True.                 (* Done with second part, proof complete *)
   Qed.
 
   Print disj_commutative.
