@@ -12,6 +12,7 @@ Section Minimal_Logic.
   Lemma conj_commutative : forall A B C : Prop, B /\ A -> A /\ B.
   Proof.
     intros   suppose_A_Prop suppose_B_Prop.
+    intro    suppose_B_and_A_Prop.
     intro    suppose_B_and_A.
     destruct suppose_B_and_A as [B_True A_True].
     split.
