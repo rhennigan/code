@@ -36,3 +36,6 @@ intro supposeB.
 left.
 apply supposeB.
 Qed.
+
+Check disj_commutative.
+Print disj_commutative.
