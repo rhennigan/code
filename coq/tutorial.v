@@ -141,4 +141,4 @@ Section Predicate_calculus.
     Lemma paradox : (forall x : D, P x) -> exists a, P a.
     Proof.
       intro Hx.
-      apply Hx with d.
+      exists d.
