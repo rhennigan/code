@@ -128,4 +128,5 @@ Section Predicate_calculus.
     elim x_Rlinked.
     intro y.
     intro Rxy.
+    apply R_transitive with y.
     
