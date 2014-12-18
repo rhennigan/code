@@ -148,6 +148,6 @@ Section Predicate_calculus.
 
     Hypothesis LEM : forall A : Prop, A \/ ~ A.
     Lemma smullyan : exists x : D, P x -> forall x : D, P x.
-      exists x.
+      elim (LEM (exists x : D, ~ P x)).
       
   End Predicate_paradox.
