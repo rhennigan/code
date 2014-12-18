@@ -10,3 +10,4 @@ Section Minimal_Logic.
   Print distr_imp.
 
   Lemma conj_commutative : A /\ B -> B /\ A.
+    Proof.
