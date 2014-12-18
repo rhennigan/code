@@ -40,3 +40,9 @@ Qed.
 Check disj_commutative.
 Print disj_commutative.
 
+Lemma disj_commutative2 : B \/ A -> A \/ B.
+Proof.
+  tauto.
+Qed.
+
+Print disj_commutative2.
