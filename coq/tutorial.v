@@ -81,8 +81,9 @@ Section Minimal_Logic.
 Print contrapositive.
 
 Lemma neg_implication : 
-  forall A B : Prop, ~ (A -> B) -> A /\ ~ B.
+  (forall A B : Prop, ~ (A -> B) -> A /\ ~ B) -> False.
 Proof.
+  intro.
   intros A_Prop B_Prop.
   intro Not_A_im_B.
   unfold not in Not_A_im_B.
