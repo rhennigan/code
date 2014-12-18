@@ -122,4 +122,6 @@ Section Predicate_calculus.
   Hypothesis R_transitive : 
     forall x y z : D, R x y /\ R y z -> R x z.
 
-Check R_transitive.
+  Lemma refl_if : forall x : D, (exists y, R x y) -> R x x.
+  Proof.
+    
