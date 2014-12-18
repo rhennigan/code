@@ -10,7 +10,11 @@ Section Minimal_Logic.
   Print distr_imp.
 
   Lemma conj_commutative : A /\ B -> B /\ A.
-    Proof.
-      intros.
-      elim H.
-      split.
+  Proof.
+    intros.
+    elim H.
+    split.
+    apply H1.
+    apply H0.
+  Qed.
+
