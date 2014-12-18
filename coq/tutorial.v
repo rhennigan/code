@@ -126,5 +126,6 @@ Section Predicate_calculus.
   Proof.
     intros x x_Rlinked.
     elim x_Rlinked.
-    intros y Rxy.
+    intro y.
+    intro Rxy.
     
