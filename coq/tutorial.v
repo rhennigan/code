@@ -1,13 +1,13 @@
 Section Minimal_Logic.
 
-  Variables A B C : Prop.
+  (* Variables A B C : Prop. *)
 
-  Lemma distr_imp : (A -> B -> C) -> (A -> B) -> A -> C.
+  Lemma distr_imp : forall A B C : Prop, (A -> B -> C) -> (A -> B) -> A -> C.
   Proof.
     auto.
   Qed.
 
-  Lemma conj_commutative : B /\ A -> A /\ B.
+  Lemma conj_commutative : forall A B C : Prop, B /\ A -> A /\ B.
   Proof.
     intro    suppose_B_and_A.
     destruct suppose_B_and_A as [B_True A_True].
@@ -18,7 +18,7 @@ Section Minimal_Logic.
 
   Print conj_commutative.
 
-  Lemma disj_commutative : A \/ B -> B \/ A.
+  Lemma disj_commutative : forall A B C : Prop, A \/ B -> B \/ A.
   Proof.
     intro supposeAorB.              (* Assume A \/ B, need to show B \/ A *)
     elim supposeAorB.               (* Break into two subproofs: A -> B \/ A and B -> B \/ A *)
