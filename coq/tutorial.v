@@ -12,3 +12,4 @@ Section Minimal_Logic.
   Lemma conj_commutative : A /\ B -> B /\ A.
     Proof.
       intros.
+      split.
