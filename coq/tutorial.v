@@ -31,22 +31,3 @@ Section Minimal_Logic.
 
   Check disj_commutative.
   Print disj_commutative.
-
-  Lemma disj_commutative2 : B \/ A -> A \/ B.
-  Proof.
-    tauto.
-  Qed.
-
-  Print disj_commutative2.
-
-  Lemma conj_commutative2 : B /\ A -> A /\ B.
-  Proof.
-    intro    suppose_B_and_A.
-    destruct suppose_B_and_A as [B_True A_True].
-    split.
-    apply    A_True.
-    apply    B_True.
-  Qed.
-
-  Check conj_commutative2.
-  Print conj_commutative2.
