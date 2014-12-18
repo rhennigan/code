@@ -50,7 +50,7 @@ Print disj_commutative2.
 Lemma conj_commutative2 : B /\ A -> A /\ B.
 Proof.
 intro suppose_B_and_A.
-elim suppose_B_and_A.
+destruct suppose_B_and_A as [B_True A_True].
 split.
 destruct suppose_B_and_A as [B_True A_True].
 apply B_True.
