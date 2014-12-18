@@ -65,7 +65,8 @@ Section Minimal_Logic.
 
   Print Peirce_neg.
 
-  Theorem contrapositive : forall P Q : Prop, (P -> Q) -> (~ Q -> ~ P).
+  Theorem contrapositive : 
+    forall P Q : Prop, (P -> Q) -> (~ Q -> ~ P).
   Proof.
     intros suppose_P_Prop suppose_Q_Prop.
     intros suppose_P_im_Q.
@@ -79,9 +80,10 @@ Section Minimal_Logic.
   
 Print contrapositive.
 
-Lemma neg_implication : ~ (A -> B) -> A /\ ~ B.
+Lemma neg_implication : 
+  forall A B : Prop, ~ (A -> B) -> A /\ ~ B.
 Proof.
-  intro suppose_not_A_im_B.
+  intro A_im_B_Not_True.
   unfold not in suppose_not_A_im_B.
   apply contrapositive in suppose_not_A_im_B.
   
