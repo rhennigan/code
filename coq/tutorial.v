@@ -26,9 +26,9 @@ Section Minimal_Logic.
   Lemma disj_commutative : 
     forall A B : Prop, A \/ B -> B \/ A.
   Proof.
-    intros suppose_A_Prop suppose_B_Prop.
-    intro supposeAorB.              (* Assume A \/ B, need to show B \/ A *)
-    elim supposeAorB.               (* Break into two subproofs: A -> B \/ A and B -> B \/ A *)
+    intros suppose_A_Prop suppose_B_Prop. (* Let A, B be propositions *)
+    intro  suppose_A_or_B.                (* Assume A \/ B, need to show B \/ A *)
+    elim   suppose_A_or_B.                (* Break into two subproofs: A -> B \/ A and B -> B \/ A *)
     intro supposeA.                 (* Assume A to prove first part, need to show B \/ A *)
     clear supposeAorB.              (* Don't need this assumption anymore *)
     right.                          (* Disjunction derivation rule for A in B \/ A *)
