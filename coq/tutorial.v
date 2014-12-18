@@ -23,3 +23,8 @@ Print conj_commutative.
 Check conj.
 
 Print conj.
+
+Lemma disj_commutative : A \/ B -> B \/ A.
+Proof.
+intros.
+elim H.
