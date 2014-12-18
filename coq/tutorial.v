@@ -78,29 +78,18 @@ Section Minimal_Logic.
     exact suppose_P_True.
   Qed.
   
-Print contrapositive.
+  Print contrapositive.
 
-Lemma neg_implication : 
-  forall A B : Prop, ~ (~ (A -> B) -> A /\ ~ B) -> False.
-Proof.
-  tauto.
-Qed.
+  Lemma neg_implication : 
+    forall A B : Prop, ~ (~ (A -> B) -> A /\ ~ B) -> False.
+  Proof.
+    tauto.
+  Qed.
 
-Print neg_implication.
+  Print neg_implication.
 
-Lemma Peirce_neg_alt : ~ (((A -> B) -> A) -> A) -> False.
-Proof.
-  tauto.
-
-Peirce_neg = 
-fun H : ~ (((A -> B) -> A) -> A) =>
-(fun H0 : False => (fun H1 : False => False_ind False H1) H0)
-  ((fun H0 : ((A -> B) -> A) -> A => H H0)
-     ((fun (H0 : A -> False) (H1 : (A -> B) -> A) =>
-       (fun H2 : A =>
-        (fun H3 : A => (fun H4 : False => False_ind A H4) (H0 H3)) H2)
-         ((fun H2 : A -> B => H1 H2)
-            ((fun (_ : B -> A) (H3 : A) =>
-              (fun H4 : False => False_ind B H4) (H0 H3))
-               (fun y : B => H1 (fun _ : A => y)))))
-        (fun y : A => H (fun _ : (A -> B) -> A => y))))
+  Lemma Peirce_neg_alt : 
+    forall A B : Prop, ~ (((A -> B) -> A) -> A) -> False.
+  Proof.
+    tauto.
+  Qed.
