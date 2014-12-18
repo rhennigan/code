@@ -18,3 +18,4 @@ Section Minimal_Logic.
     apply H0.
   Qed.
 
+Print conj_commutative.
