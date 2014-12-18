@@ -31,8 +31,8 @@ elim supposeAorB.               (* Break into two subproofs: A -> B \/ A and B -
 intro supposeA.                 (* Assume A to prove first part, need to show B \/ A *)
 clear supposeAorB.              (* Don't need this assumption anymore *)
 right.                          (* Disjunction derivation rule for A in B \/ A *)
-apply supposeA.                 (* Since A -> A, then A -> B \/ A *)
-intro supposeB.
+apply supposeA.                 (* A -> A, so done with first part *)
+intro supposeB.                 (* Assume B to show B \/ A *)
 left.
 apply supposeB.
 Qed.
