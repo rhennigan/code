@@ -107,3 +107,8 @@ Section Minimal_Logic.
     intro AtoB_and_BtoA.
     exact AtoB_and_BtoA.
   Qed.
+
+  Section Predicate_calculus.
+
+    Variable D : Set.
+
