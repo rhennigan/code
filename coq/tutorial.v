@@ -19,3 +19,7 @@ Section Minimal_Logic.
   Qed.
 
 Print conj_commutative.
+
+Check conj.
+
+Print conj.
