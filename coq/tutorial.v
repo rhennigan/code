@@ -31,7 +31,7 @@ elim supposeAorB.               (* Break into two subproofs: A -> B \/ A and B -
 intro supposeA.                 (* Assume A to prove first part, need to show B \/ A *)
 clear supposeAorB.              (* Don't need this assumption anymore *)
 right.                          (* Elimination rule to get A from B \/ A *)
-apply supposeA.
+apply supposeA.                 (* Since A -> A, then A -> B \/ A *)
 intro supposeB.
 left.
 apply supposeB.
