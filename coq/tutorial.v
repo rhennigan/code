@@ -30,7 +30,7 @@ intro supposeAorB.              (* Assume A or B *)
 elim supposeAorB.               (* Prove two subproofs: A -> B \/ A and B -> B \/ A *)
 intro supposeA.                 (* Assume A to prove first part *)
 clear supposeAorB.              (* Don't need this assumption anymore *)
-right.                          (*  *)
+right.                          (* A gave us B \/ A, so  *)
 apply supposeA.
 intro supposeB.
 left.
