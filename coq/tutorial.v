@@ -89,8 +89,7 @@ Proof.
   split.
   assert (~ B_Prop).
   intro.
-  intro.
-  rewrite (contrapositive (A_Prop -> B_Prop)) in Not_A_im_B.
+  apply (contrapositive (A_Prop -> B_Prop)) in Not_A_im_B.
 
 Lemma Peirce_neg_alt : ~ (((A -> B) -> A) -> A) -> False.
 Proof.
