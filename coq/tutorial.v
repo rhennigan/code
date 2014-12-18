@@ -50,6 +50,7 @@ Section Minimal_Logic.
   Lemma conj_commutative2 : B /\ A -> A /\ B.
   Proof.
     intro suppose_B_and_A.
+    Check suppose_B_and_A.
     destruct suppose_B_and_A as [B_True A_True].
     split.
     apply A_True.
