@@ -51,4 +51,4 @@ Lemma conj_commutative2 : B /\ A -> A /\ B.
 Proof.
 intro suppose_B_and_A.
 elim suppose_B_and_A.
-split [ U V ].
+destruct suppose_B_and_A as [B0 A0].
