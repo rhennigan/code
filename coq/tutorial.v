@@ -116,4 +116,10 @@ Section Predicate_calculus.
 
   Variable R : D -> D -> Prop.
 
-  Hypothesis R_symmetric : forall x y : D, R x y -> R y x.
+  Hypothesis R_symmetric : 
+    forall x y : D, R x y -> R y x.
+
+  Hypothesis R_transitive : 
+    forall x y z : D, R x y /\ R y z -> R x z.
+
+Check R_transitive.
