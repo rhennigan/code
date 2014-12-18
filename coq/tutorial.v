@@ -130,4 +130,5 @@ Section Predicate_calculus.
     intro Rxy.
     apply R_symmetric in Rxy.
     apply R_transitive with y.
+    split.
     
