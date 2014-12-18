@@ -33,8 +33,8 @@ clear supposeAorB.              (* Don't need this assumption anymore *)
 right.                          (* Disjunction derivation rule for A in B \/ A *)
 apply supposeA.                 (* A -> A, so done with first part *)
 intro supposeB.                 (* Assume B to show B \/ A *)
-left.
-apply supposeB.
+left.                           (* This time we need the left side *)
+apply supposeB.                 (* Done with second part, proof complete *)
 Qed.
 
 Check disj_commutative.
