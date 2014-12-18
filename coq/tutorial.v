@@ -126,4 +126,5 @@ Section Predicate_calculus.
   Proof.
     intro x.
     intro y_exists.
+    elim y_exists.
     apply R_symmetric.
