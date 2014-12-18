@@ -94,9 +94,11 @@ Section Minimal_Logic.
     tauto.
   Qed.
 
-Definition _iff_ (P Q : Prop) :=
+Definition if_and_only_if (P Q : Prop) :=
   (P -> Q) /\ (Q -> P).
+
+Infix "iff" := if_and_only_if (at level 95, no associativity).
 
 Variables P Q : Prop.
 
-Check P iff Q.
+Print (P iff Q).
