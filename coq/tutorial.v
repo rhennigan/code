@@ -108,7 +108,12 @@ Section Minimal_Logic.
     exact AtoB_and_BtoA.
   Qed.
 
-  Section Predicate_calculus.
+End Minimal_Logic.
 
-    Variable D : Set.
+Section Predicate_calculus.
 
+  Variable D : Set.
+
+  Variable R : D -> D -> Prop.
+
+  Hypothesis R_symmetric : forall x y : D, R x y -> R y x.
