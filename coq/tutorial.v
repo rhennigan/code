@@ -131,4 +131,10 @@ Section Predicate_calculus.
     apply R_symmetric in Rxy.
     apply R_transitive with y.
     split.
+    apply R_symmetric.
+    exact Rxy.
+    exact Rxy.
+Qed.
+
+Print refl_if.
     
