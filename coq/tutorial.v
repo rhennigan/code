@@ -28,3 +28,4 @@ Lemma disj_commutative : A \/ B -> B \/ A.
 Proof.
 intro supposeAorB.
 elim supposeAorB.
+intro supposeA.
