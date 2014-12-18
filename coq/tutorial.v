@@ -151,5 +151,6 @@ Section Predicate_calculus.
       elim (LEM (exists x : D, ~ P x)).
       intro x_Not_P.
       elim x_Not_P.
+      intro x.
       
   End Predicate_paradox.
