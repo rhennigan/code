@@ -113,16 +113,11 @@ End Minimal_Logic.
 Section Predicate_calculus.
 
   Variable D : Set.
-
   Variable R : D -> D -> Prop.
 
   Section R_sym_trans.
-    Hypothesis R_symmetric : 
-      forall x y : D, R x y -> R y x.
-
-    Hypothesis R_transitive : 
-      forall x y z : D, R x y /\ R y z -> R x z.
-
+    Hypothesis R_symmetric : forall x y : D, R x y -> R y x.
+    Hypothesis R_transitive : forall x y z : D, R x y /\ R y z -> R x z.
     Lemma refl_if : forall x : D, (exists y, R x y) -> R x x.
     Proof.
       intros x x_Rlinked.
@@ -138,5 +133,4 @@ Section Predicate_calculus.
     Qed.
 
     Print refl_if.
-    
   End R_sym_trans.
