@@ -31,3 +31,8 @@ elim supposeAorB.
 intro supposeA.
 clear supposeAorB.
 right.
+apply supposeA.
+intro supposeB.
+left.
+apply supposeB.
+Qed.
