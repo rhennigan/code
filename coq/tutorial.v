@@ -87,7 +87,7 @@ Proof.
   intro Not_A_im_B.
   unfold not in Not_A_im_B.
   
-  apply contrapositive in Not_A_im_B.
+  apply (contrapositive A_Prop B_Prop) in Not_A_im_B.
   
   apply contrapositive in suppose_not_A_im_B.
 
