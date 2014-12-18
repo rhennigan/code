@@ -74,6 +74,8 @@ Proof.
   intro suppose_not_A_im_B.
   unfold not in suppose_not_A_im_B.
   split.
+  assert B.
+  intro.
 
 Lemma Peirce_neg_alt : ~ (((A -> B) -> A) -> A) -> False.
 Proof.
