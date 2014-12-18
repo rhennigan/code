@@ -127,4 +127,5 @@ Section Predicate_calculus.
     intro x.
     intro y_exists.
     elim y_exists.
+    intro z.
     apply R_symmetric.
