@@ -55,26 +55,27 @@ Section Minimal_Logic.
     apply C_True.
   Qed.
 
-Print conj_distributive.
+  Print conj_distributive.
 
-Lemma Peirce_neg : ~ (((A -> B) -> A) -> A) -> False.
-Proof.
-  tauto.
-Qed.
+  Lemma Peirce_neg : 
+    forall A B : Prop, ~ (((A -> B) -> A) -> A) -> False.
+  Proof.
+    tauto.
+  Qed.
 
-Print Peirce_neg.
+  Print Peirce_neg.
 
-Theorem contrapositive : forall P Q : Prop, (P -> Q) -> (~ Q -> ~ P).
-Proof.
-  intros suppose_P_Prop suppose_Q_Prop.
-  intros suppose_P_im_Q.
-  intros suppose_Q_False.
-  intros suppose_P_True.
-  apply suppose_P_im_Q in suppose_P_True.
-  unfold not in suppose_Q_False.
-  apply suppose_Q_False in suppose_P_True.
-  exact suppose_P_True.
-Qed.
+  Theorem contrapositive : forall P Q : Prop, (P -> Q) -> (~ Q -> ~ P).
+  Proof.
+    intros suppose_P_Prop suppose_Q_Prop.
+    intros suppose_P_im_Q.
+    intros suppose_Q_False.
+    intros suppose_P_True.
+    apply suppose_P_im_Q in suppose_P_True.
+    unfold not in suppose_Q_False.
+    apply suppose_Q_False in suppose_P_True.
+    exact suppose_P_True.
+  Qed.
   
 Print contrapositive.
 
