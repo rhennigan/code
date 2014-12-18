@@ -71,9 +71,10 @@ Print contrapositive.
 
 Lemma neg_implication : ~ (A -> B) -> A /\ ~ B.
 Proof.
-  assert contrapositive.
   intro suppose_not_A_im_B.
   unfold not in suppose_not_A_im_B.
+  apply contrapositive in suppose_not_A_im_B.
+  
   apply contrapositive in suppose_not_A_im_B.
 
 Lemma Peirce_neg_alt : ~ (((A -> B) -> A) -> A) -> False.
