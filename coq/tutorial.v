@@ -94,8 +94,10 @@ Section Minimal_Logic.
     tauto.
   Qed.
 
-Definition if_then (P Q : Prop) :=
+Definition If_Then_test (P Q : Prop) :=
   P -> Q.
+
+Notation "’If’ c1 ’then’ c2" := (If_Then_test c1 c2).
 
 Notation "`IF` P `then` Q" := (if_then P Q).
 
