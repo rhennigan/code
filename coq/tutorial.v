@@ -85,7 +85,7 @@ Lemma neg_implication :
 Proof.
   intros A_Prop B_Prop.
   intro Not_A_im_B.
-  unfold not in Not_A_im_B.
+  (* unfold not in Not_A_im_B. *)
   apply (contrapositive (A_Prop -> B_Prop)) in Not_A_im_B.
 
 Lemma Peirce_neg_alt : ~ (((A -> B) -> A) -> A) -> False.
