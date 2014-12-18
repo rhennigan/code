@@ -97,7 +97,7 @@ Section Minimal_Logic.
 Definition if_then (P Q : Prop) :=
   P -> Q.
 
-Notation "'if' P 'then' Q" := (if_then P Q).
+Notation "`IF` P `then` Q" := (if_then P Q).
 
 Definition if_and_only_if (P Q : Prop) :=
   (P -> Q) /\ (Q -> P).
