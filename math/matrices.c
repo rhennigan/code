@@ -16,6 +16,7 @@
 #define _PPREC_ "3"
 #define _SPREC_ "3"
 
+
 matrix_t mat_add(matrix_t m1, matrix_t m2) {
   if (_DEBUG_) check_fail(m1.cols == m2.cols && m1.rows == m2.rows, "mat_add",  
                           "matrices must have the same dimensions");

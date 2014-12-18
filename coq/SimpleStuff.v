@@ -32,13 +32,12 @@ Check nat.
 
 Section Declaration.
 
-Variable n : nat.
 
-Hypothesis Pos_n : (gt n 0).
+(* Hypothesis Pos_n : (gt n 0). *)
 
-Lemma sn_eq_sn (n m : nat) : (NatEq n m) -> (NatEq (S n) (S m)).
-Proof.
-  intros.
+(* Lemma sn_eq_sn (n m : nat) : (NatEq n m) -> (NatEq (S n) (S m)). *)
+(* Proof. *)
+(*   intros. *)
 
 
 Lemma zero_plus (n : nat) : NatEq (plus Z n) n.
@@ -52,6 +51,8 @@ Proof.
   induction n.
   simpl.
   apply NatRefl.
+  simpl.
+  auto.
   apply NatRefl.
 
 
