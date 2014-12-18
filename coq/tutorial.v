@@ -94,15 +94,16 @@ Section Minimal_Logic.
     tauto.
   Qed.
 
-Definition if_and_only_if (P Q : Prop) :=
-  (P -> Q) /\ (Q -> P).
+  Definition if_and_only_if (P Q : Prop) :=
+    (P -> Q) /\ (Q -> P).
 
-Infix "iff" := if_and_only_if (at level 95, no associativity).
+  Infix "iff" := if_and_only_if (at level 95, no associativity).
 
-Theorem bijection_equivalence :
-  forall A B : Prop, (A -> B) /\ (B -> A) -> (A iff B).
-Proof.
-intros A B.
-unfold if_and_only_if.
-intro AtoB_and_BtoA.
-exact AtoB_and_BtoA.
+  Theorem bijection_equivalence :
+    forall A B : Prop, (A -> B) /\ (B -> A) -> (A iff B).
+  Proof.
+    intros A B.
+    unfold if_and_only_if.
+    intro AtoB_and_BtoA.
+    exact AtoB_and_BtoA.
+  Qed.
