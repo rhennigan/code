@@ -47,3 +47,7 @@ Qed.
 
 Print disj_commutative2.
 
+Lemma conj_commutative2 : B /\ A -> A /\ B.
+Proof.
+intro suppose_B_or_A.
+elim suppose_B_or_A.
