@@ -146,3 +146,5 @@ Section Predicate_calculus.
     Qed.
     Print paradox.
   End Predicate_paradox.
+
+Print all.
