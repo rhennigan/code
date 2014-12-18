@@ -124,6 +124,6 @@ Section Predicate_calculus.
 
   Lemma refl_if : forall x : D, (exists y, R x y) -> R x x.
   Proof.
-    intro Hx.
-    intro Hy.
-    
+    intro x.
+    intro y_exists.
+    apply R_symmetric.
