@@ -152,6 +152,7 @@ Section Predicate_calculus.
       intro x_Not_Px.
       elim x_Not_Px.
       intro y.
-      intro Not_Px.
+      intro Not_Py.
+      
       
   End Predicate_paradox.
