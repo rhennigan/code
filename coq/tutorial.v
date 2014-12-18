@@ -7,6 +7,8 @@ Section Minimal_Logic.
     auto.
   Qed.
 
+  Print distr_imp.
+
   Lemma conj_commutative : forall A B C : Prop, B /\ A -> A /\ B.
   Proof.
     intros   suppose_A_Prop suppose_B_Prop.
