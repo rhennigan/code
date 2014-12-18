@@ -99,6 +99,8 @@ Definition if_and_only_if (P Q : Prop) :=
 
 Infix "iff" := if_and_only_if (at level 95, no associativity).
 
-Variables P Q : Prop.
-
-Eval compute in (P iff Q).
+Theorem bijection_equivalence :
+  forall A B : Prop, (A -> B) /\ (B -> A) -> (A iff B).
+Proof.
+intros A B.
+intro AtoB_and_BtoA.
