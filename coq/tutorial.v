@@ -39,3 +39,9 @@ Qed.
 
 Check disj_commutative.
 Print disj_commutative.
+
+Variables D E F : Prop.
+
+Lemma easy_mode : D \/ E -> E \/ D.
+Proof.
+auto.
