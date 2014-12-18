@@ -83,8 +83,9 @@ Print contrapositive.
 Lemma neg_implication : 
   forall A B : Prop, ~ (A -> B) -> A /\ ~ B.
 Proof.
-  intro A_im_B_Not_True.
-  unfold not in suppose_not_A_im_B.
+  intros A_Prop B_Prop.
+  intro Not_A_im_B.
+  unfold not in Not_A_im_B.
   apply contrapositive in suppose_not_A_im_B.
   
   apply contrapositive in suppose_not_A_im_B.
