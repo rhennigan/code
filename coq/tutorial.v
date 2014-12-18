@@ -29,29 +29,30 @@ Section Minimal_Logic.
     intros suppose_A_Prop suppose_B_Prop. (* Let A, B be propositions *)
     intro  suppose_A_or_B.                (* Assume A \/ B, need to show B \/ A *)
     elim   suppose_A_or_B.                (* Break into two subproofs: A -> B \/ A and B -> B \/ A *)
-    intro  suppose_A_True.                 (* Assume A to prove first part, need to show B \/ A *)
-    clear  suppose_A_or_B.              (* Don't need this assumption anymore *)
-    right.                          (* Disjunction derivation rule for A in B \/ A *)
-    apply suppose_A_True.                 (* A -> A, so done with first part *)
-    intro suppose_B_True.                 (* Assume B to show B \/ A *)
-    left.                           (* This time we need the left side *)
-    apply suppose_B_True.                 (* Done with second part, proof complete *)
+    intro  suppose_A_True.                (* Assume A to prove first part, need to show B \/ A *)
+    clear  suppose_A_or_B.                (* Don't need this assumption anymore *)
+    right.                                (* Disjunction derivation rule for A in B \/ A *)
+    apply  suppose_A_True.                (* A -> A, so done with first part *)
+    intro  suppose_B_True.                (* Assume B to show B \/ A *)
+    left.                                 (* This time we need the left side *)
+    apply  suppose_B_True.                (* Done with second part, proof complete *)
   Qed.
 
   Print disj_commutative.
 
-Lemma conj_distributive : A -> (B /\ C) -> (A -> B) /\ (A -> C).
-Proof.
-  intro suppose_A.
-  intro suppose_B_and_C.
-  destruct suppose_B_and_C as [B_True C_True].
-  clear suppose_A.
-  split.
-  intro suppose_A.
-  apply B_True.
-  intro suppose_A.
-  apply C_True.
-Qed.
+  Lemma conj_distributive : 
+    forall A B C : Prop, A -> (B /\ C) -> (A -> B) /\ (A -> C).
+  Proof.
+    intro suppose_A.
+    intro suppose_B_and_C.
+    destruct suppose_B_and_C as [B_True C_True].
+    clear suppose_A.
+    split.
+    intro suppose_A.
+    apply B_True.
+    intro suppose_A.
+    apply C_True.
+  Qed.
 
 Print conj_distributive.
 
