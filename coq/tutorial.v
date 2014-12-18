@@ -81,18 +81,10 @@ Section Minimal_Logic.
 Print contrapositive.
 
 Lemma neg_implication : 
-  forall A B : Prop, ~ (~ (A -> B) -> A /\ ~ B) -> False.
+  forall A B : Prop, ~ (A -> B) -> A /\ ~ B.
 Proof.
-  intros A_Prop B_Prop.
-  intro H.
-  unfold not in H.
-  intros A_Prop B_Prop.
-  intro Not_A_im_B.
-  unfold not in Not_A_im_B.
-  split.
-  assert (~ B_Prop).
-  intro.
-  apply (contrapositive (A_Prop -> B_Prop)) in Not_A_im_B.
+  tauto.
+Qed.
 
 Lemma Peirce_neg_alt : ~ (((A -> B) -> A) -> A) -> False.
 Proof.
