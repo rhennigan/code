@@ -30,3 +30,4 @@ intro supposeAorB.
 elim supposeAorB.
 intro supposeA.
 clear supposeAorB.
+right.
