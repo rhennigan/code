@@ -52,5 +52,9 @@ Proof.
 intro suppose_B_and_A.
 destruct suppose_B_and_A as [B_True A_True].
 split.
-destruct suppose_B_and_A as [B_True A_True].
+apply A_True.
 apply B_True.
+Qed.
+
+Check conj_commutative2.
+Print conj_commutative2.
