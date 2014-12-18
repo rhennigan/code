@@ -44,14 +44,14 @@ Section Minimal_Logic.
     forall A B C : Prop, A -> (B /\ C) -> (A -> B) /\ (A -> C).
   Proof.
     intros A_Prop B_Prop C_Prop.
-    intros A_True.
-    intro suppose_B_and_C.
-    destruct suppose_B_and_C as [B_True C_True].
-    clear suppose_A.
+    intro A_True.
+    intro B_and_C_True.
+    destruct B_and_C_True as [B_True C_True].
+    clear A_True.
     split.
-    intro suppose_A.
+    intro A_True.
     apply B_True.
-    intro suppose_A.
+    intro A_True.
     apply C_True.
   Qed.
 
