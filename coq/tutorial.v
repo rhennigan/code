@@ -43,7 +43,8 @@ Section Minimal_Logic.
   Lemma conj_distributive : 
     forall A B C : Prop, A -> (B /\ C) -> (A -> B) /\ (A -> C).
   Proof.
-    intro suppose_A.
+    intros A_Prop B_Prop C_Prop.
+    intros A_True.
     intro suppose_B_and_C.
     destruct suppose_B_and_C as [B_True C_True].
     clear suppose_A.
