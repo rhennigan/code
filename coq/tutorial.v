@@ -40,8 +40,3 @@ Qed.
 Check disj_commutative.
 Print disj_commutative.
 
-Lemma easy_mode : B \/ A -> A \/ B.
-Proof.
-intro.
-elim H.
-auto.
