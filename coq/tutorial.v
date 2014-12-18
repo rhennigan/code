@@ -134,7 +134,7 @@ Section Predicate_calculus.
     apply R_symmetric.
     exact Rxy.
     exact Rxy.
-Qed.
+  Qed.
 
-Print refl_if.
-    
+  Print refl_if.
+  
