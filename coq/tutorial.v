@@ -8,3 +8,5 @@ Section Minimal_Logic.
   Qed.
 
   Print distr_imp.
+
+  Lemma conj_commutative : A /\ B -> B ∧ A.
