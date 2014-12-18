@@ -145,6 +145,8 @@ Section Predicate_calculus.
       apply Hx.
     Qed.
     Print paradox.
-  End Predicate_paradox.
 
-Print all.
+    Hypothesis LEM : forall A : Prop, A \/ ~ A.
+    Lemma smullyan : exists x : D, P x -> forall x : D, P x.
+      
+  End Predicate_paradox.
