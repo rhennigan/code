@@ -134,3 +134,11 @@ Section Predicate_calculus.
 
     Print refl_if.
   End R_sym_trans.
+
+  Section Predicate_paradox.
+    Variable P : D -> Prop.
+    Variable d : D.
+    Lemma paradox : (forall x : D, P x) -> exists a, P a.
+    Proof.
+      intro Hx.
+      intro.
