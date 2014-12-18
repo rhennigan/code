@@ -88,7 +88,7 @@ Proof.
   unfold not in Not_A_im_B.
   split.
   assert (~ B_Prop).
-  unfold not in B_Prop.
+  intro.
   intro.
   rewrite (contrapositive (A_Prop -> B_Prop)) in Not_A_im_B.
 
