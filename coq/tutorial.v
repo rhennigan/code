@@ -142,3 +142,7 @@ Section Predicate_calculus.
     Proof.
       intro Hx.
       exists d.
+      apply Hx.
+    Qed.
+    Print paradox.
+  End Predicate_paradox.
