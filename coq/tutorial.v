@@ -40,8 +40,8 @@ Qed.
 Check disj_commutative.
 Print disj_commutative.
 
-Variables D E F : Prop.
-
-Lemma easy_mode : D \/ E -> E \/ D.
+Lemma easy_mode : B \/ A -> A \/ B.
 Proof.
+intro.
+elim H.
 auto.
