@@ -156,6 +156,5 @@ Section Predicate_calculus.
       exists y.
       intro P_y.
       absurd (P y).
-      trivial.
       
   End Predicate_paradox.
