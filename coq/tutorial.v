@@ -111,11 +111,9 @@ Section Minimal_Logic.
 End Minimal_Logic.
 
 Section Predicate_calculus.
-
-  Variable D : Set.
-  Variable R : D -> D -> Prop.
-
   Section R_sym_trans.
+    Variable D : Set.
+    Variable R : D -> D -> Prop.
     Hypothesis R_symmetric : forall x y : D, R x y -> R y x.
     Hypothesis R_transitive : forall x y z : D, R x y /\ R y z -> R x z.
     Lemma refl_if : forall x : D, (exists y, R x y) -> R x x.
@@ -141,7 +139,7 @@ Section Predicate_calculus.
     Lemma univ_implies_existence_paradox : 
       (forall X : Set, forall P : X -> Prop, forall x : X, (forall y : X, P y) -> (exists z : X, P z)).
     Proof.
-      intro.
+      intro X_Set.
       intro HDset.
       intro HP.
       intro Hd.
