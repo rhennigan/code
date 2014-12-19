@@ -134,8 +134,8 @@ Section Predicate_calculus.
   End R_sym_trans.
 
   Section Predicate_paradox.
-    Lemma univ_implies_existence : 
-      (forall X : Set, forall P : X -> Prop, forall x : X, (forall y : X, P y) -> (exists z : X, P z)).
+    Theorem univ_implies_existence : 
+      forall X : Set, forall P : X -> Prop, forall x : X, (forall y : X, P y) -> (exists z : X, P z).
     Proof.
       intro X_Set.
       intro P_X_to_Prop.
@@ -144,7 +144,7 @@ Section Predicate_calculus.
       exists x_in_X.
       apply H_univ.
     Qed.
-    Print univ_implies_existence.
+    Check univ_implies_existence.
 
     Hypothesis LEM : forall A : Prop, A \/ ~ A.
     Lemma smullyan : exists x : D, P x -> forall x : D, P x.
