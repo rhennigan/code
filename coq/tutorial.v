@@ -145,6 +145,7 @@ Section Predicate_calculus.
       apply H_univ.
     Qed.
     Check univ_implies_existence.
+    Print univ_implies_existence.
 
     Hypothesis LEM : forall A : Prop, A \/ ~ A.
     Lemma smullyan : exists x : D, P x -> forall x : D, P x.
