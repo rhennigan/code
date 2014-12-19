@@ -157,5 +157,4 @@ Section Predicate_calculus.
       intro P_y.
       absurd (P y).
       
-      
   End Predicate_paradox.
