@@ -140,6 +140,10 @@ Section Predicate_calculus.
       (forall X : Set, forall P : X -> Prop, forall x : X, (forall y : X, P y) -> (exists z : X, P z)).
     Proof.
       intro X_Set.
+      intro P_X_to_Prop.
+      intro x_in_X.
+      intro H_univ.
+      intro.
       intro HDset.
       intro HP.
       intro Hd.
