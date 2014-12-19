@@ -143,13 +143,8 @@ Section Predicate_calculus.
       intro P_X_to_Prop.
       intro x_in_X.
       intro H_univ.
-      intro.
-      intro HDset.
-      intro HP.
-      intro Hd.
-      intro Hx.
-      exists d.
-      apply Hx.
+      exists x_in_X.
+      apply H_univ.
     Qed.
     Print univ_implies_existence_paradox.
 
