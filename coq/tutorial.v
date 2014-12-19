@@ -135,7 +135,8 @@ Section Predicate_calculus.
 
   Section Predicate_paradox.
     Theorem univ_implies_existence : 
-      forall X : Set, forall P : X -> Prop, forall x : X, (forall y : X, P y) -> (exists z : X, P z).
+      forall X : Set, forall P : X -> Prop, forall x : X, 
+        (forall y : X, P y) -> (exists z : X, P z).
     Proof.
       intro X_Set.
       intro P_X_to_Prop.
