@@ -139,11 +139,12 @@ Section Predicate_calculus.
     (* Variable P : D -> Prop. *)
     (* Variable d : D. *)
     Lemma univ_implies_existence_paradox : 
-      (forall D : Set, forall P : D -> Prop, forall d : D, (forall x : D, P x) -> (exists a : D, P a)).
+      (forall X : Set, forall P : X -> Prop, forall x : X, (forall y : X, P y) -> (exists z : X, P z)).
     Proof.
+      intro.
       intro HDset.
       intro HP.
-      intro HD.
+      intro Hd.
       intro Hx.
       exists d.
       apply Hx.
