@@ -138,13 +138,13 @@ Section Predicate_calculus.
   Section Predicate_paradox.
     Variable P : D -> Prop.
     Variable d : D.
-    Lemma paradox : (forall x : D, P x) -> (exists a : D, P a).
+    Lemma univ_implies_existence_paradox : (forall x : D, P x) -> (exists a : D, P a).
     Proof.
       intro Hx.
       exists d.
       apply Hx.
     Qed.
-    Print paradox.
+    Print univ_implies_existence_paradox.
 
     Hypothesis LEM : forall A : Prop, A \/ ~ A.
     Lemma smullyan : exists x : D, P x -> forall x : D, P x.
