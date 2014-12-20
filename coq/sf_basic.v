@@ -285,3 +285,15 @@ Proof.
 Qed.
 
 Print plus_0_n.
+
+Theorem plus_1_L : forall n : nat, 1 + n = S n.
+Proof.
+  intro.
+  compute.
+  reflexivity.
+Qed.
+
+Theorem mult_1_L : forall n : nat, 1 * n = n.
+Proof.
+  intro.
+  compute.
