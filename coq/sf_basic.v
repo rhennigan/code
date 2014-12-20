@@ -240,3 +240,10 @@ Fixpoint bgt_nat (a b : nat) : bool :=
 Eval compute in (blt_nat 5 3).
 Eval compute in (blt_nat 3 3).
 Eval compute in (blt_nat 2 3).
+
+Fixpoint bleq_nat (a b : nat) : bool :=
+  match a, b with
+    | S x, S y => bleq_nat x y
+    | _, O => true
+    | _, _ => false
+  end.
