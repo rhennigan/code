@@ -460,3 +460,5 @@ Definition bin_inc (b : bin) : bin :=
   end.
 
 Eval compute in (bin_inc (bin_inc O)).
+Eval compute in (bin_inc (bin_inc (bin_inc O))).
+Eval compute in (bin_inc (bin_inc (bin_inc (bin_inc O)))).
