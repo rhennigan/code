@@ -126,4 +126,8 @@ Proof.
   {
     simpl.
     rewrite <- IHk.
+    reflexivity.
   }
+Qed.
+
+
