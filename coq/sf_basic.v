@@ -486,20 +486,7 @@ Fixpoint nat_to_bin (n : nat) : bin :=
 
 Theorem bin_correct : forall n : nat, forall b : bin, (nat_to_bin n = b) -> (bin_to_nat b = n).
 Proof.
-  intros n b.
-  intro H.
-  induction [n, b].
-  induction n as [| m].
-  {
-    intro H.
-    rewrite <- H.
-    simpl.
-    reflexivity.
-  }
-  {
-    intro H.
-    auto.
-  }
+  simple induction n.
 
 Fixpoint countdown (n c : nat) : nat := 
   match n with
