@@ -157,7 +157,7 @@ Module NatTest2.
 
   Fixpoint mult (a b : nat) : nat :=
     match a, b with
-      | O, y => y
+      | O, y => O
       | S x, y => plus y (mult x y)
     end.
 
