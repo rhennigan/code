@@ -493,11 +493,15 @@ Proof.
       auto.
     }
     {
+      intro b2.
+      intro H2.
+      intro H3.
+      rewrite <- H3.
       auto.
     }
   }
   {
-
+    
   }
   
 
