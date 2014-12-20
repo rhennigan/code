@@ -211,15 +211,4 @@ Theorem mult_comm :
   forall m n : nat,
     m * n = n * m.
 Proof.
-  intros m n.
-  destruct m as [| m'].
-  Case "m = 0". auto.
-  Case "m = S m'". 
-  {
-    destruct m' as [| k].
-    SCase "m' = 0". simpl. rewrite -> plus_0_r. simpl.
-    SCase "n' = k".
-    rewrite <- IHn'.
-  induction n as [| n'].
-  SCase "n = 0". auto.
-  SCase "n = S n'". simpl.
+  Admitted.
