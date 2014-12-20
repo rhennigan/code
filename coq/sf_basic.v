@@ -299,3 +299,12 @@ Proof.
   compute.
   reflexivity.
 Qed.
+
+Theorem plus_id_example : forall m n : nat, m = n -> m + m = n + n.
+Proof.
+  intro m.
+  intro n.
+  intro m_eq_n.
+  rewrite -> m_eq_n.
+  reflexivity.
+Qed.
