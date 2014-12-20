@@ -372,12 +372,20 @@ Theorem zero_nbeq_plus_1 :
 Proof.
   intro n.
   destruct n as [|m].
-  {                             (* n = 0 *)
+  { (* n = 0 *)
     compute.
     reflexivity.
   }
-  {                             (* n = S m *)
+  { (* n = S m *)
     compute.
     reflexivity.
   }
 Qed.
+
+Theorem identity_fn_applied_twice :
+  forall (f : bool -> bool), (forall (x : bool), f x = x) -> forall (b : bool), f (f b) = b.
+Proof.
+  intro f.
+  intro H_fx_eq_x.
+  intro b.
+  rewrite -> H_fx_eq_x.
