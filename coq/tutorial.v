@@ -140,9 +140,9 @@ Section Predicate_calculus.
     exists d.
     apply H_univ.
   Qed.
-End Predicate_calculus.
 
-Check weird.
-Print weird.
-
-Section Predicate_calculus.
+  Variables P Q : nat -> Prop.
+  Variable R : nat -> nat -> Prop.
+  Lemma PQR : forall x y : nat, (R x x -> P x -> Q x) -> P x -> R x y -> Q x.
+  Proof.
+    intro.
