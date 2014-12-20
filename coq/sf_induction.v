@@ -216,6 +216,6 @@ Proof.
 Theorem evenb_n_oddb_Sn : forall n : nat, evenb n = negb (evenb (S n)).
 Proof.
   intro n.
-  destruct n.
-  simpl. reflexivity.
-  simpl.
+  induction n as [| n'].
+  Case "n = 0". simpl. reflexivity.
+  Case "n = n'". simpl.
