@@ -491,9 +491,14 @@ Proof.
   {
     simpl.
     intro.
+    rewrite <- H.
+    compute.
+    reflexivity.
   }
   {
-
+    simpl.
+    intro.
+    
   }
 
 Theorem bin_correct : forall n : nat, bin_to_nat (nat_to_bin n) = n.
