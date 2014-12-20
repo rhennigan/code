@@ -309,3 +309,5 @@ Proof.
   reflexivity.
 Qed.
 
+Theorem plus_id_exercise : 
+  forall m n o : nat, n = m -> m = o -> n + m = m + o.
