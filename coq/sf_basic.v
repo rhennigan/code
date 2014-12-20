@@ -356,3 +356,9 @@ Theorem negb_involutive :
 Proof.
   intro b.
   destruct b.
+  {
+    compute.
+    reflexivity.
+  }
+  {
+    compute.
