@@ -219,8 +219,12 @@ Proof.
   induction n as [| n'].
   Case "n = 0". simpl. reflexivity.
   Case "n = n'".
-  induction n' as [| n''].
-  Case "n' = 0". simpl. reflexivity.
+  {
+    induction n' as [| n''].
+    SCase "n' = 0". simpl. reflexivity.
+    SCase "n' = n''". simpl. reflexivity.
+  }
+Qed.
 
 Theorem evenb_n_oddb_Sn : forall n : nat, evenb n = negb (evenb (S n)).
 Proof.
@@ -229,6 +233,7 @@ Proof.
   Case "n = 0". simpl. reflexivity.
   Case "n = n'". 
   {
+    rewrite <- evenb_n_plus_2.
     destruct n' as [| k].
     SCase "n' = 0". simpl. reflexivity.
     SCase "n' = k". 
