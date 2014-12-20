@@ -145,3 +145,12 @@ Proof.
   reflexivity. 
 Qed.
 
+Module NatTest2.
+
+  Fixpoint plus (a b : nat) : nat :=
+    match a, b with
+      | O, y => y
+      | S x, y => S (plus x y)
+    end.
+
+  Eval compute in (plus (S (S (S O))) (S (S O))).
