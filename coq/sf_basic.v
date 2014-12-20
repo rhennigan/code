@@ -449,13 +449,14 @@ Qed.
 
 Inductive bin : Type :=
   | N : bin
-  | O : bin -> bin 
-  | I : bin -> bin.
+  | P1 : bin -> bin 
+  | T2 : bin -> bin.
 
 Definition bin_inc (b : bin) : bin :=
   match b with
-    | O => A O
-    | A n => C n
+    | N => I N
+    | O b => I b
+    | I b => I (bin_inc b)
     | C n => A (C n)
   end.
 
