@@ -139,8 +139,8 @@ Section Predicate_calculus.
     Proof.
       intro X_Set.              (* Let X be a set *)
       intro P_X_to_Prop.        (* Let P be a predicate function of X *)
-      intro x_in_X.             (* Let x be an element of X *)
-      intro H_univ.
+      intro x_in_X.             (* Let x be any element of X *)
+      intro H_univ.             (* Suppose for all y in X, P(y) *)
       exists x_in_X.
       apply H_univ.
     Qed.
