@@ -49,3 +49,13 @@ Section Basics.
       | _, false => true
       | _, _ => false
     end.
+
+Example test_nandb1: (nandb true false) = true.
+Proof.
+
+Example test_nandb2: (nandb false false) = true.
+(* FILL IN HERE *) Admitted.
+Example test_nandb3: (nandb false true) = true.
+(* FILL IN HERE *) Admitted.
+Example test_nandb4: (nandb true true) = false.
+(* FILL IN HERE *) Admitted.
