@@ -234,6 +234,8 @@ Proof.
   Case "n = n'". 
   {
     rewrite <- evenb_n_plus_2.
+    rewrite -> IHn'.
+    simpl.
     destruct n' as [| k].
     SCase "n' = 0". simpl. reflexivity.
     SCase "n' = k". 
