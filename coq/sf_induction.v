@@ -212,3 +212,8 @@ Theorem mult_comm :
     m * n = n * m.
 Proof.
   Admitted.
+
+Theorem evenb_n_oddb_Sn : forall n : nat, evenb n = negb (evenb (S n)).
+Proof.
+  intro n.
+  
