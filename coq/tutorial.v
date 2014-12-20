@@ -153,3 +153,4 @@ Section Predicate_calculus2.
     intro H_Px.
     intro H_Rxy.
     generalize H_Px.
+    cut (R nat_x nat_x).
