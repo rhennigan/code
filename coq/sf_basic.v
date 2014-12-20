@@ -499,7 +499,7 @@ Proof.
       reflexivity.
     }
     {
-      apply IHm.
+      destruct m.
     }
   }
 
