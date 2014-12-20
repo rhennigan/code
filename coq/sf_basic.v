@@ -448,9 +448,9 @@ Proof.
 Qed.
 
 Inductive bin : Type :=
-  | O : bin 
-  | A : bin -> bin
-  | C : bin -> bin.
+  | N : bin
+  | O : bin -> bin 
+  | I : bin -> bin.
 
 Definition bin_inc (b : bin) : bin :=
   match b with
