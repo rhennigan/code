@@ -116,3 +116,9 @@ Module NatTest.
     end.
 
 End NatTest.
+
+Definition minustwo (n : nat) : nat :=
+  match n with
+    | S (S m) => m
+    | _ => O
+  end.
