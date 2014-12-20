@@ -495,6 +495,7 @@ Proof.
   intro m.
   intro H.
   intro b.
+  simpl.
 
 Fixpoint countdown (n c : nat) : nat := 
   match n with
