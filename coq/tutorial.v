@@ -139,8 +139,7 @@ Section Predicate_calculus.
     Proof.
       intro X_Set.              (* Let X be a set *)
       intro P_X_to_Prop.        (* Let P be a predicate function of X *)
-      intro x_in_X.
-      exists x_in_X.
+      intro x_in_X.             (* Let x be an element of X *)
       intro H_univ.
       exists x_in_X.
       apply H_univ.
