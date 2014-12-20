@@ -327,3 +327,11 @@ Proof.
   reflexivity.
 Qed.
 
+Theorem mult_S_1 : forall n m : nat, m = S n -> m * (1 + n) = m * m.
+Proof.
+  intros n m.
+  intro H_m_eq_Sn.
+  rewrite -> plus_1_L.
+  rewrite <- H_m_eq_Sn.
+  reflexivity.
+Qed.
