@@ -73,3 +73,6 @@ Proof.
   simpl.
   reflexivity.
 Qed.
+
+Check test_nandb1.
+Check test_nandb2.
