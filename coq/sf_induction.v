@@ -228,7 +228,11 @@ Qed.
 
 Lemma double_neg : forall b : bool, negb (negb b) = b.
 Proof.
-  intro b. simpl.
+  intro b.
+  destruct b.
+  simpl. reflexivity.
+  simpl. reflexivity.
+Qed.
 
 Theorem evenb_n_oddb_Sn : forall n : nat, evenb n = negb (evenb (S n)).
 Proof.
