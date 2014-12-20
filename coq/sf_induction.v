@@ -111,5 +111,8 @@ Proof.
   Case "n = 0". reflexivity.
   Case "n = S m".
   {
-    rewrite <- IHm.
+    simpl.
+    rewrite -> IHm.
+    reflexivity.
   }
+Qed.
