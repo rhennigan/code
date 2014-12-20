@@ -172,5 +172,5 @@ Proof.
   {
     simpl.
     Check plus_n_Sm.
-    rewrite <- plus_n_Sm.
+    rewrite -> plus_n_Sm.
   }
