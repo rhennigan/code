@@ -220,3 +220,5 @@ Fixpoint beq_nat (a b : nat) : bool :=
     | S x, S y => beq_nat x y
     | _, _ => false
   end.
+
+Eval compute in (beq_nat 5 3).
