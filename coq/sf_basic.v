@@ -293,7 +293,8 @@ Proof.
   reflexivity.
 Qed.
 
-Theorem mult_1_L : forall n : nat, 1 * n = n.
+Theorem mult_1_L : forall n : nat, (mult 1 n) = n.
 Proof.
   intro.
   compute.
+  reflexivity.
