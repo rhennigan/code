@@ -147,4 +147,9 @@ Qed.
 Theorem plus_assoc : forall n m p : nat, n + (m + p) = (n + m) + p.
 Proof.
   intros n m p.
-  
+  induction n as [| k].
+  Case "n = 0". simpl. reflexivity.
+  Case "n = S k".
+  {
+    
+  }
