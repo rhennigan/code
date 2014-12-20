@@ -122,3 +122,6 @@ Definition minustwo (n : nat) : nat :=
     | S (S m) => m
     | _ => O
   end.
+
+Check (S (S (S (S O)))).
+Eval compute in (minustwo 4).
