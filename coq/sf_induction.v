@@ -170,10 +170,5 @@ Proof.
   Case "n = 0". simpl. reflexivity.
   Case "n = S m".
   {
-    induction m as [| k].
-    SCase "m = 0". simpl. reflexivity.
-    SCase "m = S k".
-    {
-      simpl.
-    }
+    
   }
