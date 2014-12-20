@@ -411,3 +411,11 @@ Proof.
     reflexivity.
   }
 Qed.
+
+Theorem andb_eq_orb :
+  forall (b c : bool),
+    (andb b c = orb b c) -> 
+    b = c.
+Proof.
+  intros b c.
+  intro H.
