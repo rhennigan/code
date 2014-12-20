@@ -104,4 +104,11 @@ Proof.
   }
 Qed.
 
-
+Theorem mult_0_r : forall n : nat, n * 0 = 0.
+Proof.
+  intro n.
+  induction n as [| m].
+  Case "n = 0". reflexivity.
+  {
+    reflexivity.
+  }
