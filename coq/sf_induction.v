@@ -218,4 +218,9 @@ Proof.
   intro n.
   induction n as [| n'].
   Case "n = 0". simpl. reflexivity.
-  Case "n = n'". simpl.
+  Case "n = n'". 
+  {
+    destruct n' as [| k].
+    SCase "n' = 0". simpl. reflexivity.
+    SCase "n' = k". simpl.
+  }
