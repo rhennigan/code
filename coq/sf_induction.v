@@ -214,6 +214,7 @@ Proof.
   intros m n.
   destruct m as [|m'].
   Case "m = 0". auto.
+  Case "m = S m'". simpl.
   induction m as [| m'].
   Case "m = 0". auto.
   Case "m = S m'". simpl. rewrite -> IHm'.
