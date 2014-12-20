@@ -213,3 +213,10 @@ Notation "x * y" := (mult x y) (at level 40, left associativity) : nat_scope.
 
 Check ((0 + 1) + 1).
 Eval compute in ((0 + 1) + 1).
+
+Fixpoint beq_nat (a b : nat) : bool :=
+  match a, b with
+    | O, O => true
+    | S x, S y => beq_nat x y
+    | _, _ => false
+  end.
