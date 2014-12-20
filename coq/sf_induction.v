@@ -202,3 +202,4 @@ Theorem plus_swap :
 Proof.
   intros n m p.
   rewrite -> plus_assoc.
+  rewrite -> plus_assoc.
