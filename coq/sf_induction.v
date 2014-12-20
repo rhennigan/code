@@ -201,3 +201,4 @@ Theorem plus_swap :
     n + (m + p) = m + (n + p).
 Proof.
   intros n m p.
+  rewrite -> plus_assoc.
