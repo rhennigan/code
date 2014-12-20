@@ -371,5 +371,12 @@ Theorem zero_nbeq_plus_1 :
     beq_nat 0 (n + 1) = false.
 Proof.
   intro n.
-  Print plus.
   destruct n as [|m].
+  {
+    compute.
+    reflexivity.
+  }{
+    compute.
+    reflexivity.
+  }
+Qed.
