@@ -510,11 +510,12 @@ Proof.
 Abort.
     
 
-Fixpoint countdown (n c : nat) : nat := 
-  match n with
-    | 0 => c
-    | _ => match (evenb n) with
-            | true => countdown (n + 1) (c + 1)
-            | false => countdown (n - 3) (c + 1)
-      end
-  end.
+(* Can't be defined *)
+(* Fixpoint countdown (n c : nat) : nat :=  *)
+(*   match n with *)
+(*     | 0 => c *)
+(*     | _ => match (evenb n) with *)
+(*             | true => countdown (n + 1) (c + 1) *)
+(*             | false => countdown (n - 3) (c + 1) *)
+(*       end *)
+(*   end. *)
