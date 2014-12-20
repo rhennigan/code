@@ -130,4 +130,9 @@ Proof.
   }
 Qed.
 
-
+Theorem plus_comm : forall n m : nat, n + m = m + n.
+Proof.
+  intros n m.
+  induction n as [| k].
+  Case "n = 0". simpl.
+  Check plus_0_r.
