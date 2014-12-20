@@ -174,3 +174,12 @@ Module NatTest2.
 
 End NatTest2.
 
+Fixpoint exp (b p : nat) : nat :=
+  match b, p with
+    | _, O => S O
+    | x, S O => x
+    | x, S y => mult x (exp x y)
+  end.
+
+Eval compute in (exp 2 3).
+Eval compute in (exp 10 4).
