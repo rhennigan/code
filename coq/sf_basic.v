@@ -341,4 +341,4 @@ Theorem plus_1_neq_0_first :
     beq_nat (n + 1) 0 = false.
 Proof.
   intro n.
-  Print beq_nat.
+  destruct n.
