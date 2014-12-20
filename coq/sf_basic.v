@@ -487,7 +487,7 @@ Fixpoint nat_to_bin (n : nat) : bin :=
 Theorem bin_correct : forall n : nat, forall b : bin, (nat_to_bin n = b) -> (bin_to_nat b = n).
 Proof.
   intros n b.
-  induction n.
+  induction n as [| m].
   {
     intro H.
     rewrite <- H.
@@ -496,6 +496,7 @@ Proof.
   }
   {
     intro H.
+    
   }
   
 
