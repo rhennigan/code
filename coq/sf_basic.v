@@ -74,5 +74,14 @@ Proof.
   reflexivity.
 Qed.
 
-Check test_nandb1.
-Check test_nandb2.
+Definition andb3 (a b c : bool) : bool := andb a (andb b c).
+
+Example test_andb31: (andb3 true true true) = true.
+Proof.
+  
+Example test_andb32: (andb3 false true true) = false.
+
+Example test_andb33: (andb3 true false true) = false.
+
+Example test_andb34: (andb3 true true false) = false.
+
