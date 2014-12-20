@@ -155,6 +155,7 @@ Section Predicate_calculus.
       intro P_X_to_Prop.
       intro H_univ.
       intro y_in_X.
+      apply H_univ.
 
 
 
