@@ -218,7 +218,9 @@ Proof.
   intro n.
   induction n as [| n'].
   Case "n = 0". simpl. reflexivity.
-  Case "n = n'". 
+  Case "n = n'".
+  induction n' as [| n''].
+  Case "n' = 0". simpl. reflexivity.
 
 Theorem evenb_n_oddb_Sn : forall n : nat, evenb n = negb (evenb (S n)).
 Proof.
