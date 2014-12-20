@@ -154,3 +154,11 @@ Module NatTest2.
     end.
 
   Eval compute in (plus (S (S (S O))) (S (S O))).
+
+  Fixpoint mult (a b : nat) : nat :=
+    match a, b with
+      | O, y => y
+      | S x, y => plus y (mult x y)
+    end.
+
+  Eval compute in (mult (S (S (S O))) (S (S O))).
