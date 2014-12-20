@@ -479,3 +479,9 @@ Eval compute in (bin_to_nat (bin_inc (bin_inc (bin_inc (bin_inc O))))).
 Eval compute in (bin_to_nat (bin_inc (bin_inc (bin_inc (bin_inc (bin_inc O)))))).
 
 
+Fixpoint countdown (n : nat) : nat := 
+  match n with
+    | O => 0
+    | S O => S (S 0)
+    | S (S n) => n
+  end.
