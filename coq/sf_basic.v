@@ -428,7 +428,10 @@ Proof.
     {
       compute.
       intro H.
+      rewrite -> H.
+      reflexivity.
     }
   }
-  intro H.
-  rewrite H
+  {
+    
+  }
