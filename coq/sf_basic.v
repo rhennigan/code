@@ -494,6 +494,13 @@ Proof.
   }
   {
     induction m.
+    {
+      compute.
+      reflexivity.
+    }
+    {
+      apply IHm.
+    }
   }
 
 Fixpoint countdown (n c : nat) : nat := 
