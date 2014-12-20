@@ -213,4 +213,4 @@ Theorem mult_comm :
 Proof.
   intros m n.
   destruct m as [| m'].
-  Case "m = 0". simpl.
+  Case "m = 0". simpl. rewrite -> mult_0_r. reflexivity.
