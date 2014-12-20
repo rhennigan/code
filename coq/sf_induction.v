@@ -191,5 +191,8 @@ Theorem plus_rearrange :
     (n + m) + (p + q) = (m + n) + (p + q).
 Proof.
   intros n m p q.
-  
-  rewrite -> plus_comm.
+  assert (n + m = m + n) as H.
+  Case "Proof of assertion". rewrite <- plus_comm. reflexivity.
+  rewrite -> H. reflexivity.
+Qed.
+
