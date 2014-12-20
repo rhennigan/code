@@ -214,7 +214,7 @@ Proof.
   intros m n.
   induction n as [| n'].
   Case "n = 0". auto.
-  Case "n = S n'". simpl. rewrite -> IHm'.
+  Case "n = S n'". simpl. rewrite <- IHn'.
   induction n as [| n'].
   SCase "n = 0". auto.
   SCase "n = S n'". simpl.
