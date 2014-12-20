@@ -216,7 +216,8 @@ Proof.
   Case "n = 0". auto.
   Case "n = S n'". 
   {
-    simpl. 
+    destruct n' as [| k].
+    SCase "n' = 0". auto.
     rewrite <- IHn'.
   induction n as [| n'].
   SCase "n = 0". auto.
