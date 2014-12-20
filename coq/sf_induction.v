@@ -135,4 +135,11 @@ Proof.
   intros n m.
   induction n as [| k].
   Case "n = 0". simpl. rewrite -> plus_0_r. reflexivity.
-  Check plus_0_r.
+  Case "n = S k".
+  {
+    simpl. 
+    rewrite <- plus_n_Sm.
+    rewrite <- IHk.
+    reflexivity.
+  }
+Qed.
