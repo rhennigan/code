@@ -171,3 +171,6 @@ Module NatTest2.
     end.
 
   Eval compute in (minus 12 8).
+
+End NatTest2.
+
