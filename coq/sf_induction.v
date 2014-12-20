@@ -134,5 +134,5 @@ Theorem plus_comm : forall n m : nat, n + m = m + n.
 Proof.
   intros n m.
   induction n as [| k].
-  Case "n = 0". simpl.
+  Case "n = 0". simpl. rewrite -> plus_0_r. reflexivity.
   Check plus_0_r.
