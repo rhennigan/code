@@ -170,7 +170,7 @@ Proof.
   Case "n = 0". simpl. reflexivity.
   Case "n = S m".
   {
-    simpl.
     Check plus_n_Sm.
-    rewrite -> plus_n_Sm.
+    rewrite <- plus_n_Sm.
+    simpl.
   }
