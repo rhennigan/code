@@ -147,7 +147,7 @@ Section Predicate_calculus.
     Check univ_implies_existence.
     Print univ_implies_existence.
 
-    Require Import Classical.
+    (* Require Import Classical. *)
     Theorem univ_implies_existence_classical :
       forall X : Set, forall P : X -> Prop, (forall x : X, P x) -> (forall y : X, P y).
     Proof.
