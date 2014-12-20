@@ -42,3 +42,10 @@ Section Basics.
       | _, true => true
       | _, _ => false
     end.
+
+  Definition nandb (a b : bool) : bool :=
+    match a, b with
+      | false, _ => true
+      | _, false => true
+      | _, _ => false
+    end.
