@@ -226,6 +226,10 @@ Proof.
   }
 Qed.
 
+Lemma double_neg : forall b : bool, negb (negb b) = b.
+Proof.
+  intro b. simpl.
+
 Theorem evenb_n_oddb_Sn : forall n : nat, evenb n = negb (evenb (S n)).
 Proof.
   intro n.
@@ -235,7 +239,7 @@ Proof.
   {
     rewrite <- evenb_n_plus_2.
     rewrite -> IHn'.
-    simpl.
+    simpl
     destruct n' as [| k].
     SCase "n' = 0". simpl. reflexivity.
     SCase "n' = k". 
