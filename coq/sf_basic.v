@@ -402,3 +402,12 @@ Proof.
   rewrite -> H_fx_neq_x.
   rewrite -> H_fx_neq_x.
   destruct b.
+  { 
+    compute.
+    reflexivity. 
+  }
+  { 
+    compute.
+    reflexivity.
+  }
+Qed.
