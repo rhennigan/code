@@ -172,5 +172,5 @@ Proof.
   {
     simpl.
     rewrite -> IHm.
-    simpl.
+    
   }
