@@ -452,10 +452,11 @@ Inductive bin : Type :=
   | S0 : bin -> bin 
   | S1 : bin -> bin.
 
-Definition bin_inc (b : bin) : bin :=
+Fixpoint bin_inc (b : bin) : bin :=
   match b with
-    | O => P1 O.
-    | 
+    | O => S1 O
+    | S0 n => S1 n
+    | S1 n => S0 (bin_inc n)
   end.
 
 Eval compute in (bin_inc (bin_inc O)).
