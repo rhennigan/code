@@ -156,6 +156,9 @@ Section Predicate_calculus.
       intro H_univ.
       intro y_in_X.
       apply H_univ.
+    Qed.
+    Check univ_implies_existence_classical.
+    Print univ_implies_existence_classical.
 
 
 
