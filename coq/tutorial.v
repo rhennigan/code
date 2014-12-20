@@ -141,8 +141,8 @@ Section Predicate_calculus.
       intro P_X_to_Prop.        (* Let P be a predicate function of X *)
       intro x_in_X.             (* Let x be any element of X *)
       intro H_univ.             (* Suppose for all y in X, P(y) *)
-      exists x_in_X.
-      apply H_univ.
+      exists x_in_X.                 (* x is an element of X *)
+      apply H_univ.             (*  *)
     Qed.
     Check univ_implies_existence.
     Print univ_implies_existence.
