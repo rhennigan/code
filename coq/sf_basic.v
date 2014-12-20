@@ -418,6 +418,9 @@ Theorem andb_eq_orb :
     b = c.
 Proof.
   intros b c.
-  Print andb.
+  destruct b.
+  {
+    destruct c.
+  }
   intro H.
   rewrite H
