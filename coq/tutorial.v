@@ -149,4 +149,6 @@ Section Predicate_calculus2.
   Proof.
     intro nat_x.
     intro nat_y.
-    intro.
+    intro H_Rxx_Px_Qx.
+    intro H_Px.
+    intro H_Rxy.
