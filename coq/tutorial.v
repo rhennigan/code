@@ -142,7 +142,7 @@ Section Predicate_calculus.
       intro x_in_X.             (* Let x be any element of X *)
       intro H_univ.             (* Suppose for all y in X, P(y) *)
       exists x_in_X.                 (* x is an element of X *)
-      apply H_univ.             (*  *)
+      apply H_univ.             (* Then P(x) *)
     Qed.
     Check univ_implies_existence.
     Print univ_implies_existence.
