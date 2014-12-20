@@ -186,3 +186,8 @@ Proof.
   rewrite -> H. reflexivity.
 Qed.
 
+Theorem plus_rearrange : 
+  forall n m p q : nat, 
+    (n + m) + (p + q) = (m + n) + (p + q).
+Proof.
+  intros n m p q.
