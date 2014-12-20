@@ -478,6 +478,15 @@ Eval compute in (bin_to_nat (bin_inc (bin_inc (bin_inc S0)))).
 Eval compute in (bin_to_nat (bin_inc (bin_inc (bin_inc (bin_inc S0))))).
 Eval compute in (bin_to_nat (bin_inc (bin_inc (bin_inc (bin_inc (bin_inc S0)))))).
 
+Fixpoint nat_to_bin (n : nat) : bin :=
+  match n with
+    | O => S0
+    | S n' => bin_inc (nat_to_bin n')
+  end.
+
+Theorem bin_correct : forall n : nat, bin_to_nat (nat_to_bin n) = n.
+Proof.
+  intro n.
 
 Fixpoint countdown (n c : nat) : nat := 
   match n with
