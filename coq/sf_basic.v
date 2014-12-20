@@ -293,8 +293,9 @@ Proof.
   reflexivity.
 Qed.
 
-Theorem mult_1_L : forall n : nat, 1 × n = n.
+Theorem mult_0_L : forall n : nat, 0 × n = 0.
 Proof.
   intro.
+  compute.
   reflexivity.
-  reflexivity.
+Qed.
