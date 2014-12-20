@@ -454,10 +454,8 @@ Inductive bin : Type :=
 
 Definition bin_inc (b : bin) : bin :=
   match b with
-    | N => I N
-    | O b => I b
-    | I b => I (bin_inc b)
-    | C n => A (C n)
+    | O => P1 O.
+    | 
   end.
 
 Eval compute in (bin_inc (bin_inc O)).
