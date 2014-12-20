@@ -276,3 +276,8 @@ Proof.
   simpl.
   reflexivity.
 Qed.
+
+Theorem plus_0_n : forall n : nat, 0 + n = n.
+Proof.
+  intro.
+  compute.
