@@ -183,3 +183,15 @@ Fixpoint exp (b p : nat) : nat :=
 
 Eval compute in (exp 2 3).
 Eval compute in (exp 10 4).
+
+Fixpoint factorial (n : nat) : nat :=
+  match n with
+    | O => S O
+    | S m => mult (S m) (factorial m)
+  end.
+
+Eval compute in (factorial 1).
+Eval compute in (factorial 2).
+Eval compute in (factorial 3).
+Eval compute in (factorial 4).
+
