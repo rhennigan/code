@@ -389,3 +389,7 @@ Proof.
   intro H_fx_eq_x.
   intro b.
   rewrite -> H_fx_eq_x.
+  rewrite -> H_fx_eq_x.
+  reflexivity.
+Qed.
+
