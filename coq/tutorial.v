@@ -154,3 +154,7 @@ Section Predicate_calculus2.
     intro H_Rxy.
     generalize H_Px.
     cut (R nat_x nat_x).
+    intro H_Rxx.
+    intro H_Px2.
+    apply H_Rxx_Px_Qx.
+    apply H_Rxx.
