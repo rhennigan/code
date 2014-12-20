@@ -71,3 +71,17 @@ Proof.
     }
   }
 Qed.
+
+Theorem plus_0_r : forall n : nat, n + 0 = n.
+Proof.
+  intro n.
+  induction n as [| k].
+  Case "n = 0".
+  {
+    simpl.
+    reflexivity.
+  }
+  Case "n = S k".
+  {
+    simpl.
+  }
