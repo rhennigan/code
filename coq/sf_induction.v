@@ -217,7 +217,8 @@ Proof.
   Case "n = S n'". 
   {
     destruct n' as [| k].
-    SCase "n' = 0". auto.
+    SCase "n' = 0". simpl. Check mult_1_r.
+    SCase "n' = k".
     rewrite <- IHn'.
   induction n as [| n'].
   SCase "n = 0". auto.
