@@ -493,7 +493,8 @@ Proof.
   simpl.
   reflexivity.
   intro m.
-  intro.
+  intro H.
+  intro b.
 
 Fixpoint countdown (n c : nat) : nat := 
   match n with
