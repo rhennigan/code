@@ -195,3 +195,14 @@ Eval compute in (factorial 2).
 Eval compute in (factorial 3).
 Eval compute in (factorial 4).
 
+Example test_factorial1: (factorial 3) = 6.
+Proof.
+  simpl.
+  reflexivity.
+Qed.
+
+Example test_factorial2: (factorial 5) = (mult 10 12).
+Proof.
+  simpl.
+  reflexivity.
+Qed.
