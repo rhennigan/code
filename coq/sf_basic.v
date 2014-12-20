@@ -362,3 +362,6 @@ Proof.
   }
   {
     compute.
+    reflexivity.
+  }
+Qed.
