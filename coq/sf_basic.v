@@ -258,3 +258,21 @@ Fixpoint bge_nat (a b : nat) : bool :=
 Eval compute in (ble_nat 5 3).
 Eval compute in (ble_nat 3 3).
 Eval compute in (ble_nat 2 3).
+
+Example test_blt_nat1: (blt_nat 2 2) = false.
+Proof.
+  simpl.
+  reflexivity.
+Qed.
+
+Example test_blt_nat2: (blt_nat 2 4) = true.
+Proof.
+  simpl.
+  reflexivity.
+Qed.
+
+Example test_blt_nat3: (blt_nat 4 2) = false.
+Proof.
+  simpl.
+  reflexivity.
+Qed.
