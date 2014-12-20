@@ -206,3 +206,11 @@ Proof.
   assert (n + m = m + n) as H. rewrite <- plus_comm. reflexivity.
   rewrite <- H. reflexivity.
 Qed.
+
+Theorem mult_comm :
+  forall m n : nat,
+    m * n = n * m.
+Proof.
+  intros m n.
+  destruct m as [| m'].
+  Case "m = 0". simpl.
