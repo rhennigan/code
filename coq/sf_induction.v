@@ -212,10 +212,12 @@ Theorem mult_comm :
     m * n = n * m.
 Proof.
   intros m n.
-  Print mult.
   induction n as [| n'].
   Case "n = 0". auto.
-  Case "n = S n'". simpl. rewrite <- IHn'.
+  Case "n = S n'". 
+  {
+    simpl. 
+    rewrite <- IHn'.
   induction n as [| n'].
   SCase "n = 0". auto.
   SCase "n = S n'". simpl.
