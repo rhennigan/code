@@ -493,7 +493,14 @@ Proof.
     reflexivity.
   }
   {
-    
+    destruct m as [| k].
+    {
+      compute.
+      reflexivity.
+    }
+    {
+      
+    }
   }
 
 Fixpoint countdown (n c : nat) : nat := 
