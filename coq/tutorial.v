@@ -158,3 +158,5 @@ Section Predicate_calculus2.
     intro H_Px2.
     apply H_Rxx_Px_Qx.
     apply H_Rxx.
+    apply H_Px2.
+    Abort.
