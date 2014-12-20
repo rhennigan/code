@@ -446,3 +446,16 @@ Proof.
     }
   }
 Qed.
+
+Inductive bin : Type :=
+  | O : bin 
+  | A : bin -> bin
+  | C : bin -> bin.
+
+Definition bin_inc (b : bin) : bin :=
+  match b with
+    | O => A O
+    | A n => C n
+    | C n => A (C n)
+  end.
+
