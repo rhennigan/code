@@ -350,3 +350,9 @@ Qed.
 
 Print plus_1_neq_0.
 
+Theorem negb_involutive :
+  forall b : bool,
+    negb (negb b) = b.
+Proof.
+  intro b.
+  destruct b.
