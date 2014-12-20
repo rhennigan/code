@@ -480,8 +480,10 @@ Eval compute in (bin_to_nat (bin_inc (bin_inc (bin_inc (bin_inc (bin_inc S0)))))
 
 
 Fixpoint countdown (n c : nat) : nat := 
-  match n, c with
-    | 0, c' => c'
-    | S O => S (S 0)
-    | S (S n) => n
+  match n with
+    | O | S O => c
+    | _ => match (evenb n) with
+            | true => countdown (plus (S O) n) (plus (S O) c)
+            | false => countdown (minus n (S (S (S O))) (plus (S O) c))
+      end.
   end.
