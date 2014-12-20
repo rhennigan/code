@@ -459,4 +459,4 @@ Definition bin_inc (b : bin) : bin :=
     | C n => A (C n)
   end.
 
-Eval compute in (bin_inc (A (C O))).
+Eval compute in (bin_inc (bin_inc O)).
