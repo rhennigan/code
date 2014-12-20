@@ -17,5 +17,15 @@ Section Basics.
       | _ => monday
     end.
 
-Eval compute in (next_weekday friday).
-Eval compute in (next_weekday (next_weekday saturday)).
+  Eval compute in (next_weekday friday).
+  Eval compute in (next_weekday (next_weekday saturday)).
+
+  Inductive bool : Type :=
+  | true : bool
+  | false : bool.
+
+  Definition negb (b : bool) : bool :=
+    match b with
+      | false => true
+      | true => false
+    end.
