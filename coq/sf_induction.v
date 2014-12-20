@@ -88,3 +88,17 @@ Proof.
     reflexivity.
   }
 Qed.
+
+Theorem minus_diag : forall n : nat, minus n n = 0.
+Proof.
+  intro n.
+  induction n as [| m].
+  Case "n = 0".
+  {
+    reflexivity.
+  }
+  Case "n = S m".
+  {
+    rewrite <- IHm.
+    reflexivity.
+  }
