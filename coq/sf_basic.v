@@ -109,4 +109,8 @@ Module NatTest.
   | Z : nat
   | S : nat -> nat.
   
-  
+  Definition pred (n : nat) : nat :=
+    match n with
+      | Z => Z
+      | S m => m
+    end.
