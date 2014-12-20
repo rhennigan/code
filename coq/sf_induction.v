@@ -173,4 +173,8 @@ Proof.
     Check plus_n_Sm.
     rewrite <- plus_n_Sm.
     simpl.
+    rewrite -> IHm.
+    reflexivity.
   }
+Qed.
+
