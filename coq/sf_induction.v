@@ -226,6 +226,8 @@ Proof.
   }
 Qed.
 
+Print bool.
+
 Lemma double_neg : forall b : bool, negb (negb b) = b.
 Proof.
   intro b.
