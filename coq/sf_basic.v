@@ -29,3 +29,9 @@ Section Basics.
       | false => true
       | true => false
     end.
+
+Definition andb (a b : bool) : bool :=
+  match a, b with
+    | true, true => true
+    | _, _ => false
+  end.
