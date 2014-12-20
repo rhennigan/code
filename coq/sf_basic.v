@@ -484,6 +484,10 @@ Fixpoint nat_to_bin (n : nat) : bin :=
     | S n' => bin_inc (nat_to_bin n')
   end.
 
+Theorem bin_correct : forall n : nat, forall b : bin, (nat_to_bin n = b) -> (bin_to_nat b = n).
+Proof.
+  intros n b.
+
 Theorem bin_correct : forall n : nat, bin_to_nat (nat_to_bin n) = n.
 Proof.
   intro n.
