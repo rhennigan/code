@@ -138,7 +138,7 @@ Section Predicate_calculus.
       forall X : Set, forall P : X -> Prop, (forall x : X, P x) -> (exists y : X, P y).
     Proof.
       intro X_Set.              (* Let X be a set *)
-      intro P_X_to_Prop.
+      intro P_X_to_Prop.        (* Let P be a predicate function of X *)
       intro x_in_X.
       intro H_univ.
       exists x_in_X.
