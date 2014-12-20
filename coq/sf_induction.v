@@ -183,3 +183,6 @@ Proof.
   intros n m.
   assert (H: 0 + n = n).
   Case "Proof of assertion". reflexivity.
+  rewrite -> H. reflexivity.
+Qed.
+
