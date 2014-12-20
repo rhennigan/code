@@ -323,4 +323,7 @@ Theorem plus_id_exercise :
 Theorem mult_0_plus : forall n m : nat, (0 + n) * m = n * m.
 Proof.
   intros n m.
-  Check plus_0_n.
+  rewrite -> plus_0_n.
+  reflexivity.
+Qed.
+
