@@ -109,6 +109,7 @@ Proof.
   intro n.
   induction n as [| m].
   Case "n = 0". reflexivity.
+  Case "n = S m".
   {
-    reflexivity.
+    rewrite <- IHm.
   }
