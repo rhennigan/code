@@ -101,21 +101,20 @@ Section Basics.
   Qed.
 
   Check negb.
-End Basics.
 
-Module NatTest.
+(* Module NatTest. *)
 
-  Inductive nat : Type :=
-  | O : nat
-  | S : nat -> nat.
+(*   Inductive nat : Type := *)
+(*   | O : nat *)
+(*   | S : nat -> nat. *)
   
-  Definition pred (n : nat) : nat :=
-    match n with
-      | O => O
-      | S m => m
-    end.
+(*   Definition pred (n : nat) : nat := *)
+(*     match n with *)
+(*       | O => O *)
+(*       | S m => m *)
+(*     end. *)
 
-End NatTest.
+(* End NatTest. *)
 
 Definition minustwo (n : nat) : nat :=
   match n with
@@ -145,34 +144,34 @@ Proof.
   reflexivity. 
 Qed.
 
-Module NatTest2.
+(* Module NatTest2. *)
 
-  Fixpoint plus (a b : nat) : nat :=
-    match a, b with
-      | O, y => y
-      | S x, y => S (plus x y)
-    end.
+(*   Fixpoint plus (a b : nat) : nat := *)
+(*     match a, b with *)
+(*       | O, y => y *)
+(*       | S x, y => S (plus x y) *)
+(*     end. *)
 
-  Eval compute in (plus (S (S (S O))) (S (S O))).
+(*   Eval compute in (plus (S (S (S O))) (S (S O))). *)
 
-  Fixpoint mult (a b : nat) : nat :=
-    match a, b with
-      | O, y => O
-      | S x, y => plus y (mult x y)
-    end.
+(*   Fixpoint mult (a b : nat) : nat := *)
+(*     match a, b with *)
+(*       | O, y => O *)
+(*       | S x, y => plus y (mult x y) *)
+(*     end. *)
 
-  Eval compute in (mult (S (S (S O))) (S (S O))).
+(*   Eval compute in (mult (S (S (S O))) (S (S O))). *)
 
-  Fixpoint minus (a b : nat) : nat :=
-    match a, b with
-      | O, _ => O
-      | x, O => x
-      | S x, S y => minus x y
-    end.
+(*   Fixpoint minus (a b : nat) : nat := *)
+(*     match a, b with *)
+(*       | O, _ => O *)
+(*       | x, O => x *)
+(*       | S x, S y => minus x y *)
+(*     end. *)
 
-  Eval compute in (minus 12 8).
+(*   Eval compute in (minus 12 8). *)
 
-End NatTest2.
+(* End NatTest2. *)
 
 Fixpoint exp (b p : nat) : nat :=
   match b, p with
@@ -311,14 +310,14 @@ Qed.
 
 Theorem plus_id_exercise : 
   forall m n o : nat, (n = m) -> (m = o) -> (n + m = m + o).
-  Proof.
-    intros m n o.
-    intro H_neqm.
-    intro H_meqo.
-    rewrite -> H_neqm.
-    rewrite <- H_meqo.
-    reflexivity.
-  Qed.
+Proof.
+  intros m n o.
+  intro H_neqm.
+  intro H_meqo.
+  rewrite -> H_neqm.
+  rewrite <- H_meqo.
+  reflexivity.
+Qed.
 
 Theorem mult_0_plus : forall n m : nat, (0 + n) * m = n * m.
 Proof.
@@ -448,9 +447,9 @@ Proof.
 Qed.
 
 Inductive bin : Type :=
-  | S0 : bin
-  | S1 : bin -> bin 
-  | S2 : bin -> bin.
+| S0 : bin
+| S1 : bin -> bin 
+| S2 : bin -> bin.
 
 Fixpoint bin_inc (b : bin) : bin :=
   match b with
@@ -508,7 +507,7 @@ Proof.
     }
   }
 Abort.
-    
+
 
 (* Can't be defined *)
 (* Fixpoint countdown (n c : nat) : nat :=  *)
@@ -519,3 +518,5 @@ Abort.
 (*             | false => countdown (n - 3) (c + 1) *)
 (*       end *)
 (*   end. *)
+
+End Basics.
