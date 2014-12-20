@@ -421,6 +421,14 @@ Proof.
   destruct b.
   {
     destruct c.
+    {
+      compute.
+      reflexivity.
+    }
+    {
+      compute.
+      intro H.
+    }
   }
   intro H.
   rewrite H
