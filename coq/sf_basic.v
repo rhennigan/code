@@ -507,10 +507,8 @@ Proof.
       auto.
     }
   }
-  {
+Abort.
     
-  }
-  
 
 Fixpoint countdown (n c : nat) : nat := 
   match n with
