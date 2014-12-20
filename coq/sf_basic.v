@@ -499,6 +499,13 @@ Proof.
       rewrite <- H3.
       auto.
     }
+    {
+      intro b3.
+      intro H4.
+      intro H5.
+      rewrite <- H5.
+      auto.
+    }
   }
   {
     
