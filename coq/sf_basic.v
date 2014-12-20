@@ -310,4 +310,13 @@ Proof.
 Qed.
 
 Theorem plus_id_exercise : 
-  forall m n o : nat, n = m -> m = o -> n + m = m + o.
+  forall m n o : nat, (n = m) -> (m = o) -> (n + m = m + o).
+  Proof.
+    intros m n o.
+    intro H_neqm.
+    intro H_meqo.
+    rewrite -> H_neqm.
+    rewrite <- H_meqo.
+    reflexivity.
+  Qed.
+
