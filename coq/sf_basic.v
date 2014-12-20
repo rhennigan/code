@@ -401,4 +401,4 @@ Proof.
   intro b.
   rewrite -> H_fx_neq_x.
   rewrite -> H_fx_neq_x.
-  destruct.
+  destruct b.
