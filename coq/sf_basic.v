@@ -335,3 +335,10 @@ Proof.
   rewrite <- H_m_eq_Sn.
   reflexivity.
 Qed.
+
+Theorem plus_1_neq_0_first : 
+  forall n : nat, 
+    beq_nat (n + 1) 0 = false.
+Proof.
+  intro n.
+  Print beq_nat.
