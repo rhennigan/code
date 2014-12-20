@@ -111,9 +111,9 @@ Section Minimal_Logic.
 End Minimal_Logic.
 
 Section Predicate_calculus.
+  Variable D : Set.
+  Variable R : D -> D -> Prop.
   Section R_sym_trans.
-    Variable D : Set.
-    Variable R : D -> D -> Prop.
     Hypothesis R_symmetric : forall x y : D, R x y -> R y x.
     Hypothesis R_transitive : forall x y z : D, R x y /\ R y z -> R x z.
     Lemma refl_if : forall x : D, (exists y, R x y) -> R x x.
@@ -129,49 +129,18 @@ Section Predicate_calculus.
       exact Rxy.
       exact Rxy.
     Qed.
-
     Print refl_if.
   End R_sym_trans.
+  
+  Variable P : D -> Prop.
+  Variable d : D.
+  Lemma weird : (forall x : D, P x) -> (exists a, P a).
+  Proof.
+    intro H_univ.
+    exists d.
+    apply H_univ.
+  Qed.
+End Predicate_calculus.
 
-  Section Predicate_paradox.
-    Theorem univ_implies_existence : 
-      forall X : Set, forall P : X -> Prop, forall x : X, (forall y : X, P y) -> (exists z : X, P z).
-    Proof.
-      intro X_Set.              (* Let X be a set *)
-      intro P_X_to_Prop.        (* Let P be a predicate function of X *)
-      intro x_in_X.             (* Let x be any element of X *)
-      intro H_univ.             (* Suppose for all y in X, P(y) *)
-      exists x_in_X.                 (* x is an element of X *)
-      apply H_univ.             (* Then P(x) *)
-    Qed.
-    Check univ_implies_existence.
-    Print univ_implies_existence.
-
-    (* Require Import Classical. *)
-    Theorem univ_implies_existence_classical :
-      forall X : Set, forall P : X -> Prop, (forall x : X, P x) -> (forall y : X, P y).
-    Proof.
-      intro X_Set.
-      intro P_X_to_Prop.
-      intro H_univ.
-      intro y_in_X.
-      apply H_univ.
-    Qed.
-    Check univ_implies_existence_classical.
-    Print univ_implies_existence_classical.
-
-
-
-
-    Hypothesis LEM : forall A : Prop, A \/ ~ A.
-    Lemma smullyan : exists x : D, P x -> forall x : D, P x.
-      elim (LEM (exists x : D, ~ P x)).
-      intro x_Not_Px.
-      elim x_Not_Px.
-      intro y.
-      intro Not_Py.
-      exists y.
-      intro P_y.
-      absurd (P y).
-      
-  End Predicate_paradox.
+Check weird.
+Print weird.
