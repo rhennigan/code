@@ -229,3 +229,10 @@ Fixpoint blt_nat (a b : nat) : bool :=
     | S x, S y => blt_nat x y
     | _, _ => false
   end.
+
+Fixpoint bgt_nat (a b : nat) : bool :=
+  match a, b with
+    | S _, O => true
+    | S x, S y => bgt_nat x y
+    | _, _ => false
+  end.
