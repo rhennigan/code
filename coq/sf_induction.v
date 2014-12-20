@@ -170,5 +170,5 @@ Proof.
   Case "n = 0". simpl. reflexivity.
   Case "n = S m".
   {
-    
+    simpl.
   }
