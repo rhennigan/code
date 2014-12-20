@@ -134,3 +134,10 @@ Fixpoint evenb (n : nat) : bool :=
   end.
 
 Definition oddb (n : nat) : bool := negb (evenb n).
+
+Example test_oddb1: (oddb (S O)) = true.
+Proof.
+  simpl.
+
+Example test_oddb2: (oddb (S (S (S (S O))))) = false.
+Proof. reflexivity. Qed.
