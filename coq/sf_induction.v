@@ -143,3 +143,5 @@ Proof.
     reflexivity.
   }
 Qed.
+
+Print plus_comm.
