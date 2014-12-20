@@ -499,7 +499,7 @@ Proof.
       reflexivity.
     }
     {
-      
+      destruct k.
     }
   }
 
