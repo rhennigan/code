@@ -191,3 +191,5 @@ Theorem plus_rearrange :
     (n + m) + (p + q) = (m + n) + (p + q).
 Proof.
   intros n m p q.
+  
+  rewrite -> plus_comm.
