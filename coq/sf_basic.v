@@ -106,11 +106,13 @@ End Basics.
 Module NatTest.
 
   Inductive nat : Type :=
-  | Z : nat
+  | O : nat
   | S : nat -> nat.
   
   Definition pred (n : nat) : nat :=
     match n with
-      | Z => Z
+      | O => O
       | S m => m
     end.
+
+End NatTest.
