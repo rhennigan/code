@@ -488,6 +488,7 @@ Theorem bin_correct : forall n : nat, forall b : bin, (nat_to_bin n = b) -> (bin
 Proof.
   intros n b.
   intro H.
+  induction [n, b].
   induction n as [| m].
   {
     intro H.
