@@ -212,7 +212,7 @@ Theorem mult_comm :
     m * n = n * m.
 Proof.
   intros m n.
-  induction n as [| n'].
+  destruct n as [| n'].
   Case "n = 0". auto.
   Case "n = S n'". 
   {
