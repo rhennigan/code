@@ -342,3 +342,10 @@ Theorem plus_1_neq_0_first :
 Proof.
   intro n.
   destruct n as [ | m].
+  compute.
+  reflexivity.
+  compute.
+  reflexivity.
+Qed.
+
+Print plus_1_neq_0_first.
