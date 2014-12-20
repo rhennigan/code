@@ -241,13 +241,20 @@ Eval compute in (blt_nat 5 3).
 Eval compute in (blt_nat 3 3).
 Eval compute in (blt_nat 2 3).
 
-Fixpoint bleq_nat (a b : nat) : bool :=
+Fixpoint ble_nat (a b : nat) : bool :=
   match a, b with
-    | S x, S y => bleq_nat x y
+    | S x, S y => ble_nat x y
     | O, _ => true
     | _, _ => false
   end.
 
-Eval compute in (bleq_nat 5 3).
-Eval compute in (bleq_nat 3 3).
-Eval compute in (bleq_nat 2 3).
+Fixpoint bge_nat (a b : nat) : bool :=
+  match a, b with
+    | S x, S y => bge_nat x y
+    | _, O => true
+    | _, _ => false
+  end.
+
+Eval compute in (ble_nat 5 3).
+Eval compute in (ble_nat 3 3).
+Eval compute in (ble_nat 2 3).
