@@ -372,10 +372,11 @@ Theorem zero_nbeq_plus_1 :
 Proof.
   intro n.
   destruct n as [|m].
-  {
+  {                             (* n = 0 *)
     compute.
     reflexivity.
-  }{
+  }
+  {                             (* n = S m *)
     compute.
     reflexivity.
   }
