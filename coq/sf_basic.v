@@ -101,5 +101,12 @@ Section Basics.
   Qed.
 
   Check negb.
+End Basics.
 
-  Module NatTest.
+Module NatTest.
+
+  Inductive nat : Type :=
+  | Z : nat
+  | S : nat -> nat.
+  
+  
