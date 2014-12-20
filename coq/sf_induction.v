@@ -151,5 +151,8 @@ Proof.
   Case "n = 0". simpl. reflexivity.
   Case "n = S k".
   {
-    
+    simpl.
+    rewrite -> IHk.
+    reflexivity.
   }
+Qed.
