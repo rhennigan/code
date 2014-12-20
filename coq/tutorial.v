@@ -144,3 +144,5 @@ End Predicate_calculus.
 
 Check weird.
 Print weird.
+
+Section Predicate_calculus.
