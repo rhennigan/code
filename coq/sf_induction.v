@@ -84,4 +84,7 @@ Proof.
   Case "n = S k".
   {
     simpl.
+    rewrite -> IHk.
+    reflexivity.
   }
+Qed.
