@@ -336,7 +336,7 @@ Proof.
   reflexivity.
 Qed.
 
-Theorem plus_1_neq_0_first : 
+Theorem plus_1_neq_0 : 
   forall n : nat, 
     beq_nat (n + 1) 0 = false.
 Proof.
@@ -348,4 +348,5 @@ Proof.
   reflexivity.
 Qed.
 
-Print plus_1_neq_0_first.
+Print plus_1_neq_0.
+
