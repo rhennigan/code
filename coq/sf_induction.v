@@ -213,6 +213,13 @@ Theorem mult_comm :
 Proof.
   Admitted.
 
+Lemma evenb_n_plus_2 : forall n : nat, evenb n = evenb (S (S n)).
+Proof.
+  intro n.
+  induction n as [| n'].
+  Case "n = 0". simpl. reflexivity.
+  Case "n = n'". 
+
 Theorem evenb_n_oddb_Sn : forall n : nat, evenb n = negb (evenb (S n)).
 Proof.
   intro n.
@@ -222,5 +229,5 @@ Proof.
   {
     destruct n' as [| k].
     SCase "n' = 0". simpl. reflexivity.
-    SCase "n' = k". simpl.
+    SCase "n' = k". 
   }
