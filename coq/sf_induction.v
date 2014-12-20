@@ -215,3 +215,6 @@ Proof.
   induction m as [| m'].
   Case "m = 0". auto.
   Case "m = S m'". simpl. rewrite -> IHm'.
+  induction n as [| n'].
+  SCase "n = 0". auto.
+  SCase "n = S n'". simpl.
