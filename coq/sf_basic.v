@@ -484,6 +484,6 @@ Fixpoint countdown (n c : nat) : nat :=
     | O | S O => c
     | _ => match (evenb n) with
             | true => countdown (plus (S O) n) (plus (S O) c)
-            | false => countdown (minus n (S (S (S O))) (plus (S O) c))
-      end.
+            | false => countdown (minus n (S (S (S O)))) (plus (S O) c)
+      end
   end.
