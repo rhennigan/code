@@ -487,6 +487,14 @@ Fixpoint nat_to_bin (n : nat) : bin :=
 Theorem bin_correct : forall n : nat, forall b : bin, (nat_to_bin n = b) -> (bin_to_nat b = n).
 Proof.
   intros n b.
+  destruct n as [ | m].
+  {
+    simpl.
+    intro.
+  }
+  {
+
+  }
 
 Theorem bin_correct : forall n : nat, bin_to_nat (nat_to_bin n) = n.
 Proof.
