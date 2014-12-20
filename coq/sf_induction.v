@@ -226,7 +226,7 @@ Proof.
   }
 Qed.
 
-Print bool.
+Print nat.
 
 Lemma double_neg : forall b : bool, negb (negb b) = b.
 Proof.
