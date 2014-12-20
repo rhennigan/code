@@ -433,5 +433,16 @@ Proof.
     }
   }
   {
-    
+    destruct c.
+    {
+      compute.
+      intro H.
+      rewrite -> H.
+      reflexivity.
+    }
+    {
+      compute.
+      reflexivity.
+    }
   }
+Qed.
