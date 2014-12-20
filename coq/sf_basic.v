@@ -35,3 +35,10 @@ Definition andb (a b : bool) : bool :=
     | true, true => true
     | _, _ => false
   end.
+
+Definition orb (a b : bool) : bool :=
+  match a, b with
+    | true, _ => true
+    | _, true => true
+    | _, _ => false
+  end.
