@@ -137,7 +137,11 @@ Definition oddb (n : nat) : bool := negb (evenb n).
 
 Example test_oddb1: (oddb (S O)) = true.
 Proof.
-  simpl.
+  reflexivity.
+Qed.
 
 Example test_oddb2: (oddb (S (S (S (S O))))) = false.
-Proof. reflexivity. Qed.
+Proof. 
+  reflexivity. 
+Qed.
+
