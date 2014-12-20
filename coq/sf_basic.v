@@ -471,3 +471,9 @@ Fixpoint bin_to_nat (b : bin) : nat :=
     | S1 n => 1 + (bin_to_nat n)
     | S0 n => 2 + 2 * (bin_to_nat n)
   end.
+
+Eval compute in (bin_to_nat O).
+Eval compute in (bin_to_nat (bin_to_nat O)).
+Eval compute in (bin_to_nat (bin_to_nat (bin_to_nat O))).
+Eval compute in (bin_inc (bin_inc (bin_inc (bin_inc O)))).
+Eval compute in (bin_inc (bin_inc (bin_inc (bin_inc (bin_inc O))))).
