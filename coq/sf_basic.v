@@ -126,9 +126,11 @@ Definition minustwo (n : nat) : nat :=
 Check (S (S (S (S O)))).
 Eval compute in (minustwo 4).
 
-Definition evenb (n : nat) : bool :=
+Fixpoint evenb (n : nat) : bool :=
   match n with
     | O => true
-    | S _ => false
+    | S O => false
     | S (S m) => evenb m
   end.
+
+Definition oddb (n : nat) : bool := negb (evenb n).
