@@ -156,3 +156,21 @@ Proof.
     reflexivity.
   }
 Qed.
+
+Fixpoint double (n : nat) : nat :=
+  match n with
+    | O => O
+    | S m => S (S (double m))
+  end.
+
+Lemma double_plus : forall n : nat, double n = n + n.
+Proof.
+  intro n.
+  induction n as [| m].
+  Case "n = 0". simpl. reflexivity.
+  Case "n = S m".
+  {
+    simpl.
+    rewrite -> IHm.
+    simpl.
+  }
