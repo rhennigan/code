@@ -344,4 +344,5 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
+    rewrite -> snoc_rev.
   }
