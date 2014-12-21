@@ -31,4 +31,6 @@ Theorem surjective_pairing' :
   forall p : natprod, p = (fst p, snd p).
 Proof.
   intro p.
-  
+  destruct p as [n m].
+  reflexivity.
+Qed.
