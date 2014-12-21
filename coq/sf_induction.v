@@ -212,8 +212,13 @@ Theorem mult_comm :
     m * n = n * m.
 Proof.
   intros m n.
-  induction n as [|n'].
-  Case "n = 0". simpl.
+  induction m as [|m'].
+  Case "m = 0". simpl. rewrite -> mult_0_r. reflexivity.
+  Case "m = S m'".
+  {
+    simpl.
+  }
+Qed.
 
 Lemma evenb_n_plus_2 : forall n : nat, evenb n = evenb (S (S n)).
 Proof.
