@@ -464,7 +464,12 @@ Proof.
   }
 Qed.
 
-Eval compute in (nat_to_bin 16).
+Theorem nat_bin_comm :
+  forall b : bin, nat_to_bin (bin_to_nat b) = b.
+Proof.
+  intro b.
+  induction b as [|b1|b2].
+  Case "b = S0". simpl. reflexivity.
 
 Theorem nat_bin_equivalence : 
   forall n : nat, forall b : bin, (nat_to_bin n = b) <-> (bin_to_nat b = n).
