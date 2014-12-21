@@ -258,9 +258,7 @@ Proof.
       reflexivity.
     }
     rewrite -> H2.
-    
-  }
-Abort.
+    Admitted.
 
 Theorem mult_comm :
   forall m n : nat,
