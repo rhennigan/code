@@ -207,12 +207,22 @@ Proof.
   rewrite <- H. reflexivity.
 Qed.
 
+Lemma mult_1_r :
+  forall m : nat, m * 1 = m.
+Proof.
+  intro m.
+  induction m as [|m'].
+  Case "m = 0". simpl.
+
 Lemma mult_m_Sn :
   forall m n : nat, m * (S n) = m + m * n.
 Proof.
   intros m n.
   induction n as [|n'].
-  Case "n = 0". simpl. rewrite -> mult_0_r.
+  Case "n = 0". 
+  {
+    simpl. 
+    rewrite -> mult_0_r.
 
 Theorem mult_comm :
   forall m n : nat,
