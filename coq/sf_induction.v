@@ -474,7 +474,8 @@ Proof.
   {
     simpl.
     rewrite -> plus_0_r.
-    
+    replace (S1 b1) with (S1 (nat_to_bin (bin_to_nat b1))).
+    simpl.
   }
   Case "b = S2 b2".
   {
