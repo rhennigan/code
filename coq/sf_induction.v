@@ -225,7 +225,7 @@ Proof.
       reflexivity.
     }
     rewrite -> H1.
-    simpl.
+    rewrite -> IHm'.
   }
 Qed.
 
