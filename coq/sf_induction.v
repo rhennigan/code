@@ -505,6 +505,8 @@ Proof.
       simpl.
       rewrite -> bin_nat_comm.
       reflexivity.
+      compute.
+      reflexivity.
     }
     SCase "b = S2 b2".
     {
