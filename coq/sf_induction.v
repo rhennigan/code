@@ -224,7 +224,12 @@ Qed.
 Lemma mult_factor_S : forall m n : nat, S n × S m = S n + S n × m.
 Proof.
   intros m n.
-  simpl.
+  induction n as [|n'].
+  Case "n = 0". simpl. rewrite -> plus_0_r. reflexivity.
+  Case "n = S n'".
+  {
+    
+  }
 
 Theorem mult_comm :
   forall m n : nat,
