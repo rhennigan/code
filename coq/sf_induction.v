@@ -302,22 +302,78 @@ Theorem mult_1_l : forall n : nat, 1 * n = n.
 Proof.
   intro n.
   simpl.
+  rewrite -> plus_0_r.
+  reflexivity.
+Qed.
 
 Theorem all3_spec : forall b c : bool,
-    orb
-      (andb b c)
-      (orb (negb b)
-               (negb c))
-  = true.
+    orb (andb b c) (orb (negb b) (negb c)) = true.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros b c.
+  destruct b.
+  Case "b = false".
+  {
+    destruct c.
+    SCase "c = false". simpl. reflexivity.
+    SCase "c = true". simpl. reflexivity.
+  }
+  Case "b = true".
+  {
+    destruct c.
+    SCase "c = false". simpl. reflexivity.
+    SCase "c = true". simpl. reflexivity.
+  }
+Qed.
 
 Theorem mult_plus_distr_r : forall n m p : nat,
   (n + m) * p = (n * p) + (m * p).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n m p.
+  induction p as [| p'].
+  Case "p = 0". 
+  {
+    simpl.
+    rewrite -> mult_0_r.
+    rewrite -> mult_0_r.
+    rewrite -> mult_0_r.
+    simpl. reflexivity.
+  }
+  Case "p = S p'".
+  {
+    rewrite -> mult_comm. 
+    simpl. 
+    rewrite -> mult_comm.
+    rewrite -> IHp'.
+    assert (H1 : n × S p' = S p' × n).
+    SSCase "Proof of H1". rewrite -> mult_comm. reflexivity.
+    assert (H2 : m × S p' = S p' × m).
+    SSCase "Proof of H2". rewrite -> mult_comm. reflexivity.
+    rewrite -> H1. simpl.
+    rewrite -> H2. simpl.
+    Check plus_assoc.
+    rewrite -> plus_assoc.
+    rewrite -> plus_assoc.
+    assert (H3 : p' × n = n × p').
+    SSCase "Proof of H3". rewrite -> mult_comm. reflexivity.
+    rewrite -> H3.
+    assert (H4 : p' × m = m × p').
+    SSCase "Proof of H4". rewrite -> mult_comm. reflexivity.
+    rewrite -> H4.
+    assert (H5 : n + n × p' + m = n + m + n × p').
+    SSCase "Proof of H5". 
+    {
+      rewrite -> plus_comm. 
+      rewrite -> plus_assoc.
+      assert (H6 : m + n = n + m). rewrite -> plus_comm. reflexivity.
+      rewrite -> H6. reflexivity.
+    }
+    rewrite -> H5.
+    reflexivity.
+  }
+Qed.
 
 Theorem mult_assoc : forall n m p : nat,
   n * (m * p) = (n * m) * p.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n m p.
+  
