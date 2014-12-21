@@ -226,8 +226,6 @@ Proof.
   }
 Qed.
 
-Print nat.
-
 Lemma double_neg : forall b : bool, negb (negb b) = b.
 Proof.
   intro b.
@@ -249,3 +247,77 @@ Proof.
     reflexivity.
   }
 Qed.
+
+Theorem ble_nat_refl : forall n : nat,
+  true = ble_nat n n.
+Proof.
+  intro n.
+  induction n as [| m].
+  Case "n = 0". simpl. reflexivity.
+  Case "n = S m".
+  {
+    simpl.
+    rewrite <- IHm.
+    reflexivity.
+  }
+Qed.
+
+Theorem zero_nbeq_S : forall n : nat,
+  beq_nat 0 (S n) = false.
+Proof.
+  intro n. simpl. reflexivity.
+Qed.
+
+Theorem andb_false_r : forall b : bool,
+  andb b false = false.
+Proof.
+  intro b.
+  destruct b.
+  simpl. reflexivity.
+  simpl. reflexivity.
+Qed.
+
+Theorem plus_ble_compat_l : forall n m p : nat, 
+  ble_nat n m = true -> ble_nat (p + n) (p + m) = true.
+Proof.
+  intros n m p.
+  intro H1.
+  induction p as [| p'].
+  Case "p = 0". simpl. exact H1.
+  Case "p = S p'".
+  {
+    simpl.
+    rewrite -> IHp'.
+    reflexivity.
+  }
+Qed.
+
+Theorem S_nbeq_0 : forall n : nat,
+  beq_nat (S n) 0 = false.
+Proof.
+  intro n. simpl. reflexivity.
+Qed.
+
+Theorem mult_1_l : forall n : nat, 1 * n = n.
+Proof.
+  intro n.
+  simpl.
+
+Theorem all3_spec : forall b c : bool,
+    orb
+      (andb b c)
+      (orb (negb b)
+               (negb c))
+  = true.
+Proof.
+  (* FILL IN HERE *) Admitted.
+
+Theorem mult_plus_distr_r : forall n m p : nat,
+  (n + m) * p = (n * p) + (m * p).
+Proof.
+  (* FILL IN HERE *) Admitted.
+
+Theorem mult_assoc : forall n m p : nat,
+  n * (m * p) = (n * m) * p.
+Proof.
+  (* FILL IN HERE *) Admitted.
