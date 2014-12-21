@@ -454,3 +454,11 @@ Theorem nat_bin_equivalence :
 Proof.
   intros n b.
   split.
+  Case "nat_to_bin n = b -> bin_to_nat b = n".
+  {
+    induction n as [|n'].
+  }
+  Case "bin_to_nat b = n -> nat_to_bin n = b".
+  {
+
+  }
