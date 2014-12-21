@@ -495,4 +495,6 @@ Proof.
   {
     intro H3.
     rewrite <- H3.
+    induction b as [|b1|b2].
+    SCase "b = S0". simpl. compute. reflexivity.
   }
