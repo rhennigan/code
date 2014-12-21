@@ -198,3 +198,10 @@ Proof.
   simpl.
   reflexivity.
 Qed.
+
+Theorem tl_length_pred : 
+  forall L : natlist, pred (length L) = length (tl L).
+Proof.
+  intro L.
+  compute.
+    
