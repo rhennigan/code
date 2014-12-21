@@ -475,6 +475,11 @@ Proof.
   split.
   Case "nat_to_bin n = normalize b -> bin_to_nat (normalize b) = n".
   {
+    induction n as [|n'].
+    SCase "n = 0".
+    {
+      simpl.
+    }
     intro H1.
     rewrite <- H1.
     induction n as [|n'].
