@@ -527,4 +527,4 @@ Proof.
   }
 Qed.
 
-Print nat_bin_equivalence.
+Check nat_bin_equivalence.
