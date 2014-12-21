@@ -386,3 +386,9 @@ Proof.
     reflexivity.
   }
 Qed.
+
+Theorem beq_nat_refl : forall n : nat, 
+  true = beq_nat n n.
+Proof.
+  intro n.
+  simpl.
