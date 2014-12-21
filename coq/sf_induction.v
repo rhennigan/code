@@ -254,7 +254,7 @@ Proof.
       rewrite -> plus_comm.
       rewrite -> plus_n_Sm_left.
       rewrite -> plus_assoc.
-      replace (m + S m) with (S m + m).
+      replace (m + S m + n' × m) with (S m + m + n' × m).
       reflexivity.
     }
     rewrite -> plus_n_Sm_left.
