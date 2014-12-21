@@ -132,4 +132,10 @@ Proof. simpl. reflexivity. Qed.
 Example test_countoddmembers3: countoddmembers nil = 0.
 Proof. simpl. reflexivity. Qed.
 
-
+Fixpoint alternate (l1 l2 : natlist) : natlist :=
+  match (l1, l2) with
+    | ([], []) => []
+    | (xs, []) => xs
+    | ([], ys) => ys
+    | (x :: xs, y :: ys) => x :: y :: (alternate xs ys)
+  end.
