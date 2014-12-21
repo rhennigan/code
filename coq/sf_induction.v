@@ -252,6 +252,7 @@ Proof.
       rewrite -> plus_comm.
       rewrite -> plus_n_Sm_left.
       rewrite -> plus_n_Sm_left.
+      rewrite <- plus_assoc.
       rewrite -> plus_comm.
       rewrite -> plus_assoc.
       rewrite <- plus_assoc.
