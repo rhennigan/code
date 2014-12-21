@@ -218,7 +218,13 @@ Proof.
   {
     destruct n as [|n'].
     simpl. rewrite -> mult_0_r. reflexivity.
-    
+    assert (H1 : S m' × S n' = S (n' + m' × S n')).
+    SCase "Proof of H1".
+    {
+      simpl.
+      reflexivity.
+    }
+    rewrite -> H1.
     simpl.
     rewrite -> IHm'.
     simpl.
