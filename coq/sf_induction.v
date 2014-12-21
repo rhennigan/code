@@ -266,7 +266,9 @@ Proof.
   induction m as [|m'].
   simpl. reflexivity.
   simpl.
-  replace (m' + (n + m' × n)) with ((n + m' × n) + m').
+  rewrite -> IHm'.
+  replace (m' + (n + m' × n)) with (m' + m' * n + n).
+  rewrite -> IHm'.
 
 Theorem mult_comm :
   forall m n : nat,
