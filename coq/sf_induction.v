@@ -158,6 +158,14 @@ Proof.
   }
 Qed.
 
+Theorem plus_n_Sm_left : forall n m : nat, S (n + m) = (S n) + m.
+Proof.
+  intros n m.
+  replace (n + m) with (m + n).
+  rewrite -> plus_n_Sm.
+  rewrite -> plus_comm.
+Qed.
+
 Theorem plus_assoc : forall n m p : nat, n + (m + p) = (n + m) + p.
 Proof.
   intros n m p.
@@ -230,6 +238,7 @@ Proof.
   {
     simpl.
     replace (n' + (m + (m + n' × m))) with ((m + (m + n' × m)) + n').
+    
     rewrite -> plus_assoc.
     rewrite -> plus_assoc.
     rewrite <- plus_n_Sm.
