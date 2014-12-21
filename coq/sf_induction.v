@@ -242,6 +242,7 @@ Proof.
   Case "n = S n'".
   {
     simpl.
+    
     rewrite -> plus_n_Sm_left.
     replace (n' + (m + (m + n' × m))) with ((m + (m + n' × m)) + n').
     
