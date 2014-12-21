@@ -485,6 +485,7 @@ Proof.
     }
     SCase "n = S n'".
     {      
+      simpl.
       rewrite -> H1.
       simpl.
     }
