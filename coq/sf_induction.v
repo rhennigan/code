@@ -518,3 +518,5 @@ Proof.
     }
   }
 Qed.
+
+Print nat_bin_equivalence.
