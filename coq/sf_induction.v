@@ -458,7 +458,11 @@ Proof.
   Case "n = S n'".
   {
     simpl.
+    rewrite -> bin_inc_comm.
+    rewrite -> IHn'.
+    reflexivity.
   }
+Qed.
 
 Theorem nat_bin_equivalence : 
   forall n : nat, forall b : bin, (nat_to_bin n = b) <-> (bin_to_nat b = n).
