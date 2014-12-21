@@ -351,6 +351,8 @@ Proof.
   {
     intro H.
     destruct L__1.
+    destruct L__2.
+    reflexivity.
   }
   
 
