@@ -381,10 +381,12 @@ Proof.
   Case "n = S n'".
   {
     simpl.
+    rewrite -> mult_plus_distr_r.
     assert (H1 : (m + n' × m) × p = p × (m + n' × m)). 
     SCase "Proof of H1".
     {
       rewrite -> mult_comm. reflexivity.
     }
     rewrite -> H1.
+    
   }
