@@ -404,3 +404,9 @@ Qed.
 Theorem plus_swap' : forall n m p : nat, 
   n + (m + p) = m + (n + p).
 Proof.
+  intros n m p.
+  rewrite -> plus_assoc.
+  rewrite -> plus_assoc.
+  assert (n + m = m + n) as H. rewrite <- plus_comm. reflexivity.
+  rewrite <- H. reflexivity.
+Qed.
