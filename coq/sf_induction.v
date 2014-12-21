@@ -503,5 +503,11 @@ Proof.
       simpl.
       rewrite -> plus_0_r.
       simpl.
+      rewrite -> bin_nat_comm.
+      reflexivity.
+    }
+    SCase "b = S2 b2".
+    {
+      
     }
   }
