@@ -175,13 +175,13 @@ Definition sum : bag -> bag -> bag := app.
 Example test_sum1: count 1 (sum [1;2;3] [1;4;1]) = 3.
 Proof. simpl. reflexivity. Qed.
 
-Definition add (v:nat) (s:bag) : bag := 
-  (* FILL IN HERE *) admit.
+Definition add (v:nat) (s:bag) : bag := v :: s.
 
 Example test_add1: count 1 (add 1 [1;4;1]) = 3.
- (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
+
 Example test_add2: count 5 (add 1 [1;4;1]) = 0.
- (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 
 Definition member (v:nat) (s:bag) : bool := 
   (* FILL IN HERE *) admit.
