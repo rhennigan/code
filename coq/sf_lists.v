@@ -354,6 +354,6 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
-    apply rev_pairs.
+    rewrite rev_pairs.
     rewrite -> snoc_rev.
   }
