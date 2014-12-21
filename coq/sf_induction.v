@@ -511,8 +511,10 @@ Proof.
     SCase "b = S2 b2".
     {
       replace (normalize (S2 b2)) with (nat_to_bin (bin_to_nat (S2 b2))).
-      simpl.
-      rewrite -> plus_0_r.
-      
+      rewrite -> bin_nat_comm.
+      reflexivity.
+      compute.
+      reflexivity.
     }
   }
+Qed.
