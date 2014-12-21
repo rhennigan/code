@@ -329,6 +329,5 @@ Proof.
   Case "L = nil". simpl. reflexivity.
   Case "L = x :: xs".
   {
-    
-    SearchAbout snoc.
+    Eval compute in (rev xs).
   }
