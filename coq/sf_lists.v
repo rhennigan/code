@@ -269,3 +269,8 @@ Proof. reflexivity. Qed.
 Example test_rev2: rev nil = nil.
 Proof. reflexivity. Qed.
 
+Theorem length_snoc : 
+  forall n : nat, forall L : natlist,
+    length (snoc L n) = S (length L).
+Proof.
+  
