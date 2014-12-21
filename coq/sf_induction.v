@@ -218,7 +218,7 @@ Proof.
   {
     destruct n as [|n'].
     simpl. rewrite -> mult_0_r. reflexivity.
-    simpl.
+    
     simpl.
     rewrite -> IHm'.
     simpl.
