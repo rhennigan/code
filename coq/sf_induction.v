@@ -413,10 +413,10 @@ Proof.
   reflexivity.
 Qed.
 
-Print bin.
-
 Theorem bin_inc_comm : 
   forall b : bin, bin_to_nat (bin_inc b) = S (bin_to_nat b).
 Proof.
   intro b.
-  induction b as [|y|z].
+  induction b as [|b1|b2].
+  Case "b = S0". simpl. reflexivity.
+  Case "b = S1 b1".
