@@ -493,5 +493,6 @@ Proof.
   }
   Case "bin_to_nat (normalize b) = n -> nat_to_bin n = normalize b".
   {
-    
+    intro H3.
+    rewrite <- H3.
   }
