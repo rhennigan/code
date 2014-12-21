@@ -59,7 +59,7 @@ Notation "[ x ; .. ; y ]" := (cons x .. (cons y nil) ..).
 
 Fixpoint repeat (n count : nat) : natlist :=
   match count with
-    | 0 => [ ]
+    | 0 => []
     | S c => n :: (repeat n c)
   end.
 
@@ -80,3 +80,6 @@ Fixpoint app (lst1 lst2 : natlist) : natlist :=
   end.
 
 Eval compute in (app [1;2;3] [4;5;6]).
+
+Notation "x ++ y" := (app x y) (right associativity, at level 60).
+
