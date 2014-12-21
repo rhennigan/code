@@ -336,11 +336,11 @@ Qed.
 
 Lemma rev_pairs :
   forall L__1 L__2 : natlist,
-    (rev L__1 = L__2) <-> (L__1 = rev L__2).
+    (L__1 = L__2) <-> (rev L__1 = rev L__2).
 Proof.
   intros L__1 L__2.
   split.
-  Case "rev L__1 = L__2 -> L__1 = rev L__2".
+  Case "L__1 = L__2 -> rev L__1 = rev L__2".
   {
     intro H.
     induction L__1 as [|x xs].
