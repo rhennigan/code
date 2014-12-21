@@ -238,3 +238,17 @@ Theorem app_length :
   forall L__1 L__2 : natlist, length (L__1 ++ L__2) = (length L__1) + (length L__2).
 Proof.
   intros L__1 L__2.
+  induction L__1 as [| x xs].
+  Case "L__1 = nil".
+  {
+    simpl.
+    reflexivity.
+  }
+  Case "L__1 = x :: xs".
+  {
+    simpl.
+    rewrite -> IHxs.
+    reflexivity.
+  }
+Qed.
+
