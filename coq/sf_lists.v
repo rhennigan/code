@@ -52,3 +52,6 @@ Qed.
 Inductive natlist : Type :=
   | nil : natlist
   | cons : nat -> natlist -> natlist.
+
+Definition mylist := cons 1 (cons 2 (cons 3 nil)).
+Print mylist.
