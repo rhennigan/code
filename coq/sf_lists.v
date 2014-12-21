@@ -70,3 +70,5 @@ Fixpoint length (lst : natlist) : nat :=
     | [] => 0
     | x :: xs => 1 + (length xs)
   end.
+
+Eval compute in (length (repeat 1 12)).
