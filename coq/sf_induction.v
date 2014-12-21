@@ -459,6 +459,15 @@ Proof.
     intro H1.
     induction n as [|n'].
     SCase "n = 0".
+    {
+      rewrite <- H1.
+      simpl.
+      reflexivity.
+    }
+    SCase "n = S n'".
+    {
+      
+    }
   }
   Case "bin_to_nat b = n -> nat_to_bin n = b".
   {
