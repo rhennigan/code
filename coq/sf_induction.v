@@ -216,7 +216,7 @@ Proof.
   Case "m = 0". simpl. rewrite -> mult_0_r. reflexivity.
   Case "m = S m'".
   {
-    inversion n as [a|b].
+    destruct n as [|n']. simpl. rewrite -> mult_0_r. reflexivity.
     induction n as [|n'].
     SCase "n = 0". simpl. rewrite -> mult_0_r. reflexivity.
     SCase "n = S n'".
