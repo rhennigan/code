@@ -458,6 +458,8 @@ Proof.
   {
     intro H1.
     rewrite <- H1.
+    Check nat_to_bin.
+    Check bin_to_nat.
     Check bin_correct.
     induction n as [|n'].
     SCase "n = 0".
