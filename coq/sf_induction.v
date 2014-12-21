@@ -407,6 +407,7 @@ Proof.
   intros n m p.
   rewrite -> plus_assoc.
   rewrite -> plus_assoc.
+  replace (n + m) with (m + n). rewrite -> plus_comm. reflexivity.
   assert (n + m = m + n) as H. rewrite <- plus_comm. reflexivity.
   rewrite <- H. reflexivity.
 Qed.
