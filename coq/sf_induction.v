@@ -221,6 +221,11 @@ Proof.
   rewrite <- H. reflexivity.
 Qed.
 
+Lemma mult_factor_S : forall m n : nat, S n × S m = S n + S n × m.
+Proof.
+  intros m n.
+  simpl.
+
 Theorem mult_comm :
   forall m n : nat,
     m * n = n * m.
@@ -243,6 +248,8 @@ Proof.
       apply (IHn' IHm').
     }
   }
+
+
 
 Lemma evenb_n_plus_2 : forall n : nat, evenb n = evenb (S (S n)).
 Proof.
