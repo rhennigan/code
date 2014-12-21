@@ -229,7 +229,7 @@ Proof.
   Case "n = S n'".
   {
     simpl.
-    
+    replace (n' + (m + (m + n' × m))) with ((m + (m + n' × m)) + n').
     rewrite -> plus_assoc.
     rewrite -> plus_assoc.
     rewrite <- plus_n_Sm.
