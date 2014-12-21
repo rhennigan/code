@@ -381,4 +381,5 @@ Proof.
   Case "n = S n'".
   {
     simpl.
+    assert (H1 : (m + n' × m) × p = p × (m + n' × m)). rewrite -> mult_comm. reflexivity.
   }
