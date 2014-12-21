@@ -229,6 +229,8 @@ Proof.
   Case "n = S n'".
   {
     simpl.
+    rewrite -> plus_assoc.
+    rewrite -> plus_assoc.
     rewrite -> plus_swap.
     simpl.
   }
