@@ -236,6 +236,7 @@ Proof.
   }
   Case "n = S n'".
   {
+    rewrite -> IHn'.
     
   }
 Qed.
