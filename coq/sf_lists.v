@@ -327,3 +327,8 @@ Proof.
   intro L.
   induction L as [| x xs].
   Case "L = nil". simpl. reflexivity.
+  Case "L = x :: xs".
+  {
+    rewrite <- IHxs.
+    simpl.
+  }
