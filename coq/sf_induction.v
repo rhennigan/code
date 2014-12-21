@@ -423,5 +423,8 @@ Proof.
   Case "b = S2 b2".
   {
     simpl.
+    rewrite -> plus_0_r.
+    rewrite -> plus_0_r.
+    
   }
 Qed.
