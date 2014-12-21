@@ -425,6 +425,7 @@ Proof.
     simpl.
     rewrite -> plus_0_r.
     rewrite -> plus_0_r.
+    rewrite -> IHb2.
     rewrite -> plus_n_Sm.
     rewrite <- IHb2.
     
