@@ -464,24 +464,8 @@ Proof.
   }
 Qed.
 
-Theorem nat_bin_comm :
-  forall b : bin, nat_to_bin (bin_to_nat b) = b.
-Proof.
-  intro b.
-  induction b as [|b1|b2].
-  Case "b = S0". simpl. reflexivity.
-  Case "b = S1 b1".
-  {
-    simpl.
-    rewrite -> plus_0_r.
-    replace (S1 b1) with (S1 (nat_to_bin (bin_to_nat b1))).
-    simpl.
-  }
-  Case "b = S2 b2".
-  {
-
-  }
-Qed.
+Definition normalize (b : bin) : bin :=
+  nat_to_bin (bin_to_nat b).
 
 Theorem nat_bin_equivalence : 
   forall n : nat, forall b : bin, (nat_to_bin n = b) <-> (bin_to_nat b = n).
