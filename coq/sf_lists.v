@@ -16,3 +16,7 @@ Definition snd (p : natprod) : nat :=
     | (a, b) => b
   end.
 
+Definition swap_pair (p : natprod) : natprod :=
+  match p with
+    | (a, b) => (b, a)
+  end.
