@@ -343,8 +343,7 @@ Proof.
   induction L__1 as [|x xs].
   SCase "L__1 = nil". rewrite <- H. reflexivity.
   SCase "L__1 = x :: xs". rewrite <- H. reflexivity.
-  }
-  
+Qed.
 
 Theorem rev_involutive :
   forall L : natlist, rev (rev L) = L.
@@ -355,5 +354,6 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
+    apply rev_pairs.
     rewrite -> snoc_rev.
   }
