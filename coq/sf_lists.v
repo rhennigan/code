@@ -329,5 +329,5 @@ Proof.
   Case "L = nil". simpl. reflexivity.
   Case "L = x :: xs".
   {
-    compute. reflexivity.
+    simpl.
   }
