@@ -421,7 +421,10 @@ Proof.
   Case "n = 0". simpl. reflexivity.
   Case "n = S n'".
   {
+    simpl.
     rewrite -> IHn'.
+    simpl.
+    rewrite <- IHn'.
     simpl.
   }
 
