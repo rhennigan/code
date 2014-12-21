@@ -422,7 +422,10 @@ Proof.
   Case "n = S n'".
   {
     rewrite -> IHn'.
+    rewrite -> plus_n_Sm.
     simpl.
+    
+    Check plus_n_Sm.
     rewrite <- IHn'.
     simpl.
   }
