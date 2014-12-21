@@ -186,6 +186,9 @@ Proof. reflexivity. Qed.
 Definition member (v:nat) (s:bag) : bool := negb (beq_nat 0 (count v s)).
 
 Example test_member1: member 1 [1;4;1] = true.
- (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
+
 Example test_member2: member 2 [1;4;1] = false.
- (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
+
+
