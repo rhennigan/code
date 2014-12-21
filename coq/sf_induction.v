@@ -231,6 +231,8 @@ Proof.
   }
 Qed.
 
+S m' × S n' = S (n' + m' + n' × m')
+
 Lemma evenb_n_plus_2 : forall n : nat, evenb n = evenb (S (S n)).
 Proof.
   intro n.
