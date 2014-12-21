@@ -449,6 +449,17 @@ Proof.
   }
 Qed.
 
+Theorem bin_nat_comm : 
+  forall n : nat, bin_to_nat (nat_to_bin n) = n.
+Proof.
+  intro n.
+  induction n as [|n'].
+  Case "n = 0". simpl. reflexivity.
+  Case "n = S n'".
+  {
+    simpl.
+  }
+
 Theorem nat_bin_equivalence : 
   forall n : nat, forall b : bin, (nat_to_bin n = b) <-> (bin_to_nat b = n).
 Proof.
