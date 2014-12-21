@@ -64,3 +64,9 @@ Fixpoint repeat (n count : nat) : natlist :=
   end.
 
 Eval compute in (repeat 5 3).
+
+Fixpoint length (lst : natlist) : nat :=
+  match lst with
+    | [] => 0
+    | x :: xs => 1 + (length xs)
+  end.
