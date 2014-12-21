@@ -419,13 +419,9 @@ Proof.
   intro b.
   induction b as [|b1|b2].
   Case "b = S0". simpl. reflexivity.
-  Case "b = S1 b1".
-  {
-    simpl.
-    reflexivity.
-  }
+  Case "b = S1 b1". simpl. reflexivity.
   Case "b = S2 b2".
   {
-
+    simpl.
   }
 Qed.
