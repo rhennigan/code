@@ -474,6 +474,7 @@ Proof.
   {
     simpl.
     rewrite -> plus_0_r.
+    
   }
   Case "b = S2 b2".
   {
