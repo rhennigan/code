@@ -413,6 +413,17 @@ Proof.
   reflexivity.
 Qed.
 
+Lemma double_inc : 
+  forall n : nat, (S n) + (S n) = S (S (n + n)).
+Proof.
+  intro n.
+  induction n as [| n'].
+  Case "n = 0". simpl. reflexivity.
+  Case "n = S n'".
+  {
+    simpl.
+  }
+
 Theorem bin_inc_comm : 
   forall b : bin, bin_to_nat (bin_inc b) = S (bin_to_nat b).
 Proof.
