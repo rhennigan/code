@@ -252,3 +252,8 @@ Proof.
   }
 Qed.
 
+Fixpoint snoc (L : natlist) (v : nat) : natlist :=
+  match L with
+    | [] => [v]
+    | x :: xs => x :: (snoc xs v)
+  end.
