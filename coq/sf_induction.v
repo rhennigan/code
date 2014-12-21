@@ -217,6 +217,9 @@ Proof.
   Case "m = S m'".
   {
     destruct n as [|n'].
+    simpl. rewrite -> mult_0_r. reflexivity.
+    simpl.
+    rewrite -> IHm'.
     simpl.
   }
 Qed.
