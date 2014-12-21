@@ -277,6 +277,23 @@ Proof.
   reflexivity.
 Qed.
 
+Lemma mult_Sm_n : forall m n : nat, (S m) * n = n + m * n.
+Proof.
+  intros m n.
+  induction m as [|m'].
+  simpl. reflexivity.
+  simpl.
+  rewrite -> IHm'.
+  replace (m' + (n + m' × n)) with (n + (m' + m' × n)).
+  reflexivity.
+  rewrite -> plus_comm.
+  rewrite <- plus_assoc.
+  replace (m' × n + n) with (n + m' × n).
+  reflexivity.
+  rewrite -> plus_comm.
+  reflexivity.
+Qed.
+
 Theorem mult_comm :
   forall m n : nat,
     m * n = n * m.
