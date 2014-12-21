@@ -301,5 +301,9 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
+    rewrite -> length_snoc.
+    rewrite -> IHxs.
+    reflexivity.
   }
 Qed.
+
