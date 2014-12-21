@@ -249,6 +249,9 @@ Proof.
     assert (H2 : S (S n' + m + (m + n' × m)) = S n' + S m + (m + n' × m)).
     SCase "Proof of H2". 
     {
+      rewrite <- plus_assoc.
+      rewrite <- plus_assoc.
+      rewrite <- plus_assoc.
       rewrite -> plus_comm.
       rewrite -> plus_n_Sm_left.
       rewrite -> plus_n_Sm_left.
@@ -257,7 +260,7 @@ Proof.
       replace (n' × m + (S n' + m)) with ((S n' + m) + n' × m).
       rewrite -> plus_assoc.
       rewrite -> plus_assoc.
-      rewrite -> plus_comm.
+      rewrit
       rewrite -> plus_comm.
       rewrite -> plus_assoc.
       rewrite <- plus_assoc.
