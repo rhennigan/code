@@ -306,5 +306,3 @@ Proof.
     reflexivity.
   }
 Qed.
-
-SearchAbout rev.
