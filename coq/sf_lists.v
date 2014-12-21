@@ -82,7 +82,7 @@ Notation "x ++ y" := (app x y) (right associativity, at level 60).
 
 Eval compute in ([1;2;3] ++ [4;5;6]).
 
-Definition hd (lst : natlist) : nat :=
+Definition hd (default : nat) (lst : natlist) : nat :=
   match lst with
     | [] => default
     | x :: xs => x
@@ -93,4 +93,5 @@ Definition tl (lst : natlist) : natlist :=
     | [] => []
     | x :: xs => xs
   end.
+
 
