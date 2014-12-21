@@ -355,6 +355,7 @@ Proof.
     reflexivity.
     assert ([] = rev []). simpl. reflexivity.
     rewrite -> H0.
+    rewrite -> H.
   }
   
 
