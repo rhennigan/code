@@ -258,22 +258,9 @@ Proof.
       reflexivity.
     }
     rewrite -> H2.
-    rewrite -> IHn'.
-    rewrite -> plus_n_Sm_left.
-    replace (n' + (m + (m + n' × m))) with ((m + (m + n' × m)) + n').
     
-    rewrite -> plus_assoc.
-    rewrite -> plus_assoc.
-    rewrite <- plus_n_Sm.
-    rewrite -> plus_comm.
-    rewrite -> plus_n_Sm.
-    rewrite -> plus_comm.
-    rewrite -> plus_n_Sm.
-    rewrite -> plus_assoc.
-    rewrite -> plus_n_Sm.
-    rewrite -> plus_swap.
-    simpl.
   }
+Abort.
 
 Theorem mult_comm :
   forall m n : nat,
