@@ -340,8 +340,13 @@ Lemma rev_pairs :
 Proof.
   intros L__1 L__2.
   split.
-  induction L__1 as [|x xs].
-  Case "L__1 = nil". simpl.
+  Case "rev L__1 = L__2 -> L__1 = rev L__2".
+  {
+    intro H.
+    induction L__1 as [|x xs].
+    SCase "L__1 = nil". simpl.
+  }
+  
 
 Theorem rev_involutive :
   forall L : natlist, rev (rev L) = L.
