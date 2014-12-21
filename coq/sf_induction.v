@@ -164,6 +164,11 @@ Proof.
   replace (n + m) with (m + n).
   rewrite -> plus_n_Sm.
   rewrite -> plus_comm.
+  reflexivity.
+  {
+    rewrite -> plus_comm.
+    reflexivity.
+  }
 Qed.
 
 Theorem plus_assoc : forall n m p : nat, n + (m + p) = (n + m) + p.
@@ -237,6 +242,7 @@ Proof.
   Case "n = S n'".
   {
     simpl.
+    rewrite -> plus_n_Sm_left.
     replace (n' + (m + (m + n' × m))) with ((m + (m + n' × m)) + n').
     
     rewrite -> plus_assoc.
