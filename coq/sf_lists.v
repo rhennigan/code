@@ -127,6 +127,9 @@ Example test_countoddmembers1: countoddmembers [1;0;3;1;4;5] = 4.
 Proof. simpl. reflexivity. Qed.
 
 Example test_countoddmembers2: countoddmembers [0;2;4] = 0.
- (* FILL IN HERE *) Admitted.
+Proof. simpl. reflexivity. Qed.
+
 Example test_countoddmembers3: countoddmembers nil = 0.
- (* FILL IN HERE *) Admitted.
+Proof. simpl. reflexivity. Qed.
+
+
