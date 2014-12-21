@@ -421,7 +421,8 @@ Proof.
   Case "n = 0". simpl. reflexivity.
   Case "n = S n'".
   {
-    Check double_plus.
+    rewrite -> IHn'.
+    simpl.
   }
 
 Theorem bin_inc_comm : 
