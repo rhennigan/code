@@ -321,4 +321,9 @@ Proof.
   }
 Qed.
 
-
+Theorem rev_involutive :
+  forall L : natlist, rev (rev L) = L.
+Proof.
+  intro L.
+  induction L as [| x xs].
+  Case "L = nil". simpl. reflexivity.
