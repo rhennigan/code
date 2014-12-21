@@ -322,7 +322,7 @@ Proof.
 Qed.
 
 Lemma snoc_rev :
-  forall v : nat, forall L : natlist, rev (snoc (rev L) v) = v :: L.
+  forall v : nat, forall L : natlist, snoc (rev L) v = rev (cons v L).
 Proof.
   intros v L.
   induction L as [| x xs].
@@ -330,7 +330,9 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
+    reflexivity.
   }
+Qed.
   
 
 Theorem rev_involutive :
