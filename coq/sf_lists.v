@@ -273,4 +273,15 @@ Theorem length_snoc :
   forall n : nat, forall L : natlist,
     length (snoc L n) = S (length L).
 Proof.
-  
+  intros n L.
+  induction L as [| x xs].
+  Case "L = nil".
+  {
+    simpl.
+    reflexivity.
+  }
+  Case "L = x :: xs".
+  {
+    simpl.
+  }
+Qed.
