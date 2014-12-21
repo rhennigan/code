@@ -479,6 +479,14 @@ Proof.
     SCase "n = 0".
     {
       simpl.
+      intro H1.
+      rewrite <- H1.
+      simpl.
+      reflexivity.
+    }
+    SCase "n = S n'".
+    {
+      destruct IHn'.
     }
     intro H1.
     rewrite <- H1.
