@@ -500,21 +500,29 @@ Proof.
     SCase "b = S1 b1".
     {
       replace (normalize (S1 b1)) with (nat_to_bin (bin_to_nat (S1 b1))).
-      simpl.
-      rewrite -> plus_0_r.
-      simpl.
-      rewrite -> bin_nat_comm.
-      reflexivity.
-      compute.
-      reflexivity.
+      {
+        simpl.
+        rewrite -> plus_0_r.
+        simpl.
+        rewrite -> bin_nat_comm.
+        reflexivity.
+      }
+      {
+        compute.
+        reflexivity.
+      }
     }
     SCase "b = S2 b2".
     {
       replace (normalize (S2 b2)) with (nat_to_bin (bin_to_nat (S2 b2))).
-      rewrite -> bin_nat_comm.
-      reflexivity.
-      compute.
-      reflexivity.
+      {
+        rewrite -> bin_nat_comm.
+        reflexivity.
+      }
+      {
+        compute.
+        reflexivity.
+      }
     }
   }
 Qed.
