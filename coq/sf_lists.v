@@ -343,7 +343,8 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
-    rewrite -> snoc_rev.
+    rewrite <- snoc_rev.
+    simpl.
     reflexivity.
   }
 Qed. 
