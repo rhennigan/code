@@ -306,3 +306,14 @@ Proof.
     reflexivity.
   }
 Qed.
+
+Theorem app_nil_end : 
+  forall L : natlist, L ++ [] = L.
+Proof.
+  intro L.
+  induction L as [|x xs].
+  Case "L = nil". simpl. reflexivity.
+  Case "L = x :: xs".
+  {
+    
+  }
