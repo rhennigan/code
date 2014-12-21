@@ -263,7 +263,9 @@ Proof.
 Lemma dfs : forall m n : nat, m * (S n) = m + m * n.
 Proof.
   intros m n.
-  compute. reflexivity.
+  induction m as [|m'].
+  simpl. reflexivity.
+  simpl.
 
 Theorem mult_comm :
   forall m n : nat,
