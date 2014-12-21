@@ -257,3 +257,15 @@ Fixpoint snoc (L : natlist) (v : nat) : natlist :=
     | [] => [v]
     | x :: xs => x :: (snoc xs v)
   end.
+
+Fixpoint rev (L : natlist) : natlist :=
+  match L with
+    | [] => []
+    | x :: xs => snoc (rev xs) x
+  end.
+
+Example test_rev1: rev [1;2;3] = [3;2;1].
+Proof. reflexivity. Qed.
+Example test_rev2: rev nil = nil.
+Proof. reflexivity. Qed.
+
