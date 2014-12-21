@@ -221,14 +221,6 @@ Proof.
   rewrite <- H. reflexivity.
 Qed.
 
-Lemma mult_s_swap :
-  forall m n : nat,
-    (m × S n = S n × m) -> (n × S m = S m × n).
-Proof.
-  intros m n.
-  intro H.
-  simpl.
-
 Theorem mult_comm :
   forall m n : nat,
     m * n = n * m.
