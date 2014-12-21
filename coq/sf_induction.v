@@ -456,7 +456,9 @@ Proof.
   split.
   Case "nat_to_bin n = b -> bin_to_nat b = n".
   {
+    intro H1.
     induction n as [|n'].
+    SCase "n = 0".
   }
   Case "bin_to_nat b = n -> nat_to_bin n = b".
   {
