@@ -232,6 +232,8 @@ Proof.
     rewrite -> plus_assoc.
     rewrite -> plus_assoc.
     rewrite <- plus_n_Sm.
+    rewrite -> plus_comm.
+    rewrite -> plus_n_Sm.
     rewrite -> plus_assoc.
     rewrite -> plus_n_Sm.
     rewrite -> plus_swap.
