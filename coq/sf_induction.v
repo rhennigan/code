@@ -260,6 +260,11 @@ Proof.
     rewrite -> H2.
     Admitted.
 
+Lemma dfs : forall m n : nat, m * (S n) = m + m * n.
+Proof.
+  intros m n.
+  compute. reflexivity.
+
 Theorem mult_comm :
   forall m n : nat,
     m * n = n * m.
