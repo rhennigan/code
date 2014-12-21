@@ -225,6 +225,11 @@ Proof.
       reflexivity.
     }
     rewrite -> H1.
+    assert (H2 : S n' × S m' = S (n' + m' × S n')).
+    SCase "Proof of H2".
+    {
+      simpl.
+    }
     simpl.
     rewrite -> IHm'.
     simpl.
