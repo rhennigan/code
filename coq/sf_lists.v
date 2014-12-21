@@ -30,4 +30,5 @@ Qed.
 Theorem surjective_pairing' :
   forall p : natprod, p = (fst p, snd p).
 Proof.
+  intro p.
   
