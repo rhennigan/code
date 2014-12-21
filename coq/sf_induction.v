@@ -468,11 +468,12 @@ Definition normalize (b : bin) : bin :=
   nat_to_bin (bin_to_nat b).
 
 Theorem nat_bin_equivalence : 
-  forall n : nat, forall b : bin, (nat_to_bin n = b) <-> (bin_to_nat b = n).
+  forall n : nat, forall b : bin, 
+    (nat_to_bin n = (normalize b)) <-> (bin_to_nat (normalize b) = n).
 Proof.
   intros n b.
   split.
-  Case "nat_to_bin n = b -> bin_to_nat b = n".
+  Case "nat_to_bin n = normalize b -> bin_to_nat (normalize b) = n".
   {
     intro H1.
     rewrite <- H1.
