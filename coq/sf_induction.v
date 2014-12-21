@@ -242,7 +242,8 @@ Proof.
   Case "n = S n'".
   {
     simpl.
-    
+    assert (H1 : S (n' + (m + (m + n' × m))) = S n' + (m + (m + n' × m))).
+    SCase "Proof of H1". rewrite -> plus_n_Sm_left.
     rewrite -> plus_n_Sm_left.
     replace (n' + (m + (m + n' × m))) with ((m + (m + n' × m)) + n').
     
