@@ -501,5 +501,7 @@ Proof.
     {
       replace (normalize (S1 b1)) with (nat_to_bin (bin_to_nat (S1 b1))).
       simpl.
+      rewrite -> plus_0_r.
+      simpl.
     }
   }
