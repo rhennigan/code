@@ -391,4 +391,16 @@ Theorem beq_nat_refl : forall n : nat,
   true = beq_nat n n.
 Proof.
   intro n.
-  simpl.
+  induction n as [| n'].
+  Case "n = 0". simpl. reflexivity.
+  Case "n = S n'".
+  {
+    simpl.
+    rewrite -> IHn'.
+    reflexivity.
+  }
+Qed.
+
+Theorem plus_swap' : forall n m p : nat, 
+  n + (m + p) = m + (n + p).
+Proof.
