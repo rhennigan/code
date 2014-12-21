@@ -229,6 +229,8 @@ Proof.
     SCase "Proof of H2".
     {
       simpl.
+      rewrite <- H1.
+      simpl.
     }
     simpl.
     rewrite -> IHm'.
