@@ -283,5 +283,13 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
+    rewrite -> IHxs.
+    reflexivity.
   }
 Qed.
+
+Theorem rev_length:
+  forall L : natlist, length (rev L) = length L.
+Proof.
+  intro L.
+  simpl.
