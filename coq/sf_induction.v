@@ -234,32 +234,6 @@ Proof.
   rewrite <- H. reflexivity.
 Qed.
 
-Lemma mult_factor_S : forall m n : nat, S n × S m = S n + S n × m.
-Proof.
-  intros m n.
-  induction n as [|n'].
-  Case "n = 0". simpl. rewrite -> plus_0_r. reflexivity.
-  Case "n = S n'".
-  {
-    simpl.
-    assert (H1 : S (n' + (m + (m + n' × m))) = S n' + (m + (m + n' × m))).
-    SCase "Proof of H1". rewrite -> plus_n_Sm_left. reflexivity.
-    rewrite -> H1.
-    rewrite -> plus_assoc.
-    assert (H2 : S (S n' + m + (m + n' × m)) = S n' + S m + (m + n' × m)).
-    SCase "Proof of H2". 
-    {
-      rewrite <- plus_assoc.
-      rewrite <- plus_assoc.
-      rewrite -> plus_comm.
-      rewrite -> plus_n_Sm_left.
-      rewrite -> plus_n_Sm_left.
-      rewrite -> plus_comm.
-      reflexivity.
-    }
-    rewrite -> H2.
-    Admitted.
-
 Lemma mult_m_Sn : forall m n : nat, m * (S n) = m + m * n.
 Proof.
   intros m n.
@@ -297,20 +271,9 @@ Proof.
     rewrite -> mult_m_Sn.
     rewrite -> mult_Sm_n.
     rewrite -> IHm'.
-    destruct n as [|n']. simpl. reflexivity.
-    simpl.
-    rewrite -> plus_swap.
-    rewrite -> plus_assoc.
-    
-    induction n as [|n'].
-    SCase "n = 0". simpl. rewrite -> mult_0_r. reflexivity.
-    SCase "n = S n'".
-    {
-      apply (IHn' IHm').
-    }
+    reflexivity.
   }
-
-
+Qed.
 
 Lemma evenb_n_plus_2 : forall n : nat, evenb n = evenb (S (S n)).
 Proof.
