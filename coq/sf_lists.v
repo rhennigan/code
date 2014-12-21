@@ -333,21 +333,6 @@ Proof.
     reflexivity.
   }
 Qed.
- 
-Lemma snoc_rev' :
-  forall v : nat, forall L : natlist, rev (snoc (rev L) v) = (cons v L).
-Proof.
-  intros v L.
-  induction L as [| x xs].
-  Case "L = nil". simpl. reflexivity.
-  Case "L = x :: xs".
-  {
-    simpl.
-    rewrite <- snoc_rev.
-    simpl.
-    reflexivity.
-  }
-Qed. 
 
 Theorem rev_involutive :
   forall L : natlist, rev (rev L) = L.
