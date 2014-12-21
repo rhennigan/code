@@ -486,7 +486,9 @@ Proof.
     }
     SCase "n = S n'".
     {
-      destruct IHn'.
+      intro H2.
+      rewrite <- H2.
+      simpl.
     }
     intro H1.
     rewrite <- H1.
