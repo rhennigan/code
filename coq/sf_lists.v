@@ -347,7 +347,11 @@ Proof.
     SCase "L__1 = nil". rewrite <- H. reflexivity.
     SCase "L__1 = x :: xs". rewrite <- H. reflexivity.
   }
-  Case ""
+  Case "rev L__1 = rev L__2 -> L__1 = L__2".
+  {
+    intro H.
+    destruct L__1.
+  }
   
 
 Theorem rev_involutive :
