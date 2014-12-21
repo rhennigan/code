@@ -204,10 +204,16 @@ Theorem tl_length_pred :
 Proof.
   intro L.
   induction L as [|x L'].
-  Case "L = nil". simpl. reflexivity.
+  Case "L = nil". 
+  {
+    simpl. 
+    reflexivity.
+  }
   Case "L = cons x L'".
   {
     simpl.
     reflexivity.
   }
 Qed.
+
+
