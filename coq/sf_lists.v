@@ -78,8 +78,9 @@ Fixpoint app (lst1 lst2 : natlist) : natlist :=
     | [] => lst2
     | x :: xs => x :: (app xs lst2)
   end.
-
-Eval compute in (app [1;2;3] [4;5;6]).
-
 Notation "x ++ y" := (app x y) (right associativity, at level 60).
+
+Eval compute in ([1;2;3] ++ [4;5;6]).
+
+
 
