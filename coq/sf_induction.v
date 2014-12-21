@@ -457,6 +457,8 @@ Proof.
   Case "nat_to_bin n = b -> bin_to_nat b = n".
   {
     intro H1.
+    rewrite <- H1.
+    simpl.
     induction n as [|n'].
     SCase "n = 0".
     {
@@ -466,7 +468,8 @@ Proof.
     }
     SCase "n = S n'".
     {
-      
+      rewrite <- H1.
+      simpl.
     }
   }
   Case "bin_to_nat b = n -> nat_to_bin n = b".
