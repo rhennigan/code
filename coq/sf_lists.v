@@ -354,7 +354,5 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
-    destruct xs.
-    simpl. reflexivity.
     
   }
