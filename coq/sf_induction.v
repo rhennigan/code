@@ -481,30 +481,15 @@ Proof.
       simpl.
       intro H1.
       rewrite <- H1.
-      simpl.
       reflexivity.
     }
     SCase "n = S n'".
     {
       intro H2.
       rewrite <- H2.
-      simpl.
-    }
-    intro H1.
-    rewrite <- H1.
-    induction n as [|n'].
-    SCase "n = 0".
-    {
-      simpl.
+      rewrite -> bin_nat_comm.
       reflexivity.
     }
-    SCase "n = S n'".
-    {      
-      simpl.
-      rewrite -> H1.
-      simpl.
-    }
-  }
   Case "bin_to_nat b = n -> nat_to_bin n = b".
   {
 
