@@ -338,7 +338,10 @@ Lemma rev_pairs :
   forall L__1 L__2 : natlist,
     (rev L__1 = L__2) <-> (L__1 = rev L__2).
 Proof.
-  intro L__1 L__2.
+  intros L__1 L__2.
+  split.
+  induction L__1 as [|x xs].
+  Case "L__1 = nil". simpl.
 
 Theorem rev_involutive :
   forall L : natlist, rev (rev L) = L.
