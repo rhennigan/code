@@ -217,6 +217,11 @@ Proof.
   Case "m = S m'".
   {
     induction n as [|n'].
+    SCase "n = 0". simpl. rewrite -> mult_0_r. reflexivity.
+    SCase "n = S n'".
+    {
+      
+    }
   }
 
 Lemma evenb_n_plus_2 : forall n : nat, evenb n = evenb (S (S n)).
