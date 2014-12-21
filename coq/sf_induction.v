@@ -230,7 +230,7 @@ Proof.
   Case "m = 0". simpl. rewrite -> mult_0_r. reflexivity.
   Case "m = S m'".
   {
-    
+    simpl. rewrite -> IHm'.
     destruct n as [|n']. simpl. rewrite -> mult_0_r. reflexivity.
     simpl.
     induction n as [|n'].
