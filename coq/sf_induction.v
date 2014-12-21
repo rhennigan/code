@@ -253,6 +253,9 @@ Proof.
       rewrite -> plus_n_Sm_left.
       rewrite -> plus_n_Sm_left.
       rewrite <- plus_assoc.
+      rewrite <- plus_assoc.
+      replace (n' × m + (S n' + m)) with ((S n' + m) + n' × m).
+      rewrite <- plus_assoc.
       rewrite -> plus_comm.
       rewrite -> plus_assoc.
       rewrite <- plus_assoc.
