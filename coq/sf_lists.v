@@ -152,3 +152,13 @@ Proof. simpl. reflexivity. Qed.
 Example test_alternate4: alternate [] [20;30] = [20;30].
 Proof. simpl. reflexivity. Qed.
 
+Definition bag := natlist.
+
+Fixpoint count (v:nat) (s:bag) : nat := 
+  (* FILL IN HERE *) admit.
+
+Example test_count1: count 1 [1;2;3;1;4;1] = 3.
+ (* FILL IN HERE *) Admitted.
+
+Example test_count2: count 6 [1;2;3;1;4;1] = 0.
+ (* FILL IN HERE *) Admitted.
