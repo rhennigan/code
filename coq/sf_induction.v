@@ -225,13 +225,12 @@ Proof.
       reflexivity.
     }
     rewrite -> H1.
-    rewrite -> IHm'.
-    simpl.
-    rewrite -> plus_assoc.
+    
   }
-Qed.
+Admitted.
 
-S m' × S n' = S (n' + m' + n' × m')
+
+
 
 Lemma evenb_n_plus_2 : forall n : nat, evenb n = evenb (S (S n)).
 Proof.
