@@ -267,7 +267,10 @@ Proof.
   simpl. reflexivity.
   simpl.
   rewrite -> IHm'.
-  replace (m' + (n + m' × n)) with (m' + m' * n + n).
+  replace (m' + (n + m' × n)) with (n + (m' + m' × n)).
+  reflexivity.
+  rewrite <- plus_assoc.
+  rewrite -> plus_comm.
   rewrite -> IHm'.
 
 Theorem mult_comm :
