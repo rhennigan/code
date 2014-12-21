@@ -252,6 +252,8 @@ Proof.
       rewrite -> plus_comm.
       rewrite -> plus_n_Sm_left.
       rewrite -> plus_n_Sm_left.
+      rewrite -> plus_comm.
+      replace (m + (S m + n' × m)) with ((S m + n' × m) + m).
     }
     rewrite -> plus_n_Sm_left.
     replace (n' + (m + (m + n' × m))) with ((m + (m + n' × m)) + n').
