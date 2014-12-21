@@ -101,4 +101,15 @@ Fixpoint nonzeros (lst : natlist) : natlist :=
     | x :: xs => x :: (nonzeros xs)
   end.
 
+Example test_nonzeros: nonzeros [0;1;0;2;3;0;0] = [1;2;3].
+Proof.
+  simpl. reflexivity.
+Qed.
 
+Fixpoint oddmembers (l:natlist) : natlist :=
+
+
+Example test_oddmembers: oddmembers [0;1;0;2;3;0;0] = [1;3].
+
+
+Fixpoint countoddmembers (l:natlist) : nat :=
