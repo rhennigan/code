@@ -499,6 +499,6 @@ Proof.
     SCase "b = S0". simpl. compute. reflexivity.
     SCase "b = S1 b1".
     {
-      
+      apply IHb1.
     }
   }
