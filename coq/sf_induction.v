@@ -231,6 +231,7 @@ Proof.
     simpl.
     rewrite -> plus_assoc.
     rewrite -> plus_assoc.
+    rewrite <- plus_n_Sm.
     rewrite -> plus_swap.
     simpl.
   }
