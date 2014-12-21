@@ -61,4 +61,6 @@ Notation "[ x ; .. ; y ]" := (cons x .. (cons y nil) ..).
 
 Print mylist.
 
-Definition mylist' := [ 1 ; 2 ; 3 ; ].
+Definition mylist' := [ 1 ; 2 ; 3 ].
+
+Print mylist'.
