@@ -247,7 +247,12 @@ Proof.
     rewrite -> H1.
     rewrite -> plus_assoc.
     assert (H2 : S (S n' + m + (m + n' × m)) = S n' + S m + (m + n' × m)).
-    SCase "Proof of H2". rewrite -> plus_comm. rewrite -> plus_n_Sm. reflexivity.
+    SCase "Proof of H2". 
+    {
+      rewrite -> plus_comm. 
+      rewrite -> plus_n_Sm_left. 
+      reflexivity.
+    }
     rewrite -> plus_n_Sm_left.
     replace (n' + (m + (m + n' × m))) with ((m + (m + n' × m)) + n').
     
