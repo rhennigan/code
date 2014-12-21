@@ -449,3 +449,6 @@ Proof.
   }
 Qed.
 
+Theorem nat_bin_equivalence : 
+  forall n : nat, forall b : bin, (nat_to_bin n = b) <-> (bin_to_nat b = n).
+  
