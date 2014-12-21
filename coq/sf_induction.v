@@ -212,7 +212,14 @@ Lemma mult_1_r :
 Proof.
   intro m.
   induction m as [|m'].
-  Case "m = 0". simpl.
+  Case "m = 0". simpl. reflexivity.
+  Case "m = S m'".
+  {
+    simpl.
+    rewrite -> IHm'.
+    reflexivity.
+  }
+Qed.
 
 Lemma mult_m_Sn :
   forall m n : nat, m * (S n) = m + m * n.
@@ -223,6 +230,15 @@ Proof.
   {
     simpl. 
     rewrite -> mult_0_r.
+    rewrite -> mult_1_r.
+    rewrite -> plus_0_r.
+    reflexivity.
+  }
+  Case "n = S n'".
+  {
+    
+  }
+Qed.
 
 Theorem mult_comm :
   forall m n : nat,
