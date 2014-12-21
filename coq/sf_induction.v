@@ -480,12 +480,12 @@ Proof.
     induction n as [|n'].
     SCase "n = 0".
     {
-      rewrite <- H1.
       simpl.
       reflexivity.
     }
     SCase "n = S n'".
     {
+      simpl.
       rewrite <- H1.
       simpl.
     }
