@@ -344,13 +344,10 @@ Proof.
   {
     intro H.
     induction L__1 as [|x xs].
-    SCase "L__1 = nil". rewrite <- H. simpl. reflexivity.
-    SCase "L__1 = x :: xs".
-    {
-      destruct H.
-      simpl.
-    }
+    SCase "L__1 = nil". rewrite <- H. reflexivity.
+    SCase "L__1 = x :: xs". rewrite <- H. reflexivity.
   }
+  Case ""
   
 
 Theorem rev_involutive :
