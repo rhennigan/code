@@ -228,7 +228,9 @@ Proof.
   Case "n = 0". simpl. rewrite -> plus_0_r. reflexivity.
   Case "n = S n'".
   {
-    
+    simpl.
+    rewrite -> plus_swap.
+    simpl.
   }
 
 Theorem mult_comm :
