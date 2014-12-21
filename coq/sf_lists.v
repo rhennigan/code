@@ -42,3 +42,9 @@ Proof.
   destruct p as [n m].
   reflexivity.
 Qed.
+
+Theorem fst_swap_is_snd :
+  forall p : natprod, fst (swap_pair p) = snd p.
+Proof.
+  intro p. destruct p as [n m]. reflexivity.
+Qed.
