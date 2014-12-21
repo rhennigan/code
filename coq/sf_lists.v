@@ -343,10 +343,11 @@ Proof.
   Case "rev L__1 = L__2 -> L__1 = rev L__2".
   {
     intro H.
-    destruct L__1 as [|x xs].
+    induction L__1 as [|x xs].
     SCase "L__1 = nil". rewrite <- H. simpl. reflexivity.
     SCase "L__1 = x :: xs".
     {
+      destruct H.
       simpl.
     }
   }
