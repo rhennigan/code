@@ -155,7 +155,14 @@ Proof. simpl. reflexivity. Qed.
 Definition bag := natlist.
 
 Fixpoint count (v:nat) (s:bag) : nat := 
-  (* FILL IN HERE *) admit.
+  match s, v with
+    | [], _ => 0
+    | x :: xs, _ =>
+      match x = v with
+        | true => 1 + (count v xs)
+        | false => count v xs
+      end
+  end.
 
 Example test_count1: count 1 [1;2;3;1;4;1] = 3.
  (* FILL IN HERE *) Admitted.
