@@ -260,7 +260,7 @@ Proof.
     rewrite -> H2.
     Admitted.
 
-Lemma dfs : forall m n : nat, m * (S n) = m + m * n.
+Lemma mult_m_Sn : forall m n : nat, m * (S n) = m + m * n.
 Proof.
   intros m n.
   induction m as [|m'].
@@ -273,7 +273,9 @@ Proof.
   rewrite <- plus_assoc.
   replace (m' × n + n) with (n + m' × n).
   reflexivity.
-  rewrite -> IHm'.
+  rewrite -> plus_comm.
+  reflexivity.
+Qed.
 
 Theorem mult_comm :
   forall m n : nat,
