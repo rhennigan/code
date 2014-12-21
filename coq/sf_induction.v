@@ -216,7 +216,7 @@ Proof.
   Case "m = 0". simpl. rewrite -> mult_0_r. reflexivity.
   Case "m = S m'".
   {
-    
+    induction n as [|n'].
   }
 
 Lemma evenb_n_plus_2 : forall n : nat, evenb n = evenb (S (S n)).
