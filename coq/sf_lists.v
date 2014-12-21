@@ -350,13 +350,6 @@ Proof.
   Case "rev L__1 = rev L__2 -> L__1 = L__2".
   {
     intro H.
-    destruct L__1.
-    destruct L__2.
-    reflexivity.
-    assert ([] = rev []). simpl. reflexivity.
-    rewrite -> H0.
-    rewrite -> H.
-    assert (rev (n :: L__2) = n :: L__2). 
   }
   
 
