@@ -207,6 +207,12 @@ Proof.
   rewrite <- H. reflexivity.
 Qed.
 
+Lemma mult_m_Sn :
+  forall m n : nat, m * (S n) = m + m * n.
+Proof.
+  intros m n.
+  
+
 Theorem mult_comm :
   forall m n : nat,
     m * n = n * m.
