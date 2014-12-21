@@ -21,16 +21,21 @@ Definition swap_pair (p : natprod) : natprod :=
     | (a, b) => (b, a)
   end.
 
-Theorem surjective_pairing : 
+Theorem surjective_pairing' : 
   forall n m : nat, (n, m) = (fst (n, m), snd (n, m)).
 Proof.
   reflexivity.
 Qed.
 
-Theorem surjective_pairing' :
+Theorem surjective_pairing :
   forall p : natprod, p = (fst p, snd p).
 Proof.
   intro p.
   destruct p as [n m].
   reflexivity.
 Qed.
+
+Theorem snd_fst_is_swap :
+  forall p : natprod, (snd p, fst p) = swap_pair p.
+Proof.
+  
