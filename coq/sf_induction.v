@@ -211,26 +211,7 @@ Theorem mult_comm :
   forall m n : nat,
     m * n = n * m.
 Proof.
-  intros m n.
-  induction m as [|m'].
-  Case "m = 0". simpl. rewrite -> mult_0_r. reflexivity.
-  Case "m = S m'".
-  {
-    destruct n as [|n'].
-    simpl. rewrite -> mult_0_r. reflexivity.
-    assert (H1 : S m' × S n' = S (n' + m' × S n')).
-    SCase "Proof of H1".
-    {
-      simpl.
-      reflexivity.
-    }
-    rewrite -> H1.
-    
-  }
-Admitted.
-
-
-
+  Admitted.
 
 Lemma evenb_n_plus_2 : forall n : nat, evenb n = evenb (S (S n)).
 Proof.
