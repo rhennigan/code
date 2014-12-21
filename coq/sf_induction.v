@@ -282,16 +282,7 @@ Proof.
   intros m n.
   induction m as [|m'].
   simpl. reflexivity.
-  simpl.
-  rewrite -> IHm'.
-  replace (m' + (n + m' × n)) with (n + (m' + m' × n)).
-  reflexivity.
-  rewrite -> plus_comm.
-  rewrite <- plus_assoc.
-  replace (m' × n + n) with (n + m' × n).
-  reflexivity.
-  rewrite -> plus_comm.
-  reflexivity.
+  simpl. reflexivity.
 Qed.
 
 Theorem mult_comm :
@@ -303,7 +294,9 @@ Proof.
   Case "m = 0". simpl. rewrite -> mult_0_r. reflexivity.
   Case "m = S m'".
   {
-    simpl. rewrite -> IHm'.
+    rewrite -> mult_m_Sn.
+    rewrite -> mult_Sm_n.
+    rewrite -> IHm'.
     destruct n as [|n']. simpl. reflexivity.
     simpl.
     rewrite -> plus_swap.
