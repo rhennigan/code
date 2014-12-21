@@ -344,7 +344,11 @@ Proof.
   {
     intro H.
     induction L__1 as [|x xs].
-    SCase "L__1 = nil". simpl.
+    SCase "L__1 = nil". rewrite <- H. simpl. reflexivity.
+    SCase "L__1 = x :: xs".
+    {
+      
+    }
   }
   
 
