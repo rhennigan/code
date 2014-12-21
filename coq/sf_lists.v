@@ -203,5 +203,6 @@ Theorem tl_length_pred :
   forall L : natlist, pred (length L) = length (tl L).
 Proof.
   intro L.
-  compute.
-    
+  induction L as [|x L'].
+  Case "L = nil". simpl. reflexivity.
+  Case "L = cons"
