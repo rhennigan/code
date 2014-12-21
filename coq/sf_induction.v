@@ -426,13 +426,10 @@ Proof.
     Check plus_n_Sm.
     rewrite <- plus_n_Sm.
     Check plus_n_Sm.
-    replace (S (n' + n')) with (n' + (S n')).
-    simpl.
-    rewrite -> plus_n_Sm.
-    
-    rewrite <- IHn'.
-    simpl.
+    rewrite <- plus_n_Sm.
+    reflexivity.
   }
+Qed.
 
 Theorem bin_inc_comm : 
   forall b : bin, bin_to_nat (bin_inc b) = S (bin_to_nat b).
