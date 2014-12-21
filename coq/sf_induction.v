@@ -499,6 +499,7 @@ Proof.
     SCase "b = S0". simpl. compute. reflexivity.
     SCase "b = S1 b1".
     {
-      apply IHb1.
+      replace (normalize (S1 b1)) with (nat_to_bin (bin_to_nat (S1 b1))).
+      simpl.
     }
   }
