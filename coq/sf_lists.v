@@ -48,3 +48,7 @@ Theorem fst_swap_is_snd :
 Proof.
   intro p. destruct p as [n m]. reflexivity.
 Qed.
+
+Inductive natlist : Type :=
+  | nil : natlist
+  | cons : nat -> natlist -> natlist.
