@@ -38,4 +38,7 @@ Qed.
 Theorem snd_fst_is_swap :
   forall p : natprod, (snd p, fst p) = swap_pair p.
 Proof.
-  
+  intro p.
+  destruct p as [n m].
+  reflexivity.
+Qed.
