@@ -424,6 +424,8 @@ Proof.
     rewrite -> IHn'.
     simpl.
     Check plus_n_Sm.
+    rewrite <- plus_n_Sm.
+    Check plus_n_Sm.
     replace (S (n' + n')) with (n' + (S n')).
     simpl.
     rewrite -> plus_n_Sm.
