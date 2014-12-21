@@ -321,6 +321,11 @@ Proof.
   }
 Qed.
 
+Lemma snoc_rev :
+  forall x : nat, forall xs : natlist, rev (snoc (rev xs) x) = x :: xs.
+Proof.
+  
+
 Theorem rev_involutive :
   forall L : natlist, rev (rev L) = L.
 Proof.
