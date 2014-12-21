@@ -72,3 +72,11 @@ Fixpoint length (lst : natlist) : nat :=
   end.
 
 Eval compute in (length (repeat 1 12)).
+
+Fixpoint app (lst1 lst2 : natlist) : natlist :=
+  match lst1 with
+    | [] => lst2
+    | x :: xs => x :: (app xs lst2)
+  end.
+
+Eval compute in (app [1;2;3] [4;5;6]).
