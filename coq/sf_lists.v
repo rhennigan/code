@@ -292,4 +292,14 @@ Theorem rev_length:
   forall L : natlist, length (rev L) = length L.
 Proof.
   intro L.
-  simpl.
+  induction L as [| x xs].
+  Case "L = nil".
+  {
+    simpl.
+    reflexivity.
+  }
+  Case "L = x :: xs".
+  {
+    simpl.
+  }
+Qed.
