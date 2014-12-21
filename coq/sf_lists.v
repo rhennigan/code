@@ -94,4 +94,11 @@ Definition tl (lst : natlist) : natlist :=
     | x :: xs => xs
   end.
 
+Fixpoint nonzeros (lst : natlist) : natlist :=
+  match lst with
+    | [] => []
+    | 0 :: xs => nonzeros xs
+    | x :: xs => x :: (nonzeros xs)
+  end.
+
 
