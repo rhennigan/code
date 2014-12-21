@@ -356,6 +356,7 @@ Proof.
     assert ([] = rev []). simpl. reflexivity.
     rewrite -> H0.
     rewrite -> H.
+    assert (rev (n :: L__2) = n :: L__2). 
   }
   
 
