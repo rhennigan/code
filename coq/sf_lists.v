@@ -107,9 +107,18 @@ Proof.
 Qed.
 
 Fixpoint oddmembers (l:natlist) : natlist :=
-
+  match l with
+    | [] => []
+    | x :: xs => 
+      match (oddb x) with
+          | true => x :: (oddmembers xs)
+          | false => oddmembers xs
+      end
+  end.
 
 Example test_oddmembers: oddmembers [0;1;0;2;3;0;0] = [1;3].
-
+Proof.
+  simpl. reflexivity.
+Qed.
 
 Fixpoint countoddmembers (l:natlist) : nat :=
