@@ -246,6 +246,8 @@ Proof.
     SCase "Proof of H1". rewrite -> plus_n_Sm_left. reflexivity.
     rewrite -> H1.
     rewrite -> plus_assoc.
+    assert (H2 : S (S n' + m + (m + n' × m)) = S n' + S m + (m + n' × m)).
+    SCase "Proof of H2". rewrite -> plus_n_Sm.
     rewrite -> plus_n_Sm_left.
     replace (n' + (m + (m + n' × m))) with ((m + (m + n' × m)) + n').
     
