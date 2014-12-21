@@ -220,8 +220,10 @@ Proof.
     SCase "n = 0". simpl. rewrite -> mult_0_r. reflexivity.
     SCase "n = S n'".
     {
-      
       simpl.
+      rewrite -> IHm'.
+      simpl.
+      rewrite -> plus_assoc.
     }
   }
 Qed.
