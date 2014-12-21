@@ -326,7 +326,11 @@ Lemma snoc_rev :
 Proof.
   intros v L.
   induction L as [| x xs].
-  Case "L = nil". simpl.
+  Case "L = nil". simpl. reflexivity.
+  Case "L = x :: xs".
+  {
+    simpl.
+  }
   
 
 Theorem rev_involutive :
