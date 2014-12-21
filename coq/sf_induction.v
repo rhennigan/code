@@ -250,7 +250,11 @@ Proof.
     SCase "Proof of H2". 
     {
       rewrite -> plus_comm. 
-      rewrite -> plus_n_Sm_left. 
+      rewrite -> plus_n_Sm_left.
+      rewrite -> plus_comm.
+      rewrite -> plus_n_Sm_left.
+      rewrite -> plus_assoc.
+      replace (m + S m) with (S m + m).
       reflexivity.
     }
     rewrite -> plus_n_Sm_left.
