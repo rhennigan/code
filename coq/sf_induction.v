@@ -458,7 +458,7 @@ Proof.
   {
     intro H1.
     rewrite <- H1.
-    simpl.
+    Check bin_correct.
     induction n as [|n'].
     SCase "n = 0".
     {
