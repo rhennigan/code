@@ -484,9 +484,8 @@ Proof.
       reflexivity.
     }
     SCase "n = S n'".
-    {
-      simpl.
-      rewrite <- H1.
+    {      
+      rewrite -> H1.
       simpl.
     }
   }
