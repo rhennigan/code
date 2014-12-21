@@ -117,6 +117,20 @@ Proof.
   }
 Qed.
 
+Lemma mult_1_r :
+  forall m : nat, m * 1 = m.
+Proof.
+  intro m.
+  induction m as [|m'].
+  Case "m = 0". simpl. reflexivity.
+  Case "m = S m'".
+  {
+    simpl.
+    rewrite -> IHm'.
+    reflexivity.
+  }
+Qed.
+
 Theorem plus_n_Sm : forall n m : nat, S (n + m) = n + (S m).
 Proof.
   intros n m.
@@ -207,40 +221,6 @@ Proof.
   rewrite <- H. reflexivity.
 Qed.
 
-Lemma mult_1_r :
-  forall m : nat, m * 1 = m.
-Proof.
-  intro m.
-  induction m as [|m'].
-  Case "m = 0". simpl. reflexivity.
-  Case "m = S m'".
-  {
-    simpl.
-    rewrite -> IHm'.
-    reflexivity.
-  }
-Qed.
-
-Lemma mult_m_Sn :
-  forall m n : nat, m * (S n) = m + m * n.
-Proof.
-  intros m n.
-  induction n as [|n'].
-  Case "n = 0". 
-  {
-    simpl. 
-    rewrite -> mult_0_r.
-    rewrite -> mult_1_r.
-    rewrite -> plus_0_r.
-    reflexivity.
-  }
-  Case "n = S n'".
-  {
-    rewrite -> IHn'.
-    
-  }
-Qed.
-
 Theorem mult_comm :
   forall m n : nat,
     m * n = n * m.
@@ -250,6 +230,7 @@ Proof.
   Case "m = 0". simpl. rewrite -> mult_0_r. reflexivity.
   Case "m = S m'".
   {
+    
     destruct n as [|n']. simpl. rewrite -> mult_0_r. reflexivity.
     simpl.
     induction n as [|n'].
