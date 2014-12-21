@@ -231,7 +231,7 @@ Proof.
   Case "m = S m'".
   {
     simpl. rewrite -> IHm'.
-    destruct n as [|n']. simpl. rewrite -> mult_0_r. reflexivity.
+    destruct n as [|n']. simpl. reflexivity.
     simpl.
     induction n as [|n'].
     SCase "n = 0". simpl. rewrite -> mult_0_r. reflexivity.
