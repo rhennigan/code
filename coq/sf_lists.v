@@ -216,4 +216,7 @@ Proof.
   }
 Qed.
 
-
+Theorem app_assoc :
+  forall L__1 L__2 L__3 : natlist, (L__1 ++ L__2) ++ L__3 = L__1 ++ (L__2 ++ L__3).
+Proof.
+  intros L__1 L__2 L__3.
