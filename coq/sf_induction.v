@@ -226,6 +226,8 @@ Proof.
     }
     rewrite -> H1.
     rewrite -> IHm'.
+    simpl.
+    rewrite -> plus_assoc.
   }
 Qed.
 
