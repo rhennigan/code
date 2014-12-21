@@ -490,7 +490,8 @@ Proof.
       rewrite -> bin_nat_comm.
       reflexivity.
     }
-  Case "bin_to_nat b = n -> nat_to_bin n = b".
+  }
+  Case "bin_to_nat (normalize b) = n -> nat_to_bin n = normalize b".
   {
-
+    
   }
