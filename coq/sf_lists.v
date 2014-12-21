@@ -183,15 +183,7 @@ Proof. reflexivity. Qed.
 Example test_add2: count 5 (add 1 [1;4;1]) = 0.
 Proof. reflexivity. Qed.
 
-Definition member (v:nat) (s:bag) : bool := 
-  match s, v with
-    | [], _ => false
-    | x :: xs, v => 
-      match (beq_nat x v) with
-          | true => true
-          | false => member v xs
-      end
-  end.
+Definition member (v:nat) (s:bag) : bool := negb (beq_nat 0 (count v s)).
 
 Example test_member1: member 1 [1;4;1] = true.
  (* FILL IN HERE *) Admitted.
