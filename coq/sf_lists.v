@@ -334,6 +334,12 @@ Proof.
   }
 Qed.
 
+Lemma rev_pairs :
+  forall L__1 L__2 : natlist,
+    (rev L__1 = L__2) <-> (L__1 = rev L__2).
+Proof.
+  intro L__1 L__2.
+
 Theorem rev_involutive :
   forall L : natlist, rev (rev L) = L.
 Proof.
