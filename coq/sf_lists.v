@@ -5,5 +5,14 @@ Module NatList.
 Inductive natprod : Type :=
   | pair : nat -> nat -> natprod.
 
-Check (pair 3 5).
+Notation "( x , y )" := (pair x y).
+
+Definition fst (p : natprod) : nat :=
+  match p with
+    | (a, b) => a
+  end.
+Definition snd (p : natprod) : nat :=
+  match p with
+    | (a, b) => b
+  end.
 
