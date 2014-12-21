@@ -505,7 +505,7 @@ Proof.
       auto.
     }
   }
-Abort.
+Abort.                          (* Proof appears in sf_induction.v *)
 
 
 (* Can't be defined *)
