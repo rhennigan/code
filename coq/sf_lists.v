@@ -340,6 +340,13 @@ Proof.
   intros v L.
   induction L as [|x xs].
   Case "L = nil". simpl. reflexivity.
+  Case "L = x :: xs".
+  {
+    simpl.
+    rewrite <- IHxs.
+    reflexivity.
+  }
+Qed.
 
 Lemma rev_pairs :
   forall L__1 L__2 : natlist,
@@ -360,6 +367,9 @@ Proof.
   Case "L = nil". simpl. reflexivity.
   Case "L = x :: xs".
   {
+    simpl.
+    rewrite -> snoc_app.
+    simpl.
     rewrite <- IHxs.
     simpl.
     
