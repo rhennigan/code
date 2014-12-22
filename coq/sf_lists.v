@@ -450,5 +450,9 @@ Proof.
     rewrite -> H.
     rewrite -> snoc_append.
     rewrite -> snoc_append.
+    Check app_assoc.
+    rewrite -> app_assoc.
+    reflexivity.
   }
+Qed.
   
