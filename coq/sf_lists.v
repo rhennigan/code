@@ -355,30 +355,30 @@ Proof.
   }
 Qed.
 
-(* Lemma snoc_app : *)
-(*   forall v : nat, forall L : natlist, snoc L v = L ++ [v]. *)
-(* Proof. *)
-(*   intros v L. *)
-(*   induction L as [|x xs]. *)
-(*   Case "L = nil". simpl. reflexivity. *)
-(*   Case "L = x :: xs". *)
-(*   { *)
-(*     simpl. *)
-(*     rewrite <- IHxs. *)
-(*     reflexivity. *)
-(*   } *)
-(* Qed. *)
+Lemma snoc_app :
+  forall v : nat, forall L : natlist, snoc L v = L ++ [v].
+Proof.
+  intros v L.
+  induction L as [|x xs].
+  Case "L = nil". simpl. reflexivity.
+  Case "L = x :: xs".
+  {
+    simpl.
+    rewrite <- IHxs.
+    reflexivity.
+  }
+Qed.
 
-(* Lemma rev_pairs : *)
-(*   forall L__1 L__2 : natlist, *)
-(*     (L__1 = L__2) -> (rev L__1 = rev L__2). *)
-(* Proof. *)
-(*   intros L__1 L__2. *)
-(*   intro H. *)
-(*   induction L__1 as [|x xs]. *)
-(*   SCase "L__1 = nil". rewrite <- H. reflexivity. *)
-(*   SCase "L__1 = x :: xs". rewrite <- H. reflexivity. *)
-(* Qed. *)
+Lemma rev_pairs :
+  forall L__1 L__2 : natlist,
+    (L__1 = L__2) -> (rev L__1 = rev L__2).
+Proof.
+  intros L__1 L__2.
+  intro H.
+  induction L__1 as [|x xs].
+  SCase "L__1 = nil". rewrite <- H. reflexivity.
+  SCase "L__1 = x :: xs". rewrite <- H. reflexivity.
+Qed.
 
 Theorem rev_involutive :
   forall L : natlist, rev (rev L) = L.
@@ -390,10 +390,8 @@ Proof.
   {
     simpl.
     Check rev_snoc.
-    apply (rev_pairs IHxs).
-    rewrite -> snoc_app.
-    simpl.
-    rewrite <- IHxs.
-    simpl.
-    
+    rewrite -> rev_snoc.
+    rewrite -> IHxs.
+    reflexivity.
   }
+Qed.
