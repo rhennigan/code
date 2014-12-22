@@ -445,6 +445,6 @@ Proof.
   Case "L__1 = x :: xs".
   {
     simpl.
-    assert (snoc_both (rev (xs ++ L__2)) (rev L__2 ++ rev xs) x).
+    assert (H : snoc (rev (xs ++ L__2)) x = snoc (rev L__2 ++ rev xs) x).
   }
   
