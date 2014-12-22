@@ -420,7 +420,11 @@ Lemma snoc_both :
 Proof.
   intros L__1 L__2 v H__eq.
   induction L__1 as [| x xs].
-  Case "L__1 = nil". simpl.
+  Case "L__1 = nil". rewrite <- H__eq. reflexivity.
+  Case "L__1 = x :: xs".
+  {
+    simpl.
+  }
 
 Theorem distr_rev : 
   forall L__1 L__2 : natlist,
