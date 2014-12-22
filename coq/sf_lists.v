@@ -340,14 +340,15 @@ Proof.
   }
 Qed.
 
-Lemma snoc_rev :
-  forall v : nat, forall L : natlist, snoc (rev L) v = rev (cons v L).
+Lemma rev_snoc :
+  forall v : nat, forall L : natlist, rev (snoc L v) = cons v (rev L).
 Proof.
   intros v L.
   induction L as [| x xs].
   Case "L = nil". simpl. reflexivity.
   Case "L = x :: xs".
   {
+    rewrite IHxs.
     simpl.
     reflexivity.
   }
