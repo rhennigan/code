@@ -341,14 +341,17 @@ Proof.
 Qed.
 
 Lemma rev_snoc :
-  forall v : nat, forall s : natlist, rev (snoc s v) = v :: (rev s).
+  forall v : nat, forall L : natlist, rev (snoc L v) = v :: (rev L).
 Proof.
-  intros v s.
-  induction s.
-  reflexivity.
-  simpl.
-  rewrite IHs.
-  reflexivity.
+  intros v L.
+  induction L as [|x xs].
+  Case "L = nil". reflexivity.
+  Case "L = x :: xs".
+  {
+    simpl.
+    rewrite -> IHxs.
+    reflexivity.
+  }
 Qed.
 
 (* Lemma snoc_app : *)
