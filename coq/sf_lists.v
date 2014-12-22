@@ -428,6 +428,8 @@ Proof.
   }
 Qed.
 
+Check snoc_both.
+
 Theorem distr_rev : 
   forall L__1 L__2 : natlist,
     rev (L__1 ++ L__2) = (rev L__2) ++ (rev L__1).
