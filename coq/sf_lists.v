@@ -447,6 +447,8 @@ Proof.
     simpl.
     assert (H : snoc (rev (xs ++ L__2)) x = snoc (rev L__2 ++ rev xs) x).
     rewrite -> IHxs. reflexivity.
-    rewrite -> H. simpl.
+    rewrite -> H.
+    rewrite -> snoc_append.
+    rewrite -> snoc_append.
   }
   
