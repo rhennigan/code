@@ -430,6 +430,6 @@ Proof.
   {
     simpl.
     rewrite -> IHxs.
-    
+    rewrite -> snoc_append.
   }
   
