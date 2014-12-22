@@ -261,7 +261,7 @@ Fixpoint snoc (L : natlist) (v : nat) : natlist :=
 Fixpoint rev (L : natlist) : natlist :=
   match L with
     | [] => []
-    | x :: xs => (rev xs) ++ [x]
+    | x :: xs => snoc (rev xs) x
   end.
 
 Example test_rev1: rev [1;2;3] = [3;2;1].
@@ -320,7 +320,7 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
-    rewrite -> length_app1.
+    rewrite -> length_snoc.
     rewrite -> IHxs.
     reflexivity.
   }
