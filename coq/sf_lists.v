@@ -288,6 +288,25 @@ Proof.
   }
 Qed.
 
+Theorem length_app1 : 
+  forall n : nat, forall L : natlist,
+    length (L ++ [n]) = S (length L).
+Proof.
+  intros n L.
+  induction L as [| x xs].
+  Case "L = nil".
+  {
+    simpl.
+    reflexivity.
+  }
+  Case "L = x :: xs".
+  {
+    simpl.
+    rewrite -> IHxs.
+    reflexivity.
+  }
+Qed.
+
 Theorem rev_length:
   forall L : natlist, length (rev L) = length L.
 Proof.
