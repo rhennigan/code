@@ -320,7 +320,7 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
-    rewrite -> length_snoc.
+    rewrite -> length_app1.
     rewrite -> IHxs.
     reflexivity.
   }
