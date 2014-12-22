@@ -395,3 +395,9 @@ Proof.
     reflexivity.
   }
 Qed.
+
+Theorem app_assoc4 :
+  forall L__1 L__2 L__3 L__4 : natlist,
+    L__1 ++ (L__2 ++ (L__3 ++ L__4)) = ((L__1 ++ L__2) ++ L__3) ++ L__4.
+Proof.
+  intros L__1 L__2 L__3 L__4.
