@@ -414,11 +414,10 @@ Proof.
   apply (snoc_app n L).
 Qed.
 
-Lemma snoc_both :
-  forall (L__1 L__2 : natlist) (v : nat),
+Lemma snoc_both (L__1 : natlist) (L__2 : natlist) (v : nat) :
     (L__1 = L__2) -> (snoc L__1 v = snoc L__2 v).
 Proof.
-  intros L__1 L__2 v H__eq.
+  intros H__eq.
   destruct L__1 as [| x xs].
   Case "L__1 = nil".  rewrite <- H__eq. reflexivity.
   Case "L__1 = x :: xs".
