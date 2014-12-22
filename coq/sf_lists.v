@@ -413,3 +413,10 @@ Proof.
   intros L n.
   apply (snoc_app n L).
 Qed.
+
+Theorem distr_rev : 
+  forall L__1 L__2 : natlist,
+    rev (L__1 ++ L__2) = (rev L__2) ++ (rev L__1).
+Proof.
+  intros L__1 L__2.
+  simpl.
