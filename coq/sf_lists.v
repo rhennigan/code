@@ -425,6 +425,7 @@ Proof.
   {
     simpl.
     
+    intro H__eq.
   }
 
 Theorem distr_rev : 
