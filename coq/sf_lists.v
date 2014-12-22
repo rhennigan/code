@@ -418,12 +418,13 @@ Lemma snoc_both :
   forall (L__1 L__2 : natlist) (v : nat),
     (L__1 = L__2) -> (snoc L__1 v = snoc L__2 v).
 Proof.
-  intros L__1 L__2 v H__eq.
+  intros L__1 L__2 v.
   induction L__1 as [| x xs].
-  Case "L__1 = nil". rewrite <- H__eq. reflexivity.
+  Case "L__1 = nil". intro H__eq. rewrite <- H__eq. reflexivity.
   Case "L__1 = x :: xs".
   {
     simpl.
+    
   }
 
 Theorem distr_rev : 
