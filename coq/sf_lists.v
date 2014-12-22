@@ -423,10 +423,11 @@ Proof.
   Case "L__1 = nil". 
   {
     simpl. 
-    replace (rev L__2 ++ []) with (rev L__2).
+    rewrite -> app_nil_end.
     reflexivity.
     {
       Check app_nil_end.
+      
       apply (app_nil_end).
     }
   }
