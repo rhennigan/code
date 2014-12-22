@@ -419,4 +419,5 @@ Theorem distr_rev :
     rev (L__1 ++ L__2) = (rev L__2) ++ (rev L__1).
 Proof.
   intros L__1 L__2.
-  simpl.
+  induction L__1 as [| x xs].
+  Case "L__1 = nil". simpl.
