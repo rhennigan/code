@@ -368,6 +368,7 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
+    rewrite -> snoc_rev.
     rewrite -> snoc_app.
     simpl.
     rewrite <- IHxs.
