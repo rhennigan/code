@@ -414,6 +414,12 @@ Proof.
   apply (snoc_app n L).
 Qed.
 
+Lemma snoc_both :
+  forall (L__1 L__2 : natlist) (x : nat),
+    (L__1 = L__2) -> (snoc L__1 x = snoc L__2 x).
+Proof.
+  intros L__1 L__2 x H__eq.
+
 Theorem distr_rev : 
   forall L__1 L__2 : natlist,
     rev (L__1 ++ L__2) = (rev L__2) ++ (rev L__1).
