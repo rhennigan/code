@@ -401,6 +401,8 @@ Theorem app_assoc4 :
     L__1 ++ (L__2 ++ (L__3 ++ L__4)) = ((L__1 ++ L__2) ++ L__3) ++ L__4.
 Proof.
   intros L__1 L__2 L__3 L__4.
-  SearchAbout natlist.
   rewrite <- app_assoc.
   rewrite <- app_assoc.
+  reflexivity.
+Qed.
+
