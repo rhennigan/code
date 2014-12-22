@@ -428,9 +428,6 @@ Proof.
   }
   Case "L__1 = x :: xs".
   {
-    simpl.
-    rewrite -> snoc_append.
-    rewrite -> IHxs.
-    reflexivity.
+    
   }
   
