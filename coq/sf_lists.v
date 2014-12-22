@@ -406,3 +406,8 @@ Proof.
   reflexivity.
 Qed.
 
+Theorem snoc_append : 
+  forall (L : natlist) (n : nat),
+    snoc L n = L ++ [n].
+Proof.
+  
