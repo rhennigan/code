@@ -426,7 +426,8 @@ Proof.
     replace (rev L__2 ++ []) with (rev L__2).
     reflexivity.
     {
-      
+      Check app_nil_end.
+      apply (app_nil_end).
     }
   }
   
