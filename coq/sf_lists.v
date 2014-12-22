@@ -350,6 +350,7 @@ Proof.
   {
     simpl.
     rewrite -> IHxs.
+    simpl.
     reflexivity.
   }
 Qed.
@@ -388,6 +389,7 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
+    Check rev_snoc.
     apply (rev_pairs IHxs).
     rewrite -> snoc_app.
     simpl.
