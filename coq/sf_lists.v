@@ -334,6 +334,13 @@ Proof.
   }
 Qed.
 
+Lemma snoc_app :
+  forall v : nat, forall L : natlist, snoc L v = L ++ [v].
+Proof.
+  intros v L.
+  induction L as [|x xs].
+  Case "L = nil". simpl. reflexivity.
+
 Lemma rev_pairs :
   forall L__1 L__2 : natlist,
     (L__1 = L__2) -> (rev L__1 = rev L__2).
