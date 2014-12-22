@@ -425,10 +425,10 @@ Proof.
     simpl. 
     rewrite -> app_nil_end.
     reflexivity.
-    {
-      Check app_nil_end.
-      
-      apply (app_nil_end).
-    }
+  }
+  Case "L__1 = x :: xs".
+  {
+    simpl.
+    
   }
   
