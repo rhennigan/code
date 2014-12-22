@@ -410,4 +410,6 @@ Theorem snoc_append :
   forall (L : natlist) (n : nat),
     snoc L n = L ++ [n].
 Proof.
-  
+  intros L n.
+  apply (snoc_app n L).
+Qed.
