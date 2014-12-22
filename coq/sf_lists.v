@@ -420,7 +420,13 @@ Theorem distr_rev :
 Proof.
   intros L__1 L__2.
   induction L__1 as [| x xs].
-  Case "L__1 = nil". simpl. 
-  Check app_nil_end.
-  apply (app_nil_end (rev L__2)).
-  SearchAbout app.
+  Case "L__1 = nil". 
+  {
+    simpl. 
+    replace (rev L__2 ++ []) with (rev L__2).
+    reflexivity.
+    {
+      
+    }
+  }
+  
