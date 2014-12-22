@@ -367,7 +367,7 @@ Proof.
   Case "L = nil". simpl. reflexivity.
   Case "L = x :: xs".
   {
-    apply (rev_pairs IHxs).
+    apply (rev_pairs IHxs) with (L__1 := rev (rev xs)).
     rewrite -> snoc_app.
     simpl.
     rewrite <- IHxs.
