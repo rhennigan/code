@@ -261,7 +261,7 @@ Fixpoint snoc (L : natlist) (v : nat) : natlist :=
 Fixpoint rev (L : natlist) : natlist :=
   match L with
     | [] => []
-    | x :: xs => snoc (rev xs) x
+    | x :: xs => (rev xs) ++ [x]
   end.
 
 Example test_rev1: rev [1;2;3] = [3;2;1].
@@ -321,43 +321,43 @@ Proof.
   }
 Qed.
 
-Lemma snoc_rev :
-  forall v : nat, forall L : natlist, snoc (rev L) v = rev (cons v L).
-Proof.
-  intros v L.
-  induction L as [| x xs].
-  Case "L = nil". simpl. reflexivity.
-  Case "L = x :: xs".
-  {
-    simpl.
-    reflexivity.
-  }
-Qed.
+(* Lemma snoc_rev : *)
+(*   forall v : nat, forall L : natlist, snoc (rev L) v = rev (cons v L). *)
+(* Proof. *)
+(*   intros v L. *)
+(*   induction L as [| x xs]. *)
+(*   Case "L = nil". simpl. reflexivity. *)
+(*   Case "L = x :: xs". *)
+(*   { *)
+(*     simpl. *)
+(*     reflexivity. *)
+(*   } *)
+(* Qed. *)
 
-Lemma snoc_app :
-  forall v : nat, forall L : natlist, snoc L v = L ++ [v].
-Proof.
-  intros v L.
-  induction L as [|x xs].
-  Case "L = nil". simpl. reflexivity.
-  Case "L = x :: xs".
-  {
-    simpl.
-    rewrite <- IHxs.
-    reflexivity.
-  }
-Qed.
+(* Lemma snoc_app : *)
+(*   forall v : nat, forall L : natlist, snoc L v = L ++ [v]. *)
+(* Proof. *)
+(*   intros v L. *)
+(*   induction L as [|x xs]. *)
+(*   Case "L = nil". simpl. reflexivity. *)
+(*   Case "L = x :: xs". *)
+(*   { *)
+(*     simpl. *)
+(*     rewrite <- IHxs. *)
+(*     reflexivity. *)
+(*   } *)
+(* Qed. *)
 
-Lemma rev_pairs :
-  forall L__1 L__2 : natlist,
-    (L__1 = L__2) -> (rev L__1 = rev L__2).
-Proof.
-  intros L__1 L__2.
-  intro H.
-  induction L__1 as [|x xs].
-  SCase "L__1 = nil". rewrite <- H. reflexivity.
-  SCase "L__1 = x :: xs". rewrite <- H. reflexivity.
-Qed.
+(* Lemma rev_pairs : *)
+(*   forall L__1 L__2 : natlist, *)
+(*     (L__1 = L__2) -> (rev L__1 = rev L__2). *)
+(* Proof. *)
+(*   intros L__1 L__2. *)
+(*   intro H. *)
+(*   induction L__1 as [|x xs]. *)
+(*   SCase "L__1 = nil". rewrite <- H. reflexivity. *)
+(*   SCase "L__1 = x :: xs". rewrite <- H. reflexivity. *)
+(* Qed. *)
 
 Theorem rev_involutive :
   forall L : natlist, rev (rev L) = L.
