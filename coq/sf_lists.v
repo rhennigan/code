@@ -429,6 +429,7 @@ Proof.
   Case "L__1 = x :: xs".
   {
     simpl.
+    rewrite -> IHxs.
     
   }
   
