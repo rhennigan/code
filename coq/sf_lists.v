@@ -340,18 +340,18 @@ Proof.
   }
 Qed.
 
-(* Lemma snoc_rev : *)
-(*   forall v : nat, forall L : natlist, snoc (rev L) v = rev (cons v L). *)
-(* Proof. *)
-(*   intros v L. *)
-(*   induction L as [| x xs]. *)
-(*   Case "L = nil". simpl. reflexivity. *)
-(*   Case "L = x :: xs". *)
-(*   { *)
-(*     simpl. *)
-(*     reflexivity. *)
-(*   } *)
-(* Qed. *)
+Lemma snoc_rev :
+  forall v : nat, forall L : natlist, snoc (rev L) v = rev (cons v L).
+Proof.
+  intros v L.
+  induction L as [| x xs].
+  Case "L = nil". simpl. reflexivity.
+  Case "L = x :: xs".
+  {
+    simpl.
+    reflexivity.
+  }
+Qed.
 
 (* Lemma snoc_app : *)
 (*   forall v : nat, forall L : natlist, snoc L v = L ++ [v]. *)
