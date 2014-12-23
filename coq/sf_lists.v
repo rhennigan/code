@@ -565,8 +565,8 @@ Module NatList.
   Proof.
     intros v pf b1 b2 H.
     rewrite -> H.
-    Check double_neg.
-    rewrite -> double_neg in (b1 = negb b2).
+    destruct b1.
+    destruct b2.
     reflexivity.
   Qed.
 
