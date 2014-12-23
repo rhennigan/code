@@ -90,10 +90,13 @@ Proof.
   simpl. rewrite -> IHxs. reflexivity.
 Qed.
 
-Theorem rev_involutive : ∀X : Type, ∀l : list X,
-  rev (rev l) = l.
+Theorem rev_involutive : 
+  forall X : Type, forall l : list X,
+    rev (rev l) = l.
 Proof.
-(* FILL IN HERE *) Admitted.
+  intros X l.
+  induction l as [|x xs]. reflexivity.
+  simpl.
 
 Theorem snoc_with_append : ∀X : Type,
                          ∀l1 l2 : list X,
