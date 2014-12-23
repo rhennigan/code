@@ -579,7 +579,6 @@ Module NatList.
     Case "p = cons x xs".
     {
       intro n.
-      apply bool_flip.
       rewrite -> IHxs.
       unfold bpalindrome.
     }
