@@ -550,4 +550,6 @@ Theorem palindrome_first_last :
 Proof.
   intros L H.
   induction L as [|x xs]. reflexivity.
-  simpl.
+  unfold bpalindrome in H.
+  simpl in H.
+  unfold bpalindrome_aux in H.
