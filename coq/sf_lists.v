@@ -656,12 +656,4 @@ Theorem rev_injective :
 Proof.
   intros L__1 L__2 H1.
   assert (H2 : rev (rev L__1) = rev (rev L__2)).
-  SearchAbout rev.
-  induction L__1 as [|x xs].
-  Case "L__1 = nil". 
-  {
-    simpl in H_rev_eq.
-    assert (H2 : rev L__2 = []). rewrite -> H_rev_eq. reflexivity.
-    assert (H3 : L__2 = []). apply (empty_rev_is_empty L__2 H2). rewrite <- H3. reflexivity.
-    SearchAbout rev.
-    rewrite -> H_rev_eq. simpl.
+  apply (rev_pairs (rev L__1) (rev L__2) H1).
