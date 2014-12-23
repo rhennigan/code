@@ -580,8 +580,9 @@ Module NatList.
       assert (IHxs' : forall n : nat, negb (bpalindrome xs) = bpalindrome (n :: xs)).
       SCase "Proof of IHxs'".
       {
-        intro v.
-        apply bool_flip in (bpalindrome xs = negb (bpalindrome (v :: xs))).
+        intro n.
+        rewrite -> IHxs.
+        rewrite -> double_neg.
       }
       
     }
