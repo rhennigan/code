@@ -263,3 +263,9 @@ Proof. reflexivity. Qed.
 Example test_anon_fun':
   doit3times (fun n => n × n) 2 = 256.
 Proof. reflexivity. Qed.
+
+Example test_filter2':
+  filter (fun l => beq_nat (length l) 1) 
+         [[1;2];[3];[4];[5;6;7];[];[8]] = [[3];[4];[8]].
+Proof. reflexivity. Qed.
+
