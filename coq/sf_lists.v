@@ -634,14 +634,15 @@ Proof.
 Qed.
 
 Lemma empty_rev_is_empty :
-  forall (L : natlist), rev L = [] -> L = [].
+  forall (L : natlist), (L = []) -> (rev L = []).
 Proof.
-  intros L H.
+  intros L H. rewrite -> H. reflexivity.
   destruct L as [|x xs].
   Case "L = nil". reflexivity.
   Case "L = x :: xs".
   {
     destruct (x :: xs). reflexivity.
+    
   }
 
 Theorem rev_injective :
