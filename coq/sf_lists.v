@@ -530,7 +530,7 @@ Module NatList.
     }
   Qed.
 
-  Fixpoint bpalindrome_aux (L S : natlist) :=
+  Fixpoint bpalindrome_aux (L S : natlist) : bool :=
     match L, S with
       | [], [] => true
       | [], _  => false
@@ -542,7 +542,9 @@ Module NatList.
         end
     end.
 
-  Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
+  Definition bpalindrome (L : natlist) : bool := bpalindrome_aux L [].
+
+  Check bpalindrome.
 
   Lemma bool_flip :
     forall (b1 b2 : bool),
