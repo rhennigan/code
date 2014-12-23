@@ -57,3 +57,34 @@ Eval compute in ([1;2;3;4;5] ++ [6;7;8;9;10]).
 Definition list123''' := [1; 2; 3].
 
 Check ([3 + 4] ++ nil).
+
+Fixpoint repeat {X : Type} (n : X) (count : nat) : list X :=
+  
+
+Example test_repeat1:
+  repeat true 2 = cons true (cons true nil).
+ (* FILL IN HERE *) Admitted.
+
+Theorem nil_app : ∀X:Type, ∀l:list X,
+  app [] l = l.
+Proof.
+  (* FILL IN HERE *) Admitted.
+
+Theorem rev_snoc : ∀X : Type,
+                     ∀v : X,
+                     ∀s : list X,
+  rev (snoc s v) = v :: (rev s).
+Proof.
+  (* FILL IN HERE *) Admitted.
+
+Theorem rev_involutive : ∀X : Type, ∀l : list X,
+  rev (rev l) = l.
+Proof.
+(* FILL IN HERE *) Admitted.
+
+Theorem snoc_with_append : ∀X : Type,
+                         ∀l1 l2 : list X,
+                         ∀v : X,
+  snoc (l1 ++ l2) v = l1 ++ (snoc l2 v).
+Proof.
+  (* FILL IN HERE *) Admitted.
