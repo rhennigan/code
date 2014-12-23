@@ -69,7 +69,7 @@ Proof.
     remember (beq_nat n 5) as e5. destruct e5.
     SCase "e5 = true".
     {
-      
+      assert (true = true). reflexivity.
     }
     SCase "e5 = false".
     {
