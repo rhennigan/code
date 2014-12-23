@@ -190,3 +190,5 @@ Proof. reflexivity. Qed.
 Example test_hd_opt2 : hd_opt [[1];[2]] = Some [1].
 Proof. reflexivity. Qed.
 
+Definition Doit3times {X:Type} (f:X -> X) (x:X) : X :=
+  (f (f (f x))).
