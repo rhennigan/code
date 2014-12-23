@@ -302,3 +302,13 @@ Proof. reflexivity. Qed.
 
 Example test_partition2: partition (fun x => false) [5;9;0] = ([], [5;9;0]).
 Proof. reflexivity. Qed.
+
+Fixpoint map {X Y:Type} (f:X -> Y) (lst:list X) : (list Y) := 
+  match lst with
+    | [] => []
+    | x :: xs => (f x) :: (map f xs)
+  end.
+
+Example test_map1: map (plus 3) [2;0;2] = [5;3;5].
+Proof. reflexivity. Qed.
+
