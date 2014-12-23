@@ -532,3 +532,7 @@ Proof.
   intros L v.
   induction L as [| x xs].
   Case "L = nil". reflexivity.
+  Case "L = x :: xs".
+  {
+    simpl.
+  }
