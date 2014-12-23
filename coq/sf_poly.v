@@ -484,6 +484,11 @@ Proof.
   intro H2.
   unfold override.
   rewrite -> H2.
+  rewrite -> H1.
+  reflexivity.
+Qed.
+
+
 
 
 End SF_Polymorphism. 
