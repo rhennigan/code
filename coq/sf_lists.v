@@ -560,7 +560,8 @@ Module NatList.
   
 
   Lemma dep_bool_flip (v : nat) :
-    forall (bf) (b1 b2 : bool), (bf v) = (b1 = negb b2) -> (negb b = bf n).
+    forall (bf : nat -> Prop) (b1 b2 : bool), 
+      ((bf v) = (b1 = negb b2)) -> ((bf v) = (negb b1 = b2)).
   Proof.
     intros b bf n H.
     rewrite -> H.
