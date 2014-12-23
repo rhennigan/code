@@ -42,8 +42,8 @@ Proof.
         }
       }
       simpl in H.
-      apply S_eq.
-      
+      apply IHn' in H.
+      rewrite -> H.
     }
     
   }
