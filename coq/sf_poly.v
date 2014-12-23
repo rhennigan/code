@@ -495,10 +495,25 @@ Example test_fold_length1 : fold_length [4;7;0] = 3.
 Proof. reflexivity. Qed.
 
 Theorem fold_length_correct :
-  forall (X : Type) (l : list X), fold_length l = length l.
+  forall (X : Type) (lst : list X), fold_length lst = length lst.
 Proof.
-  intros X l.
+  intros X lst.
   unfold fold_length.
+  induction lst as [|x xs].
+  Case "lst = nil".
+  {
+    simpl.
+    reflexivity.
+  }
+  Case "lst = x :: xs".
+  {
+    simpl.
+    rewrite -> IHxs.
+    reflexivity.
+  }
+Qed.
+
+
 
 
 End SF_Polymorphism. 
