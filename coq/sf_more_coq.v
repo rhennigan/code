@@ -79,9 +79,7 @@ Proof.
     {
       remember (beq_nat n' 4) as e4. destruct e4.
       {
-        
         assert (H_refl : true = true). reflexivity.
-        apply IHn' in H_refl.
         assumption.
       }
       {
