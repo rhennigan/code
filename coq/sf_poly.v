@@ -19,17 +19,17 @@ Fixpoint length {X : Type} (L:list X) : nat :=
   end.
 
 Example test_length1 :
-  length nat (cons 1 (cons 2 nil)) = 2.
+  length (cons 1 (cons 2 nil)) = 2.
 Proof. reflexivity. Qed.
 
 Example test_length2 :
-  length bool (cons true (cons false (cons true nil))) = 3.
+  length (cons true (cons false (cons true nil))) = 3.
 Proof. reflexivity. Qed.
 
-Fixpoint app T a b : (list T) :=
+Fixpoint app {T:Type} (a b : list T) : (list T) :=
   match a with
     | nil => b
-    | cons x xs => cons x (app T xs b)
+    | cons x xs => cons x (app xs b)
   end.
 
 Check app.
