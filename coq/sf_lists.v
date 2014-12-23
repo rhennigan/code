@@ -572,7 +572,6 @@ Module NatList.
     destruct b1.
     destruct b2.
     auto.
-    absurd.
     
     
 
