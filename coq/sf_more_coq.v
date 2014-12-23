@@ -73,6 +73,8 @@ Proof.
   Case "n = S n'".
   {
     intro H.
+    unfold impossible in H.
+    simpl in H.
     remember (true = impossible n') as P_im.
     remember (impossible n') as im.
     unfold impossible in H. simpl in *.
