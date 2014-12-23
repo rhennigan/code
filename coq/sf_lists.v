@@ -586,6 +586,8 @@ Module NatList.
         unfold bpalindrome in *.
         simpl in *.
         SearchAbout negb.
+        apply bool_flip in IHxs.
+        rewrite <- IHxs.
       }
       
     }
