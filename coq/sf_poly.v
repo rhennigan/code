@@ -1,7 +1,5 @@
 Require Export sf_lists.
 
-Module SF_Polymorphism.
-
 Inductive boollist : Type :=
 | bool_nil : boollist
 | bool_cons : bool -> boollist -> boollist.
@@ -542,5 +540,3 @@ Proof.
     reflexivity.
   }
 Qed.
-
-End SF_Polymorphism. 
