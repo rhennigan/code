@@ -11,3 +11,5 @@ Inductive list' (X : Type) : Type :=
 Check nil.
 Check cons.
 Check (list nat).
+
+Check (cons nat 2 (cons nat 1 nil)).
