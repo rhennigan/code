@@ -218,3 +218,9 @@ Proof.
   compute. 
   reflexivity.
 Qed.
+
+Theorem curry_uncurry :
+  forall (X Y Z : Type) (f : (X × Y) -> Z) (p : (X × Y)),
+    prod_uncurry (prod_curry f) p = f p.
+Proof.
+  intros X Y Z f p.
