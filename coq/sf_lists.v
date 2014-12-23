@@ -719,4 +719,11 @@ Theorem option_elim_hd :
   forall (L : natlist) (default : nat),
     hd default L = option_elim default (hd_opt L).
 Proof.
-  
+  intros L d.
+  induction L as [|x xs].
+  {
+    reflexivity.
+  }
+  {
+    reflexivity.
+  }
