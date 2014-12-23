@@ -567,7 +567,7 @@ Module NatList.
     rewrite -> H.
     destruct b1.
     destruct b2.
-    reflexivity.
+    simpl.
   Qed.
 
   Lemma palindrome_cons :
