@@ -454,6 +454,8 @@ Proof.
   reflexivity.
 Qed.
 
-
+Theorem unfold_example : 
+  forall (m n : nat), 3 + n = m -> (fun x => x + 3) n + 1 = m + 1.
+Proof.
 
 End SF_Polymorphism. 
