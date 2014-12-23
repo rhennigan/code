@@ -31,10 +31,11 @@ Proof.
           intros b H'.
           destruct b as [| b'].
           SSSSCase "b = O". reflexivity.
-          SSSSCase "b = S b'".
-          {
-            simpl in H'.
-          }
+          SSSSCase "b = S b'". inversion H'.
+        }
+        SSSCase "a = S a'".
+        {
+          
         }
       }
     }
