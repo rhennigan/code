@@ -470,6 +470,12 @@ Theorem override_eq :
     (override f k x) k = x.
 Proof.
   intros X x k f.
+  unfold override.
+  rewrite <- beq_nat_refl.
+  reflexivity.
+Qed.
+
+
 
 
 End SF_Polymorphism. 
