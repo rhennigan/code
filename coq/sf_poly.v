@@ -32,7 +32,10 @@ Fixpoint app {T:Type} (a b : list T) : (list T) :=
     | cons x xs => cons x (app xs b)
   end.
 
-Check app.
+Check @nil.
+Check @length.
+Check @app.
+Check @test_length2.
 
 Fixpoint snoc {X:Type} (l:list X) (v:X) : (list X) :=
   match l with
