@@ -63,5 +63,12 @@ Theorem impossible_false :
 Proof.
   intro n.
   unfold impossible.
-  remember (beq_nat n 3) as e3.
-  remember (beq_nat n 5) as e5.
+  remember (beq_nat n 3) as e3. destruct e3.
+  Case "e3 = true".
+  {
+    
+  }
+  Case "e3 = false".
+  {
+    
+  }
