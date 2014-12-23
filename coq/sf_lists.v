@@ -568,21 +568,19 @@ Module NatList.
     forall (p : natlist) (v : nat),
       (bpalindrome p) = negb (bpalindrome (v :: p)).
   Proof.
-    intros p.
+    intros p v.
     induction p as [|x xs].
     Case "p = nil".
     {
-      intro v.
       unfold bpalindrome.
       reflexivity.
     }
     Case "p = cons x xs".
     {
-      assert (IHxs' : forall v : nat, negb (bpalindrome xs) = bpalindrome (v :: xs)).
+      assert (IHxs' : forall n : nat, negb (bpalindrome xs) = bpalindrome (n :: xs)).
       SCase "Proof of IHxs'".
       {
         intro v.
-        apply IHxs.
         apply bool_flip in (bpalindrome xs = negb (bpalindrome (v :: xs))).
       }
       
