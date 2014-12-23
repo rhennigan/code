@@ -532,13 +532,16 @@ Proof.
   intros L v.
   unfold bpalindrome.
   destruct (bpalindrome_aux L []).
-  induction L as [| x xs].
-  Case "L = nil". reflexivity.
-  Case "L = x :: xs".
+  Case "L is a palindrome".
   {
-    simpl.
-    
-    unfold bpalindrome in IHxs.
-    unfold bpalindrome.
-    simpl.
+    induction L as [| x xs].
+    SCase "L = nil". reflexivity.
+    SCase "L = x :: xs".
+    {
+      simpl.
+      
+      unfold bpalindrome in IHxs.
+      unfold bpalindrome.
+      simpl.
+    }
   }
