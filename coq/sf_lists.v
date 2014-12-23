@@ -585,7 +585,7 @@ Module NatList.
       SCase "Proof of IHxs'".
       {
         intro v.
-        apply IHxs in v.
+        apply IHxs with v.
         assumption.
       }
       
