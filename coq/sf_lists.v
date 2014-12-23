@@ -549,7 +549,11 @@ Module NatList.
       (b1 = negb b2) -> (negb b1 = b2).
   Proof.
     intros b1 b2 H.
-    simpl.
+    rewrite -> H.
+    SearchAbout negb.
+    rewrite -> double_neg.
+    reflexivity.
+  Qed.
 
   Lemma palindrome_cons :
     forall (p : natlist) (v : nat),
@@ -569,8 +573,7 @@ Module NatList.
       assert (IHxs' : forall v : nat, negb (bpalindrome xs) = bpalindrome (v :: xs)).
       SCase "Proof of IHxs'".
       {
-        SearchAbout negb.
-        Check (bpalindrome xs).
+        
       }
     }
 
