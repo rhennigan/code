@@ -633,4 +633,3 @@ Proof.
   }
 Qed.
 
-SearchAbout rev.
