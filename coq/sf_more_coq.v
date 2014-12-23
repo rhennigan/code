@@ -89,7 +89,7 @@ Proof.
             apply IHn' in H. assumption.
           }
           {
-            
+            unfold beq_nat in Heqe3.
           }
         }
         {
