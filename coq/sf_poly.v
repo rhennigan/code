@@ -391,3 +391,6 @@ Fixpoint foldr {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y :=
 
 Definition fold {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y := foldl f l b.
 
+Eval compute in (foldl plus [1;2;3;4] 0).
+Eval compute in (foldr plus [1;2;3;4] 0).
+
