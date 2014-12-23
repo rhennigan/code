@@ -386,7 +386,8 @@ Fixpoint foldl {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y :=
 Fixpoint foldr {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y :=
   match l with
     | [] => b
-    | x :: xs => f x ()
+    | x :: xs => f x (foldr f xs b)
   end.
 
-Definition fold := foldr.
+Definition fold {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y := foldl f l b.
+
