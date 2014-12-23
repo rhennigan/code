@@ -200,3 +200,9 @@ Proof. reflexivity. Qed.
 
 Example test_doit3times': doit3times negb true = false.
 Proof. reflexivity. Qed.
+
+Definition prod_curry {X Y Z : Type}
+           (f : X × Y -> Z) (x : X) (y : Y) : Z := f (x, y).
+
+Definition prod_uncurry {X Y Z : Type}
+           (f : X -> Y -> Z) (p : X × Y) : Z := 
