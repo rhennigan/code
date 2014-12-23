@@ -35,7 +35,10 @@ Proof.
         }
         SSSCase "a = S a'".
         {
-          
+          intros b H'.
+          destruct b as [| b'].
+          SSSSCase "b = O". inversion H'.
+          SSSSCase "b = S b'". apply IHa'.
         }
       }
     }
