@@ -657,3 +657,7 @@ Proof.
   intros L__1 L__2 H1.
   assert (H2 : rev (rev L__1) = rev (rev L__2)).
   apply (rev_pairs (rev L__1) (rev L__2) H1).
+  rewrite -> rev_involutive in H2.
+  rewrite -> rev_involutive in H2.
+  assumption.
+Qed.
