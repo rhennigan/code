@@ -583,6 +583,9 @@ Module NatList.
         intro n.
         rewrite -> IHxs.
         rewrite -> double_neg.
+        unfold bpalindrome in *.
+        simpl in *.
+        SearchAbout negb.
       }
       
     }
