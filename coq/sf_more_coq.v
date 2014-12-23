@@ -92,3 +92,9 @@ Proof.
     inversion H.
   }
 Qed.
+
+Theorem rev_exercise1 : 
+  forall (lst1 lst2 : list nat),
+    lst1 = rev lst2 -> lst2 = rev lst1.
+Proof.
+  
