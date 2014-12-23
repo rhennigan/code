@@ -325,6 +325,19 @@ Lemma map_snoc :
     map f (snoc lst v) = snoc (map f lst) (f v).
 Proof.
   intros X Y f lst v.
+  induction lst as [|x xs].
+  Case "lst = nil".
+  {
+    simpl.
+    reflexivity.
+  }
+  Case "lst = x :: xs".
+  {
+    simpl.
+    rewrite -> IHxs.
+    reflexivity.
+  }
+Qed.
 
 Theorem map_rev :
   forall (X Y : Type) (f : X -> Y) (lst : list X),
