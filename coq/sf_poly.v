@@ -38,4 +38,4 @@ Fixpoint snoc (X:Type) (l:list X) (v:X) : (list X) :=
     | cons x xs => cons x (snoc X xs v)
   end.
 
-Check (snoc nat (cons 1 (cons 2 nil)) 5).
+Eval compute in (snoc nat (cons 1 (cons 2 nil)) 5).
