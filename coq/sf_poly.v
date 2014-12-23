@@ -242,3 +242,10 @@ Print filter.
 
 Example test_filter1: filter evenb [1;2;3;4] = [2;4].
 Proof. reflexivity. Qed.
+
+Definition length_is_1 {X : Type} (l : list X) : bool :=
+  beq_nat (length l) 1.
+
+Example test_filter2:
+  filter length_is_1 [[1;2];[3];[4];[5;6;7];[];[8]] = [[3];[4];[8]].
+Proof. reflexivity. Qed.
