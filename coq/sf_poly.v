@@ -360,4 +360,11 @@ Proof.
 Qed.
 
 Fixpoint flat_map {X Y : Type} (f : X -> Y) (lst : list X) : (list Y) :=
-  
+  match lst with
+    | [] => []
+    | x :: xs => 
+      match x with
+        | [] => flat_map f xs
+        | y :: ys => y :: (flat_map f (ys :: xs))
+      end
+  end.
