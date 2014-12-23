@@ -642,7 +642,7 @@ Proof.
   Case "L = x :: xs".
   {
     simpl in H.
-    destruct (rev xs).
+    destruct (rev xs) as [|y ys].
     {
       assert (H2 : [] = []). reflexivity.
       apply IHxs in H2.
@@ -652,7 +652,7 @@ Proof.
       reflexivity.
     }
     {
-      
+      simpl in H.
     }
   }
 
