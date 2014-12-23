@@ -636,7 +636,9 @@ Qed.
 Lemma empty_rev_is_empty :
   forall (L : natlist), (rev L = []) -> (L = []).
 Proof.
-  intros L H. rewrite -> H. reflexivity.
+  intros L H. 
+  SearchAbout rev.
+  rewrite -> H. reflexivity.
 Qed.
 
 Lemma empty_rev_is_empty :
