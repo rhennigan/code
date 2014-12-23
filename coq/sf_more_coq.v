@@ -87,7 +87,8 @@ Proof.
         {
           remember (beq_nat n' 4) as e4. destruct e4.
           {
-            assert (H_2_4 : beq_nat n' 2 = beq_nat n' 4).
+            assert (H_2_4 : beq_nat n' 2 = beq_nat n' 4). rewrite <- Heqe2. rewrite <- Heqe4. reflexivity.
+            inversion H_2_4.
           }
         }
       }
