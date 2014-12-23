@@ -550,3 +550,5 @@ Theorem list_design :
 Proof.
   intros L v.
   simpl.
+  SearchAbout rev.
+  rewrite <- rev_snoc.
