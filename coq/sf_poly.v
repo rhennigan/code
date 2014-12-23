@@ -321,8 +321,12 @@ Example test_map3:
 Proof. reflexivity. Qed.
 
 Theorem map_rev :
-  forall (X Y : Type) (f : X -> Y) (l : list X),
-    map f (rev l) = rev (map f l).
+  forall (X Y : Type) (f : X -> Y) (lst : list X),
+    map f (rev lst) = rev (map f lst).
 Proof.
-  intros X Y f l.
-  compute. reflexivity.
+  intros X Y f lst.
+  induction lst as [|x xs].
+  Case "lst = nil".
+  {
+    simpl.
+  }
