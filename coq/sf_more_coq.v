@@ -73,4 +73,6 @@ Proof.
   Case "n = S n'".
   {
     intro H.
+    unfold impossible in H.
+    simpl in H.
   }
