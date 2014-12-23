@@ -62,18 +62,6 @@ Theorem impossible_false :
   forall n : nat, true = impossible n -> 3 = 5.
 Proof.
   intro n.
-  induction n as [| n'].
-  Case "n = O".
-  {
-    intro H.
-    unfold impossible in H.
-    simpl in H.
-    inversion H.
-  }
-  Case "n = S n'".
-  {
-    
-    intro H.
-    unfold impossible in *. simpl in *.
-   
-  }
+  unfold impossible.
+  remember (beq_nat n 3) as e3.
+  remember (beq_nat n 5) as e5.
