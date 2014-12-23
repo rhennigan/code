@@ -557,6 +557,16 @@ Module NatList.
     reflexivity.
   Qed.
 
+  Lemma bool_flip' :
+    forall (b1 b2 : bool),
+      (negb b1 = b2) -> (b1 = negb b2).
+  Proof.
+    intros b1 b2 H.
+    rewrite <- H.
+    rewrite -> double_neg.
+    reflexivity.
+  Qed.
+
   Lemma bool_im_flip :
     forall (b1 b2 : bool),
       (b1 = b2) -> (b2 = b1).
@@ -581,6 +591,7 @@ Module NatList.
       intro n.
       assert (IHxs' : forall v : nat, negb (bpalindrome xs) = (bpalindrome (v :: xs))).
       intro v.
+      rewrite -> bool_flip'.
       rewrite -> IHxs.
       unfold bpalindrome.
     }
