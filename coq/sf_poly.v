@@ -103,7 +103,7 @@ Proof.
 Qed.
 
 Theorem snoc_with_append : 
-  forall X : Type, forall l1 l2 : list X, forall v : X,
-    snoc (l1 ++ l2) v = l1 ++ (snoc l2 v).
+  forall X : Type, forall a b : list X, forall v : X,
+    snoc (a ++ b) v = a ++ (snoc b v).
 Proof.
   intros X a b v.
