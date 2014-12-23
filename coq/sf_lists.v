@@ -552,7 +552,11 @@ Module NatList.
     destruct (bpalindrome lst).
     Case "lst is a palindrome".
     {
-      
+      induction lst as [|x xs].
+      SCase "lst = nil".
+      {
+        unfold bpalindrome.
+      }
     }
     Case "lst is not a palindrome".
     {
