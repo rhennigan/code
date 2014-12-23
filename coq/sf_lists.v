@@ -533,7 +533,15 @@ Proof.
   induction L as [| x xs].
   Case "L = nil". 
   {
-    simpl. unfold bpalindrome. simpl.
+    unfold bpalindrome. 
+    simpl.
+    rewrite <- beq_nat_refl.
+    reflexivity.
+  }
+  Case "L = x :: xs".
+  {
+    
+  }
   destruct (bpalindrome_aux L []).
   Case "L is a palindrome".
   {
