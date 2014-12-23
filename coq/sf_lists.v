@@ -527,7 +527,7 @@ Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
 
 Theorem palindrome_extend :
   forall L : natlist, forall v : nat,
-    (bpalindrome L) = (bpalindrome (L ++ L)).
+    (bpalindrome L) = (bpalindrome (snoc (v :: L) v)).
 Proof.
   intros L v.
   unfold bpalindrome.
