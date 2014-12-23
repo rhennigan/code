@@ -6,5 +6,10 @@ Proof.
   induction n as [| n'].
   Case "n = O".
   {
-    destruct m as [| m'].
+    destruct m as [| m']. reflexivity.
+    simpl in H. inversion H.
+  }
+  Case "n = S n'".
+  {
+    destruct m as [| m']. reflexivity.
   }
