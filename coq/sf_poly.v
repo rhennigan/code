@@ -287,4 +287,9 @@ Proof. reflexivity. Qed.
 Fixpoint partition {X:Type} (p:X -> bool) (lst:list X) : (list (X×X)) :=
   match lst with
     | [] => []
-    | x :: xs => 
+    | v :: lst' => 
+      let (xs, ys) := partition p lst' in
+      if p v
+      then (v :: xs, ys)
+      else (xs, v :: ys)
+  end.
