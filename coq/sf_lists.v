@@ -596,12 +596,18 @@ Proof.
   Case "s = x :: xs".
   {
     destruct x as [| x'].
-    simpl.
-    rewrite -> ble_n_Sn.
-    reflexivity.
-    simpl.
-    rewrite <- IHxs.
-    reflexivity.
+    SCase "x = 0".
+    {
+      simpl.
+      rewrite -> ble_n_Sn.
+      reflexivity.
+    }
+    SCase "x = S x'".
+    {
+      simpl.
+      rewrite <- IHxs.
+      reflexivity.
+    }
   }
 Qed.
 
