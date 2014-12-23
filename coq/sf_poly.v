@@ -32,3 +32,10 @@ Fixpoint app (T:Type) (l__1 l__2 : list T) : (list T) :=
     | cons x xs => cons x (app T xs l__2)
   end.
 
+Fixpoint snoc (X:Type) (l:list X) (v:X) : (list X) :=
+  match l with
+    | nil => cons v nil
+    | cons x xs => cons x (snoc X xs v)
+  end.
+
+Check (snoc nat (cons 1 (cons 2 nil)) 5).
