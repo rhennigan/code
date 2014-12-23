@@ -543,3 +543,10 @@ Fixpoint natlist_last (L : natlist) : natoption :=
     | [x] => Some x
     | x :: xs => natlist_last xs
   end.
+
+Theorem palindrome_first_last :
+  forall L : natlist,
+    ((bpalindrome L) = true) -> ((natlist_first L) = (natlist_last L)).
+Proof.
+  intros L H.
+  simpl.
