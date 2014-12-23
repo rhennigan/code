@@ -569,7 +569,7 @@ Module NatList.
       (b1 = b2) = (b2 = b1).
   Proof.
     intros b1 b2.
-    symmetry.
+    rewrite bool_im_flip.
     
 
   Lemma dep_bool_flip :
