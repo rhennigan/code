@@ -541,6 +541,14 @@ Proof.
     {
       simpl in H.
       simpl.
+      destruct (beq_nat x v). 
+      {
+        rewrite -> H. 
+        reflexivity.
+      }
+      {
+        reflexivity.
+      }
     }
   }
   
