@@ -653,7 +653,6 @@ Proof.
     }
     {
       simpl in H.
-      
     }
   }
 
