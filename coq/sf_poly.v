@@ -130,3 +130,13 @@ Definition snd {X Y : Type} (p : X × Y) : Y :=
 
 Check (5, 3).
 
+(* zip *)
+Fixpoint combine {X Y : Type} (lx : list X) (ly : list Y)
+         : list (X × Y) :=
+  match (lx, ly) with
+    | ([], _) => []
+    | (_, []) => []
+    | (x::xs, y::ys) => (x,y) :: (combine xs ys)
+  end.
+
+Eval compute in (combine [1;2] [false;false;true;true]).
