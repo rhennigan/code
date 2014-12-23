@@ -536,11 +536,8 @@ Proof.
   simpl.
   intro H.
   induction L as [| x xs]. reflexivity.
-  simpl in H.
-  destruct (beq_nat x v).
-  Case "x ~= v".
   {
-    simpl.
+    
   }
   
 
