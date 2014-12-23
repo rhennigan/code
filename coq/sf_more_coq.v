@@ -81,5 +81,8 @@ Proof.
     remember (beq_nat n' 5) as e5.
     destruct e2.
     destruct e3.
+    destruct e4.
+    destruct e5.
+    rewrite <- Heqe3 in H.
     unfold impossible in IHn'.
   }
