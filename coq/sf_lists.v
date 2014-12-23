@@ -564,17 +564,6 @@ Module NatList.
     auto.
   Qed.
 
-  Lemma bool_eq_flip :
-    forall (b1 b2 : bool),
-      (b1 = b2) = (b2 = b1).
-  Proof.
-    intros b1 b2.
-    destruct b1.
-    destruct b2.
-    auto.
-    
-    
-
   Lemma dep_bool_flip :
     forall (v : nat) (pf : nat -> Prop) (b1 b2 : bool), 
       ((pf v) = (b1 = negb b2)) -> ((pf v) = (negb b1 = b2)).
