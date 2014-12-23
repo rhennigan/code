@@ -746,3 +746,10 @@ Module NatList.
           then (Some k)
           else (find key d')
       end.
+
+Theorem dictionary_invariant1' : 
+  forall (d : dictionary) (k v : nat),
+    (find k (insert k v d)) = Some v.
+Proof.
+  intros d k v.
+  simpl. rewrite -> beq_nat_refl.
