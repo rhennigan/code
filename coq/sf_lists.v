@@ -563,7 +563,7 @@ Module NatList.
     forall (v : nat) (pf : nat -> Prop) (b1 b2 : bool), 
       ((pf v) = (b1 = negb b2)) -> ((pf v) = (negb b1 = b2)).
   Proof.
-    intros b bf n H.
+    intros v pf b1 b2 H.
     rewrite -> H.
     rewrite -> double_neg.
     reflexivity.
