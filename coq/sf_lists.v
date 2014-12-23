@@ -571,9 +571,9 @@ Module NatList.
     intros b1 b2.
     replace (b1 = b2) with (b2 = b1).
     reflexivity.
-    inversion b1.
-    
-    
+    destruct b1.
+    inversion b2.
+    auto.
     
 
   Lemma dep_bool_flip :
