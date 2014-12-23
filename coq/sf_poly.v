@@ -149,3 +149,7 @@ Fixpoint split {X Y : Type} (lxy : list (X × Y)) : (list X) × (list Y) :=
   end.
 
 Eval compute in (split [(1,false);(2,false)]).
+
+Example test_split:
+  split [(1,false);(2,false)] = ([1;2],[false;false]).
+Proof. reflexivity. Qed.
