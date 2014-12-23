@@ -581,9 +581,11 @@ Module NatList.
       SCase "Proof of IHxs'".
       {
         intro n.
+        unfold bpalindrome in *.
+        simpl in *.
         rewrite -> IHxs.
         rewrite -> double_neg.
-        unfold bpalindrome in *.
+        
         simpl in *.
         
       }
