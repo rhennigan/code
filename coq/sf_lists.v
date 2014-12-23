@@ -731,4 +731,7 @@ Module NatList.
 
   Module Dictionary.
     
+    Inductive dictionary : Type :=
+    | empty : dictionary
+    | record : nat -> nat -> dictionary -> dictionary.
 
