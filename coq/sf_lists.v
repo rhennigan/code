@@ -533,7 +533,17 @@ Theorem palindrome_construct :
 Proof.
   intros L v H__pal.
   induction L as [| x xs].
-  Case "L = nil". unfold bpalindrome. simpl.
+  Case "L = nil". 
+  {
+    unfold bpalindrome. 
+    simpl. 
+    rewrite <- beq_nat_refl. 
+    reflexivity.
+  }
+  Case "L = x :: xs".
+  {
+    simpl.
+  }
 
 Theorem palindrome_rev :
   forall L : natlist, (bpalindrome L) = (bpalindrome (rev L)).
