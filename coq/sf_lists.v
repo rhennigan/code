@@ -540,6 +540,10 @@ Proof.
     {
       simpl.
       destruct (beq_nat x v).
-      SSCase "x = v". simpl.
+      SSCase "x = v".
+      {
+        rewrite -> IHxs.
+        simpl.
+      }
     }
   }
