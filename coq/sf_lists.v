@@ -557,9 +557,10 @@ Module NatList.
     reflexivity.
   Qed.
 
-  Lemma dep_bool_flip :
-    forall (b : bool) (bf : nat -> bool) (n : nat),
-      (b = negb (bf n)) -> (negb b = bf n).
+  
+
+  Lemma dep_bool_flip (v : nat) :
+    forall (bf) (b1 b2 : bool), (bf v) = (b1 = negb b2) -> (negb b = bf n).
   Proof.
     intros b bf n H.
     rewrite -> H.
