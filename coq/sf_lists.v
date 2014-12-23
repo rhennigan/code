@@ -546,6 +546,7 @@ Proof.
         rewrite <- IHxs. 
         unfold bpalindrome_aux in IHxs.
         unfold bpalindrome_aux.
+        contradiction.
       }
       unfold bpalindrome_aux in IHxs.
       unfold bpalindrome.
