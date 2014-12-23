@@ -633,6 +633,17 @@ Proof.
   }
 Qed.
 
+Lemma empty_rev_is_empty :
+  forall (L : natlist), rev L = [] -> L = [].
+Proof.
+  intros L H.
+  induction L as [|x xs].
+  Case "L = nil". reflexivity.
+  Case "L = x :: xs".
+  {
+    simpl.
+  }
+
 Theorem rev_injective :
   forall (L__1 L__2 : natlist), rev L__1 = rev L__2 -> L__1 = L__2.
 Proof.
