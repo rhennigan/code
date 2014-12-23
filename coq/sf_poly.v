@@ -52,5 +52,5 @@ Notation "[ x ; .. ; y ]" := (cons x .. (cons y []) ..).
 Notation "x ++ y" := 
   (app x y) (at level 60, right associativity).
 
-Eval compute in 
-    (app (snoc (cons 1 (cons 2 nil)) 5) (cons 1 (cons 2 nil))).
+Eval compute in ([1;2;3;4;5] ++ [6;7;8;9;10]).
+
