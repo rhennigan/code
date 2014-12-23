@@ -568,7 +568,11 @@ Module NatList.
     forall (b1 b2 : bool),
       (b1 = b2) = (b2 = b1).
   Proof.
-    
+    intros b1 b2.
+    destruct b1.
+    destruct b2.
+    auto.
+    absurd.
     
     
 
