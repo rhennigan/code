@@ -525,6 +525,12 @@ Fixpoint bpalindrome_aux (L S : natlist) :=
 
 Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
 
+Theorem palindrome_rev :
+  forall L : natlist, (bpalindrome L) = (bpalindrome (rev L)).
+Proof.
+  intro L.
+  simpl.
+
 Theorem palindrome_extend :
   forall L : natlist, forall v : nat,
     (bpalindrome L) = (bpalindrome (snoc (v :: L) v)).
