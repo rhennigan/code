@@ -102,3 +102,6 @@ Proof.
   rewrite -> rev_involutive.
   reflexivity.
 Qed.
+
+SearchAbout rev.
+Check rev_involutive.
