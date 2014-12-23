@@ -527,5 +527,8 @@ Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
 
 Theorem palindrome_extend :
   forall L : natlist, forall v : nat,
-    bpalindrome L -> bpalindrome (L ++ L).
+    (bpalindrome L) = (bpalindrome (L ++ L)).
 Proof.
+  intros L v.
+  induction L as [| x xs].
+  Case "L = nil". reflexivity.
