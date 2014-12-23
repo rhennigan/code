@@ -537,7 +537,7 @@ Proof.
   intro H.
   induction L as [| x xs]. reflexivity.
   {
-    
+    induction xs as [| y ys]. simpl in H. contradiction H.
   }
   
 
