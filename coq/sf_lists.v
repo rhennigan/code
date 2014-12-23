@@ -538,9 +538,7 @@ Proof.
     SCase "L = nil". reflexivity.
     SCase "L = x :: xs".
     {
-      
-      
-      unfold bpalindrome in IHxs.
+      unfold bpalindrome_aux in IHxs.
       unfold bpalindrome.
       simpl.
     }
