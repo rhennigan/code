@@ -169,8 +169,10 @@ Fixpoint index {X : Type} (n : nat) (l : list X) : option X :=
 
 Example test_index1 : index 0 [4;5;6;7] = Some 4.
 Proof. reflexivity. Qed.
+
 Example test_index2 : index 1 [[1];[2]] = Some [2].
 Proof. reflexivity. Qed.
+
 Example test_index3 : index 2 [true] = None.
 Proof. reflexivity. Qed.
 
@@ -179,3 +181,12 @@ Definition hd_opt {X : Type} (l : list X) : option X :=
     | [] => None
     | x::xs => Some x
   end.
+
+Check @hd_opt.
+
+Example test_hd_opt1 : hd_opt [1;2] = Some 1.
+Proof. reflexivity. Qed.
+
+Example test_hd_opt2 : hd_opt [[1];[2]] = Some [1].
+Proof. reflexivity. Qed.
+
