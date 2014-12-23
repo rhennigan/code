@@ -530,6 +530,10 @@ Theorem palindrome_extend :
     (bpalindrome L) = (bpalindrome (snoc (v :: L) v)).
 Proof.
   intros L v.
+  induction L as [| x xs].
+  Case "L = nil". 
+  {
+    simpl. unfold bpalindrome. simpl.
   destruct (bpalindrome_aux L []).
   Case "L is a palindrome".
   {
