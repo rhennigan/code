@@ -543,8 +543,8 @@ Proof.
       SSCase "xs = nil".
       {
         simpl. 
-        rewrite <- IHxs. 
-        unfold bpalindrome_aux in IHxs.
+        rewrite <- IHxs.
+        simpl.
         unfold bpalindrome_aux.
         contradiction.
       }
