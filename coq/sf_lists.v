@@ -544,6 +544,13 @@ Module NatList.
 
   Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
 
+  Lemma bool_flip :
+    forall (b1 b2 : bool),
+      (b1 = negb b2) -> (negb b1 = b2).
+  Proof.
+    intros b1 b2 H.
+    simpl.
+
   Lemma palindrome_cons :
     forall (p : natlist) (v : nat),
       (bpalindrome p) = negb (bpalindrome (v :: p)).
