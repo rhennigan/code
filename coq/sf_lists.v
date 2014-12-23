@@ -617,4 +617,8 @@ Proof.
   }
 Qed.
 
+Check count.
 
+Theorem sum_adds_counts :
+  forall (b__1 b__2 : bag), forall (v : nat),
+    (sum b__1 b__2)
