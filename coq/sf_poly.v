@@ -407,6 +407,15 @@ Proof. reflexivity. Qed.
 Example fold_example3 : fold app [[1];[];[2;3];[4]] [] = [1;2;3;4].
 Proof. reflexivity. Qed.
 
+Definition constfun {X : Type} (x : X) : nat -> X :=
+  fun (k : nat) => x.
 
+Definition ftrue := constfun true.
+
+Example constfun_example1 : ftrue 0 = true.
+Proof. reflexivity. Qed.
+
+Example constfun_example2 : (constfun 5) 99 = 5.
+Proof. reflexivity. Qed.
 
 End SF_Polymorphism. 
