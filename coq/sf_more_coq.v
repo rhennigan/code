@@ -24,7 +24,13 @@ Proof.
       assert (S_eq : forall n m : nat, S n = S m -> n = m).
       SSCase "Proof of S_eq".
       {
-        intro n.
+        intro a.
+        induction a as [| a'].
+        SSSCase "a = O".
+        {
+          intros b H'.
+          destruct m as [| m']
+        }
       }
     }
     
