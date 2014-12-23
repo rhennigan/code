@@ -738,3 +738,11 @@ Module NatList.
     Definition insert (key value : nat) (d : dictionary) : dictionary :=
       (record key value d).
 
+    Fixpoint find (key : nat) (d : dictionary) : natoption :=
+      match d with
+        | empty => None
+        | record k v d' =>
+          if (beq_nat key k)
+          then (Some k)
+          else (find key d')
+      end.
