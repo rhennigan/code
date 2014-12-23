@@ -48,3 +48,5 @@ Proof.
     }
   }
 Qed.
+
+Print beq_nat_eq.
