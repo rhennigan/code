@@ -704,3 +704,5 @@ Definition option_elim (default : nat) (o : natoption) :=
     | None => default
   end.
 
+Definition hd_opt := natlist_first.
+
