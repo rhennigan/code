@@ -715,3 +715,8 @@ Proof. reflexivity. Qed.
 Example test_hd_opt3 : hd_opt [5;6] = Some 5.
 Proof. reflexivity. Qed.
 
+Theorem option_elim_hd : 
+  forall (L : natlist) (default : nat),
+    hd default L = option_elim default (hd_opt L).
+Proof.
+  
