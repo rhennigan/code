@@ -103,9 +103,10 @@ Proof.
   {
     intros lst2 H.
     rewrite -> H.
-    apply rev_involutive.
+    rewrite -> rev_involutive.
+    reflexivity.
   }
   Case "lst1 = cons x xs".
   {
-
+    intros lst2 H. simpl.
   }
