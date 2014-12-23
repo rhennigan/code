@@ -550,7 +550,7 @@ Proof.
         reflexivity.
       }      
     }
-    simpl.
+    simpl in H.
   }
   
 
