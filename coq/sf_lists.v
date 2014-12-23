@@ -637,10 +637,11 @@ Lemma empty_rev_is_empty :
   forall (L : natlist), rev L = [] -> L = [].
 Proof.
   intros L H.
-  induction L as [|x xs].
+  destruct L as [|x xs].
   Case "L = nil". reflexivity.
   Case "L = x :: xs".
   {
+    SearchAbout rev.
     simpl in H.
   }
 
