@@ -66,7 +66,15 @@ Proof.
   remember (beq_nat n 3) as e3. destruct e3.
   Case "e3 = true".
   {
-    
+    remember (beq_nat n 5) as e5. destruct e5.
+    SCase "e5 = true".
+    {
+      
+    }
+    SCase "e5 = false".
+    {
+
+    }
   }
   Case "e3 = false".
   {
