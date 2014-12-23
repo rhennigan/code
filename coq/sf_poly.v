@@ -205,4 +205,7 @@ Definition prod_curry {X Y Z : Type}
            (f : X × Y -> Z) (x : X) (y : Y) : Z := f (x, y).
 
 Definition prod_uncurry {X Y Z : Type}
-           (f : X -> Y -> Z) (p : X × Y) : Z := 
+           (f : X -> Y -> Z) (p : X × Y) : Z := f (fst p) (snd p).
+
+Check @prod_curry.
+Check @prod_uncurry.
