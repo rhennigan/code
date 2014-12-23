@@ -562,7 +562,8 @@ Module NatList.
       }
       SCase "lst = cons x xs".
       {
-        
+        unfold bpalindrome in *.
+        simpl in *.
       }
     }
     Case "lst is not a palindrome".
