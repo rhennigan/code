@@ -355,4 +355,8 @@ Proof.
     simpl.
     rewrite -> map_snoc.
     rewrite -> IHxs.
+    reflexivity.
   }
+Qed.
+
+Print map_rev.
