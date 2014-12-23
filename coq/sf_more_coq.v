@@ -38,7 +38,7 @@ Proof.
           intros b H'.
           destruct b as [| b'].
           SSSSCase "b = O". inversion H'.
-          SSSSCase "b = S b'". 
+          SSSSCase "b = S b'". inversion H'. reflexivity.
         }
       }
     }
