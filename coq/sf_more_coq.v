@@ -29,7 +29,12 @@ Proof.
         SSSCase "a = O".
         {
           intros b H'.
-          destruct m as [| m']
+          destruct b as [| b'].
+          SSSSCase "b = O". reflexivity.
+          SSSSCase "b = S b'".
+          {
+            simpl in H'.
+          }
         }
       }
     }
