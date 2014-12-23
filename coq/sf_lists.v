@@ -557,7 +557,11 @@ Module NatList.
     reflexivity.
   Qed.
 
-  
+  Lemma bool_eq_flip :
+    forall (b1 b2 : bool),
+      (b1 = b2) = (b2 = b1).
+  Proof.
+    intros b1 b2.
 
   Lemma dep_bool_flip :
     forall (v : nat) (pf : nat -> Prop) (b1 b2 : bool), 
