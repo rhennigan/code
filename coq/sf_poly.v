@@ -12,3 +12,8 @@ Check nil.
 Check cons.
 Check (list nat).
 
+Fixpoint length (X:Type) (L:list X) : nat :=
+  match L with
+    | nil => 0
+    | cons x xs => 1 + (length X xs)
+  end.
