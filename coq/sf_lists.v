@@ -540,5 +540,6 @@ Proof.
     {
       simpl.
       destruct (beq_nat x v).
+      SSCase "x = v". simpl.
     }
   }
