@@ -681,3 +681,9 @@ Proof. reflexivity. Qed.
 Example test_index3 : index 10 [4;5;6;7] = None.
 Proof. reflexivity. Qed.
 
+Fixpoint index' (n : nat) (L : natlist) : natoption :=
+  match L with
+    | [] => None
+    | x :: xs => if (beq_nat n 0) then 
+                  Some x else None
+  end.
