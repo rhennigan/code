@@ -576,7 +576,7 @@ Module NatList.
       SCase "Proof of IHxs'".
       {
         intro v.
-        intro v' in IHxs.
+        apply IHxs v.
         
         apply bool_flip with (b1 := bpalindrome xs) (b2 := negb (bpalindrome (v :: xs))) in IHxs.
       }
