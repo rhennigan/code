@@ -641,9 +641,7 @@ Proof.
   Case "L = nil". reflexivity.
   Case "L = x :: xs".
   {
-    destruct xs as [|y ys].
-    simpl in H. rewrite -> H. reflexivity.
-    
+    simpl in H.
   }
 
 Theorem rev_injective :
