@@ -191,6 +191,9 @@ Proof. reflexivity. Qed.
 Example test_member2: member 2 [1;4;1] = false.
 Proof. reflexivity. Qed.
 
+Fixpoint remove_one (v : nat) (s : bag) : bag :=
+  
+
 Theorem nil_app : 
   forall l : natlist, [] ++ l = l.
 Proof.
