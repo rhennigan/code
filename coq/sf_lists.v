@@ -637,13 +637,7 @@ Lemma empty_rev_is_empty :
   forall (L : natlist), (L = []) -> (rev L = []).
 Proof.
   intros L H. rewrite -> H. reflexivity.
-  destruct L as [|x xs].
-  Case "L = nil". reflexivity.
-  Case "L = x :: xs".
-  {
-    destruct (x :: xs). reflexivity.
-    
-  }
+Qed.
 
 Theorem rev_injective :
   forall (L__1 L__2 : natlist), rev L__1 = rev L__2 -> L__1 = L__2.
