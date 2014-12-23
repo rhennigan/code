@@ -511,7 +511,7 @@ Proof.
   }
 Qed.
 
-Check snoc.
+
 
 Theorem non_trivial : 
   forall L : natlist, forall v : nat,
@@ -525,5 +525,5 @@ Proof.
   }
   Case "Proof of snoc L v = L ++ [v]".
   {
-    simpl.
+    
   }
