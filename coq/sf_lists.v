@@ -552,7 +552,12 @@ Module NatList.
     induction p as [|x xs].
     Case "p = nil".
     {
-      
+      unfold bpalindrome.
+      reflexivity.
+    }
+    Case "p = cons x xs".
+    {
+      unfold bpalindrome in *.
     }
 
   Theorem palindrome_ext :
