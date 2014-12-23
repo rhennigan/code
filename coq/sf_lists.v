@@ -638,6 +638,7 @@ Lemma empty_rev_is_empty :
 Proof.
   intros L H. 
   SearchAbout rev.
+  assert (H1 : rev (rev L) = rev []).
   rewrite -> H. reflexivity.
 Qed.
 
