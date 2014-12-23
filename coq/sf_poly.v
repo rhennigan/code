@@ -34,10 +34,10 @@ Fixpoint app {T:Type} (a b : list T) : (list T) :=
 
 Check app.
 
-Fixpoint snoc (X:Type) (l:list X) (v:X) : (list X) :=
+Fixpoint snoc {X:Type} (l:list X) (v:X) : (list X) :=
   match l with
     | nil => cons v nil
-    | cons x xs => cons x (snoc X xs v)
+    | cons x xs => cons x (snoc xs v)
   end.
 
-Eval compute in (snoc nat (cons 1 (cons 2 nil)) 5).
+Eval compute in (snoc (cons 1 (cons 2 nil)) 5).
