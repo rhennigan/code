@@ -12,4 +12,3 @@ Check nil.
 Check cons.
 Check (list nat).
 
-Check (cons 2 (cons 1 nil)).
