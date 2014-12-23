@@ -563,6 +563,7 @@ Module NatList.
       SCase "Proof of IHxs'".
       {
         SearchAbout negb.
+        Check (bpalindrome xs).
       }
     }
 
