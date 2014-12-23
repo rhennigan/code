@@ -209,3 +209,9 @@ Definition prod_uncurry {X Y Z : Type}
 
 Check @prod_curry.
 Check @prod_uncurry.
+
+Theorem uncurry_curry : 
+  forall (X Y Z : Type) (f : X -> Y -> Z) (x : X) (y : Y),
+    prod_curry (prod_uncurry f) x y = f x y.
+Proof.
+  
