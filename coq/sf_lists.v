@@ -568,4 +568,7 @@ Proof.
   simpl. rewrite -> IHn'. reflexivity.
 Qed.
 
-
+Theorem remove_decreases_count :
+  forall (s : bag), ble_nat (count 0 (remove_one 0 s)) (count 0 s) = true.
+Proof.
+  reflexivity.
