@@ -68,17 +68,16 @@ Example test_repeat1:
   repeat true 2 = cons true (cons true nil).
 Proof. reflexivity. Qed.
 
-Theorem nil_app : forall X:Type, forall l:list X,
-  app [] l = l.
+Theorem nil_app : 
+  forall X : Type, forall l : list X, app [] l = l.
 Proof.
   intros X l.
   reflexivity.
 Qed.
 
-Theorem rev_snoc : ∀X : Type,
-                     ∀v : X,
-                     ∀s : list X,
-  rev (snoc s v) = v :: (rev s).
+Theorem rev_snoc : 
+  forall X : Type, forall v : X, forall s : list X,
+    rev (snoc s v) = v :: (rev s).
 Proof.
   (* FILL IN HERE *) Admitted.
 
