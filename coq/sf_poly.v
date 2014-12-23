@@ -117,3 +117,7 @@ Inductive prod {X Y : Type} : Type :=
 (* Arguments pair {X} {Y} _ _. *)
 
 Check @prod.
+
+Notation "( x , y )" := (pair x y).
+
+Notation "X * Y" := (prod X Y) : type_scope.
