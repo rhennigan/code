@@ -586,7 +586,10 @@ Module NatList.
         unfold bpalindrome in *.
         simpl in *.
         destruct n.
-        simpl.
+        SSCase "n = 0".
+        {
+          inversion v. reflexivity.
+        }
       }
       
     }
