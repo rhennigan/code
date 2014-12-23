@@ -320,6 +320,10 @@ Example test_map3:
   = [[true;false];[false;true];[true;false];[false;true]].
 Proof. reflexivity. Qed.
 
+(* Lemma map_snoc : *)
+(*   forall (X Y : Type) (f : X -> Y) (lst : list X) (x : X), *)
+(*     map f (snoc lst x) =  *)
+
 Theorem map_rev :
   forall (X Y : Type) (f : X -> Y) (lst : list X),
     map f (rev lst) = rev (map f lst).
