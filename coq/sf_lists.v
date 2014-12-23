@@ -596,7 +596,9 @@ Proof.
   destruct (beq_nat x 0).
   {
     simpl.
+    rewrite -> ble_n_Sn.
+    reflexivity.
   }
   {
-
+    simpl.
   }
