@@ -592,9 +592,9 @@ Module NatList.
       apply bool_flip'.
       assert (bpalindrome xs = negb (bpalindrome (x :: xs))). apply (IHxs x).
       rewrite <- H.
-      unfold bpalindrome.
+      unfold bpalindrome in *.
       simpl.
-      unfold bpalindrome in H.
+      
     }
 
   Theorem palindrome_ext :
