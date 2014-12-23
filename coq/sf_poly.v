@@ -359,8 +359,5 @@ Proof.
   }
 Qed.
 
-Print map_rev.
-Print map.
-Print rev.
-Print snoc.
-Print list.
+Fixpoint flat_map {X Y : Type} (f : X -> Y) (lst : list X) : (list Y) :=
+  
