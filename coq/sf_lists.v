@@ -643,7 +643,9 @@ Proof.
   {
     simpl in H.
     destruct (rev xs).
-    simpl IHxs.
+    assert (H2 : [] = []). reflexivity.
+    apply IHxs in H2.
+    rewrite -> H2.
   }
 
 Theorem rev_injective :
