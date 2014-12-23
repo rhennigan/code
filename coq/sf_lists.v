@@ -579,6 +579,8 @@ Module NatList.
     Case "p = cons x xs".
     {
       intro n.
+      assert (IHxs' : forall v : nat, negb (bpalindrome xs) = (bpalindrome (v :: xs))).
+      intro v.
       rewrite -> IHxs.
       unfold bpalindrome.
     }
