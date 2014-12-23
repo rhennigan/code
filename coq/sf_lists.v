@@ -641,6 +641,7 @@ Proof.
   Case "L = nil". reflexivity.
   Case "L = x :: xs".
   {
+    rewrite <- test_rev2 in H.
     SearchAbout rev.
     simpl in H.
   }
