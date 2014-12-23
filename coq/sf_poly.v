@@ -17,3 +17,7 @@ Fixpoint length (X:Type) (L:list X) : nat :=
     | nil => 0
     | cons x xs => 1 + (length X xs)
   end.
+
+Example test_length1 :
+    length nat (cons 1 (cons 2 nil)) = 2.
+Proof. reflexivity. Qed.
