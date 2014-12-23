@@ -12,5 +12,7 @@ Proof.
   }
   Case "n = S n'".
   {
-    destruct m as [| m']. 
+    intros m H.
+    destruct m as [| m'].
+    simpl in H. inversion H.
   }
