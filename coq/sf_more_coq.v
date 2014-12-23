@@ -72,14 +72,23 @@ Proof.
       intro.
       assert (H3: n = 3). apply beq_nat_eq. assumption.
       assert (H5: n = 5). apply beq_nat_eq. assumption.
-      remember (n1 = n).
+      remember n as n1.
+      remember n as n2.
+      rewrite -> Heqn1 in H3.
+      rewrite -> H3 in Heqn1.
+      rewrite -> H5 in Heqn1.
+      symmetry.
+      assumption.
     }
     SCase "e5 = false".
     {
-
+      intro H.
+      inversion H.
     }
   }
   Case "e3 = false".
   {
-    
+    intro H.
+    inversion H.
   }
+Qed.
