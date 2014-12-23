@@ -643,6 +643,5 @@ Theorem rev_injective :
   forall (L__1 L__2 : natlist), rev L__1 = rev L__2 -> L__1 = L__2.
 Proof.
   intros L__1 L__2 H_rev_eq.
-  unfold rev in H_rev_eq.
   induction L__1 as [|x xs].
   Case "L__1 = nil". simpl in H_rev_eq. rewrite -> H_rev_eq. simpl.
