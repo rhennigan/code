@@ -559,7 +559,11 @@ Module NatList.
     Case "p = cons x xs".
     {
       intro n.
-      apply IHxs.
+      assert (IHxs' : forall v : nat, negb (bpalindrome xs) = bpalindrome (v :: xs)).
+      SCase "Proof of IHxs'".
+      {
+        SearchAbout negb.
+      }
     }
 
   Theorem palindrome_ext :
