@@ -44,6 +44,7 @@ Proof.
       simpl in H.
       apply IHn' in H.
       rewrite -> H.
+      reflexivity.
     }
-    
   }
+Qed.
