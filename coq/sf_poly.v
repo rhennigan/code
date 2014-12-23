@@ -111,10 +111,10 @@ Proof.
   simpl. rewrite -> IHxs. reflexivity.
 Qed.
 
-Inductive prod {X Y : Type} : Type :=
-  pair : X -> Y -> prod.
+Inductive prod (X Y : Type) : Type :=
+  pair : X -> Y -> prod X Y.
 
-(* Arguments pair {X} {Y} _ _. *)
+Arguments pair {X} {Y} _ _.
 
 Check @prod.
 
@@ -123,7 +123,7 @@ Notation "( x , y )" := (pair x y).
 Notation "X × Y" := (prod X Y) : type_scope.
 
 Definition fst {X Y : Type} (p : X × Y) : X :=
-  match p with (x,y) ⇒ x end.
+  match p with (x,y) => x end.
 
 Definition snd {X Y : Type} (p : X × Y) : Y :=
-  match p with (x,y) ⇒ y end.
+  match p with (x,y) => y end.
