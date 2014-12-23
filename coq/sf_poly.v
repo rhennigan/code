@@ -131,8 +131,7 @@ Definition snd {X Y : Type} (p : X × Y) : Y :=
 Check (5, 3).
 
 (* zip *)
-Fixpoint combine {X Y : Type} (lx : list X) (ly : list Y)
-         : list (X × Y) :=
+Fixpoint combine {X Y : Type} (lx : list X) (ly : list Y) : list (X × Y) :=
   match (lx, ly) with
     | ([], _) => []
     | (_, []) => []
@@ -141,11 +140,12 @@ Fixpoint combine {X Y : Type} (lx : list X) (ly : list Y)
 
 Eval compute in (combine [1;2] [false;false;true;true]).
 
-Fixpoint split {X Y : Type} (lxy : list (X × Y))
-         : (list X) × (list Y) :=
+Fixpoint split {X Y : Type} (lxy : list (X × Y)) : (list X) × (list Y) :=
   match lxy with
     | [] => ([], [])
     | (x, y) :: xys => 
       let (xs, ys) := split xys in
       (x :: xs, y :: ys)
   end.
+
+Eval compute in (split [(1,false);(2,false)]).
