@@ -556,6 +556,13 @@ Module NatList.
       SCase "lst = nil".
       {
         unfold bpalindrome.
+        simpl.
+        rewrite <- beq_nat_refl.
+        reflexivity.
+      }
+      SCase "lst = cons x xs".
+      {
+        
       }
     }
     Case "lst is not a palindrome".
