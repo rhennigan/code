@@ -600,5 +600,6 @@ Proof.
     reflexivity.
   }
   {
+    destruct x.
     simpl.
   }
