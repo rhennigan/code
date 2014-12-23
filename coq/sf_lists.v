@@ -510,3 +510,9 @@ Proof.
     }
   }
 Qed.
+
+Check snoc.
+
+Theorem non_trivial : 
+  forall L : natlist, forall a b : nat,
+    (a :: L <-> [a] ++ L) /\ (snoc ) 
