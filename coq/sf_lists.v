@@ -642,19 +642,7 @@ Proof.
   Case "L = x :: xs".
   {
     simpl in H.
-    destruct (rev xs) as [|y ys].
-    {
-      assert (H2 : [] = []). reflexivity.
-      apply IHxs in H2.
-      rewrite -> H2.
-      simpl in H.
-      rewrite -> H.
-      reflexivity.
-    }
-    {
-      simpl in H.
-      destruct (y :: ys).
-    }
+    
   }
 
 Theorem rev_injective :
