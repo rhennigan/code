@@ -564,17 +564,6 @@ Module NatList.
     auto.
   Qed.
 
-  Lemma dep_bool_flip :
-    forall (v : nat) (pf : nat -> Prop) (b1 b2 : bool), 
-      ((pf v) = (b1 = negb b2)) -> ((pf v) = (negb b1 = b2)).
-  Proof.
-    intros v pf b1 b2 H.
-    rewrite -> H.
-    destruct b1.
-    destruct b2.
-    simpl.
-  Qed.
-
   Lemma palindrome_cons :
     forall (p : natlist) (v : nat),
       (bpalindrome p) = negb (bpalindrome (v :: p)).
@@ -592,7 +581,8 @@ Module NatList.
       assert (IHxs' : forall v : nat, negb (bpalindrome xs) = bpalindrome (v :: xs)).
       SCase "Proof of IHxs'".
       {
-        Check @IHxs.
+        intro v.
+        apply IHxs.
         apply bool_flip in (bpalindrome xs = negb (bpalindrome (v :: xs))).
       }
       
