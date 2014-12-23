@@ -121,3 +121,9 @@ Check @prod.
 Notation "( x , y )" := (pair x y).
 
 Notation "X × Y" := (prod X Y) : type_scope.
+
+Definition fst {X Y : Type} (p : X × Y) : X :=
+  match p with (x,y) ⇒ x end.
+
+Definition snd {X Y : Type} (p : X × Y) : Y :=
+  match p with (x,y) ⇒ y end.
