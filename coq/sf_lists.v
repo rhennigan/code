@@ -552,4 +552,5 @@ Proof.
   induction L as [|x xs]. reflexivity.
   unfold bpalindrome in H.
   simpl in H.
-  unfold bpalindrome_aux in H.
+  simpl.
+  unfold bpalindrome_aux in H. simpl.
