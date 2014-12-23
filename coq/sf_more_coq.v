@@ -69,10 +69,11 @@ Proof.
     remember (beq_nat n 5) as e5. destruct e5.
     SCase "e5 = true".
     {
+      intro.
       assert (H3: n = 3). apply beq_nat_eq. assumption.
       assert (H5: n = 5). apply beq_nat_eq. assumption.
       rewrite <- H3.
-      inversion.
+      
     }
     SCase "e5 = false".
     {
