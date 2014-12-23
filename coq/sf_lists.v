@@ -660,5 +660,5 @@ Proof.
   {
     simpl in H_rev_eq.
     assert (H2 : rev L__2 = []). rewrite -> H_rev_eq. reflexivity.
-    apply (empty_rev_is_empty L__2 H_rev_eq).
+    apply (empty_rev_is_empty L__2 H2).
     rewrite -> H_rev_eq. simpl.
