@@ -571,8 +571,8 @@ Module NatList.
     intros b1 b2.
     replace (b1 = b2) with (b2 = b1).
     reflexivity.
-    destruct b1.
-    auto.
+    inversion b1.
+    
     
     
 
