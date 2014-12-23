@@ -163,8 +163,8 @@ Arguments None {X}.
 
 Fixpoint index {X : Type} (n : nat) (l : list X) : option X :=
   match l with
-    | [] ⇒ None
-    | a :: l' ⇒ if beq_nat n O then Some a else index (pred n) l'
+    | [] => None
+    | a :: l' => if beq_nat n O then Some a else index (pred n) l'
   end.
 
 Example test_index1 : index 0 [4;5;6;7] = Some 4.
@@ -173,3 +173,9 @@ Example test_index2 : index 1 [[1];[2]] = Some [2].
 Proof. reflexivity. Qed.
 Example test_index3 : index 2 [true] = None.
 Proof. reflexivity. Qed.
+
+Definition hd_opt {X : Type} (l : list X) : option X :=
+  match l with
+    | [] => None
+    | x::xs => Some x
+  end.
