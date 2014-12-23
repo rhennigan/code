@@ -535,6 +535,8 @@ Proof.
   unfold bpalindrome.
   simpl.
   intro H.
+  induction L as [| x xs]. reflexivity.
+  simpl.
   
 
 Theorem palindrome_construct :
