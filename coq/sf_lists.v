@@ -654,7 +654,9 @@ Qed.
 Theorem rev_injective :
   forall (L__1 L__2 : natlist), rev L__1 = rev L__2 -> L__1 = L__2.
 Proof.
-  intros L__1 L__2 H_rev_eq.
+  intros L__1 L__2 H1.
+  assert (H2 : rev (rev L__1) = rev (rev L__2)).
+  SearchAbout rev.
   induction L__1 as [|x xs].
   Case "L__1 = nil". 
   {
