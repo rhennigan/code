@@ -531,8 +531,8 @@ Theorem palindrome_extend :
 Proof.
   intros L v.
   unfold bpalindrome.
-  destruct (bpalindrome_aux L []).
-  Case "L is a palindrome".
+  destruct (bpalindrome_aux (L ++ L) []).
+  Case "L ++ L is a palindrome".
   {
     induction L as [| x xs].
     SCase "L = nil". reflexivity.
