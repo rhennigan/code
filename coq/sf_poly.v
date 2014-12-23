@@ -461,7 +461,10 @@ Theorem unfold_example :
 Proof.
   intros m n H.
   unfold plus3.
-  rewrite <- H.
+  rewrite -> H.
   reflexivity.
+Qed.
+
+
 
 End SF_Polymorphism. 
