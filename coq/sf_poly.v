@@ -282,4 +282,5 @@ Proof. reflexivity. Qed.
 
 Example test_filter_even_gt7_2 :
   filter_even_gt7 [5;2;6;19;129] = [].
- (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
+
