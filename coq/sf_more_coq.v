@@ -75,4 +75,7 @@ Proof.
     intro H.
     unfold impossible in H.
     simpl in H.
+    remember (beq_nat n' 2) as e2.
+    remember (beq_nat n' 4) as e4.
+    
   }
