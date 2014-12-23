@@ -583,8 +583,14 @@ Theorem ble_n_Sn :
   forall n : nat, ble_nat n (S n) = true.
 Proof.
   intro n.
-  induction n as [| n']. reflexivity.
-  simpl. rewrite -> IHn'. reflexivity.
+  induction n as [| n'].
+  Case "n = 0". reflexivity.
+  Case "n = S n'".
+  {
+    simpl. 
+    rewrite -> IHn'. 
+    reflexivity.
+  }
 Qed.
 
 Theorem remove_decreases_count :
@@ -610,4 +616,5 @@ Proof.
     }
   }
 Qed.
+
 
