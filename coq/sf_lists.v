@@ -590,7 +590,8 @@ Module NatList.
     {
       intro v.
       apply bool_flip'.
-      apply IHxs with (v := x).
+      assert (bpalindrome xs = negb (bpalindrome (x :: xs))). apply (IHxs x).
+      
     }
 
   Theorem palindrome_ext :
