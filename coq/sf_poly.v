@@ -475,7 +475,10 @@ Proof.
   reflexivity.
 Qed.
 
-
+Theorem override_neq : 
+  forall (X : Type) (x1 x2 : X) (k1 k2 : nat) (f : nat -> X),
+    f k1 = x1 -> beq_nat k2 k1 = false -> (override f k2 x2) k1 = x1.
+Proof.
 
 
 End SF_Polymorphism. 
