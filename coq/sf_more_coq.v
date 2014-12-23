@@ -73,7 +73,8 @@ Proof.
   Case "n = S n'".
   {
     intro H.
-    remember (true = impossible n') as im.
+    remember (true = impossible n') as P_im.
+    remember (impossible n') as im.
     unfold impossible in H. simpl in *.
     remember (beq_nat n' 3) as e3. destruct e3.
     {
