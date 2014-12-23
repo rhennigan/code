@@ -588,7 +588,8 @@ Module NatList.
         destruct n.
         SSCase "n = 0".
         {
-          inversion v. reflexivity.
+          induction v. reflexivity.
+          apply bool_flip in IHxs.
         }
       }
       
