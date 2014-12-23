@@ -454,7 +454,7 @@ Proof.
   reflexivity.
 Qed.
 
-Definition plus3 := (fun x => x + 3).
+Definition plus3 := (fun x => 3 + x).
 
 Theorem unfold_example : 
   forall (m n : nat), 3 + n = m -> plus3 n + 1 = m + 1.
