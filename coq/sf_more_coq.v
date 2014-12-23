@@ -78,5 +78,27 @@ Proof.
     remember (beq_nat n' 3) as e3.
     remember (beq_nat n' 4) as e4.
     remember (beq_nat n' 5) as e5.
-    destruct e2. destruct e3. destruct e4. destruct e5.
+    destruct e2. 
+    {
+      destruct e3.
+      {
+        destruct e4.
+        {
+          destruct e5.
+          {
+            apply IHn' in H. assumption.
+          }
+          {
+            
+          }
+        }
+        {
+        }
+      }
+      {
+      }
+    }
+    {
+    
+    }
   }
