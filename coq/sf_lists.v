@@ -204,11 +204,11 @@ Fixpoint remove_one (v : nat) (s : bag) : bag :=
 Example test_remove_one1: count 5 (remove_one 5 [2;1;5;4;1]) = 0.
 Proof. reflexivity. Qed.
 Example test_remove_one2: count 5 (remove_one 5 [2;1;4;1]) = 0.
- (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 Example test_remove_one3: count 4 (remove_one 5 [2;1;4;5;1;4]) = 2.
- (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 Example test_remove_one4: count 5 (remove_one 5 [2;1;5;4;5;1;4]) = 1.
- (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 
 Theorem nil_app : 
   forall l : natlist, [] ++ l = l.
@@ -590,4 +590,6 @@ Qed.
 Theorem remove_decreases_count :
   forall (s : bag), ble_nat (count 0 (remove_one 0 s)) (count 0 s) = true.
 Proof.
-  reflexivity.
+  intro s.
+  induction s as [| x xs]. reflexivity.
+  simpl.
