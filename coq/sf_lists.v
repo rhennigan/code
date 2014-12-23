@@ -557,6 +557,13 @@ Module NatList.
     reflexivity.
   Qed.
 
+  Lemma dep_bool_flip :
+    forall (b : bool) (bf : nat -> bool) (n : nat),
+      (b = negb (bf n)) -> (negb b = bf n).
+  Proof.
+    intros b bf n H.
+    rewrite -> H.
+
   Lemma palindrome_cons :
     forall (p : natlist) (v : nat),
       (bpalindrome p) = negb (bpalindrome (v :: p)).
