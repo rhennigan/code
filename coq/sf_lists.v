@@ -637,16 +637,15 @@ Lemma empty_rev_is_empty :
   forall (L : natlist), (rev L = []) -> (L = []).
 Proof.
   intros L H. 
-  SearchAbout rev.
   assert (H1 : rev (rev L) = rev []). 
   apply (rev_pairs (rev L) [] H).
   assert (H2 : L = rev []).
   rewrite -> rev_involutive in H1.
   rewrite -> H1. reflexivity.
-  rewrite -> H. reflexivity.
+  rewrite -> H2. reflexivity.
 Qed.
 
-Lemma empty_rev_is_empty :
+Lemma empty_rev_is_empty_conv :
   forall (L : natlist), (L = []) -> (rev L = []).
 Proof.
   intros L H. rewrite -> H. reflexivity.
