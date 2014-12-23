@@ -65,5 +65,12 @@ Proof.
   induction n as [| n'].
   Case "n = O".
   {
-    
+    intro H.
+    unfold impossible in H.
+    simpl in H.
+    inversion H.
+  }
+  Case "n = S n'".
+  {
+    intro H.
   }
