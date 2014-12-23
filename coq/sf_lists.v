@@ -626,5 +626,5 @@ Proof.
   Case "b__1 = nil". reflexivity.
   Case "b__1 = x :: xs".
   {
-    
+    simpl.
   }
