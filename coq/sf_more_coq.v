@@ -71,8 +71,8 @@ Proof.
     {
       assert (H3: n = 3). apply beq_nat_eq. assumption.
       assert (H5: n = 5). apply beq_nat_eq. assumption.
-      assert (Hn: n = n). reflexivity.
-      rewrite -> H3 in Hn.
+      rewrite <- H3.
+      inversion.
     }
     SCase "e5 = false".
     {
