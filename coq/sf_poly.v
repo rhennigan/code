@@ -1,4 +1,4 @@
-Require Export sf_lists.
+(* Require Export sf_lists. *)
 
 Inductive boollist : Type :=
 | bool_nil : boollist
