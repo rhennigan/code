@@ -421,4 +421,8 @@ Proof. reflexivity. Qed.
 Definition override {X : Type} (f : nat -> X) (k : nat) (x : X) : nat -> X :=
   fun (k' : nat) => if beq_nat k k' then x else f k'.
 
+Check @override.
+
+Definition fmostlytrue := override (override ftrue 1 false) 3 false.
+
 End SF_Polymorphism. 
