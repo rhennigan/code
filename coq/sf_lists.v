@@ -640,6 +640,9 @@ Proof.
   SearchAbout rev.
   assert (H1 : rev (rev L) = rev []). 
   apply (rev_pairs (rev L) [] H).
+  assert (H2 : L = rev []).
+  rewrite -> rev_involutive in H1.
+  rewrite -> H1. reflexivity.
   rewrite -> H. reflexivity.
 Qed.
 
