@@ -698,4 +698,9 @@ Proof. reflexivity. Qed.
 Example test_index3' : index' 10 [4;5;6;7] = None.
 Proof. reflexivity. Qed.
 
+Definition option_elim (default : nat) (o : natoption) :=
+  match o with
+    | Some x => x
+    | None => default
+  end.
 
