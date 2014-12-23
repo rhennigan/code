@@ -585,7 +585,7 @@ Module NatList.
         rewrite -> double_neg.
         unfold bpalindrome in *.
         simpl in *.
-        unfold bpalindrome_aux in *.
+        
       }
       
     }
