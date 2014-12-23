@@ -359,7 +359,7 @@ Proof.
   }
 Qed.
 
-Fixpoint flat_map {X Y : Type} (f : X -> Y) (lst : list X) : (list Y) :=
+Fixpoint flat_map {X Y : Type} (f : X -> list Y) (lst : list X) : (list Y) :=
   match lst with
     | [] => []
     | x :: xs => 
