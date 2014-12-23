@@ -14,6 +14,14 @@ Proof.
   {
     intros m H.
     destruct m as [| m'].
-    simpl in H. inversion H.
+    SCase "m = O".
+    {
+      simpl in H. 
+      inversion H.
+    }
+    SCase "m = S m'".
+    {
+      
+    }
     
   }
