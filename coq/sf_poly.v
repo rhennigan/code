@@ -144,9 +144,9 @@ Eval compute in (combine [1;2] [false;false;true;true]).
 Fixpoint split {X Y : Type} (lxy : list (X × Y))
          : (list X) × (list Y) :=
   match lxy with
-    | [] => []
-    | [x] => []
+    | [] => ([], [])
+    | [x] => ([x], [])
     | x::y::xys => 
-      let (xs, ys) = split xys in
+      let (xs, ys) := split xys in
       (x::xs, y::ys)
   end.
