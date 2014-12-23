@@ -76,5 +76,7 @@ Proof.
     unfold impossible in *. simpl in *.
     remember (beq_nat n' 3) as e3.
     destruct e3.
-    simpl in Heqe3.
+    remember (beq_nat n' 5) as e5.
+    destruct e5.
+    
   }
