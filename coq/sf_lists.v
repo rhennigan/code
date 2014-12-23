@@ -530,7 +530,6 @@ Theorem palindrome_extend :
     (bpalindrome L) = (bpalindrome (snoc (v :: L) v)).
 Proof.
   intros L v.
-  unfold bpalindrome.
   destruct (bpalindrome_aux L []).
   Case "L is a palindrome".
   {
@@ -542,6 +541,7 @@ Proof.
       destruct (beq_nat x v).
       SSCase "x = v".
       {
+        simpl in IHxs.
         rewrite -> IHxs.
         simpl.
       }
