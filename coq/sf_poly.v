@@ -46,10 +46,11 @@ Fixpoint snoc {X:Type} (l:list X) (v:X) : (list X) :=
 Eval compute in (snoc (cons 1 (cons 2 nil)) 5).
 
 Notation "x :: y" := 
-  (cons x y) 
-    (at level 60, right associativity).
-
+  (cons x y) (at level 60, right associativity).
 Notation "[ ]" := nil.
 Notation "[ x ; .. ; y ]" := (cons x .. (cons y []) ..).
-Notation "x ++ y" := (app x y)
-                     (at level 60, right associativity).
+Notation "x ++ y" := 
+  (app x y) (at level 60, right associativity).
+
+Eval compute in 
+    (app (snoc (cons 1 (cons 2 nil)) 5) (cons 1 (cons 2 nil))).
