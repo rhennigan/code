@@ -544,11 +544,15 @@ Fixpoint natlist_last (L : natlist) : natoption :=
     | x :: xs => natlist_last xs
   end.
 
-Theorem list_design :
+Theorem double_rev_cons_eq_snoc :
   forall L : natlist, forall v : nat,
     (rev (v :: (rev L))) = (snoc L v).
 Proof.
   intros L v.
   simpl.
-  SearchAbout rev.
-  rewrite <- rev_snoc.
+  rewrite -> rev_involutive.
+  reflexivity.
+Qed.
+
+
+
