@@ -365,4 +365,4 @@ Fixpoint flat_map {X Y : Type} (f : X -> list Y) (lst : list X) : (list Y) :=
     | x :: xs => (f x) ++ (flat_map f xs)
   end.
 
-Eval compute in (flat_map (fun n => [n;n+1;n+2;n+3;n+4]) [1;5;10]).
+Eval compute in (flat_map (fun n => [n;n+1;n+2;n+3;n+4]) [0;5;10]).
