@@ -590,6 +590,7 @@ Module NatList.
     {
       intro v.
       apply bool_flip'.
+      apply IHxs with (v := x).
     }
 
   Theorem palindrome_ext :
