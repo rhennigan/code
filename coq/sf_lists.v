@@ -544,3 +544,9 @@ Fixpoint natlist_last (L : natlist) : natoption :=
     | x :: xs => natlist_last xs
   end.
 
+Theorem list_design :
+  forall L : natlist, forall v : nat,
+    (rev (v :: (rev L))) = (snoc L v).
+Proof.
+  intros L v.
+  simpl.
