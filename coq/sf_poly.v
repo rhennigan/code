@@ -329,4 +329,9 @@ Proof.
   Case "lst = nil".
   {
     simpl.
+    reflexivity.
+  }
+  Case "lst = x :: xs".
+  {
+    simpl.
   }
