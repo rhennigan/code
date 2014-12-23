@@ -444,7 +444,14 @@ Theorem override_example :
 Proof.
   intro b.
   destruct b.
+  unfold override.
   simpl.
+  unfold constfun.
+  reflexivity.
+  unfold override.
+  simpl.
+  unfold constfun.
+  reflexivity.
 Qed.
 
 End SF_Polymorphism. 
