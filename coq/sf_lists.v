@@ -527,6 +527,16 @@ Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
 
 Eval compute in (bpalindrome [1;2;2;1;1;2;2;1]).
 
+Theorem palindrome_unbalanced_l :
+  forall L : natlist, forall v : nat,
+    (bpalindrome L = true) -> (bpalindrome (v :: L) = false).
+Proof.
+  intros L v.
+  unfold bpalindrome.
+  simpl.
+  intro H.
+  
+
 Theorem palindrome_construct :
   forall L : natlist, forall v : nat,
   (bpalindrome L = true) -> (bpalindrome ([v] ++ L ++ [v]) = true).
