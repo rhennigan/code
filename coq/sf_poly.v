@@ -140,3 +140,7 @@ Fixpoint combine {X Y : Type} (lx : list X) (ly : list Y)
   end.
 
 Eval compute in (combine [1;2] [false;false;true;true]).
+
+Fixpoint split {X Y : Type} (lxy : list (X × Y))
+         : (list X) × (list Y) :=
+  
