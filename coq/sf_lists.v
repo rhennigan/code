@@ -496,5 +496,5 @@ Theorem beq_natlist_refl : forall L : natlist, true = beq_natlist L L.
 Proof.
   intro L. induction L as [| x xs]. reflexivity.
   destruct x as [| x']. rewrite -> IHxs. reflexivity.
-  simpl. rewrite <- beq_nat_refl. rewrite <- IHxs. destruct x' as [| x'']. reflexivity.
-  simpl.
+  simpl. rewrite <- beq_nat_refl. rewrite <- IHxs. reflexivity.
+Qed.
