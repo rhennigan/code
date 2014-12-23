@@ -575,7 +575,7 @@ Module NatList.
       {
         Check IHxs.
         
-        apply (bool_flip (bpalindrome xs = negb (bpalindrome (v :: xs)))).
+        apply bool_flip with (b1 := bpalindrome xs) (b2 := negb (bpalindrome (v :: xs))) in IHxs.
       }
     }
 
