@@ -487,6 +487,11 @@ Example test_beq_natlist1 : (beq_natlist nil nil = true).
 Proof. reflexivity. Qed.
 
 Example test_beq_natlist2 : beq_natlist [1;2;3] [1;2;3] = true.
- (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
+
 Example test_beq_natlist3 : beq_natlist [1;2;3] [1;2;4] = false.
- (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
+
+Theorem beq_natlist_refl : forall L : natlist, true = beq_natlist L L.
+Proof.
+  simpl.
