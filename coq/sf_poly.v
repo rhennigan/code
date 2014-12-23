@@ -439,6 +439,12 @@ Proof. reflexivity. Qed.
 
 Eval compute in (map fmostlytrue [1;2;3;4;5;6;7;8;9;10]).
 
-
+Theorem override_example :
+  forall (b : bool), (override (constfun b) 3 true) 2 = b.
+Proof.
+  intro b.
+  destruct b.
+  simpl.
+Qed.
 
 End SF_Polymorphism. 
