@@ -518,10 +518,15 @@ Check @fold.
 Definition fold_map {X Y : Type} (f : X -> Y) (lst : list X) : list Y :=
   fold (fun x => cons (f x)) lst [].
 
+Eval compute in (map plus3 [1;2;3;4;5;6]).
+Eval compute in (fold_map plus3 [1;2;3;4;5;6]).
+
 Theorem fold_map_correct :
   forall (X Y : Type) (f : X -> Y) (lst : list X),
     (map f lst) = (fold_map f lst).
 Proof.
+  intros X Y f lst.
+  unfold map.
 
 
 End SF_Polymorphism. 
