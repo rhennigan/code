@@ -595,9 +595,11 @@ Proof.
   induction (count 0 xs) as [|n]. 
   {
     simpl.
-    destruct (beq_nat x 0).
+    induction (beq_nat x 0).
     rewrite -> ble_n_Sn.
     reflexivity.
+    simpl.
+    destruct (beq_nat x 0).
     simpl.
   }
   {
