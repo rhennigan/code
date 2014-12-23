@@ -96,7 +96,11 @@ Theorem rev_involutive :
 Proof.
   intros X l.
   induction l as [|x xs]. reflexivity.
-  simpl.
+  simpl. 
+  rewrite -> rev_snoc. 
+  rewrite -> IHxs.
+  reflexivity.
+Qed.
 
 Theorem snoc_with_append : ∀X : Type,
                          ∀l1 l2 : list X,
