@@ -21,7 +21,11 @@ Proof.
     }
     SCase "m = S m'".
     {
-      
+      assert (S_eq : forall n m : nat, S n = S m -> n = m).
+      SSCase "Proof of S_eq".
+      {
+        intro n.
+      }
     }
     
   }
