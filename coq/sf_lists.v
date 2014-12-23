@@ -641,11 +641,7 @@ Proof.
   Case "L = nil". reflexivity.
   Case "L = x :: xs".
   {
-    simpl in H.
-    SearchAbout snoc.
-    rewrite <- test_rev2 in H.
-    SearchAbout rev.
-    simpl in H.
+    destruct (x :: xs). reflexivity.
   }
 
 Theorem rev_injective :
