@@ -653,7 +653,7 @@ Proof.
     }
     {
       simpl in H.
-      
+      assert (H3 : y :: ys = []). simpl.
     }
   }
 
