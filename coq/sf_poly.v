@@ -153,3 +153,23 @@ Eval compute in (split [(1,false);(2,false)]).
 Example test_split:
   split [(1,false);(2,false)] = ([1;2],[false;false]).
 Proof. reflexivity. Qed.
+
+Inductive option (X:Type) : Type :=
+  | Some : X -> option X
+  | None : option X.
+
+Arguments Some {X} _.
+Arguments None {X}.
+
+Fixpoint index {X : Type} (n : nat) (l : list X) : option X :=
+  match l with
+    | [] ⇒ None
+    | a :: l' ⇒ if beq_nat n O then Some a else index (pred n) l'
+  end.
+
+Example test_index1 : index 0 [4;5;6;7] = Some 4.
+Proof. reflexivity. Qed.
+Example test_index2 : index 1 [[1];[2]] = Some [2].
+Proof. reflexivity. Qed.
+Example test_index3 : index 2 [true] = None.
+Proof. reflexivity. Qed.
