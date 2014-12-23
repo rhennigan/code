@@ -120,4 +120,4 @@ Check @prod.
 
 Notation "( x , y )" := (pair x y).
 
-Notation "X * Y" := (prod X Y) : type_scope.
+Notation "X × Y" := (prod X Y) : type_scope.
