@@ -545,7 +545,11 @@ Module NatList.
   Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
 
   Theorem palindrome_ext :
-    forall (L : natlist) (v : nat), (bpalindrome = true) -> 
+    forall (lst : natlist) (v : nat), 
+      (bpalindrome lst) = (bpalindrome (snoc (v :: lst) v)).
+  Proof.
+    intros lst v.
+    simpl.
 
   Eval compute in (bpalindrome [1;2;2;1;1;2;2;1]).
 
