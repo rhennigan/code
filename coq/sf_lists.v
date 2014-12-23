@@ -563,4 +563,9 @@ Qed.
 Theorem ble_n_Sn :
   forall n : nat, ble_nat n (S n) = true.
 Proof.
-  reflexivity.
+  intro n.
+  induction n as [| n']. reflexivity.
+  simpl. rewrite -> IHn'. reflexivity.
+Qed.
+
+
