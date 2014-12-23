@@ -312,3 +312,12 @@ Fixpoint map {X Y:Type} (f:X -> Y) (lst:list X) : (list Y) :=
 Example test_map1: map (plus 3) [2;0;2] = [5;3;5].
 Proof. reflexivity. Qed.
 
+Example test_map2: map oddb [2;1;2;5] = [false;true;false;true].
+Proof. reflexivity. Qed.
+
+Example test_map3:
+  map (fun n => [evenb n; oddb n]) [2;1;2;5]
+  = [[true;false];[false;true];[true;false];[false;true]].
+Proof. reflexivity. Qed.
+
+
