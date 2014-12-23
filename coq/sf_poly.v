@@ -12,4 +12,4 @@ Check nil.
 Check cons.
 Check (list nat).
 
-Check (cons nat 2 (cons nat 1 nil)).
+Check (cons 2 (cons 1 nil)).
