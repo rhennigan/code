@@ -72,8 +72,7 @@ Proof.
       intro.
       assert (H3: n = 3). apply beq_nat_eq. assumption.
       assert (H5: n = 5). apply beq_nat_eq. assumption.
-      rewrite <- H3.
-      
+      remember (n1 = n).
     }
     SCase "e5 = false".
     {
