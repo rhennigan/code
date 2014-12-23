@@ -494,7 +494,19 @@ Proof. reflexivity. Qed.
 
 Theorem beq_natlist_refl : forall L : natlist, true = beq_natlist L L.
 Proof.
-  intro L. induction L as [| x xs]. reflexivity.
-  destruct x as [| x']. rewrite -> IHxs. reflexivity.
-  simpl. rewrite <- beq_nat_refl. rewrite <- IHxs. reflexivity.
+  intro L. 
+  induction L as [| x xs]. 
+  Case "L = nil". reflexivity.
+  Case "L = x xs". 
+  {
+    destruct x as [| x']. 
+    SCase "x = 0". rewrite -> IHxs. reflexivity.
+    SCase "x = S x'".
+    {
+      simpl. 
+      rewrite <- beq_nat_refl. 
+      rewrite <- IHxs. 
+      reflexivity.
+    }
+  }
 Qed.
