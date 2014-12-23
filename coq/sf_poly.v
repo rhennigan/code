@@ -513,7 +513,10 @@ Proof.
   }
 Qed.
 
+Check @fold.
 
+Definition fold_map {X Y : Type} (f : X -> Y) (lst : list X) : list Y :=
+  fold (fun x => cons (f x))
 
 
 End SF_Polymorphism. 
