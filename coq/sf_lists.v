@@ -463,4 +463,8 @@ Proof.
   intros L__1 L__2.
   induction L__1 as [| x xs].
   Case "L__1 = nil". simpl. reflexivity.
+  Case "L__1 = x :: xs".
+  {
+    simpl.
+  }
   
