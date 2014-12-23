@@ -190,5 +190,13 @@ Proof. reflexivity. Qed.
 Example test_hd_opt2 : hd_opt [[1];[2]] = Some [1].
 Proof. reflexivity. Qed.
 
-Definition Doit3times {X:Type} (f:X -> X) (x:X) : X :=
+Definition doit3times {X:Type} (f:X -> X) (x:X) : X :=
   (f (f (f x))).
+
+Check @doit3times.
+
+Example test_doit3times: doit3times minustwo 9 = 3.
+Proof. reflexivity. Qed.
+
+Example test_doit3times': doit3times negb true = false.
+Proof. reflexivity. Qed.
