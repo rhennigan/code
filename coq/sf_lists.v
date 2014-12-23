@@ -551,7 +551,9 @@ Proof.
   intros L H.
   destruct L as [|x xs]. reflexivity.
   unfold bpalindrome in H.
-  destruct (bpalindrome_aux (x :: xs) []) in H. reflexivity.
+  simpl.
+  destruct xs as [|y ys]. reflexivity.
+  simpl.
   simpl in H.
   simpl.
   unfold bpalindrome_aux in H. simpl.
