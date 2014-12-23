@@ -544,6 +544,17 @@ Module NatList.
 
   Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
 
+  Lemma palindrome_cons :
+    forall (p : natlist) (v : nat),
+      (bpalindrome p) = negb (bpalindrome (v :: p)).
+  Proof.
+    intros p v.
+    induction p as [|x xs].
+    Case "p = nil".
+    {
+      
+    }
+
   Theorem palindrome_ext :
     forall (lst : natlist) (v : nat), 
       (bpalindrome lst) = (bpalindrome (snoc (v :: lst) v)).
