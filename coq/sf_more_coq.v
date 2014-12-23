@@ -50,3 +50,20 @@ Proof.
 Qed.
 
 Print beq_nat_eq.
+
+Definition impossible (n : nat) : bool := 
+  if beq_nat n 3
+  then if beq_nat n 5
+       then true
+       else false
+  else false.
+
+Theorem impossible_false :
+  forall n : nat, true = impossible n -> 3 = 5.
+Proof.
+  intro n.
+  induction n as [| n'].
+  Case "n = O".
+  {
+    
+  }
