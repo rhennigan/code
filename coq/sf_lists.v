@@ -743,7 +743,7 @@ Module NatList.
         | empty => None
         | record k v d' =>
           if (beq_nat key k)
-          then (Some k)
+          then (Some v)
           else (find key d')
       end.
 
@@ -752,4 +752,5 @@ Theorem dictionary_invariant1' :
     (find k (insert k v d)) = Some v.
 Proof.
   intros d k v.
-  
+  simpl.
+  rewrite <- beq_nat_refl.
