@@ -541,5 +541,5 @@ Fixpoint natlist_last (L : natlist) : natoption :=
   match L with
     | [] => None
     | [x] => Some x
-    | x :: xs => last xs
+    | x :: xs => natlist_last xs
   end.
