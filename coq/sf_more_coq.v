@@ -97,4 +97,15 @@ Theorem rev_exercise1 :
   forall (lst1 lst2 : list nat),
     lst1 = rev lst2 -> lst2 = rev lst1.
 Proof.
-  
+  intro lst1.
+  induction lst1 as [|x xs].
+  Case "lst1 = nil".
+  {
+    intros lst2 H.
+    rewrite -> H.
+    apply rev_involutive.
+  }
+  Case "lst1 = cons x xs".
+  {
+
+  }
