@@ -548,8 +548,9 @@ Proof.
       }
       {
         reflexivity.
-      }
+      }      
     }
+    simpl.
   }
   
 
