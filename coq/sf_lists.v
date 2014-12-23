@@ -455,4 +455,12 @@ Proof.
     reflexivity.
   }
 Qed.
+
+Lemma nonzeros_app : 
+  forall L__1 L__2 : natlist,
+    nonzeros (L__1 ++ L__2) = (nonzeros L__1) ++ (nonzeros L__2).
+Proof.
+  intros L__1 L__2.
+  induction L__1 as [| x xs].
+  Case "L__1 = nil". simpl. reflexivity.
   
