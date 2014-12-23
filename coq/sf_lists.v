@@ -767,3 +767,6 @@ Module NatList.
       reflexivity.
     Qed.
 
+  End Dictionary.
+
+End NatList.
