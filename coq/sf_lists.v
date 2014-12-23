@@ -629,8 +629,8 @@ Proof.
     simpl.
     destruct (beq_nat x v).
     SCase "x = v". simpl. rewrite -> IHxs. reflexivity.
-    SCase "x ~= v".
-    {
-      simpl.
-    }
+    SCase "x ~= v". rewrite -> IHxs. reflexivity.
   }
+Qed.
+
+
