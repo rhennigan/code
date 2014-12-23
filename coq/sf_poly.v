@@ -26,8 +26,9 @@ Example test_length2 :
   length bool (cons true (cons false (cons true nil))) = 3.
 Proof. reflexivity. Qed.
 
-Fixpoint app (T:Type) (l__1 l__ 2 : list T) : (list T) :=
+Fixpoint app (T:Type) (l__1 l__2 : list T) : (list T) :=
   match l__1 with
-    | nil => l__2.
+    | nil => l__2
     | cons x xs => cons x (app T xs l__2)
   end.
+
