@@ -127,3 +127,5 @@ Definition fst {X Y : Type} (p : X × Y) : X :=
 
 Definition snd {X Y : Type} (p : X × Y) : Y :=
   match p with (x,y) => y end.
+
+Check (bool × bool).
