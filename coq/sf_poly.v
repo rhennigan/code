@@ -67,7 +67,7 @@ Fixpoint repeat {X : Type} (n : X) (count : nat) : list X :=
 Fixpoint rev {X : Type} (l : list X) : list X :=
   match l with
     | [] => []
-    | x :: xs => (rev xs) ++ [x]
+    | x :: xs => snoc (rev xs) x
   end.
 
 Example test_repeat1:
@@ -85,7 +85,8 @@ Theorem rev_snoc :
   forall X : Type, forall v : X, forall s : list X,
     rev (snoc s v) = v :: (rev s).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros X v s.
+  unfold rev.
 
 Theorem rev_involutive : ∀X : Type, ∀l : list X,
   rev (rev l) = l.
