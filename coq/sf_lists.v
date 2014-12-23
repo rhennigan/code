@@ -539,6 +539,7 @@ Proof.
     SCase "L = x :: xs".
     {
       simpl.
+      induction xs as [| y ys]. simpl.
       unfold bpalindrome_aux in IHxs.
       unfold bpalindrome.
       simpl.
