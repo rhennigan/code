@@ -111,3 +111,9 @@ Proof.
   simpl. rewrite -> IHxs. reflexivity.
 Qed.
 
+Inductive prod {X Y : Type} : Type :=
+  pair : X -> Y -> prod X Y.
+
+Arguments pair {X} {Y} _ _.
+
+Check @prod.
