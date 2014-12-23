@@ -64,6 +64,12 @@ Fixpoint repeat {X : Type} (n : X) (count : nat) : list X :=
     | S c => n :: (repeat n c)
   end.
 
+Fixpoint rev {X : Type} (l : list X) : list X :=
+  match l with
+    | [] => []
+    | x :: xs => (rev xs) ++ [x]
+  end.
+
 Example test_repeat1:
   repeat true 2 = cons true (cons true nil).
 Proof. reflexivity. Qed.
