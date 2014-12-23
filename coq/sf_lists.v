@@ -519,3 +519,11 @@ Theorem non_trivial :
 Proof.
   intros L v.
   split.
+  Case "Proof of v :: L = [v] ++ L".
+  {
+    reflexivity.
+  }
+  Case "Proof of snoc L v = L ++ [v]".
+  {
+    simpl.
+  }
