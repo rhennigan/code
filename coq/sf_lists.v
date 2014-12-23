@@ -529,7 +529,13 @@ Theorem palindrome_rev :
   forall L : natlist, (bpalindrome L) = (bpalindrome (rev L)).
 Proof.
   intro L.
-  simpl.
+  induction L as [| x xs].
+  Case "L = nil". reflexivity.
+  Case "L = x :: xs".
+  {
+    simpl.
+    SearchAbout snoc.
+  }
 
 Theorem palindrome_extend :
   forall L : natlist, forall v : nat,
