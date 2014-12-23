@@ -597,3 +597,7 @@ Proof.
   rewrite -> ble_n_Sn.
   reflexivity.
   simpl.
+  rewrite <- IHxs.
+  reflexivity.
+Qed.
+
