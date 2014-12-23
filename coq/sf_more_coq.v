@@ -41,7 +41,9 @@ Proof.
           SSSSCase "b = S b'". inversion H'. reflexivity.
         }
       }
-      replace (S n' = S m') with (n' = m').
+      simpl in H.
+      apply S_eq.
+      
     }
     
   }
