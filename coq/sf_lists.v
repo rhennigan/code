@@ -530,6 +530,10 @@ Eval compute in (bpalindrome [1;2;2;1;1;2;2;1]).
 Theorem palindrome_construct :
   forall L : natlist, forall v : nat,
   (bpalindrome L = true) -> (bpalindrome ([v] ++ L ++ [v]) = true).
+Proof.
+  intros L v H__pal.
+  induction L as [| x xs].
+  Case "L = nil". unfold bpalindrome. simpl.
 
 Theorem palindrome_rev :
   forall L : natlist, (bpalindrome L) = (bpalindrome (rev L)).
