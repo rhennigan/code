@@ -78,5 +78,8 @@ Proof.
     destruct e3.
     remember (beq_nat n' 5) as e5.
     destruct e5.
+    assert (H_refl : true = true). reflexivity.
+    apply IHn' in H_refl.
+    assumption.
     
   }
