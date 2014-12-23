@@ -735,3 +735,6 @@ Module NatList.
     | empty : dictionary
     | record : nat -> nat -> dictionary -> dictionary.
 
+    Definition insert (key value : nat) (d : dictionary) : dictionary :=
+      (record key valud d).
+
