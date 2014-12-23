@@ -652,8 +652,6 @@ Proof.
       reflexivity.
     }
     {
-      simpl in H.
-      destruct ys.
       
     }
   }
