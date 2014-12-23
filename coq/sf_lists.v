@@ -535,20 +535,10 @@ Proof.
   Case "L is a palindrome".
   {
     induction L as [| x xs].
-    SCase "L = nil". simpl.
+    SCase "L = nil". simpl. rewrite <- beq_nat_refl. reflexivity.
     SCase "L = x :: xs".
     {
       simpl.
-      induction xs as [| y ys]. 
-      SSCase "xs = nil".
-      { 
-        rewrite <- IHxs.
-        simpl.
-        unfold bpalindrome_aux.
-        contradiction.
-      }
-      unfold bpalindrome_aux in IHxs.
-      unfold bpalindrome.
-      simpl.
+      destruct (beq_nat x v).
     }
   }
