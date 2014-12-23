@@ -559,7 +559,7 @@ Module NatList.
     Case "p = cons x xs".
     {
       intro n.
-      
+      apply IHxs.
     }
 
   Theorem palindrome_ext :
