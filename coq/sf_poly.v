@@ -389,7 +389,7 @@ Fixpoint foldr {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y :=
     | x :: xs => f x (foldr f xs b)
   end.
 
-Definition fold {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y := foldl f l b.
+Definition fold {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y := foldr f l b.
 
 Eval compute in (foldl plus [1;2;3;4] 0).
 Eval compute in (foldr plus [1;2;3;4] 0).
@@ -402,6 +402,6 @@ Proof. reflexivity. Qed.
 Example fold_example2 : fold andb [true;true;false;true] true = false.
 Proof. reflexivity. Qed.
 
-Example fold_example3 : fold app [[1];[];[2;3];[4]] [] = [1;2;3;4].
+Example fold_example3 : foldl app [[1];[];[2;3];[4]] [] = [1;2;3;4].
 Proof.
   simpl.
