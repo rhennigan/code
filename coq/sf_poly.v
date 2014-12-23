@@ -526,7 +526,12 @@ Theorem fold_map_correct :
     (map f lst) = (fold_map f lst).
 Proof.
   intros X Y f lst.
-  unfold map.
-
+  induction lst as [|x xs].
+  Case "lst = nil".
+  {
+    unfold fold_map.
+    simpl.
+    
+  }
 
 End SF_Polymorphism. 
