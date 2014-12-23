@@ -377,8 +377,16 @@ Definition option_map {X Y : Type} (f : X -> Y) (xo : option X) : option Y :=
     | Some x => Some (f x)
   end.
 
-Fixpoint fold {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y :=
+Fixpoint foldl {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y :=
   match l with
     | [] => b
-    | x :: xs => fold f xs (f x b)
+    | x :: xs => foldl f xs (f x b)
   end.
+
+Fixpoint foldr {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y :=
+  match l with
+    | [] => b
+    | x :: xs => f x ()
+  end.
+
+Definition fold := foldr.
