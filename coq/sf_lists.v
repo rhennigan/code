@@ -511,7 +511,19 @@ Proof.
   }
 Qed.
 
+Fixpoint bpalindrome_aux (L S : natlist) :=
+  match L, S with
+    | [], [] => true
+    | [], _  => false
+    | x :: xs, [] => bpalindrome_aux xs [x]
+    | x :: xs, y :: ys =>
+      match (beq_nat x y) with
+        | true => bpalindrome_aux xs ys
+        | false => bpalindrome_aux xs (x :: y :: ys)
+      end
+  end.
 
+Eval compute in [1; 2; 3; 3; 2; 1].
 
 Theorem non_trivial : 
   forall L : natlist, forall v : nat,
