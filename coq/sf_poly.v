@@ -61,18 +61,17 @@ Check ([3 + 4] ++ nil).
 Fixpoint repeat {X : Type} (n : X) (count : nat) : list X :=
   match count with
     | 0 => []
-    | S c => repeat n c
+    | S c => n :: (repeat n c)
   end.
 
 Example test_repeat1:
   repeat true 2 = cons true (cons true nil).
-Proof.
-  simpl.
+Proof. reflexivity. Qed.
 
-Theorem nil_app : ∀X:Type, ∀l:list X,
+Theorem nil_app : forall X:Type, forall l:list X,
   app [] l = l.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  
 
 Theorem rev_snoc : ∀X : Type,
                      ∀v : X,
