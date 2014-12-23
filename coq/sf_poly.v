@@ -239,3 +239,6 @@ Fixpoint filter {X:Type} (test: X -> bool) (l:list X) : (list X) :=
   end.
 
 Print filter.
+
+Example test_filter1: filter evenb [1;2;3;4] = [2;4].
+Proof. reflexivity. Qed.
