@@ -394,3 +394,14 @@ Definition fold {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y := foldl
 Eval compute in (foldl plus [1;2;3;4] 0).
 Eval compute in (foldr plus [1;2;3;4] 0).
 
+Check (fold andb).
+
+Example fold_example1 : fold mult [1;2;3;4] 1 = 24.
+Proof. reflexivity. Qed.
+
+Example fold_example2 : fold andb [true;true;false;true] true = false.
+Proof. reflexivity. Qed.
+
+Example fold_example3 : fold app [[1];[];[2;3];[4]] [] = [1;2;3;4].
+Proof.
+  simpl.
