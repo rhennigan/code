@@ -73,10 +73,11 @@ Proof.
   Case "n = S n'".
   {
     intro H.
-    unfold impossible in H.
-    simpl in H.
+    unfold impossible in *.
+    simpl in *.
     remember (beq_nat n' 2) as e2.
     remember (beq_nat n' 4) as e4.
     destruct e2.
     destruct e4.
+    unfold impossible in IHn'.
   }
