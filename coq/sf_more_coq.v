@@ -73,25 +73,5 @@ Proof.
   Case "n = S n'".
   {
     intro H.
-    unfold impossible in H.
-    simpl in H.
-    remember (beq_nat n' 2) as e2. destruct e2.
-    {
-      remember (beq_nat n' 4) as e4. destruct e4.
-      {
-        assert (H_refl : true = true). reflexivity.
-        assumption.
-      }
-      {
-        remember (beq_nat n' 2) as e2. destruct e2.
-        {
-          remember (beq_nat n' 4) as e4. destruct e4.
-          {
-            assert (H_2_4 : beq_nat n' 2 = beq_nat n' 4). rewrite <- Heqe2. rewrite <- Heqe4. reflexivity.
-            inversion H_2_4.
-          }
-        }
-      }
-    }
-    
+    unfold impossible in *. simpl in *.    
   }
