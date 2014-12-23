@@ -531,7 +531,13 @@ Inductive natoption : Type :=
   | Some : nat -> natoption
   | None : natoption.
 
-Fixpoint last (L : natlist) : natoption :=
+Fixpoint natlist_first (L : natlist) : natoption :=
+  match L with
+    | [] => None
+    | x :: xs => Some x
+  end.
+
+Fixpoint natlist_last (L : natlist) : natoption :=
   match L with
     | [] => None
     | [x] => Some x
