@@ -224,3 +224,8 @@ Theorem curry_uncurry :
     prod_uncurry (prod_curry f) p = f p.
 Proof.
   intros X Y Z f p.
+  compute.
+  destruct p.
+  reflexivity.
+Qed.
+
