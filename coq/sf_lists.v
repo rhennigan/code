@@ -593,7 +593,7 @@ Proof.
   intro s.
   induction s as [| x xs]. reflexivity.
   simpl.
-  destruct (beq_nat x 0) as [H1 H2].
+  destruct (beq_nat x 0).
   {
     simpl.
     rewrite -> ble_n_Sn.
