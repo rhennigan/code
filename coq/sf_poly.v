@@ -531,7 +531,16 @@ Proof.
   {
     unfold fold_map.
     simpl.
-    
+    reflexivity.
   }
+  Case "lst = cons x xs".
+  {
+    unfold fold_map.
+    simpl.
+    rewrite -> IHxs.
+    unfold fold_map.
+    reflexivity.
+  }
+Qed.
 
 End SF_Polymorphism. 
