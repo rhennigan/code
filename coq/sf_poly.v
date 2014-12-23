@@ -71,7 +71,9 @@ Proof. reflexivity. Qed.
 Theorem nil_app : forall X:Type, forall l:list X,
   app [] l = l.
 Proof.
-  
+  intros X l.
+  reflexivity.
+Qed.
 
 Theorem rev_snoc : ∀X : Type,
                      ∀v : X,
