@@ -59,7 +59,10 @@ Definition list123''' := [1; 2; 3].
 Check ([3 + 4] ++ nil).
 
 Fixpoint repeat {X : Type} (n : X) (count : nat) : list X :=
-  
+  match count with
+    | 0 => []
+    | c => repeat n (pred c)
+  end.
 
 Example test_repeat1:
   repeat true 2 = cons true (cons true nil).
