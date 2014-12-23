@@ -525,8 +525,6 @@ Fixpoint bpalindrome_aux (L S : natlist) :=
 
 Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
 
-Eval compute in (bpalindrome_aux [1; 2; 3; 3; 2; 1; 5] []).
-
 Theorem non_trivial : 
   forall L : natlist, forall v : nat,
     (v :: L = [v] ++ L) /\ (snoc L v = L ++ [v]).
