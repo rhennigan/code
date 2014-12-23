@@ -549,7 +549,7 @@ Theorem palindrome_first_last :
     ((bpalindrome L) = true) -> ((natlist_first L) = (natlist_last L)).
 Proof.
   intros L H.
-  induction L as [|x xs]. reflexivity.
+  destruct L as [|x xs]. reflexivity.
   unfold bpalindrome in H.
   simpl in H.
   simpl.
