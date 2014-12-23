@@ -465,6 +465,11 @@ Proof.
   Case "L__1 = nil". simpl. reflexivity.
   Case "L__1 = x :: xs".
   {
-    simpl.
+    destruct x as [| x'].
+    SCase "x = 0". simpl. rewrite -> IHxs. reflexivity.
+    SCase "x = S x'".
+    {
+      simpl.
+    }
   }
   
