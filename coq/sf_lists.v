@@ -563,15 +563,19 @@ Module NatList.
   Proof.
     intros b bf n H.
     rewrite -> H.
+    rewrite -> double_neg.
+    reflexivity.
+  Qed.
 
   Lemma palindrome_cons :
     forall (p : natlist) (v : nat),
       (bpalindrome p) = negb (bpalindrome (v :: p)).
   Proof.
-    intros p v.
+    intros p.
     induction p as [|x xs].
     Case "p = nil".
     {
+      intro v.
       unfold bpalindrome.
       reflexivity.
     }
