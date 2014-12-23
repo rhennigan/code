@@ -544,6 +544,9 @@ Module NatList.
 
   Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
 
+  Theorem palindrome_ext :
+    forall (L : natlist) (v : nat), (bpalindrome = true) -> 
+
   Eval compute in (bpalindrome [1;2;2;1;1;2;2;1]).
 
   Inductive natoption : Type :=
