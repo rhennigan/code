@@ -86,7 +86,9 @@ Theorem rev_snoc :
     rev (snoc s v) = v :: (rev s).
 Proof.
   intros X v s.
-  unfold rev.
+  induction s as [|x xs]. reflexivity.
+  simpl. rewrite -> IHxs. reflexivity.
+Qed.
 
 Theorem rev_involutive : ∀X : Type, ∀l : list X,
   rev (rev l) = l.
