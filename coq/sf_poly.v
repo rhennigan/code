@@ -232,8 +232,10 @@ Qed.
 Fixpoint filter {X:Type} (test: X -> bool) (l:list X) : (list X) :=
   match l with
       | [] => []
-      | x::xs => 
-        if (test x)
-        then (x::(filter test xs))
-        else (filter test xs)
+      | x :: xs => 
+        if test x
+        then x :: filter test xs
+        else filter test xs
   end.
+
+Print filter.
