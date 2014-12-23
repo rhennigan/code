@@ -562,6 +562,8 @@ Module NatList.
       (b1 = b2) = (b2 = b1).
   Proof.
     intros b1 b2.
+    destruct b1.
+    
 
   Lemma dep_bool_flip :
     forall (v : nat) (pf : nat -> Prop) (b1 b2 : bool), 
