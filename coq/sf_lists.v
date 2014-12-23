@@ -578,7 +578,8 @@ Module NatList.
     }
     Case "p = cons x xs".
     {
-      
+      intro n.
+      unfold bpalindrome.
     }
 
   Theorem palindrome_ext :
