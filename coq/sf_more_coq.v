@@ -74,12 +74,17 @@ Proof.
   {
     intro H.
     unfold impossible in *. simpl in *.
-    remember (beq_nat n' 3) as e3.
-    destruct e3.
-    remember (beq_nat n' 5) as e5.
-    destruct e5.
-    assert (H_refl : true = true). reflexivity.
-    apply IHn' in H_refl.
-    assumption.
+    remember (beq_nat n' 3) as e3. destruct e3.
+    {
+      remember (beq_nat n' 5) as e5. destruct e5.
+      {
+        assert (H_refl : true = true). reflexivity.
+        apply IHn' in H_refl.
+        assumption.
+      }
+      {
+        
+      }
+    }
     
   }
