@@ -538,6 +538,10 @@ Proof.
   induction L as [| x xs]. reflexivity.
   simpl.
   destruct (beq_nat x v).
+  Case "x ~= v".
+  {
+    simpl.
+  }
   
 
 Theorem palindrome_construct :
