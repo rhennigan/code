@@ -353,4 +353,6 @@ Proof.
   Case "lst = x :: xs".
   {
     simpl.
+    rewrite -> map_snoc.
+    rewrite -> IHxs.
   }
