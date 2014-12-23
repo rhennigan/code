@@ -527,96 +527,10 @@ Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
 
 Eval compute in (bpalindrome [1;2;2;1;1;2;2;1]).
 
-Theorem palindrome_unbalanced_l :
-  forall L : natlist, forall v : nat,
-    (bpalindrome L = true) -> (bpalindrome (v :: L) = false).
-Proof.
-  intros L v.
-  unfold bpalindrome.
-  simpl.
-  intro H.
-  induction L as [| x xs]. reflexivity.
-  {
-    induction xs as [| y ys].
-    {
-      simpl in H.
-      simpl.
-      destruct (beq_nat x v). 
-      {
-        rewrite -> H. 
-        reflexivity.
-      }
-      {
-        reflexivity.
-      }      
-    }
-    simpl in H.
-  }
-  
+Inductive natoption : Type :=
+  | Some : nat -> natoption
+  | None : natoption.
 
-Theorem palindrome_construct :
-  forall L : natlist, forall v : nat,
-  (bpalindrome L = true) -> (bpalindrome ([v] ++ L ++ [v]) = true).
-Proof.
-  intros L v H__pal.
-  induction L as [| x xs].
-  Case "L = nil". 
-  {
-    unfold bpalindrome. 
-    simpl. 
-    rewrite <- beq_nat_refl. 
-    reflexivity.
-  }
-  Case "L = x :: xs".
-  {
-    simpl.
-  }
-
-Theorem palindrome_rev :
-  forall L : natlist, (bpalindrome L) = (bpalindrome (rev L)).
-Proof.
-  intro L.
-  induction L as [| x xs].
-  Case "L = nil". reflexivity.
-  Case "L = x :: xs".
-  {
-    simpl.
-    unfold bpalindrome.
-    simpl.
-    SearchAbout snoc.
-  }
-
-Theorem palindrome_extend :
-  forall L : natlist, forall v : nat,
-    (bpalindrome L) = (bpalindrome (snoc (v :: L) v)).
-Proof.
-  intros L v.
-  induction L as [| x xs].
-  Case "L = nil". 
-  {
-    unfold bpalindrome. 
-    simpl.
-    rewrite <- beq_nat_refl.
-    reflexivity.
-  }
-  Case "L = x :: xs".
-  {
-    
-  }
-  destruct (bpalindrome_aux L []).
-  Case "L is a palindrome".
-  {
-    induction L as [| x xs].
-    SCase "L = nil". simpl. rewrite <- beq_nat_refl. reflexivity.
-    SCase "L = x :: xs".
-    {
-      simpl.
-      destruct (beq_nat x v).
-      SSCase "x = v".
-      {
-        simpl in IHxs.
-        rewrite -> IHxs.
-        simpl.
-      }
-    }
-  }
+Fixpoint last (default : nat) (L : natlist) : nat :=
+  match L with
+    | []
