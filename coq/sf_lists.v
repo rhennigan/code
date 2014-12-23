@@ -626,5 +626,6 @@ Proof.
   Case "b__1 = nil". reflexivity.
   Case "b__1 = x :: xs".
   {
-    simpl.
+    destruct (beq_nat x v).
+    SCase "x = v". simpl.
   }
