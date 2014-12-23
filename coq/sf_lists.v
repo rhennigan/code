@@ -192,7 +192,23 @@ Example test_member2: member 2 [1;4;1] = false.
 Proof. reflexivity. Qed.
 
 Fixpoint remove_one (v : nat) (s : bag) : bag :=
-  
+  match s with
+    | [] => []
+    | x :: xs => 
+      match (beq_nat x v) with
+        | true => xs
+        | false => x :: (remove_one v xs)
+      end
+  end.
+
+Example test_remove_one1: count 5 (remove_one 5 [2;1;5;4;1]) = 0.
+Proof. reflexivity. Qed.
+Example test_remove_one2: count 5 (remove_one 5 [2;1;4;1]) = 0.
+ (* FILL IN HERE *) Admitted.
+Example test_remove_one3: count 4 (remove_one 5 [2;1;4;5;1;4]) = 2.
+ (* FILL IN HERE *) Admitted.
+Example test_remove_one4: count 5 (remove_one 5 [2;1;5;4;5;1;4]) = 1.
+ (* FILL IN HERE *) Admitted.
 
 Theorem nil_app : 
   forall l : natlist, [] ++ l = l.
