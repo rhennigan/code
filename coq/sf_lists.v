@@ -525,17 +525,7 @@ Fixpoint bpalindrome_aux (L S : natlist) :=
 
 Definition bpalindrome (L : natlist) := bpalindrome_aux L [].
 
-Theorem non_trivial : 
+Theorem palindrome_extend :
   forall L : natlist, forall v : nat,
-    (v :: L = [v] ++ L) /\ (snoc L v = L ++ [v]).
+    bpalindrome L -> bpalindrome (L ++ L).
 Proof.
-  intros L v.
-  split.
-  Case "Proof of v :: L = [v] ++ L".
-  {
-    reflexivity.
-  }
-  Case "Proof of snoc L v = L ++ [v]".
-  {
-    
-  }
