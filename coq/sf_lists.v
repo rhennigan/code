@@ -585,12 +585,7 @@ Module NatList.
         rewrite -> double_neg.
         unfold bpalindrome in *.
         simpl in *.
-        destruct n.
-        SSCase "n = 0".
-        {
-          induction v. reflexivity.
-          apply bool_flip in IHxs.
-        }
+        unfold bpalindrome_aux in *.
       }
       
     }
