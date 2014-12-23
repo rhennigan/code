@@ -541,8 +541,7 @@ Proof.
       simpl.
       induction xs as [| y ys]. 
       SSCase "xs = nil".
-      {
-        simpl. 
+      { 
         rewrite <- IHxs.
         simpl.
         unfold bpalindrome_aux.
