@@ -10,3 +10,4 @@ Inductive list' (X : Type) : Type :=
 
 Check nil.
 Check cons.
+Check (list nat).
