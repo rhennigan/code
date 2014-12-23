@@ -149,3 +149,4 @@ Fixpoint split {X Y : Type} (lxy : list (X × Y))
     | x::y::xys => 
       let (xs, ys) = split xys in
       (x::xs, y::ys)
+  end.
