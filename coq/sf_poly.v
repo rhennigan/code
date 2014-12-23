@@ -112,8 +112,8 @@ Proof.
 Qed.
 
 Inductive prod {X Y : Type} : Type :=
-  pair : X -> Y -> prod X Y.
+  pair : X -> Y -> prod.
 
-Arguments pair {X} {Y} _ _.
+(* Arguments pair {X} {Y} _ _. *)
 
 Check @prod.
