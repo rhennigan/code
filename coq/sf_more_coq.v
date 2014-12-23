@@ -83,7 +83,13 @@ Proof.
         assumption.
       }
       {
-        
+        remember (beq_nat n' 2) as e2. destruct e2.
+        {
+          remember (beq_nat n' 4) as e4. destruct e4.
+          {
+            
+          }
+        }
       }
     }
     
