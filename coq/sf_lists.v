@@ -653,6 +653,8 @@ Proof.
     }
     {
       simpl in H.
+      destruct ys.
+      
     }
   }
 
