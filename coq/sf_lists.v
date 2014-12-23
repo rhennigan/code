@@ -592,8 +592,7 @@ Theorem remove_decreases_count :
 Proof.
   intro s.
   induction s as [| x xs]. reflexivity.
-  simpl.
-  destruct (beq_nat x 0).
+  induction (count 0 xs) as [|n]. simpl.
   {
     simpl.
     rewrite -> ble_n_Sn.
