@@ -514,5 +514,8 @@ Qed.
 Check snoc.
 
 Theorem non_trivial : 
-  forall L : natlist, forall a b : nat,
-    (a :: L <-> [a] ++ L) /\ (snoc ) 
+  forall L : natlist, forall v : nat,
+    (v :: L = [v] ++ L) /\ (snoc L v = L ++ [v]).
+Proof.
+  intros L v.
+  split.
