@@ -557,6 +557,10 @@ Qed.
 Theorem count_member_nonzero :
   forall (s : bag), ble_nat 1 (count 1 (1 :: s)) = true.
 Proof.
-  intro s.
-  
+  reflexivity.
+Qed.
 
+Theorem ble_n_Sn :
+  forall n : nat, ble_nat n (S n) = true.
+Proof.
+  reflexivity.
