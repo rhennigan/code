@@ -360,3 +360,7 @@ Proof.
 Qed.
 
 Print map_rev.
+Print map.
+Print rev.
+Print snoc.
+Print list.
