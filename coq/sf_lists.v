@@ -467,9 +467,9 @@ Proof.
   {
     destruct x as [| x'].
     SCase "x = 0". simpl. rewrite -> IHxs. reflexivity.
-    SCase "x = S x'".
-    {
-      simpl.
-    }
+    SCase "x = S x'". simpl. rewrite -> IHxs. reflexivity.    
   }
+Qed.
+
+
   
