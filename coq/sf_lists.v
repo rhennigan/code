@@ -574,6 +574,7 @@ Module NatList.
       SCase "Proof of IHxs'".
       {
         Check IHxs.
+        
         apply (bool_flip (bpalindrome xs = negb (bpalindrome (v :: xs)))).
       }
     }
