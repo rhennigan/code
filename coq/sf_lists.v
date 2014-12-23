@@ -638,4 +638,4 @@ Theorem rev_injective :
 Proof.
   intros L__1 L__2 H_rev_eq.
   induction L__1 as [|x xs].
-  Case "L__1 = nil". simpl in H_rev_eq.
+  Case "L__1 = nil". simpl in H_rev_eq. rewrite -> H_rev_eq. simpl.
