@@ -706,3 +706,12 @@ Definition option_elim (default : nat) (o : natoption) :=
 
 Definition hd_opt := natlist_first.
 
+Example test_hd_opt1 : hd_opt [] = None.
+Proof. reflexivity. Qed.
+
+Example test_hd_opt2 : hd_opt [1] = Some 1.
+Proof. reflexivity. Qed.
+
+Example test_hd_opt3 : hd_opt [5;6] = Some 5.
+Proof. reflexivity. Qed.
+
