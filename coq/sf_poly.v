@@ -320,4 +320,9 @@ Example test_map3:
   = [[true;false];[false;true];[true;false];[false;true]].
 Proof. reflexivity. Qed.
 
-
+Theorem map_rev :
+  forall (X Y : Type) (f : X -> Y) (l : list X),
+    map f (rev l) = rev (map f l).
+Proof.
+  intros X Y f l.
+  compute. reflexivity.
