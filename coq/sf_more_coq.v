@@ -75,13 +75,11 @@ Proof.
     intro H.
     unfold impossible in H.
     simpl in H.
-    remember (true = impossible n') as P_im.
-    remember (impossible n') as im.
-    unfold impossible in H. simpl in *.
-    remember (beq_nat n' 3) as e3. destruct e3.
+    remember (beq_nat n' 2) as e2. destruct e2.
     {
-      remember (beq_nat n' 5) as e5. destruct e5.
+      remember (beq_nat n' 4) as e4. destruct e4.
       {
+        
         assert (H_refl : true = true). reflexivity.
         apply IHn' in H_refl.
         assumption.
