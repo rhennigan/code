@@ -591,13 +591,17 @@ Theorem remove_decreases_count :
   forall (s : bag), ble_nat (count 0 (remove_one 0 s)) (count 0 s) = true.
 Proof.
   intro s.
-  induction s as [| x xs]. reflexivity.
-  destruct x.
-  simpl.
-  rewrite -> ble_n_Sn.
-  reflexivity.
-  simpl.
-  rewrite <- IHxs.
-  reflexivity.
+  induction s as [| x xs]. 
+  Case "s = nil". reflexivity.
+  Case "s = x :: xs".
+  {
+    destruct x as [| x'].
+    simpl.
+    rewrite -> ble_n_Sn.
+    reflexivity.
+    simpl.
+    rewrite <- IHxs.
+    reflexivity.
+  }
 Qed.
 
