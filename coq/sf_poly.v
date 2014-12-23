@@ -425,4 +425,20 @@ Check @override.
 
 Definition fmostlytrue := override (override ftrue 1 false) 3 false.
 
+Example override_example1 : fmostlytrue 0 = true.
+Proof. reflexivity. Qed.
+
+Example override_example2 : fmostlytrue 1 = false.
+Proof. reflexivity. Qed.
+
+Example override_example3 : fmostlytrue 2 = true.
+Proof. reflexivity. Qed.
+
+Example override_example4 : fmostlytrue 3 = false.
+Proof. reflexivity. Qed.
+
+Eval compute in (map fmostlytrue [1;2;3;4;5;6;7;8;9;10]).
+
+
+
 End SF_Polymorphism. 
