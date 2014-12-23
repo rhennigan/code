@@ -661,3 +661,23 @@ Proof.
   rewrite -> rev_involutive in H2.
   assumption.
 Qed.
+
+Fixpoint index (n : nat) (L : natlist) : natoption :=
+  match L with
+    | [] => None
+    | x :: xs => 
+      match (beq_nat n 0) with
+          | true => Some x
+          | false => index (pred n) xs
+      end
+  end.
+
+Example test_index1 : index 0 [4;5;6;7] = Some 4.
+Proof. reflexivity. Qed.
+
+Example test_index2 : index 3 [4;5;6;7] = Some 7.
+Proof. reflexivity. Qed.
+
+Example test_index3 : index 10 [4;5;6;7] = None.
+Proof. reflexivity. Qed.
+
