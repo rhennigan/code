@@ -284,3 +284,5 @@ Example test_filter_even_gt7_2 :
   filter_even_gt7 [5;2;6;19;129] = [].
 Proof. reflexivity. Qed.
 
+Fixpoint partition {X:Type} (p:X -> bool) (lst : list X) : (list (X × X)) :=
+  
