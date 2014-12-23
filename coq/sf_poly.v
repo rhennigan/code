@@ -108,3 +108,6 @@ Theorem snoc_with_append :
 Proof.
   intros X lst1 lst2 v.
   induction lst1 as [|x xs]. reflexivity.
+  simpl. rewrite -> IHxs. reflexivity.
+Qed.
+
