@@ -575,7 +575,8 @@ Module NatList.
       assert (IHxs' : forall v : nat, negb (bpalindrome xs) = bpalindrome (v :: xs)).
       SCase "Proof of IHxs'".
       {
-        Check IHxs.
+        intro v.
+        intro v' in IHxs.
         
         apply bool_flip with (b1 := bpalindrome xs) (b2 := negb (bpalindrome (v :: xs))) in IHxs.
       }
