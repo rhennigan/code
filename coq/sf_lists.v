@@ -539,7 +539,14 @@ Proof.
     SCase "L = x :: xs".
     {
       simpl.
-      induction xs as [| y ys]. simpl. rewrite <- IHxs. unfold bpalindrome_aux in IHxs.
+      induction xs as [| y ys]. 
+      SSCase "xs = nil".
+      {
+        simpl. 
+        rewrite <- IHxs. 
+        unfold bpalindrome_aux in IHxs.
+        unfold bpalindrome_aux.
+      }
       unfold bpalindrome_aux in IHxs.
       unfold bpalindrome.
       simpl.
