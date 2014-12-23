@@ -471,5 +471,22 @@ Proof.
   }
 Qed.
 
+Fixpoint beq_natlist (L__1 L__2 : natlist) : bool :=
+  match L__1, L__2 with
+    | [], [] => true
+    |  _, [] => false
+    | [],  _ => false
+    | x :: xs, y :: ys =>
+      match (beq_nat x y) with
+        | false => false
+        | true => beq_natlist xs ys
+      end
+  end.
 
-  
+Example test_beq_natlist1 : (beq_natlist nil nil = true).
+Proof. reflexivity. Qed.
+
+Example test_beq_natlist2 : beq_natlist [1;2;3] [1;2;3] = true.
+ (* FILL IN HERE *) Admitted.
+Example test_beq_natlist3 : beq_natlist [1;2;3] [1;2;4] = false.
+ (* FILL IN HERE *) Admitted.
