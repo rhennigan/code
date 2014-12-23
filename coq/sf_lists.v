@@ -590,9 +590,12 @@ Module NatList.
     {
       intro n.
       assert (IHxs' : forall v : nat, negb (bpalindrome xs) = (bpalindrome (v :: xs))).
-      intro v.
-      rewrite -> bool_flip' with (b2 := (bpalindrome (v :: xs))).
-      rewrite -> IHxs.
+      SCase "Proof of IHxs'".
+      {
+        intro v.
+        rewrite -> bool_flip' with (b1 := (negb (bpalindrome xs))) (b2 := (bpalindrome (v :: xs))).
+        rewrite -> IHxs.
+      }
       unfold bpalindrome.
     }
 
