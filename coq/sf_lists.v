@@ -535,4 +535,6 @@ Proof.
   Case "L = x :: xs".
   {
     simpl.
+    unfold bpalindrome.
+    simpl.
   }
