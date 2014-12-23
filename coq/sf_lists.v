@@ -633,3 +633,7 @@ Proof.
   }
 Qed.
 
+Theorem rev_injective :
+  forall (L__1 L__2 : natlist), rev L__1 = rev L__2 -> L__1 = L__2.
+Proof.
+  simpl.
