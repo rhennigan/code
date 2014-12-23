@@ -588,7 +588,7 @@ Module NatList.
     }
     Case "p = cons x xs".
     {
-      apply bool_flip in IHxs.
+      apply bool_flip with (b1 := bpalindrome xs) (b2 := negb (bpalindrome (v :: xs))) in IHxs.
     }
 
   Theorem palindrome_ext :
