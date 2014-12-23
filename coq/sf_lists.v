@@ -537,6 +537,7 @@ Proof.
   intro H.
   induction L as [| x xs]. reflexivity.
   simpl.
+  destruct (beq_nat x v).
   
 
 Theorem palindrome_construct :
