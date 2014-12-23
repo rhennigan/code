@@ -574,55 +574,55 @@ Module NatList.
     auto.
   Qed.
 
-  Lemma palindrome_cons :
-    forall (p : natlist) (v : nat),
-      (bpalindrome p) = negb (bpalindrome (v :: p)).
-  Proof.
-    intros p.
-    induction p as [|x xs].
-    Case "p = nil".
-    {
-      intro v.
-      unfold bpalindrome.
-      reflexivity.
-    }
-    Case "p = cons x xs".
-    {
-      intro v.
-      apply bool_flip'.
-      assert (bpalindrome xs = negb (bpalindrome (x :: xs))). apply (IHxs x).
-      rewrite <- H.
-      unfold bpalindrome in *.
-      simpl.
+  (* Lemma palindrome_cons : *)
+  (*   forall (p : natlist) (v : nat), *)
+  (*     (bpalindrome p) = negb (bpalindrome (v :: p)). *)
+  (* Proof. *)
+  (*   intros p. *)
+  (*   induction p as [|x xs]. *)
+  (*   Case "p = nil". *)
+  (*   { *)
+  (*     intro v. *)
+  (*     unfold bpalindrome. *)
+  (*     reflexivity. *)
+  (*   } *)
+  (*   Case "p = cons x xs". *)
+  (*   { *)
+  (*     intro v. *)
+  (*     apply bool_flip'. *)
+  (*     assert (bpalindrome xs = negb (bpalindrome (x :: xs))). apply (IHxs x). *)
+  (*     rewrite <- H. *)
+  (*     unfold bpalindrome in *. *)
+  (*     simpl. *)
       
-    }
+  (*   } *)
 
-  Theorem palindrome_ext :
-    forall (lst : natlist) (v : nat), 
-      (bpalindrome lst) = (bpalindrome (snoc (v :: lst) v)).
-  Proof.
-    intros lst v.
-    destruct (bpalindrome lst).
-    Case "lst is a palindrome".
-    {
-      induction lst as [|x xs].
-      SCase "lst = nil".
-      {
-        unfold bpalindrome.
-        simpl.
-        rewrite <- beq_nat_refl.
-        reflexivity.
-      }
-      SCase "lst = cons x xs".
-      {
-        unfold bpalindrome in *.
-        simpl in *.
-      }
-    }
-    Case "lst is not a palindrome".
-    {
+  (* Theorem palindrome_ext : *)
+  (*   forall (lst : natlist) (v : nat),  *)
+  (*     (bpalindrome lst) = (bpalindrome (snoc (v :: lst) v)). *)
+  (* Proof. *)
+  (*   intros lst v. *)
+  (*   destruct (bpalindrome lst). *)
+  (*   Case "lst is a palindrome". *)
+  (*   { *)
+  (*     induction lst as [|x xs]. *)
+  (*     SCase "lst = nil". *)
+  (*     { *)
+  (*       unfold bpalindrome. *)
+  (*       simpl. *)
+  (*       rewrite <- beq_nat_refl. *)
+  (*       reflexivity. *)
+  (*     } *)
+  (*     SCase "lst = cons x xs". *)
+  (*     { *)
+  (*       unfold bpalindrome in *. *)
+  (*       simpl in *. *)
+  (*     } *)
+  (*   } *)
+  (*   Case "lst is not a palindrome". *)
+  (*   { *)
 
-    }
+  (*   } *)
 
   Eval compute in (bpalindrome [1;2;2;1;1;2;2;1]).
 
