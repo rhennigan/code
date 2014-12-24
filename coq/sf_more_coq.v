@@ -218,3 +218,6 @@ Proof.
   }
 Qed.
 
+Theorem beq_nat_true : forall (n m : nat), beq_nat n m = true -> n = m.
+Proof.
+  SearchAbout beq_nat.
