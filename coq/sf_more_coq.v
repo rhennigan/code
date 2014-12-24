@@ -259,3 +259,13 @@ Theorem index_after_last :
 Proof.
   intros n X xxs H.
   generalize dependent n.
+  induction xxs as [|x xs].
+  Case "xxs = nil".
+  {
+    intros n H.
+    inversion H.
+  }
+  Case "xxs = cons x xs".
+  {
+
+  }
