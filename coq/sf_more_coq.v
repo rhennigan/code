@@ -257,4 +257,4 @@ Theorem index_after_last :
   forall (n : nat) (X : Type) (xxs : list X),
     length xxs = n -> index n xxs = None.
 Proof.
-  Print index.
+  intros n X xxs H.
