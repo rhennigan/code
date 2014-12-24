@@ -185,6 +185,5 @@ Proof.
   Case "n = S n'".
   {
     intros m H.
-    Check eq_add_S.
-    rewrite eq_add_S in H.
+    destruct m. inversion H.
   }
