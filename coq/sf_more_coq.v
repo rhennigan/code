@@ -168,3 +168,6 @@ Theorem S_inj : forall (n m : nat) (b : bool), beq_nat (S n) (S m) = b -> beq_na
 Proof.
   intros.
   simpl in H.
+  assumption.
+Qed.
+
