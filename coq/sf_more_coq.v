@@ -247,5 +247,9 @@ Proof.
     {
       apply f_equal.
       apply IHm'.
+      inversion H.
+      reflexivity.
     }
   }
+Qed.
+
