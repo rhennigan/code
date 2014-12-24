@@ -273,4 +273,8 @@ Proof.
     destruct n as [|n'].
     SCase "n = 0". inversion H.
     SCase "n = S n'".
+    {
+      apply IHxs.
+      
+    }
   }
