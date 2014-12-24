@@ -213,5 +213,5 @@ Proof.
     destruct m.
     inversion H.
     inversion H.
-    inversion H1.
+    unfold double in H.
   }
