@@ -105,3 +105,7 @@ Qed.
 
 SearchAbout rev.
 Check f_equal.
+
+Theorem trans_eq : forall (X : Type) (n m o : X), n = m -> m = o -> n = o.
+Proof.
+  intros X n m o H1 H2.
