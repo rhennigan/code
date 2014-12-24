@@ -140,6 +140,9 @@ Proof.
   reflexivity.
 Qed.
 
-Check f_equal.
-
-Theorem f_equal.
+Theorem f_equal : forall (A B : Type) (f : A -> B) (x y : A), x = y -> f x = f y.
+Proof.
+  intros.
+  inversion H.
+  reflexivity.
+Qed.
