@@ -129,4 +129,6 @@ Example trans_eq_example2 :
 Proof.
   intros.
   apply trans_eq with m.
-  apply H.
+  apply H0. apply H.
+Qed.
+
