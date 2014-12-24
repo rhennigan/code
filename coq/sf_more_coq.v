@@ -128,5 +128,5 @@ Example trans_eq_example2 :
     m = (minustwo o) -> (n + p) = m -> (n + p) = (minustwo o).
 Proof.
   intros.
-  apply trans_eq with (n + p). reflexivity.
-  apply H0.
+  apply trans_eq with m.
+  apply H.
