@@ -196,4 +196,5 @@ Proof.
   }
 Qed.
 
-
+Theorem double_injective : forall (n m : nat), double n = double m -> n = m.
+Proof.
