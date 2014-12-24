@@ -198,3 +198,16 @@ Qed.
 
 Theorem double_injective : forall (n m : nat), double n = double m -> n = m.
 Proof.
+  intro n.
+  induction n as [|n'].
+  Case "n = O".
+  {
+    intros m H.
+    destruct m.
+    reflexivity.
+    inversion H.
+  }
+  Case "n = S n'".
+  {
+    
+  }
