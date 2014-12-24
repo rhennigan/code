@@ -173,9 +173,9 @@ Qed.
 
 Theorem plus_n_n_injective : forall (n m : nat), n + n = m + m -> n = m.
 Proof.
-  intros.
-  destruct n.
-  destruct m.
-  reflexivity.
-  inversion H.
-  apply eq_add_S in H.
+  intro n.
+  induction n as [|n'].
+  Case "n = O".
+  {
+    intro m H.
+  }
