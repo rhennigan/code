@@ -209,5 +209,9 @@ Proof.
   }
   Case "n = S n'".
   {
-    
+    intros m H.
+    destruct m.
+    inversion H.
+    inversion H.
+    inversion H1.
   }
