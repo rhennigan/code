@@ -258,3 +258,4 @@ Theorem index_after_last :
     length xxs = n -> index n xxs = None.
 Proof.
   intros n X xxs H.
+  generalize dependent n.
