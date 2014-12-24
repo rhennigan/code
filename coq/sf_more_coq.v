@@ -114,3 +114,9 @@ Proof.
   reflexivity.
 Qed.
 
+Example trans_eq_example1 : 
+  forall (a b c d e f : nat),
+    [a;b] = [c;d] -> [c;d] = [e;f] -> [a;b] = [e;f].
+Proof.
+  intros.
+  apply trans_eq with (m := [c;d]).
