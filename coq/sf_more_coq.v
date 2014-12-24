@@ -179,5 +179,12 @@ Proof.
   {
     intros m H.
     simpl in H.
+    destruct m. reflexivity.
     inversion H.
+  }
+  Case "n = S n'".
+  {
+    intros m H.
+    symmetry in H.
+    apply IHn' in H.
   }
