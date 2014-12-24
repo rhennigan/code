@@ -233,5 +233,12 @@ Proof.
   induction m as [|m'].
   Case "m = O".
   {
+    intros n H.
+    destruct n as [|n'].
+    SCase "n = O". reflexivity.
+    SCase "n = S n'". inversion H.
+  }
+  Case "m = S m'".
+  {
     
   }
