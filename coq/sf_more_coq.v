@@ -122,3 +122,10 @@ Proof.
   apply trans_eq with (m := [c;d]).
   apply H. apply H0.
 Qed.
+
+Example trans_eq_example2 :
+  forall (n m o p : nat),
+    m = (minustwo o) -> (n + p) = m -> (n + p) = (minustwo o).
+Proof.
+  intros.
+  apply trans_eq.
