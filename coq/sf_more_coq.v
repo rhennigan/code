@@ -139,4 +139,11 @@ Proof.
   Case "n = O".
   {
     intro m.
-    destruct m. reflexivity.
+    remember m as m'.
+    destruct m.
+    SCase "m = O".
+    {
+      
+    }
+    
+    
