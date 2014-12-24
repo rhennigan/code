@@ -226,3 +226,12 @@ Proof.
   assumption.
 Qed.
 
+Theorem double_injective2 : forall (n m : nat), double n = double m -> n = m.
+Proof.
+  intros n m.
+  generalize dependent n.
+  induction m as [|m'].
+  Case "m = O".
+  {
+    
+  }
