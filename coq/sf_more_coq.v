@@ -135,4 +135,4 @@ Qed.
 Theorem eq_add_S :
   forall (n m : nat), S n = S m -> n = m.
 Proof.
-  SearchAbout S.
+  
