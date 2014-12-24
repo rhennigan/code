@@ -104,4 +104,4 @@ Proof.
 Qed.
 
 SearchAbout rev.
-Check rev_involutive.
+Check f_equal.
