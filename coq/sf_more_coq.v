@@ -185,6 +185,7 @@ Proof.
   Case "n = S n'".
   {
     intros m H.
+    apply plus_n_Sm.
     SearchAbout S.
     symmetry in H.
     apply IHn' in H.
