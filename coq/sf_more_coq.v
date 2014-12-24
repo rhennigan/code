@@ -263,9 +263,11 @@ Proof.
   Case "xxs = nil".
   {
     intros n H.
-    inversion H.
+    destruct n as [|n'].
+    SCase "n = O". reflexivity.
+    SCase "n = S n'". inversion H.
   }
   Case "xxs = cons x xs".
   {
-
+    
   }
