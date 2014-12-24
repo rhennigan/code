@@ -164,3 +164,7 @@ Proof.
   inversion H.
 Qed.
 
+Theorem S_inj : forall (n m : nat) (b : bool), beq_nat (S n) (S m) = b -> beq_nat n m = b.
+Proof.
+  intros.
+  simpl in H.
