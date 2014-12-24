@@ -120,3 +120,5 @@ Example trans_eq_example1 :
 Proof.
   intros.
   apply trans_eq with (m := [c;d]).
+  apply H. apply H0.
+Qed.
