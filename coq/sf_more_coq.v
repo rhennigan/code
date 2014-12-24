@@ -210,8 +210,8 @@ Proof.
   Case "n = S n'".
   {
     intros m H.
-    destruct m.
+    destruct m as [|m'].
     inversion H.
     inversion H.
-    unfold double in H.
+    Print double.
   }
