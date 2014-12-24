@@ -154,3 +154,13 @@ Proof.
   destruct n.
   reflexivity.
   inversion H1.
+Qed.
+
+Theorem beq_nat_0_r : forall (n : nat), beq_nat n 0 = true -> n = 0.
+Proof.
+  intros.
+  destruct n.
+  reflexivity.
+  inversion H.
+Qed.
+
