@@ -188,4 +188,5 @@ Proof.
     destruct m. inversion H.
     simpl in H. inversion H.
     Check plus_n_Sm.
+    apply plus_n_Sm in H1.
   }
