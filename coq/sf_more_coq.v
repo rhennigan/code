@@ -188,5 +188,12 @@ Proof.
     destruct m. inversion H.
     simpl in H. inversion H.
     Check plus_n_Sm.
-    apply plus_n_Sm in H1.
+    rewrite <- plus_n_Sm in H1.
+    rewrite <- plus_n_Sm in H1.
+    inversion H1.
+    apply IHn' in H2.
+    inversion H2.
+    reflexivity.
   }
+Qed.
+
