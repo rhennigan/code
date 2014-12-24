@@ -212,6 +212,9 @@ Proof.
     intros m H.
     destruct m as [|m']. inversion H.
     apply f_equal.
+    apply IHn'.
     inversion H.
-    Print double.
+    reflexivity.
   }
+Qed.
+
