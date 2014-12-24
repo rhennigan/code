@@ -140,5 +140,6 @@ Proof.
   reflexivity.
 Qed.
 
+Check f_equal.
 
-
+Theorem f_equal.
