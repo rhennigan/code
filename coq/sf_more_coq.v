@@ -275,6 +275,9 @@ Proof.
     SCase "n = S n'".
     {
       apply IHxs.
-      
+      rewrite <- pred_Sn.
+      inversion H.
+      reflexivity.
     }
   }
+Qed.
