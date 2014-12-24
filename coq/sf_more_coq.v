@@ -177,5 +177,7 @@ Proof.
   induction n as [|n'].
   Case "n = O".
   {
-    intro m H.
+    intros m H.
+    simpl in H.
+    inversion H.
   }
