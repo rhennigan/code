@@ -151,3 +151,6 @@ Theorem beq_nat_0_l : forall (n : nat), beq_nat 0 n = true -> n = 0.
 Proof.
   intros.
   inversion H.
+  destruct n.
+  reflexivity.
+  inversion H1.
