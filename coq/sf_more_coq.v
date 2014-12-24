@@ -175,5 +175,7 @@ Theorem plus_n_n_injective : forall (n m : nat), n + n = m + m -> n = m.
 Proof.
   intros.
   destruct n.
-  simpl in H.
+  destruct m.
+  reflexivity.
   inversion H.
+  apply eq_add_S in H.
