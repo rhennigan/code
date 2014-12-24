@@ -253,7 +253,7 @@ Proof.
   }
 Qed.
 
-Theorem index_after_last : 
+Theorem index_after_last :      (* list length is equal to the list boundary *)
   forall (n : nat) (X : Type) (xxs : list X),
     length xxs = n -> index n xxs = None.
 Proof.
@@ -281,3 +281,4 @@ Proof.
     }
   }
 Qed.
+
