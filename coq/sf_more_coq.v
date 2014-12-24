@@ -240,5 +240,12 @@ Proof.
   }
   Case "m = S m'".
   {
-    
+    intros n H.
+    destruct n as [|n'].
+    SCase "n = 0". inversion H.
+    SCase "n = S n'".
+    {
+      apply f_equal.
+      apply IHm'.
+    }
   }
