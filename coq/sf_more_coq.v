@@ -220,4 +220,9 @@ Qed.
 
 Theorem beq_nat_true : forall (n m : nat), beq_nat n m = true -> n = m.
 Proof.
-  SearchAbout beq_nat.
+  intros n m H.
+  symmetry in H.
+  apply beq_nat_eq.
+  assumption.
+Qed.
+
