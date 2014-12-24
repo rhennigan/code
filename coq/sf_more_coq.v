@@ -140,3 +140,7 @@ Proof.
   destruct m as [|m']. 
   reflexivity.
   inversion H.
+  inversion H.
+  reflexivity.
+Qed.
+
