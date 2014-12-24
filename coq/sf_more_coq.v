@@ -146,3 +146,8 @@ Proof.
   inversion H.
   reflexivity.
 Qed.
+
+Theorem beq_nat_0_l : forall (n : nat), beq_nat 0 n = true -> n = 0.
+Proof.
+  intros.
+  inversion H.
