@@ -135,4 +135,8 @@ Qed.
 Theorem eq_add_S :
   forall (n m : nat), S n = S m -> n = m.
 Proof.
-  
+  induction n as [|n'].
+  Case "n = O".
+  {
+    intro m.
+    destruct m. reflexivity.
