@@ -13,21 +13,21 @@
 #include <malloc.h>
 #include <png.h>
 
-float minVal = 0.0;
-float maxVal = 0.0;
+double minVal = 0.0;
+double maxVal = 0.0;
 
 // Creates a test image for saving. Creates a Mandelbrot Set fractal of size width x height
-float *createMandelbrotImage(int width, int height, float xS, float yS, float rad, int maxIteration);
+double *createMandelbrotImage(int width, int height, double xS, double yS, double rad, int maxIteration);
 
-float *createQuasicrystalImage(int width, int height, int order, float phase, float scale, float mag, float dX, float dY);
+double *createQuasicrystalImage(int width, int height, int order, double phase, double scale, double mag, double dX, double dY);
 
-// This takes the float value 'val', converts it to red, green & blue values, then 
+// This takes the double value 'val', converts it to red, green & blue values, then 
 // sets those values into the image memory buffer location pointed to by 'ptr'
-inline void setRGB(png_byte *ptr, float val);
+inline void setRGB(png_byte *ptr, double val);
 
 // This function actually writes out the PNG image file. The string 'title' is
 // also written into the image file
-int writeImage(char* filename, int width, int height, float *buffer, char* title);
+int writeImage(char* filename, int width, int height, double *buffer, char* title);
 
 
 int main(int argc, char *argv[])
@@ -41,28 +41,28 @@ int main(int argc, char *argv[])
 	// Specify an output image size
 	int width = atoi(argv[1]);
 	int height = atoi(argv[2]);
-  float dX = atof(argv[3]); // -0.802
-  float dY = atof(argv[4]); // -0.177
-  float rad = atof(argv[5]); // 0.011
+  double dX = atof(argv[3]); // -0.802
+  double dY = atof(argv[4]); // -0.177
+  double rad = atof(argv[5]); // 0.011
   int iter = atoi(argv[6]);
   int start = atoi(argv[7]);
 
   rad = 1.5;
 	// Create a test image - in this case a Mandelbrot Set fractal
-	// The output is a 1D array of floats, length: width * height
+	// The output is a 1D array of doubles, length: width * height
   int n;
   for (n = start; n < 50000; n+=8) {
     /* rad = rad * 0.99; */
     printf("Creating Image (%d, %d, %f, %f, %f, %d)\n", width, height, dX, dY, rad * pow(0.99, (double)n), iter);
-    float *buffer = createMandelbrotImage(width, height, dX, dY, rad, iter);
-    float range = maxVal - minVal;
+    double *buffer = createMandelbrotImage(width, height, dX, dY, rad, iter);
+    double range = maxVal - minVal;
     int i;
     for (i = 0; i < width * height; i++) {
       buffer[i] = (buffer[i] - minVal) / range;
     }
 
     /* printf("\n\n\n\n"); */
-    /* float *buffer2 = createQuasicrystalImage(width, height, 5, 0.0, 0.1, 0.5, 0.0, 0.0); */
+    /* double *buffer2 = createQuasicrystalImage(width, height, 5, 0.0, 0.1, 0.5, 0.0, 0.0); */
     if (buffer == NULL) {
       return 1;
     }
@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 
 #define SNAP(x) ((x) < 0 ? 0 : (x) > 255 ? 255 : (x))
 
-inline void setRGB(png_byte *ptr, float val)
+inline void setRGB(png_byte *ptr, double val)
 {
   int r = SNAP((int)(sqrt(val) * 255));
   int g = SNAP((int)(val * 255));
@@ -92,7 +92,7 @@ inline void setRGB(png_byte *ptr, float val)
   ptr[0] = r; ptr[1] = g; ptr[2] = b;
 }
 
-/* inline void setRGB(png_byte *ptr, float val) */
+/* inline void setRGB(png_byte *ptr, double val) */
 /* { */
 /* 	int v = (int)(val * 767); */
 /* 	if (v < 0) v = 0; */
@@ -110,7 +110,7 @@ inline void setRGB(png_byte *ptr, float val)
 /* 	} */
 /* } */
 
-int writeImage(char* filename, int width, int height, float *buffer, char* title)
+int writeImage(char* filename, int width, int height, double *buffer, char* title)
 {
 	int code = 0;
 	FILE *fp;
@@ -191,9 +191,9 @@ finalise:
 	return code;
 }
 
-float *createMandelbrotImage(int width, int height, float xS, float yS, float rad, int maxIteration)
+double *createMandelbrotImage(int width, int height, double xS, double yS, double rad, int maxIteration)
 {
-	float *buffer = (float *) malloc(width * height * sizeof(float));
+	double *buffer = (double *) malloc(width * height * sizeof(double));
 	if (buffer == NULL) {
 		fprintf(stderr, "Could not create image buffer\n");
 		return NULL;
@@ -202,33 +202,33 @@ float *createMandelbrotImage(int width, int height, float xS, float yS, float ra
 	// Create Mandelbrot set image
 
 	int xPos, yPos;
-	float minMu = maxIteration;
-	float maxMu = 0;
+	double minMu = maxIteration;
+	double maxMu = 0;
 
  
 	for (yPos=0 ; yPos<height ; yPos++)
 	{
-		float yP = (yS-rad) + (2.0f*rad/height)*yPos;
+		double yP = (yS-rad) + (2.0f*rad/height)*yPos;
 
 		for (xPos=0 ; xPos<width ; xPos++)
 		{
-			float xP = (xS-rad) + (2.0f*rad/width)*xPos;
+			double xP = (xS-rad) + (2.0f*rad/width)*xPos;
 
 			int iteration = 0;
-			float x = 0;
-			float y = 0;
+			double x = 0;
+			double y = 0;
 
 			while (x*x + y*y <= 4 && iteration < maxIteration)
 			{
-				float tmp = x*x - y*y + xP;
+				double tmp = x*x - y*y + xP;
 				y = 2*x*y + yP;
 				x = tmp;
 				iteration++;
 			}
 
 			if (iteration < maxIteration) {
-				float modZ = sqrt(x*x + y*y);
-				float mu = iteration - (log(log(modZ))) / log(2);
+				double modZ = sqrt(x*x + y*y);
+				double mu = iteration - (log(log(modZ))) / log(2);
 				if (mu > maxMu) maxMu = mu;
 				if (mu < minMu) minMu = mu;
 				buffer[yPos * width + xPos] = mu;
@@ -251,8 +251,8 @@ float *createMandelbrotImage(int width, int height, float xS, float yS, float ra
 	return buffer;
 }
 
-float *createQuasicrystalImage(int width, int height, int order, float phase, float scale, float mag, float dX, float dY) {
-  float *buffer = (float *) malloc(width * height * sizeof(float));
+double *createQuasicrystalImage(int width, int height, int order, double phase, double scale, double mag, double dX, double dY) {
+  double *buffer = (double *) malloc(width * height * sizeof(double));
 	if (buffer == NULL) {
 		fprintf(stderr, "Could not create image buffer\n");
 		return NULL;
@@ -263,12 +263,12 @@ float *createQuasicrystalImage(int width, int height, int order, float phase, fl
   for (yIndex = 0; yIndex < height; yIndex++) {
     for (xIndex = 0; xIndex < width; xIndex++) {
       int index = height*yIndex + xIndex;
-      float x = ((float)xIndex + dX - (float)width  / 2.0f);
-      float y = ((float)yIndex + dY - (float)height / 2.0f);
-      float d = (float)order;
-      float sum = 0.0f;
+      double x = ((double)xIndex + dX - (double)width  / 2.0f);
+      double y = ((double)yIndex + dY - (double)height / 2.0f);
+      double d = (double)order;
+      double sum = 0.0f;
 
-      float k;
+      double k;
       for(k = 0.0f; k < d; k += 1.0f) {
         sum = sum + cos(scale * x * cos(k * 3.14159f / d) - scale * y * sin(k * 3.14159f / d) + phase);
       }
