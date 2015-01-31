@@ -52,8 +52,8 @@ int main(int argc, char *argv[])
 	// The output is a 1D array of floats, length: width * height
   int n;
   for (n = start; n < 50000; n+=8) {
-    rad = rad * 0.99;
-    printf("Creating Image (%d, %d, %f, %f, %f, %d)\n", width, height, dX, dY, rad, iter);
+    /* rad = rad * 0.99; */
+    printf("Creating Image (%d, %d, %f, %f, %f, %d)\n", width, height, dX, dY, rad * pow(0.99, (double)n), iter);
     float *buffer = createMandelbrotImage(width, height, dX, dY, rad, iter);
     float range = maxVal - minVal;
     int i;
