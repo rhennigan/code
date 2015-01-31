@@ -45,12 +45,13 @@ int main(int argc, char *argv[])
   float dY = atof(argv[4]); // -0.177
   float rad = atof(argv[5]); // 0.011
   int iter = atoi(argv[6]);
+  int start = atoi(argv[7]);
 
   rad = 1.5;
 	// Create a test image - in this case a Mandelbrot Set fractal
 	// The output is a 1D array of floats, length: width * height
-  int n = 1;
-  for (n = 1; n < 50000; n++) {
+  int n;
+  for (n = start; n < 50000; n+=8) {
     rad = rad * 0.99;
     printf("Creating Image (%d, %d, %f, %f, %f, %d)\n", width, height, dX, dY, rad, iter);
     float *buffer = createMandelbrotImage(width, height, dX, dY, rad, iter);
