@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
   int start = atoi(argv[7]);
   int end = atoi(argv[8]);
 
-  double scale = (double)(width - 2) / (double)(width);
+  double scale = (double)(width - 4) / (double)(width);
 
   rad = 1.5;
 	// Create a test image - in this case a Mandelbrot Set fractal
