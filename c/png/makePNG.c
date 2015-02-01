@@ -28,9 +28,9 @@ inline void setRGB(png_byte *ptr, double val);
 // also written into the image file
 int writeImage(char* filename, int width, int height, double *buffer, char* title);
 
-double minVal = -1.0;
+double minVal = 0.0;
 double maxVal = 1.0;
-double minValOld = -1.0;
+double minValOld = 0.0;
 double maxValOld = 1.0;
 double p = 1.0;
 
