@@ -69,6 +69,8 @@ int main(int argc, char *argv[])
     minVal = 100000000.0;
     maxVal = 0.0;
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
+    printf("minVal: %f, %f\n", minVal, minValOld);
+    printf("maxVal: %f, %f\n", maxVal, maxValOld);
     maxVal = 0.1 * maxVal + 0.9 * maxValOld;
     minVal = 0.1 * minVal + 0.9 * minValOld;
     double range = maxVal - minVal;
