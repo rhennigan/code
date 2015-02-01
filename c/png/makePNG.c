@@ -28,6 +28,11 @@ inline void setRGB(png_byte *ptr, double val);
 // also written into the image file
 int writeImage(char* filename, int width, int height, double *buffer, char* title);
 
+double minVal = 100000000.0;
+double maxVal = 0.0;
+double minValOld = 100000000.0;
+double maxValOld = 0.0;
+
 int main(int argc, char *argv[])
 {
 	// Make sure that the output filename argument has been provided
@@ -53,10 +58,7 @@ int main(int argc, char *argv[])
   rad = 1.5;
 	// Create a test image - in this case a Mandelbrot Set fractal
 	// The output is a 1D array of doubles, length: width * height
-  double minVal = 100000000.0;
-  double maxVal = 0.0;
-  double minValOld = 100000000.0;
-  double maxValOld = 0.0;
+
   
   int n;
   for (n = start; n < end; n+=cores*skip) {
