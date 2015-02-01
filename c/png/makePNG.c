@@ -74,7 +74,6 @@ int main(int argc, char *argv[])
     double mean = 0.0;
     double div = 1.0 / ((double)(width*height));
     for (i = 0; i < width*height; i++) {
-      printf("buffer[%d] = %f\n", i, buffer[i]);
       mean += div * buffer[i];
     }
     printf("mean = %f\n", mean);
@@ -263,7 +262,6 @@ double *createMandelbrotImage(int width, int height, double xS, double yS, doubl
 	int count = width * height;
 	while (count) {
 		count --;
-    printf("buffer[%d] = %f\n", count, buffer[count]);
 		buffer[count] = (buffer[count] - minMu) / (maxMu - minMu);
 	}
 
