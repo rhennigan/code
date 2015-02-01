@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
   int cores = atoi(argv[10]);
 
   /* double scale = (double)(width - 32) / (double)(width); */
-  double scale = 0.978080578612775;
+  double scale = 0.9816070644969339120677887;
 
   rad = 2.0;
 	// Create a test image - in this case a Mandelbrot Set fractal
