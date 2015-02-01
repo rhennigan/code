@@ -83,6 +83,8 @@ int main(int argc, char *argv[])
     int i;
     for (i = 0; i < width * height; i++) {
       buffer[i] = 0.2*buffer[i] + 0.2*bufferPX[i] + 0.2*bufferNX[i] + 0.2*bufferPY[i] + 0.2*bufferNY[i];
+      minVal = buffer[i] < minVal ? buffer[i] : minVal;
+      maxVal = buffer[i] > maxVal ? buffer[i] : maxVal;
     }
     
     printf("minVal: %f, %f\n", minVal, minValOld);
