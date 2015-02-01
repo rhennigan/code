@@ -68,8 +68,8 @@ int main(int argc, char *argv[])
     
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
     
-    double dx = 0.25 * rad / (double)width;
-    double dy = 0.25 * rad / (double)height;
+    double dx = 0.05 * rad / (double)width;
+    double dy = 0.05 * rad / (double)height;
     
     double *bufferPX = createMandelbrotImage(width, height, dX + dx, dY, rad * pow(scale, (double)n), iter);
     double *bufferNX = createMandelbrotImage(width, height, dX - dx, dY, rad * pow(scale, (double)n), iter);
