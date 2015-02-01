@@ -70,9 +70,20 @@ int main(int argc, char *argv[])
     minVal = 1.0;
     maxVal = 0.0;
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
+    
     double dx = 0.25 * rad / (double)width;
     double dy = 0.25 * rad / (double)height;
-    double *bufferR = createMandelbrotImage(width, height, dX + dx, dY, rad * pow(scale, (double)n), iter);
+    
+    double *bufferPX = createMandelbrotImage(width, height, dX + dx, dY, rad * pow(scale, (double)n), iter);
+    double *bufferNX = createMandelbrotImage(width, height, dX - dx, dY, rad * pow(scale, (double)n), iter);
+    double *bufferPY = createMandelbrotImage(width, height, dX, dY + dy, rad * pow(scale, (double)n), iter);
+    double *bufferNY = createMandelbrotImage(width, height, dX, dY - dy, rad * pow(scale, (double)n), iter);
+
+    int i;
+    for (i = 0; i < width * height; i++) {
+      buffer[i] = 0.2*buffer[i] + 0.2*bufferPX[i] + 0.2*bufferNX[i] + 0.2*bufferPY[i] + 0.2*bufferNY[i];
+    }
+    
     printf("minVal: %f, %f\n", minVal, minValOld);
     printf("maxVal: %f, %f\n", maxVal, maxValOld);
     maxVal = p * maxVal + (1.0 - p) * maxValOld;
@@ -80,7 +91,7 @@ int main(int argc, char *argv[])
     printf("new minVal: %f, %f\n", minVal, minValOld);
     printf("new maxVal: %f, %f\n", maxVal, maxValOld);
     double range = maxVal - minVal;
-    int i;
+    
     for (i = 0; i < width * height; i++) {
       buffer[i] = (buffer[i] - minVal) / range;
     }
