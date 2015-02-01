@@ -306,7 +306,7 @@ double *createMandelbrotImage(int width, int height, double xS, double yS, doubl
 	while (count) {
 		count --;
 		buffer[count] = (buffer[count] - minMu) / (maxMu - minMu);
-    minVal = buffer[count] < minVal ? buffer[count] : minVal;
+    minVal = buffer[count] != 0.0 && buffer[count] < minVal ? buffer[count] : minVal;
     maxVal = buffer[count] > maxVal ? buffer[count] : maxVal;
 	}
 
