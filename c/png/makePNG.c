@@ -28,9 +28,9 @@ inline void setRGB(png_byte *ptr, double val);
 // also written into the image file
 int writeImage(char* filename, int width, int height, double *buffer, char* title);
 
-double minVal = -1.0;
+double minVal = 0.0;
 double maxVal = 1.0;
-double minValOld = -1.0;
+double minValOld = 0.0;
 double maxValOld = 1.0;
 double p = 0.1;
 
@@ -250,7 +250,7 @@ double *createMandelbrotImage(int width, int height, double xS, double yS, doubl
 			if (iteration < maxIteration) {
 				double modZ = sqrt(x*x + y*y);
 				/* double mu = iteration - (log(log(modZ))) / log(2); */
-        double mu = (sqrt(iteration) - log(modZ));
+        double mu = sqrt((double)iteration);
 				if (mu > maxMu) maxMu = mu;
 				if (mu < minMu) minMu = mu;
 				buffer[yPos * width + xPos] = mu;
