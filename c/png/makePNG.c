@@ -68,29 +68,29 @@ int main(int argc, char *argv[])
     
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
     
-    double dx = 0.05 * rad / (double)width;
-    double dy = 0.05 * rad / (double)height;
+    /* double dx = 0.05 * rad / (double)width; */
+    /* double dy = 0.05 * rad / (double)height; */
     
-    double *bufferPX = createMandelbrotImage(width, height, dX + dx, dY, rad * pow(scale, (double)n), iter);
-    double *bufferNX = createMandelbrotImage(width, height, dX - dx, dY, rad * pow(scale, (double)n), iter);
-    double *bufferPY = createMandelbrotImage(width, height, dX, dY + dy, rad * pow(scale, (double)n), iter);
-    double *bufferNY = createMandelbrotImage(width, height, dX, dY - dy, rad * pow(scale, (double)n), iter);
+    /* double *bufferPX = createMandelbrotImage(width, height, dX + dx, dY, rad * pow(scale, (double)n), iter); */
+    /* double *bufferNX = createMandelbrotImage(width, height, dX - dx, dY, rad * pow(scale, (double)n), iter); */
+    /* double *bufferPY = createMandelbrotImage(width, height, dX, dY + dy, rad * pow(scale, (double)n), iter); */
+    /* double *bufferNY = createMandelbrotImage(width, height, dX, dY - dy, rad * pow(scale, (double)n), iter); */
 
     minValOld = minVal;
     maxValOld = maxVal;
     minVal = 1.0;
     maxVal = 0.0;
     int i;
-    for (i = 0; i < width * height; i++) {
-      buffer[i] = 0.2*buffer[i] + 0.2*bufferPX[i] + 0.2*bufferNX[i] + 0.2*bufferPY[i] + 0.2*bufferNY[i];
-      minVal = buffer[i] < minVal ? buffer[i] : minVal;
-      maxVal = buffer[i] > maxVal ? buffer[i] : maxVal;
-    }
+    /* for (i = 0; i < width * height; i++) { */
+    /*   buffer[i] = 0.2*buffer[i] + 0.2*bufferPX[i] + 0.2*bufferNX[i] + 0.2*bufferPY[i] + 0.2*bufferNY[i]; */
+    /*   minVal = buffer[i] < minVal ? buffer[i] : minVal; */
+    /*   maxVal = buffer[i] > maxVal ? buffer[i] : maxVal; */
+    /* } */
 
-    free(bufferPX);
-    free(bufferNX);
-    free(bufferPY);
-    free(bufferNY);
+    /* free(bufferPX); */
+    /* free(bufferNX); */
+    /* free(bufferPY); */
+    /* free(bufferNY); */
     
     printf("minVal: %f, %f\n", minVal, minValOld);
     printf("maxVal: %f, %f\n", maxVal, maxValOld);
