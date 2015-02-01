@@ -260,11 +260,11 @@ double *createMandelbrotImage(int width, int height, double xS, double yS, doubl
 	}
 
 	// Scale buffer values between 0 and 1
-	/* int count = width * height; */
-	/* while (count) { */
-	/* 	count --; */
-	/* 	buffer[count] = (buffer[count] - minMu) / (maxMu - minMu); */
-	/* } */
+	int count = width * height;
+	while (count) {
+		count --;
+		buffer[count] = (buffer[count] - minMu) / (maxMu - minMu);
+	}
 
 	return buffer;
 }
