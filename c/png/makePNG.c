@@ -250,7 +250,7 @@ double *createMandelbrotImage(int width, int height, double xS, double yS, doubl
 			if (iteration < maxIteration) {
 				double modZ = sqrt(x*x + y*y);
 				/* double mu = iteration - (log(log(modZ))) / log(2); */
-        double mu = log(iteration + 1) - modZ;
+        double mu = (log((double)iteration + 1.0) - modZ) + (iteration - modZ);
 				if (mu > maxMu) maxMu = mu;
 				if (mu < minMu) minMu = mu;
 				buffer[yPos * width + xPos] = mu;
