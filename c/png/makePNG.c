@@ -73,6 +73,8 @@ int main(int argc, char *argv[])
     printf("maxVal: %f, %f\n", maxVal, maxValOld);
     maxVal = 0.1 * maxVal + 0.9 * maxValOld;
     minVal = 0.1 * minVal + 0.9 * minValOld;
+    printf("new minVal: %f, %f\n", minVal, minValOld);
+    printf("new maxVal: %f, %f\n", maxVal, maxValOld);
     double range = maxVal - minVal;
     int i;
     for (i = 0; i < width * height; i++) {
