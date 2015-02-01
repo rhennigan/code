@@ -86,6 +86,11 @@ int main(int argc, char *argv[])
       minVal = buffer[i] < minVal ? buffer[i] : minVal;
       maxVal = buffer[i] > maxVal ? buffer[i] : maxVal;
     }
+
+    free(bufferPX);
+    free(bufferNX);
+    free(bufferPY);
+    free(bufferNY);
     
     printf("minVal: %f, %f\n", minVal, minValOld);
     printf("maxVal: %f, %f\n", maxVal, maxValOld);
