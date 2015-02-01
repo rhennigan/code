@@ -105,9 +105,14 @@ int main(int argc, char *argv[])
 
 #define SNAP(x) ((x) < 0 ? 0 : (x) > 255 ? 255 : (x))
 
-inline void setRGB(png_byte *ptr, double val)
-{
-  int b = SNAP((int)(val * 255));
+const int c1[3] = {12, 90, 129};
+const int c2[3] = {214, 74, 39};
+
+inline void setRGB(png_byte *ptr, double val) {
+  int byte = SNAP((int)(val * 255));
+  if (byte < 64) {
+    
+  }
 }
 
 /* inline void setRGB(png_byte *ptr, double val) */
