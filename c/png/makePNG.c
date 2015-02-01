@@ -55,11 +55,11 @@ int main(int argc, char *argv[])
     /* rad = rad * 0.99; */
     printf("Creating Image (%d, %d, %f, %f, %f, %d)\n", width, height, dX, dY, rad * pow(0.99, (double)n), iter);
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(0.99, (double)n), iter);
-    double range = maxVal - minVal;
-    int i;
-    for (i = 0; i < width * height; i++) {
-      buffer[i] = (buffer[i] - minVal) / range;
-    }
+    /* double range = maxVal - minVal; */
+    /* int i; */
+    /* for (i = 0; i < width * height; i++) { */
+    /*   buffer[i] = (buffer[i] - minVal) / range; */
+    /* } */
 
     /* printf("\n\n\n\n"); */
     /* double *buffer2 = createQuasicrystalImage(width, height, 5, 0.0, 0.1, 0.5, 0.0, 0.0); */
