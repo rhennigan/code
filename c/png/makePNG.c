@@ -68,8 +68,8 @@ int main(int argc, char *argv[])
     printf("Creating Image (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
     minValOld = minVal;
     maxValOld = maxVal;
-    minVal = 10000.0;
-    maxVal = 0.0;
+    minVal = 0.0;
+    maxVal = 1.0;
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
     double mean = 0.0;
     double div = 1.0 / ((double)(width*height));
@@ -263,6 +263,7 @@ double *createMandelbrotImage(int width, int height, double xS, double yS, doubl
 	int count = width * height;
 	while (count) {
 		count --;
+    printf("buffer[%d] = %f\n", count, buffer[count]);
 		buffer[count] = (buffer[count] - minMu) / (maxMu - minMu);
 	}
 
