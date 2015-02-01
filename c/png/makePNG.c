@@ -71,14 +71,7 @@ int main(int argc, char *argv[])
     minVal = 0.0;
     maxVal = 1.0;
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
-    double mean = 0.0;
-    double div = 1.0 / ((double)(width*height));
-    for (i = 0; i < width*height; i++) {
-      mean += div * buffer[i];
-    }
-    printf("mean = %f\n", mean);
-    
-    
+
     printf("minVal: %f, %f\n", minVal, minValOld);
     printf("maxVal: %f, %f\n", maxVal, maxValOld);
     maxVal = p * maxVal + (1.0 - p) * maxValOld;
@@ -88,9 +81,9 @@ int main(int argc, char *argv[])
     double range = maxVal - minVal;
     
     
-    for (i = 0; i < width * height; i++) {
-      buffer[i] = (buffer[i] - minVal) / range;
-    }
+    /* for (i = 0; i < width * height; i++) { */
+    /*   buffer[i] = (buffer[i] - minVal) / range; */
+    /* } */
     
     /* printf("\n\n\n\n"); */
     /* double *buffer2 = createQuasicrystalImage(width, height, 5, 0.0, 0.1, 0.5, 0.0, 0.0); */
