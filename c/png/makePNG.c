@@ -113,24 +113,6 @@ inline void setRGB(png_byte *ptr, double val)
   ptr[0] = r; ptr[1] = g; ptr[2] = b;
 }
 
-/* inline void setRGB(png_byte *ptr, double val) */
-/* { */
-/* 	int v = (int)(val * 767); */
-/* 	if (v < 0) v = 0; */
-/* 	if (v > 767) v = 767; */
-/* 	int offset = v % 256; */
-
-/* 	if (v<256) { */
-/* 		ptr[0] = 0; ptr[1] = 0; ptr[2] = offset; */
-/* 	} */
-/* 	else if (v<512) { */
-/* 		ptr[0] = 0; ptr[1] = offset; ptr[2] = 255-offset; */
-/* 	} */
-/* 	else { */
-/* 		ptr[0] = offset; ptr[1] = 255-offset; ptr[2] = 0; */
-/* 	} */
-/* } */
-
 int writeImage(char* filename, int width, int height, double *buffer, char* title)
 {
 	int code = 0;
@@ -253,11 +235,9 @@ double *createMandelbrotImage(int width, int height, double xS, double yS, doubl
         double mu = sqrt(iteration);
 				if (mu > maxMu) {
           maxMu = mu;
-          maxVal = mu;
         }
 				if (mu < minMu) {
           minMu = mu;
-          minVal = mu;
         }
 			}
 			else {
