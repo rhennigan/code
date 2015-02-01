@@ -45,6 +45,7 @@ int main(int argc, char *argv[])
   double rad = atof(argv[5]); // 0.011
   int iter = atoi(argv[6]);
   int start = atoi(argv[7]);
+  int end = atoi(argv[8]);
 
   double scale = (double)(width - 2) / (double)(width);
 
