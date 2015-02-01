@@ -46,14 +46,16 @@ int main(int argc, char *argv[])
   int iter = atoi(argv[6]);
   int start = atoi(argv[7]);
   int end = atoi(argv[8]);
+  int skip = atoi(argv[9]);
+  int cores = atoi(argv[10]);
 
-  double scale = (double)(width - 4) / (double)(width);
+  double scale = (double)(width - 8) / (double)(width);
 
   rad = 1.5;
 	// Create a test image - in this case a Mandelbrot Set fractal
 	// The output is a 1D array of doubles, length: width * height
   int n;
-  for (n = start; n < end; n+=8) {
+  for (n = start; n < end; n+=cores*skip) {
     /* rad = rad * 0.99; */
     printf("Creating Image (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
