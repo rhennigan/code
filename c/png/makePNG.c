@@ -107,11 +107,16 @@ int main(int argc, char *argv[])
 
 inline void setRGB(png_byte *ptr, double val)
 {
-  int r = SNAP((int)(sqrt(val) * 255));
-  int g = SNAP((int)(val * 255));
-  int b = SNAP((int)(val * val * 255));
-  ptr[0] = r; ptr[1] = g; ptr[2] = b;
+  int b = SNAP((int)(val * 255));
 }
+
+/* inline void setRGB(png_byte *ptr, double val) */
+/* { */
+/*   int r = SNAP((int)(sqrt(val) * 255)); */
+/*   int g = SNAP((int)(val * 255)); */
+/*   int b = SNAP((int)(val * val * 255)); */
+/*   ptr[0] = r; ptr[1] = g; ptr[2] = b; */
+/* } */
 
 /* inline void setRGB(png_byte *ptr, double val) */
 /* { */
