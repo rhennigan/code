@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     printf("Creating Image (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
     minValOld = minVal;
     maxValOld = maxVal;
-    minVal = 1.0;
+    minVal = 10000.0;
     maxVal = 0.0;
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
     printf("minVal: %f, %f\n", minVal, minValOld);
