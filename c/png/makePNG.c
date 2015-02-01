@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
   int n;
   for (n = start; n < 2000; n+=8) {
     /* rad = rad * 0.99; */
-    printf("Creating Image (%d, %d, %f, %f, %f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
+    printf("Creating Image (%d, %d, %f, %f, %16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
     double range = maxVal - minVal;
     int i;
