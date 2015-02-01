@@ -62,6 +62,10 @@ int main(int argc, char *argv[])
   for (n = start; n < end; n+=cores*skip) {
     /* rad = rad * 0.99; */
     printf("Creating Image (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
+    minValOld = minVal;
+    maxValOld = maxVal;
+    minVal = 100000000.0;
+    maxVal = 0.0;
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
     double range = maxVal - minVal;
     int i;
