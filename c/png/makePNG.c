@@ -118,7 +118,7 @@ const double p3 = 0.75;
 
 inline void setRGB(png_byte *ptr, double val) {
   double v = S(val, 0.0, 1.0);
-  if (v <= 0.01) {
+  if (v <= 0.001) {
     ptr[0] = 0;
     ptr[1] = 0;
     ptr[2] = 0;
@@ -293,7 +293,7 @@ double *createMandelbrotImage(int width, int height, double xS, double yS, doubl
 
 			if (iteration < maxIteration) {
 				double modZ = sqrt(x*x + y*y);
-				double mu = log(iteration - (log(log(modZ))) / log(2));
+				double mu = log(1.0 + iteration - (log(log(modZ))) / log(2));
         /* double mu = sqrt((double)iteration); */
 				if (mu > maxMu) maxMu = mu;
 				if (mu < minMu) minMu = mu;
