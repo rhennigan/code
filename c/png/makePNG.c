@@ -114,7 +114,7 @@ const int c4[3] = {214,  74,  39};
 const int c5[3] = {215, 224, 229};
 const double p1 = 0.15;
 const double p2 = 0.25;
-const double p3 = 0.30;
+const double p3 = 0.26;
 
 inline void setRGB(png_byte *ptr, double val) {
   double v = S(val, 0.0, 1.0);
