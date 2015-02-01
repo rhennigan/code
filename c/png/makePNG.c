@@ -107,8 +107,10 @@ int main(int argc, char *argv[])
 #define S(x, a, b) ((x) < (a) ? (a) : (x) > (b) ? (b) : (x))
 #define INT(x, a, b) (((x) - (a)) / ((b) - (a)))
 
-const int c1[3] = {12, 90, 129};
-const int c2[3] = {214, 74, 39};
+const int c1[3] = {  0,   0,   0};
+const int c2[3] = { 12,  90, 129};
+const int c3[3] = {215, 224, 229};
+const int c4[3] = {214,  74,  39};
 
 inline void setRGB(png_byte *ptr, double val) {
   double v = S(val, 0.0, 1.0);
