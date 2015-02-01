@@ -13,8 +13,7 @@
 #include <malloc.h>
 #include <png.h>
 
-double minVal = 100000000.0;
-double maxVal = 0.0;
+
 
 // Creates a test image for saving. Creates a Mandelbrot Set fractal of size width x height
 double *createMandelbrotImage(int width, int height, double xS, double yS, double rad, int maxIteration);
@@ -54,6 +53,11 @@ int main(int argc, char *argv[])
   rad = 1.5;
 	// Create a test image - in this case a Mandelbrot Set fractal
 	// The output is a 1D array of doubles, length: width * height
+  double minVal = 100000000.0;
+  double maxVal = 0.0;
+  double minValOld = 100000000.0;
+  double maxValOld = 0.0;
+  
   int n;
   for (n = start; n < end; n+=cores*skip) {
     /* rad = rad * 0.99; */
