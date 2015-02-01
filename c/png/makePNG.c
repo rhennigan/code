@@ -13,7 +13,7 @@
 #include <malloc.h>
 #include <png.h>
 
-double minVal = 0.0;
+double minVal = 100000000.0;
 double maxVal = 0.0;
 
 // Creates a test image for saving. Creates a Mandelbrot Set fractal of size width x height
