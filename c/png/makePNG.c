@@ -131,13 +131,13 @@ inline void setRGB(png_byte *ptr, double val) {
     ptr[1] = (int)(t1 * c2[1] + t2 * c3[1]);
     ptr[2] = (int)(t1 * c2[2] + t2 * c3[2]);
   } else if (v < p3) {
-    double t2 = sqrt(INT(v, p2, p3));
+    double t2 = pow(INT(v, p2, p3), 2.0);
     double t1 = 1.0 - t2;
     ptr[0] = (int)(t1 * c3[0] + t2 * c4[0]);
     ptr[1] = (int)(t1 * c3[1] + t2 * c4[1]);
     ptr[2] = (int)(t1 * c3[2] + t2 * c4[2]);
   } else {
-    double t2 = pow(INT(v, p3, 1.0), 2.0);
+    double t2 = pow(INT(v, p3, 1.0), 0.5);
     double t1 = 1.0 - t2;
     ptr[0] = (int)(t1 * c4[0] + t2 * c5[0]);
     ptr[1] = (int)(t1 * c4[1] + t2 * c5[1]);
