@@ -109,9 +109,9 @@ int main(int argc, char *argv[])
 
 const int c1[3] = {  0,   0,   0};
 const int c2[3] = { 12,  90, 129};
-const int c3[3] = {215, 224, 229};
-const int c4[3] = {  0,   0,   0};
-const int c5[3] = {214,  74,  39};
+const int c3[3] = {  0,   0,   0};
+const int c4[3] = {214,  74,  39};
+const int c5[3] = {215, 224, 229};
 const double p1 = 0.25;
 const double p2 = 0.50;
 const double p3 = 0.75;
