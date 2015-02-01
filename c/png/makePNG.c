@@ -28,9 +28,9 @@ inline void setRGB(png_byte *ptr, double val);
 // also written into the image file
 int writeImage(char* filename, int width, int height, double *buffer, char* title);
 
-double minVal = 100000000.0;
+double minVal = 1.0;
 double maxVal = 0.0;
-double minValOld = 100000000.0;
+double minValOld = 1.0;
 double maxValOld = 0.0;
 
 int main(int argc, char *argv[])
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     printf("Creating Image (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
     minValOld = minVal;
     maxValOld = maxVal;
-    minVal = 100000000.0;
+    minVal = 1.0;
     maxVal = 0.0;
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
     printf("minVal: %f, %f\n", minVal, minValOld);
