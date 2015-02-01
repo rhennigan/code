@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
 #define S(x, a, b) ((x) < (a) ? (a) : (x) > (b) ? (b) : (x))
 #define INT(x, a, b) (((x) - (a)) / ((b) - (a)))
 
-const int c1[3] = {  0,   0,   0};
+const int c1[3] = {215, 224, 229};
 const int c2[3] = { 12,  90, 129};
 const int c3[3] = {  0,   0,   0};
 const int c4[3] = {214,  74,  39};
