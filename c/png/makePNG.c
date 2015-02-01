@@ -81,7 +81,10 @@ int main(int argc, char *argv[])
     int i;
     for (i = 0; i < width * height; i++) {
       buffer[i] = (buffer[i] - minVal) / range;
+      mean += buffer[i];
     }
+    mean = mean / (width*height);
+    printf("mean = %f\n", mean);
 
     /* printf("\n\n\n\n"); */
     /* double *buffer2 = createQuasicrystalImage(width, height, 5, 0.0, 0.1, 0.5, 0.0, 0.0); */
