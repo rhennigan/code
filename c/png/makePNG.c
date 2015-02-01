@@ -273,41 +273,41 @@ double *createMandelbrotImage(int width, int height, double xS, double yS, doubl
 	return buffer;
 }
 
-double *createQuasicrystalImage(int width, int height, int order, double phase, double scale, double mag, double dX, double dY) {
-  double *buffer = (double *) malloc(width * height * sizeof(double));
-	if (buffer == NULL) {
-		fprintf(stderr, "Could not create image buffer\n");
-		return NULL;
-	}
+/* double *createQuasicrystalImage(int width, int height, int order, double phase, double scale, double mag, double dX, double dY) { */
+/*   double *buffer = (double *) malloc(width * height * sizeof(double)); */
+/* 	if (buffer == NULL) { */
+/* 		fprintf(stderr, "Could not create image buffer\n"); */
+/* 		return NULL; */
+/* 	} */
 
-  int xIndex, yIndex;
+/*   int xIndex, yIndex; */
   
-  for (yIndex = 0; yIndex < height; yIndex++) {
-    for (xIndex = 0; xIndex < width; xIndex++) {
-      int index = height*yIndex + xIndex;
-      double x = ((double)xIndex + dX - (double)width  / 2.0f);
-      double y = ((double)yIndex + dY - (double)height / 2.0f);
-      double d = (double)order;
-      double sum = 0.0f;
+/*   for (yIndex = 0; yIndex < height; yIndex++) { */
+/*     for (xIndex = 0; xIndex < width; xIndex++) { */
+/*       int index = height*yIndex + xIndex; */
+/*       double x = ((double)xIndex + dX - (double)width  / 2.0f); */
+/*       double y = ((double)yIndex + dY - (double)height / 2.0f); */
+/*       double d = (double)order; */
+/*       double sum = 0.0f; */
 
-      double k;
-      for(k = 0.0f; k < d; k += 1.0f) {
-        sum = sum + cos(scale * x * cos(k * 3.14159f / d) - scale * y * sin(k * 3.14159f / d) + phase);
-      }
+/*       double k; */
+/*       for(k = 0.0f; k < d; k += 1.0f) { */
+/*         sum = sum + cos(scale * x * cos(k * 3.14159f / d) - scale * y * sin(k * 3.14159f / d) + phase); */
+/*       } */
 	
-      sum = mag * sum;
+/*       sum = mag * sum; */
 
-      int s = (int)sum;
-      if (s % 2 == 1) {
-        sum = 1.0f - fmod(sum, 1.0f);
-      }
-      else {
-        sum = fmod(sum, 1.0f);
-      }
+/*       int s = (int)sum; */
+/*       if (s % 2 == 1) { */
+/*         sum = 1.0f - fmod(sum, 1.0f); */
+/*       } */
+/*       else { */
+/*         sum = fmod(sum, 1.0f); */
+/*       } */
 
-      sum = 0.5*(sum+1.0);
-      buffer[index] = sum;
-    }
-  }
-  return buffer;
-}
+/*       sum = 0.5*(sum+1.0); */
+/*       buffer[index] = sum; */
+/*     } */
+/*   } */
+/*   return buffer; */
+/* } */
