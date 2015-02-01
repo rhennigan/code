@@ -111,23 +111,25 @@ const int c1[3] = {  0,   0,   0};
 const int c2[3] = { 12,  90, 129};
 const int c3[3] = {215, 224, 229};
 const int c4[3] = {214,  74,  39};
+const double p1 = 0.05;
+const double p2 = 0.25;
 
 inline void setRGB(png_byte *ptr, double val) {
   double v = S(val, 0.0, 1.0);
-  if (v < 0.25) {
-    double t2 = INT(v, 0.0, 0.25);
+  if (v < p1) {
+    double t2 = INT(v, 0.0, p1);
     double t1 = 1.0 - t2;
     ptr[0] = (int)(t1 * c1[0] + t2 * c2[0]);
     ptr[1] = (int)(t1 * c1[1] + t2 * c2[1]);
     ptr[2] = (int)(t1 * c1[2] + t2 * c2[2]);
-  } else if (v < 0.5) {
-    double t2 = INT(v, 0.25, 0.5);
+  } else if (v < p2) {
+    double t2 = INT(v, p1, p2);
     double t1 = 1.0 - t2;
     ptr[0] = (int)(t1 * c2[0] + t2 * c3[0]);
     ptr[1] = (int)(t1 * c2[1] + t2 * c3[1]);
     ptr[2] = (int)(t1 * c2[2] + t2 * c3[2]);
   } else {
-    double t2 = INT(v, 0.5, 1.0);
+    double t2 = sqrt(INT(v, p2, 1.0));
     double t1 = 1.0 - t2;
     ptr[0] = (int)(t1 * c3[0] + t2 * c4[0]);
     ptr[1] = (int)(t1 * c3[1] + t2 * c4[1]);
