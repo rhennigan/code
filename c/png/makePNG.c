@@ -72,9 +72,9 @@ int main(int argc, char *argv[])
     maxVal = 0.0;
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
     double mean = 0.0;
-    double div = (double)(width*height);
+    double div = 1.0 / ((double)(width*height));
     for (i = 0; i < width*height; i++) {
-      mean += buffer[i];
+      mean += (buffer[i] / div);
     }
     printf("mean = %f\n", mean / div);
     
