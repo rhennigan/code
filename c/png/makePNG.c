@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 
   
   int n;
-  for (n = start; n < end; n+=cores*skip) {
+  for (n = start*skip; n < end; n+=cores*skip) {
     /* rad = rad * 0.99; */
     printf("Creating Image (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
     minValOld = minVal;
