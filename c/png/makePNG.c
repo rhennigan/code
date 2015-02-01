@@ -110,9 +110,9 @@ const int c1[3] = {12, 90, 129};
 const int c2[3] = {214, 74, 39};
 
 inline void setRGB(png_byte *ptr, double val) {
-  int byte = SNAP((int)(val * 255));
-  if (val < 0.25) {
-    double t = (val - 0.0) / 0.25;
+  double v = S(val, 0.0, 1.0);
+  if (v < 0.25) {
+    double t = (v - 0.0) / 0.25;
     ptr[0] = (int)(t * c1[0]);
     ptr[1] = (int)(t * c1[1]);
     ptr[2] = (int)(t * c1[2]);
