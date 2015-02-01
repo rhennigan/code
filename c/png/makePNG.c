@@ -28,11 +28,11 @@ inline void setRGB(png_byte *ptr, double val);
 // also written into the image file
 int writeImage(char* filename, int width, int height, double *buffer, char* title);
 
-double minVal = 0.0;
+double minVal = -1.0;
 double maxVal = 1.0;
-double minValOld = 0.0;
+double minValOld = -1.0;
 double maxValOld = 1.0;
-double p = 1.0;
+double p = 0.1;
 
 int main(int argc, char *argv[])
 {
@@ -63,15 +63,13 @@ int main(int argc, char *argv[])
   
   int n;
   for (n = start; n < end; n+=cores*skip) {
-    int i;
     /* rad = rad * 0.99; */
     printf("Creating Image (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
     minValOld = minVal;
     maxValOld = maxVal;
-    minVal = 0.0;
-    maxVal = 1.0;
+    minVal = 1.0;
+    maxVal = 0.0;
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
-
     printf("minVal: %f, %f\n", minVal, minValOld);
     printf("maxVal: %f, %f\n", maxVal, maxValOld);
     maxVal = p * maxVal + (1.0 - p) * maxValOld;
@@ -79,12 +77,11 @@ int main(int argc, char *argv[])
     printf("new minVal: %f, %f\n", minVal, minValOld);
     printf("new maxVal: %f, %f\n", maxVal, maxValOld);
     double range = maxVal - minVal;
-    
-    
-    /* for (i = 0; i < width * height; i++) { */
-    /*   buffer[i] = (buffer[i] - minVal) / range; */
-    /* } */
-    
+    int i;
+    for (i = 0; i < width * height; i++) {
+      buffer[i] = (buffer[i] - minVal) / range;
+    }
+
     /* printf("\n\n\n\n"); */
     /* double *buffer2 = createQuasicrystalImage(width, height, 5, 0.0, 0.1, 0.5, 0.0, 0.0); */
     if (buffer == NULL) {
@@ -115,6 +112,24 @@ inline void setRGB(png_byte *ptr, double val)
   int b = SNAP((int)(val * val * 255));
   ptr[0] = r; ptr[1] = g; ptr[2] = b;
 }
+
+/* inline void setRGB(png_byte *ptr, double val) */
+/* { */
+/* 	int v = (int)(val * 767); */
+/* 	if (v < 0) v = 0; */
+/* 	if (v > 767) v = 767; */
+/* 	int offset = v % 256; */
+
+/* 	if (v<256) { */
+/* 		ptr[0] = 0; ptr[1] = 0; ptr[2] = offset; */
+/* 	} */
+/* 	else if (v<512) { */
+/* 		ptr[0] = 0; ptr[1] = offset; ptr[2] = 255-offset; */
+/* 	} */
+/* 	else { */
+/* 		ptr[0] = offset; ptr[1] = 255-offset; ptr[2] = 0; */
+/* 	} */
+/* } */
 
 int writeImage(char* filename, int width, int height, double *buffer, char* title)
 {
@@ -235,13 +250,10 @@ double *createMandelbrotImage(int width, int height, double xS, double yS, doubl
 			if (iteration < maxIteration) {
 				double modZ = sqrt(x*x + y*y);
 				/* double mu = iteration - (log(log(modZ))) / log(2); */
-        double mu = sqrt(iteration);
-				if (mu > maxMu) {
-          maxMu = mu;
-        }
-				if (mu < minMu) {
-          minMu = mu;
-        }
+        double mu = (sqrt(iteration) - log(modZ));
+				if (mu > maxMu) maxMu = mu;
+				if (mu < minMu) minMu = mu;
+				buffer[yPos * width + xPos] = mu;
 			}
 			else {
 				buffer[yPos * width + xPos] = 0;
@@ -254,8 +266,8 @@ double *createMandelbrotImage(int width, int height, double xS, double yS, doubl
 	while (count) {
 		count --;
 		buffer[count] = (buffer[count] - minMu) / (maxMu - minMu);
-    maxVal = buffer[count] > maxVal ? buffer[count] : maxVal;
     minVal = buffer[count] < minVal ? buffer[count] : minVal;
+    maxVal = buffer[count] > maxVal ? buffer[count] : maxVal;
 	}
 
 	return buffer;
