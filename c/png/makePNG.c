@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
   /* double scale = (double)(width - 32) / (double)(width); */
   double scale = 0.978080578612775;
 
-  rad = 1.5;
+  rad = 2.0;
 	// Create a test image - in this case a Mandelbrot Set fractal
 	// The output is a 1D array of doubles, length: width * height
 
