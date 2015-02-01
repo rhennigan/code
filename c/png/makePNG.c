@@ -63,6 +63,7 @@ int main(int argc, char *argv[])
   
   int n;
   for (n = start; n < end; n+=cores*skip) {
+    int i;
     /* rad = rad * 0.99; */
     printf("Creating Image (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
     minValOld = minVal;
@@ -70,6 +71,15 @@ int main(int argc, char *argv[])
     minVal = 10000.0;
     maxVal = 0.0;
     double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
+    double mean = 0.0;
+    for (i = 0; i < width*height; i++) {
+      mean += buffer[i];
+    }
+
+    mean = mean / (width*height);
+    printf("mean = %f\n", mean);
+    
+    
     printf("minVal: %f, %f\n", minVal, minValOld);
     printf("maxVal: %f, %f\n", maxVal, maxValOld);
     maxVal = p * maxVal + (1.0 - p) * maxValOld;
@@ -77,15 +87,12 @@ int main(int argc, char *argv[])
     printf("new minVal: %f, %f\n", minVal, minValOld);
     printf("new maxVal: %f, %f\n", maxVal, maxValOld);
     double range = maxVal - minVal;
-    double mean = 0.0;
-    int i;
+    
+    
     for (i = 0; i < width * height; i++) {
       buffer[i] = (buffer[i] - minVal) / range;
-      mean += buffer[i];
     }
-    mean = mean / (width*height);
-    printf("mean = %f\n", mean);
-
+    
     /* printf("\n\n\n\n"); */
     /* double *buffer2 = createQuasicrystalImage(width, height, 5, 0.0, 0.1, 0.5, 0.0, 0.0); */
     if (buffer == NULL) {
