@@ -74,9 +74,9 @@ int main(int argc, char *argv[])
     double mean = 0.0;
     double div = 1.0 / ((double)(width*height));
     for (i = 0; i < width*height; i++) {
-      mean += (buffer[i] / div);
+      mean += div * buffer[i];
     }
-    printf("mean = %f\n", mean / div);
+    printf("mean = %f\n", mean);
     
     
     printf("minVal: %f, %f\n", minVal, minValOld);
