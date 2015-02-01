@@ -104,7 +104,8 @@ int main(int argc, char *argv[])
 }
 
 #define SNAP(x) ((x) < 0 ? 0 : (x) > 255 ? 255 : (x))
-#define S(x, a, b) ((x) < (a) ? (a) : (x) > (b) ? (b) : (x)) 
+#define S(x, a, b) ((x) < (a) ? (a) : (x) > (b) ? (b) : (x))
+#define INT(x, a, b) (((x) - (a)) / ((b) - (a)))
 
 const int c1[3] = {12, 90, 129};
 const int c2[3] = {214, 74, 39};
@@ -112,7 +113,7 @@ const int c2[3] = {214, 74, 39};
 inline void setRGB(png_byte *ptr, double val) {
   double v = S(val, 0.0, 1.0);
   if (v < 0.25) {
-    double t = (v - 0.0) / 0.25;
+    double t = INT(v, 0.0, 0.25);
     ptr[0] = (int)(t * c1[0]);
     ptr[1] = (int)(t * c1[1]);
     ptr[2] = (int)(t * c1[2]);
