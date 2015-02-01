@@ -29,8 +29,6 @@ inline void setRGB(png_byte *ptr, double val);
 // also written into the image file
 int writeImage(char* filename, int width, int height, double *buffer, char* title);
 
-const double scale = (double)510 / (double)512;
-
 int main(int argc, char *argv[])
 {
 	// Make sure that the output filename argument has been provided
@@ -47,6 +45,8 @@ int main(int argc, char *argv[])
   double rad = atof(argv[5]); // 0.011
   int iter = atoi(argv[6]);
   int start = atoi(argv[7]);
+
+  double scale = (double)(width - 2) / (double)(width);
 
   rad = 1.5;
 	// Create a test image - in this case a Mandelbrot Set fractal
