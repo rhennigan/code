@@ -32,7 +32,7 @@ double minVal = -1.0;
 double maxVal = 1.0;
 double minValOld = -1.0;
 double maxValOld = 1.0;
-double p = 0.1;
+double p = 1.0;
 
 int main(int argc, char *argv[])
 {
