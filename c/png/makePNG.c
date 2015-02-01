@@ -77,6 +77,7 @@ int main(int argc, char *argv[])
     printf("new minVal: %f, %f\n", minVal, minValOld);
     printf("new maxVal: %f, %f\n", maxVal, maxValOld);
     double range = maxVal - minVal;
+    double mean = 0.0;
     int i;
     for (i = 0; i < width * height; i++) {
       buffer[i] = (buffer[i] - minVal) / range;
