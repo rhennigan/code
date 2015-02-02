@@ -141,7 +141,7 @@ const double p3 = 0.75;
 
 inline void setRGB(png_byte *ptr, double val) {
   double v = S(val, 0.0, 1.0);
-  if (v <= 0.00001) {
+  if (v <= -0.00001) {
     ptr[0] = 0;
     ptr[1] = 0;
     ptr[2] = 0;
