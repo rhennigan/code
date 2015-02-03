@@ -199,20 +199,17 @@ double *mandelbrot_vals(int w, int h, double xs, double ys, double r, int it) {
 	double maxMu = 0;
 
  
-	for (yPos=0 ; yPos<h ; yPos++)
-	{
+	for (yPos = 0; yPos < h; yPos++) {
 		double yP = (ys-r) + (2.0f*r/h)*yPos;
 
-		for (xPos=0 ; xPos<w ; xPos++)
-		{
+		for (xPos = 0; xPos < w; xPos++) {
 			double xP = (xs-r) + (2.0f*r/w)*xPos;
 
 			int iteration = 0;
 			double x = 0;
 			double y = 0;
 
-			while (x*x + y*y <= 4 && iteration < it)
-			{
+			while (x*x + y*y <= 4 && iteration < it) {
 				double tmp = x*x - y*y + xP;
 				y = 2*x*y + yP;
 				x = tmp;
@@ -222,18 +219,15 @@ double *mandelbrot_vals(int w, int h, double xs, double ys, double r, int it) {
 			if (iteration < it) {
 				double modZ = sqrt(x*x + y*y);
 				double mu = log(3.0 + iteration - (log(log(modZ))) / log(2));
-        /* double mu = sqrt((double)iteration); */
 				if (mu > maxMu) maxMu = mu;
 				if (mu < minMu) minMu = mu;
 				buffer[yPos * w + xPos] = mu;
-			}
-			else {
+			} else {
 				buffer[yPos * w + xPos] = 0;
 			}
 		}
 	}
 
-	// Scale buffer values between 0 and 1
 	int count = w * h;
 	while (count) {
 		count --;
@@ -245,41 +239,3 @@ double *mandelbrot_vals(int w, int h, double xs, double ys, double r, int it) {
 	return buffer;
 }
 
-/* double *createQuasicrystalImage(int width, int height, int order, double phase, double scale, double mag, double dX, double dY) { */
-/*   double *buffer = (double *) malloc(width * height * sizeof(double)); */
-/* 	if (buffer == NULL) { */
-/* 		fprintf(stderr, "Could not create image buffer\n"); */
-/* 		return NULL; */
-/* 	} */
-
-/*   int xIndex, yIndex; */
-  
-/*   for (yIndex = 0; yIndex < height; yIndex++) { */
-/*     for (xIndex = 0; xIndex < width; xIndex++) { */
-/*       int index = height*yIndex + xIndex; */
-/*       double x = ((double)xIndex + dX - (double)width  / 2.0f); */
-/*       double y = ((double)yIndex + dY - (double)height / 2.0f); */
-/*       double d = (double)order; */
-/*       double sum = 0.0f; */
-
-/*       double k; */
-/*       for(k = 0.0f; k < d; k += 1.0f) { */
-/*         sum = sum + cos(scale * x * cos(k * 3.14159f / d) - scale * y * sin(k * 3.14159f / d) + phase); */
-/*       } */
-	
-/*       sum = mag * sum; */
-
-/*       int s = (int)sum; */
-/*       if (s % 2 == 1) { */
-/*         sum = 1.0f - fmod(sum, 1.0f); */
-/*       } */
-/*       else { */
-/*         sum = fmod(sum, 1.0f); */
-/*       } */
-
-/*       sum = 0.5*(sum+1.0); */
-/*       buffer[index] = sum; */
-/*     } */
-/*   } */
-/*   return buffer; */
-/* } */
