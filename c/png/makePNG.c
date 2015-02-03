@@ -254,6 +254,21 @@ double * mandelbrot_ring(double xs, double ys, double r, int it) {
 
   yPos = 0;
   yP = (ys-r) + (2.0f*r/h)*yPos;
+  for (xPos = 0; xPos < 2048; xPos++) {
+    xP = (xs-r) + (2.0f*r/w)*xPos;
+    int iteration = 0;
+    double x = 0;
+    double y = 0;
+
+    while (x*x + y*y <= 4 && iteration < it) {
+      double tmp = x*x - y*y + xP;
+      y = 2*x*y + yP;
+      x = tmp;
+      iteration++;
+    }
+
+    buffer[xPos] = iteration < it ? iteration : 0;
+  }
 
   yPos = 2047;
   yP = (ys-r) + (2.0f*r/h)*yPos;
