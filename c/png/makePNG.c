@@ -34,35 +34,16 @@ int main(int argc, char *argv[])
 
   int n;
   for (n = start*skip; n < end; n+=cores*skip) {
-    /* rad = rad * 0.99; */
     printf("Creating Image (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
-    
     double *buffer = mandelbrot_vals(width, height, dX, dY, rad * pow(scale, (double)n), iter);
-    
-    /* double dx = 0.05 * rad / (double)width; */
-    /* double dy = 0.05 * rad / (double)height; */
-    
-    /* double *bufferPX = mandelbrot_vals(width, height, dX + dx, dY, rad * pow(scale, (double)n), iter); */
-    /* double *bufferNX = mandelbrot_vals(width, height, dX - dx, dY, rad * pow(scale, (double)n), iter); */
-    /* double *bufferPY = mandelbrot_vals(width, height, dX, dY + dy, rad * pow(scale, (double)n), iter); */
-    /* double *bufferNY = mandelbrot_vals(width, height, dX, dY - dy, rad * pow(scale, (double)n), iter); */
+    if (buffer == NULL) exit(EXIT_FAILURE);
 
     minValOld = minVal;
     maxValOld = maxVal;
     minVal = 1.0;
     maxVal = 0.0;
     int i;
-    /* for (i = 0; i < width * height; i++) { */
-    /*   buffer[i] = 0.2*buffer[i] + 0.2*bufferPX[i] + 0.2*bufferNX[i] + 0.2*bufferPY[i] + 0.2*bufferNY[i]; */
-    /*   minVal = buffer[i] < minVal ? buffer[i] : minVal; */
-    /*   maxVal = buffer[i] > maxVal ? buffer[i] : maxVal; */
-    /* } */
 
-    /* free(bufferPX); */
-    /* free(bufferNX); */
-    /* free(bufferPY); */
-    /* free(bufferNY); */
-    
     printf("minVal: %f, %f\n", minVal, minValOld);
     printf("maxVal: %f, %f\n", maxVal, maxValOld);
     maxVal = p * maxVal + (1.0 - p) * maxValOld;
@@ -75,11 +56,7 @@ int main(int argc, char *argv[])
       buffer[i] = (buffer[i] - minVal) / range;
     }
 
-    /* printf("\n\n\n\n"); */
-    /* double *buffer2 = createQuasicrystalImage(width, height, 5, 0.0, 0.1, 0.5, 0.0, 0.0); */
-    if (buffer == NULL) {
-      return 1;
-    }
+    
 
     // Save the image to a PNG file
     // The 'title' string is stored as part of the PNG file
