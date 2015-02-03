@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 
   int n;
   for (n = start*skip; n < end; n+=cores*skip) {
-    printf("Creating Image (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
+    printf("creating buffer (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
     double *buffer = mandelbrot_vals(width, height, dX, dY, rad * pow(scale, (double)n), iter);
     if (buffer == NULL) exit(EXIT_FAILURE);
 
@@ -42,8 +42,7 @@ int main(int argc, char *argv[])
     maxValOld = maxVal;
     minVal = 1.0;
     maxVal = 0.0;
-    int i;
-
+    
     printf("minVal: %f, %f\n", minVal, minValOld);
     printf("maxVal: %f, %f\n", maxVal, maxValOld);
     maxVal = p * maxVal + (1.0 - p) * maxValOld;
@@ -52,15 +51,11 @@ int main(int argc, char *argv[])
     printf("new maxVal: %f, %f\n", maxVal, maxValOld);
     double range = maxVal - minVal;
     
-    for (i = 0; i < width * height; i++) {
+    int i;
+    for (i = 0; i < width * height; i++) 
       buffer[i] = (buffer[i] - minVal) / range;
-    }
 
-    
-
-    // Save the image to a PNG file
-    // The 'title' string is stored as part of the PNG file
-    printf("Saving PNG\n");
+    printf("writing file %d\n", n);
     char file[255];
     sprintf(file, "frames/mandelbrot_%d.png", n);
     save_png(file, width, height, buffer, "This is my test image");
