@@ -6,6 +6,7 @@
 #include <png.h>
 
 double * mandelbrot_vals(int w, int h, double xs, double ys, double rad, int iter);
+double * mandelbrot_ring(int w, int h, double xs, double ys, double rad, int iter);
 
 inline void color_px(png_byte *ptr, double val);
 
@@ -187,7 +188,7 @@ finalise:
 	return code;
 }
 
-double *mandelbrot_vals(int w, int h, double xs, double ys, double r, int it) {
+double * mandelbrot_vals(int w, int h, double xs, double ys, double r, int it) {
 	double *buffer = (double *) malloc(w * h * sizeof(double));
 	if (buffer == NULL) {
 		fprintf(stderr, "out of memory\n");
@@ -239,3 +240,54 @@ double *mandelbrot_vals(int w, int h, double xs, double ys, double r, int it) {
 	return buffer;
 }
 
+double * mandelbrot_ring(int w, int h, double xs, double ys, double r, int it) {
+	double *buffer = (double *) malloc(w * h * sizeof(double));
+	if (buffer == NULL) {
+		fprintf(stderr, "out of memory\n");
+		return NULL;
+	}
+
+	int xPos, yPos;
+	double minMu = it;
+	double maxMu = 0;
+
+ 
+	for (yPos = 0; yPos < h; yPos++) {
+		double yP = (ys-r) + (2.0f*r/h)*yPos;
+
+		for (xPos = 0; xPos < w; xPos++) {
+			double xP = (xs-r) + (2.0f*r/w)*xPos;
+
+			int iteration = 0;
+			double x = 0;
+			double y = 0;
+
+			while (x*x + y*y <= 4 && iteration < it) {
+				double tmp = x*x - y*y + xP;
+				y = 2*x*y + yP;
+				x = tmp;
+				iteration++;
+			}
+
+			if (iteration < it) {
+				double modZ = sqrt(x*x + y*y);
+				double mu = log(3.0 + iteration - (log(log(modZ))) / log(2));
+				if (mu > maxMu) maxMu = mu;
+				if (mu < minMu) minMu = mu;
+				buffer[yPos * w + xPos] = mu;
+			} else {
+				buffer[yPos * w + xPos] = 0;
+			}
+		}
+	}
+
+	int count = w * h;
+	while (count) {
+		count --;
+		buffer[count] = (buffer[count] - minMu) / (maxMu - minMu);
+    minVal = buffer[count] != 0.0 && buffer[count] < minVal ? buffer[count] : minVal;
+    maxVal = buffer[count] > maxVal ? buffer[count] : maxVal;
+	}
+
+	return buffer;
+}
