@@ -241,7 +241,7 @@ double * mandelbrot_vals(int w, int h, double xs, double ys, double r, int it) {
 }
 
 int * mandelbrot_ring(int s, double xs, double ys, double r, int it) {
-	int * buffer = (int *) malloc(4 * 2048 * sizeof(int));
+	int * buffer = (int *) malloc(4 * s * sizeof(int));
 	if (buffer == NULL) {
 		fprintf(stderr, "out of memory\n");
 		return NULL;
@@ -253,9 +253,9 @@ int * mandelbrot_ring(int s, double xs, double ys, double r, int it) {
   double yP, xP;
 
   yPos = 0;
-  yP = (ys-r) + (2.0f*r/h)*yPos;
+  yP = (ys-r) + (2.0f*r/s)*yPos;
   for (xPos = 0; xPos < 2048; xPos++) {
-    xP = (xs-r) + (2.0f*r/w)*xPos;
+    xP = (xs-r) + (2.0f*r/s)*xPos;
     int iteration = 0;
     double x = 0;
     double y = 0;
@@ -270,8 +270,8 @@ int * mandelbrot_ring(int s, double xs, double ys, double r, int it) {
     buffer[xPos] = iteration < it ? iteration : 0;
   }
 
-  yPos = 2047;
-  yP = (ys-r) + (2.0f*r/h)*yPos;
+  yPos = s - 1;
+  yP = (ys-r) + (2.0f*r/s)*yPos;
 
  
 	for (yPos = 0; yPos < h; yPos++) {
