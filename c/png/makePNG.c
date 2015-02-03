@@ -7,7 +7,6 @@
 
 double * mandelbrot_vals(int w, int h, double xs, double ys, double rad, int iter);
 
-
 inline void color_px(png_byte *ptr, double val);
 
 int save_png(char* filename, int width, int height, double *buffer, char* title);
@@ -58,12 +57,8 @@ int main(int argc, char *argv[])
     printf("writing file %d\n", n);
     char file[255];
     sprintf(file, "frames/mandelbrot_%d.png", n);
-    save_png(file, width, height, buffer, "This is my test image");
-    /* int result2 = save_png(argv[1], width, height, buffer2, "This is my test image"); */
-  
-    // Free up the memorty used to store the image
+    save_png(file, width, height, buffer, "mandelbrot");
     free(buffer);
-    /* free(buffer2); */
   }
 	return 0;
 }
@@ -113,32 +108,6 @@ inline void color_px(png_byte *ptr, double val) {
     ptr[2] = (int)(t1 * c4[2] + t2 * c5[2]);
   }
 }
-
-/* inline void color_px(png_byte *ptr, double val) */
-/* { */
-/*   int r = SNAP((int)(sqrt(val) * 255)); */
-/*   int g = SNAP((int)(val * 255)); */
-/*   int b = SNAP((int)(val * val * 255)); */
-/*   ptr[0] = r; ptr[1] = g; ptr[2] = b; */
-/* } */
-
-/* inline void color_px(png_byte *ptr, double val) */
-/* { */
-/* 	int v = (int)(val * 767); */
-/* 	if (v < 0) v = 0; */
-/* 	if (v > 767) v = 767; */
-/* 	int offset = v % 256; */
-
-/* 	if (v<256) { */
-/* 		ptr[0] = 0; ptr[1] = 0; ptr[2] = offset; */
-/* 	} */
-/* 	else if (v<512) { */
-/* 		ptr[0] = 0; ptr[1] = offset; ptr[2] = 255-offset; */
-/* 	} */
-/* 	else { */
-/* 		ptr[0] = offset; ptr[1] = 255-offset; ptr[2] = 0; */
-/* 	} */
-/* } */
 
 int save_png(char* filename, int width, int height, double *buffer, char* title)
 {
