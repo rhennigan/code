@@ -6,7 +6,7 @@
 #include <png.h>
 
 double * mandelbrot_vals(int w, int h, double xs, double ys, double rad, int iter);
-double * mandelbrot_ring(int w, int h, double xs, double ys, double rad, int iter);
+double * mandelbrot_ring(double xs, double ys, double rad, int iter);
 
 inline void color_px(png_byte *ptr, double val);
 
@@ -240,7 +240,7 @@ double * mandelbrot_vals(int w, int h, double xs, double ys, double r, int it) {
 	return buffer;
 }
 
-double * mandelbrot_ring(int w, int h, double xs, double ys, double r, int it) {
+double * mandelbrot_ring(double xs, double ys, double r, int it) {
 	double *buffer = (double *) malloc(w * h * sizeof(double));
 	if (buffer == NULL) {
 		fprintf(stderr, "out of memory\n");
@@ -250,6 +250,13 @@ double * mandelbrot_ring(int w, int h, double xs, double ys, double r, int it) {
 	int xPos, yPos;
 	double minMu = it;
 	double maxMu = 0;
+  double yP, xP;
+
+  yPos = 0;
+  yP = (ys-r) + (2.0f*r/h)*yPos;
+
+  yPos = 2047;
+  yP = (ys-r) + (2.0f*r/h)*yPos;
 
  
 	for (yPos = 0; yPos < h; yPos++) {
