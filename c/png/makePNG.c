@@ -18,8 +18,7 @@ double maxValOld = 1.0;
 double p = 0.1;
 double scale = 0.9816070644969339120677887;
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	int width = atoi(argv[1]);
 	int height = atoi(argv[2]);
   double dX = atof(argv[3]); // -0.802
@@ -109,8 +108,7 @@ inline void color_px(png_byte *ptr, double val) {
   }
 }
 
-int save_png(char* filename, int width, int height, double *buffer, char* title)
-{
+int save_png(char * filename, int width, int height, double *buffer, char* title) {
 	int code = 0;
 	FILE *fp;
 	png_structp png_ptr;
@@ -172,9 +170,8 @@ int save_png(char* filename, int width, int height, double *buffer, char* title)
 	// Write image data
 	int x, y;
 	for (y=0 ; y<height ; y++) {
-		for (x=0 ; x<width ; x++) {
+		for (x=0 ; x<width ; x++) 
 			color_px(&(row[x*3]), buffer[y*width + x]);
-		}
 		png_write_row(png_ptr, row);
 	}
 
@@ -190,34 +187,31 @@ finalise:
 	return code;
 }
 
-double *mandelbrot_vals(int width, int height, double xS, double yS, double rad, int maxIteration)
-{
-	double *buffer = (double *) malloc(width * height * sizeof(double));
+double *mandelbrot_vals(int w, int h, double xs, double ys, double r, int it) {
+	double *buffer = (double *) malloc(w * h * sizeof(double));
 	if (buffer == NULL) {
-		fprintf(stderr, "Could not create image buffer\n");
+		fprintf(stderr, "out of memory\n");
 		return NULL;
 	}
 
-	// Create Mandelbrot set image
-
 	int xPos, yPos;
-	double minMu = maxIteration;
+	double minMu = it;
 	double maxMu = 0;
 
  
-	for (yPos=0 ; yPos<height ; yPos++)
+	for (yPos=0 ; yPos<h ; yPos++)
 	{
-		double yP = (yS-rad) + (2.0f*rad/height)*yPos;
+		double yP = (ys-r) + (2.0f*r/h)*yPos;
 
-		for (xPos=0 ; xPos<width ; xPos++)
+		for (xPos=0 ; xPos<w ; xPos++)
 		{
-			double xP = (xS-rad) + (2.0f*rad/width)*xPos;
+			double xP = (xs-r) + (2.0f*r/w)*xPos;
 
 			int iteration = 0;
 			double x = 0;
 			double y = 0;
 
-			while (x*x + y*y <= 4 && iteration < maxIteration)
+			while (x*x + y*y <= 4 && iteration < it)
 			{
 				double tmp = x*x - y*y + xP;
 				y = 2*x*y + yP;
@@ -225,22 +219,22 @@ double *mandelbrot_vals(int width, int height, double xS, double yS, double rad,
 				iteration++;
 			}
 
-			if (iteration < maxIteration) {
+			if (iteration < it) {
 				double modZ = sqrt(x*x + y*y);
 				double mu = log(3.0 + iteration - (log(log(modZ))) / log(2));
         /* double mu = sqrt((double)iteration); */
 				if (mu > maxMu) maxMu = mu;
 				if (mu < minMu) minMu = mu;
-				buffer[yPos * width + xPos] = mu;
+				buffer[yPos * w + xPos] = mu;
 			}
 			else {
-				buffer[yPos * width + xPos] = 0;
+				buffer[yPos * w + xPos] = 0;
 			}
 		}
 	}
 
 	// Scale buffer values between 0 and 1
-	int count = width * height;
+	int count = w * h;
 	while (count) {
 		count --;
 		buffer[count] = (buffer[count] - minMu) / (maxMu - minMu);
