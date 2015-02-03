@@ -1,11 +1,3 @@
-// LibPNG example
-// A.Greensted
-// http://www.labbookpages.co.uk
-
-// Version 2.0
-// With some minor corrections to Mandlebrot code (thanks to Jan-Oliver)
-
-// Version 1.0 - Initial release
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,69 +5,47 @@
 #include <malloc.h>
 #include <png.h>
 
+double * mandelbrot_vals(int w, int h, double xs, double ys, double rad, int iter);
 
 
-// Creates a test image for saving. Creates a Mandelbrot Set fractal of size width x height
-double *createMandelbrotImage(int width, int height, double xS, double yS, double rad, int maxIteration);
+inline void color_px(png_byte *ptr, double val);
 
-double *createQuasicrystalImage(int width, int height, int order, double phase, double scale, double mag, double dX, double dY);
-
-// This takes the double value 'val', converts it to red, green & blue values, then 
-// sets those values into the image memory buffer location pointed to by 'ptr'
-inline void setRGB(png_byte *ptr, double val);
-
-// This function actually writes out the PNG image file. The string 'title' is
-// also written into the image file
-int writeImage(char* filename, int width, int height, double *buffer, char* title);
+int save_png(char* filename, int width, int height, double *buffer, char* title);
 
 double minVal = 0.0;
 double maxVal = 1.0;
 double minValOld = 0.0;
 double maxValOld = 1.0;
 double p = 0.1;
+double scale = 0.9816070644969339120677887;
 
 int main(int argc, char *argv[])
 {
-	// Make sure that the output filename argument has been provided
-	/* if (argc != 2) { */
-	/* 	fprintf(stderr, "Please specify output file\n"); */
-	/* 	return 1; */
-	/* } */
-
-	// Specify an output image size
 	int width = atoi(argv[1]);
 	int height = atoi(argv[2]);
   double dX = atof(argv[3]); // -0.802
   double dY = atof(argv[4]); // -0.177
-  double rad = atof(argv[5]); // 0.011
+  double rad = atof(argv[5]); // 0.011 (2.0)
   int iter = atoi(argv[6]);
   int start = atoi(argv[7]);
   int end = atoi(argv[8]);
   int skip = atoi(argv[9]);
   int cores = atoi(argv[10]);
 
-  /* double scale = (double)(width - 32) / (double)(width); */
-  double scale = 0.9816070644969339120677887;
-
-  rad = 2.0;
-	// Create a test image - in this case a Mandelbrot Set fractal
-	// The output is a 1D array of doubles, length: width * height
-
-  
   int n;
   for (n = start*skip; n < end; n+=cores*skip) {
     /* rad = rad * 0.99; */
     printf("Creating Image (%d, %d, %f, %f, %.16f, %d)\n", width, height, dX, dY, rad * pow(scale, (double)n), iter);
     
-    double *buffer = createMandelbrotImage(width, height, dX, dY, rad * pow(scale, (double)n), iter);
+    double *buffer = mandelbrot_vals(width, height, dX, dY, rad * pow(scale, (double)n), iter);
     
     /* double dx = 0.05 * rad / (double)width; */
     /* double dy = 0.05 * rad / (double)height; */
     
-    /* double *bufferPX = createMandelbrotImage(width, height, dX + dx, dY, rad * pow(scale, (double)n), iter); */
-    /* double *bufferNX = createMandelbrotImage(width, height, dX - dx, dY, rad * pow(scale, (double)n), iter); */
-    /* double *bufferPY = createMandelbrotImage(width, height, dX, dY + dy, rad * pow(scale, (double)n), iter); */
-    /* double *bufferNY = createMandelbrotImage(width, height, dX, dY - dy, rad * pow(scale, (double)n), iter); */
+    /* double *bufferPX = mandelbrot_vals(width, height, dX + dx, dY, rad * pow(scale, (double)n), iter); */
+    /* double *bufferNX = mandelbrot_vals(width, height, dX - dx, dY, rad * pow(scale, (double)n), iter); */
+    /* double *bufferPY = mandelbrot_vals(width, height, dX, dY + dy, rad * pow(scale, (double)n), iter); */
+    /* double *bufferNY = mandelbrot_vals(width, height, dX, dY - dy, rad * pow(scale, (double)n), iter); */
 
     minValOld = minVal;
     maxValOld = maxVal;
@@ -116,8 +86,8 @@ int main(int argc, char *argv[])
     printf("Saving PNG\n");
     char file[255];
     sprintf(file, "frames/mandelbrot_%d.png", n);
-    writeImage(file, width, height, buffer, "This is my test image");
-    /* int result2 = writeImage(argv[1], width, height, buffer2, "This is my test image"); */
+    save_png(file, width, height, buffer, "This is my test image");
+    /* int result2 = save_png(argv[1], width, height, buffer2, "This is my test image"); */
   
     // Free up the memorty used to store the image
     free(buffer);
@@ -139,7 +109,7 @@ const double p1 = 0.25;
 const double p2 = 0.50;
 const double p3 = 0.75;
 
-inline void setRGB(png_byte *ptr, double val) {
+inline void color_px(png_byte *ptr, double val) {
   double v = S(val, 0.0, 1.0);
   if (v <= -0.00001) {
     ptr[0] = 0;
@@ -172,7 +142,7 @@ inline void setRGB(png_byte *ptr, double val) {
   }
 }
 
-/* inline void setRGB(png_byte *ptr, double val) */
+/* inline void color_px(png_byte *ptr, double val) */
 /* { */
 /*   int r = SNAP((int)(sqrt(val) * 255)); */
 /*   int g = SNAP((int)(val * 255)); */
@@ -180,7 +150,7 @@ inline void setRGB(png_byte *ptr, double val) {
 /*   ptr[0] = r; ptr[1] = g; ptr[2] = b; */
 /* } */
 
-/* inline void setRGB(png_byte *ptr, double val) */
+/* inline void color_px(png_byte *ptr, double val) */
 /* { */
 /* 	int v = (int)(val * 767); */
 /* 	if (v < 0) v = 0; */
@@ -198,7 +168,7 @@ inline void setRGB(png_byte *ptr, double val) {
 /* 	} */
 /* } */
 
-int writeImage(char* filename, int width, int height, double *buffer, char* title)
+int save_png(char* filename, int width, int height, double *buffer, char* title)
 {
 	int code = 0;
 	FILE *fp;
@@ -262,7 +232,7 @@ int writeImage(char* filename, int width, int height, double *buffer, char* titl
 	int x, y;
 	for (y=0 ; y<height ; y++) {
 		for (x=0 ; x<width ; x++) {
-			setRGB(&(row[x*3]), buffer[y*width + x]);
+			color_px(&(row[x*3]), buffer[y*width + x]);
 		}
 		png_write_row(png_ptr, row);
 	}
@@ -279,7 +249,7 @@ finalise:
 	return code;
 }
 
-double *createMandelbrotImage(int width, int height, double xS, double yS, double rad, int maxIteration)
+double *mandelbrot_vals(int width, int height, double xS, double yS, double rad, int maxIteration)
 {
 	double *buffer = (double *) malloc(width * height * sizeof(double));
 	if (buffer == NULL) {
