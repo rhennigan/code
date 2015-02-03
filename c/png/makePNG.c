@@ -248,8 +248,6 @@ int * mandelbrot_ring(int s, double xs, double ys, double r, int it) {
 	}
 
 	int xPos, yPos;
-	double minMu = it;
-	double maxMu = 0;
   double yP, xP;
 
   yPos = 0;
@@ -284,43 +282,37 @@ int * mandelbrot_ring(int s, double xs, double ys, double r, int it) {
     buffer[s + xPos] = iteration < it ? iteration : 0;
   }
 
- 
-	for (yPos = 0; yPos < h; yPos++) {
-		double yP = (ys-r) + (2.0f*r/h)*yPos;
+  xPos = 0;
+  xP = (xs-r) + (2.0f*r/s)*xPos;
+  for (yPos = 0; yPos < s; yPos++) {
+    yP = (ys-r) + (2.0f*r/s)*yPos;
+    int iteration = 1;
+    double x = 0;
+    double y = 0;
+    while (x*x + y*y <= 4 && iteration < it) {
+      double tmp = x*x - y*y + xP;
+      y = 2*x*y + yP;
+      x = tmp;
+      iteration++;
+    }
+    buffer[2*s + yPos] = iteration < it ? iteration : 0;
+  }
 
-		for (xPos = 0; xPos < w; xPos++) {
-			double xP = (xs-r) + (2.0f*r/w)*xPos;
-
-			int iteration = 0;
-			double x = 0;
-			double y = 0;
-
-			while (x*x + y*y <= 4 && iteration < it) {
-				double tmp = x*x - y*y + xP;
-				y = 2*x*y + yP;
-				x = tmp;
-				iteration++;
-			}
-
-			if (iteration < it) {
-				double modZ = sqrt(x*x + y*y);
-				double mu = log(3.0 + iteration - (log(log(modZ))) / log(2));
-				if (mu > maxMu) maxMu = mu;
-				if (mu < minMu) minMu = mu;
-				buffer[yPos * w + xPos] = mu;
-			} else {
-				buffer[yPos * w + xPos] = 0;
-			}
-		}
-	}
-
-	int count = w * h;
-	while (count) {
-		count --;
-		buffer[count] = (buffer[count] - minMu) / (maxMu - minMu);
-    minVal = buffer[count] != 0.0 && buffer[count] < minVal ? buffer[count] : minVal;
-    maxVal = buffer[count] > maxVal ? buffer[count] : maxVal;
-	}
+  xPos = s - 1;
+  xP = (xs-r) + (2.0f*r/s)*xPos;
+  for (yPos = 0; yPos < s; yPos++) {
+    yP = (ys-r) + (2.0f*r/s)*yPos;
+    int iteration = 1;
+    double x = 0;
+    double y = 0;
+    while (x*x + y*y <= 4 && iteration < it) {
+      double tmp = x*x - y*y + xP;
+      y = 2*x*y + yP;
+      x = tmp;
+      iteration++;
+    }
+    buffer[2*s + yPos] = iteration < it ? iteration : 0;
+  }
 
 	return buffer;
 }
