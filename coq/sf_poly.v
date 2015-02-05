@@ -377,19 +377,19 @@ Definition option_map {X Y : Type} (f : X -> Y) (xo : option X) : option Y :=
     | Some x => Some (f x)
   end.
 
-Definition flip_args {X Y Z : Type} (f : X -> Y -> Z) : (Y -> X -> Z) :=
-  fun x y => f y x.
+(* Definition flip_args {X Y Z : Type} (f : X -> Y -> Z) : (Y -> X -> Z) := *)
+(*   fun x y => f y x. *)
 
-Check @flip_args.
+(* Check @flip_args. *)
 
-Fixpoint foldl_aux {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y :=
-  match l with
-    | [] => b
-    | x :: xs => foldl_aux f xs (f x b)
-  end.
+(* Fixpoint foldl_aux {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y := *)
+(*   match l with *)
+(*     | [] => b *)
+(*     | x :: xs => foldl_aux f xs (f x b) *)
+(*   end. *)
 
-Definition foldl {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y :=
-  foldl_aux (flip_args f) l b.
+(* Definition foldl {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y := *)
+(*   foldl_aux (flip_args f) l b. *)
 
 Fixpoint foldr {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y :=
   match l with
@@ -399,10 +399,10 @@ Fixpoint foldr {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y :=
 
 Definition fold {X Y : Type} (f : X -> Y -> Y) (l : list X) (b : Y) : Y := foldr f l b.
 
-Eval compute in (foldl plus [1;2;3;4] 0).
+(* Eval compute in (foldl plus [1;2;3;4] 0). *)
 Eval compute in (foldr plus [1;2;3;4] 0).
 
-Eval compute in (foldl (flip_args (fun x y => x ++ y)) [[1];[2];[3];[4]] []).
+(* Eval compute in (foldl (flip_args (fun x y => x ++ y)) [[1];[2];[3];[4]] []). *)
 Eval compute in (foldr (fun x y => x ++ y) [[1];[2];[3];[4]] []).
 
 Check (fold andb).

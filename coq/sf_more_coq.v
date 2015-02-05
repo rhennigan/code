@@ -282,3 +282,31 @@ Proof.
   }
 Qed.
 
+Theorem length_snoc3 :
+  forall (n : nat) (X : Type) (v : X) (lst : list X),
+    length lst = n -> length (snoc lst v) = S n.
+Proof.
+  intros n X v lst H.
+  generalize dependent n.
+  induction lst as [|x xs].
+  Case "lst = []".
+  {
+    simpl.
+    intros n H.
+    rewrite <- H.
+    reflexivity.
+  }
+  Case "lst = x::xs".
+  {
+    simpl.
+    intros n H.
+    unfold snoc.
+    simpl.
+    Check @pred_Sn.
+    inversion IHxs.
+  }
+  rewrite <- H.
+  induction 
+  unfold length.
+  simpl.
+  
