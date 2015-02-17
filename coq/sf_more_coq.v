@@ -282,6 +282,14 @@ Proof.
   }
 Qed.
 
+Lemma eq_sub_S :
+  forall n m : nat, S n = S m -> n = m.
+Proof.
+  intros n m H.
+  apply eq_add_S in H.
+  assumption.
+Qed.
+
 Theorem length_snoc3 :
   forall (n : nat) (X : Type) (v : X) (lst : list X),
     length lst = n -> length (snoc lst v) = S n.
@@ -300,10 +308,11 @@ Proof.
   {
     simpl.
     intros n H.
-    unfold snoc.
+    Check eq_add_S.
+    do 2 apply eq_add_S.
+    Check pred_Sn.
+    rewrite -> pred_Sn.
     simpl.
-    Check @pred_Sn.
-    inversion IHxs.
   }
   rewrite <- H.
   induction 
