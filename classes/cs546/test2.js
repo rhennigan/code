@@ -327,7 +327,11 @@ function updateCanvas (data) {
   ctx.putImageData(data, 0, 0);
 }
 
-
+var plus = function (a) {
+	return function (b) {
+		return a + b;
+	};
+};
 
 function iterateFractal (segList) {
   var current = segList;
