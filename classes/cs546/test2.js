@@ -329,6 +329,9 @@ var pC = new Point(Math.floor(w/2 + 2*h/(3*sq3)), Math.floor(5*h/6));
 var cA = new Color(255, 0, 0, 255);
 var cB = new Color(0, 255, 0, 255);
 var cC = new Color(0, 0, 255, 255);
+var lineAB = new Line(pA, pB, cA, cB);
+var lineBC = new Line(pB, pC, cB, cC);
+var lineCA = new Line(pC, pA, cC, cA);
 
 drawSomeStuff();
 debug.print("hello?");
