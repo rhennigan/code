@@ -311,7 +311,7 @@ List.map = function (f) {
 };
 
 List.N = function (n) {
-	return n <= 0 ? new List() : List.cons (n) (List.N (n-1));
+	return n <= 0 ? new List() : List.join (List.N (n-1)) (new List (n, null));
 };
 
 // List.map = function (f) {
