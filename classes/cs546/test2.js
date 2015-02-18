@@ -109,6 +109,8 @@ function drawPixelAA (point, c, colorB) {
 
 		var colorA = new Color(r, g, b, a);
 		var pixelc = alphaComposition(colorA, colorB, c);
+		debug.print("<br>");
+		debug.printColor(pixelc);
 		
 		canvasData.data[index + 0] = pixelc.r;
 		canvasData.data[index + 1] = pixelc.g;
