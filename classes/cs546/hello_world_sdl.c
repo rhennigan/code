@@ -24,9 +24,9 @@ int main(int argc, char** argv) {
 			#else
 			// To emulate native behavior with blitting to screen, alpha component is ignored. Test that it is so by outputting
 			// data (and testing that it does get discarded)
-			int alpha = (i+j) % 255;
+			int alpha = (i+j) % 512;
 			#endif
-			*((Uint32*)screen->pixels + i * 256 + j) = SDL_MapRGBA(screen->format, i, j, 255-i, alpha);
+			*((Uint32*)screen->pixels + i * 512 + j) = SDL_MapRGBA(screen->format, i, j, 255-i, alpha);
 		}
 	}
 	if (SDL_MUSTLOCK(screen)) SDL_UnlockSurface(screen);
