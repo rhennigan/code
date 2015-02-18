@@ -293,10 +293,20 @@ for (i = 0; i < 10; i++) {
 		list = list.prepend(i);
 }
 
-while (!list.isEmpty()) {
-		debug.print(list.head);
+var current = list;
+while (!current.isEmpty()) {
+		debug.print(current.head);
 		debug.print("<br>");
-		list = list.tail;
+		current = current.tail;
+}
+
+debug.print("<br>");
+
+current = list.reverse();
+while (!current.isEmpty()) {
+		debug.print(current.head);
+		debug.print("<br>");
+		current = current.tail;
 }
 
 
