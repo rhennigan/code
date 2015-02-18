@@ -21,7 +21,7 @@ function color (r, g, b, a) {
 }
 
 function colorInterpolate (color1, color2, p) {
-		var color = new color();
+		return color();
 }
 
 function drawPixel (pt, col) {
