@@ -100,8 +100,8 @@ function drawLineAA(x0, y0, x1, y1, r, g, b, a) {
     }
 
     var dx = x1 - x0;
-    dy = y1 - y0;
-    gradient = dy / dx;
+    var dy = y1 - y0;
+    var gradient = dy / dx;
 
     // handle first endpoint
     var xend = Math.round(x0);
