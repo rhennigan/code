@@ -237,10 +237,6 @@ debug.print("<br>");
 var pt1 = new Point(1, 1);
 var col1 = new Color(255, 0, 0, 255);
 
-debug.printPoint(pt1);
-debug.print(", ");
-debug.printColor(col1);
-
 drawSomeStuff();
 
 updateCanvas(canvasData);
