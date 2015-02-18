@@ -265,9 +265,9 @@ List.prototype.map = function (f) {
 		var current = this;
 		var newList = new List();
 		while (!current.isEmpty()) {
-				
+				newList = newList.prepend(f(current.head));
 		}
-}
+};
 
 
 function updateCanvas (data) {
