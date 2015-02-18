@@ -290,14 +290,6 @@ List.prototype.reverse = function () {
   return newList;
 };
 
-List.length = function (list) {	
-	return list.isEmpty() ? 
-		0 : 
-		List.length (list.tail) + 1; 
-};
-
-console.log(List.length (new List()));
-
 List.map = function (f) {
   return function (list) {
     var newList = new List();
@@ -345,10 +337,13 @@ List.foldr = function (f) {
 
 List.fold = List.foldr;
 
-List.total = function (list) {
-	var plus = function (a) { return function (b) { return a + b;	}; };
-	return List.fold (plus) (0) (list);
-};
+var plus = function (a) { return function (b) { return a + b;	}; };
+
+List.length = 
+
+console.log(List.length (new List()));
+
+List.total = function (list) {return List.fold (plus) (0) (list); };
 
 // var testList = new List();
 // for (i = 0; i < 10; i++) {
