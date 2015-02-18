@@ -255,10 +255,10 @@ List.prototype.isEmpty = function () {
 };
 
 List.prototype.prepend = function (data) {
-		var current = this;
-		while (!current.isEmpty()) {
-				
-		}
+		var newList = new List();
+		newList.head = data;
+		newList.tail = this;
+		return newList;
 };
 
 function List() {
