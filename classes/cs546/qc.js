@@ -104,6 +104,9 @@ function draw () {
 
 						var index = (xIndex + yIndex * canvasWidth) * 4;
 						var c = 255.0 * (sum + 1.0) / 2.0;
+						min = sum < min ? sum : min;
+						max = sum > max ? sum : max;
+						
 						canvasData.data[index + 0] = c;
 						canvasData.data[index + 1] = c;
 						canvasData.data[index + 2] = c;
@@ -112,6 +115,8 @@ function draw () {
 		}
 		updateCanvas(canvasData);
 		p += 0.05;
+		console.log(min);
+		console.log(max);
 }
 
 setInterval(draw, 50);
