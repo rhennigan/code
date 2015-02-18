@@ -9,6 +9,12 @@ function point (x, y) {
 		this.y = y;
 }
 
+function pointDistance(pt1, pt2) {
+		var dx = pt2.x - pt1.x;
+		var dy = pt2.y - pt1.y;
+		return Math.sqrt(dx*dx + dy*dy);
+}
+
 function color (r, g, b, a) {
 		this.r = r;
 		this.g = g;
@@ -55,7 +61,7 @@ function drawLine (pt1, pt2, col1, col2) {
 		
 		var pt = pt1;
 		while (true) {
-				drawPixel(pt
+				drawPixel(pt, col1);
 		}
 }
 
