@@ -305,9 +305,10 @@ List.iter = function (f) {
 var testList = new List();
 for (i = 0; i < 10; i++) {
 		testList = testList.prepend(i);
+		debug.print(i);
 }
 
-var printList = List.iter(function (x) { debug.print(x + "<br>"); });
+var printList = List.iter(function (x) { debug.print(x); });
 
 printList(testList);
 
