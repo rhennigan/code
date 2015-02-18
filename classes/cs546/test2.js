@@ -271,7 +271,7 @@ List.prototype.reverse = function () {
     return newList;
 };
 
-List.prototype.map = function (f) {
+List.map = function (f) {
     return function (list) {
         var newList = new List();
         var current = list;
@@ -304,6 +304,8 @@ for (i = 0; i < 10; i++) {
 var printList = List.iter(function (x) { debug.print(x + " "); });
 
 printList(testList);
+
+var mapList = List.map(function (x) return x*x;);
 
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
