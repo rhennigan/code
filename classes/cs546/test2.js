@@ -312,14 +312,7 @@ for (i = 0; i < 10; i++) {
 
 var printList = List.iter(function (x) { debug.print(x + " "); });
 
-printList(testList);
-
 var mapList = List.map(function (x) {return x*x;})(testList);
-// var testList2 = mapList(testList);
-
-printList(mapList);
-
-console.log(List);
 
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
