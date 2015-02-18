@@ -309,11 +309,11 @@ while (!current.isEmpty()) {
 		current = current.tail;
 }
 
-current = list.reverse();
-while (!current.isEmpty()) {
-		debug.print(current.head);
+var test  = list.reverse();
+while (!test.isEmpty()) {
+		debug.print(test.head);
 		debug.print("<br>");
-		current = current.tail;
+		test = test.tail;
 }
 
 
