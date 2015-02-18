@@ -291,6 +291,18 @@ List.prototype.reverse = function () {
   return newList;
 };
 
+List.join = function (xs) {
+	return function (ys) {
+		return xs.isEmpty() ? ys :
+			List.cons (xs.head) (List.join (xs.tail) (ys));
+	};
+};
+
+List.reverse = function (list) {
+	return list.isEmpty() ? new List() :
+		List.reverse ()
+};
+
 List.map = function (f) {
 	return function (list) {
 		return list.isEmpty() ? new List () :
