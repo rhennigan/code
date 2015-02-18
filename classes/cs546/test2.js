@@ -292,6 +292,7 @@ var segList = new List();
 segList.prepend(lineAB);
 segList.prepend(lineBC);
 segList.prepend(lineCA);
+debug.print(!segList.isEmpty());
 // drawLineAA(lineAB);
 // drawLineAA(lineBC);
 // drawLineAA(lineCA);
@@ -299,6 +300,7 @@ segList.prepend(lineCA);
 var current = segList;
 var newSegs = new List();
 while (!current.isEmpty()) {
+		debug.printPoint(current.head.pt1);
 		var lines = splitLine(current.head);
 		drawLineAA(lines.l1);
 		drawLineAA(lines.l2);
