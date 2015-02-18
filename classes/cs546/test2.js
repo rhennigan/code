@@ -349,8 +349,12 @@ List.length = function (list) {
 
 var list = new List();
 list = List.cons (1) (list);
+list = List.cons (2) (list);
+list = List.cons (3) (list);
 console.log(list);
-var len = List.total (list);
+var ones = List.map (function (x) { return 1; }) (list);
+var len = List.total (ones);
+console.log(len);
 
 
 
