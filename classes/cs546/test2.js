@@ -292,6 +292,16 @@ List.prototype.map = function (f) {
 		};
 };
 
+List.prototype.iter = function (f) {
+		return function (list) {
+				var current = list;
+				while (!current.isEmpty()) {
+						f(current.head);
+						current = current.tail;
+				}
+		};
+};
+
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
 }
