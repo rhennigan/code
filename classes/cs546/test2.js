@@ -261,12 +261,8 @@ List.prototype.prepend = function (data) {
 		return newList;
 };
 
-List.prototype.map = function (f) {
-		var current = this;
-		var newList = new List();
-		while (!current.isEmpty()) {
-				newList = newList.prepend(f(current.head));
-		}
+List.prototype.reverse = function () {
+		
 };
 
 
