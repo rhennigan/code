@@ -291,6 +291,14 @@ List.prototype.reverse = function () {
 };
 
 List.map = function (f) {
+	return function (list) {
+		return list.isEmpty() ?
+			new List () :
+			
+	};
+};
+
+List.map = function (f) {
   return function (list) {
     var newList = new List();
     var current = list;
