@@ -336,8 +336,8 @@ var segList = new List();
 segList.prepend(lineAB);
 segList.prepend(lineBC);
 segList.prepend(lineCA);
-
-drawSomeStuff();
-debug.print("hello?");
+drawLineAA(lineAB);
+drawLineAA(lineBC);
+drawLineAA(lineCA);
 
 updateCanvas(canvasData);
