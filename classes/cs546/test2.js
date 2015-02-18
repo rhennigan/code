@@ -271,6 +271,39 @@ List.prototype.reverse = function () {
     return newList;
 };
 
+List.prototype.map = function (f) {
+    return function (list) {
+        var newList = new List();
+        var current = list;
+        var newListCurrent = newList;
+        while (!current.isEmpty()) {
+            newListCurrent.head = f(current.head);
+            newListCurrent.tail = new List();
+            newListCurrent = newListCurrent.tail;
+            current = current.tail;
+        }
+        return newList;
+    };
+};
+
+List.iter = function (f) {
+    return function (list) {
+        var current = list;
+        while (!current.isEmpty()) {
+            f(current.head);
+            current = current.tail;
+        }
+    };
+};
+
+var testList = new List();
+for (i = 0; i < 10; i++) {
+    testList = testList.prepend(i);
+}
+
+var printList = List.iter(function (x) { debug.print(x); });
+
+printList(testList);
 
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
