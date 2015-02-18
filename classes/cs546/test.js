@@ -9,7 +9,7 @@ function Point (x, y) {
 		this.y = y;
 }
 
-function pointDistance(pt1, pt2) {
+function pointDistance (pt1, pt2) {
 		var dx = pt2.x - pt1.x;
 		var dy = pt2.y - pt1.y;
 		return Math.sqrt(dx*dx + dy*dy);
@@ -20,11 +20,6 @@ function Color (r, g, b, a) {
 		this.g = g;
 		this.b = b;
 		this.a = a;
-}
-
-function colorByteToProp (c) {
-		var d = 255.0;
-		return new Color(c.r/d, c.g/d, c.b/d, c.a/d);
 }
 
 function colorInterpolate (c1, c2, p) {
