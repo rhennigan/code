@@ -245,18 +245,8 @@ function splitLine (line) {
 						l4 : new Line(m2,       line.pt2, c2, line.col2)};
 }
 
-function List() {
-		List.makeCell = function (data) {
-				return { head : data, tail : this };
-		};
-
-		this = null;
-
-		this.prepend = function (data) {
-				if (this.head == null) {
-						
-				}
-		}
+function List () {
+		this.head = null;
 }
 
 function List() {
