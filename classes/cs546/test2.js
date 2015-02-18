@@ -345,9 +345,11 @@ List.length = function (x) {
 };
 
 var list = new List();
+list = List.cons (1) (list);
+console.log(list);
 var len = List.length (list);
 
-console.log(len);
+
 
 List.total = function (list) {return List.fold (plus) (0) (list); };
 
