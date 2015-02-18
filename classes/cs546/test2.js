@@ -299,20 +299,20 @@ List.map = function (f) {
 	};
 };
 
-List.map = function (f) {
-  return function (list) {
-    var newList = new List();
-    var current = list;
-    var newListCurrent = newList;
-    while (!current.isEmpty()) {
-      newListCurrent.head = f(current.head);
-      newListCurrent.tail = new List();
-      newListCurrent = newListCurrent.tail;
-      current = current.tail;
-    }
-    return newList;
-  };
-};
+// List.map = function (f) {
+//   return function (list) {
+//     var newList = new List();
+//     var current = list;
+//     var newListCurrent = newList;
+//     while (!current.isEmpty()) {
+//       newListCurrent.head = f(current.head);
+//       newListCurrent.tail = new List();
+//       newListCurrent = newListCurrent.tail;
+//       current = current.tail;
+//     }
+//     return newList;
+//   };
+// };
 
 List.iter = function (f) {
   return function (list) {
