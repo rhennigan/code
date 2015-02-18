@@ -4,6 +4,11 @@ var canvasHeight = canvas.height;
 var ctx = canvas.getContext("2d");
 var canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 
+function point (x, y) {
+		this.x = x;
+		this.y = y;
+}
+
 function color (r, g, b, a) {
 		this.r = r;
 		this.g = g;
