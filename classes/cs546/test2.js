@@ -187,11 +187,15 @@ function drawLineAA (line) {
         if (steep) {
 						var p1 = new Point(ipart(intery), x);
 						var p2 = new Point(ipart(intery)+1, x);
-						var p  = new Point((p1.x+p2.x)/2.0, (p1.y+p2.y)/2.0); 
-						var dist = pointDistance(line.pt1, p);
-						var c = new Color(255, 255, 255, 255);
-						drawPixelAA(p1, rfpart(intery), line.col2);
-						drawPixelAA(p2,  fpart(intery), line.col2);
+						var point = new Point((p1.x+p2.x)/2.0, (p1.y+p2.y)/2.0);
+						var color = new Color(255, 255, 255, 255);
+						var dist = pointDistance(line.pt1, point);
+						
+						var p = pointDistance(pt1, point) / dist;
+						colorInterpolate(line.col1, line.col2, p, color);
+
+						drawPixelAA(p1, rfpart(intery), color);
+						drawPixelAA(p2,  fpart(intery), color);
             plot(ipart(intery)  , x, rfpart(intery), r, g, b, a);
             plot(ipart(intery)+1, x,  fpart(intery), r, g, b, a);
         } else {
