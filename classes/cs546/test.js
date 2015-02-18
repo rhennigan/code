@@ -166,13 +166,13 @@ var mainloop = function() {
         for (i = 0; i < lineCount-1; i++) {
             drawLineAA(xArray[i], yArray[i], xArray[i+1], yArray[i+1], 0, 0, 0, Math.floor(255 * (i / lineCount)));
         }
-        updateCanvas();
+        updateCanvas(canvasData);
         antialiasing = false;
     } else {
         for (i = 0; i < lineCount-1; i++) {
             drawLine(xArray[i], yArray[i], xArray[i+1], yArray[i+1], 0, 0, 0, Math.floor(255 * (i / lineCount)));
         }
-        updateCanvas();
+        updateCanvas(canvasData);
         antialiasing = true;
     }
 };
