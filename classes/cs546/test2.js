@@ -353,8 +353,7 @@ List.foldr = function (f) {
 List.fold = List.foldr;
 
 List.count = function (list) {
-	return list.isEmpty() ?
-		0 :
+	return list.isEmpty() ?	0 :
 		List.count (list.tail) + 1;
 };
 
