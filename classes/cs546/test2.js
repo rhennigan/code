@@ -271,7 +271,7 @@ List.cons = function (x) {
 };
 
 List.prototype.isEmpty = function () {
-  return this.head === null && this.tail === null;
+  return this === null || this.head === null && this.tail === null;
 };
 
 List.prototype.prepend = function (data) {
@@ -381,6 +381,8 @@ List.total = function (list) {
 
 var testlist = List.N (20);
 console.log(testlist);
+var testlist2 = List.reverse (testlist);
+console.log(testlist2);
 
 // var testlist = new List();
 // testlist = List.cons (1) (testlist);
