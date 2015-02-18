@@ -307,7 +307,7 @@ updateCanvas(canvasData);
 //   current = current.tail;
 // }
 
-var MAX_ITERATIONS = 20;
+var MAX_ITERATIONS = 6;
 
 document.getElementById('clear').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
