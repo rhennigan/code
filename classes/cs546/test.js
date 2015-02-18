@@ -20,6 +20,10 @@ function color (r, g, b, a) {
 		this.pa = a / 255.0;
 }
 
+function colorInterpolate (color1, color2, p) {
+		var color = new color();
+}
+
 function drawPixel (pt, col) {
 		var index = (pt.x + pt.y * canvasWidth) * 4;
 		canvasData.data[index + 0] = col.r;
@@ -42,6 +46,12 @@ function drawLine (pt1, pt2, col1, col2) {
     var dy = Math.abs(pt2.y - pt1.y);
 		var sx = (pt1.x < pt2.x) ? 1 : -1;
     var sy = (pt1.y < pt2.y) ? 1 : -1;
+		var err = dx - dy;
+		
+		var pt = pt1;
+		while (true) {
+				drawPixel(pt
+		}
 }
 
 function drawLine (x1, y1, x2, y2, r, g, b, a) {
