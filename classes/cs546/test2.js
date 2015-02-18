@@ -185,6 +185,10 @@ function drawLineAA (line) {
     // main loop
     for (x = xpxl1+1; x <= xpxl2; x++) {
         if (steep) {
+						var p1 = new Point(ipart(intery), x);
+						var p2 = new Point(ipart(intery)+1, x);
+						drawPixelAA(p1, rfpart(intery), line.col2);
+						drawPixelAA(p2,  fpart(intery), line.col2);
             plot(ipart(intery)  , x, rfpart(intery), r, g, b, a);
             plot(ipart(intery)+1, x,  fpart(intery), r, g, b, a);
         } else {
