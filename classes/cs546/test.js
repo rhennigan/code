@@ -4,6 +4,17 @@ var canvasHeight = canvas.height;
 var ctx = canvas.getContext("2d");
 var canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 
+function color (r, g, b, a) {
+		this.r = r;
+		this.g = g;
+		this.b = b;
+		this.a = a;
+		this.pr = r / 255.0;
+		this.pg = g / 255.0;
+		this.pb = b / 255.0;
+		this.pa = a / 255.0;
+}
+
 function drawPixel (x, y, r, g, b, a) {
     var index = (x + y * canvasWidth) * 4;
 
