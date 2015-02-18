@@ -343,23 +343,24 @@ List.total = function (list) {
 	return List.fold (plus) (0) (list); 
 };
 
-console.log(list);
+
 
 List.length = function (list) {
+	console.log(list);
 	var ones = List.map (function (x) { return 1; }) (list);
 	var len = List.total (ones);
 	return len;
 };
 
-var list = new List();
-list = List.cons (1) (list);
-list = List.cons (2) (list);
-list = List.cons (3) (list);
-console.log(list);
-var ones = List.map (function (x) { return 1; }) (list);
+var testlist = new List();
+testlist = List.cons (1) (testlist);
+testlist = List.cons (2) (testlist);
+testlist = List.cons (3) (testlist);
+console.log(testlist);
+var ones = List.map (function (x) { return 1; }) (testlist);
 var len = List.total (ones);
 console.log(len);
-len = List.length (list);
+len = List.length (testlist);
 console.log(len);
 
 
