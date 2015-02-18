@@ -72,6 +72,8 @@ var p = 0.0;
 var xIndex = 0;
 var yIndex = 0;
 var k = 0;
+var min =  100;
+var max = -100;
 
 function draw () {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
