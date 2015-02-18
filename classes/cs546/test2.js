@@ -315,19 +315,22 @@ List.map = function (f) {
 
 List.iter = function (f) {
 	return function (list) {
-		if (!list.isEmpty()) ;
+		if (!list.isEmpty()) {
+			f (list.head);
+			List.iter (list.tail);
+		}
 	};
 };
 
-List.iter = function (f) {
-  return function (list) {
-    var current = list;
-    while (!current.isEmpty()) {
-      f(current.head);
-      current = current.tail;
-    }
-  };
-};
+// List.iter = function (f) {
+//   return function (list) {
+//     var current = list;
+//     while (!current.isEmpty()) {
+//       f(current.head);
+//       current = current.tail;
+//     }
+//   };
+// };
 
 List.foldl = function (f) {
 	return function (acc) {
