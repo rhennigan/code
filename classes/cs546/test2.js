@@ -344,12 +344,13 @@ List.total = function (list) {
 
 List.length = function (list) {
 	var ones = List.map (function (x) { return 1; }) (list);
+	return List.total (ones);
 };
 
 var list = new List();
 list = List.cons (1) (list);
 console.log(list);
-var len = List.length (list);
+var len = List.total (list);
 
 
 
