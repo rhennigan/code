@@ -317,7 +317,7 @@ List.fold = function (f) {
 			if (list.isEmpty()) {
 				return acc;
 			} else {
-				return List.fold ();
+				return List.fold (f) (f (acc) (list.head)) (list.tail);
 			}
 		};
 	};
