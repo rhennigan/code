@@ -251,7 +251,12 @@ function List () {
 }
 
 List.cons = function (x) {
-		
+		return function (xs) {
+				var list = new List();
+				list.head = x;
+				list.tail = xs;
+				return list;
+		};
 };
 
 List.prototype.isEmpty = function () {
