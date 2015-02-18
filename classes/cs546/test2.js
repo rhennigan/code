@@ -370,7 +370,7 @@ function iterateFractal (segList) {
     return newSegs;
 }
 
-for (i = 0; i < 7; i++) {
+for (i = 0; i < 3; i++) {
     segList = iterateFractal(segList);
 }
 
