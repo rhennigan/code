@@ -354,4 +354,6 @@ updateCanvas(canvasData);
 
 document.getElementById('clear').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+	canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+	updateCanvas(canvasData);
 }, false);
