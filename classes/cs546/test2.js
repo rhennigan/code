@@ -311,6 +311,10 @@ List.iter = function (f) {
   };
 };
 
+List.fold = function (f) {
+	
+};
+
 function updateCanvas (data) {
   ctx.putImageData(data, 0, 0);
 }
