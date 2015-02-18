@@ -292,15 +292,15 @@ List.prototype.map = function (f) {
 		};
 };
 
-List.iter = function (f) {
-		return function (list) {
-				var current = list;
-				while (!current.isEmpty()) {
-						f(current.head);
-						current = current.tail;
-				}
-		};
-};
+// List.iter = function (f) {
+// 		return function (list) {
+// 				var current = list;
+// 				while (!current.isEmpty()) {
+// 						f(current.head);
+// 						current = current.tail;
+// 				}
+// 		};
+// };
 
 var testList = new List();
 for (i = 0; i < 10; i++) {
@@ -308,9 +308,9 @@ for (i = 0; i < 10; i++) {
 		debug.print(i);
 }
 
-var printList = List.iter(function (x) { debug.print(x); });
+// var printList = List.iter(function (x) { debug.print(x); });
 
-printList(testList);
+// printList(testList);
 
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
