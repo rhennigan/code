@@ -28,13 +28,20 @@ function drawPixel (pt, col) {
     canvasData.data[index + 3] = col.a;
 }
 
-function drawPixel (x, y, r, g, b, a) {
-    var index = (x + y * canvasWidth) * 4;
+// function drawPixel (x, y, r, g, b, a) {
+//     var index = (x + y * canvasWidth) * 4;
 
-    canvasData.data[index + 0] = r;
-    canvasData.data[index + 1] = g;
-    canvasData.data[index + 2] = b;
-    canvasData.data[index + 3] = a;
+//     canvasData.data[index + 0] = r;
+//     canvasData.data[index + 1] = g;
+//     canvasData.data[index + 2] = b;
+//     canvasData.data[index + 3] = a;
+// }
+
+function drawLine (pt1, pt2, col1, col2) {
+		var dx = Math.abs(pt2.x - pt1.x);
+    var dy = Math.abs(pt2.y - pt1.y);
+		var sx = (pt1.x < pt2.x) ? 1 : -1;
+    var sy = (pt1.y < pt2.y) ? 1 : -1;
 }
 
 function drawLine (x1, y1, x2, y2, r, g, b, a) {
