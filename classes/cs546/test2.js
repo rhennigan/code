@@ -138,6 +138,11 @@ function drawLineAA (line) {
 		var x1 = line.pt2.x, y1 = line.pt2.y;
 		var r0 = line.col1.r, g0 = line.col1.g, b0 = line.col1.b, a0 = line.col1.a;
 		var r1 = line.col2.r, g1 = line.col2.g, b1 = line.col2.b, a1 = line.col2.a;
+
+		debug.print("<br>");
+		debug.printColor(line.col1);
+		debug.print(", ");
+		debug.printColor(line.col2);
 		
     var steep = Boolean(Math.abs(y1 - y0) > Math.abs(x1 - x0));
     
