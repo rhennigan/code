@@ -90,6 +90,15 @@ function drawLine (line) {
 		}
 }
 
+function alphaComposition(cA, cB, c) {
+		var d = Math.floor(c * a);
+		var r = Math.floor((cA.a*cA.r) / 255.0 - (cA.a-255.0) * d * cB.r / 65025.0);
+		var g = Math.floor((cA.a*cA.g) / 255.0 - (cA.a-255.0) * d * cB.g / 65025.0);
+		var b = Math.floor((cA.a*cA.b) / 255.0 - (cA.a-255.0) * d * cB.b / 65025.0);
+		var a = Math.floor(cA.a + d - cA.a * d / 255.0);
+		return new Color(r, g, b, a);
+}
+
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
 }
