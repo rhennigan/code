@@ -139,11 +139,6 @@ function drawLineAA (line) {
 		var r0 = line.col1.r, g0 = line.col1.g, b0 = line.col1.b, a0 = line.col1.a;
 		var r1 = line.col2.r, g1 = line.col2.g, b1 = line.col2.b, a1 = line.col2.a;
 
-		debug.print("<br>");
-		debug.printColor(line.col1);
-		debug.print(", ");
-		debug.printColor(line.col2);
-		
     var steep = Boolean(Math.abs(y1 - y0) > Math.abs(x1 - x0));
     
     if (steep) {
@@ -203,6 +198,9 @@ function drawLineAA (line) {
 						p = pointDistance(pt1, point) / dist;
 						color = colorInterpolate(line.col1, line.col2, p, color);
 
+						debug.print("<br>" + p + ", ");
+						debug.printColor(color);
+
 						drawPixelAA(p1, rfpart(intery), color);
 						drawPixelAA(p2,  fpart(intery), color);
         } else {
@@ -214,6 +212,9 @@ function drawLineAA (line) {
 						
 						p = pointDistance(pt1, point) / dist;
 						color = colorInterpolate(line.col1, line.col2, p, color);
+
+						debug.print("<br>" + p + ", ");
+						debug.printColor(color);
 
 						drawPixelAA(p1, rfpart(intery), color);
 						drawPixelAA(p2,  fpart(intery), color);
@@ -229,7 +230,7 @@ function updateCanvas (data) {
 function drawSomeStuff () {
 		var color1 = new Color(255, 0, 0, 255);
 		var color2 = new Color(0, 0, 255, 255);
-		for (i = 0; i < canvasHeight; i+=5) {
+		for (i = 0; i < canvasHeight; i+=500) {
 				var pt1 = new Point(0, i);
 				var pt2 = new Point(canvasWidth-1-i, 0);
 				var line = new Line(pt1, pt2, color1, color2);
