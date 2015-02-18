@@ -3,7 +3,6 @@ var canvasWidth = canvas.width;
 var canvasHeight = canvas.height;
 var ctx = canvas.getContext("2d");
 var canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-var canvasBlank = canvasData;
 
 function drawPixel (x, y, r, g, b, a) {
     var index = (x + y * canvasWidth) * 4;
@@ -132,10 +131,6 @@ function drawLineAA(x0, y0, x1, y1, r, g, b, a) {
     }
 }
 
-function resetCanvas() {
-		updateCanvas(canvasBlank);
-}
-
 var lineCount = 100;
 var xArray = [];
 var yArray = [];
@@ -149,14 +144,14 @@ for (i = 0; i < lineCount-1; i++) {
 }
 updateCanvas(canvasData);
 
-// function resetCanvas() {
-//     for (var x = 0; x < canvas.width; x++) {
-//         for (var y = 0; y < canvas.height; y++) {
-//             drawPixel(x, y, 255, 255, 255, 0);
-//         }
-//     }
-//     updateCanvas();
-// }
+function resetCanvas() {
+    for (var x = 0; x < canvas.width; x++) {
+        for (var y = 0; y < canvas.height; y++) {
+            drawPixel(x, y, 255, 255, 255, 0);
+        }
+    }
+    updateCanvas(canvasData);
+}
 
 var antialiasing = false;
 
