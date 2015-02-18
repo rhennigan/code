@@ -392,7 +392,7 @@ updateCanvas(canvasData);
 //   current = current.tail;
 // }
 
-var MAX_ITERATIONS = 6;
+var MAX_ITERATIONS = 20;
 
 document.getElementById('clear').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -409,7 +409,7 @@ document.getElementById('addIteration').addEventListener('click', function() {
 	updateCanvas(canvasData);
 	var lineLengths = List.map(function (line) { return line.length(); })(segList);
 	var totalLength = List.total (lineLengths);
-	console.log(totalLengths);
+	console.log(totalLength);
 }, false);
 
 document.getElementById('subIteration').addEventListener('click', function() {
