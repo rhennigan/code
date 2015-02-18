@@ -193,7 +193,7 @@ function drawLineAA (line) {
 						p2 = new Point(ipart(intery)+1, x);
 						point = new Point((p1.x+p2.x)/2.0, (p1.y+p2.y)/2.0);
 						color = new Color(255, 255, 255, 255);
-						dist = pointDistance(line.pt1, point);
+						dist = pointDistance(line.pt1, line.pt2);
 						
 						p = pointDistance(pt1, point) / dist;
 						color = colorInterpolate(line.col1, line.col2, p, color);
@@ -208,7 +208,7 @@ function drawLineAA (line) {
 						p2 = new Point(x, ipart(intery)+1);
 						point = new Point((p1.x+p2.x)/2.0, (p1.y+p2.y)/2.0);
 						color = new Color(255, 255, 255, 255);
-						dist = pointDistance(line.pt1, point);
+						dist = pointDistance(line.pt1, line.pt2);
 						
 						p = pointDistance(pt1, point) / dist;
 						color = colorInterpolate(line.col1, line.col2, p, color);
