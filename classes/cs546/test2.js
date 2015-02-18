@@ -311,7 +311,7 @@ List.map = function (f) {
 };
 
 List.range = function (n) {
-	return n == 0 ? new List() : List.cons (n) (List.range (n-1));
+	return n <= 0 ? new List() : List.cons (n) (List.range (n-1));
 };
 
 // List.map = function (f) {
