@@ -305,8 +305,13 @@ function iterateFractal (segList) {
 				newSegs = newSegs.prepend(lines.l2);
 				newSegs = newSegs.prepend(lines.l3);
 				newSegs = newSegs.prepend(lines.l4);
+				current = current.tail;
 		}
 		return newSegs;
 }
+
+segList = iterateFractal(iterateFractal(segList));
+
+
 
 updateCanvas(canvasData);
