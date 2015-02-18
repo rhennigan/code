@@ -427,7 +427,9 @@ document.getElementById('addIteration').addEventListener('click', function() {
 	updateCanvas(canvasData);
 	var lineLengths = List.map(function (line) { return line.length(); })(segList);
 	var totalLength = List.total (lineLengths);
-	console.log((List.length (segList)) + ", " + totalLength);
+	var segCount = List.length (segList);
+	console.log(segCount);
+	console.log(totalLength);
 }, false);
 
 document.getElementById('subIteration').addEventListener('click', function() {
