@@ -296,31 +296,46 @@ segList.prepend(lineCA);
 // drawLineAA(lineBC);
 // drawLineAA(lineCA);
 
-function iterateFractal (segList) {
-		var current = segList;
-		var newSegs = new List();
-		while (!current.isEmpty()) {
-				var lines = splitLine(current.head);
-				drawLineAA(lines.l1);
-				drawLineAA(lines.l2);
-				drawLineAA(lines.l3);
-				drawLineAA(lines.l4);
-				newSegs = newSegs.prepend(lines.l1);
-				newSegs = newSegs.prepend(lines.l2);
-				newSegs = newSegs.prepend(lines.l3);
-				newSegs = newSegs.prepend(lines.l4);
-				current = current.tail;
-		}
-		return newSegs;
-}
-
-segList = iterateFractal(segList);
-
 var current = segList;
+var newSegs = new List();
 while (!current.isEmpty()) {
-		drawLineAA(current.head);
+		var lines = splitLine(current.head);
+		drawLineAA(lines.l1);
+		drawLineAA(lines.l2);
+		drawLineAA(lines.l3);
+		drawLineAA(lines.l4);
+		newSegs = newSegs.prepend(lines.l1);
+		newSegs = newSegs.prepend(lines.l2);
+		newSegs = newSegs.prepend(lines.l3);
+		newSegs = newSegs.prepend(lines.l4);
 		current = current.tail;
 }
+
+// function iterateFractal (segList) {
+// 		var current = segList;
+// 		var newSegs = new List();
+// 		while (!current.isEmpty()) {
+// 				var lines = splitLine(current.head);
+// 				drawLineAA(lines.l1);
+// 				drawLineAA(lines.l2);
+// 				drawLineAA(lines.l3);
+// 				drawLineAA(lines.l4);
+// 				newSegs = newSegs.prepend(lines.l1);
+// 				newSegs = newSegs.prepend(lines.l2);
+// 				newSegs = newSegs.prepend(lines.l3);
+// 				newSegs = newSegs.prepend(lines.l4);
+// 				current = current.tail;
+// 		}
+// 		return newSegs;
+// }
+
+// segList = iterateFractal(segList);
+
+// var current = segList;
+// while (!current.isEmpty()) {
+// 		drawLineAA(current.head);
+// 		current = current.tail;
+// }
 
 debug.print("hello?");
 
