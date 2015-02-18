@@ -260,10 +260,10 @@ function iterateFractal (segList) {
   var newSegs = new List();
   while (!current.isEmpty()) {
     var lines = splitLine(current.head);
-    newSegs = newSegs.prepend(lines.l1);
-    newSegs = newSegs.prepend(lines.l2);
-    newSegs = newSegs.prepend(lines.l3);
-    newSegs = newSegs.prepend(lines.l4);
+		newSegs = List.cons (lines.l1) (newSegs);
+		newSegs = List.cons (lines.l2) (newSegs);
+		newSegs = List.cons (lines.l3) (newSegs);
+		newSegs = List.cons (lines.l4) (newSegs);
     current = current.tail;
   }
   return newSegs;
