@@ -62,7 +62,9 @@ function drawLine (pt1, pt2, col1, col2) {
 		
 		var pt = pt1;
 		while (true) {
-				drawPixel(pt, col1);
+				var p = pointDistance(pt1, pt) / dist;
+				var c = colorInterpolate(col1, col2, p);
+				drawPixel(pt, c);
 		}
 }
 
