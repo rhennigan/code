@@ -348,20 +348,16 @@ List.total = function (list) {
 	return List.fold (plus) (0) (list); 
 };
 
-var testlist = new List();
-testlist = List.cons (1) (testlist);
-testlist = List.cons (2) (testlist);
-testlist = List.cons (3) (testlist);
-console.log(testlist);
-var ones = List.map (function (x) { return 1; }) (testlist);
-var len = List.total (ones);
-console.log(testlist);
-len = List.count (testlist);
-console.log(len);
-
-
-
-
+// var testlist = new List();
+// testlist = List.cons (1) (testlist);
+// testlist = List.cons (2) (testlist);
+// testlist = List.cons (3) (testlist);
+// console.log(testlist);
+// var ones = List.map (function (x) { return 1; }) (testlist);
+// var len = List.total (ones);
+// console.log(testlist);
+// len = List.count (testlist);
+// console.log(len);
 
 // var testList = new List();
 // for (i = 0; i < 10; i++) {
@@ -442,7 +438,7 @@ document.getElementById('addIteration').addEventListener('click', function() {
 	updateCanvas(canvasData);
 	var lineLengths = List.map(function (line) { return line.length(); })(segList);
 	var totalLength = List.total (lineLengths);
-	var segCount = List.length (segList);
+	var segCount = List.count (segList);
 	console.log(segCount);
 	console.log(totalLength);
 }, false);
