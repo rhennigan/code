@@ -99,6 +99,23 @@ function alphaComposition(cA, cB, c) {
 		return new Color(r, g, b, a);
 }
 
+function drawPixelAA (point, c, colorB) {
+		var index = (x + y * canvasWidth) * 4;
+		
+		var r = canvasData.data[index + 0];
+    var g = canvasData.data[index + 1];
+    var b = canvasData.data[index + 2];
+    var a = canvasData.data[index + 3];
+
+		var colorA = new Color(r, g, b, a);
+		var pixelc = alphaComposition(colorA, colorB, c);
+		
+		canvasData.data[index + 0] = pixelc.r;
+		canvasData.data[index + 1] = pixelc.g;
+		canvasData.data[index + 2] = pixelc.b;
+		canvasData.data[index + 3] = pixelc.a;
+}
+
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
 }
