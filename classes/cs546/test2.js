@@ -379,6 +379,11 @@ List.total = function (list) {
 	return List.fold (plus) (0) (list); 
 };
 
+var test1 = List.N (3);
+var test2 = List.N (2);
+var test3 = List.join (test1) (test2);
+console.log(test3);
+
 var testlist = List.N (3);
 console.log(testlist);
 var testlist2 = List.reverse (testlist);
