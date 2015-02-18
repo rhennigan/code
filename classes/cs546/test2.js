@@ -294,7 +294,7 @@ List.map = function (f) {
 	return function (list) {
 		return list.isEmpty() ?
 			new List () :
-			
+			List.cons (f (list.head)) (List.map (f) (list.tail));
 	};
 };
 
