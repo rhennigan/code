@@ -293,7 +293,7 @@ List.prototype.reverse = function () {
 List.length = function (list) {	
 	return list.isEmpty() ? 
 		0 : 
-		1 + List.length (list.tail); 
+		List.length (list.tail) + 1; 
 };
 
 List.map = function (f) {
