@@ -330,7 +330,7 @@ function iterateFractal (segList) {
 		return newSegs;
 }
 
-for (i = 0; i < 4; i++) {
+for (i = 0; i < 6; i++) {
 		segList = iterateFractal(segList);
 }
 
@@ -339,7 +339,5 @@ while (!current.isEmpty()) {
 		drawLineAA(current.head);
 		current = current.tail;
 }
-
-debug.print("hello?");
 
 updateCanvas(canvasData);
