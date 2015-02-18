@@ -279,6 +279,8 @@ List.prototype.reverse = function () {
 
 List.prototype.map = function (f) {
 		return function (list) {
+				var newList = new List();
+				var current = list;
 				
 		};
 };
