@@ -300,7 +300,7 @@ List.join = function (xs) {
 
 List.reverse = function (list) {
 	return list.isEmpty() ? new List() :
-		List.reverse ()
+		List.join (List.reverse (list.tail)) (new List(list.head, null));
 };
 
 List.map = function (f) {
