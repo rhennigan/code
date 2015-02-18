@@ -337,6 +337,11 @@ List.foldr = function (f) {
 
 List.fold = List.foldr;
 
+List.count = function (list) {
+	return list.isEmpty() ?
+		0 :
+		List.count (list.tail) + 1;
+};
 
 List.total = function (list) {
 	var plus = function (a) { return function (b) { return a + b;	}; };
@@ -351,7 +356,7 @@ console.log(testlist);
 var ones = List.map (function (x) { return 1; }) (testlist);
 var len = List.total (ones);
 console.log(testlist);
-len = List.length (testlist);
+len = List.count (testlist);
 console.log(len);
 
 
