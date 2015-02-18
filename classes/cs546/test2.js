@@ -5,15 +5,15 @@ var ctx = canvas.getContext("2d");
 var canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 
 function Point (x, y) {
-    this.x = x || 1;
-    this.y = y || 1;
+    this.x = x;
+    this.y = y;
 }
 
 function Color (r, g, b, a) {
-    this.r = r || 255;
-    this.g = g || 255;
-    this.b = b || 255;
-    this.a = a || 255;
+    this.r = r;
+    this.g = g;
+    this.b = b;
+    this.a = a;
 }
 
 function Line (pt1, pt2, col1, col2) {
