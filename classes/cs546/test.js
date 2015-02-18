@@ -108,6 +108,7 @@ function alphaComposition(colorA, colorB) {
 		var r = Math.floor((colorA.a * colorA.r) / 255.0 - (colorA.a - 255.0) * colorB.a * colorB.r / 65025.0);
 		var g = Math.floor((colorA.a * colorA.g) / 255.0 - (colorA.a - 255.0) * colorB.a * colorB.g / 65025.0);
 		var b = Math.floor((colorA.a * colorA.b) / 255.0 - (colorA.a - 255.0) * colorB.a * colorB.b / 65025.0);
+		var a = Math.floor(colorA.a + colorB.a - colorA.a * colorB.a / 255.0);
 }
 
 function alphaComposition(cA, aA, cB, aB) {
