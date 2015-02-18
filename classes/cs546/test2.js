@@ -292,7 +292,7 @@ List.prototype.map = function (f) {
 		};
 };
 
-List.prototype.iter = function (f) {
+List.iter = function (f) {
 		return function (list) {
 				var current = list;
 				while (!current.isEmpty()) {
@@ -301,6 +301,17 @@ List.prototype.iter = function (f) {
 				}
 		};
 };
+
+var testList = new List();
+for (i = 0; i < 10; i++) {
+		testList = testList.prepend(i);
+}
+
+var listPrint = function (head) {
+		debug.print(head);
+};
+
+
 
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
