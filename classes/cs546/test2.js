@@ -217,6 +217,14 @@ function drawLineAA (line) {
     }
 }
 
+function splitLine (line) {
+		var m1 = new Point(0, 0);
+		var m2 = new Point(0, 0);
+		var m  = new Point(0, 0);
+		var m1 = 2.0 * line.pt1 / 3.0 + line.pt2 / 3.0;
+		var m2 = line.pt1 / 3.0
+}
+
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
 }
