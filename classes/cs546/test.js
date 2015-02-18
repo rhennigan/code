@@ -126,6 +126,12 @@ function drawPixel(point, c, colorB) {
     var a = canvasData.data[index + 3];
 
 		var colorA = new Color(r, g, b, a);
+		var pixelc = alphaComposition(colorA, colorB, c);
+		
+		canvasData.data[index + 0] = pixelc.r;
+		canvasData.data[index + 1] = pixelc.g;
+		canvasData.data[index + 2] = pixelc.b;
+		canvasData.data[index + 3] = pixelc.a;
 }
 
 function plot(x, y, c, r, g, b, a) {
