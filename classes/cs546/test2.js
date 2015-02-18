@@ -318,4 +318,6 @@ while (!current.isEmpty()) {
 		current = current.tail;
 }
 
+debug.print("hello?");
+
 updateCanvas(canvasData);
