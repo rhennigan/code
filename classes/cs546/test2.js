@@ -209,8 +209,6 @@ function drawLineAA (line) {
 
 						drawPixelAA(p1, rfpart(intery), color);
 						drawPixelAA(p2,  fpart(intery), color);
-            plot(x, ipart(intery)  , rfpart(intery), r, g, b, a);
-            plot(x, ipart(intery)+1,  fpart(intery), r, g, b, a);
         }
         intery = intery + gradient;
     }
@@ -227,7 +225,7 @@ function drawSomeStuff () {
 				var pt1 = new Point(0, i);
 				var pt2 = new Point(canvasWidth-1-i, 0);
 				var line = new Line(pt1, pt2, color1, color2);
-				drawLine(line);
+				drawLineAA(line);
 		}
 }
 
