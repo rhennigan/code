@@ -249,6 +249,10 @@ function List () {
 		this.head = null;
 }
 
+List.prototype.prepend = function (data) {
+		var cell = { head : data, tail : null };
+}
+
 function List() {
  List.makeNode = function() { 
   return {data: null, next: null}; 
