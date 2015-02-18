@@ -76,29 +76,29 @@ function drawLine (line) {
 				colorInterpolate(col1, col2, p, color);
 				drawPixel(point, color);
 
-				if ((pt.x == pt2.x) && (pt.y == pt2.y)) break;
+				if ((point.x == pt2.x) && (point.y == pt2.y)) break;
 				var e2 = 2 * err;
-				if (e2 >-dy) { err -= dy; pt.x += sx; }
-				if (e2 < dx) { err += dx; pt.y += sy; }
+				if (e2 >-dy) { err -= dy; point.x += sx; }
+				if (e2 < dx) { err += dx; point.y += sy; }
 		}
 }
 
-function drawLine (x1, y1, x2, y2, r, g, b, a) {
-		var dx = Math.abs(x2-x1);
-    var dy = Math.abs(y2-y1);
-    var sx = (x1 < x2) ? 1 : -1;
-    var sy = (y1 < y2) ? 1 : -1;
-    var err = dx-dy;
+// function drawLine (x1, y1, x2, y2, r, g, b, a) {
+// 		var dx = Math.abs(x2-x1);
+//     var dy = Math.abs(y2-y1);
+//     var sx = (x1 < x2) ? 1 : -1;
+//     var sy = (y1 < y2) ? 1 : -1;
+//     var err = dx-dy;
 
-    while (true) {
-        drawPixel(x1, y1, r, g, b, a);
+//     while (true) {
+//         drawPixel(x1, y1, r, g, b, a);
 
-        if ((x1==x2) && (y1==y2)) break;
-        var e2 = 2*err;
-        if (e2 >-dy){ err -= dy; x1  += sx; }
-        if (e2 < dx){ err += dx; y1  += sy; }
-    }
-}
+//         if ((x1==x2) && (y1==y2)) break;
+//         var e2 = 2*err;
+//         if (e2 >-dy){ err -= dy; x1  += sx; }
+//         if (e2 < dx){ err += dx; y1  += sy; }
+//     }
+// }
 
 function updateCanvas(data) {
     ctx.putImageData(data, 0, 0);
