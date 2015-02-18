@@ -315,12 +315,22 @@ List.iter = function (f) {
   };
 };
 
-List.fold = function (f) {
+List.foldl = function (f) {
 	return function (acc) {
 		return function (list) {
 			return list.isEmpty() ?
 				acc : 
-				List.fold (f) (f (acc) (list.head)) (list.tail);
+				List.foldl (f) (f (acc) (list.head)) (list.tail);
+		};
+	};
+};
+
+List.foldr = function (f) {
+	return function (acc) {
+		return function (list) {
+			return list.isEmpty() ?
+				acc : 
+				List.foldr (f) (f (acc) (list.head)) (list.tail);
 		};
 	};
 };
