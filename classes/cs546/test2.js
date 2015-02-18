@@ -332,6 +332,10 @@ var cC = new Color(0, 0, 255, 255);
 var lineAB = new Line(pA, pB, cA, cB);
 var lineBC = new Line(pB, pC, cB, cC);
 var lineCA = new Line(pC, pA, cC, cA);
+var segList = new List();
+segList.prepend(lineAB);
+segList.prepend(lineBC);
+segList.prepend(lineCA);
 
 drawSomeStuff();
 debug.print("hello?");
