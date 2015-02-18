@@ -9,24 +9,24 @@ int main(int argc, char** argv) {
 	printf("hello, world!\n");
 
 	SDL_Init(SDL_INIT_VIDEO);
-	SDL_Surface *screen = SDL_SetVideoMode(512, 512, 32, SDL_SWSURFACE);
+	SDL_Surface *screen = SDL_SetVideoMode(1024, 1024, 32, SDL_SWSURFACE);
 
 	#ifdef TEST_SDL_LOCK_OPTS
 	EM_ASM("SDL.defaults.copyOnLock = false; SDL.defaults.discardOnLock = true; SDL.defaults.opaqueFrontBuffer = false;");
 	#endif
 
 	if (SDL_MUSTLOCK(screen)) SDL_LockSurface(screen);
-	for (int i = 0; i < 512; i++) {
-		for (int j = 0; j < 512; j++) {
+	for (int i = 0; i < 1024; i++) {
+		for (int j = 0; j < 1024; j++) {
 			#ifdef TEST_SDL_LOCK_OPTS
 			// Alpha behaves like in the browser, so write proper opaque pixels.
 			int alpha = 255;
 			#else
 			// To emulate native behavior with blitting to screen, alpha component is ignored. Test that it is so by outputting
 			// data (and testing that it does get discarded)
-			int alpha = (i+j) % 512 / 2;
+			int alpha = (i+j) % 1024 / 4;
 			#endif
-			*((Uint32*)screen->pixels + i * 512 + j) = SDL_MapRGBA(screen->format, i/2, j/2, (511-i)/2, alpha);
+			*((Uint32*)screen->pixels + i * 1024 + j) = SDL_MapRGBA(screen->format, i/4, j/4, (1023-i)/4, alpha);
 		}
 	}
 	if (SDL_MUSTLOCK(screen)) SDL_UnlockSurface(screen);
