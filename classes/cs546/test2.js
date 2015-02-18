@@ -311,8 +311,8 @@ List.map = function (f) {
 };
 
 List.N = function (num) {
-	var r = function (n) { return n <= 0 ? new List() : List.cons (n) (r (n-1)); };
-	return List.reverse (r (num));
+	var revN = function (n) { return n <= 0 ? new List() : List.cons (n) (revN (n-1)); };
+	return (revN (num));
 };
 
 // List.map = function (f) {
