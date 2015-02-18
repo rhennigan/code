@@ -20,10 +20,11 @@ function Color (r, g, b, a) {
 		this.g = g;
 		this.b = b;
 		this.a = a;
-		this.pr = r / 255.0;
-		this.pg = g / 255.0;
-		this.pb = b / 255.0;
-		this.pa = a / 255.0;
+}
+
+function colorByteToProp (c) {
+		var d = 255.0;
+		return new Color(c.r/d, c.g/d, c.b/d, c.a/d);
 }
 
 function colorInterpolate (c1, c2, p) {
