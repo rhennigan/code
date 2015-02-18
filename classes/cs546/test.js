@@ -20,6 +20,14 @@ function color (r, g, b, a) {
 		this.pa = a / 255.0;
 }
 
+function drawPixel (pt, col) {
+		var index = (pt.x + pt.y * canvasWidth) * 4;
+		canvasData.data[index + 0] = col.r;
+    canvasData.data[index + 1] = col.g;
+    canvasData.data[index + 2] = col.b;
+    canvasData.data[index + 3] = col.a;
+}
+
 function drawPixel (x, y, r, g, b, a) {
     var index = (x + y * canvasWidth) * 4;
 
