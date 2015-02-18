@@ -305,15 +305,6 @@ List.iter = function (f) {
     };
 };
 
-var testList = new List();
-for (i = 0; i < 10; i++) {
-    testList = testList.prepend(i);
-}
-
-var printList = List.iter(function (x) { debug.print(x + " "); });
-
-var mapList = List.map(function (x) {return x*x;})(testList);
-
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
 }
@@ -334,25 +325,6 @@ var segList = new List();
 segList = segList.prepend(lineAB);
 segList = segList.prepend(lineBC);
 segList = segList.prepend(lineCA);
-// drawLineAA(lineAB);
-// drawLineAA(lineBC);
-// drawLineAA(lineCA);
-
-// var current = segList;
-// var newSegs = new List();
-// while (!current.isEmpty()) {
-//    debug.printPoint(current.head.pt1);
-//    var lines = splitLine(current.head);
-//    drawLineAA(lines.l1);
-//    drawLineAA(lines.l2);
-//    drawLineAA(lines.l3);
-//    drawLineAA(lines.l4);
-//    newSegs = newSegs.prepend(lines.l1);
-//    newSegs = newSegs.prepend(lines.l2);
-//    newSegs = newSegs.prepend(lines.l3);
-//    newSegs = newSegs.prepend(lines.l4);
-//    current = current.tail;
-// }
 
 function iterateFractal (segList) {
     var current = segList;
