@@ -15,7 +15,7 @@ function drawPixel (x, y, r, g, b, a) {
 }
 
 function drawLine (x1, y1, x2, y2, r, g, b, a) {
-    var dx = Math.abs(x2-x1);
+		var dx = Math.abs(x2-x1);
     var dy = Math.abs(y2-y1);
     var sx = (x1 < x2) ? 1 : -1;
     var sy = (y1 < y2) ? 1 : -1;
