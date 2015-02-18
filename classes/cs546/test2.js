@@ -330,15 +330,15 @@ List.total = function (list) {
 	return List.fold (plus) (0) (list);
 };
 
-var testList = new List();
-for (i = 0; i < 10; i++) {
-	testList = List.cons (i) (testList);
-}
-debug.print("<br>");
-List.iter (function (x) { debug.print(x + " "); }) (testList);
-debug.print("<br>");
-var total = List.fold (plus) (0) (testList);
-debug.print("total = " + total);
+// var testList = new List();
+// for (i = 0; i < 10; i++) {
+// 	testList = List.cons (i) (testList);
+// }
+// debug.print("<br>");
+// List.iter (function (x) { debug.print(x + " "); }) (testList);
+// debug.print("<br>");
+// var total = List.fold (plus) (0) (testList);
+// debug.print("total = " + total);
 
 function iterateFractal (segList) {
   var current = segList;
@@ -408,7 +408,8 @@ document.getElementById('addIteration').addEventListener('click', function() {
 	List.iter(drawLineAA)(segList);
 	updateCanvas(canvasData);
 	var lineLengths = List.map(function (line) { return line.length(); })(segList);
-	List.iter(function (x) {debug.print("<br>" + x);})(lineLengths);
+	var totalLength = List.total (lineLengths);
+	console.log(totalLengths);
 }, false);
 
 document.getElementById('subIteration').addEventListener('click', function() {
