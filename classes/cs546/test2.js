@@ -247,11 +247,10 @@ function splitLine (line) {
 
 function List() {
 		List.makeCell = function (data) {
-				return { head : data, tail : null };
+				return { head : data, tail : this };
 		};
 
-		this.head = null;
-		this.tail = null;
+		this = null;
 
 		this.prepend = function (data) {
 				if (this.head == null) {
