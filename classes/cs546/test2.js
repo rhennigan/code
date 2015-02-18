@@ -184,21 +184,31 @@ function drawLineAA (line) {
 
     // main loop
     for (x = xpxl1+1; x <= xpxl2; x++) {
+				var p1, p2, point, color, dist, p;
         if (steep) {
-						var p1 = new Point(ipart(intery), x);
-						var p2 = new Point(ipart(intery)+1, x);
-						var point = new Point((p1.x+p2.x)/2.0, (p1.y+p2.y)/2.0);
-						var color = new Color(255, 255, 255, 255);
-						var dist = pointDistance(line.pt1, point);
+						p1 = new Point(ipart(intery), x);
+						p2 = new Point(ipart(intery)+1, x);
+						point = new Point((p1.x+p2.x)/2.0, (p1.y+p2.y)/2.0);
+						color = new Color(255, 255, 255, 255);
+						dist = pointDistance(line.pt1, point);
 						
-						var p = pointDistance(pt1, point) / dist;
+						p = pointDistance(pt1, point) / dist;
 						colorInterpolate(line.col1, line.col2, p, color);
 
 						drawPixelAA(p1, rfpart(intery), color);
 						drawPixelAA(p2,  fpart(intery), color);
-            plot(ipart(intery)  , x, rfpart(intery), r, g, b, a);
-            plot(ipart(intery)+1, x,  fpart(intery), r, g, b, a);
         } else {
+						p1 = new Point(x, ipart(intery));
+						p2 = new Point(x, ipart(intery)+1);
+						point = new Point((p1.x+p2.x)/2.0, (p1.y+p2.y)/2.0);
+						color = new Color(255, 255, 255, 255);
+						dist = pointDistance(line.pt1, point);
+						
+						p = pointDistance(pt1, point) / dist;
+						colorInterpolate(line.col1, line.col2, p, color);
+
+						drawPixelAA(p1, rfpart(intery), color);
+						drawPixelAA(p2,  fpart(intery), color);
             plot(x, ipart(intery)  , rfpart(intery), r, g, b, a);
             plot(x, ipart(intery)+1,  fpart(intery), r, g, b, a);
         }
