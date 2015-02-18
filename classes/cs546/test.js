@@ -110,11 +110,12 @@ function alphaComposition(colorA, colorB, c) {
 		var g = Math.floor((colorA.a * colorA.g) / 255.0 - (colorA.a - 255.0) * d * colorB.g / 65025.0);
 		var b = Math.floor((colorA.a * colorA.b) / 255.0 - (colorA.a - 255.0) * d * colorB.b / 65025.0);
 		var a = Math.floor(colorA.a + d - colorA.a * d / 255.0);
+		return new Color(r, g, b, a);
 }
 
-function alphaComposition(cA, aA, cB, aB) {
-    return Math.floor((aA * cA) / 255.0 - (aA - 255) * aB * cB / 65025.0);
-}
+// function alphaComposition(cA, aA, cB, aB) {
+//     return Math.floor((aA * cA) / 255.0 - (aA - 255) * aB * cB / 65025.0);
+// }
 
 function plot(x, y, c, r, g, b, a) {
     var index = (x + y * canvasWidth) * 4;
