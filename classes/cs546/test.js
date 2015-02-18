@@ -22,13 +22,13 @@ function Color (r, g, b, a) {
 		this.a = a;
 }
 
-function colorInterpolate (c1, c2, p) {
+function colorInterpolate (c1, c2, p, c) {
 		var p2 = p < 0.0 ? 0.0 : p > 1.0 ? 1.0 : p;
 		var p1 = 1.0 - p2;
-		return Color(p1*c1.r + p2*c2.r,
-								 p1*c1.g + p2*c2.g,
-								 p1*c1.b + p2*c2.b,
-								 p1*c1.a + p2*c2.a);
+		c.r = p1*c1.r + p2*c2.r;
+		c.g = p1*c1.g + p2*c2.g;
+		c.b = p1*c1.b + p2*c2.b;
+		c.a = p1*c1.a + p2*c2.a;
 }
 
 function drawPixel (pt, col) {
