@@ -370,9 +370,11 @@ function iterateFractal (segList) {
     return newSegs;
 }
 
-for (i = 0; i < 5; i++) {
+for (i = 0; i < 3; i++) {
     segList = iterateFractal(segList);
 }
+
+console.log(segList);
 
 var current = segList;
 while (!current.isEmpty()) {
