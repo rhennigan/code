@@ -20,10 +20,13 @@ function color (r, g, b, a) {
 		this.pa = a / 255.0;
 }
 
-function colorInterpolate (color1, color2, p) {
-		var p1 = p < 0.0 ? 0.0 : p > 1.0 ? 1.0 : p;
-		var p0 = 1.0 - p1;
-		return color();
+function colorInterpolate (c1, c2, p) {
+		var p2 = p < 0.0 ? 0.0 : p > 1.0 ? 1.0 : p;
+		var p1 = 1.0 - p2;
+		return color(p1*c1.r + p2*c2.r,
+								 p1*c1.g + p2*c2.g,
+								 p1*c1.b + p2*c2.b,
+								 p1*c1.a + p2*c2.a);
 }
 
 function drawPixel (pt, col) {
