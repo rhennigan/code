@@ -345,7 +345,8 @@ List.total = function (list) {
 
 List.length = function (list) {
 	console.log(list);
-	var ones = List.map (function (x) { return 1; }) (list);
+	var one = function (x) { return 1; };
+	var ones = List.map (one) (list);
 	var len = List.total (ones);
 	return len;
 };
