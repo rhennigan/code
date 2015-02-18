@@ -296,6 +296,8 @@ List.length = function (list) {
 		List.length (list.tail) + 1; 
 };
 
+console.log(List.length (new List()));
+
 List.map = function (f) {
   return function (list) {
     var newList = new List();
