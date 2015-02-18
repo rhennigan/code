@@ -119,9 +119,9 @@ function drawLineAA(x0, y0, x1, y1, r, g, b, a) {
     var intery = yend + gradient;
 
     // handle second endpoint
-    var xend = Math.round(x1);
-    var yend = y1 + gradient * (xend - x1);
-    var xgap = fpart(x1 + 0.5);
+    xend = Math.round(x1);
+    yend = y1 + gradient * (xend - x1);
+    xgap = fpart(x1 + 0.5);
     var xpxl2 = xend; //this will be used in the main loop
     var ypxl2 = ipart(yend);
     if (steep) {
@@ -148,12 +148,12 @@ function drawLineAA(x0, y0, x1, y1, r, g, b, a) {
 var lineCount = 100;
 var xArray = [];
 var yArray = [];
-for (var i = 0; i < lineCount; i++) {
+for (i = 0; i < lineCount; i++) {
     xArray[i] = Math.floor(canvasWidth * Math.random());
     yArray[i] = Math.floor(canvasHeight * Math.random());
 }
 
-for (var i = 0; i < lineCount-1; i++) {
+for (i = 0; i < lineCount-1; i++) {
     drawLineAA(xArray[i], yArray[i], xArray[i+1], yArray[i+1], 0, 0, 0, Math.floor(255 * (i / lineCount)));
 }
 updateCanvas();
@@ -174,18 +174,18 @@ var antialiasing = false;
 var mainloop = function() {
     resetCanvas();
     if (antialiasing) {
-        for (var i = 0; i < lineCount-1; i++) {
+        for (i = 0; i < lineCount-1; i++) {
             drawLineAA(xArray[i], yArray[i], xArray[i+1], yArray[i+1], 0, 0, 0, Math.floor(255 * (i / lineCount)));
         }
         updateCanvas();
         antialiasing = false;
     } else {
-        for (var i = 0; i < lineCount-1; i++) {
+        for (i = 0; i < lineCount-1; i++) {
             drawLine(xArray[i], yArray[i], xArray[i+1], yArray[i+1], 0, 0, 0, Math.floor(255 * (i / lineCount)));
         }
         updateCanvas();
         antialiasing = true;
     }
-}
+};
 
 setInterval(mainloop, 3000);
