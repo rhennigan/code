@@ -4,6 +4,10 @@ var canvasHeight = canvas.height;
 var ctx = canvas.getContext("2d");
 var canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 
+function updateCanvas (data) {
+  ctx.putImageData(data, 0, 0);
+}
+
 function Point (x, y) {
   this.x = x;
   this.y = y;
@@ -322,10 +326,6 @@ List.fold = function (f) {
 		};
 	};
 };
-
-function updateCanvas (data) {
-  ctx.putImageData(data, 0, 0);
-}
 
 var plus = function (a) {
 	return function (b) {
