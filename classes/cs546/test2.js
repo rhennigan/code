@@ -311,7 +311,7 @@ List.map = function (f) {
 };
 
 List.N = function (n) {
-	return n <= 0 ? new List() : List.cons (n) (List.range (n-1));
+	return n <= 0 ? new List() : List.cons (n) (List.N (n-1));
 };
 
 // List.map = function (f) {
@@ -377,6 +377,9 @@ List.total = function (list) {
 	var plus = function (a) { return function (b) { return a + b;	}; };
 	return List.fold (plus) (0) (list); 
 };
+
+var testlist = List.N (20);
+console.log(testlist);
 
 // var testlist = new List();
 // testlist = List.cons (1) (testlist);
