@@ -224,7 +224,7 @@ function updateCanvas (data) {
 function drawSomeStuff () {
 		var color1 = new Color(255, 0, 0, 255);
 		var color2 = new Color(0, 0, 255, 255);
-		for (i = 0; i < canvasHeight; i+=5) {
+		for (i = 0; i < canvasHeight; i+=2) {
 				var pt1 = new Point(0, i);
 				var pt2 = new Point(canvasWidth-1-i, 0);
 				var line = new Line(pt1, pt2, color1, color2);
