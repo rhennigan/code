@@ -39,19 +39,6 @@ var debug = {
 		}
 };
 
-// function printPoint (label, pt) {
-// 		print(label + " = ");
-// 		print("(" + pt.x + ", " + pt.y + ")");
-// }
-
-// function printColor (label, color) {
-// 		print(label + " = (");
-// 		print(color.r + ", ");
-// 		print(color.g + ", ");
-// 		print(color.b + ", ");
-// 		print(color.a + ")");
-// }
-
 function pointDistance (pt1, pt2) {
 		var dx = pt2.x - pt1.x;
 		var dy = pt2.y - pt1.y;
@@ -68,11 +55,6 @@ function colorInterpolate (c1, c2, p, c) {
 }
 
 function drawPixel (pt, col) {
-		// print("drawing pixel ");
-		// printPoint("", pt);
-		// print(" with color ");
-		// printColor("", col);
-		// print("<br>");
 		var index = (pt.x + pt.y * canvasWidth) * 4;
 		canvasData.data[index + 0] = col.r;
     canvasData.data[index + 1] = col.g;
@@ -131,11 +113,6 @@ var col1 = new Color(255, 0, 0, 255);
 debug.printPoint(pt1);
 debug.print(", ");
 debug.printColor(col1);
-// var pt2 = new Point(250, 350);
-// var col1 = new Color(255, 0, 0, 255);
-// var col2 = new Color(0, 0, 255, 255);
-// var line = new Line(pt1, pt2, col1, col2);
-// drawLine(line);
 
 drawSomeStuff();
 
