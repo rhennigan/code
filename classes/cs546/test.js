@@ -4,7 +4,7 @@ var canvasHeight = canvas.height;
 var ctx = canvas.getContext("2d");
 var canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 
-function point (x, y) {
+function Point (x, y) {
 		this.x = x;
 		this.y = y;
 }
@@ -15,7 +15,7 @@ function pointDistance(pt1, pt2) {
 		return Math.sqrt(dx*dx + dy*dy);
 }
 
-function color (r, g, b, a) {
+function Color (r, g, b, a) {
 		this.r = r;
 		this.g = g;
 		this.b = b;
