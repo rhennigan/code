@@ -230,6 +230,11 @@ function splitLine (line) {
 		var sq3 = Math.sqrt(3.0);
 		m.x = 0.5 * (m1.x + sq3 * m1.y + m2.x - sq3 * m2.y);
 		m.y = 0.5 * (-sq3 * m1.x + m1.y + sq3 * m2.x + m2.y);
+
+		var newLines = [new Line(line.pt1, m1, line.col1, line.col1),
+										new Line(line.pt1, m1, line.col1, line.col1),
+										new Line(line.pt1, m1, line.col1, line.col1),
+										new Line(line.pt1, m1, line.col1, line.col1)];
 }
 
 function updateCanvas (data) {
