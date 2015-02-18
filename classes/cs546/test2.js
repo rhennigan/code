@@ -296,9 +296,17 @@ drawLineAA(lineAB);
 drawLineAA(lineBC);
 drawLineAA(lineCA);
 
-var current = segList;
-while (!current.isEmpty()) {
-		
+function iterateFractal (segList) {
+		var current = segList;
+		var newSegs = new List();
+		while (!current.isEmpty()) {
+				var lines = splitLine(current.head);
+				newSegs = newSegs.prepend(lines.l1);
+				newSegs = newSegs.prepend(lines.l2);
+				newSegs = newSegs.prepend(lines.l3);
+				newSegs = newSegs.prepend(lines.l4);
+		}
+		return newSegs;
 }
 
 updateCanvas(canvasData);
