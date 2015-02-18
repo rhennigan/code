@@ -337,7 +337,10 @@ var testList = new List();
 for (i = 0; i < 10; i++) {
 	testList = List.cons (i) (testList);
 }
+debug.print("<br>");
 List.iter (function (x) { debug.print(x + " "); }) (testList);
+debug.print("<br>");
+
 
 function iterateFractal (segList) {
   var current = segList;
