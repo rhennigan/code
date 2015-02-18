@@ -235,7 +235,9 @@ function splitLine (line) {
 		var c2 = new Color(255, 255, 255, 255);
 		var c  = new Color(255, 255, 255, 255);
 
-		
+		c1 = colorInterpolate(line.col1, line.col2, 0.25, c1);
+		c  = colorInterpolate(line.col1, line.col2, 0.50, c);
+		c2 = colorInterpolate(line.col1, line.col2, 0.75, c2);
 
 		var newLines = [new Line(line.pt1, m1,       line.col1, line.col1),
 										new Line(m1,       m ,       line.col1, line.col1),
