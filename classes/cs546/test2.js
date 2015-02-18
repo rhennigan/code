@@ -323,9 +323,9 @@ function updateCanvas (data) {
 var w = canvasWidth;
 var h = canvasHeight;
 var sq3 = Math.sqrt(3.0);
-var pA = new Point(Math.floor(w / 2), Math.floor(h / 6));
-var pB = new Point(Math.floor(w/2 - 2*h/(3*sq3)), Math.floor(5*h/6));
-var pC = new Point(Math.floor(w/2 + 2*h/(3*sq3)), Math.floor(5*h/6));
+var pA = new Point(Math.floor(w / 2), Math.floor(h / 12));
+var pB = new Point(Math.floor(w/2 - 2*h/(3*sq3)), Math.floor(9*h/12));
+var pC = new Point(Math.floor(w/2 + 2*h/(3*sq3)), Math.floor(9*h/12));
 var cA = new Color(255, 0, 0, 255);
 var cB = new Color(0, 255, 0, 255);
 var cC = new Color(0, 0, 255, 255);
