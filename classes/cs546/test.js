@@ -117,7 +117,7 @@ function alphaComposition(colorA, colorB, c) {
 //     return Math.floor((aA * cA) / 255.0 - (aA - 255) * aB * cB / 65025.0);
 // }
 
-function drawPixel(point, c, color) {
+function drawPixel(point, c, colorB) {
 		var index = (x + y * canvasWidth) * 4;
 		
 		var r = canvasData.data[index + 0];
