@@ -250,6 +250,10 @@ function List () {
 		this.tail = null;
 }
 
+List.prototype.isEmpty = function () {
+		return Boolean(this.head);
+};
+
 List.prototype.prepend = function (data) {
 		var cell = { head : data, tail : null };
 		if (!this.head) {
