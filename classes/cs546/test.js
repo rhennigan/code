@@ -65,6 +65,11 @@ function drawLine (pt1, pt2, col1, col2) {
 				var p = pointDistance(pt1, pt) / dist;
 				var c = colorInterpolate(col1, col2, p);
 				drawPixel(pt, c);
+
+				if ((pt.x == pt2.x) && (pt.y == pt2.y)) break;
+				var e2 = 2 * err;
+				if (e2 >-dy) { err -= dy; pt.x += sx; }
+				if (e2 < dx) { err += dx; pt.y += sy; }
 		}
 }
 
