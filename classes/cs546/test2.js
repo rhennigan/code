@@ -109,9 +109,7 @@ function drawPixelAA (point, c, colorB) {
 
 		var colorA = new Color(r, g, b, a);
 		var pixelc = alphaComposition(colorA, colorB, c);
-		debug.print("<br>");
-		debug.printColor(pixelc);
-		
+				
 		canvasData.data[index + 0] = pixelc.r;
 		canvasData.data[index + 1] = pixelc.g;
 		canvasData.data[index + 2] = pixelc.b;
@@ -140,6 +138,10 @@ function drawLineAA (line) {
 		var r0 = line.col1.r, g0 = line.col1.g, b0 = line.col1.b, a0 = line.col1.a;
 		var r1 = line.col2.r, g1 = line.col2.g, b1 = line.col2.b, a1 = line.col2.a;
 		
+		debug.print("<br>(");
+		debug.printPoint(line.pt1); debug.print(", "); debug.printPoint(line.pt2);
+		debug.print(")");
+
     var steep = Boolean(Math.abs(y1 - y0) > Math.abs(x1 - x0));
     
     if (steep) {
