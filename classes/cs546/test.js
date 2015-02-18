@@ -58,6 +58,7 @@ function drawLine (pt1, pt2, col1, col2) {
 		var sx = (pt1.x < pt2.x) ? 1 : -1;
     var sy = (pt1.y < pt2.y) ? 1 : -1;
 		var err = dx - dy;
+		var dist = pointDistance(pt1, pt2);
 		
 		var pt = pt1;
 		while (true) {
