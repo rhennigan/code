@@ -333,7 +333,11 @@ var plus = function (a) {
 	};
 };
 
-
+var testList = new List();
+for (i = 0; i < 10; i++) {
+	testList = List.cons (i) (testList);
+}
+List.iter (function (x) { debug.print(x + " "); }) (testList);
 
 function iterateFractal (segList) {
   var current = segList;
