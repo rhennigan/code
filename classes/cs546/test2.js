@@ -251,7 +251,7 @@ function List () {
 }
 
 List.prototype.isEmpty = function () {
-		return Boolean(this.head);
+		return this.head === null && this.tail === null;
 };
 
 List.prototype.prepend = function (data) {
