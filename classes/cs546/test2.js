@@ -91,7 +91,7 @@ function drawLine (line) {
 }
 
 function alphaComposition(cA, cB, c) {
-		var d = Math.floor(c * a);
+		var d = Math.floor(c * cB.a);
 		var r = Math.floor((cA.a*cA.r) / 255.0 - (cA.a-255.0) * d * cB.r / 65025.0);
 		var g = Math.floor((cA.a*cA.g) / 255.0 - (cA.a-255.0) * d * cB.g / 65025.0);
 		var b = Math.floor((cA.a*cA.b) / 255.0 - (cA.a-255.0) * d * cB.b / 65025.0);
@@ -160,7 +160,7 @@ function drawLineAA (line) {
     var xpxl1 = xend; // this will be used in the main loop
     var ypxl1 = ipart(yend);
     if (steep) {
-				drawPixelAA(new Point(ypxl1, xpxl1));
+				drawPixelAA(new Point(ypxl1, xpxl1), 0);
         plot(ypxl1    , xpxl1, rfpart(yend) * xgap, r, g, b, a);
         plot(ypxl1 + 1, xpxl1,  fpart(yend) * xgap, r, g, b, a);
     } else {
