@@ -217,6 +217,8 @@ function drawLineAA (line) {
     }
 }
 
+var sq3 = Math.sqrt(3.0);
+
 function splitLine (line) {
 		var m1 = new Point(0, 0);
 		m1.x = 2.0 * line.pt1.x / 3.0 + line.pt2.x / 3.0;
@@ -227,8 +229,7 @@ function splitLine (line) {
 		m2.y = line.pt1.y / 3.0 + 2.0 * line.pt2.y / 3.0;
 
 		var m  = new Point(0, 0);
-		
-		var m2 = line.pt1 / 3.0
+		m.x = m1.x + (
 }
 
 function updateCanvas (data) {
