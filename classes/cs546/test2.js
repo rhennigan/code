@@ -330,10 +330,12 @@ List.foldr = function (f) {
 		return function (list) {
 			return list.isEmpty() ?
 				acc : 
-				List.foldr (f) (f (acc) (list.head)) (list.tail);
+				f (list.head) (List.foldr (f) (acc) (list.tail));
 		};
 	};
 };
+
+List.fold = List.foldr;
 
 List.total = function (list) {
 	var plus = function (a) { return function (b) { return a + b;	}; };
