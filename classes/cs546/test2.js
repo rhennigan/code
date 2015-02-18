@@ -292,7 +292,6 @@ var segList = new List();
 segList = segList.prepend(lineAB);
 segList = segList.prepend(lineBC);
 segList = segList.prepend(lineCA);
-debug.print(!segList.isEmpty());
 // drawLineAA(lineAB);
 // drawLineAA(lineBC);
 // drawLineAA(lineCA);
@@ -331,7 +330,9 @@ function iterateFractal (segList) {
 		return newSegs;
 }
 
-segList = iterateFractal(iterateFractal(segList));
+for (i = 0; i < 4; i++) {
+		segList = iterateFractal(segList);
+}
 
 var current = segList;
 while (!current.isEmpty()) {
