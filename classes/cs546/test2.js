@@ -374,7 +374,7 @@ document.getElementById('clear').addEventListener('click', function() {
 document.getElementById('addIteration').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 	canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-	iterations = 1;
+	iterations = iterations >= MAX_ITERATIONS ? MAX_ITERATIONS : iterations + 1;
 	segList = fractalIterations(iterations);
 	List.iter(drawLineAA)(segList);
 	updateCanvas(canvasData);
