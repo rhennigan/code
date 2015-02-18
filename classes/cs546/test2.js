@@ -28,7 +28,7 @@ function Line (pt1, pt2, col1, col2) {
 }
 
 Line.prototype.length = function () {
-	var dx = this.pt2.x - this.pt1.x;
+  var dx = this.pt2.x - this.pt1.x;
   var dy = this.pt2.y - this.pt1.y;
   return Math.sqrt(dx*dx + dy*dy);
 };
@@ -260,36 +260,36 @@ function iterateFractal (segList) {
   var newSegs = new List();
   while (!current.isEmpty()) {
     var lines = splitLine(current.head);
-		newSegs = List.cons (lines.l1) (newSegs);
-		newSegs = List.cons (lines.l2) (newSegs);
-		newSegs = List.cons (lines.l3) (newSegs);
-		newSegs = List.cons (lines.l4) (newSegs);
+    newSegs = List.cons (lines.l1) (newSegs);
+    newSegs = List.cons (lines.l2) (newSegs);
+    newSegs = List.cons (lines.l3) (newSegs);
+    newSegs = List.cons (lines.l4) (newSegs);
     current = current.tail;
   }
   return newSegs;
 }
 
 function fractalIterations (iterations) {
-	var w = canvasWidth;
-	var h = canvasHeight;
-	var sq3 = Math.sqrt(3.0);
-	var pA = new Point(Math.floor(w / 2), Math.floor(h / 12));
-	var pB = new Point(Math.floor(w/2 - 2*h/(3*sq3)), Math.floor(9*h/12));
-	var pC = new Point(Math.floor(w/2 + 2*h/(3*sq3)), Math.floor(9*h/12));
-	var cA = new Color(255, 0, 0, 255);
-	var cB = new Color(0, 255, 0, 255);
-	var cC = new Color(0, 0, 255, 255);
-	var lineAB = new Line(pA, pB, cA, cB);
-	var lineBC = new Line(pB, pC, cB, cC);
-	var lineCA = new Line(pC, pA, cC, cA);
-	var segList = new List();
-	segList = List.cons (lineAB) (segList);
-	segList = List.cons (lineBC) (segList);
-	segList = List.cons (lineCA) (segList);
-	for (i = 0; i < iterations; i++) {
+  var w = canvasWidth;
+  var h = canvasHeight;
+  var sq3 = Math.sqrt(3.0);
+  var pA = new Point(Math.floor(w / 2), Math.floor(h / 12));
+  var pB = new Point(Math.floor(w/2 - 2*h/(3*sq3)), Math.floor(9*h/12));
+  var pC = new Point(Math.floor(w/2 + 2*h/(3*sq3)), Math.floor(9*h/12));
+  var cA = new Color(255, 0, 0, 255);
+  var cB = new Color(0, 255, 0, 255);
+  var cC = new Color(0, 0, 255, 255);
+  var lineAB = new Line(pA, pB, cA, cB);
+  var lineBC = new Line(pB, pC, cB, cC);
+  var lineCA = new Line(pC, pA, cC, cA);
+  var segList = new List();
+  segList = List.cons (lineAB) (segList);
+  segList = List.cons (lineBC) (segList);
+  segList = List.cons (lineCA) (segList);
+  for (i = 0; i < iterations; i++) {
     segList = iterateFractal(segList);
-	}
-	return segList;
+  }
+  return segList;
 }
 
 // for (i = 0; i < 5; i++) {
@@ -311,29 +311,29 @@ var MAX_ITERATIONS = 6;
 
 document.getElementById('clear').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-	canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-	updateCanvas(canvasData);
+  canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+  updateCanvas(canvasData);
 }, false);
 
 document.getElementById('addIteration').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-	canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-	iterations = iterations >= MAX_ITERATIONS ? MAX_ITERATIONS : iterations + 1;
-	segList = fractalIterations(iterations);
-	List.iter(drawLineAA)(segList);
-	updateCanvas(canvasData);
-	var lineLengths = List.map(function (line) { return line.length(); })(segList);
-	var totalLength = List.total (lineLengths);
-	var segCount = List.count (segList);
-	console.log(segCount);
-	console.log(totalLength);
+  canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+  iterations = iterations >= MAX_ITERATIONS ? MAX_ITERATIONS : iterations + 1;
+  segList = fractalIterations(iterations);
+  List.iter(drawLineAA)(segList);
+  updateCanvas(canvasData);
+  var lineLengths = List.map(function (line) { return line.length(); })(segList);
+  var totalLength = List.total (lineLengths);
+  var segCount = List.count (segList);
+  console.log(segCount);
+  console.log(totalLength);
 }, false);
 
 document.getElementById('subIteration').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-	canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-	iterations = iterations <= 0 ? 0 : iterations - 1;
-	segList = fractalIterations(iterations);
-	List.iter(drawLineAA)(segList);
-	updateCanvas(canvasData);
+  canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+  iterations = iterations <= 0 ? 0 : iterations - 1;
+  segList = fractalIterations(iterations);
+  List.iter(drawLineAA)(segList);
+  updateCanvas(canvasData);
 }, false);
