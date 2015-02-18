@@ -288,9 +288,9 @@ List.prototype.map = function (f) {
 						newListCurrent = newListCurrent.tail;
 						current = current.tail;
 				}
+				return newList;
 		};
 };
-
 
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
