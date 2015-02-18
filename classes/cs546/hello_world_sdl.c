@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
 			// data (and testing that it does get discarded)
 			int alpha = (i+j) % 512 / 2;
 			#endif
-			*((Uint32*)screen->pixels + i * 512 + j) = SDL_MapRGBA(screen->format, i, j, 255-i, alpha);
+			*((Uint32*)screen->pixels + i * 512 + j) = SDL_MapRGBA(screen->format, i/2, j/2, (511-i)/2, alpha);
 		}
 	}
 	if (SDL_MUSTLOCK(screen)) SDL_UnlockSurface(screen);
