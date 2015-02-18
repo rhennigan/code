@@ -340,7 +340,8 @@ for (i = 0; i < 10; i++) {
 debug.print("<br>");
 List.iter (function (x) { debug.print(x + " "); }) (testList);
 debug.print("<br>");
-
+var total = List.fold (plus) (0) (testList);
+debug.print("total = " + total);
 
 function iterateFractal (segList) {
   var current = segList;
