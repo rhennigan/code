@@ -310,6 +310,10 @@ List.map = function (f) {
 	};
 };
 
+List.range = function (n) {
+	
+};
+
 // List.map = function (f) {
 //   return function (list) {
 //     var newList = new List();
