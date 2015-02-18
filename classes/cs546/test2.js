@@ -276,45 +276,45 @@ function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
 }
 
-function drawSomeStuff () {
-		var color1 = new Color(255, 0, 0, 255);
-		var color2 = new Color(0, 0, 255, 255);
-		for (i = 0; i < canvasHeight; i+=2) {
-				var pt1 = new Point(0, i);
-				var pt2 = new Point(canvasWidth-1-i, 0);
-				var line = new Line(pt1, pt2, color1, color2);
-				drawLineAA(line);
-		}
-}
+// function drawSomeStuff () {
+// 		var color1 = new Color(255, 0, 0, 255);
+// 		var color2 = new Color(0, 0, 255, 255);
+// 		for (i = 0; i < canvasHeight; i+=2) {
+// 				var pt1 = new Point(0, i);
+// 				var pt2 = new Point(canvasWidth-1-i, 0);
+// 				var line = new Line(pt1, pt2, color1, color2);
+// 				drawLineAA(line);
+// 		}
+// }
 
-debug.print("<br>");
-var list = new List();
-for (i = 0; i < 10; i++) {
-		list = list.prepend(i);
-}
+// debug.print("<br>");
+// var list = new List();
+// for (i = 0; i < 10; i++) {
+// 		list = list.prepend(i);
+// }
 
-var current = list;
-while (!current.isEmpty()) {
-		debug.print(current.head);
-		debug.print("<br>");
-		current = current.tail;
-}
+// var current = list;
+// while (!current.isEmpty()) {
+// 		debug.print(current.head);
+// 		debug.print("<br>");
+// 		current = current.tail;
+// }
 
-debug.print("<br>");
+// debug.print("<br>");
 
-current = list;
-while (!current.isEmpty()) {
-		debug.print(current.head);
-		debug.print("<br>");
-		current = current.tail;
-}
+// current = list;
+// while (!current.isEmpty()) {
+// 		debug.print(current.head);
+// 		debug.print("<br>");
+// 		current = current.tail;
+// }
 
-var test  = list.reverse();
-while (!test.isEmpty()) {
-		debug.print(test.head);
-		debug.print("<br>");
-		test = test.tail;
-}
+// var test  = list.reverse();
+// while (!test.isEmpty()) {
+// 		debug.print(test.head);
+// 		debug.print("<br>");
+// 		test = test.tail;
+// }
 
 
 // var pt1 = new Point(1, 1);
