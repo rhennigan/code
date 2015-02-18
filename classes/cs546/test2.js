@@ -333,6 +333,8 @@ var plus = function (a) {
 	};
 };
 
+
+
 function iterateFractal (segList) {
   var current = segList;
   var newSegs = new List();
