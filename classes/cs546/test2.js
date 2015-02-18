@@ -300,7 +300,7 @@ List.join = function (xs) {
 
 List.reverse = function (list) {
 	return list.isEmpty() ? new List() :
-		List.join (List.reverse (list.tail)) (new List(list.head, null));
+		List.join (List.reverse (list.tail)) (List.cons (list.head) (new List ()));
 };
 
 List.map = function (f) {
@@ -312,7 +312,7 @@ List.map = function (f) {
 
 List.N = function (num) {
 	var revN = function (n) { return n <= 0 ? new List() : List.cons (n) (revN (n-1)); };
-	return (revN (num));
+	return List.reverse (revN (num));
 };
 
 // List.map = function (f) {
