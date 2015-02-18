@@ -352,8 +352,9 @@ function fractalIterations (iterations) {
 //   segList = iterateFractal(segList);
 // }
 
-var segList = fractalIterations(5);
+var segList = fractalIterations(0);
 List.iter(drawLineAA)(segList);
+updateCanvas(canvasData);
 
 // var current = segList;
 // while (!current.isEmpty()) {
@@ -361,7 +362,7 @@ List.iter(drawLineAA)(segList);
 //   current = current.tail;
 // }
 
-updateCanvas(canvasData);
+
 
 document.getElementById('clear').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
