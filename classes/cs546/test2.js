@@ -310,7 +310,7 @@ var mapList = List.map(function (x) {return x*x;})(testList);
 
 printList(mapList);
 
-console.log(mapList);
+console.log(List);
 
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
