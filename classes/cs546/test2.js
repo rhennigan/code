@@ -250,6 +250,10 @@ function List () {
     this.tail = null;
 }
 
+List.cons = function (x) {
+		
+};
+
 List.prototype.isEmpty = function () {
     return this.head === null && this.tail === null;
 };
