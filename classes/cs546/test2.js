@@ -140,6 +140,8 @@ function drawLineAA (line) {
 		
 		debug.print("<br>(");
 		debug.printPoint(line.pt1); debug.print(", "); debug.printPoint(line.pt2);
+		debug.print(" --- ");
+		debug.printColor(line.col1); debug.print(", "); debug.printColor(line.col2);
 		debug.print(")");
 
     var steep = Boolean(Math.abs(y1 - y0) > Math.abs(x1 - x0));
@@ -156,6 +158,8 @@ function drawLineAA (line) {
     var dx = x1 - x0;
     var dy = y1 - y0;
     var gradient = dy / dx;
+
+		debug.print("<br>" + gradient);
 
     // handle first endpoint
     var xend = Math.round(x0);
