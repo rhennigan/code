@@ -325,10 +325,13 @@ List.fold = function (f) {
 	};
 };
 
-var plus = function (a) {
-	return function (b) {
-		return a + b;
+List.total = function (list) {
+	var plus = function (a) {
+		return function (b) {
+			return a + b;
+		};
 	};
+	return List.fold (plus) (0) (list);
 };
 
 var testList = new List();
