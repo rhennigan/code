@@ -1,5 +1,13 @@
 'use strict';
 
+var curry = function (fn) {
+	var args = Array.prototype.slice.call(arguments, 1);
+	return function () {
+		return fn.apply(this, args.concat(
+			Array.prototype.slice.call(arguments, 0)));
+	};
+};
+
 function List (x, xs) {
   this.head = x  || null;
   this.tail = xs || null;
