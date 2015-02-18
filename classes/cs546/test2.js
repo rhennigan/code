@@ -348,15 +348,18 @@ function fractalIterations (iterations) {
 	return segList;
 }
 
-for (i = 0; i < 5; i++) {
-  segList = iterateFractal(segList);
-}
+// for (i = 0; i < 5; i++) {
+//   segList = iterateFractal(segList);
+// }
 
-var current = segList;
-while (!current.isEmpty()) {
-  drawLineAA(current.head);
-  current = current.tail;
-}
+var segList = fractalIterations(5);
+List.iter(drawLineAA)(segList);
+
+// var current = segList;
+// while (!current.isEmpty()) {
+//   drawLineAA(current.head);
+//   current = current.tail;
+// }
 
 updateCanvas(canvasData);
 
