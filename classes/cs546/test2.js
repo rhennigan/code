@@ -301,7 +301,7 @@ for (i = 0; i < 10; i++) {
     testList = testList.prepend(i);
 }
 
-var printList = List.iter(function (x) { debug.print(x); });
+var printList = List.iter(function (x) { debug.print(x + " "); });
 
 printList(testList);
 
