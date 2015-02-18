@@ -255,15 +255,9 @@ List.prototype.isEmpty = function () {
 };
 
 List.prototype.prepend = function (data) {
-		var cell = { head : data, tail : null };
-		if (!this.head) {
-				this.head = cell;
-		} else {
-				var current = this.head;
-				while (current.next) {
-						current = current.next;
-				}
-				current.next = cell;
+		var current = this;
+		while (!current.isEmpty()) {
+				
 		}
 };
 
