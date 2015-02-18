@@ -175,11 +175,11 @@ function drawLineAA (line) {
     var xpxl2 = xend; //this will be used in the main loop
     var ypxl2 = ipart(yend);
     if (steep) {
-        plot(ypxl2  , xpxl2, rfpart(yend) * xgap, r, g, b, a);
-        plot(ypxl2+1, xpxl2,  fpart(yend) * xgap, r, g, b, a);
+				drawPixelAA(new Point(ypxl2,   xpxl2), rfpart(yend) * xgap, line.col2);
+				drawPixelAA(new Point(ypxl2+1, xpxl2),  fpart(yend) * xgap, line.col2);
     } else {
-        plot(xpxl2, ypxl2,  rfpart(yend) * xgap, r, g, b, a);
-        plot(xpxl2, ypxl2+1, fpart(yend) * xgap, r, g, b, a);
+				drawPixelAA(new Point(xpxl2, ypxl2),  rfpart(yend) * xgap, line.col2);
+				drawPixelAA(new Point(xpxl2, ypxl2+1), fpart(yend) * xgap, line.col2);
     }
 
     // main loop
