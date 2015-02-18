@@ -290,6 +290,12 @@ List.prototype.reverse = function () {
   return newList;
 };
 
+List.length = function (list) {	
+	return list.isEmpty() ? 
+		0 : 
+		1 + List.length (list.tail); 
+};
+
 List.map = function (f) {
   return function (list) {
     var newList = new List();
