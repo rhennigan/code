@@ -170,7 +170,7 @@ function drawLineAA (line) {
 				drawPixelAA(new Point(xpxl1, ypxl1+1),  fpart(yend) * xgap, line.col1);
     }
     var intery = yend + gradient;
-		debug.print("<br>" + intery);
+
     // handle second endpoint
     xend = Math.round(x1);
     yend = y1 + gradient * (xend - x1);
