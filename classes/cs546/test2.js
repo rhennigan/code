@@ -288,6 +288,17 @@ function drawSomeStuff () {
 }
 
 debug.print("<br>");
+var list = new List();
+for (i = 0; i < 10; i++) {
+		list = list.prepend(i);
+}
+
+while (!list.isEmpty()) {
+		debug.print(list.head);
+		debug.print("<br>");
+		list = list.tail;
+}
+
 
 // var pt1 = new Point(1, 1);
 // var col1 = new Color(255, 0, 0, 255);
