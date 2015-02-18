@@ -48,14 +48,19 @@ function drawPixel (pt, col) {
 //     canvasData.data[index + 3] = a;
 // }
 
-function line (pt1, pt2, col1, col2) {
+function Line (pt1, pt2, col1, col2) {
 		this.pt1 = pt1;
 		this.pt2 = pt2;
 		this.col1 = col1;
 		this.col2 = col2;
 }
 
-function drawLine (pt1, pt2, col1, col2) {
+function drawLine (line) {
+		var pt1 = line.pt1;
+		var pt2 = line.pt2;
+		var col1 = line.col1;
+		var col2 = line.col2;
+
 		var dx = Math.abs(pt2.x - pt1.x);
     var dy = Math.abs(pt2.y - pt1.y);
 		var sx = (pt1.x < pt2.x) ? 1 : -1;
