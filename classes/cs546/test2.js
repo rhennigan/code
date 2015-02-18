@@ -385,7 +385,7 @@ document.getElementById('addIteration').addEventListener('click', function() {
 	List.iter(drawLineAA)(segList);
 	updateCanvas(canvasData);
 	var lineLengths = List.map(function (line) { return line.length(); })(segList);
-	List.iter(debug.print)(lineLengths);
+	List.iter(function (x) {debug.print("<br>" + x);})(lineLengths);
 }, false);
 
 document.getElementById('subIteration').addEventListener('click', function() {
