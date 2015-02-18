@@ -312,7 +312,11 @@ List.iter = function (f) {
 };
 
 List.fold = function (f) {
-	
+	return function (acc) {
+		return function (list) {
+			
+		};
+	};
 };
 
 function updateCanvas (data) {
