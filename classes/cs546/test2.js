@@ -162,11 +162,9 @@ function drawLineAA (line) {
     if (steep) {
 				drawPixelAA(new Point(ypxl1,   xpxl1), rfpart(yend) * xgap, line.col1);
 				drawPixelAA(new Point(ypxl1+1, xpxl1),  fpart(yend) * xgap, line.col1);
-        plot(ypxl1    , xpxl1, rfpart(yend) * xgap, r, g, b, a);
-        plot(ypxl1 + 1, xpxl1,  fpart(yend) * xgap, r, g, b, a);
     } else {
-        plot(xpxl1, ypxl1    , rfpart(yend) * xgap, r, g, b, a);
-        plot(xpxl1, ypxl1 + 1,  fpart(yend) * xgap, r, g, b, a);
+				drawPixelAA(new Point(xpxl1, ypxl1),   rfpart(yend) * xgap, line.col1);
+				drawPixelAA(new Point(xpxl1, ypxl1+1),  fpart(yend) * xgap, line.col1);
     }
     var intery = yend + gradient;
 
