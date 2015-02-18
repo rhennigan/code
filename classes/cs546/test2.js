@@ -337,10 +337,13 @@ List.foldr = function (f) {
 
 List.fold = List.foldr;
 
+
 List.total = function (list) {
 	var plus = function (a) { return function (b) { return a + b;	}; };
 	return List.fold (plus) (0) (list); 
 };
+
+console.log(list);
 
 List.length = function (list) {
 	var ones = List.map (function (x) { return 1; }) (list);
