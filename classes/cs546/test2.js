@@ -239,16 +239,25 @@ function splitLine (line) {
 		c  = colorInterpolate(line.col1, line.col2, 0.50, c);
 		c2 = colorInterpolate(line.col1, line.col2, 0.75, c2);
 
-		return {l1: new Line(line.pt1, m1,       line.col1, c1),
-						l2: new Line(m1,       m ,       c1,        c ),
-						l3: new Line(m,        m2,       c,         c2),
-						l4: new Line(m2,       line.pt2, c2, line.col2)};
+		return {l1 : new Line(line.pt1, m1,       line.col1, c1),
+						l2 : new Line(m1,       m ,       c1,        c ),
+						l3 : new Line(m,        m2,       c,         c2),
+						l4 : new Line(m2,       line.pt2, c2, line.col2)};
 }
 
 function List() {
-		List.makeCell = function () {
-				return { head : null, tail : null };
+		List.makeCell = function (data) {
+				return { head : data, tail : null };
 		};
+
+		this.head = null;
+		this.tail = null;
+
+		this.prepend = function (data) {
+				if (this.head == null) {
+						
+				}
+		}
 }
 
 function List() {
