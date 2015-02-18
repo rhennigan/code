@@ -268,6 +268,7 @@ List.prototype.reverse = function () {
 				newList.prepend(current.head);
 				current = current.tail;
 		}
+		return newList;
 };
 
 
