@@ -23,6 +23,12 @@ function Line (pt1, pt2, col1, col2) {
   this.col2 = col2;
 }
 
+Line.prototype.length = function () {
+	var dx = this.pt2.x - this.pt1.x;
+  var dy = this.pt2.y - this.pt1.y;
+  return Math.sqrt(dx*dx + dy*dy);
+};
+
 var debug = {
   print : function (msg) {
     document.write(msg);
