@@ -5,15 +5,15 @@ var ctx = canvas.getContext("2d");
 var canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 
 function Point (x, y) {
-    this.x = x || 0;
-    this.y = y || 0;
+    this.x = x;
+    this.y = y;
 }
 
 function Color (r, g, b, a) {
-    this.r = r || 255;
-    this.g = g || 255;
-    this.b = b || 255;
-    this.a = a || 255;
+    this.r = r;
+    this.g = g;
+    this.b = b;
+    this.a = a;
 }
 
 function Line (pt1, pt2, col1, col2) {
@@ -271,40 +271,6 @@ List.prototype.reverse = function () {
     return newList;
 };
 
-// List.prototype.map = function (f) {
-// 		return function (list) {
-// 				var newList = new List();
-// 				var current = list;
-// 				var newListCurrent = newList;
-// 				while (!current.isEmpty()) {
-// 						newListCurrent.head = f(current.head);
-// 						newListCurrent.tail = new List();
-// 						newListCurrent = newListCurrent.tail;
-// 						current = current.tail;
-// 				}
-// 				return newList;
-// 		};
-// };
-
-// List.iter = function (f) {
-// 		return function (list) {
-// 				var current = list;
-// 				while (!current.isEmpty()) {
-// 						f(current.head);
-// 						current = current.tail;
-// 				}
-// 		};
-// };
-
-var testList = new List();
-for (i = 0; i < 10; i++) {
-		testList = testList.prepend(i);
-		debug.print(i);
-}
-
-// var printList = List.iter(function (x) { debug.print(x); });
-
-// printList(testList);
 
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
