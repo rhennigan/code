@@ -307,11 +307,9 @@ for (i = 0; i < 10; i++) {
 		testList = testList.prepend(i);
 }
 
-var listPrint = function (head) {
-		debug.print(head);
-};
+var printList = List.iter(function (x) { debug.print(x + "<br>"); });
 
-
+printList(testList);
 
 function updateCanvas (data) {
     ctx.putImageData(data, 0, 0);
