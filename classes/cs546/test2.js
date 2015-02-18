@@ -139,12 +139,6 @@ function drawLineAA (line) {
 		var r0 = line.col1.r, g0 = line.col1.g, b0 = line.col1.b, a0 = line.col1.a;
 		var r1 = line.col2.r, g1 = line.col2.g, b1 = line.col2.b, a1 = line.col2.a;
 		
-		debug.print("<br>(");
-		debug.printPoint(line.pt1); debug.print(", "); debug.printPoint(line.pt2);
-		debug.print(" --- ");
-		debug.printColor(line.col1); debug.print(", "); debug.printColor(line.col2);
-		debug.print(")");
-
     var steep = Boolean(Math.abs(y1 - y0) > Math.abs(x1 - x0));
     
     if (steep) {
@@ -202,7 +196,7 @@ function drawLineAA (line) {
 						dist = pointDistance(line.pt1, point);
 						
 						p = pointDistance(pt1, point) / dist;
-						colorInterpolate(line.col1, line.col2, p, color);
+						color = colorInterpolate(line.col1, line.col2, p, color);
 
 						drawPixelAA(p1, rfpart(intery), color);
 						drawPixelAA(p2,  fpart(intery), color);
@@ -214,7 +208,7 @@ function drawLineAA (line) {
 						dist = pointDistance(line.pt1, point);
 						
 						p = pointDistance(pt1, point) / dist;
-						colorInterpolate(line.col1, line.col2, p, color);
+						color = colorInterpolate(line.col1, line.col2, p, color);
 
 						drawPixelAA(p1, rfpart(intery), color);
 						drawPixelAA(p2,  fpart(intery), color);
