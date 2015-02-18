@@ -104,7 +104,8 @@ function updateCanvas(data) {
     ctx.putImageData(data, 0, 0);
 }
 
-function alphaComposition(colorA, colorB) {
+function alphaComposition(colorA, colorB, c) {
+		var d = Math.floor(c * a);
 		var r = Math.floor((colorA.a * colorA.r) / 255.0 - (colorA.a - 255.0) * colorB.a * colorB.r / 65025.0);
 		var g = Math.floor((colorA.a * colorA.g) / 255.0 - (colorA.a - 255.0) * colorB.a * colorB.g / 65025.0);
 		var b = Math.floor((colorA.a * colorA.b) / 255.0 - (colorA.a - 255.0) * colorB.a * colorB.b / 65025.0);
