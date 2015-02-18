@@ -340,7 +340,7 @@ List.fold = List.foldr;
 var plus = function (a) { return function (b) { return a + b;	}; };
 
 List.length = function (x) {
-	var inc = function (a) { return function (b) { return a + 1;	}; };
+	var inc = function (a) { return function (b) { return b + 1;	}; };
 	return List.fold (inc) (0) (x);
 };
 
