@@ -343,8 +343,6 @@ List.total = function (list) {
 	return List.fold (plus) (0) (list); 
 };
 
-
-
 List.length = function (list) {
 	console.log(list);
 	var ones = List.map (function (x) { return 1; }) (list);
@@ -359,7 +357,7 @@ testlist = List.cons (3) (testlist);
 console.log(testlist);
 var ones = List.map (function (x) { return 1; }) (testlist);
 var len = List.total (ones);
-console.log(len);
+console.log(testlist);
 len = List.length (testlist);
 console.log(len);
 
