@@ -378,6 +378,7 @@ document.getElementById('addIteration').addEventListener('click', function() {
 	segList = fractalIterations(iterations);
 	List.iter(drawLineAA)(segList);
 	updateCanvas(canvasData);
+	console.log(segList);
 }, false);
 
 document.getElementById('subIteration').addEventListener('click', function() {
