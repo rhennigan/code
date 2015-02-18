@@ -314,6 +314,12 @@ List.map = function (f) {
 // };
 
 List.iter = function (f) {
+	return function (list) {
+		if (!list.isEmpty()) ;
+	};
+};
+
+List.iter = function (f) {
   return function (list) {
     var current = list;
     while (!current.isEmpty()) {
