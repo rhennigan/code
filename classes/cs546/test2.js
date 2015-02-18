@@ -337,11 +337,13 @@ List.foldr = function (f) {
 
 List.fold = List.foldr;
 
-var plus = function (a) { return function (b) { return a + b;	}; };
+List.total = function (list) {
+	var plus = function (a) { return function (b) { return a + b;	}; };
+	return List.fold (plus) (0) (list); 
+};
 
-List.length = function (x) {
-	var inc = function (a) { return function (b) { return b + 1;	}; };
-	return List.fold (inc) (0) (x);
+List.length = function (list) {
+	var ones = List.map (function (x) { return 1; }) (list);
 };
 
 var list = new List();
@@ -351,7 +353,7 @@ var len = List.length (list);
 
 
 
-List.total = function (list) {return List.fold (plus) (0) (list); };
+
 
 // var testList = new List();
 // for (i = 0; i < 10; i++) {
