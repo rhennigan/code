@@ -363,7 +363,7 @@ updateCanvas(canvasData);
 //   current = current.tail;
 // }
 
-var MAX_ITERATIONS = 8;
+var MAX_ITERATIONS = 6;
 
 document.getElementById('clear').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -383,7 +383,7 @@ document.getElementById('addIteration').addEventListener('click', function() {
 document.getElementById('subIteration').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 	canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-	iterations -= 1;
+	iterations = iterations <= 0 ? 0 : iterations - 1;
 	segList = fractalIterations(iterations);
 	List.iter(drawLineAA)(segList);
 	updateCanvas(canvasData);
