@@ -103,7 +103,7 @@ function draw () {
 						}
 
 						var index = (xIndex + yIndex * canvasWidth) * 4;
-						var c = 255.0 * (sum + 1.0) / 2.0;
+						var c = 255.0 * (sum/2.0 + 0.5);
 						min = sum < min ? sum : min;
 						max = sum > max ? sum : max;
 						
