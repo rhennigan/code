@@ -52,6 +52,7 @@ function colorInterpolate (c1, c2, p, c) {
 		c.g = Math.floor(p1*c1.g + p2*c2.g);
 		c.b = Math.floor(p1*c1.b + p2*c2.b);
 		c.a = Math.floor(p1*c1.a + p2*c2.a);
+		return c;
 }
 
 function drawPixel (pt, col) {
@@ -80,7 +81,7 @@ function drawLine (line) {
 
 		while (true) {
 				var p = pointDistance(pt1, point) / dist;
-				colorInterpolate(col1, col2, p, color);
+				color = colorInterpolate(col1, col2, p, color);
 				drawPixel(point, color);
 
 				if ((point.x == pt2.x) && (point.y == pt2.y)) break;
