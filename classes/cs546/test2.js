@@ -265,7 +265,7 @@ List.prototype.reverse = function () {
 		var newList = new List();
 		var current = this;
 		while (!current.isEmpty()) {
-				newList.prepend(current.head);
+				newList = newList.prepend(current.head);
 				current = current.tail;
 		}
 		return newList;
