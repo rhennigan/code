@@ -375,6 +375,7 @@ for (i = 0; i < 5; i++) {
 }
 
 console.log(segList);
+console.log(sizeof(segList));
 
 var current = segList;
 while (!current.isEmpty()) {
