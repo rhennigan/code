@@ -283,9 +283,9 @@ function fractalIterations (iterations) {
 	var lineBC = new Line(pB, pC, cB, cC);
 	var lineCA = new Line(pC, pA, cC, cA);
 	var segList = new List();
-	segList = segList.prepend(lineAB);
-	segList = segList.prepend(lineBC);
-	segList = segList.prepend(lineCA);
+	segList = List.cons (lineAB) (segList);
+	segList = List.cons (lineBC) (segList);
+	segList = List.cons (lineCA) (segList);
 	for (i = 0; i < iterations; i++) {
     segList = iterateFractal(segList);
 	}
