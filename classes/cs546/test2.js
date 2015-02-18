@@ -302,6 +302,13 @@ while (!current.isEmpty()) {
 
 debug.print("<br>");
 
+current = list;
+while (!current.isEmpty()) {
+		debug.print(current.head);
+		debug.print("<br>");
+		current = current.tail;
+}
+
 current = list.reverse();
 while (!current.isEmpty()) {
 		debug.print(current.head);
