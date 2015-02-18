@@ -281,7 +281,10 @@ List.prototype.map = function (f) {
 		return function (list) {
 				var newList = new List();
 				var current = list;
-				
+				while (!current.isEmpty()) {
+						newList = newList.prepend(current.head);
+						current = current.tail;
+				}
 		};
 };
 
