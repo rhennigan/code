@@ -324,8 +324,8 @@ var w = canvasWidth;
 var h = canvasHeight;
 var sq3 = Math.sqrt(3.0);
 var pA = new Point(Math.floor(w / 2), Math.floor(h / 6));
-var pB = new Point(Math.floor(w/2 - 2*h / (3*sq3)), Math.floor());
-var pC = new Point(Math.floor(), Math.floor());
+var pB = new Point(Math.floor(w/2 - 2*h/(3*sq3)), Math.floor(5*h/6));
+var pC = new Point(Math.floor(), Math.floor(5*h/6));
 
 drawSomeStuff();
 debug.print("hello?");
