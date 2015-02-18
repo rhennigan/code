@@ -255,9 +255,9 @@ function splitLine (line) {
           l4 : new Line(m2,       line.pt2, c2, line.col2)};
 }
 
-function List () {
-  this.head = null;
-  this.tail = null;
+function List (x, xs) {
+  this.head = x  || null;
+  this.tail = xs || null;
 }
 
 List.cons = function (x) {
