@@ -326,11 +326,7 @@ List.fold = function (f) {
 };
 
 List.total = function (list) {
-	var plus = function (a) {
-		return function (b) {
-			return a + b;
-		};
-	};
+	var plus = function (a) { return function (b) { return a + b;	}; };
 	return List.fold (plus) (0) (list);
 };
 
