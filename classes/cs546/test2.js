@@ -262,10 +262,11 @@ function List (x, xs) {
 
 List.cons = function (x) {
 	return function (xs) {
-		var list = new List();
-		list.head = x;
-		list.tail = xs;
-		return list;
+		// var list = new List();
+		// list.head = x;
+		// list.tail = xs;
+		// return list;
+		return new List(x, xs);
 	};
 };
 
