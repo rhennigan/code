@@ -317,7 +317,7 @@ List.iter = function (f) {
 	return function (list) {
 		if (!list.isEmpty()) {
 			f (list.head);
-			List.iter (list.tail);
+			List.iter (f) (list.tail);
 		}
 	};
 };
@@ -335,8 +335,7 @@ List.iter = function (f) {
 List.foldl = function (f) {
 	return function (acc) {
 		return function (list) {
-			return list.isEmpty() ?
-				acc : 
+			return list.isEmpty() ?	acc : 
 				List.foldl (f) (f (acc) (list.head)) (list.tail);
 		};
 	};
@@ -345,8 +344,7 @@ List.foldl = function (f) {
 List.foldr = function (f) {
 	return function (acc) {
 		return function (list) {
-			return list.isEmpty() ?
-				acc : 
+			return list.isEmpty() ?	acc : 
 				f (list.head) (List.foldr (f) (acc) (list.tail));
 		};
 	};
