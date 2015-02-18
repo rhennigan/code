@@ -352,7 +352,8 @@ function fractalIterations (iterations) {
 //   segList = iterateFractal(segList);
 // }
 
-var segList = fractalIterations(0);
+var iterations = 0;
+var segList = fractalIterations(iterations);
 List.iter(drawLineAA)(segList);
 updateCanvas(canvasData);
 
@@ -367,5 +368,14 @@ updateCanvas(canvasData);
 document.getElementById('clear').addEventListener('click', function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 	canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+	updateCanvas(canvasData);
+}, false);
+
+document.getElementById('addIteration').addEventListener('click', function() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+	canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+	iterations += 1;
+	segList = fractalIterations(iterations);
+	List.iter(drawLineAA)(segList);
 	updateCanvas(canvasData);
 }, false);
