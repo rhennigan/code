@@ -8,16 +8,6 @@ var curry = function (fn) {
 	};
 };
 
-var addFun = function (a, b) {
-	return a + b;
-};
-
-var plusOne = curry (addFun, 1);
-
-var result = plusOne (2);
-
-alert (result);
-
 function List (x, xs) {
   this.head = x  || null;
   this.tail = xs || null;
