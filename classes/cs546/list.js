@@ -32,8 +32,8 @@ List.map = function (f) {
 
 List.N = function (num) {
   var revN = function (n) { 
-    return n <= 0 ? new List() : 
-      List.cons (n) (revN (n-1)); 
+    return n <= 0 ? new List () :
+      List.cons (n) (revN (n-1));
   };
   return List.reverse (revN (num));
 };
