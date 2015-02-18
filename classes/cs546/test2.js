@@ -318,11 +318,7 @@ List.iter = function (f) {
 List.fold = function (f) {
 	return function (acc) {
 		return function (list) {
-			if (list.isEmpty()) {
-				return acc;
-			} else {
-				return List.fold (f) (f (acc) (list.head)) (list.tail);
-			}
+			return list.isEmpty() ? acc : List.fold (f) (f (acc) (list.head)) (list.tail);
 		};
 	};
 };
