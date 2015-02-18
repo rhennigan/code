@@ -133,10 +133,18 @@ function rfpart(x) {
 }
 
 function drawLineAA (line) {
-		var x0 = line.pt1.x;
-		var y0 = line.pt1.y;
-		var x1 = line.pt2.x;
-		var y1 = line.pt2.y;
+		var x0 = line.pt1.x, y0 = line.pt1.y;
+		var x1 = line.pt2.x, y1 = line.pt2.y;
+
+		var r0 = line.col1.r;
+		var g0 = line.col1.g;
+		var b0 = line.col1.b;
+		var a0 = line.col1.a;
+		
+		var r1 = line.col2.r;
+		var g1 = line.col2.g;
+		var b1 = line.col2.b;
+		var a1 = line.col2.a;
 		
     var steep = Boolean(Math.abs(y1 - y0) > Math.abs(x1 - x0));
     
