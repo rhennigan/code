@@ -195,7 +195,7 @@ function drawLineAA (line) {
 						color = new Color(255, 255, 255, 255);
 						dist = pointDistance(line.pt1, line.pt2);
 						
-						p = pointDistance(pt1, point) / dist;
+						p = pointDistance(line.pt1, point) / dist;
 						color = colorInterpolate(line.col1, line.col2, p, color);
 
 						drawPixelAA(p1, rfpart(intery), color);
@@ -207,7 +207,7 @@ function drawLineAA (line) {
 						color = new Color(255, 255, 255, 255);
 						dist = pointDistance(line.pt1, line.pt2);
 						
-						p = pointDistance(pt1, point) / dist;
+						p = pointDistance(line.pt1, point) / dist;
 						color = colorInterpolate(line.col1, line.col2, p, color);
 
 						drawPixelAA(p1, rfpart(intery), color);
