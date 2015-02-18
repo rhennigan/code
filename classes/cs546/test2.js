@@ -100,7 +100,7 @@ function alphaComposition(cA, cB, c) {
 }
 
 function drawPixelAA (point, c, colorB) {
-		var index = (x + y * canvasWidth) * 4;
+		var index = (point.x + point.y * canvasWidth) * 4;
 		
 		var r = canvasData.data[index + 0];
     var g = canvasData.data[index + 1];
@@ -159,7 +159,7 @@ function drawLineAA (line) {
     var dy = y1 - y0;
     var gradient = dy / dx;
 
-		debug.print("<br>" + gradient);
+		
 
     // handle first endpoint
     var xend = Math.round(x0);
@@ -175,7 +175,7 @@ function drawLineAA (line) {
 				drawPixelAA(new Point(xpxl1, ypxl1+1),  fpart(yend) * xgap, line.col1);
     }
     var intery = yend + gradient;
-
+		debug.print("<br>" + intery);
     // handle second endpoint
     xend = Math.round(x1);
     yend = y1 + gradient * (xend - x1);
