@@ -383,12 +383,6 @@ for (i = 0; i < 5; i++) {
     segList = iterateFractal(segList);
 }
 
-console.log(segList);
-console.log(sizeof(segList));
-console.log(sizeof(mapList));
-
-console.log(List.map(sizeof)(mapList));
-
 var current = segList;
 while (!current.isEmpty()) {
     drawLineAA(current.head);
