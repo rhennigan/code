@@ -58,15 +58,6 @@ function plot(x, y, c, r, g, b, a) {
     canvasData.data[index + 3] = Math.floor(aA + aB - aA * aB / 255.0);
 }
 
-// function plot(x, y, c, r, g, b, a) {
-//    var index = (x + y * canvasWidth) * 4;
-
-//     canvasData.data[index + 0] = Math.floor((1-c)*255);
-//     canvasData.data[index + 1] = Math.floor((1-c)*255);
-//     canvasData.data[index + 2] = Math.floor((1-c)*255);
-//     canvasData.data[index + 3] = a;
-// }
-
 function ipart(x) {
     return Math.floor(x);
 }
@@ -82,10 +73,6 @@ function fpart(x) {
 function rfpart(x) {
     return 1 - fpart(x);
 }
-
-// function swap(a, b) = {
-//    b = [a, a = b][0];
-// }
 
 function drawLineAA(x0, y0, x1, y1, r, g, b, a) {
     var steep = Boolean(Math.abs(y1 - y0) > Math.abs(x1 - x0));
@@ -145,6 +132,10 @@ function drawLineAA(x0, y0, x1, y1, r, g, b, a) {
     }
 }
 
+function resetCanvas() {
+		updateCanvas(canvasBlank);
+}
+
 var lineCount = 100;
 var xArray = [];
 var yArray = [];
@@ -156,18 +147,16 @@ for (i = 0; i < lineCount; i++) {
 for (i = 0; i < lineCount-1; i++) {
     drawLineAA(xArray[i], yArray[i], xArray[i+1], yArray[i+1], 0, 0, 0, Math.floor(255 * (i / lineCount)));
 }
-updateCanvas();
+updateCanvas(canvasData);
 
-// setTimeout(function () { ctx.clearRect(0, 0, canvas.width, canvas.height); }, 1000);
-
-function resetCanvas() {
-    for (var x = 0; x < canvas.width; x++) {
-        for (var y = 0; y < canvas.height; y++) {
-            drawPixel(x, y, 255, 255, 255, 0);
-        }
-    }
-    updateCanvas();
-}
+// function resetCanvas() {
+//     for (var x = 0; x < canvas.width; x++) {
+//         for (var y = 0; y < canvas.height; y++) {
+//             drawPixel(x, y, 255, 255, 255, 0);
+//         }
+//     }
+//     updateCanvas();
+// }
 
 var antialiasing = false;
 
