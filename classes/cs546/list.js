@@ -1,3 +1,5 @@
+"use strict";
+
 function List (x, xs) {
   this.head = x  || null;
   this.tail = xs || null;
