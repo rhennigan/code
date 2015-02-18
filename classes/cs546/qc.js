@@ -101,7 +101,7 @@ function draw () {
 						}
 
 						var index = (xIndex + yIndex * canvasWidth) * 4;
-						var c = 255 * sum;
+						var c = 255.0 * (sum + 1.0) / 2.0;
 						canvasData.data[index + 0] = c;
 						canvasData.data[index + 1] = c;
 						canvasData.data[index + 2] = c;
