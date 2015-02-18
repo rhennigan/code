@@ -21,6 +21,8 @@ function color (r, g, b, a) {
 }
 
 function colorInterpolate (color1, color2, p) {
+		var p1 = p < 0.0 ? 0.0 : p > 1.0 ? 1.0 : p;
+		var p0 = 1.0 - p1;
 		return color();
 }
 
