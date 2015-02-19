@@ -13,6 +13,11 @@ function List (x, xs) {
   this.tail = xs || null;
 }
 
+function Tuple (left, right) {
+		this.left = left || null;
+		this.right = right || null;
+}
+
 List.cons = function (x) { return function (xs) { return new List(x, xs); }; };
 
 List.prototype.isEmpty = function () {
@@ -85,9 +90,10 @@ List.total = function (list) {
   return List.fold (plus) (0) (list); 
 };
 
-List.splitAt = function (n) {
+List.take = function (n) {
 		return function (list) {
-				
+				return n <= 0 ? list :
+						
 		};
 };
 
