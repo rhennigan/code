@@ -120,4 +120,4 @@ document.getElementById('addOrder').addEventListener('click', function() {
 		order += 1;
 }, false);
 
-setInterval(draw, 200);
+setInterval(draw, 100);
