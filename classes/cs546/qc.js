@@ -90,18 +90,12 @@ function draw () {
 						var sum = 0.0;
 
 						for (k = 0; k < d; k++) {
-								sum += Math.cos(scale * x * Math.cos(k * 3.14159 / d) - 
-																scale * y * Math.sin(k * 3.14159 / d) + p);
+								sum += Math.cos(scale * x * Math.cos(k * Math.PI / d) - 
+																scale * y * Math.sin(k * Math.PI / d) + p);
 						}
 						sum *= mag;
 
 						sum = Math.atan(5*sum) / (2.0 * Math.PI) + 0.5;
-						// var s = Math.floor(sum);
-						// if (s % 2 == 1) {
-						// 		sum = 1.0 - (sum - s);
-						// } else {
-						// 		sum = (sum - s);
-						// }
 
 						var index = (xIndex + yIndex * canvasWidth) * 4;
 						var c = 255.0 * sum;
