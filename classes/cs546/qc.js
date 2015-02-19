@@ -112,4 +112,4 @@ function draw () {
 		p += 0.025;
 }
 
-setInterval(draw, 50);
+setInterval(draw, 200);
