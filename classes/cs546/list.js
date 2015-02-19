@@ -85,6 +85,8 @@ List.total = function (list) {
   return List.fold (plus) (0) (list); 
 };
 
-List.pairs = function (n) {
-		
+List.tuples = function (n) {
+		return function (list) {
+				
+		};
 };
