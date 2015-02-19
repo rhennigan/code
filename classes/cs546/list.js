@@ -97,6 +97,12 @@ List.take = function (n) {
 		};
 };
 
+List.skip = function (n) {
+		return function (list) {
+				
+		};
+};
+
 List.tuples = function (n) {
 		return function (list) {
 				
