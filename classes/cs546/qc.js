@@ -67,7 +67,7 @@ function qcPix (pt, order, phase, scale, mag, dX, dY) {
 
 var order = 5;
 var scale = 0.6;
-var mag = 0.75;
+var mag = 1.0;
 var p = 0.0;
 var xIndex = 0;
 var yIndex = 0;
@@ -95,7 +95,7 @@ function draw () {
 						}
 						sum *= mag;
 
-						sum = Math.atan(5*sum - 1) / (2.0 * Math.PI) + 0.5;
+						sum = Math.atan(5*sum) / (2.0 * Math.PI) + 0.5;
 						// var s = Math.floor(sum);
 						// if (s % 2 == 1) {
 						// 		sum = 1.0 - (sum - s);
