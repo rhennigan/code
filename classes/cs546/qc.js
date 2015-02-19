@@ -66,7 +66,7 @@ function qcPix (pt, order, phase, scale, mag, dX, dY) {
 
 
 var order = 5;
-var scale = 0.4;
+var scale = 0.6;
 var mag = 0.75;
 var p = 0.0;
 var xIndex = 0;
@@ -115,7 +115,7 @@ function draw () {
 				}
 		}
 		updateCanvas(canvasData);
-		p += 0.05;
+		p += 0.01;
 }
 
 setInterval(draw, 50);
