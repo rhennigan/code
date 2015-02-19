@@ -112,4 +112,12 @@ function draw () {
 		p += 0.025;
 }
 
+document.getElementById('subOrder').addEventListener('click', function() {
+		order = order <= 1 ? 1 : order - 1;
+}, false);
+
+document.getElementById('addOrder').addEventListener('click', function() {
+		order += 1;
+}, false);
+
 setInterval(draw, 200);
