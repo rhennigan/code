@@ -85,6 +85,12 @@ List.total = function (list) {
   return List.fold (plus) (0) (list); 
 };
 
+List.splitAt = function (n) {
+		return function (list) {
+				
+		};
+};
+
 List.tuples = function (n) {
 		return function (list) {
 				
