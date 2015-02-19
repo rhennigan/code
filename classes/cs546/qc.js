@@ -99,11 +99,11 @@ function draw () {
 						if (s % 2 == 1) {
 								sum = 1.0 - (sum - s);
 						} else {
-								sum = sum - s;
+								sum = 1.0 - (sum - s);
 						}
 
 						var index = (xIndex + yIndex * canvasWidth) * 4;
-						var c = 255.0 * (sum/2.0 + 0.5);
+						var c = 255.0 * sum;
 						min = sum < min ? sum : min;
 						max = sum > max ? sum : max;
 						
