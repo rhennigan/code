@@ -106,9 +106,10 @@ function draw () {
 
 						var xP = xIndex / canvasWidth;
 						var yP = yIndex / canvasWidth;
+						var zP = (xP + yP) / 2.0;
 
 						canvasData.data[index + 0] = Math.pow(sum, 1.0 + Math.sin(1.0+xP*p)/Math.PI)*255;
-						canvasData.data[index + 1] = Math.pow(sum, 1.0 + Math.sin(2.0+p)/Math.PI)*255;
+						canvasData.data[index + 1] = Math.pow(sum, 1.0 + Math.sin(2.0+zP*p)/Math.PI)*255;
 						canvasData.data[index + 2] = Math.pow(sum, 1.0 + Math.sin(3.0+yP*p)/Math.PI)*255;
 						canvasData.data[index + 3] = 255;
 				}
