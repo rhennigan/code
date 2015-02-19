@@ -80,6 +80,8 @@ function draw () {
 		// canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 		var dX = 4*p;
 		var dY = 2*p;
+		min = 255;
+		max = 0;
 		
 		for (yIndex = 0; yIndex < canvasHeight; yIndex++) {
 				for (xIndex = 0; xIndex < canvasWidth; xIndex++) {
@@ -108,8 +110,8 @@ function draw () {
 						canvasData.data[index + 3] = 255;
 				}
 		}
-		// console.log(min);
-		// console.log(max);
+		console.log(min);
+		console.log(max);
 		updateCanvas(canvasData);
 		p += 0.025;
 }
