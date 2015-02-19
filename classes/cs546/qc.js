@@ -104,9 +104,9 @@ function draw () {
 						min = c < c ? c : min;
 						max = c > c ? c : max;
 
-						canvasData.data[index + 0] = Math.pow(sum, 1.0 + Math.sin(0.5*p)/Math.PI)*255;
-						canvasData.data[index + 1] = Math.pow(sum, 1.0 + Math.sin(0.6*p)/Math.PI)*255;
-						canvasData.data[index + 2] = Math.pow(sum, 1.0 + Math.sin(0.7*p)/Math.PI)*255;
+						canvasData.data[index + 0] = Math.pow(sum, 1.0 + Math.sin(1.0+0.5*p)/Math.PI)*255;
+						canvasData.data[index + 1] = Math.pow(sum, 1.0 + Math.sin(2.0+0.6*p)/Math.PI)*255;
+						canvasData.data[index + 2] = Math.pow(sum, 1.0 + Math.sin(3.0+0.7*p)/Math.PI)*255;
 						canvasData.data[index + 3] = 255;
 				}
 		}
