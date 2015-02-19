@@ -92,8 +92,8 @@ List.total = function (list) {
 
 List.take = function (n) {
 		return function (list) {
-				return n <= 0 ? new List() :
-						
+				return list.isEmpty() || n <= 0 ? new List() :
+						List.cons (list.head) (List.take (n-1) (list.tail));
 		};
 };
 
