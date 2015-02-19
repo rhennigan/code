@@ -95,7 +95,7 @@ function draw () {
 						}
 						sum *= mag;
 
-						sum = Math.atan(2 * sum - 1) / (2.0 * Math.PI) + 0.5;
+						sum = Math.atan(5*sum - 1) / (2.0 * Math.PI) + 0.5;
 						// var s = Math.floor(sum);
 						// if (s % 2 == 1) {
 						// 		sum = 1.0 - (sum - s);
