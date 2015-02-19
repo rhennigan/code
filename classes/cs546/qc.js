@@ -108,8 +108,8 @@ function draw () {
 						canvasData.data[index + 3] = 255;
 				}
 		}
-		console.log(min);
-		console.log(max);
+		// console.log(min);
+		// console.log(max);
 		updateCanvas(canvasData);
 		p += 0.025;
 }
