@@ -104,9 +104,9 @@ function draw () {
 						min = c < c ? c : min;
 						max = c > c ? c : max;
 
-						canvasData.data[index + 0] = Math.pow(sum, Math.sin(p))*255;
-						canvasData.data[index + 1] = sum*255;
-						canvasData.data[index + 2] = Math.pow(sum, Math.cos(p))*255;
+						canvasData.data[index + 0] = Math.pow(sum, Math.sin(0.5*p))*255;
+						canvasData.data[index + 1] = Math.pow(sum, Math.sin(0.6*p))*255;
+						canvasData.data[index + 2] = Math.pow(sum, Math.sin(0.7*p))*255;
 						canvasData.data[index + 3] = 255;
 				}
 		}
