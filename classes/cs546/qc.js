@@ -104,9 +104,9 @@ function draw () {
 						min = c < c ? c : min;
 						max = c > c ? c : max;
 
-						canvasData.data[index + 0] = c;
-						canvasData.data[index + 1] = c;
-						canvasData.data[index + 2] = c;
+						canvasData.data[index + 0] = sum*sum*255;
+						canvasData.data[index + 1] = sum*255;
+						canvasData.data[index + 2] = Math.sqrt(sum)*255;
 						canvasData.data[index + 3] = 255;
 				}
 		}
