@@ -115,7 +115,7 @@ function draw () {
 				}
 		}
 		updateCanvas(canvasData);
-		p += 0.01;
+		p += 0.025;
 }
 
 setInterval(draw, 200);
