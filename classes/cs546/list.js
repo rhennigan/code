@@ -99,7 +99,8 @@ List.take = function (n) {
 
 List.skip = function (n) {
 		return function (list) {
-				
+				return list.isEmpty() || n <= 0 ? list :
+						List.skip (n-1) (list.tail);
 		};
 };
 
