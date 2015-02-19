@@ -92,7 +92,7 @@ List.total = function (list) {
 
 List.take = function (n) {
 		return function (list) {
-				return n <= 0 ? list :
+				return n <= 0 ? new List() :
 						
 		};
 };
