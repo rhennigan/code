@@ -104,8 +104,3 @@ List.skip = function (n) {
 		};
 };
 
-List.tuples = function (n) {
-		return function (list) {
-				
-		};
-};
