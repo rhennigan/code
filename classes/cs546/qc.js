@@ -97,9 +97,9 @@ function draw () {
 
 						var s = Math.floor(sum);
 						if (s % 2 == 1) {
-								sum = 1.0 - sum % 1.0;
+								sum = 1.0 - (sum - s);
 						} else {
-								sum = sum % 1.0;
+								sum = sum - s;
 						}
 
 						var index = (xIndex + yIndex * canvasWidth) * 4;
