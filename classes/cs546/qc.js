@@ -72,8 +72,8 @@ var p = 0.0;
 var xIndex = 0;
 var yIndex = 0;
 var k = 0;
-var min =  100;
-var max = -100;
+var min = 255;
+var max = 0;
 
 function draw () {
 		// ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -99,15 +99,17 @@ function draw () {
 
 						var index = (xIndex + yIndex * canvasWidth) * 4;
 						var c = 255.0 * sum;
-						min = sum < min ? sum : min;
-						max = sum > max ? sum : max;
-						
+						min = c < c ? c : min;
+						max = c > c ? c : max;
+
 						canvasData.data[index + 0] = c;
 						canvasData.data[index + 1] = c;
 						canvasData.data[index + 2] = c;
 						canvasData.data[index + 3] = 255;
 				}
 		}
+		console.log(min);
+		console.log(max);
 		updateCanvas(canvasData);
 		p += 0.025;
 }
