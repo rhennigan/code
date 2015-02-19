@@ -68,7 +68,7 @@ function qcPix (pt, order, phase, scale, mag, dX, dY) {
 var order = 5;
 var scale = 0.6;
 var mag = 5.0;
-var p = 0.0;
+var p = 2.0;
 var xIndex = 0;
 var yIndex = 0;
 var k = 0;
@@ -104,8 +104,8 @@ function draw () {
 						min = c < c ? c : min;
 						max = c > c ? c : max;
 
-						var xP = 0.25 * xIndex / canvasWidth;
-						var yP = 0.25 * yIndex / canvasWidth;
+						var xP = 0.1 * xIndex / canvasWidth;
+						var yP = 0.1 * yIndex / canvasWidth;
 						var zP = (xP + yP) / 2.0;
 
 						canvasData.data[index + 0] = Math.pow(sum, 1.0 + Math.sin(1.0+xP*p+p)/Math.PI)*255;
