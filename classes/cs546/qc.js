@@ -95,12 +95,13 @@ function draw () {
 						}
 						sum *= mag;
 
-						var s = Math.floor(sum);
-						if (s % 2 == 1) {
-								sum = 1.0 - (sum - s);
-						} else {
-								sum = (sum - s);
-						}
+						sum = Math.atan(2 * sum - 1) / (2.0 * Math.PI) + 0.5;
+						// var s = Math.floor(sum);
+						// if (s % 2 == 1) {
+						// 		sum = 1.0 - (sum - s);
+						// } else {
+						// 		sum = (sum - s);
+						// }
 
 						var index = (xIndex + yIndex * canvasWidth) * 4;
 						var c = 255.0 * sum;
