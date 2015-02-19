@@ -104,8 +104,8 @@ function draw () {
 						min = c < c ? c : min;
 						max = c > c ? c : max;
 
-						var xP = xIndex / canvasWidth;
-						var yP = yIndex / canvasWidth;
+						var xP = 0.25 * xIndex / canvasWidth;
+						var yP = 0.25 * yIndex / canvasWidth;
 						var zP = (xP + yP) / 2.0;
 
 						canvasData.data[index + 0] = Math.pow(sum, 1.0 + Math.sin(1.0+xP*p+p)/Math.PI)*255;
