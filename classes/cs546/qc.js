@@ -68,7 +68,7 @@ function qcPix (pt, order, phase, scale, mag, dX, dY) {
 var order = 5;
 var scale = 0.6;
 var mag = 5.0;
-var p = 2.0;
+var p = 2.0 * Math.random() * Math.PI;
 var xIndex = 0;
 var yIndex = 0;
 var k = 0;
