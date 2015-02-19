@@ -84,3 +84,7 @@ List.total = function (list) {
   var plus = function (a) { return function (b) { return a + b; }; };
   return List.fold (plus) (0) (list); 
 };
+
+List.pairs = function (n) {
+		
+};
