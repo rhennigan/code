@@ -72,16 +72,16 @@ var p = 2.0 * Math.random() * Math.PI;
 var xIndex = 0;
 var yIndex = 0;
 var k = 0;
-var min = 255;
-var max = 0;
+// var min = 255;
+// var max = 0;
 
 function draw () {
 		// ctx.clearRect(0, 0, canvas.width, canvas.height);
 		// canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 		var dX = 4*p;
 		var dY = 2*p;
-		min = 255;
-		max = 0;
+		// min = 255;
+		// max = 0;
 		
 		for (yIndex = 0; yIndex < canvasHeight; yIndex++) {
 				for (xIndex = 0; xIndex < canvasWidth; xIndex++) {
@@ -100,9 +100,9 @@ function draw () {
 						sum = Math.atan(sum) / (2.0 * Math.PI) + 0.5;
 
 						var index = (xIndex + yIndex * canvasWidth) * 4;
-						var c = 255.0 * sum;
-						min = c < c ? c : min;
-						max = c > c ? c : max;
+						// var c = 255.0 * sum;
+						// min = c < c ? c : min;
+						// max = c > c ? c : max;
 
 						var xP = 0.1 * xIndex / canvasWidth;
 						var yP = 0.1 * yIndex / canvasWidth;
