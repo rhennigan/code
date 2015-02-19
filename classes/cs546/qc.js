@@ -39,29 +39,29 @@ function drawPixel (pt, col) {
 }
 
 function qcPix (pt, order, phase, scale, mag, dX, dY) {
-    var xIndex = pt.x;
-    var yIndex = pt.y;
+  var xIndex = pt.x;
+  var yIndex = pt.y;
 
-    var x = xIndex + dX - canvasWidth / 2.0;
-    var y = yIndex + dY - canvasHeight / 2.0;
-    var d = order;
-    var sum = 0.0;
+  var x = xIndex + dX - canvasWidth / 2.0;
+  var y = yIndex + dY - canvasHeight / 2.0;
+  var d = order;
+  var sum = 0.0;
 
-    for (k = 0; k < d; k++) {
-        sum += Math.cos(scale * x * Math.cos(k * 3.14159 / d) - 
-                        scale * y * Math.sin(k * 3.14159 / d) + phase);
-    }
-    sum *= mag;
+  for (k = 0; k < d; k++) {
+    sum += Math.cos(scale * x * Math.cos(k * 3.14159 / d) - 
+                    scale * y * Math.sin(k * 3.14159 / d) + phase);
+  }
+  sum *= mag;
 
-    var s = Math.floor(sum);
-    if (s % 2 == 1) {
-        sum = 1.0 - sum % 1.0;
-    } else {
-        sum = sum % 1.0;
-    }
+  var s = Math.floor(sum);
+  if (s % 2 == 1) {
+    sum = 1.0 - sum % 1.0;
+  } else {
+    sum = sum % 1.0;
+  }
 
-    var color = new Color(sum*255, sum*255, sum*255, 255);
-    return color;
+  var color = new Color(sum*255, sum*255, sum*255, 255);
+  return color;
 }
 
 
@@ -76,56 +76,56 @@ var k = 0;
 // var max = 0;
 
 function draw () {
-    // ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-    var dX = 4*p;
-    var dY = 2*p;
-    // min = 255;
-    // max = 0;
-    
-    for (yIndex = 0; yIndex < canvasHeight; yIndex++) {
-        for (xIndex = 0; xIndex < canvasWidth; xIndex++) {
-            var x = xIndex + dX - canvasWidth / 2.0;
-            var y = yIndex + dY - canvasHeight / 2.0;
+  // ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+  var dX = 4*p;
+  var dY = 2*p;
+  // min = 255;
+  // max = 0;
+  
+  for (yIndex = 0; yIndex < canvasHeight; yIndex++) {
+    for (xIndex = 0; xIndex < canvasWidth; xIndex++) {
+      var x = xIndex + dX - canvasWidth / 2.0;
+      var y = yIndex + dY - canvasHeight / 2.0;
 
-            var d = order;
-            var sum = 0.0;
+      var d = order;
+      var sum = 0.0;
 
-            for (k = 0; k < d; k++) {
-                sum += Math.cos(scale * x * Math.cos(k * Math.PI / d) - 
-                                scale * y * Math.sin(k * Math.PI / d) + p);
-            }
-            sum *= mag;
+      for (k = 0; k < d; k++) {
+        sum += Math.cos(scale * x * Math.cos(k * Math.PI / d) - 
+                        scale * y * Math.sin(k * Math.PI / d) + p);
+      }
+      sum *= mag;
 
-            sum = Math.atan(sum) / (2.0 * Math.PI) + 0.5;
+      sum = Math.atan(sum) / (2.0 * Math.PI) + 0.5;
 
-            var index = (xIndex + yIndex * canvasWidth) * 4;
-            // var c = 255.0 * sum;
-            // min = c < c ? c : min;
-            // max = c > c ? c : max;
+      var index = (xIndex + yIndex * canvasWidth) * 4;
+      // var c = 255.0 * sum;
+      // min = c < c ? c : min;
+      // max = c > c ? c : max;
 
-            var xP = 0.1 * xIndex / canvasWidth;
-            var yP = 0.1 * yIndex / canvasWidth;
-            var zP = (xP + yP) / 2.0;
+      var xP = 0.1 * xIndex / canvasWidth;
+      var yP = 0.1 * yIndex / canvasWidth;
+      var zP = (xP + yP) / 2.0;
 
-            canvasData.data[index + 0] = Math.pow(sum, 1.0 + Math.sin(1.0+xP*p+p)/Math.PI)*255;
-            canvasData.data[index + 1] = Math.pow(sum, 1.0 + Math.sin(2.0+zP*p+p)/Math.PI)*255;
-            canvasData.data[index + 2] = Math.pow(sum, 1.0 + Math.sin(3.0+yP*p+p)/Math.PI)*255;
-            canvasData.data[index + 3] = 255;
-        }
+      canvasData.data[index + 0] = Math.pow(sum, 1.0 + Math.sin(1.0+xP*p+p)/Math.PI)*255;
+      canvasData.data[index + 1] = Math.pow(sum, 1.0 + Math.sin(2.0+zP*p+p)/Math.PI)*255;
+      canvasData.data[index + 2] = Math.pow(sum, 1.0 + Math.sin(3.0+yP*p+p)/Math.PI)*255;
+      canvasData.data[index + 3] = 255;
     }
-    // console.log(min);
-    // console.log(max);
-    updateCanvas(canvasData);
-    p += 0.025;
+  }
+  // console.log(min);
+  // console.log(max);
+  updateCanvas(canvasData);
+  p += 0.025;
 }
 
 document.getElementById('subOrder').addEventListener('click', function() {
-    order = order <= 1 ? 1 : order - 1;
+  order = order <= 1 ? 1 : order - 1;
 }, false);
 
 document.getElementById('addOrder').addEventListener('click', function() {
-    order += 1;
+  order += 1;
 }, false);
 
 setInterval(draw, 50);
