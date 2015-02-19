@@ -76,8 +76,8 @@ var min =  100;
 var max = -100;
 
 function draw () {
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+		// ctx.clearRect(0, 0, canvas.width, canvas.height);
+		// canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 		var dX = 4*p;
 		var dY = 2*p;
 		
@@ -99,7 +99,7 @@ function draw () {
 						if (s % 2 == 1) {
 								sum = 1.0 - (sum - s);
 						} else {
-								sum = 1.0 - (sum - s);
+								sum = (sum - s);
 						}
 
 						var index = (xIndex + yIndex * canvasWidth) * 4;
@@ -115,8 +115,6 @@ function draw () {
 		}
 		updateCanvas(canvasData);
 		p += 0.05;
-		console.log(min);
-		console.log(max);
 }
 
 setInterval(draw, 50);
