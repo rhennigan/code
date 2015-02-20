@@ -1,4 +1,4 @@
-var MODE = {
+var PRIMITIVES = {
   LINE: 'line',
   CIRCLE: 'circle',
   ELLIPSE: 'ellipse',
