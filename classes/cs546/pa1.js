@@ -5,7 +5,7 @@ var PRIMITIVES = {
   RECTANGLE: 'rectangle',
   POLYGON: 'polygon',
   POLYLINE: 'polyline'
-}
+};
 
 function Point(x, y) {
   this.x = x || 0;
@@ -39,9 +39,10 @@ Pixel.prototype.moveTo = function(x, y) {
 
 Pixel.prototype.move = function(x, y) {
   this.point.x += x;
-  this.point.y += y;
+  this.point.y += y; 
   return this;
 };
+
 
 Pixel.prototype.drawNAA = function(cdata, width) {
   var index = (this.point.x + this.point.y * width) * 4;
@@ -478,7 +479,7 @@ function CanvasState(canvas) {
   var stylePaddingLeft, stylePaddingTop, styleBorderLeft, styleBorderTop;
   if (document.defaultView && document.defaultView.getComputedStyle) {
     var gcs = document.defaultView.getComputedStyle(canvas, null);
-    this.stylePaddingLeft = parseInt(gcs['paddingLeft'], 10) || 0;
+    this.stylePaddingLeft = parseInt(gcs.paddingLeft, 10) || 0;
     this.stylePaddingTop = parseInt(gcs['paddingTop'], 10) || 0;
     this.styleBorderLeft = parseInt(gcs['borderLeftWidth'], 10) || 0;
     this.styleBorderTop = parseInt(gcs['borderTopWidth'], 10) || 0;
