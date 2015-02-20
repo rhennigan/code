@@ -143,21 +143,10 @@ Line.prototype.drawNAA = function (cdata, width) {
   }
 };
 
-function ipart(x) {
-  return Math.floor(x);
-}
-
-function round(x) {
-  return Math.round(x);
-}
-
-function fpart(x) {
-  return (x < 0) ? (1 - (x - Math.floor(x))) : (x - Math.floor(x));
-}
-
-function rfpart(x) {
-  return 1 - fpart(x);
-}
+function ipart(x) { return Math.floor(x); }
+function round(x) { return Math.round(x); }
+function fpart(x) { return (x < 0) ? (1 - (x - Math.floor(x))) : (x - Math.floor(x)); }
+function rfpart(x) { return 1 - fpart(x); }
 
 Line.prototype.drawAA = function (cdata, width) {
   var line = this;
@@ -566,7 +555,7 @@ function makeShape (mouse) {
     pt2 = new Point(mouse.x, mouse.y);
     var rectangle = new Rectangle(pt1, pt2, color);
     return rectangle;
-    
+
     default:
     alert('fixme');
     return null;
@@ -614,7 +603,7 @@ function dragShape (mouse, shape) {
       var ctx = this.ctx;
       var shapes = this.shapes;
       this.clear();
-      
+
       var N = shapes.length;
     // if (N > 0) console.log(shapes[0]);
     for (var i = 0; i < N; i++) {
