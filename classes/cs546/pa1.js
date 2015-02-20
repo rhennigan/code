@@ -92,7 +92,7 @@ function Line(pt1, pt2, col1, col2) {
   this.pt2 = pt2 || new Point();
   this.col1 = col1 || new Color();
   this.col2 = col2 || new Color();
-  this.type = 'line';
+  this.type = PRIMITIVES.LINE;
 }
 
 function colorInterpolate(c1, c2, p) {
