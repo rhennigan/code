@@ -418,11 +418,15 @@ var antialiasing = false;
 var drawMode = 'line';
 
 var MODE = {
-  LINE : 'line',
-  CIRCLE : 'circle'
+  LINE      : 'line',
+  CIRCLE    : 'circle',
+  ELLIPSE   : 'ellipse',
+  RECTANGLE : 'rectangle',
+  POLYGON   : 'polygon',
+  POLYLINE  : 'polyline'
 }
 
-console.log(MODE.CIRCLE);
+console.log(MODE);
 
 function changeMode (mode) {
   $("#" + drawMode).css("background-color", "#cccccc");
