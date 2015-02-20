@@ -579,48 +579,47 @@ function dragShape (mouse, shape) {
 
     case 'circle':
     shape.radius = pointDistance(shape.center, new Point(mouse.x, mouse.y));
-      // console.log(shape.radius);
-      break;
+    break;
 
-      case 'ellipse':
-      shape.a = Math.abs(mouse.x - shape.center.x);
-      shape.b = Math.abs(mouse.y - shape.center.y);
-      break;
+    case 'ellipse':
+    shape.a = Math.abs(mouse.x - shape.center.x);
+    shape.b = Math.abs(mouse.y - shape.center.y);
+    break;
 
-      case 'polygon':
-      case 'polyline':
-      shape.vertices.head.x = mouse.x;
-      shape.vertices.head.y = mouse.y;
-      break;
+    case 'polygon':
+    case 'polyline':
+    shape.vertices.head.x = mouse.x;
+    shape.vertices.head.y = mouse.y;
+    break;
 
-      default:
-      alert('fixme');
-      return null;
-    }
+    default:
+    alert('fixme');
+    return null;
   }
+};
 
-  CanvasState.prototype.clear = function() {
-    this.ctx.clearRect(0, 0, this.width, this.height);
-    this.data = this.ctx.getImageData(0, 0, this.width, this.height);
-    this.ctx.putImageData(this.data, 0, 0);
-  };
+CanvasState.prototype.clear = function() {
+  this.ctx.clearRect(0, 0, this.width, this.height);
+  this.data = this.ctx.getImageData(0, 0, this.width, this.height);
+  this.ctx.putImageData(this.data, 0, 0);
+};
 
-  CanvasState.prototype.draw = function () {
-    if (!this.valid) {
-      var ctx = this.ctx;
-      var shapes = this.shapes;
-      this.clear();
+CanvasState.prototype.draw = function () {
+  if (!this.valid) {
+    var ctx = this.ctx;
+    var shapes = this.shapes;
+    this.clear();
 
-      var N = shapes.length;
-    // if (N > 0) console.log(shapes[0]);
-    for (var i = 0; i < N; i++) {
-      var shape = shapes[i];
-      shape.draw(this.data, this.width);
-      ctx.putImageData(this.data, 0, 0);
-    }
+    var N = shapes.length;
+// if (N > 0) console.log(shapes[0]);
+for (var i = 0; i < N; i++) {
+  var shape = shapes[i];
+  shape.draw(this.data, this.width);
+  ctx.putImageData(this.data, 0, 0);
+}
 
-    this.valid = true;
-  }
+this.valid = true;
+}
 };
 
 CanvasState.prototype.getMouse = function (e) {
