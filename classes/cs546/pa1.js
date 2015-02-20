@@ -39,7 +39,7 @@ Pixel.prototype.moveTo = function(x, y) {
 
 Pixel.prototype.move = function(x, y) {
   this.point.x += x;
-  this.point.y += y; 
+  this.point.y += y;
   return this;
 };
 
