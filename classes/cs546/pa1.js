@@ -631,20 +631,9 @@ CanvasState.prototype.getMouse = function (e) {
 
 var canvasState, fractalCanvasState;
 
-function reset () {
-  canvasState.clear();
-  canvasState.shapes = [];
-  canvasState.valid = false;
-}
-
-function undo () {
-  canvasState.shapes.pop();
-  redraw();
-}
-
-function redraw () {
-  canvasState.valid = false;
-}
+function reset () { canvasState.clear(); canvasState.shapes = []; canvasState.valid = false; }
+function undo () { canvasState.shapes.pop(); redraw(); }
+function redraw () { canvasState.valid = false; }
 
 function init () {
   var canvas = document.getElementById("drawCanvas");
