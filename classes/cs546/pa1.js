@@ -480,9 +480,9 @@ function CanvasState(canvas) {
   if (document.defaultView && document.defaultView.getComputedStyle) {
     var gcs = document.defaultView.getComputedStyle(canvas, null);
     this.stylePaddingLeft = parseInt(gcs.paddingLeft, 10) || 0;
-    this.stylePaddingTop = parseInt(gcs['paddingTop'], 10) || 0;
-    this.styleBorderLeft = parseInt(gcs['borderLeftWidth'], 10) || 0;
-    this.styleBorderTop = parseInt(gcs['borderTopWidth'], 10) || 0;
+    this.stylePaddingTop = parseInt(gcs.paddingTop, 10) || 0;
+    this.styleBorderLeft = parseInt(gcs.borderLeftWidth, 10) || 0;
+    this.styleBorderTop = parseInt(gcs.borderTopWidth, 10) || 0;
   }
 
   var html = document.body.parentNode;
@@ -625,7 +625,7 @@ function dragShape(mouse, shape) {
       alert('fixme');
       return null;
   }
-};
+}
 
 CanvasState.prototype.clear = function() {
   this.ctx.clearRect(0, 0, this.width, this.height);
