@@ -635,8 +635,8 @@ function reset () { canvasState.clear(); canvasState.shapes = []; canvasState.va
 function undo () { canvasState.shapes.pop(); redraw(); }
 function redraw () { canvasState.valid = false; }
 
-function init () {
-  var canvas = document.getElementById("drawCanvas");
+function init () { 
+  var canvas = document.getElementById("drawCanvas"); 
   canvasState = new CanvasState(canvas);
 }
 
