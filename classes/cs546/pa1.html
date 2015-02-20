@@ -82,54 +82,51 @@
 </head>
 <body>
 
-    <canvas id="drawCanvas" width="350" height="350" style="border:1px solid #c3c3c3;">
-      Your browser does not support the canvas element.
-    </canvas>
-    <canvas id="fractalCanvas" width="350" height="350" style="display:none">
-      Your browser does not support the canvas element.
-    </canvas>
-    <div id="buttons">
-      <input type="button" id="clear" value="clear" onclick="reset()">
-      <hr>
-      <input type="button" id="undo" value="undo" onclick="undo()">
-      <hr>
-      <input type="button" id="line" value="line" onclick="changeMode('line')">
-      <input type="button" id="circle" value="circle" onclick="changeMode('circle')">
-      <input type="button" id="ellipse" value="ellipse" onclick="changeMode('ellipse')">
-      <hr>
-      <input type="button" id="rectangle" value="rectangle" onclick="changeMode('rectangle')">
-      <input type="button" id="polygon" value="polygon" onclick="changeMode('polygon')">
-      <input type="button" id="polyline" value="polyline" onclick="changeMode('polyline')">
-      <hr>
-        <label><input type="checkbox" id="aaModeSel"/> antialiasing</label>
-      
-      <hr>
-    
-        <label><input type="checkbox" id="fractModeSel"/> fractal mode</label>
-     
-    </div>
-    <div id="fracTxt" style="display:none"><label>These are instructions!<br></label></div>
-    <div id="hintTxt" style="display:none"><label><em>Note:</em> circles and ellipses are not currently supported with antialiasing turned on.</label></div>
-    <script src="jquery-1.11.2.js"></script>
-    <script src="list.js"></script>
-    <script src="pa1.js"></script>
-    <script type="text/javascript">
-      $('#aaModeSel').click(function() {
-        $("#hintTxt").toggle(this.checked);
-        if (this.checked) {
-          antialiasing = true;
-        } else {
-          antialiasing = false;
-        }
-        redraw ();
-      });
-      $('#fractModeSel').click(function() {
-        $("#fracTxt").toggle(this.checked);
-        $("#fractalCanvas").toggle(this.checked);
-        $("#fractalCanvas").css({'display': 'default',
-          'border': '1px solid #c3c3c3'});
-        redraw ();
-      });
-    </script>
-  </body>
-  </html>
+  <canvas id="drawCanvas" width="350" height="350" style="border:1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+  </canvas>
+  <canvas id="fractalCanvas" width="350" height="350" style="display:none">
+    Your browser does not support the canvas element.
+  </canvas>
+  <div id="buttons">
+    <input type="button" id="clear" value="clear" onclick="reset()">
+    <hr>
+    <input type="button" id="undo" value="undo" onclick="undo()">
+    <hr>
+    <input type="button" id="line" value="line" onclick="changeMode('line')">
+    <input type="button" id="circle" value="circle" onclick="changeMode('circle')">
+    <input type="button" id="ellipse" value="ellipse" onclick="changeMode('ellipse')">
+    <hr>
+    <input type="button" id="rectangle" value="rectangle" onclick="changeMode('rectangle')">
+    <input type="button" id="polygon" value="polygon" onclick="changeMode('polygon')">
+    <input type="button" id="polyline" value="polyline" onclick="changeMode('polyline')">
+    <hr>
+    <label><input type="checkbox" id="aaModeSel"/> antialiasing</label>
+    <hr>
+    <label><input type="checkbox" id="fractModeSel"/> fractal mode</label>
+  </div>
+  <div id="fracTxt" style="display:none"><label>These are instructions!<br></label></div>
+  <div id="hintTxt" style="display:none"><label><em>Note:</em> circles and ellipses are not currently supported with antialiasing turned on.</label></div>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="list.js"></script>
+  <script src="pa1.js"></script>
+  <script type="text/javascript">
+    $('#aaModeSel').click(function() {
+      $("#hintTxt").toggle(this.checked);
+      if (this.checked) {
+        antialiasing = true;
+      } else {
+        antialiasing = false;
+      }
+      redraw ();
+    });
+    $('#fractModeSel').click(function() {
+      $("#fracTxt").toggle(this.checked);
+      $("#fractalCanvas").toggle(this.checked);
+      $("#fractalCanvas").css({'display': 'default',
+        'border': '1px solid #c3c3c3'});
+      redraw ();
+    });
+  </script>
+</body>
+</html>
