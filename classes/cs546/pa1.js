@@ -422,7 +422,7 @@ var MODE = {
   CIRCLE : 'circle'
 }
 
-console.log(MODE.LINE);
+console.log(MODE.CIRCLE);
 
 function changeMode (mode) {
   $("#" + drawMode).css("background-color", "#cccccc");
