@@ -129,7 +129,7 @@ Line.prototype.drawNAA = function (cdata, width) {
   var dist = pointDistance(pt1, pt2);
   
   var pixel = new Pixel(new Point(pt1.x, pt1.y),
-                        new Color(col1.r, col1.g, col1.b, col1.a));
+    new Color(col1.r, col1.g, col1.b, col1.a));
 
   while (true) {
     var p = pointDistance(pt1, pixel.point) / dist;
@@ -546,30 +546,30 @@ function makeShape (mouse) {
 
   switch (drawMode) {
     case 'line':
-      pt1 = new Point(mouse.x, mouse.y);
-      pt2 = new Point(mouse.x, mouse.y);
-      var line = new Line(pt1, pt2, color, color);
-      return line;
+    pt1 = new Point(mouse.x, mouse.y);
+    pt2 = new Point(mouse.x, mouse.y);
+    var line = new Line(pt1, pt2, color, color);
+    return line;
 
     case 'circle':
-      center = new Point(mouse.x, mouse.y);
-      var circle = new Circle(center, 1, color);
-      return circle;
+    center = new Point(mouse.x, mouse.y);
+    var circle = new Circle(center, 1, color);
+    return circle;
 
     case 'ellipse':
-      center = new Point(mouse.x, mouse.y);
-      var ellipse = new Ellipse(center, 1, 1, color);
-      return ellipse;
+    center = new Point(mouse.x, mouse.y);
+    var ellipse = new Ellipse(center, 1, 1, color);
+    return ellipse;
 
     case 'rectangle':
-      pt1 = new Point(mouse.x, mouse.y);
-      pt2 = new Point(mouse.x, mouse.y);
-      var rectangle = new Rectangle(pt1, pt2, color);
-      return rectangle;
-      
+    pt1 = new Point(mouse.x, mouse.y);
+    pt2 = new Point(mouse.x, mouse.y);
+    var rectangle = new Rectangle(pt1, pt2, color);
+    return rectangle;
+    
     default:
-      alert('fixme');
-      return null;
+    alert('fixme');
+    return null;
   }
 }
 
@@ -577,45 +577,45 @@ function dragShape (mouse, shape) {
   switch (drawMode) {
     case 'line':
     case 'rectangle':
-      shape.pt2.x = mouse.x;
-      shape.pt2.y = mouse.y;
-      break;
+    shape.pt2.x = mouse.x;
+    shape.pt2.y = mouse.y;
+    break;
 
     case 'circle':
-      shape.radius = pointDistance(shape.center, new Point(mouse.x, mouse.y));
+    shape.radius = pointDistance(shape.center, new Point(mouse.x, mouse.y));
       // console.log(shape.radius);
       break;
 
-    case 'ellipse':
+      case 'ellipse':
       shape.a = Math.abs(mouse.x - shape.center.x);
       shape.b = Math.abs(mouse.y - shape.center.y);
       break;
 
-    case 'polygon':
-    case 'polyline':
+      case 'polygon':
+      case 'polyline':
       shape.vertices.head.x = mouse.x;
       shape.vertices.head.y = mouse.y;
       break;
 
-    default:
+      default:
       alert('fixme');
       return null;
+    }
   }
-}
 
-CanvasState.prototype.clear = function() {
-  this.ctx.clearRect(0, 0, this.width, this.height);
-  this.data = this.ctx.getImageData(0, 0, this.width, this.height);
-  this.ctx.putImageData(this.data, 0, 0);
-};
+  CanvasState.prototype.clear = function() {
+    this.ctx.clearRect(0, 0, this.width, this.height);
+    this.data = this.ctx.getImageData(0, 0, this.width, this.height);
+    this.ctx.putImageData(this.data, 0, 0);
+  };
 
-CanvasState.prototype.draw = function () {
-  if (!this.valid) {
-    var ctx = this.ctx;
-    var shapes = this.shapes;
-    this.clear();
-    
-    var N = shapes.length;
+  CanvasState.prototype.draw = function () {
+    if (!this.valid) {
+      var ctx = this.ctx;
+      var shapes = this.shapes;
+      this.clear();
+      
+      var N = shapes.length;
     // if (N > 0) console.log(shapes[0]);
     for (var i = 0; i < N; i++) {
       var shape = shapes[i];
