@@ -145,7 +145,7 @@ Line.prototype.drawNAA = function (cdata, width) {
 
 function ipart(x) { return Math.floor(x); }
 function round(x) { return Math.round(x); }
-function fpart(x) { return (x < 0) ? (1 - (x - Math.floor(x))) : (x - Math.floor(x)); }
+function fpart(x) { return x < 0 ? 1 - (x - Math.floor(x)) : x - Math.floor(x); }
 function rfpart(x) { return 1 - fpart(x); }
 
 Line.prototype.drawAA = function (cdata, width) {
@@ -431,12 +431,6 @@ Polyline.prototype.draw = function (cdata, width) {
     rem = rem.tail;
   }
 };
-
-// var canvas = document.getElementById("drawCanvas");
-// var canvasWidth = canvas.width;
-// var canvasHeight = canvas.height;
-// var ctx = canvas.getContext("2d");
-// var canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 
 function CanvasState (canvas) {
   this.canvas = canvas;
