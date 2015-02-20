@@ -1,40 +1,49 @@
-function Point (x, y) {
+var MODE = {
+  LINE: 'line',
+  CIRCLE: 'circle',
+  ELLIPSE: 'ellipse',
+  RECTANGLE: 'rectangle',
+  POLYGON: 'polygon',
+  POLYLINE: 'polyline'
+}
+
+function Point(x, y) {
   this.x = x || 0;
   this.y = y || 0;
 }
 
-function pointDistance (pt1, pt2) {
+function pointDistance(pt1, pt2) {
   var dx = pt2.x - pt1.x;
   var dy = pt2.y - pt1.y;
-  return Math.sqrt(dx*dx + dy*dy);
+  return Math.sqrt(dx * dx + dy * dy);
 }
 
-function Color (r, g, b, a) {
+function Color(r, g, b, a) {
   this.r = r || 0;
   this.g = g || 0;
   this.b = b || 0;
   this.a = a || 0;
 }
 
-function Pixel (point, color, c) {
+function Pixel(point, color, c) {
   this.point = point || new Point();
   this.color = color || new Color();
-  this.c     = c || 0;
+  this.c = c || 0;
 }
 
-Pixel.prototype.moveTo = function (x, y) {
+Pixel.prototype.moveTo = function(x, y) {
   this.point.x = x;
   this.point.y = y;
   return this;
 };
 
-Pixel.prototype.move = function (x, y) {
+Pixel.prototype.move = function(x, y) {
   this.point.x += x;
   this.point.y += y;
   return this;
 };
 
-Pixel.prototype.drawNAA = function (cdata, width) {
+Pixel.prototype.drawNAA = function(cdata, width) {
   var index = (this.point.x + this.point.y * width) * 4;
   cdata.data[index + 0] = this.color.r;
   cdata.data[index + 1] = this.color.g;
@@ -44,18 +53,18 @@ Pixel.prototype.drawNAA = function (cdata, width) {
 
 function alphaComposition(cA, cB, c) {
   var d = Math.floor(c * cB.a);
-  var r = Math.floor((cA.a*cA.r) / 255.0 - (cA.a-255.0) * d * cB.r / 65025.0);
-  var g = Math.floor((cA.a*cA.g) / 255.0 - (cA.a-255.0) * d * cB.g / 65025.0);
-  var b = Math.floor((cA.a*cA.b) / 255.0 - (cA.a-255.0) * d * cB.b / 65025.0);
+  var r = Math.floor((cA.a * cA.r) / 255.0 - (cA.a - 255.0) * d * cB.r / 65025.0);
+  var g = Math.floor((cA.a * cA.g) / 255.0 - (cA.a - 255.0) * d * cB.g / 65025.0);
+  var b = Math.floor((cA.a * cA.b) / 255.0 - (cA.a - 255.0) * d * cB.b / 65025.0);
   var a = Math.floor(cA.a + d - cA.a * d / 255.0);
   return new Color(r, g, b, a);
 }
 
-Pixel.prototype.drawAA = function (cdata, width) {
+Pixel.prototype.drawAA = function(cdata, width) {
   var index = (this.point.x + this.point.y * width) * 4;
   var colorB = this.color;
   var c = this.c;
-  
+
   var r = cdata.data[index + 0];
   var g = cdata.data[index + 1];
   var b = cdata.data[index + 2];
@@ -63,14 +72,14 @@ Pixel.prototype.drawAA = function (cdata, width) {
 
   var colorA = new Color(r, g, b, a);
   var pixelc = alphaComposition(colorA, colorB, c);
-  
+
   cdata.data[index + 0] = pixelc.r;
   cdata.data[index + 1] = pixelc.g;
   cdata.data[index + 2] = pixelc.b;
   cdata.data[index + 3] = pixelc.a;
 };
 
-Pixel.prototype.draw = function (cdata, width) {
+Pixel.prototype.draw = function(cdata, width) {
   if (antialiasing) {
     this.drawAA(cdata, width);
   } else {
@@ -78,7 +87,7 @@ Pixel.prototype.draw = function (cdata, width) {
   }
 };
 
-function Line (pt1, pt2, col1, col2) {
+function Line(pt1, pt2, col1, col2) {
   this.pt1 = pt1 || new Point();
   this.pt2 = pt2 || new Point();
   this.col1 = col1 || new Color();
@@ -86,18 +95,18 @@ function Line (pt1, pt2, col1, col2) {
   this.type = 'line';
 }
 
-function colorInterpolate (c1, c2, p) {
+function colorInterpolate(c1, c2, p) {
   var c = new Color();
   var p2 = p < 0.0 ? 0.0 : p > 1.0 ? 1.0 : p;
   var p1 = 1.0 - p2;
-  c.r = Math.floor(p1*c1.r + p2*c2.r);
-  c.g = Math.floor(p1*c1.g + p2*c2.g);
-  c.b = Math.floor(p1*c1.b + p2*c2.b);
-  c.a = Math.floor(p1*c1.a + p2*c2.a);
+  c.r = Math.floor(p1 * c1.r + p2 * c2.r);
+  c.g = Math.floor(p1 * c1.g + p2 * c2.g);
+  c.b = Math.floor(p1 * c1.b + p2 * c2.b);
+  c.a = Math.floor(p1 * c1.a + p2 * c2.a);
   return c;
 }
 
-Line.prototype.drawNAA = function (cdata, width) {
+Line.prototype.drawNAA = function(cdata, width) {
   var pt1 = this.pt1;
   var pt2 = this.pt2;
   var col1 = this.col1;
@@ -109,7 +118,7 @@ Line.prototype.drawNAA = function (cdata, width) {
   var sy = (pt1.y < pt2.y) ? 1 : -1;
   var err = dx - dy;
   var dist = pointDistance(pt1, pt2);
-  
+
   var pixel = new Pixel(new Point(pt1.x, pt1.y),
     new Color(col1.r, col1.g, col1.b, col1.a));
 
@@ -120,25 +129,50 @@ Line.prototype.drawNAA = function (cdata, width) {
 
     if ((pixel.point.x == pt2.x) && (pixel.point.y == pt2.y)) break;
     var e2 = 2 * err;
-    if (e2 >-dy) { err -= dy; pixel.point.x += sx; }
-    if (e2 < dx) { err += dx; pixel.point.y += sy; }
+    if (e2 > -dy) {
+      err -= dy;
+      pixel.point.x += sx;
+    }
+    if (e2 < dx) {
+      err += dx;
+      pixel.point.y += sy;
+    }
   }
 };
 
-function ipart(x) { return Math.floor(x); }
-function round(x) { return Math.round(x); }
-function fpart(x) { return x < 0 ? 1 - (x - Math.floor(x)) : x - Math.floor(x); }
-function rfpart(x) { return 1 - fpart(x); }
+function ipart(x) {
+  return Math.floor(x);
+}
 
-Line.prototype.drawAA = function (cdata, width) {
+function round(x) {
+  return Math.round(x);
+}
+
+function fpart(x) {
+  return x < 0 ? 1 - (x - Math.floor(x)) : x - Math.floor(x);
+}
+
+function rfpart(x) {
+  return 1 - fpart(x);
+}
+
+Line.prototype.drawAA = function(cdata, width) {
   var line = this;
-  var x0 = line.pt1.x, y0 = line.pt1.y;
-  var x1 = line.pt2.x, y1 = line.pt2.y;
-  var r0 = line.col1.r, g0 = line.col1.g, b0 = line.col1.b, a0 = line.col1.a;
-  var r1 = line.col2.r, g1 = line.col2.g, b1 = line.col2.b, a1 = line.col2.a;
+  var x0 = line.pt1.x,
+    y0 = line.pt1.y;
+  var x1 = line.pt2.x,
+    y1 = line.pt2.y;
+  var r0 = line.col1.r,
+    g0 = line.col1.g,
+    b0 = line.col1.b,
+    a0 = line.col1.a;
+  var r1 = line.col2.r,
+    g1 = line.col2.g,
+    b1 = line.col2.b,
+    a1 = line.col2.a;
 
   var steep = Boolean(Math.abs(y1 - y0) > Math.abs(x1 - x0));
-  
+
   if (steep) {
     y0 = [x0, x0 = y0][0];
     y1 = [x1, x1 = y1][0];
@@ -152,7 +186,7 @@ Line.prototype.drawAA = function (cdata, width) {
   var dy = y1 - y0;
   var gradient = dy / dx;
 
-  
+
 
   // handle first endpoint
   var xend = Math.round(x0);
@@ -163,7 +197,7 @@ Line.prototype.drawAA = function (cdata, width) {
 
   var pixel = new Pixel(new Point(), new Color());
 
-  var drawPixelAA = function (pt, c, col) {
+  var drawPixelAA = function(pt, c, col) {
     pixel.moveTo(pt.x, pt.y);
     pixel.c = c;
     pixel.color = col;
@@ -171,11 +205,11 @@ Line.prototype.drawAA = function (cdata, width) {
   };
 
   if (steep) {
-    drawPixelAA(new Point(ypxl1,   xpxl1), rfpart(yend) * xgap, line.col1);
-    drawPixelAA(new Point(ypxl1+1, xpxl1),  fpart(yend) * xgap, line.col1);
+    drawPixelAA(new Point(ypxl1, xpxl1), rfpart(yend) * xgap, line.col1);
+    drawPixelAA(new Point(ypxl1 + 1, xpxl1), fpart(yend) * xgap, line.col1);
   } else {
-    drawPixelAA(new Point(xpxl1, ypxl1),   rfpart(yend) * xgap, line.col1);
-    drawPixelAA(new Point(xpxl1, ypxl1+1),  fpart(yend) * xgap, line.col1);
+    drawPixelAA(new Point(xpxl1, ypxl1), rfpart(yend) * xgap, line.col1);
+    drawPixelAA(new Point(xpxl1, ypxl1 + 1), fpart(yend) * xgap, line.col1);
   }
   var intery = yend + gradient;
 
@@ -186,46 +220,46 @@ Line.prototype.drawAA = function (cdata, width) {
   var xpxl2 = xend; //this will be used in the main loop
   var ypxl2 = ipart(yend);
   if (steep) {
-    drawPixelAA(new Point(ypxl2,   xpxl2), rfpart(yend) * xgap, line.col2);
-    drawPixelAA(new Point(ypxl2+1, xpxl2),  fpart(yend) * xgap, line.col2);
+    drawPixelAA(new Point(ypxl2, xpxl2), rfpart(yend) * xgap, line.col2);
+    drawPixelAA(new Point(ypxl2 + 1, xpxl2), fpart(yend) * xgap, line.col2);
   } else {
-    drawPixelAA(new Point(xpxl2, ypxl2),  rfpart(yend) * xgap, line.col2);
-    drawPixelAA(new Point(xpxl2, ypxl2+1), fpart(yend) * xgap, line.col2);
+    drawPixelAA(new Point(xpxl2, ypxl2), rfpart(yend) * xgap, line.col2);
+    drawPixelAA(new Point(xpxl2, ypxl2 + 1), fpart(yend) * xgap, line.col2);
   }
 
   // main loop
-  for (x = xpxl1+1; x <= xpxl2; x++) {
+  for (x = xpxl1 + 1; x <= xpxl2; x++) {
     var p1, p2, point, color, dist, p;
     if (steep) {
       p1 = new Point(ipart(intery), x);
-      p2 = new Point(ipart(intery)+1, x);
-      point = new Point((p1.x+p2.x)/2.0, (p1.y+p2.y)/2.0);
+      p2 = new Point(ipart(intery) + 1, x);
+      point = new Point((p1.x + p2.x) / 2.0, (p1.y + p2.y) / 2.0);
       color = new Color(255, 255, 255, 255);
       dist = pointDistance(line.pt1, line.pt2);
-      
+
       p = pointDistance(line.pt1, point) / dist;
       color = colorInterpolate(line.col1, line.col2, p, color);
 
       drawPixelAA(p1, rfpart(intery), color);
-      drawPixelAA(p2,  fpart(intery), color);
+      drawPixelAA(p2, fpart(intery), color);
     } else {
       p1 = new Point(x, ipart(intery));
-      p2 = new Point(x, ipart(intery)+1);
-      point = new Point((p1.x+p2.x)/2.0, (p1.y+p2.y)/2.0);
+      p2 = new Point(x, ipart(intery) + 1);
+      point = new Point((p1.x + p2.x) / 2.0, (p1.y + p2.y) / 2.0);
       color = new Color(255, 255, 255, 255);
       dist = pointDistance(line.pt1, line.pt2);
-      
+
       p = pointDistance(line.pt1, point) / dist;
       color = colorInterpolate(line.col1, line.col2, p, color);
 
       drawPixelAA(p1, rfpart(intery), color);
-      drawPixelAA(p2,  fpart(intery), color);
+      drawPixelAA(p2, fpart(intery), color);
     }
     intery = intery + gradient;
   }
 };
 
-Line.prototype.draw = function (cdata, width) {
+Line.prototype.draw = function(cdata, width) {
   if (antialiasing) {
     this.drawAA(cdata, width);
   } else {
@@ -233,14 +267,14 @@ Line.prototype.draw = function (cdata, width) {
   }
 };
 
-function Circle (center, radius, color) {
+function Circle(center, radius, color) {
   this.center = center || new Point();
   this.radius = radius || 0;
   this.color = color || new Color();
   this.type = 'circle';
 }
 
-Circle.prototype.draw = function (cdata, width) {
+Circle.prototype.draw = function(cdata, width) {
   var x0 = Math.round(this.center.x);
   var y0 = Math.round(this.center.y);
   var radius = Math.round(this.radius);
@@ -252,16 +286,16 @@ Circle.prototype.draw = function (cdata, width) {
   var pixel = new Pixel(new Point(), this.color);
 
   while (x >= y) {
-    pixel.moveTo( x + x0,  y + y0).draw(cdata, width);
-    pixel.moveTo( x + x0,  y + y0).draw(cdata, width);
-    pixel.moveTo( y + x0,  x + y0).draw(cdata, width);
-    pixel.moveTo(-x + x0,  y + y0).draw(cdata, width);
-    pixel.moveTo(-y + x0,  x + y0).draw(cdata, width);
+    pixel.moveTo(x + x0, y + y0).draw(cdata, width);
+    pixel.moveTo(x + x0, y + y0).draw(cdata, width);
+    pixel.moveTo(y + x0, x + y0).draw(cdata, width);
+    pixel.moveTo(-x + x0, y + y0).draw(cdata, width);
+    pixel.moveTo(-y + x0, x + y0).draw(cdata, width);
     pixel.moveTo(-x + x0, -y + y0).draw(cdata, width);
     pixel.moveTo(-y + x0, -x + y0).draw(cdata, width);
-    pixel.moveTo( x + x0, -y + y0).draw(cdata, width);
-    pixel.moveTo( y + x0, -x + y0).draw(cdata, width);
-    
+    pixel.moveTo(x + x0, -y + y0).draw(cdata, width);
+    pixel.moveTo(y + x0, -x + y0).draw(cdata, width);
+
     y++;
 
     if (radiusError < 0) {
@@ -273,7 +307,7 @@ Circle.prototype.draw = function (cdata, width) {
   }
 };
 
-function Ellipse (center, a, b, color) {
+function Ellipse(center, a, b, color) {
   this.center = center || new Point();
   this.a = a || 0;
   this.b = b || 0;
@@ -281,10 +315,10 @@ function Ellipse (center, a, b, color) {
   this.type = 'ellipse';
 }
 
-Ellipse.prototype.draw = function (cdata, width) {
+Ellipse.prototype.draw = function(cdata, width) {
   var pixel = new Pixel(new Point(), this.color);
 
-  var ellipsePlotPoints = function (xc, yc, x, y) {
+  var ellipsePlotPoints = function(xc, yc, x, y) {
     pixel.moveTo(xc + x, yc + y).draw(cdata, width);
     pixel.moveTo(xc - x, yc + y).draw(cdata, width);
     pixel.moveTo(xc + x, yc - y).draw(cdata, width);
@@ -293,8 +327,8 @@ Ellipse.prototype.draw = function (cdata, width) {
 
   var xc = this.center.x;
   var yc = this.center.y;
-  var  a = this.a;
-  var  b = this.b;
+  var a = this.a;
+  var b = this.b;
 
   var a2 = a * a;
   var b2 = b * b;
@@ -310,7 +344,7 @@ Ellipse.prototype.draw = function (cdata, width) {
   ellipsePlotPoints(xc, yc, x, y);
 
   /* Region 1 */
-  p = Math.round (b2 - (a2 * b) + (0.25 * a2));
+  p = Math.round(b2 - (a2 * b) + (0.25 * a2));
   while (px < py) {
     x++;
     px += twob2;
@@ -325,7 +359,7 @@ Ellipse.prototype.draw = function (cdata, width) {
   }
 
   /* Region 2 */
-  p = Math.round (b2 * (x+0.5) * (x+0.5) + a2 * (y-1) * (y-1) - a2 * b2);
+  p = Math.round(b2 * (x + 0.5) * (x + 0.5) + a2 * (y - 1) * (y - 1) - a2 * b2);
   while (y > 0) {
     y--;
     py -= twoa2;
@@ -340,39 +374,39 @@ Ellipse.prototype.draw = function (cdata, width) {
   }
 };
 
-function Rectangle (pt1, pt2, color) {
+function Rectangle(pt1, pt2, color) {
   this.pt1 = pt1 || new Point();
   this.pt2 = pt2 || new Point();
   this.color = color || new Color();
   this.type = 'rectangle';
 }
 
-Rectangle.prototype.draw = function (cdata, width) {
-  var topLeft     = new Point(this.pt1.x, this.pt1.y);
-  var topRight    = new Point(this.pt2.x, this.pt1.y);
-  var bottomLeft  = new Point(this.pt1.x, this.pt2.y);
+Rectangle.prototype.draw = function(cdata, width) {
+  var topLeft = new Point(this.pt1.x, this.pt1.y);
+  var topRight = new Point(this.pt2.x, this.pt1.y);
+  var bottomLeft = new Point(this.pt1.x, this.pt2.y);
   var bottomRight = new Point(this.pt2.x, this.pt2.y);
 
   var c = this.color;
 
-  var topLine    = new Line(topLeft,    topRight,    c, c);
+  var topLine = new Line(topLeft, topRight, c, c);
   var bottomLine = new Line(bottomLeft, bottomRight, c, c);
-  var leftLine   = new Line(topLeft,    bottomLeft,  c, c);
-  var rightLine  = new Line(topRight,   bottomRight, c, c);
-  
+  var leftLine = new Line(topLeft, bottomLeft, c, c);
+  var rightLine = new Line(topRight, bottomRight, c, c);
+
   topLine.draw(cdata, width);
   bottomLine.draw(cdata, width);
   leftLine.draw(cdata, width);
   rightLine.draw(cdata, width);
 };
 
-function Polygon (vertices, color) {
+function Polygon(vertices, color) {
   this.vertices = vertices || new List();
   this.color = color || new Color();
   this.type = 'polygon';
 }
 
-Polygon.prototype.draw = function (cdata, width) {
+Polygon.prototype.draw = function(cdata, width) {
   var rem = this.vertices;
   var line = new Line();
   line.col1 = this.color;
@@ -390,13 +424,13 @@ Polygon.prototype.draw = function (cdata, width) {
   }
 };
 
-function Polyline (vertices, color) {
+function Polyline(vertices, color) {
   this.vertices = vertices || new List();
   this.color = color || new Color();
   this.type = 'polyline';
 }
 
-Polyline.prototype.draw = function (cdata, width) {
+Polyline.prototype.draw = function(cdata, width) {
   var rem = this.vertices;
   var line = new Line();
   line.col1 = this.color;
@@ -417,33 +451,24 @@ Polyline.prototype.draw = function (cdata, width) {
 var antialiasing = false;
 var drawMode = 'line';
 
-var MODE = {
-  LINE      : 'line',
-  CIRCLE    : 'circle',
-  ELLIPSE   : 'ellipse',
-  RECTANGLE : 'rectangle',
-  POLYGON   : 'polygon',
-  POLYLINE  : 'polyline'
-}
 
-console.log(MODE);
 
-function changeMode (mode) {
+function changeMode(mode) {
   $("#" + drawMode).css("background-color", "#cccccc");
   $("#" + mode).css("background-color", "#888888");
   drawMode = mode;
   console.log(drawMode);
   var p;
   if (mode == 'polygon') {
-    p = new Polygon(new List(), new Color(0,0,0,255));
+    p = new Polygon(new List(), new Color(0, 0, 0, 255));
     canvasState.shapes.push(p);
   } else if (mode == 'polyline') {
-    p = new Polyline(new List(), new Color(0,0,0,255));
+    p = new Polyline(new List(), new Color(0, 0, 0, 255));
     canvasState.shapes.push(p);
   }
 }
 
-function CanvasState (canvas) {
+function CanvasState(canvas) {
   this.canvas = canvas;
   this.width = canvas.width;
   this.height = canvas.height;
@@ -453,10 +478,10 @@ function CanvasState (canvas) {
   var stylePaddingLeft, stylePaddingTop, styleBorderLeft, styleBorderTop;
   if (document.defaultView && document.defaultView.getComputedStyle) {
     var gcs = document.defaultView.getComputedStyle(canvas, null);
-    this.stylePaddingLeft = parseInt(gcs['paddingLeft'], 10)      || 0;
-    this.stylePaddingTop  = parseInt(gcs['paddingTop'], 10)       || 0;
-    this.styleBorderLeft  = parseInt(gcs['borderLeftWidth'], 10)  || 0;
-    this.styleBorderTop   = parseInt(gcs['borderTopWidth'], 10)   || 0;
+    this.stylePaddingLeft = parseInt(gcs['paddingLeft'], 10) || 0;
+    this.stylePaddingTop = parseInt(gcs['paddingTop'], 10) || 0;
+    this.styleBorderLeft = parseInt(gcs['borderLeftWidth'], 10) || 0;
+    this.styleBorderTop = parseInt(gcs['borderTopWidth'], 10) || 0;
   }
 
   var html = document.body.parentNode;
@@ -471,11 +496,12 @@ function CanvasState (canvas) {
 
   var myState = this;
 
-  canvas.addEventListener('selectstart', function (e) {
-    e.preventDefault(); return false;
+  canvas.addEventListener('selectstart', function(e) {
+    e.preventDefault();
+    return false;
   }, false);
 
-  canvas.addEventListener('mousedown', function (e) {
+  canvas.addEventListener('mousedown', function(e) {
     var mouse = myState.getMouse(e);
     var shape;
     if (drawMode == 'polygon' || drawMode == 'polyline') {
@@ -483,16 +509,16 @@ function CanvasState (canvas) {
       if (n == -1) {
         var p;
         if (drawMode == 'polygon') {
-          p = new Polygon(new List(), new Color(0,0,0,255));
+          p = new Polygon(new List(), new Color(0, 0, 0, 255));
           canvasState.shapes.push(p);
         } else if (drawMode == 'polyline') {
-          p = new Polyline(new List(), new Color(0,0,0,255));
+          p = new Polyline(new List(), new Color(0, 0, 0, 255));
           canvasState.shapes.push(p);
         }
       }
       shape = myState.shapes[n];
       var pt = new Point(mouse.x, mouse.y);
-      shape.vertices = List.cons (pt) (shape.vertices);
+      shape.vertices = List.cons(pt)(shape.vertices);
     } else {
       shape = makeShape(mouse);
       myState.shapes.push(shape);
@@ -503,7 +529,7 @@ function CanvasState (canvas) {
     return;
   }, true);
 
-  canvas.addEventListener('mousemove', function (e) {
+  canvas.addEventListener('mousemove', function(e) {
     if (myState.dragging) {
       var n = myState.shapes.length - 1;
       var mouse = myState.getMouse(e);
@@ -516,85 +542,87 @@ function CanvasState (canvas) {
     }
   }, true);
 
-  canvas.addEventListener('mouseup', function (e) {
+  canvas.addEventListener('mouseup', function(e) {
     myState.dragging = false;
   }, true);
 
-  canvas.addEventListener('dblclick', function (e) {
+  canvas.addEventListener('dblclick', function(e) {
     var p;
     if (drawMode == 'polygon') {
-      p = new Polygon(new List(), new Color(0,0,0,255));
+      p = new Polygon(new List(), new Color(0, 0, 0, 255));
       canvasState.shapes.push(p);
     } else if (drawMode == 'polyline') {
-      p = new Polyline(new List(), new Color(0,0,0,255));
+      p = new Polyline(new List(), new Color(0, 0, 0, 255));
       canvasState.shapes.push(p);
     }
   }, true);
 
   this.interval = 30;
 
-  setInterval(function() { myState.draw(); }, myState.interval);
+  setInterval(function() {
+    myState.draw();
+  }, myState.interval);
 }
 
-function makeShape (mouse) {
+function makeShape(mouse) {
   var pt1, pt2, color, center;
   color = new Color(0, 0, 0, 255);
 
   switch (drawMode) {
     case 'line':
-    pt1 = new Point(mouse.x, mouse.y);
-    pt2 = new Point(mouse.x, mouse.y);
-    var line = new Line(pt1, pt2, color, color);
-    return line;
+      pt1 = new Point(mouse.x, mouse.y);
+      pt2 = new Point(mouse.x, mouse.y);
+      var line = new Line(pt1, pt2, color, color);
+      return line;
 
     case 'circle':
-    center = new Point(mouse.x, mouse.y);
-    var circle = new Circle(center, 1, color);
-    return circle;
+      center = new Point(mouse.x, mouse.y);
+      var circle = new Circle(center, 1, color);
+      return circle;
 
     case 'ellipse':
-    center = new Point(mouse.x, mouse.y);
-    var ellipse = new Ellipse(center, 1, 1, color);
-    return ellipse;
+      center = new Point(mouse.x, mouse.y);
+      var ellipse = new Ellipse(center, 1, 1, color);
+      return ellipse;
 
     case 'rectangle':
-    pt1 = new Point(mouse.x, mouse.y);
-    pt2 = new Point(mouse.x, mouse.y);
-    var rectangle = new Rectangle(pt1, pt2, color);
-    return rectangle;
+      pt1 = new Point(mouse.x, mouse.y);
+      pt2 = new Point(mouse.x, mouse.y);
+      var rectangle = new Rectangle(pt1, pt2, color);
+      return rectangle;
 
     default:
-    alert('fixme');
-    return null;
+      alert('fixme');
+      return null;
   }
 }
 
-function dragShape (mouse, shape) {
+function dragShape(mouse, shape) {
   switch (drawMode) {
     case 'line':
     case 'rectangle':
-    shape.pt2.x = mouse.x;
-    shape.pt2.y = mouse.y;
-    break;
+      shape.pt2.x = mouse.x;
+      shape.pt2.y = mouse.y;
+      break;
 
     case 'circle':
-    shape.radius = pointDistance(shape.center, new Point(mouse.x, mouse.y));
-    break;
+      shape.radius = pointDistance(shape.center, new Point(mouse.x, mouse.y));
+      break;
 
     case 'ellipse':
-    shape.a = Math.abs(mouse.x - shape.center.x);
-    shape.b = Math.abs(mouse.y - shape.center.y);
-    break;
+      shape.a = Math.abs(mouse.x - shape.center.x);
+      shape.b = Math.abs(mouse.y - shape.center.y);
+      break;
 
     case 'polygon':
     case 'polyline':
-    shape.vertices.head.x = mouse.x;
-    shape.vertices.head.y = mouse.y;
-    break;
+      shape.vertices.head.x = mouse.x;
+      shape.vertices.head.y = mouse.y;
+      break;
 
     default:
-    alert('fixme');
-    return null;
+      alert('fixme');
+      return null;
   }
 };
 
@@ -604,14 +632,14 @@ CanvasState.prototype.clear = function() {
   this.ctx.putImageData(this.data, 0, 0);
 };
 
-CanvasState.prototype.draw = function () {
+CanvasState.prototype.draw = function() {
   if (!this.valid) {
     var ctx = this.ctx;
     var shapes = this.shapes;
     var N = shapes.length;
 
     this.clear();
-    
+
     for (var i = 0; i < N; i++) {
       var shape = shapes[i];
       shape.draw(this.data, this.width);
@@ -622,8 +650,11 @@ CanvasState.prototype.draw = function () {
   }
 };
 
-CanvasState.prototype.getMouse = function (e) {
-  var element = this.canvas, offsetX = 0, offsetY = 0, mx, my;
+CanvasState.prototype.getMouse = function(e) {
+  var element = this.canvas,
+    offsetX = 0,
+    offsetY = 0,
+    mx, my;
 
   if (element.offsetParent !== undefined) {
     do {
@@ -638,17 +669,31 @@ CanvasState.prototype.getMouse = function (e) {
   mx = e.pageX - offsetX;
   my = e.pageY - offsetY;
 
-  return {x: mx, y: my};
+  return {
+    x: mx,
+    y: my
+  };
 };
 
 var canvasState, fractalCanvasState;
 
-function reset () { canvasState.clear(); canvasState.shapes = []; canvasState.valid = false; }
-function undo () { canvasState.shapes.pop(); redraw(); }
-function redraw () { canvasState.valid = false; }
+function reset() {
+  canvasState.clear();
+  canvasState.shapes = [];
+  canvasState.valid = false;
+}
 
-function init () { 
-  var canvas = document.getElementById("drawCanvas"); 
+function undo() {
+  canvasState.shapes.pop();
+  redraw();
+}
+
+function redraw() {
+  canvasState.valid = false;
+}
+
+function init() {
+  var canvas = document.getElementById("drawCanvas");
   canvasState = new CanvasState(canvas);
 }
 
