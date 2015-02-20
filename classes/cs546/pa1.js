@@ -608,18 +608,18 @@ CanvasState.prototype.draw = function () {
   if (!this.valid) {
     var ctx = this.ctx;
     var shapes = this.shapes;
-    this.clear();
-
     var N = shapes.length;
-// if (N > 0) console.log(shapes[0]);
-for (var i = 0; i < N; i++) {
-  var shape = shapes[i];
-  shape.draw(this.data, this.width);
-  ctx.putImageData(this.data, 0, 0);
-}
 
-this.valid = true;
-}
+    this.clear();
+    
+    for (var i = 0; i < N; i++) {
+      var shape = shapes[i];
+      shape.draw(this.data, this.width);
+      ctx.putImageData(this.data, 0, 0);
+    }
+
+    this.valid = true;
+  }
 };
 
 CanvasState.prototype.getMouse = function (e) {
