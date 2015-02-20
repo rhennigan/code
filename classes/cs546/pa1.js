@@ -2,18 +2,18 @@ var antialiasing = false;
 var drawMode = 'line';
 
 function changeMode (mode) {
-	$("#" + drawMode).css("background-color", "#cccccc");
-	$("#" + mode).css("background-color", "#888888");
-	drawMode = mode;
-	console.log(drawMode);
-	var p;
-	if (mode == 'polygon') {
-		p = new Polygon(new List(), new Color(0,0,0,255));
-		canvasState.shapes.push(p);
-	} else if (mode == 'polyline') {
-		p = new Polyline(new List(), new Color(0,0,0,255));
-		canvasState.shapes.push(p);
-	}
+  $("#" + drawMode).css("background-color", "#cccccc");
+  $("#" + mode).css("background-color", "#888888");
+  drawMode = mode;
+  console.log(drawMode);
+  var p;
+  if (mode == 'polygon') {
+    p = new Polygon(new List(), new Color(0,0,0,255));
+    canvasState.shapes.push(p);
+  } else if (mode == 'polyline') {
+    p = new Polyline(new List(), new Color(0,0,0,255));
+    canvasState.shapes.push(p);
+  }
 }
 
 function Point (x, y) {
@@ -101,7 +101,7 @@ function Line (pt1, pt2, col1, col2) {
   this.pt2 = pt2 || new Point();
   this.col1 = col1 || new Color();
   this.col2 = col2 || new Color();
-	this.type = 'line';
+  this.type = 'line';
 }
 
 function colorInterpolate (c1, c2, p) {
@@ -266,7 +266,7 @@ function Circle (center, radius, color) {
   this.center = center || new Point();
   this.radius = radius || 0;
   this.color = color || new Color();
-	this.type = 'circle';
+  this.type = 'circle';
 }
 
 Circle.prototype.draw = function (cdata, width) {
@@ -307,7 +307,7 @@ function Ellipse (center, a, b, color) {
   this.a = a || 0;
   this.b = b || 0;
   this.color = color || new Color();
-	this.type = 'ellipse';
+  this.type = 'ellipse';
 }
 
 Ellipse.prototype.draw = function (cdata, width) {
@@ -373,7 +373,7 @@ function Rectangle (pt1, pt2, color) {
   this.pt1 = pt1 || new Point();
   this.pt2 = pt2 || new Point();
   this.color = color || new Color();
-	this.type = 'rectangle';
+  this.type = 'rectangle';
 }
 
 Rectangle.prototype.draw = function (cdata, width) {
@@ -398,7 +398,7 @@ Rectangle.prototype.draw = function (cdata, width) {
 function Polygon (vertices, color) {
   this.vertices = vertices || new List();
   this.color = color || new Color();
-	this.type = 'polygon';
+  this.type = 'polygon';
 }
 
 Polygon.prototype.draw = function (cdata, width) {
@@ -422,7 +422,7 @@ Polygon.prototype.draw = function (cdata, width) {
 function Polyline (vertices, color) {
   this.vertices = vertices || new List();
   this.color = color || new Color();
-	this.type = 'polyline';
+  this.type = 'polyline';
 }
 
 Polyline.prototype.draw = function (cdata, width) {
@@ -481,27 +481,27 @@ function CanvasState (canvas) {
 
   canvas.addEventListener('mousedown', function (e) {
     var mouse = myState.getMouse(e);
-		var shape;
-		if (drawMode == 'polygon' || drawMode == 'polyline') {
-			var n = myState.shapes.length - 1;
-			if (n == -1) {
-				var p;
-				if (drawMode == 'polygon') {
-					p = new Polygon(new List(), new Color(0,0,0,255));
-					canvasState.shapes.push(p);
-				} else if (drawMode == 'polyline') {
-					p = new Polyline(new List(), new Color(0,0,0,255));
-					canvasState.shapes.push(p);
-				}
-			}
-			shape = myState.shapes[n];
-			var pt = new Point(mouse.x, mouse.y);
-			shape.vertices = List.cons (pt) (shape.vertices);
-		} else {
-			shape = makeShape(mouse);
-			myState.shapes.push(shape);
-		}
-		// console.log(typeof shape);
+    var shape;
+    if (drawMode == 'polygon' || drawMode == 'polyline') {
+      var n = myState.shapes.length - 1;
+      if (n == -1) {
+        var p;
+        if (drawMode == 'polygon') {
+          p = new Polygon(new List(), new Color(0,0,0,255));
+          canvasState.shapes.push(p);
+        } else if (drawMode == 'polyline') {
+          p = new Polyline(new List(), new Color(0,0,0,255));
+          canvasState.shapes.push(p);
+        }
+      }
+      shape = myState.shapes[n];
+      var pt = new Point(mouse.x, mouse.y);
+      shape.vertices = List.cons (pt) (shape.vertices);
+    } else {
+      shape = makeShape(mouse);
+      myState.shapes.push(shape);
+    }
+    // console.log(typeof shape);
     myState.dragging = true;
     myState.valid = false;
     return;
@@ -511,7 +511,7 @@ function CanvasState (canvas) {
     if (myState.dragging) {
       var n = myState.shapes.length - 1;
       var mouse = myState.getMouse(e);
-			dragShape(mouse, myState.shapes[n]);
+      dragShape(mouse, myState.shapes[n]);
       // var mx = mouse.x;
       // var my = mouse.y;
       // myState.shapes[n].pt2.x = mx;
@@ -524,16 +524,16 @@ function CanvasState (canvas) {
     myState.dragging = false;
   }, true);
 
-	canvas.addEventListener('dblclick', function (e) {
-		var p;
-		if (drawMode == 'polygon') {
-			p = new Polygon(new List(), new Color(0,0,0,255));
-			canvasState.shapes.push(p);
-		} else if (drawMode == 'polyline') {
-			p = new Polyline(new List(), new Color(0,0,0,255));
-			canvasState.shapes.push(p);
-		}
-	}, true);
+  canvas.addEventListener('dblclick', function (e) {
+    var p;
+    if (drawMode == 'polygon') {
+      p = new Polygon(new List(), new Color(0,0,0,255));
+      canvasState.shapes.push(p);
+    } else if (drawMode == 'polyline') {
+      p = new Polyline(new List(), new Color(0,0,0,255));
+      canvasState.shapes.push(p);
+    }
+  }, true);
 
   this.interval = 30;
 
@@ -541,66 +541,66 @@ function CanvasState (canvas) {
 }
 
 function makeShape (mouse) {
-	var pt1, pt2, color, center;
-	color = new Color(0, 0, 0, 255);
+  var pt1, pt2, color, center;
+  color = new Color(0, 0, 0, 255);
 
-	switch (drawMode) {
-		case 'line':
-			pt1 = new Point(mouse.x, mouse.y);
-			pt2 = new Point(mouse.x, mouse.y);
-			var line = new Line(pt1, pt2, color, color);
-			return line;
+  switch (drawMode) {
+    case 'line':
+      pt1 = new Point(mouse.x, mouse.y);
+      pt2 = new Point(mouse.x, mouse.y);
+      var line = new Line(pt1, pt2, color, color);
+      return line;
 
-		case 'circle':
-			center = new Point(mouse.x, mouse.y);
-			var circle = new Circle(center, 1, color);
-			return circle;
+    case 'circle':
+      center = new Point(mouse.x, mouse.y);
+      var circle = new Circle(center, 1, color);
+      return circle;
 
-		case 'ellipse':
-			center = new Point(mouse.x, mouse.y);
-			var ellipse = new Ellipse(center, 1, 1, color);
-			return ellipse;
+    case 'ellipse':
+      center = new Point(mouse.x, mouse.y);
+      var ellipse = new Ellipse(center, 1, 1, color);
+      return ellipse;
 
-		case 'rectangle':
-			pt1 = new Point(mouse.x, mouse.y);
-			pt2 = new Point(mouse.x, mouse.y);
-			var rectangle = new Rectangle(pt1, pt2, color);
-			return rectangle;
-			
-		default:
-			alert('fixme');
-			return null;
-	}
+    case 'rectangle':
+      pt1 = new Point(mouse.x, mouse.y);
+      pt2 = new Point(mouse.x, mouse.y);
+      var rectangle = new Rectangle(pt1, pt2, color);
+      return rectangle;
+      
+    default:
+      alert('fixme');
+      return null;
+  }
 }
 
 function dragShape (mouse, shape) {
-	switch (drawMode) {
-		case 'line':
-		case 'rectangle':
+  switch (drawMode) {
+    case 'line':
+    case 'rectangle':
       shape.pt2.x = mouse.x;
       shape.pt2.y = mouse.y;
-			break;
+      break;
 
-		case 'circle':
-			shape.radius = pointDistance(shape.center, new Point(mouse.x, mouse.y));
-			// console.log(shape.radius);
-			break;
+    case 'circle':
+      shape.radius = pointDistance(shape.center, new Point(mouse.x, mouse.y));
+      // console.log(shape.radius);
+      break;
 
-		case 'ellipse':
-			shape.a = Math.abs(mouse.x - shape.center.x);
-			shape.b = Math.abs(mouse.y - shape.center.y);
-			break;
+    case 'ellipse':
+      shape.a = Math.abs(mouse.x - shape.center.x);
+      shape.b = Math.abs(mouse.y - shape.center.y);
+      break;
 
-		case 'polygon':
-		case 'polyline':
-			shape.vertices.head.x = mouse.x;
-			shape.vertices.head.y = mouse.y;
-			break;
+    case 'polygon':
+    case 'polyline':
+      shape.vertices.head.x = mouse.x;
+      shape.vertices.head.y = mouse.y;
+      break;
 
-		default:
-			alert('fixme');
-			return null;
-	}
+    default:
+      alert('fixme');
+      return null;
+  }
 }
 
 CanvasState.prototype.clear = function() {
@@ -649,14 +649,14 @@ CanvasState.prototype.getMouse = function (e) {
 var canvasState, fractalCanvasState;
 
 function reset () {
-	canvasState.clear();
-	canvasState.shapes = [];
-	canvasState.valid = false;
+  canvasState.clear();
+  canvasState.shapes = [];
+  canvasState.valid = false;
 }
 
 function undo () {
-	canvasState.shapes.pop();
-	redraw();
+  canvasState.shapes.pop();
+  redraw();
 }
 
 function redraw () {
