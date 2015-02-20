@@ -417,6 +417,13 @@ Polyline.prototype.draw = function (cdata, width) {
 var antialiasing = false;
 var drawMode = 'line';
 
+var MODE = {
+  LINE : 'line',
+  CIRCLE : 'circle'
+}
+
+console.log(MODE.LINE);
+
 function changeMode (mode) {
   $("#" + drawMode).css("background-color", "#cccccc");
   $("#" + mode).css("background-color", "#888888");
