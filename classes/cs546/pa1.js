@@ -1,21 +1,3 @@
-var antialiasing = false;
-var drawMode = 'line';
-
-function changeMode (mode) {
-  $("#" + drawMode).css("background-color", "#cccccc");
-  $("#" + mode).css("background-color", "#888888");
-  drawMode = mode;
-  console.log(drawMode);
-  var p;
-  if (mode == 'polygon') {
-    p = new Polygon(new List(), new Color(0,0,0,255));
-    canvasState.shapes.push(p);
-  } else if (mode == 'polyline') {
-    p = new Polyline(new List(), new Color(0,0,0,255));
-    canvasState.shapes.push(p);
-  }
-}
-
 function Point (x, y) {
   this.x = x || 0;
   this.y = y || 0;
@@ -432,6 +414,24 @@ Polyline.prototype.draw = function (cdata, width) {
   }
 };
 
+var antialiasing = false;
+var drawMode = 'line';
+
+function changeMode (mode) {
+  $("#" + drawMode).css("background-color", "#cccccc");
+  $("#" + mode).css("background-color", "#888888");
+  drawMode = mode;
+  console.log(drawMode);
+  var p;
+  if (mode == 'polygon') {
+    p = new Polygon(new List(), new Color(0,0,0,255));
+    canvasState.shapes.push(p);
+  } else if (mode == 'polyline') {
+    p = new Polyline(new List(), new Color(0,0,0,255));
+    canvasState.shapes.push(p);
+  }
+}
+
 function CanvasState (canvas) {
   this.canvas = canvas;
   this.width = canvas.width;
@@ -452,6 +452,8 @@ function CanvasState (canvas) {
   this.htmlTop = html.offsetTop;
   this.htmlLeft = html.offsetLeft;
 
+  this.antialiasing = false;
+  this.drawMode = 'line';
   this.valid = false;
   this.shapes = [];
   this.dragging = false;
