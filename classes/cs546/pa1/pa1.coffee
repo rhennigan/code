@@ -496,9 +496,7 @@ class DrawingCanvas
       else
         shape = Geometry::createPrimitive(@drawMode, @getMousePos(e))
         @graphicsPrimitives.push(shape)
-        if @drawMode is Geometry::tags.POLYGON or 
-            @drawMode is Geometry::tags.POLYLINE
-          alert('wtf' + @drawMode)
+        if @drawMode in [Geometry::tags.POLYGON, Geometry::tags.POLYLINE]
           @polyInProgress = true
 
     @canvas.addEventListener "mousemove", (e) =>
