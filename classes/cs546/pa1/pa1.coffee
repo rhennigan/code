@@ -47,9 +47,10 @@ class Line
     Math.sqrt (dx*dx + dy*dy)
 
   draw: (antialiasing) ->
-    drawLine(this) unless antialiasing is on
-    else
+    if antialiasing
       drawLineAA(this)
+    else
+      drawLine(this)
 
 
 ###############################################################################
