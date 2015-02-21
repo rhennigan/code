@@ -526,22 +526,6 @@ class DrawingCanvas
 window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
 
-drawingCanvas.graphicsPrimitives.push(new Line({x:25, y:30}, {x:150, y:200}, new Color(255, 0, 0)))
-
-shape = new Circle({x:25, y:30}, 10, new Color(255, 0, 0))
-drawingCanvas.graphicsPrimitives.push(shape)
-drawingCanvas.modified = true
-drawingCanvas.refresh()
-console.log drawingCanvas.graphicsPrimitives
-# console.log canvas
-# line.draw(canvas)
-# canvas.modified = true
-# canvas.refresh()
-# console.log canvas.data
-
-# for i in [0...canvas.width]
-#   for j in [0...canvas.height]
-#     color = new Color(Math.random()*255,Math.random()*255,Math.random()*255,255)
-#     color.write(i,j,canvas)
-# console.log canvas.data
-# canvas.drawingContext.putImageData(canvas.data, 0, 0)
+document.getElementById('clear').addEventListener('click', function() {
+  drawingCanvas.reset()
+}, false);
