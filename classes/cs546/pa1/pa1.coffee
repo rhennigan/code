@@ -78,6 +78,7 @@ class Line
       [dx, dy] = [x1 - x0, y1 - y0]
       gradient = dy / dx
 
+      # handle first endpoint
       xend = round x0
       yend = y0 + gradient * (xend - x0)
       xgap = rfpart(x0 + 0.5)
