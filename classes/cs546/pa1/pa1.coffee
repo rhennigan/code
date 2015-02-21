@@ -121,11 +121,11 @@ class Line
       ypxl2 = ipart(yend)
 
       if steep
-        @col2.write (ypxl2, xpxl2, canvas, rfpart(yend) * xgap)
-        @col2.write (ypxl2 + 1, xpxl2, canvas, fpart(yend) * xgap)
+        @col2.write(ypxl2, xpxl2, canvas, rfpart(yend) * xgap)
+        @col2.write(ypxl2 + 1, xpxl2, canvas, fpart(yend) * xgap)
       else
-        @col2.write (xpxl2, ypxl2, canvas, rfpart(yend) * xgap)
-        @col2.write (xpxl2, ypxl2 + 1, canvas, fpart(yend) * xgap)
+        @col2.write(xpxl2, ypxl2, canvas, rfpart(yend) * xgap)
+        @col2.write(xpxl2, ypxl2 + 1, canvas, fpart(yend) * xgap)
 
       # main loop
       for i in [xpxl1 + 1 .. xpxl2]
