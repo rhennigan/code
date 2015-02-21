@@ -10,7 +10,6 @@ class DrawingCanvas
     @createCanvas()
     @resizeCanvas()
     @createDrawingContext()
-
     @refresh()
 
   createCanvas: ->
@@ -32,3 +31,4 @@ class DrawingCanvas
   refresh: ->
     @clearCanvas()
     shape.draw() for shape in @graphicsPrimitives
+    setTimeout @refresh, @refreshRate
