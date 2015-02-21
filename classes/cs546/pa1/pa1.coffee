@@ -362,6 +362,10 @@ class Polygon
     len = @vertices.length
     @vertices[len - 1] = mouse
 
+  getLines: ->
+    for i in [0...@vertices.length]
+      new Line(@vertices[i], @vertices[i + 1 % @vertices.length], @color)
+
   draw: (canvas) ->
     line = new Line()
     line.col1 = line.col2 = @color
