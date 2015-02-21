@@ -10,6 +10,14 @@ class Color
     @b = b
     @a = a
 
+  write: (x, y, c, canvas) ->
+    if canvas.antialiasing
+      index = (x + y * canvas.width) * 4
+      colorB = this
+
+      [r, g, b, a] = canvas.data[index .. index + 3]
+
+
 Color::interpolate = (c1, c2, p) ->
   p2 = if p < 0.0 then 0.0 else if p > 1.0 then 1.0 else p
   p1 = 1.0 - p2
@@ -46,8 +54,8 @@ class Line
     dy = @pt2.y - @pt1.y
     Math.sqrt (dx*dx + dy*dy)
 
-  draw: (antialiasing) ->
-    if antialiasing
+  draw: (canvas) ->
+    if canvas.antialiasing
       drawLineAA(this)
     else
       drawLine(this)
