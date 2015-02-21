@@ -344,6 +344,19 @@ class Rectangle
 
 ###############################################################################
 
+class Polygon
+  vertices: []
+  color: new Color()
+
+  constructor: (vertices = @vertices, color = @color) ->
+    @vertices = vertices
+    @color = color
+
+  insert: (vertex) ->
+    @vertices.push(vertex)
+
+###############################################################################
+
 class DrawingCanvas
   width: 256
   height: 256
