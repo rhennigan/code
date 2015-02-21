@@ -150,8 +150,9 @@ class Line
           color.write(p1.x, p1.y, canvas, rfpart(intery))
           color.write(p2.x, p2.y, canvas, fpart(intery))
 
-      intery += gradient
-      console.log intery
+
+        intery += gradient
+        console.log intery
 
     else # antialiasing is off
       dx = Math.abs(@pt2.x - @pt1.x)
