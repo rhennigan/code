@@ -28,7 +28,8 @@ class DrawingCanvas
 
   setupEventHandlers: ->
     @canvas.addEventListener 'mousedown'
-      (event) -> @getMousePos event
+      (event) -> 
+        console.log (@getMousePos event)
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
