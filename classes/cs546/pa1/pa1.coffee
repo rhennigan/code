@@ -199,7 +199,7 @@ class DrawingCanvas
     @createDrawingContext()
     @setupEventHandlers()
     @clearCanvas()
-    # @initialize()
+    @initialize()
 
   createCanvas: ->
     @canvas = document.createElement 'canvas'
@@ -238,10 +238,9 @@ class DrawingCanvas
       shape.draw(this) for shape in @graphicsPrimitives
       @drawingContext.putImageData(@data, 0, 0)
       @modified = false
-    setTimeout @refresh 100
 
-  # initialize: ->
-  #   setInterval @refresh, @refreshRate
+   initialize: ->
+     setInterval @refresh, @refreshRate
 
   reset: ->
     @clearCanvas()
