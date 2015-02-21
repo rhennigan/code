@@ -232,6 +232,9 @@ class DrawingCanvas
         [..., current] = @graphicsPrimitives
         current.drag(@getMousePos(e))
 
+    @canvas.addEventListener "mouseup", (e) =>
+      @drawingInProgress = false
+
     @canvas.addEventListener "click", (e) => @getMousePos(e)
 
   clearCanvas: ->
