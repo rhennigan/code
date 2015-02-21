@@ -750,10 +750,15 @@
           return _this.polyInProgress = _this.drawingInProgress = false;
         };
       })(this));
-      return this.canvas.addEventListener("click", (function(_this) {
+      this.canvas.addEventListener("click", (function(_this) {
         return function(e) {
           console.log("click");
           return _this.getMousePos(e);
+        };
+      })(this));
+      return document.getElementById('clear').addEventListener("click", (function(_this) {
+        return function(e) {
+          return _this.reset();
         };
       })(this));
     };
@@ -802,11 +807,5 @@
   drawingCanvas = new DrawingCanvas();
 
   console.log(drawingCanvas);
-
-  document.getElementById('clear').addEventListener("click", (function(_this) {
-    return function(e) {
-      return _this.reset();
-    };
-  })(this));
 
 }).call(this);
