@@ -497,27 +497,16 @@
     };
 
     Rectangle.prototype.draw = function(canvas) {
-      var corners, j, len, line, lines, results;
-      corners = [
-        [
-          {
-            x: this.pt1.x,
-            y: this.pt1.y
-          }, {
-            x: this.pt2.x,
-            y: this.pt1.y
-          }
-        ], [
-          {
-            x: this.pt1.x,
-            y: this.pt2.y
-          }, {
-            x: this.pt2.x,
-            y: this.pt2.y
-          }
-        ]
-      ];
-      lines = [new Line(corners[0][0], corners[0][1], this.color), new Line(corners[1][0], corners[1][1], this.color), new Line(corners[0][0], corners[1][0], this.color), new Line(corners[1][0], corners[1][1], this.color)];
+      var j, len, line, lines, pt3, pt4, results;
+      pt3 = {
+        x: this.pt2.x,
+        y: this.pt1.y
+      };
+      pt4 = {
+        x: this.pt1.x,
+        y: this.pt2.y
+      };
+      lines = [new Line(this.pt1, pt3, this.color), new Line(pt3, this.pt2, this.color), new Line(pt4, this.pt2, this.color), new Line(this.pt1, pt4, this.color)];
       results = [];
       for (j = 0, len = lines.length; j < len; j++) {
         line = lines[j];

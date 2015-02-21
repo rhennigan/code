@@ -330,16 +330,14 @@ class Rectangle
     @pt2 = mouse
 
   draw: (canvas) ->
-    corners = [
-      [{x: @pt1.x, y: @pt1.y}, {x: @pt2.x, y: @pt1.y}]
-      [{x: @pt1.x, y: @pt2.y}, {x: @pt2.x, y: @pt2.y}]
-    ]
+    pt3 = {x: @pt2.x, y: @pt1.y}
+    pt4 = {x: @pt1.x, y: @pt2.y}
 
     lines = [
-      new Line(corners[0][0], corners[0][1], @color)
-      new Line(corners[1][0], corners[1][1], @color)
-      new Line(corners[0][0], corners[1][0], @color)
-      new Line(corners[1][0], corners[1][1], @color)
+      new Line(@pt1, pt3, @color)
+      new Line(pt3, @pt2, @color)
+      new Line(pt4, @pt2, @color)
+      new Line(@pt1, pt4, @color)
     ]
 
     line.draw(canvas) for line in lines
