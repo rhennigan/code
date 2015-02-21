@@ -29,7 +29,7 @@ class Color
       a = canvas.data.data[index + 3]
 
       colorA = new Color r, g, b, a
-      c = Color.alphaBlend colorA, colorB, p
+      c = Color::alphaBlend colorA, colorB, p
 
       canvas.data.data[index + 0] = c.r
       canvas.data.data[index + 1] = c.g
@@ -139,7 +139,7 @@ class Line
 
         point = {x: (p1.x + p2.x) / 2.0, y: (p1.y + p2.y) / 2.0}
         p = Geometry::distance(@pt1, point) / @distance()
-        color = Color.interpolate(@col1, @col2, p)
+        color = Color::interpolate(@col1, @col2, p)
         color.write(p1.x, p1.y, canvas, rfpart(intery))
         color.write(p2.x, p2.y, canvas, fpart(intery))
 
