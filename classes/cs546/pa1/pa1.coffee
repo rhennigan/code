@@ -147,7 +147,19 @@ class Line
         color: new Color(@col1.r, @col1,g, @col1.b, @col1.a)
 
       step = () ->
-        p = Geometry.distance(@pt1, pix) / dist
+        p = Geometry.distance(@pt1, pix.point) / dist
+        pix.color = Color.interpolate(@col1, @col2, p)
+        pix.color.write(pix.point.x, pix.point.y, canvas)
+
+        e2 = 2 * err
+        if e2 > -dy
+          err -= dy
+          pix.point.x += sx
+        if e2 < dx
+          err += dx
+          pix.point.y += sy
+
+      step() until pix.point.x == @pt.x and pix.point.y == @pt2.y
 
 
 
