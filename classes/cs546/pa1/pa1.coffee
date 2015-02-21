@@ -144,7 +144,7 @@ class Line
         point: 
           x: @pt1.x
           y: @pt1.y
-        color: new Color(@col1.r, @col1,g, @col1.b, @col1.a)
+        color: new Color(@col1.r, @col1.g, @col1.b, @col1.a)
 
       step = () ->
         p = Geometry.distance(@pt1, pix.point) / dist
