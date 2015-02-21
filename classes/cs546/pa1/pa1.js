@@ -724,6 +724,7 @@
             shape = Geometry.prototype.createPrimitive(_this.drawMode, _this.getMousePos(e));
             _this.graphicsPrimitives.push(shape);
             if (_this.drawmode === Geometry.prototype.tags.POLYGON || Geometry.prototype.tags.POLYLINE) {
+              alert('wtf');
               return _this.polyInProgress = true;
             }
           }
