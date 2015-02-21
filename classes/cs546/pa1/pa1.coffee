@@ -185,6 +185,7 @@ class DrawingCanvas
     @createDrawingContext()
     @setupEventHandlers()
     @clearCanvas()
+    console.log @data
     @refresh()
 
   createCanvas: ->
