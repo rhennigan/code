@@ -231,10 +231,14 @@ class DrawingCanvas
 window.DrawingCanvas = DrawingCanvas
 canvas = new DrawingCanvas()
 
-line = new Line({x:1, y:1}, {x:25, y:30}, new Color(255, 0, 0))
-console.log canvas
-line.draw(canvas)
-canvas.modified = true
+# line = new Line({x:1, y:1}, {x:25, y:30}, new Color(255, 0, 0))
+# console.log canvas
+# line.draw(canvas)
+# canvas.modified = true
+# canvas.refresh()
+# console.log canvas.data
+
+color = new Color(255,0,0,255)
+color.write(1,1,canvas)
 canvas.refresh()
 console.log canvas.data
-# console.log(line)
