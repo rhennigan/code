@@ -53,7 +53,7 @@ class Line
     @col1 = col1;
     @col2 = col2;
 
-  length: ->
+  distance: ->
     dx = @pt2.x - @pt1.x
     dy = @pt2.y - @pt1.y
     Math.sqrt (dx*dx + dy*dy)
@@ -114,6 +114,7 @@ class Line
           p2 = {x: ipart (intery + 1), y: x}
           point = {x: (p1.x + p2.x) / 2.0, y: (p1.y + p2.y) / 2.0}
           color = new Color()
+          dist = line.distance()
 
     else
       drawLine(this)
