@@ -824,10 +824,15 @@
       ui.checkb.antialiasing.addEventListener("click", function(e) {
         return $("#aaTxt").toggle(this.checked);
       });
-      return ui.checkb.fractal.addEventListener("click", function(e) {
-        $("#fracTxt").toggle(this.checked);
-        return $("#right-canvas").toggle(this.checked);
-      });
+      return ui.checkb.fractal.addEventListener("click", (function(_this) {
+        return function(e) {
+          $("#fracTxt").toggle(_this.checked);
+          $("#right-canvas").toggle(_this.checked);
+          if (_this.checked) {
+            return _this.switchMode(Geometry.prototype.tags.POLYLINE);
+          }
+        };
+      })(this));
     };
 
     DrawingCanvas.prototype.clearCanvas = function() {
