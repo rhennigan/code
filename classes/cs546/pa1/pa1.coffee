@@ -200,7 +200,7 @@ class DrawingCanvas
   createDrawingContext: ->
     @drawingContext = @canvas.getContext '2d'
 
-  setupEventHandlers: ->
+  setupEventHandlers: =>
     @getMousePos = -> 
       rect = @canvas.getBoundingClientRect()
       x: event.clientX - rect.left
