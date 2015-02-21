@@ -579,7 +579,7 @@ class DrawingCanvas
     @graphicsPrimitives.pop()
     @modified = true
 
-initialize = ->
+initialize = () ->
   window.DrawingCanvas = DrawingCanvas
   drawingCanvas = new DrawingCanvas()
   fractalCanvas = new DrawingCanvas()
