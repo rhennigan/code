@@ -46,3 +46,8 @@ class DrawingCanvas
   undo: ->
     @graphicsPrimitives.pop()
     @modified = true
+
+  getMousePos: (event) ->
+    rect = @canvas.getBoundingClientRect()
+    x: event.clientX - rect.left
+    y: event.clientY - rect.top
