@@ -41,6 +41,11 @@ class Line
     @col1 = col1;
     @col2 = col2;
 
+  length: ->
+    dx = @pt2.x - @pt1.x
+    dy = @pt2.y - @pt1.y
+    Math.sqrt (dx**2 + dy**2)
+
 ###############################################################################
 
 class DrawingCanvas
