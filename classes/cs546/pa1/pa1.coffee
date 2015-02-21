@@ -13,6 +13,8 @@ Geometry::createPrimitive = (drawMode, mouse) ->
       new Circle(mouse, 0, new Color(0, 0, 0))
     when 'ellipse'
       new Ellipse(mouse, 0, 0, new Color(0, 0, 0))
+    when 'rectangle'
+      new Rectangle(mouse, mouse, new Color(0, 0, 0))    
     else 
       new Line(mouse, mouse, new Color(0, 0, 0))
 
@@ -350,7 +352,7 @@ class DrawingCanvas
   height: 256
   refreshRate: 1000 / 1
   antialiasing: false
-  drawMode: 'ellipse'
+  drawMode: 'rectangle'
   graphicsPrimitives: []
   modified: false
   drawingInProgress: false
