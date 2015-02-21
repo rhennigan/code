@@ -16,7 +16,7 @@ class Line
   col1: new Color()
   col2: new Color()
 
-  constructor: (pt1 = @pt1, pt2 = @pt2, col1 = @col1, col2 = @col2) ->
+  constructor: (pt1 = @pt1, pt2 = @pt2, col1 = @col1, col2 = col1) ->
     @pt1 = pt1;
     @pt2 = pt2;
     @col1 = col1;
