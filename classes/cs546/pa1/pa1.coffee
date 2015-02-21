@@ -240,7 +240,9 @@ canvas = new DrawingCanvas()
 # canvas.refresh()
 # console.log canvas.data
 
-color = new Color(255,0,0,255)
-color.write(i,i,canvas) for i in [0..30]
+for i in [0...canvas.width]
+  for j in [0...canvas.height]
+    color = new Color(Math.random()*255,Math.random()*255,Math.random()*255,255)
+    color.write(i,j,canvas)
 console.log canvas.data
-canvas.drawingContext.putImageData(canvas.data, 0, 0)
+canvas.drawingContext.putImageData(canvas.data.data, 0, 0)
