@@ -319,6 +319,21 @@ class Rectangle
   pt2: {x: 0, y: 0}
   color: new Color()
 
+  constructor: (pt1 = @pt1, pt2 = @pt2, color = @color) ->
+    @pt1 = pt1
+    @pt2 = pt2
+    @color = color
+
+  drag: (mouse) ->
+    @pt2.x = mouse.x
+    @pt2.y = mouse.y
+
+  draw: (canvas) ->
+    p11 = x: @pt1.x, y: @pt1.y
+    p12 = x: @pt2.x, y: @pt1.y
+    p21 = x: @pt1.x, y: @pt2.y
+    p22 = x: @pt2.x, y: @pt2.y
+
 ###############################################################################
 
 class DrawingCanvas
