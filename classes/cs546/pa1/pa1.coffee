@@ -238,7 +238,7 @@ class DrawingCanvas
       shape.draw(this) for shape in @graphicsPrimitives
       @drawingContext.putImageData(@data, 0, 0)
       @modified = false
-    setTimeout @refresh @refreshRate
+    setTimeout @refresh 5000
 
   # initialize: ->
   #   setInterval @refresh, @refreshRate
