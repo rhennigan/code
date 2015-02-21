@@ -121,11 +121,11 @@ class Line
       ypxl2 = ipart(yend)
 
       if steep
-        @col2.write ypxl2, xpxl2, canvas, rfpart(yend) * xgap
-        @col2.write ypxl2 + 1, xpxl2, canvas, fpart(yend) * xgap
+        @col2.write (ypxl2, xpxl2, canvas, rfpart(yend) * xgap)
+        @col2.write (ypxl2 + 1, xpxl2, canvas, fpart(yend) * xgap)
       else
-        @col2.write xpxl2, ypxl2, canvas, rfpart(yend) * xgap
-        @col2.write xpxl2, ypxl2 + 1, canvas, fpart(yend) * xgap
+        @col2.write (xpxl2, ypxl2, canvas, rfpart(yend) * xgap)
+        @col2.write (xpxl2, ypxl2 + 1, canvas, fpart(yend) * xgap)
 
       # main loop
       for i in [xpxl1 + 1 .. xpxl2]
@@ -148,9 +148,8 @@ class Line
           color.write(p1.x, p1.y, canvas, rfpart(intery))
           color.write(p2.x, p2.y, canvas, fpart(intery))
 
-        
-
       intery += gradient
+      console.log intery
 
     else # antialiasing is off
       dx = Math.abs(@pt2.x - @pt1.x)
