@@ -555,6 +555,7 @@ class DrawingCanvas
 
     ui.checkb.fractal.addEventListener "click", (e) ->
       $("#fracTxt").toggle @checked
+      $("#right-canvas").toggle @checked
       
 
   clearCanvas: ->

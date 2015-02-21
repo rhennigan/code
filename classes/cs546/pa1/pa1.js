@@ -825,7 +825,8 @@
         return $("#aaTxt").toggle(this.checked);
       });
       return ui.checkb.fractal.addEventListener("click", function(e) {
-        return $("#fracTxt").toggle(this.checked);
+        $("#fracTxt").toggle(this.checked);
+        return $("#right-canvas").toggle(this.checked);
       });
     };
 
