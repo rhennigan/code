@@ -424,8 +424,12 @@ class DrawingCanvas
 
     @canvas.addEventListener "mousedown", (e) =>
       @modified = @drawingInProgress = true
-      shape = Geometry::createPrimitive(@drawMode, @getMousePos(e))
-      @graphicsPrimitives.push(shape)
+      if @polyInProgress
+        [..., current] = @graphicsPrimitives
+        current.insert(@getMousePos(e))
+      else
+        shape = Geometry::createPrimitive(@drawMode, @getMousePos(e))
+        @graphicsPrimitives.push(shape)
 
     @canvas.addEventListener "mousemove", (e) =>
       if @drawingInProgress
