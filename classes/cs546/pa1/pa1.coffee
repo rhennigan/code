@@ -10,6 +10,18 @@ class Color
     @b = b
     @a = a
 
+class Line 
+  pt1: {x: 0, y: 0}
+  pt2: {x: 0, y: 0}
+  col1: new Color()
+  col2: new Color()
+
+  constructor: (pt1 = @pt1, pt2 = @pt2, col1 = @col1, col2 = @col2) ->
+    @pt1 = pt1;
+    @pt2 = pt2;
+    @col1 = col1;
+    @col2 = col2;
+
 class DrawingCanvas
   width: 512
   height: 512
