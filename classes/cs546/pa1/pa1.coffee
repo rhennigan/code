@@ -28,6 +28,7 @@ class Color
       c = Color.alphaBlend colorA, colorB p
       canvas.data[index .. index + 3] = [c.r, c.g, c.b, c.a]
     else
+      console.log canvas.data
       canvas.data[index .. index + 3] = [@r, @g, @b, @a]
 
 
@@ -176,6 +177,7 @@ class DrawingCanvas
   graphicsPrimitives: []
   modified: false
   polyInProgress: false
+  data: null
 
   constructor: ->
     @createCanvas()
