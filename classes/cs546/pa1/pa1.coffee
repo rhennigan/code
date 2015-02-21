@@ -20,3 +20,11 @@ class DrawingCanvas
   resizeCanvas: ->
     @canvas.width = @width
     @canvas.height = @height
+
+  createDrawingContext: ->
+    @drawingContext = @canvas.getContext '2d'
+
+  clearCanvas: ->
+    @drawingContext.clearRect 0, 0, @width, @height
+
+  refresh: -> ()
