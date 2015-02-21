@@ -28,10 +28,10 @@ class Color
       c = Color.alphaBlend colorA, colorB p
       canvas.data.data[index .. index + 3] = [c.r, c.g, c.b, c.a]
     else
-      canvas.data.data[index] = @r
-      canvas.data.data[index] = @g
-      canvas.data.data[index] = @b
-      canvas.data.data[index] = @a
+      canvas.data.data[index + 0] = @r
+      canvas.data.data[index + 1] = @g
+      canvas.data.data[index + 2] = @b
+      canvas.data.data[index + 3] = @a
 
 
 Color::interpolate = (c1, c2, p) ->
