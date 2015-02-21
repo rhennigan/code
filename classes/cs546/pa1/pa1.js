@@ -723,8 +723,8 @@
           } else {
             shape = Geometry.prototype.createPrimitive(_this.drawMode, _this.getMousePos(e));
             _this.graphicsPrimitives.push(shape);
-            if (_this.drawmode === Geometry.prototype.tags.POLYGON || Geometry.prototype.tags.POLYLINE) {
-              alert('wtf' + _this.drawmode);
+            if (_this.drawMode === Geometry.prototype.tags.POLYGON || Geometry.prototype.tags.POLYLINE) {
+              alert('wtf' + _this.drawMode);
               return _this.polyInProgress = true;
             }
           }
