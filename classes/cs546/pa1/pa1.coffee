@@ -429,9 +429,10 @@ class Polyline
 
 ###############################################################################
 
-buttons = 
-  clear: document.getElementById('clear')
-  undo: document.getElementById('undo')
+ui =
+  buttons: 
+    clear: document.getElementById('clear')
+    undo: document.getElementById('undo')
 
 ###############################################################################
 
@@ -505,10 +506,10 @@ class DrawingCanvas
       console.log "click"
       @getMousePos(e)
 
-    buttons.clear.addEventListener "click", (e) =>
+    ui.buttons.clear.addEventListener "click", (e) =>
       @reset()
 
-    buttons.undo.addEventListener "click", (e) =>
+    ui.buttons.undo.addEventListener "click", (e) =>
       @undo()
 
   clearCanvas: ->
