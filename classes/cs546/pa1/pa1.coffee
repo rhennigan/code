@@ -440,6 +440,9 @@ ui =
     polygon:   document.getElementById('polygon')
     polyline:  document.getElementById('polyline')
 
+  checkb:
+    antialiasing: document.getElementById('aaModeSel')
+
 
 
 ###############################################################################
