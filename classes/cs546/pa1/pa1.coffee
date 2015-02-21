@@ -241,7 +241,6 @@ canvas = new DrawingCanvas()
 # console.log canvas.data
 
 color = new Color(255,255,255,255)
-color.write(1,1,canvas)
-console.log canvas.data[1]
+color.write(i,i,canvas) for i in [0..30]
 console.log canvas.data
 canvas.drawingContext.putImageData(canvas.data, 0, 0)
