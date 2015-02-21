@@ -229,7 +229,9 @@ class DrawingCanvas
       @modified = false
     else
       console.log 'canvas unchanged'
-    setTimeout @refresh, @refreshRate
+
+    console.log 'waiting for next frame'
+    setTimeout @refresh(), @refreshRate
 
   reset: ->
     @clearCanvas()
