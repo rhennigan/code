@@ -26,7 +26,10 @@ class Color
       [r, g, b, a] = canvas.data.data[index .. index + 3]
       colorA = new Color r, g, b, a
       c = Color.alphaBlend colorA, colorB p
-      canvas.data.data[index .. index + 3] = [c.r, c.g, c.b, c.a]
+      canvas.data.data[index + 0] = c.r
+      canvas.data.data[index + 1] = c.g
+      canvas.data.data[index + 2] = c.b
+      canvas.data.data[index + 3] = c.a
     else
       canvas.data.data[index + 0] = @r
       canvas.data.data[index + 1] = @g
@@ -171,7 +174,7 @@ class Line
 class DrawingCanvas
   width: 256
   height: 256
-  refreshRate: 1000/5
+  refreshRate: 1000/1
   antialiasing: true
   drawMode: 'line'
   graphicsPrimitives: []
@@ -185,7 +188,7 @@ class DrawingCanvas
     @createDrawingContext()
     @setupEventHandlers()
     @clearCanvas()
-    @initialize()
+    # @initialize()
 
   createCanvas: ->
     @canvas = document.createElement 'canvas'
@@ -225,8 +228,8 @@ class DrawingCanvas
       @drawingContext.putImageData(@data, 0, 0)
       @modified = false
 
-  initialize: ->
-    setInterval @refresh, @refreshRate
+  # initialize: ->
+  #   setInterval @refresh, @refreshRate
 
   reset: ->
     @clearCanvas()
