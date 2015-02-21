@@ -8,9 +8,9 @@ Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
 Geometry::createPrimitive = (drawMode, mouse) ->
   switch drawMode
     when 'line'
-      new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
+      new Line(mouse, mouse, new Color(0, 0, 0))
     else
-      new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
+      new Line(mouse, mouse, new Color(0, 0, 0))
 
 ###############################################################################
 
