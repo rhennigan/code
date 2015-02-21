@@ -320,6 +320,7 @@ class DrawingCanvas
 window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
 
+drawingCanvas.graphicsPrimitives.push(new Line({x:25, y:30}, {x:150, y:200}, new Color(255, 0, 0)))
 
 shape = new Circle({x:25, y:30}, 10, new Color(255, 0, 0))
 drawingCanvas.graphicsPrimitives.push(shape)
