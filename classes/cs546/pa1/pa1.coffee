@@ -431,6 +431,8 @@ class DrawingCanvas
       else
         shape = Geometry::createPrimitive(@drawMode, @getMousePos(e))
         @graphicsPrimitives.push(shape)
+        if @drawmode is 'polygon'
+          @polyInProgress = true
 
     @canvas.addEventListener "mousemove", (e) =>
       console.log "mousemove: " + @drawingInProgress + ", " + @polyInProgress
@@ -467,8 +469,8 @@ class DrawingCanvas
       @drawingContext.putImageData(@data, 0, 0)
       @modified = false
 
-   initialize: ->
-     setInterval @refresh, @refreshRate
+  initialize: ->
+    setInterval @refresh, @refreshRate
 
   reset: ->
     @clearCanvas()
