@@ -30,4 +30,4 @@ class DrawingCanvas
     @drawingContext.putImageData @data, 0, 0
 
   refresh: ->
-    
+    shape.draw() for shape in @graphicsPrimitives
