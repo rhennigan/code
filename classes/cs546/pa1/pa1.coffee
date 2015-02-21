@@ -49,7 +49,6 @@ class Color
       canvas.data.data[index + 2] = @b
       canvas.data.data[index + 3] = @a
 
-
 Color::interpolate = (c1, c2, p) ->
   p2 = if p < 0.0 then 0.0 else if p > 1.0 then 1.0 else p
   p1 = 1.0 - p2
@@ -206,6 +205,12 @@ class Circle
     @radius = Geometry::distance(mouse, @center)
 
   draw: (canvas) ->
+    x = @radius
+    y = 0
+    radiusError = 1 - x
+
+    step = () ->
+      @color.write(x + @center.x, y + @center.y, canvas)
 
 ###############################################################################
 
