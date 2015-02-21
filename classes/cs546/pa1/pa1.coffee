@@ -358,7 +358,9 @@ class Polygon
   undo: () ->
     @vertices.pop()
 
-  
+  drag: (mouse) ->
+    [..., current] = @vertices
+    current = mouse
 
 ###############################################################################
 
