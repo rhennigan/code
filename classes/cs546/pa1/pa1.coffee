@@ -526,6 +526,8 @@ class DrawingCanvas
 window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
 
+console.log drawingCanvas
+
 document.getElementById('clear').addEventListener('click', ->
   drawingCanvas.reset()
 , false);

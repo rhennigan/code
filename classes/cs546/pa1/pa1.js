@@ -800,6 +800,8 @@
 
   drawingCanvas = new DrawingCanvas();
 
+  console.log(drawingCanvas);
+
   document.getElementById('clear').addEventListener('click', function() {
     return drawingCanvas.reset();
   }, false);
