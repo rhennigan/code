@@ -341,6 +341,8 @@ class Rectangle
       new Line(p21, p11, @color)
     ]
 
+    line.draw(canvas) for line in lines
+
 ###############################################################################
 
 class DrawingCanvas
