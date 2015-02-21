@@ -203,7 +203,7 @@ class Circle
     @color = color;
 
   drag: (mouse) ->
-    @radius = mouse
+    @radius = Geometry::distance(mouse, @center)
 
   draw: (canvas) ->
 
