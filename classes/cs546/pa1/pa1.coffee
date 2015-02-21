@@ -42,3 +42,7 @@ class DrawingCanvas
   reset: ->
     @clearCanvas()
     @graphicsPrimitives = []
+
+  undo: ->
+    @graphicsPrimitives.pop()
+    @modified = true
