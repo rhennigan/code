@@ -184,7 +184,6 @@ class DrawingCanvas
     @createDrawingContext()
     @setupEventHandlers()
     @clearCanvas()
-    console.log @data
     @refresh()
 
   createCanvas: ->
@@ -214,7 +213,7 @@ class DrawingCanvas
 
   refresh: ->
     if @modified
-      # @clearCanvas()
+      @clearCanvas()
       shape.draw() for shape in @graphicsPrimitives
       @drawingContext.putImageData(@data, 0, 0)
       @modified = false
@@ -238,7 +237,7 @@ canvas = new DrawingCanvas()
 # canvas.refresh()
 # console.log canvas.data
 
-color = new Color(255,0,0,255)
+color = new Color(255,255,255,255)
 color.write(1,1,canvas)
-canvas.refresh()
+canvas.drawingContext.putImageData(canvas.data, 0, 0)
 console.log canvas.data
