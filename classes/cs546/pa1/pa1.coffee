@@ -579,7 +579,7 @@ class DrawingCanvas
     @graphicsPrimitives.pop()
     @modified = true
 
-loadDC = () ->
+loadDC = () =>
   window.DrawingCanvas = DrawingCanvas
   drawingCanvas = new DrawingCanvas()
 

@@ -866,11 +866,13 @@
 
   })();
 
-  loadDC = function() {
-    var drawingCanvas;
-    window.DrawingCanvas = DrawingCanvas;
-    return drawingCanvas = new DrawingCanvas();
-  };
+  loadDC = (function(_this) {
+    return function() {
+      var drawingCanvas;
+      window.DrawingCanvas = DrawingCanvas;
+      return drawingCanvas = new DrawingCanvas();
+    };
+  })(this);
 
   loadFC = function() {
     var fractalCanvas;
