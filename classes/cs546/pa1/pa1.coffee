@@ -15,7 +15,7 @@ class DrawingCanvas
     @refresh()
 
   createCanvas: ->
-    @canvas = document.createElement 'drawingCanvas'
+    @canvas = document.createElement 'canvas'
     document.body.appendChild @canvas
 
   resizeCanvas: ->
