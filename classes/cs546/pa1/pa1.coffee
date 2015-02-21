@@ -14,7 +14,9 @@ Geometry::createPrimitive = (drawMode, mouse) ->
     when 'ellipse'
       new Ellipse(mouse, 0, 0, new Color(0, 0, 0))
     when 'rectangle'
-      new Rectangle(mouse, mouse, new Color(0, 0, 0))    
+      new Rectangle(mouse, mouse, new Color(0, 0, 0))
+    when 'polygon'
+      new Polygon([mouse, mouse], new Color(0, 0, 0))  
     else 
       new Line(mouse, mouse, new Color(0, 0, 0))
 
@@ -379,7 +381,6 @@ class Polygon
     line.pt1 = @vertices[len - 1]
     line.pt2 = @vertices[0]
     line.draw(canvas)
-
 
 ###############################################################################
 
