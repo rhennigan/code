@@ -245,4 +245,4 @@ for i in [0...canvas.width]
     color = new Color(Math.random()*255,Math.random()*255,Math.random()*255,255)
     color.write(i,j,canvas)
 console.log canvas.data
-canvas.drawingContext.putImageData(canvas.data.data, 0, 0)
+canvas.drawingContext.putImageData(canvas.data, 0, 0)
