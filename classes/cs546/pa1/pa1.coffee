@@ -171,8 +171,8 @@ class Line
 ###############################################################################
 
 class DrawingCanvas
-  width: 32
-  height: 32
+  width: 256
+  height: 256
   refreshRate: 1000/30
   antialiasing: false
   drawMode: 'line'
@@ -233,16 +233,17 @@ class DrawingCanvas
 window.DrawingCanvas = DrawingCanvas
 canvas = new DrawingCanvas()
 
-# line = new Line({x:1, y:1}, {x:25, y:30}, new Color(255, 0, 0))
+line = new Line({x:1, y:1}, {x:25, y:30}, new Color(255, 0, 0))
 # console.log canvas
-# line.draw(canvas)
+line.draw(canvas)
+canvas.drawingContext.putImageData(canvas.data, 0, 0)
 # canvas.modified = true
 # canvas.refresh()
 # console.log canvas.data
 
-for i in [0...canvas.width]
-  for j in [0...canvas.height]
-    color = new Color(Math.random()*255,Math.random()*255,Math.random()*255,255)
-    color.write(i,j,canvas)
-console.log canvas.data
-canvas.drawingContext.putImageData(canvas.data, 0, 0)
+# for i in [0...canvas.width]
+#   for j in [0...canvas.height]
+#     color = new Color(Math.random()*255,Math.random()*255,Math.random()*255,255)
+#     color.write(i,j,canvas)
+# console.log canvas.data
+# canvas.drawingContext.putImageData(canvas.data, 0, 0)
