@@ -11,6 +11,8 @@ Geometry::createPrimitive = (drawMode, mouse) ->
       new Line(mouse, mouse, new Color(0, 0, 0))
     when 'circle' 
       new Circle(mouse, 0, new Color(0, 0, 0))
+    when 'ellipse'
+      new Ellipse(mouse, 0, 0, new Color(0, 0, 0))
     else 
       new Line(mouse, mouse, new Color(0, 0, 0))
 
