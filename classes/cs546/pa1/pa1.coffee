@@ -217,7 +217,7 @@ class DrawingCanvas
   refresh: ->
     if @modified
       @clearCanvas()
-      shape.draw() for shape in @graphicsPrimitives
+      shape.draw(this) for shape in @graphicsPrimitives
       @drawingContext.putImageData(@data, 0, 0)
       @modified = false
     setTimeout @refresh, @refreshRate
@@ -234,9 +234,11 @@ window.DrawingCanvas = DrawingCanvas
 canvas = new DrawingCanvas()
 
 line = new Line({x:1, y:1}, {x:25, y:30}, new Color(255, 0, 0))
+canvas.graphicsPrimitives.push(line)
+canvas.modified = true
+canvas.refresh()
 # console.log canvas
-line.draw(canvas)
-canvas.drawingContext.putImageData(canvas.data, 0, 0)
+# line.draw(canvas)
 # canvas.modified = true
 # canvas.refresh()
 # console.log canvas.data
