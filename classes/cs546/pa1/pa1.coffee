@@ -27,6 +27,7 @@ class DrawingCanvas
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
     @data = @drawingContext.getImageData 0, 0, @width, @height
+    @drawingContext.putImageData @data, 0, 0
 
-  refresh: -> ()
-
+  refresh: ->
+    
