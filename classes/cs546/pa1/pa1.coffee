@@ -102,7 +102,7 @@ class Line
       yend = y0 + gradient * (xend - x0)
       xgap = rfpart(x0 + 0.5)
       xpxl1 = xend # this will be used in the main loop
-      ypxl1 = ipart yend
+      ypxl1 = ipart(yend)
 
       if steep
         @col1.write ypxl1, xpxl1, canvas, rfpart(yend) * xgap
