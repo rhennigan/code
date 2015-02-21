@@ -19,11 +19,20 @@
     return Math.sqrt(dx * dx + dy * dy);
   };
 
+  Geometry.prototype.tags = {
+    LINE: 'line',
+    CIRCLE: 'circle',
+    ELLIPSE: 'ellipse',
+    RECTANGLE: 'rectangle',
+    POLYGON: 'polygon',
+    POLYLINE: 'polyline'
+  };
+
   Geometry.prototype.createPrimitive = function(drawMode, mouse) {
     var defaultColor;
     defaultColor = new Color(0, 0, 0);
     switch (drawMode) {
-      case 'line':
+      case this.tags.LINE:
         return new Line(mouse, mouse, defaultColor);
       case 'circle':
         return new Circle(mouse, 0, defaultColor);
@@ -32,6 +41,7 @@
       case 'rectangle':
         return new Rectangle(mouse, mouse, defaultColor);
       case 'polygon':
+        console.log(this.tags.POLYGON);
         return new Polygon([mouse, mouse], defaultColor);
       default:
         return new Line(mouse, mouse, defaultColor);

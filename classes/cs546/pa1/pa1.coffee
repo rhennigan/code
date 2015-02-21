@@ -25,6 +25,7 @@ Geometry::createPrimitive = (drawMode, mouse) ->
     when 'rectangle'
       new Rectangle(mouse, mouse, defaultColor)
     when 'polygon'
+      console.log @tags.POLYGON
       new Polygon([mouse, mouse], defaultColor)
     else 
       new Line(mouse, mouse, defaultColor)
