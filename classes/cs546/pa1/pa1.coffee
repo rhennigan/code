@@ -465,7 +465,10 @@ class DrawingCanvas
     @initialize()
 
   switchMode: (mode) ->
+    $("#" + drawMode).css("background-color", "#cccccc")
+    $("#" + mode).css("background-color", "#888888")
     @drawMode = mode
+    console.log(drawMode)
 
   createCanvas: ->
     @canvas = document.createElement 'canvas'
@@ -521,7 +524,8 @@ class DrawingCanvas
 
     ui.buttons.clear.addEventListener "click", (e) => @reset()
     ui.buttons.undo.addEventListener "click", (e) => @undo()
-    ui.buttons.line.addEventListener "click", (e) => @undo()
+    ui.buttons.line.addEventListener "click", (e) => 
+      @switchMode(Geometry::tags.LINE)
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
