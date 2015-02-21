@@ -223,6 +223,11 @@ class DrawingCanvas
       shape = Geometry::createPrimitive(@drawMode, @getMousePos(e))
       @graphicsPrimitives.push(shape)
 
+    @canvas.addEventListener "mousemove", (e) =>
+      @modified = @drawingInProgress = true
+      shape = Geometry::createPrimitive(@drawMode, @getMousePos(e))
+      @graphicsPrimitives.push(shape)
+
     @canvas.addEventListener "click", (e) => @getMousePos(e)
 
   clearCanvas: ->
