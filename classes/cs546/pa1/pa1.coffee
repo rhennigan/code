@@ -564,3 +564,16 @@ window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
 
 console.log Geometry::tags.LINE
+
+$('#aaModeSel').click( ->
+  $("#hintTxt").toggle(@checked)
+  antialiasing = @checked
+  redraw ();
+    });
+    $('#fractModeSel').click(function() {
+      $("#fracTxt").toggle(this.checked);
+      $("#fractalCanvas").toggle(this.checked);
+      $("#fractalCanvas").css({'display': 'default',
+        'border': '1px solid #c3c3c3'});
+      redraw ();
+    });
