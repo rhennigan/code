@@ -465,7 +465,7 @@ class DrawingCanvas
     @initialize()
 
   switchMode: (mode) ->
-    $("#" + drawMode).css("background-color", "#cccccc")
+    $("#" + @drawMode).css("background-color", "#cccccc")
     $("#" + mode).css("background-color", "#888888")
     @drawMode = mode
     console.log(drawMode)
