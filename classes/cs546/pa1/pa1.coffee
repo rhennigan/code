@@ -274,13 +274,39 @@ class Ellipse
     write = (x, y) ->
       color.write(x + cx, y + cy, canvas)
 
-    writeQuadrants = () ->
+    writeQuadrants = (x, y) ->
       write(+x, +y)
       write(-x, +y)
       write(+x, -y)
       write(-x, -y)
 
-    
+    step1 = () ->
+      x++
+      px += twob2
+      if p < 0
+        p += b2 + px
+      else
+        y--
+        py -= twoa2
+        p += b2 + px - py
+      writeQuadrants(x, y)
+
+    step2 = () ->
+      y--
+      py -= twoa2
+      if p > 0
+        p += a2 - py
+      else
+        x++
+        px += twob2
+        p += a2 - py + px
+      writeQuadrants(x, y)
+
+    p = Math.round(b2 - (a2 * @b) + (0.25 * a2))
+    step1() while px < py
+
+    p = Math.round(-a2*b2 + a2*y*y - 2*a2*y + a2 + b2*x*x + b2*x + 0.25*b2)
+    step2() while y > 0
 
 ###############################################################################
 
