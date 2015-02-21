@@ -220,7 +220,8 @@ class DrawingCanvas
     @drawingContext.putImageData @data, 0, 0
     @modified = true
 
-  refresh: ->
+  refresh: =>
+    console.log @modified
     if @modified
       console.log 'refreshing canvas'
       @clearCanvas()
