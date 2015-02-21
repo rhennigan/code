@@ -396,6 +396,8 @@ class DrawingCanvas
 
     @canvas.addEventListener "mouseup", (e) =>
       @drawingInProgress = false
+      [..., current] = @graphicsPrimitives
+      console.log current
 
     @canvas.addEventListener "click", (e) => @getMousePos(e)
 

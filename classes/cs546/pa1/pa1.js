@@ -604,7 +604,10 @@
       })(this));
       this.canvas.addEventListener("mouseup", (function(_this) {
         return function(e) {
-          return _this.drawingInProgress = false;
+          var current, ref;
+          _this.drawingInProgress = false;
+          ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
+          return console.log(current);
         };
       })(this));
       return this.canvas.addEventListener("click", (function(_this) {
