@@ -84,6 +84,10 @@ class Line
       xpxl1 = xend # this will be used in the main loop
       ypxl1 = ipart yend
 
+      if steep
+        @col1.write ypxl1, xpxl1, canvas, rfpart(yend) * xgap
+        @col1.write ypxl1, xpxl1, canvas, rfpart(yend) * xgap
+
     else
       drawLine(this)
 
