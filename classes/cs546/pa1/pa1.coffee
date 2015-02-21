@@ -499,6 +499,9 @@ class DrawingCanvas
       console.log "click"
       @getMousePos(e)
 
+    document.getElementById('clear').addEventListener "click", (e) =>
+      @reset()
+
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
     @data = @drawingContext.getImageData 0, 0, @width, @height
@@ -527,7 +530,3 @@ window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
 
 console.log drawingCanvas
-
-document.getElementById('clear').addEventListener('click', ->
-  drawingCanvas.reset()
-, false);
