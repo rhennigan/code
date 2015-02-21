@@ -395,12 +395,46 @@ class Polygon
 
 ###############################################################################
 
+class Polyline
+  vertices: []
+  color: new Color()
+
+  constructor: (vertices = @vertices, color = @color) ->
+    @vertices = vertices
+    @color = color
+
+  insert: (vertex) ->
+    @vertices.push(vertex)
+
+  undo: () ->
+    @vertices.pop()
+
+  drag: (mouse) ->
+    len = @vertices.length
+    @vertices[len - 1] = mouse
+
+  getLines: ->
+    for i in [0...@vertices.length]
+      new Line(@vertices[i], @vertices[i + 1 % @vertices.length], @color)
+
+  draw: (canvas) ->
+    line = new Line()
+    line.col1 = line.col2 = @color
+    len = @vertices.length
+    
+    for i in [0...len - 1]
+      line.pt1 = @vertices[i]
+      line.pt2 = @vertices[i + 1]
+      line.draw(canvas)
+
+###############################################################################
+
 class DrawingCanvas
   width: 256
   height: 256
   refreshRate: 1000 / 1
   antialiasing: false
-  drawMode: 'polygon'
+  drawMode: Geometry::tags.POLYLINE
   graphicsPrimitives: []
   modified: false
   drawingInProgress: false
