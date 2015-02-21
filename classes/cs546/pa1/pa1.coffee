@@ -5,12 +5,13 @@ class DrawingCanvas
   antialiasing: false
   drawMode: 'line'
   graphicsPrimitives: []
+  modified: false
 
   constructor: ->
     @createCanvas()
     @resizeCanvas()
-    @clearCanvas()
     @createDrawingContext()
+    @clearCanvas()
     @refresh()
 
   createCanvas: ->
@@ -33,3 +34,7 @@ class DrawingCanvas
     @clearCanvas()
     shape.draw() for shape in @graphicsPrimitives
     setTimeout @refresh, @refreshRate
+
+  reset: ->
+    @clearCanvas()
+    @graphicsPrimitives = []    
