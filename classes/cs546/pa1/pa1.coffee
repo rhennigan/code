@@ -440,14 +440,18 @@ class DrawingCanvas
         current.drag(@getMousePos(e))
 
     @canvas.addEventListener "mouseup", (e) =>
+      console.log "mouseup"
       [..., current] = @graphicsPrimitives
       @drawingInProgress = false unless @polyInProgress
       console.log current
 
     @canvas.addEventListener "dblclick", (e) =>
+      console.log "dblclick"
       @polyInProgress = @drawingInProgress = false
 
-    @canvas.addEventListener "click", (e) => @getMousePos(e)
+    @canvas.addEventListener "click", (e) => 
+      console.log "click"
+      @getMousePos(e)
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height

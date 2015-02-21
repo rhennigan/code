@@ -639,6 +639,7 @@
       this.canvas.addEventListener("mousedown", (function(_this) {
         return function(e) {
           var current, ref, shape;
+          console.log('mousedown');
           _this.modified = _this.drawingInProgress = true;
           if (_this.polyInProgress) {
             ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
@@ -652,7 +653,7 @@
       this.canvas.addEventListener("mousemove", (function(_this) {
         return function(e) {
           var current, ref;
-          console.log(_this.drawingInProgress + ", " + _this.polyInProgress);
+          console.log("mousemove: " + _this.drawingInProgress + ", " + _this.polyInProgress);
           if (_this.drawingInProgress) {
             _this.modified = true;
             ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
@@ -663,6 +664,7 @@
       this.canvas.addEventListener("mouseup", (function(_this) {
         return function(e) {
           var current, ref;
+          console.log("mouseup");
           ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
           if (!_this.polyInProgress) {
             _this.drawingInProgress = false;
@@ -672,11 +674,13 @@
       })(this));
       this.canvas.addEventListener("dblclick", (function(_this) {
         return function(e) {
+          console.log("dblclick");
           return _this.polyInProgress = _this.drawingInProgress = false;
         };
       })(this));
       return this.canvas.addEventListener("click", (function(_this) {
         return function(e) {
+          console.log("click");
           return _this.getMousePos(e);
         };
       })(this));
