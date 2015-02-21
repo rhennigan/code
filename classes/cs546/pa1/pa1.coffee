@@ -199,7 +199,7 @@ class Circle
   color: new Color()
 
   constructor: (center = @center, radius = @radius, color = @color) ->
-    @center.x = center;
+    @center = center;
     @radius = radius;
     @color = color;
 
@@ -207,13 +207,13 @@ class Circle
     @radius = Geometry::distance(mouse, @center)
 
   draw: (canvas) ->
-    x = @radius
+    x = Math.round @radius
     y = 0
     radiusError = 1 - x
 
     color = @color
-    cx = @center.x
-    cy = @center.y
+    cx = Math.round @center.x
+    cy = Math.round @center.y
 
     write = (x, y) =>
       color.write(x + cx, y + cy, canvas)
