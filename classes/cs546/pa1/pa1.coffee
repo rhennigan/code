@@ -146,7 +146,7 @@ class Line
           y: @pt1.y
         color: new Color(@col1.r, @col1.g, @col1.b, @col1.a)
 
-      step = () ->
+      step = () =>
         console.log @pt1
         console.log pix.point
         p = Geometry::distance(@pt1, pix.point) / dist
