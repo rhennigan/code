@@ -448,7 +448,7 @@ class DrawingCanvas
   width: 256
   height: 256
   refreshRate: 1000 / 20
-  antialiasing: false
+  antialiasing: true
   drawMode: Geometry::tags.CIRCLE
   graphicsPrimitives: []
   modified: false

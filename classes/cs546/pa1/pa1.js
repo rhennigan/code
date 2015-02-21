@@ -669,7 +669,7 @@
 
     DrawingCanvas.prototype.refreshRate = 1000 / 20;
 
-    DrawingCanvas.prototype.antialiasing = false;
+    DrawingCanvas.prototype.antialiasing = true;
 
     DrawingCanvas.prototype.drawMode = Geometry.prototype.tags.CIRCLE;
 
