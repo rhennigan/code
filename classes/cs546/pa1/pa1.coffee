@@ -317,7 +317,7 @@ class DrawingCanvas
   height: 256
   refreshRate: 1000 / 1
   antialiasing: false
-  drawMode: 'circle'
+  drawMode: 'ellipse'
   graphicsPrimitives: []
   modified: false
   drawingInProgress: false
