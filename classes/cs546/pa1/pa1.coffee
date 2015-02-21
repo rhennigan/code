@@ -280,6 +280,8 @@ class Ellipse
       write(+x, -y)
       write(-x, -y)
 
+    p = Math.round(b2 - (a2 * @b) + (0.25 * a2))
+
     step1 = () ->
       x++
       px += twob2
@@ -290,6 +292,10 @@ class Ellipse
         py -= twoa2
         p += b2 + px - py
       writeQuadrants(x, y)
+
+    step1() while px < py
+
+    p = Math.round(-a2*b2 + a2*y*y - 2*a2*y + a2 + b2*x*x + b2*x + 0.25*b2)
 
     step2 = () ->
       y--
@@ -302,10 +308,6 @@ class Ellipse
         p += a2 - py + px
       writeQuadrants(x, y)
 
-    p = Math.round(b2 - (a2 * @b) + (0.25 * a2))
-    step1() while px < py
-
-    p = Math.round(-a2*b2 + a2*y*y - 2*a2*y + a2 + b2*x*x + b2*x + 0.25*b2)
     step2() while y > 0
 
 ###############################################################################
