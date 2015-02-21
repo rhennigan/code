@@ -122,6 +122,7 @@ class Line
           point = {x: (p1.x + p2.x) / 2.0, y: (p1.y + p2.y) / 2.0}
           color = new Color()
           dist = line.distance()
+          p = Geometry.distance(@pt1, point) / dist
 
     else
       drawLine(this)
