@@ -584,6 +584,7 @@ drawingCanvas = new DrawingCanvas()
 fractalCanvas = new DrawingCanvas()
 
 $('#left-canvas').appendChild drawingCanvas
+$('#right-canvas').appendChild fractalCanvas
 
 # $('#aaModeSel').click( ->
 #   $("#hintTxt").toggle(@checked)

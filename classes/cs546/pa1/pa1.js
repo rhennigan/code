@@ -874,4 +874,6 @@
 
   $('#left-canvas').appendChild(drawingCanvas);
 
+  $('#right-canvas').appendChild(fractalCanvas);
+
 }).call(this);
