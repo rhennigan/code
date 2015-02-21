@@ -106,7 +106,7 @@ class Line
       yend = y1 + gradient * (xend - x1)
       xgap = fpart(x1 + 0.5)
       xpxl2 = xend # this will be used in the main loop
-      ypxl2 = ipart yend
+      ypxl2 = ipart(yend)
       if steep
         @col2.write ypxl2, xpxl2, canvas, rfpart(yend) * xgap
         @col2.write ypxl2 + 1, xpxl2, canvas, fpart(yend) * xgap
@@ -117,14 +117,12 @@ class Line
       # main loop
       for x in [xpxl1 + 1 .. xpxl2]
         if steep
-          p1 = {x: ipart intery, y: x}
-          p2 = {x: ipart (intery + 1), y: x}
+          p1 = {x: ipart(intery), y: x}
+          p2 = {x: ipart(intery + 1), y: x}
           point = {x: (p1.x + p2.x) / 2.0, y: (p1.y + p2.y) / 2.0}
-          color = new Color()
-          dist = line.distance()
 
-          p = Geometry.distance(@pt1, point) / dist
-          color = Color.interpolate()
+          p = Geometry.distance(@pt1, point) / line.distance()
+          color = Color.interpolate( )@col1, @col2, p)
 
     else
       drawLine(this)
