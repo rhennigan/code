@@ -1,9 +1,9 @@
 class Geometry
 
-  Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
-    dx = x2 - x1
-    dy = y2 - y1
-    Math.sqrt(dx * dx + dy * dy)
+Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
+  dx = x2 - x1
+  dy = y2 - y1
+  Math.sqrt(dx * dx + dy * dy)
 
 ###############################################################################
 
@@ -63,9 +63,7 @@ class Line
     @col2 = col2;
 
   distance: ->
-    dx = @pt2.x - @pt1.x
-    dy = @pt2.y - @pt1.y
-    Math.sqrt (dx*dx + dy*dy)
+    Geometry::distance pt1, pt2
 
   draw: (canvas) ->
     if canvas.antialiasing
