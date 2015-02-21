@@ -432,6 +432,7 @@ class DrawingCanvas
         @graphicsPrimitives.push(shape)
 
     @canvas.addEventListener "mousemove", (e) =>
+      console.log @drawingInProgress + ", " + @polyInProgress
       if @drawingInProgress
         @modified = true
         [..., current] = @graphicsPrimitives
