@@ -406,3 +406,25 @@ Proof.
   reflexivity.
 Qed.
 
+Theorem rev_involutive' :
+  forall L : natlist, rev (rev L) = L.
+Proof.
+intro L.
+induction L.
+trivial.
+simpl.
+rewrite -> rev_snoc.
+rewrite IHL.
+trivial.
+Qed.
+
+
+
+Print rev_involutive.
+Print natlist_ind.
+
+Locate snoc.
+SearchAbout snoc.
+SearchAbout rev.
+SearchAbout nat.
+
