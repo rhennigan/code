@@ -107,6 +107,9 @@ class Line
         @col2.write xpxl2, ypxl2, canvas, rfpart(yend) * xgap
         @col2.write xpxl2, ypxl2 + 1, canvas, fpart(yend) * xgap
 
+      # main loop
+      for x in [xpxl1 + 1 .. xpxl2]
+
     else
       drawLine(this)
 
