@@ -192,6 +192,23 @@ class Line
 
 ###############################################################################
 
+class Circle
+  center: {x: 0, y: 0}
+  radius: 0
+  color: new Color()
+
+  constructor: (center = @center, radius = @radius, color = @color) ->
+    @center = center;
+    @radius = radius;
+    @color = color;
+
+  drag: (mouse) ->
+    @radius = mouse
+
+  draw: (canvas) ->
+
+###############################################################################
+
 class DrawingCanvas
   width: 256
   height: 256
