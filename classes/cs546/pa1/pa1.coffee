@@ -53,4 +53,3 @@ class DrawingCanvas
     y: event.clientY - rect.top
 
 window.DrawingCanvas = DrawingCanvas
-#test
