@@ -209,9 +209,9 @@ class DrawingCanvas
     @canvas.addEventListener "mousedown", (e) =>
       @modified = @drawingInProgress = true
       mouse = @getMousePos(e)
-      console.log mouse
+      console.log [mouse, drawingCanvas.drawingInProgress]
 
-    @canvas.addEventListener "click", (e) => console.log @getMousePos(e)
+    @canvas.addEventListener "click", (e) => @getMousePos(e)
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
