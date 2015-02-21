@@ -46,6 +46,12 @@ class Line
     dy = @pt2.y - @pt1.y
     Math.sqrt (dx*dx + dy*dy)
 
+  draw: (antialiasing) ->
+    drawLine(this) unless antialiasing is on
+    else
+      drawLineAA(this)
+
+
 ###############################################################################
 
 class DrawingCanvas
