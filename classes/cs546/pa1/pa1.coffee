@@ -542,8 +542,7 @@ class DrawingCanvas
       @switchMode(Geometry::tags.POLYLINE)
 
     ui.checkb.antialiasing.addEventListener "click", (e) ->
-      console.log ui.lbl.aa
-      # ui.lbl.aa.toggle(@checked)
+      $("#aaTxt").toggle(@checked)
       
 
   clearCanvas: ->

@@ -822,7 +822,8 @@
         };
       })(this));
       return ui.checkb.antialiasing.addEventListener("click", function(e) {
-        return console.log(ui.lbl.aa);
+        console.log(ui.lbl.aa);
+        return $("#aaTxt").toggle(this.checked);
       });
     };
 
