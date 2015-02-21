@@ -221,6 +221,7 @@ class DrawingCanvas
     @modified = true
 
   refresh: ->
+    console.log 'refreshing canvas'
     if @modified
       @clearCanvas()
       shape.draw(this) for shape in @graphicsPrimitives
