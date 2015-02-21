@@ -4,14 +4,13 @@
 
   <style type="text/css">
     body {
-      background-color: rgb(38, 38, 38);
       margin: 0px;
       padding-left: 120px;
       padding-top: 10px;
     }
 
     canvas {
-      border: 2px solid rgba(242, 198, 65, 0.1);
+      border: 2px solid rgba(64, 64, 64, 0.1);
       background-color: rgb(255, 255, 255);
       margin: 50px auto 0 auto;
       display: block;
@@ -78,19 +77,13 @@
     <hr>
     <input type="button" id="undo" value="undo" onclick="undo()">
     <hr>
-    <input type="button" id="line" value="line" 
-    onclick="changeMode('line')">
-    <input type="button" id="circle" value="circle" 
-    onclick="changeMode('circle')">
-    <input type="button" id="ellipse" value="ellipse" 
-    onclick="changeMode('ellipse')">
+    <input type="button" id="line" value="line" onclick="changeMode('line')">
+    <input type="button" id="circle" value="circle" onclick="changeMode('circle')">
+    <input type="button" id="ellipse" value="ellipse" onclick="changeMode('ellipse')">
     <hr>
-    <input type="button" id="rectangle" value="rectangle" 
-    onclick="changeMode('rectangle')">
-    <input type="button" id="polygon" value="polygon" 
-    onclick="changeMode('polygon')">
-    <input type="button" id="polyline" value="polyline" 
-    onclick="changeMode('polyline')">
+    <input type="button" id="rectangle" value="rectangle" onclick="changeMode('rectangle')">
+    <input type="button" id="polygon" value="polygon" onclick="changeMode('polygon')">
+    <input type="button" id="polyline" value="polyline" onclick="changeMode('polyline')">
     <hr>
     <div>
       <label><input type="checkbox" id="aaModeSel"/> antialiasing</label>
