@@ -518,7 +518,7 @@ class DrawingCanvas
   initialize: ->
     setInterval @refresh, @refreshRate
 
-  reset: ->
+  reset: =>
     @clearCanvas()
     @graphicsPrimitives = []
 

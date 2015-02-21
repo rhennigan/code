@@ -671,6 +671,7 @@
     DrawingCanvas.prototype.data = null;
 
     function DrawingCanvas() {
+      this.reset = bind(this.reset, this);
       this.refresh = bind(this.refresh, this);
       this.setupEventHandlers = bind(this.setupEventHandlers, this);
       this.createCanvas();
@@ -757,7 +758,7 @@
       })(this));
       return document.getElementById('clear').addEventListener("click", (function(_this) {
         return function(e) {
-          return drawingCanvas.reset();
+          return _this.reset();
         };
       })(this));
     };
