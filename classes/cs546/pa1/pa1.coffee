@@ -526,18 +526,27 @@ class DrawingCanvas
       console.log "click"
       @getMousePos(e)
 
-    ui.buttons.clear.addEventListener "click", (e) => @reset()
-    ui.buttons.undo.addEventListener "click", (e) => @undo()
+    ui.buttons.clear.addEventListener "click", (e) => 
+      @reset()
+
+    ui.buttons.undo.addEventListener "click", (e) => 
+      @undo()
+
     ui.buttons.line.addEventListener "click", (e) => 
       @switchMode(Geometry::tags.LINE)
+
     ui.buttons.circle.addEventListener "click", (e) => 
       @switchMode(Geometry::tags.CIRCLE)
+
     ui.buttons.ellipse.addEventListener "click", (e) => 
       @switchMode(Geometry::tags.ELLIPSE)
+
     ui.buttons.rectangle.addEventListener "click", (e) => 
       @switchMode(Geometry::tags.RECTANGLE)
+
     ui.buttons.polygon.addEventListener "click", (e) => 
       @switchMode(Geometry::tags.POLYGON)
+
     ui.buttons.polyline.addEventListener "click", (e) => 
       @switchMode(Geometry::tags.POLYLINE)
 
