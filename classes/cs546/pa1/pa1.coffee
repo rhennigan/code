@@ -579,11 +579,10 @@ class DrawingCanvas
     @graphicsPrimitives.pop()
     @modified = true
 
-window.DrawingCanvas = DrawingCanvas
-drawingCanvas = new DrawingCanvas()
-fractalCanvas = new DrawingCanvas()
-
-console.log Geometry::tags.LINE
+initialize = ->
+  window.DrawingCanvas = DrawingCanvas
+  drawingCanvas = new DrawingCanvas()
+  fractalCanvas = new DrawingCanvas()
 
 # $('#aaModeSel').click( ->
 #   $("#hintTxt").toggle(@checked)
