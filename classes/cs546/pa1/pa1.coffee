@@ -209,6 +209,7 @@ class DrawingCanvas
     @canvas.addEventListener "mousedown", (e) =>
       @modified = @drawingInProgress = true
       mouse = @getMousePos(e)
+
       console.log [mouse, drawingCanvas.drawingInProgress]
 
     @canvas.addEventListener "click", (e) => @getMousePos(e)
@@ -237,6 +238,13 @@ class DrawingCanvas
 
 window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
+
+Geometry::createPrimitive = (mode, mouse) ->
+  switch mode
+    when 'line'
+      new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
+    else
+      new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
 
 line = new Line({x:1, y:1}, {x:25, y:30}, new Color(255, 0, 0))
 drawingCanvas.graphicsPrimitives.push(line)
