@@ -133,7 +133,7 @@ class Line
 
       intery += gradient
 
-    else
+    else # antialiasing is off
       drawLine(this)
 
 
