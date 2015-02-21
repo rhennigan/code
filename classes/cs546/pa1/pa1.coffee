@@ -1,3 +1,15 @@
+class Color
+  r: 255
+  g: 255
+  b: 255
+  a: 255
+
+  constructor: (r = @r, g = @g, b = @b, a = @a) ->
+    @r = r
+    @g = g
+    @b = b
+    @a = a
+
 class DrawingCanvas
   width: 512
   height: 512
