@@ -163,8 +163,6 @@ class Line
 
       step() until pix.point.x == @pt.x and pix.point.y == @pt2.y
 
-
-
 ###############################################################################
 
 class DrawingCanvas
