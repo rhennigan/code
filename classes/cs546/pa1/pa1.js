@@ -493,8 +493,7 @@
     }
 
     Rectangle.prototype.drag = function(mouse) {
-      this.pt2.x = mouse.x;
-      return this.pt2.y = mouse.y;
+      return this.pt2 = mouse;
     };
 
     Rectangle.prototype.draw = function(canvas) {

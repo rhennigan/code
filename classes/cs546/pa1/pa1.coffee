@@ -327,8 +327,7 @@ class Rectangle
     @color = color
 
   drag: (mouse) ->
-    @pt2.x = mouse.x
-    @pt2.y = mouse.y
+    @pt2 = mouse
 
   draw: (canvas) ->
     corners = [
