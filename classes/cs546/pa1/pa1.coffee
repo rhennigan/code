@@ -51,3 +51,5 @@ class DrawingCanvas
     rect = @canvas.getBoundingClientRect()
     x: event.clientX - rect.left
     y: event.clientY - rect.top
+
+#test
