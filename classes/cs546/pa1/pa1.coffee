@@ -213,14 +213,24 @@ class Circle
       @color.write(x + @center.x, y + @center.y, canvas)
 
     step = () ->
-      @color.write(+x + @center.x, +y + @center.y, canvas)
-      @color.write(+y + @center.x, +x + @center.y, canvas)
-      @color.write(-x + @center.x, +y + @center.y, canvas)
-      @color.write(-y + @center.x, +x + @center.y, canvas)
-      @color.write(-x + @center.x, -y + @center.y, canvas)
-      @color.write(-y + @center.x, -x + @center.y, canvas)
-      @color.write(+x + @center.x, -y + @center.y, canvas)
-      @color.write(+y + @center.x, -x + @center.y, canvas)
+      write(+x, +y)
+      write(+y, +x)
+      write(-x, +y)
+      write(-y, +x)
+      write(-x, -y)
+      write(-y, -x)
+      write(+x, -y)
+      write(+y, -x)
+
+      y++
+
+      if radiusError < 0
+        radiusError += 2 * y + 1
+      else
+        x--
+        radiusError += 2 * (y - x) + 1
+
+    step() while x >= y
 
 ###############################################################################
 
