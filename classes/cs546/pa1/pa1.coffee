@@ -265,7 +265,8 @@ Geometry::createPrimitive = (drawMode, mouse) ->
       new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
 
 test = [1,2,3,4,5]
-console.log test[-1]
+[..., last] = test
+console.log last
 
 line = new Line({x:1, y:1}, {x:25, y:30}, new Color(255, 0, 0))
 drawingCanvas.graphicsPrimitives.push(line)
