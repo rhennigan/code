@@ -150,7 +150,7 @@ class Line
         console.log @pt1
         console.log pix.point
         p = Geometry::distance(@pt1, pix.point) / dist
-        pix.color = Color.interpolate(@col1, @col2, p)
+        pix.color = Color::interpolate(@col1, @col2, p)
         pix.color.write(pix.point.x, pix.point.y, canvas)
 
         e2 = 2 * err
