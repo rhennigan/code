@@ -444,6 +444,10 @@ ui =
     antialiasing: document.getElementById('aaModeSel')
     fractal:      document.getElementById('fractModeSel')
 
+  lbl:
+    hint: document.getElementById('hintTxt')
+    frac: document.getElementById('fracTxt')
+
 
 
 ###############################################################################
@@ -538,6 +542,9 @@ class DrawingCanvas
       @switchMode(Geometry::tags.POLYGON)
     ui.buttons.polyline.addEventListener "click", (e) => 
       @switchMode(Geometry::tags.POLYLINE)
+
+    ui.checkb.antialiasing.addEventListener "click", (e) => 
+      
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
