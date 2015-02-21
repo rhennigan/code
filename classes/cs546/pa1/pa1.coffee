@@ -239,5 +239,6 @@ canvas = new DrawingCanvas()
 
 color = new Color(255,255,255,255)
 color.write(1,1,canvas)
-canvas.drawingContext.putImageData(canvas.data, 0, 0)
+console.log canvas.data[0..3]
 console.log canvas.data
+canvas.drawingContext.putImageData(canvas.data, 0, 0)
