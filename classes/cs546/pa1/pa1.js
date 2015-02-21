@@ -837,7 +837,8 @@
     };
 
     DrawingCanvas.prototype.initialize = function() {
-      return setInterval(this.refresh, this.refreshRate);
+      setInterval(this.refresh, this.refreshRate);
+      return this.switchMode(Geometry.prototype.tags.LINE);
     };
 
     DrawingCanvas.prototype.reset = function() {

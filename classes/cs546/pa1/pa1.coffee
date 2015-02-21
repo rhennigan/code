@@ -550,6 +550,7 @@ class DrawingCanvas
 
   initialize: ->
     setInterval @refresh, @refreshRate
+    @switchMode Geometry::tags.LINE
 
   reset: =>
     @clearCanvas()
