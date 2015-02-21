@@ -646,7 +646,10 @@
             return current.insert(_this.getMousePos(e));
           } else {
             shape = Geometry.prototype.createPrimitive(_this.drawMode, _this.getMousePos(e));
-            return _this.graphicsPrimitives.push(shape);
+            _this.graphicsPrimitives.push(shape);
+            if (_this.drawmode === 'polygon' || 'polyline') {
+              return _this.polyInProgress = true;
+            }
           }
         };
       })(this));
