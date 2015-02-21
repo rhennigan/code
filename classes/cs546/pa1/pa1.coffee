@@ -246,7 +246,7 @@ class Ellipse
   center: {x: 0, y: 0}
   a: 0
   b: 0
-  color: new Color
+  color: new Color()
 
   constructor: (center = @center, a = @a, b = @b, color = @color) ->
     @center = center
@@ -311,6 +311,13 @@ class Ellipse
       writeQuadrants(x, y)
 
     step2() while y > 0
+
+###############################################################################
+
+class Rectangle
+  pt1: {x: 0, y: 0}
+  pt2: {x: 0, y: 0}
+  color: new Color()
 
 ###############################################################################
 
