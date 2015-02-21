@@ -6,6 +6,7 @@ class DrawingCanvas
   drawMode: 'line'
   graphicsPrimitives: []
   modified: false
+  polyInProgress: false
 
   constructor: ->
     @createCanvas()
