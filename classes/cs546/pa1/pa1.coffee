@@ -18,14 +18,13 @@ Geometry::createPrimitive = (drawMode, mouse) ->
   switch drawMode
     when @tags.LINE
       new Line(mouse, mouse, defaultColor)
-    when 'circle' 
+    when @tags.CIRCLE
       new Circle(mouse, 0, defaultColor)
-    when 'ellipse'
+    when @tags.ELLIPSE
       new Ellipse(mouse, 0, 0, defaultColor)
-    when 'rectangle'
+    when @tags.RECTANGLE
       new Rectangle(mouse, mouse, defaultColor)
-    when 'polygon'
-      console.log @tags.POLYGON
+    when @tags.POLYGON
       new Polygon([mouse, mouse], defaultColor)
     else 
       new Line(mouse, mouse, defaultColor)
