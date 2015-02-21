@@ -431,14 +431,14 @@ class Polyline
 
 ui =
   buttons: 
-    clear: document.getElementById('clear')
-    undo: document.getElementById('undo')
-    line: document.getElementById('line')
-    circle: document.getElementById('circle')
-    ellipse: document.getElementById('ellipse')
+    clear:     document.getElementById('clear')
+    undo:      document.getElementById('undo')
+    line:      document.getElementById('line')
+    circle:    document.getElementById('circle')
+    ellipse:   document.getElementById('ellipse')
     rectangle: document.getElementById('rectangle')
-    polygon: document.getElementById('polygon')
-    polyline: document.getElementById('polyline')
+    polygon:   document.getElementById('polygon')
+    polyline:  document.getElementById('polyline')
 
 ###############################################################################
 
@@ -514,11 +514,9 @@ class DrawingCanvas
       console.log "click"
       @getMousePos(e)
 
-    ui.buttons.clear.addEventListener "click", (e) =>
-      @reset()
-
-    ui.buttons.undo.addEventListener "click", (e) =>
-      @undo()
+    ui.buttons.clear.addEventListener "click", (e) => @reset()
+    ui.buttons.undo.addEventListener "click", (e) => @undo()
+      
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
