@@ -214,7 +214,7 @@ class DrawingCanvas
 
   refresh: ->
     if @modified
-      @clearCanvas()
+      # @clearCanvas()
       shape.draw() for shape in @graphicsPrimitives
       @drawingContext.putImageData(@data, 0, 0)
       @modified = false
