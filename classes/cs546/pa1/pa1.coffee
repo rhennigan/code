@@ -1,9 +1,9 @@
 class Geometry
 
 Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
-dx = x2 - x1
-dy = y2 - y1
-Math.sqrt(dx * dx + dy * dy)
+  dx = x2 - x1
+  dy = y2 - y1
+  Math.sqrt(dx * dx + dy * dy)
 
 ###############################################################################
 
@@ -222,12 +222,6 @@ class DrawingCanvas
   undo: ->
     @graphicsPrimitives.pop()
     @modified = true
-
-  # getMousePos: (event) ->
-  #   rect = @canvas.getBoundingClientRect()
-  #   x: event.clientX - rect.left
-  #   y: event.clientY - rect.top
-  #   console.log "(#{x}, #{y})"
 
 window.DrawingCanvas = DrawingCanvas
 
