@@ -60,7 +60,11 @@ class Line
 
   draw: (canvas) ->
     if canvas.antialiasing
-      drawLineAA(this)
+      ipart = (x) -> Math.floor(x)
+      round = (x) -> Math.round(x)
+      fpart = (x) -> if x < 0 then 1 - (x - ipart(x)) else x - ipart(x)
+      rfpart = (x) -> 1 - fpart(x)
+      
     else
       drawLine(this)
 
