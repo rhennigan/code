@@ -27,11 +27,10 @@ class DrawingCanvas
     @drawingContext = @canvas.getContext '2d'
 
   setupEventHandlers: ->
-    this.clickHandler = -> 
+    this.getMousePos = -> 
       rect = @canvas.getBoundingClientRect()
-      x = event.clientX - rect.left
-      y = event.clientY - rect.top
-      console.log "(#{x}, #{y})"
+      x: event.clientX - rect.left
+      y: event.clientY - rect.top
     @canvas.addEventListener "click", (e) => this.clickHandler(e)
 
   clearCanvas: ->
