@@ -36,7 +36,7 @@ class DrawingCanvas
       @clearCanvas()
       shape.draw() for shape in @graphicsPrimitives
       @modified = false
-    console.log @getMousePos ()
+    console.log (@getMousePos())
     setTimeout @refresh, @refreshRate
 
   reset: ->
