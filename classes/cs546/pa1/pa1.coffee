@@ -168,8 +168,8 @@ class Line
 ###############################################################################
 
 class DrawingCanvas
-  width: 512
-  height: 512
+  width: 32
+  height: 32
   refreshRate: 1000/30
   antialiasing: false
   drawMode: 'line'
@@ -216,6 +216,7 @@ class DrawingCanvas
     if @modified
       @clearCanvas()
       shape.draw() for shape in @graphicsPrimitives
+      @drawingContext.putImageData(@data, 0, 0)
       @modified = false
     setTimeout @refresh, @refreshRate
 
