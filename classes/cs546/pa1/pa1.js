@@ -652,8 +652,7 @@
       this.canvas.addEventListener("mousemove", (function(_this) {
         return function(e) {
           var current, ref;
-          console.log(_this.drawingInProgress);
-          console.log(_this.polyInProgress);
+          console.log(_this.drawingInProgress + ", " + _this.polyInProgress);
           if (_this.drawingInProgress) {
             _this.modified = true;
             ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
