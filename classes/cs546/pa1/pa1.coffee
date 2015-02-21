@@ -6,19 +6,20 @@ Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
   Math.sqrt(dx * dx + dy * dy)
 
 Geometry::createPrimitive = (drawMode, mouse) ->
+  defaultColor = new Color(0, 0, 0)
   switch drawMode
     when 'line' 
-      new Line(mouse, mouse, new Color(0, 0, 0))
+      new Line(mouse, mouse, defaultColor)
     when 'circle' 
-      new Circle(mouse, 0, new Color(0, 0, 0))
+      new Circle(mouse, 0, defaultColor)
     when 'ellipse'
-      new Ellipse(mouse, 0, 0, new Color(0, 0, 0))
+      new Ellipse(mouse, 0, 0, defaultColor)
     when 'rectangle'
-      new Rectangle(mouse, mouse, new Color(0, 0, 0))
+      new Rectangle(mouse, mouse, defaultColor)
     when 'polygon'
-      new Polygon([mouse, mouse], new Color(0, 0, 0))  
+      new Polygon([mouse, mouse], defaultColor)  
     else 
-      new Line(mouse, mouse, new Color(0, 0, 0))
+      new Line(mouse, mouse, defaultColor)
 
 ###############################################################################
 
