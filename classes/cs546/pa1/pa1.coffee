@@ -355,6 +355,11 @@ class Polygon
   insert: (vertex) ->
     @vertices.push(vertex)
 
+  undo: () ->
+    @vertices.pop()
+
+  
+
 ###############################################################################
 
 class DrawingCanvas
