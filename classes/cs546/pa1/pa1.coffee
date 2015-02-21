@@ -359,8 +359,8 @@ class Polygon
     @vertices.pop()
 
   drag: (mouse) ->
-    [..., current] = @vertices
-    current = mouse
+    len = @vertices.length
+    @vertices[len - 1] = mouse
 
 ###############################################################################
 
