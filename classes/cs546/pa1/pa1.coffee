@@ -233,12 +233,13 @@ class DrawingCanvas
     @modified = true
 
   refresh: =>
+    console.log 'refreshing canvas'
     if @modified
-      console.log 'refreshing canvas'
       @clearCanvas()
       shape.draw(this) for shape in @graphicsPrimitives
       @drawingContext.putImageData(@data, 0, 0)
       @modified = false
+    setTimeout @refresh @refreshRate
 
   # initialize: ->
   #   setInterval @refresh, @refreshRate
