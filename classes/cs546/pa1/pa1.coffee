@@ -150,8 +150,6 @@ class Line
         color: new Color(@col1.r, @col1.g, @col1.b, @col1.a)
 
       step = () =>
-        console.log @pt1
-        console.log pix.point
         p = Geometry::distance(@pt1, pix.point) / dist
         pix.color = Color::interpolate(@col1, @col2, p)
         pix.color.write(pix.point.x, pix.point.y, canvas)
@@ -174,7 +172,7 @@ class DrawingCanvas
   width: 256
   height: 256
   refreshRate: 1000/5
-  antialiasing: false
+  antialiasing: true
   drawMode: 'line'
   graphicsPrimitives: []
   modified: false
