@@ -199,7 +199,7 @@ class Circle
   color: new Color()
 
   constructor: (center = @center, radius = @radius, color = @color) ->
-    @center = center;
+    @center.x = center;
     @radius = radius;
     @color = color;
 
@@ -244,7 +244,7 @@ class DrawingCanvas
   width: 256
   height: 256
   refreshRate: 1000 / 1
-  antialiasing: true
+  antialiasing: false
   drawMode: 'circle'
   graphicsPrimitives: []
   modified: false
