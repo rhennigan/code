@@ -32,11 +32,13 @@ class DrawingCanvas
     @modified = true
 
   refresh: ->
-    @clearCanvas()
-    shape.draw() for shape in @graphicsPrimitives
-    @modified = false
+    if @modified
+      @clearCanvas()
+      shape.draw() for shape in @graphicsPrimitives
+      @modified = false
+    
     setTimeout @refresh, @refreshRate
 
   reset: ->
     @clearCanvas()
-    @graphicsPrimitives = []    
+    @graphicsPrimitives = []
