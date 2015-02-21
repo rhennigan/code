@@ -5,6 +5,13 @@ Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
   dy = y2 - y1
   Math.sqrt(dx * dx + dy * dy)
 
+Geometry::createPrimitive = (drawMode, mouse) ->
+  switch drawMode
+    when 'line'
+      new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
+    else
+      new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
+
 ###############################################################################
 
 class Color
@@ -265,12 +272,7 @@ class DrawingCanvas
 window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
 
-Geometry::createPrimitive = (drawMode, mouse) ->
-  switch drawMode
-    when 'line'
-      new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
-    else
-      new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
+
 
 test = [1,2,3,4,5]
 [..., last] = test
