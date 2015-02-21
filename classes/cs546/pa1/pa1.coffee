@@ -60,8 +60,8 @@ class Line
 
   draw: (canvas) ->
     if canvas.antialiasing
-      ipart = (x) -> Math.floor(x)
-      round = (x) -> Math.round(x)
+      ipart = (x) -> Math.floor x
+      round = (x) -> Math.round x
       fpart = (x) -> if x < 0 then 1 - (x - ipart(x)) else x - ipart(x)
       rfpart = (x) -> 1 - fpart(x)
 
@@ -78,7 +78,11 @@ class Line
       [dx, dy] = [x1 - x0, y1 - y0]
       gradient = dy / dx
 
-      
+      xend = round x0
+      yend = y0 + gradient * (xend - x0)
+      xgap = rfpart(x0 + 0.5)
+      xpxl1 = xend # this will be used in the main loop
+      ypxl1 = ipart yend
 
     else
       drawLine(this)
