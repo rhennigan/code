@@ -128,7 +128,8 @@ class Line
         @col2.write xpxl2, ypxl2 + 1, canvas, fpart(yend) * xgap
 
       # main loop
-      for x in [xpxl1 + 1 .. xpxl2]
+      for i in [xpxl1 + 1 .. xpxl2]
+        x = i
         if steep
           p1 = {x: ipart(intery), y: x}
           p2 = {x: ipart(intery + 1), y: x}
