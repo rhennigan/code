@@ -1,6 +1,6 @@
 class Geometry
 
-Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
+  Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
   dx = x2 - x1
   dy = y2 - y1
   Math.sqrt(dx * dx + dy * dy)
@@ -63,7 +63,7 @@ class Line
     @col2 = col2;
 
   distance: ->
-    Geometry::distance pt1, pt2
+    Geometry.distance pt1, pt2
 
   draw: (canvas) ->
     if canvas.antialiasing
