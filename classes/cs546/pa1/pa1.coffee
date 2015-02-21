@@ -557,6 +557,7 @@ class DrawingCanvas
       $("#fracTxt").toggle @checked
       $("#right-canvas").toggle @checked
       if @checked
+        console.log @switchMode
         @switchMode(Geometry::tags.POLYLINE)
       
 

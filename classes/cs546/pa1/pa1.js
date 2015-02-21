@@ -829,6 +829,7 @@
           $("#fracTxt").toggle(_this.checked);
           $("#right-canvas").toggle(_this.checked);
           if (_this.checked) {
+            console.log(_this.switchMode);
             return _this.switchMode(Geometry.prototype.tags.POLYLINE);
           }
         };
