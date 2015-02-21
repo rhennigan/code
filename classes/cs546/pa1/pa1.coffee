@@ -23,13 +23,19 @@ class Color
     index = (x + y * canvas.width) * 4
     if canvas.antialiasing
       colorB = this
-      [r, g, b, a] = canvas.data.data[index .. index + 3]
+      r = canvas.data.data[index + 0]
+      g = canvas.data.data[index + 1]
+      b = canvas.data.data[index + 2]
+      a = canvas.data.data[index + 3]
+
       colorA = new Color r, g, b, a
-      c = Color.alphaBlend colorA, colorB p
+      c = Color.alphaBlend colorA, colorB, p
+
       canvas.data.data[index + 0] = c.r
       canvas.data.data[index + 1] = c.g
       canvas.data.data[index + 2] = c.b
       canvas.data.data[index + 3] = c.a
+
     else
       canvas.data.data[index + 0] = @r
       canvas.data.data[index + 1] = @g
