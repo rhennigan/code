@@ -671,9 +671,9 @@
   };
 
   DrawingCanvas = (function() {
-    DrawingCanvas.prototype.width = 512;
+    DrawingCanvas.prototype.width = 400;
 
-    DrawingCanvas.prototype.height = 512;
+    DrawingCanvas.prototype.height = 400;
 
     DrawingCanvas.prototype.refreshRate = 1000 / 20;
 
