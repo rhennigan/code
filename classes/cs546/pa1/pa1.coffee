@@ -442,6 +442,7 @@ ui =
 
   checkb:
     antialiasing: document.getElementById('aaModeSel')
+    fractal:      document.getElementById('fractModeSel')
 
 
 
