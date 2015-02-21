@@ -10,12 +10,14 @@ class Color
     @b = b
     @a = a
 
-  write: (x, y, c, canvas) ->
+  write: (x, y, canvas, p = 0) ->
     if canvas.antialiasing
       index = (x + y * canvas.width) * 4
       colorB = this
-
       [r, g, b, a] = canvas.data[index .. index + 3]
+      colorA = new Color r, g, b, a
+      c = Color::alphaBlend colorA colorB p
+      canvas.data[index .. index + 3] = [c.r, c.g, c.b, c.a]
 
 
 Color::interpolate = (c1, c2, p) ->
