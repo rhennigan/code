@@ -696,10 +696,10 @@
     }
 
     DrawingCanvas.prototype.switchMode = function(mode) {
-      $("#" + drawMode).css("background-color", "#cccccc");
+      $("#" + this.drawMode).css("background-color", "#cccccc");
       $("#" + mode).css("background-color", "#888888");
       this.drawMode = mode;
-      return console.log(drawMode);
+      return console.log(this.drawMode);
     };
 
     DrawingCanvas.prototype.createCanvas = function() {
@@ -727,7 +727,7 @@
       };
       this.canvas.addEventListener("mousedown", (function(_this) {
         return function(e) {
-          var current, ref, shape;
+          var current, ref, ref1, shape;
           console.log('mousedown');
           _this.modified = _this.drawingInProgress = true;
           if (_this.polyInProgress) {
@@ -736,8 +736,7 @@
           } else {
             shape = Geometry.prototype.createPrimitive(_this.drawMode, _this.getMousePos(e));
             _this.graphicsPrimitives.push(shape);
-            if (_this.drawMode === Geometry.prototype.tags.POLYGON || _this.drawMode === Geometry.prototype.tags.POLYLINE) {
-              alert('wtf' + _this.drawMode);
+            if ((ref1 = _this.drawMode) === Geometry.prototype.tags.POLYGON || ref1 === Geometry.prototype.tags.POLYLINE) {
               return _this.polyInProgress = true;
             }
           }

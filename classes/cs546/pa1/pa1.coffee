@@ -468,7 +468,7 @@ class DrawingCanvas
     $("#" + @drawMode).css("background-color", "#cccccc")
     $("#" + mode).css("background-color", "#888888")
     @drawMode = mode
-    console.log(drawMode)
+    console.log(@drawMode)
 
   createCanvas: ->
     @canvas = document.createElement 'canvas'
