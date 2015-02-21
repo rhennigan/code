@@ -755,13 +755,10 @@
       })(this));
       this.canvas.addEventListener("mouseup", (function(_this) {
         return function(e) {
-          var current, ref;
           console.log("mouseup");
-          ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
           if (!_this.polyInProgress) {
-            _this.drawingInProgress = false;
+            return _this.drawingInProgress = false;
           }
-          return console.log(current);
         };
       })(this));
       this.canvas.addEventListener("dblclick", (function(_this) {
@@ -786,9 +783,34 @@
           return _this.undo();
         };
       })(this));
-      return ui.buttons.line.addEventListener("click", (function(_this) {
+      ui.buttons.line.addEventListener("click", (function(_this) {
         return function(e) {
           return _this.switchMode(Geometry.prototype.tags.LINE);
+        };
+      })(this));
+      ui.buttons.circle.addEventListener("click", (function(_this) {
+        return function(e) {
+          return _this.switchMode(Geometry.prototype.tags.CIRCLE);
+        };
+      })(this));
+      ui.buttons.ellipse.addEventListener("click", (function(_this) {
+        return function(e) {
+          return _this.switchMode(Geometry.prototype.tags.ELLIPSE);
+        };
+      })(this));
+      ui.buttons.rectangle.addEventListener("click", (function(_this) {
+        return function(e) {
+          return _this.switchMode(Geometry.prototype.tags.RECTANGLE);
+        };
+      })(this));
+      ui.buttons.polygon.addEventListener("click", (function(_this) {
+        return function(e) {
+          return _this.switchMode(Geometry.prototype.tags.POLYGON);
+        };
+      })(this));
+      return ui.buttons.polyline.addEventListener("click", (function(_this) {
+        return function(e) {
+          return _this.switchMode(Geometry.prototype.tags.POLYLINE);
         };
       })(this));
     };
