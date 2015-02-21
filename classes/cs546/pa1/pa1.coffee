@@ -440,6 +440,8 @@ ui =
     polygon:   document.getElementById('polygon')
     polyline:  document.getElementById('polyline')
 
+
+
 ###############################################################################
 
 class DrawingCanvas
@@ -461,6 +463,9 @@ class DrawingCanvas
     @setupEventHandlers()
     @clearCanvas()
     @initialize()
+
+  switchMode: (mode) ->
+    @drawMode = mode
 
   createCanvas: ->
     @canvas = document.createElement 'canvas'
@@ -516,7 +521,7 @@ class DrawingCanvas
 
     ui.buttons.clear.addEventListener "click", (e) => @reset()
     ui.buttons.undo.addEventListener "click", (e) => @undo()
-      
+    ui.buttons.line.addEventListener "click", (e) => @undo()
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
