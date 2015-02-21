@@ -28,7 +28,6 @@ class Color
       c = Color.alphaBlend colorA, colorB p
       canvas.data[index .. index + 3] = [c.r, c.g, c.b, c.a]
     else
-      console.log canvas.data
       canvas.data[index .. index + 3] = [@r, @g, @b, @a]
 
 
@@ -234,4 +233,6 @@ canvas = new DrawingCanvas()
 line = new Line({x:10, y:20}, {x:30, y:50}, new Color(100, 150, 200))
 console.log canvas
 line.draw(canvas)
+canvas.modified = true
+canvas.refresh()
 # console.log(line)
