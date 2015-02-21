@@ -96,6 +96,7 @@ class Line
 
       [dx, dy] = [x1 - x0, y1 - y0]
       gradient = dy / dx
+      console.log "(x0, y0), (x1, y1) = (#{x0}, #{y0}), (#{x1}, #{y1})"
       console.log "gradient = #{gradient}"
 
       # handle first endpoint
