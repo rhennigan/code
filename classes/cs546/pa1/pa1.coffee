@@ -28,6 +28,7 @@ class DrawingCanvas
 
   setupEventHandlers: ->
     @canvas.addEventListener 'mousedown'
+      (event) -> @getMousePos event
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
@@ -40,7 +41,6 @@ class DrawingCanvas
       @clearCanvas()
       shape.draw() for shape in @graphicsPrimitives
       @modified = false
-    console.log (@getMousePos())
     setTimeout @refresh, @refreshRate
 
   reset: ->
