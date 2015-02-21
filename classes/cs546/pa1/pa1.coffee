@@ -451,8 +451,8 @@ ui =
 ###############################################################################
 
 class DrawingCanvas
-  width: 256
-  height: 256
+  width: 512
+  height: 512
   refreshRate: 1000 / 20
   antialiasing: true
   drawMode: Geometry::tags.CIRCLE
