@@ -336,9 +336,9 @@ class Rectangle
 
     lines = [
       new Line(corners[0][0], corners[0][1], @color)
-      new Line(corners[0][0], corners[0][1], @color)
-      new Line(corners[0][0], corners[0][1], @color)
-      new Line(corners[0][0], corners[0][1], @color)
+      new Line(corners[1][0], corners[1][1], @color)
+      new Line(corners[0][0], corners[1][0], @color)
+      new Line(corners[1][0], corners[1][1], @color)
     ]
 
     line.draw(canvas) for line in lines
