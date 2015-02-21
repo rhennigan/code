@@ -583,6 +583,8 @@ window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
 fractalCanvas = new DrawingCanvas()
 
+$('#left-canvas').innerHTML = drawingCanvas
+
 # $('#aaModeSel').click( ->
 #   $("#hintTxt").toggle(@checked)
 #   antialiasing = @checked

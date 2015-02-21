@@ -872,4 +872,6 @@
 
   fractalCanvas = new DrawingCanvas();
 
+  $('#left-canvas').innerHTML = drawingCanvas;
+
 }).call(this);
