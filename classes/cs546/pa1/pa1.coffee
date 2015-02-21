@@ -227,9 +227,10 @@ class DrawingCanvas
       @graphicsPrimitives.push(shape)
 
     @canvas.addEventListener "mousemove", (e) =>
-      @modified = @drawingInProgress = true
-      [..., current] = @graphicsPrimitives
-      current.drag(@getMousePos(e))
+      if @drawingInProgress
+        @modified = true
+        [..., current] = @graphicsPrimitives
+        current.drag(@getMousePos(e))
 
     @canvas.addEventListener "click", (e) => @getMousePos(e)
 
