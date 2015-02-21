@@ -236,12 +236,12 @@ class DrawingCanvas
     @modified = true
 
 window.DrawingCanvas = DrawingCanvas
-canvas = new DrawingCanvas()
+drawingCanvas = new DrawingCanvas()
 
 line = new Line({x:1, y:1}, {x:25, y:30}, new Color(255, 0, 0))
-canvas.graphicsPrimitives.push(line)
-canvas.modified = true
-canvas.refresh()
+drawingCanvas.graphicsPrimitives.push(line)
+drawingCanvas.modified = true
+drawingCanvas.refresh()
 # console.log canvas
 # line.draw(canvas)
 # canvas.modified = true
