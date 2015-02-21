@@ -29,7 +29,8 @@ class DrawingCanvas
   setupEventHandlers: ->
     handler = (event) -> 
       msg = @getMousePos event
-    @canvas.addEventListener 'click', (event) => handler(event), true
+      console.log msg
+    @canvas.addEventListener 'click', ((event) => handler(event), true)
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
