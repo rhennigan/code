@@ -77,6 +77,9 @@ class Line
   distance: ->
     Geometry::distance(@pt1, @pt2)
 
+  drag: (mouse) ->
+    @pt2 = mouse
+
   draw: (canvas) ->
     if canvas.antialiasing
       ipart = (x) -> Math.floor x
@@ -225,7 +228,8 @@ class DrawingCanvas
 
     @canvas.addEventListener "mousemove", (e) =>
       @modified = @drawingInProgress = true
-      @graphicsPrimitives[-1]
+      [..., current] = @graphicsPrimitives
+      current.drag(@getMousePos(e))
 
     @canvas.addEventListener "click", (e) => @getMousePos(e)
 
