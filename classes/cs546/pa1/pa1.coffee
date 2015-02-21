@@ -9,6 +9,7 @@ class DrawingCanvas
   constructor: ->
     @createCanvas()
     @resizeCanvas()
+    @clearCanvas()
     @createDrawingContext()
     @refresh()
 
