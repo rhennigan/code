@@ -433,6 +433,12 @@ ui =
   buttons: 
     clear: document.getElementById('clear')
     undo: document.getElementById('undo')
+    line: document.getElementById('line')
+    circle: document.getElementById('circle')
+    ellipse: document.getElementById('ellipse')
+    rectangle: document.getElementById('rectangle')
+    polygon: document.getElementById('polygon')
+    polyline: document.getElementById('polyline')
 
 ###############################################################################
 
