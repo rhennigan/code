@@ -274,6 +274,14 @@ class Ellipse
     write = (x, y) ->
       color.write(x + cx, y + cy, canvas)
 
+    writeQuadrants = () ->
+      write(+x, +y)
+      write(-x, +y)
+      write(+x, -y)
+      write(-x, -y)
+
+    
+
 ###############################################################################
 
 class DrawingCanvas
