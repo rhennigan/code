@@ -434,7 +434,7 @@ class DrawingCanvas
   height: 256
   refreshRate: 1000 / 20
   antialiasing: false
-  drawMode: Geometry::tags.POLYLINE
+  drawMode: Geometry::tags.LINE
   graphicsPrimitives: []
   modified: false
   drawingInProgress: false
@@ -501,6 +501,9 @@ class DrawingCanvas
 
     document.getElementById('clear').addEventListener "click", (e) =>
       @reset()
+
+    document.getElementById('undo').addEventListener "click", (e) =>
+      @undo()
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
