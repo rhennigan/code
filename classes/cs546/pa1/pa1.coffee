@@ -208,8 +208,7 @@ class DrawingCanvas
 
     @canvas.addEventListener "mousedown", (e) =>
       @modified = @drawingInProgress = true
-      mouse = @getMousePos(e)
-      shape = Geometry::createPrimitive(@drawMode, mouse)
+      shape = Geometry::createPrimitive(@drawMode, @getMousePos(e))
       @graphicsPrimitives.push(shape)
       console.log shape
 
