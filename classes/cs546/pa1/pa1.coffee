@@ -1,4 +1,4 @@
-class CanvasState
+class DrawingCanvas
   width = 512
   height = 512
   refreshRate = 1000/30
@@ -10,3 +10,13 @@ class CanvasState
     @createCanvas()
     @resizeCanvas()
     @createDrawingContext()
+
+    @refresh()
+
+  createCanvas: ->
+    @canvas = document.createElement 'drawingCanvas'
+    document.body.appendChild @canvas
+
+  resizeCanvas: ->
+    @canvas.width = @width
+    @canvas.height = @height
