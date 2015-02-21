@@ -211,7 +211,7 @@ class Circle
     y = 0
     radiusError = 1 - x
 
-    write = (x, y) ->
+    write = (x, y) =>
       @color.write(x + @center.x, y + @center.y, canvas)
 
     step = () ->
