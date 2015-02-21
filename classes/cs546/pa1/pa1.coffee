@@ -44,7 +44,7 @@ class Line
   length: ->
     dx = @pt2.x - @pt1.x
     dy = @pt2.y - @pt1.y
-    Math.sqrt (dx**2 + dy**2)
+    Math.sqrt (dx*dx + dy*dy)
 
 ###############################################################################
 
