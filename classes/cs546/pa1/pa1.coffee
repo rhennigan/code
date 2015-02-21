@@ -432,7 +432,7 @@ class Polyline
 class DrawingCanvas
   width: 256
   height: 256
-  refreshRate: 1000 / 1
+  refreshRate: 1000 / 20
   antialiasing: false
   drawMode: Geometry::tags.POLYLINE
   graphicsPrimitives: []
