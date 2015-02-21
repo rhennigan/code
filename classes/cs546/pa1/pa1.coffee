@@ -334,6 +334,13 @@ class Rectangle
     p21 = x: @pt1.x, y: @pt2.y
     p22 = x: @pt2.x, y: @pt2.y
 
+    lines = [
+      new Line(p11, p12, @color)
+      new Line(p12, p22, @color)
+      new Line(p22, p21, @color)
+      new Line(p21, p11, @color)
+    ]
+
 ###############################################################################
 
 class DrawingCanvas
