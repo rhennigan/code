@@ -598,6 +598,8 @@
 
     DrawingCanvas.prototype.drawingInProgress = false;
 
+    DrawingCanvas.prototype.polyInProgress = false;
+
     DrawingCanvas.prototype.data = null;
 
     function DrawingCanvas() {
@@ -636,10 +638,15 @@
       };
       this.canvas.addEventListener("mousedown", (function(_this) {
         return function(e) {
-          var shape;
+          var current, ref, shape;
           _this.modified = _this.drawingInProgress = true;
-          shape = Geometry.prototype.createPrimitive(_this.drawMode, _this.getMousePos(e));
-          return _this.graphicsPrimitives.push(shape);
+          if (_this.polyInProgress) {
+            ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
+            return current.insert(_this.getMousePos(e));
+          } else {
+            shape = Geometry.prototype.createPrimitive(_this.drawMode, _this.getMousePos(e));
+            return _this.graphicsPrimitives.push(shape);
+          }
         };
       })(this));
       this.canvas.addEventListener("mousemove", (function(_this) {
@@ -655,9 +662,16 @@
       this.canvas.addEventListener("mouseup", (function(_this) {
         return function(e) {
           var current, ref;
-          _this.drawingInProgress = false;
           ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
+          if (!_this.polyInProgress) {
+            _this.drawingInProgress = false;
+          }
           return console.log(current);
+        };
+      })(this));
+      this.canvas.addEventListener("dblclick", (function(_this) {
+        return function(e) {
+          return _this.polyInProgress = _this.drawingInProgress = false;
         };
       })(this));
       return this.canvas.addEventListener("click", (function(_this) {

@@ -442,6 +442,9 @@ class DrawingCanvas
       @drawingInProgress = false unless @polyInProgress
       console.log current
 
+    @canvas.addEventListener "dblclick", (e) =>
+      @polyInProgress = @drawingInProgress = false
+
     @canvas.addEventListener "click", (e) => @getMousePos(e)
 
   clearCanvas: ->
