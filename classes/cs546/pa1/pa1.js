@@ -821,8 +821,11 @@
           return _this.switchMode(Geometry.prototype.tags.POLYLINE);
         };
       })(this));
-      return ui.checkb.antialiasing.addEventListener("click", function(e) {
+      ui.checkb.antialiasing.addEventListener("click", function(e) {
         return $("#aaTxt").toggle(this.checked);
+      });
+      return ui.checkb.fractal.addEventListener("click", function(e) {
+        return $("#fracTxt").toggle(this.checked);
       });
     };
 

@@ -552,6 +552,9 @@ class DrawingCanvas
 
     ui.checkb.antialiasing.addEventListener "click", (e) ->
       $("#aaTxt").toggle @checked
+
+    ui.checkb.fractal.addEventListener "click", (e) ->
+      $("#fracTxt").toggle @checked
       
 
   clearCanvas: ->
