@@ -240,6 +240,24 @@ class Circle
 
 ###############################################################################
 
+class Ellipse
+  center: {x: 0, y: 0}
+  a: 0
+  b: 0
+  color: new Color
+
+  constructor: (center = @center, a = @a, b = @b, color = @color) ->
+    @center = center
+    @a = a
+    @b = b
+    @color = color
+
+  drag: (mouse) ->
+    @a = Math.abs(mouse.x - @center.x)
+    @b = Math.abs(mouse.y - @center.y)
+
+###############################################################################
+
 class DrawingCanvas
   width: 256
   height: 256
