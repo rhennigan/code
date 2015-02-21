@@ -724,7 +724,7 @@
             shape = Geometry.prototype.createPrimitive(_this.drawMode, _this.getMousePos(e));
             _this.graphicsPrimitives.push(shape);
             if (_this.drawmode === Geometry.prototype.tags.POLYGON || Geometry.prototype.tags.POLYLINE) {
-              alert('wtf');
+              alert('wtf' + _this.drawmode);
               return _this.polyInProgress = true;
             }
           }
@@ -819,6 +819,6 @@
 
   drawingCanvas = new DrawingCanvas();
 
-  console.log(drawingCanvas);
+  console.log(Geometry.prototype.tags.LINE);
 
 }).call(this);
