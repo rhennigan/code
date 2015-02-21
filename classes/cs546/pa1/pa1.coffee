@@ -94,6 +94,19 @@ class Line
 
       intery = yend + gradient
 
+      # handle second endpoint
+      xend = round x1
+      yend = y1 + gradient * (xend - x1)
+      xgap = fpart(x1 + 0.5)
+      xpxl2 = xend # this will be used in the main loop
+      ypxl2 = ipart yend
+      if steep
+        @col2.write ypxl2, xpxl2, canvas, rfpart(yend) * xgap
+        @col2.write ypxl2 + 1, xpxl2, canvas, fpart(yend) * xgap
+      else
+        @col2.write xpxl2, ypxl2, canvas, rfpart(yend) * xgap
+        @col2.write xpxl2, ypxl2 + 1, canvas, fpart(yend) * xgap
+
     else
       drawLine(this)
 
