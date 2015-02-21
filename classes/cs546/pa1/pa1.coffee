@@ -211,8 +211,12 @@ class Circle
     y = 0
     radiusError = 1 - x
 
+    color = @color
+    cx = @center.x
+    cy = @center.y
+
     write = (x, y) =>
-      @color.write(x + @center.x, y + @center.y, canvas)
+      color.write(x + cx, y + cy, canvas)
 
     step = () ->
       write(+x, +y)
@@ -295,7 +299,7 @@ class DrawingCanvas
     @modified = true
 
   refresh: =>
-    console.log 'refreshing canvas'
+    console.log drawingCanvas.graphicsPrimitives
     if @modified
       @clearCanvas()
       shape.draw(this) for shape in @graphicsPrimitives
