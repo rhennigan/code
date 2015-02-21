@@ -1,9 +1,9 @@
 class Geometry
 
-  Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
-  dx = x2 - x1
-  dy = y2 - y1
-  Math.sqrt(dx * dx + dy * dy)
+Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
+dx = x2 - x1
+dy = y2 - y1
+Math.sqrt(dx * dx + dy * dy)
 
 ###############################################################################
 
@@ -25,7 +25,7 @@ class Color
       colorB = this
       [r, g, b, a] = canvas.data[index .. index + 3]
       colorA = new Color r, g, b, a
-      c = Color::alphaBlend colorA colorB p
+      c = Color.alphaBlend colorA, colorB p
       canvas.data[index .. index + 3] = [c.r, c.g, c.b, c.a]
     else
       canvas.data[index .. index + 3] = [@r, @g, @b, @a]
