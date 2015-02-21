@@ -209,7 +209,7 @@ class DrawingCanvas
     @canvas.addEventListener "mousedown", (e) =>
       @modified = @drawingInProgress = true
       mouse = @getMousePos(e)
-
+      shape = Geometry::createPrimitive(@drawMode, mouse)
       console.log [mouse, drawingCanvas.drawingInProgress]
 
     @canvas.addEventListener "click", (e) => @getMousePos(e)
@@ -239,8 +239,8 @@ class DrawingCanvas
 window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
 
-Geometry::createPrimitive = (mode, mouse) ->
-  switch mode
+Geometry::createPrimitive = (drawMode, mouse) ->
+  switch drawMode
     when 'line'
       new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
     else
