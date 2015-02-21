@@ -140,6 +140,10 @@ class Line
       sy = if @pt1.y < @pt2.y then 1 else -1
       err = dx - dy
       dist = @distance()
+      pix = @pt1
+
+      step = () ->
+        p = Geometry.distance(@pt1, pix)
 
 
 ###############################################################################
