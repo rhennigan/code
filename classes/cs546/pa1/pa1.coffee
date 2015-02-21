@@ -17,7 +17,15 @@ Color::interpolate = (c1, c2, p) ->
   g = Math.floor(p1*c1.g + p2*c2.g)
   b = Math.floor(p1*c1.b + p2*c2.b)
   a = Math.floor(p1*c1.a + p2*c2.a)
-  new Color(r, g, b, a)
+  new Color r, g, b, a
+
+Color::alphaBlend = (c1, c2, p) ->
+  d = Math.floor(p * c2.a)
+  r = Math.floor((c1.a * c1.r) / 255.0 - (c1.a - 255.0) * d * c2.r / 65025.0)
+  g = Math.floor((c1.a * c1.g) / 255.0 - (c1.a - 255.0) * d * c2.g / 65025.0)
+  b = Math.floor((c1.a * c1.b) / 255.0 - (c1.a - 255.0) * d * c2.b / 65025.0)
+  a = Math.floor(c1.a + d - c1.a * d / 255.0)
+  new Color r, g, b, a
 
 ###############################################################################
 
