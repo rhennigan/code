@@ -210,7 +210,6 @@ class DrawingCanvas
       @modified = @drawingInProgress = true
       shape = Geometry::createPrimitive(@drawMode, @getMousePos(e))
       @graphicsPrimitives.push(shape)
-      console.log @graphicsPrimitives
 
     @canvas.addEventListener "click", (e) => @getMousePos(e)
 
@@ -221,15 +220,12 @@ class DrawingCanvas
     @modified = true
 
   refresh: =>
-    console.log @modified
     if @modified
       console.log 'refreshing canvas'
       @clearCanvas()
       shape.draw(this) for shape in @graphicsPrimitives
       @drawingContext.putImageData(@data, 0, 0)
       @modified = false
-    else
-      console.log 'canvas unchanged'
 
   initialize: ->
     setInterval @refresh, @refreshRate
