@@ -4,19 +4,19 @@ Require String. Open Scope string_scope.
 
 Ltac move_to_top x :=
   match reverse goal with
-  | H : _ |- _ => try move x after H
+    | H : _ |- _ => try move x after H
   end.
 
 Tactic Notation "assert_eq" ident(x) constr(v) :=
   let H := fresh in
   assert (x = v) as H by reflexivity;
-  clear H.
+    clear H.
 
 Tactic Notation "Case_aux" ident(x) constr(name) :=
   first [
-    set (x := name); move_to_top x
-  | assert_eq x name; move_to_top x
-  | fail 1 "because we are working on a different case" ].
+      set (x := name); move_to_top x
+    | assert_eq x name; move_to_top x
+    | fail 1 "because we are working on a different case" ].
 
 Tactic Notation "Case" constr(name) := Case_aux Case name.
 Tactic Notation "SCase" constr(name) := Case_aux SCase name.
@@ -311,7 +311,7 @@ Proof.
 Qed.
 
 Theorem ble_nat_refl : forall n : nat,
-  true = ble_nat n n.
+                         true = ble_nat n n.
 Proof.
   intro n.
   induction n as [| m].
@@ -325,13 +325,13 @@ Proof.
 Qed.
 
 Theorem zero_nbeq_S : forall n : nat,
-  beq_nat 0 (S n) = false.
+                        beq_nat 0 (S n) = false.
 Proof.
   intro n. simpl. reflexivity.
 Qed.
 
 Theorem andb_false_r : forall b : bool,
-  andb b false = false.
+                         andb b false = false.
 Proof.
   intro b.
   destruct b.
@@ -340,7 +340,7 @@ Proof.
 Qed.
 
 Theorem plus_ble_compat_l : forall n m p : nat, 
-  ble_nat n m = true -> ble_nat (p + n) (p + m) = true.
+                              ble_nat n m = true -> ble_nat (p + n) (p + m) = true.
 Proof.
   intros n m p.
   intro H1.
@@ -355,7 +355,7 @@ Proof.
 Qed.
 
 Theorem S_nbeq_0 : forall n : nat,
-  beq_nat (S n) 0 = false.
+                     beq_nat (S n) 0 = false.
 Proof.
   intro n. simpl. reflexivity.
 Qed.
@@ -369,7 +369,7 @@ Proof.
 Qed.
 
 Theorem all3_spec : forall b c : bool,
-    orb (andb b c) (orb (negb b) (negb c)) = true.
+                      orb (andb b c) (orb (negb b) (negb c)) = true.
 Proof.
   intros b c.
   destruct b.
@@ -388,7 +388,7 @@ Proof.
 Qed.
 
 Theorem mult_plus_distr_r : forall n m p : nat,
-  (n + m) * p = (n * p) + (m * p).
+                              (n + m) * p = (n * p) + (m * p).
 Proof.
   intros n m p.
   induction p as [| p'].
@@ -435,7 +435,7 @@ Proof.
 Qed.
 
 Theorem mult_assoc : forall n m p : nat,
-  n * (m * p) = (n * m) * p.
+                       n * (m * p) = (n * m) * p.
 Proof.
   intros n m p.
   induction n as [| n'].
@@ -450,7 +450,7 @@ Proof.
 Qed.
 
 Theorem beq_nat_refl : forall n : nat, 
-  true = beq_nat n n.
+                         true = beq_nat n n.
 Proof.
   intro n.
   induction n as [| n'].
@@ -464,7 +464,7 @@ Proof.
 Qed.
 
 Theorem plus_swap' : forall n m p : nat, 
-  n + (m + p) = m + (n + p).
+                       n + (m + p) = m + (n + p).
 Proof.
   intros n m p.
   rewrite -> plus_assoc.

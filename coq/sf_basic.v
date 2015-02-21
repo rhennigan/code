@@ -1,23 +1,23 @@
-Inductive day : Type :=
-| monday : day
-| tuesday : day
-| wednesday : day
-| thursday : day
-| friday : day
-| saturday : day
-| sunday : day.
+(* Inductive day : Type := *)
+(* | monday : day *)
+(* | tuesday : day *)
+(* | wednesday : day *)
+(* | thursday : day *)
+(* | friday : day *)
+(* | saturday : day *)
+(* | sunday : day. *)
 
-Definition next_weekday (d : day) : day :=
-  match d with
-    | monday => tuesday
-    | tuesday => wednesday
-    | wednesday => thursday
-    | thursday => friday
-    | _ => monday
-  end.
+(* Definition next_weekday (d : day) : day := *)
+(*   match d with *)
+(*     | monday => tuesday *)
+(*     | tuesday => wednesday *)
+(*     | wednesday => thursday *)
+(*     | thursday => friday *)
+(*     | _ => monday *)
+(*   end. *)
 
-Eval compute in (next_weekday friday).
-Eval compute in (next_weekday (next_weekday saturday)).
+(* Eval compute in (next_weekday friday). *)
+(* Eval compute in (next_weekday (next_weekday saturday)). *)
 
 Inductive bool : Type :=
 | true : bool
@@ -101,19 +101,19 @@ Qed.
 
 Check negb.
 
-(* Module NatTest. *)
+Module NatTest.
 
-(*   Inductive nat : Type := *)
-(*   | O : nat *)
-(*   | S : nat -> nat. *)
+  Inductive nat : Type :=
+  | O : nat
+  | S : nat -> nat.
 
-(*   Definition pred (n : nat) : nat := *)
-(*     match n with *)
-(*       | O => O *)
-(*       | S m => m *)
-(*     end. *)
+  Definition pred (n : nat) : nat :=
+    match n with
+      | O => O
+      | S m => m
+    end.
 
-(* End NatTest. *)
+End NatTest.
 
 Definition minustwo (n : nat) : nat :=
   match n with
@@ -143,34 +143,34 @@ Proof.
   reflexivity. 
 Qed.
 
-(* Module NatTest2. *)
+Module NatTest2.
 
-(*   Fixpoint plus (a b : nat) : nat := *)
-(*     match a, b with *)
-(*       | O, y => y *)
-(*       | S x, y => S (plus x y) *)
-(*     end. *)
+  Fixpoint plus (a b : nat) : nat :=
+    match a, b with
+      | O, y => y
+      | S x, y => S (plus x y)
+    end.
 
-(*   Eval compute in (plus (S (S (S O))) (S (S O))). *)
+  Eval compute in (plus (S (S (S O))) (S (S O))).
 
-(*   Fixpoint mult (a b : nat) : nat := *)
-(*     match a, b with *)
-(*       | O, y => O *)
-(*       | S x, y => plus y (mult x y) *)
-(*     end. *)
+  Fixpoint mult (a b : nat) : nat :=
+    match a, b with
+      | O, y => O
+      | S x, y => plus y (mult x y)
+    end.
 
-(*   Eval compute in (mult (S (S (S O))) (S (S O))). *)
+  Eval compute in (mult (S (S (S O))) (S (S O))).
 
-(*   Fixpoint minus (a b : nat) : nat := *)
-(*     match a, b with *)
-(*       | O, _ => O *)
-(*       | x, O => x *)
-(*       | S x, S y => minus x y *)
-(*     end. *)
+  Fixpoint minus (a b : nat) : nat :=
+    match a, b with
+      | O, _ => O
+      | x, O => x
+      | S x, S y => minus x y
+    end.
 
-(*   Eval compute in (minus 12 8). *)
+  Eval compute in (minus 12 8).
 
-(* End NatTest2. *)
+End NatTest2.
 
 Fixpoint exp (b p : nat) : nat :=
   match b, p with

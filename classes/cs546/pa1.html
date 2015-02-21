@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    body {
+      margin: 0px;
+      padding-left: 120px;
+      padding-top: 10px;
+    }
+    hr {
+      border: 0;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: #BBB;
+      background-color: #BBB;
+      height: 1px;
+    }
+    label {
+      display: block;
+      padding-left: 15px;
+      padding-top: 0px;
+      text-indent: -15px;
+      font-size: small;
+    }
+    input {
+      width: 13px;
+      height: 25px;
+      padding: 0;
+      margin:0;
+      vertical-align: bottom;
+      position: relative;
+      top: 3px;
+      *overflow: hidden;
+    }
+    #buttons {
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      width: 100px;
+    }
+    #buttons > input {
+      width: 100px;
+      -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+      -webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+      box-shadow:inset 0px 1px 0px 0px #cf866c;
+      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+      background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+      background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+      background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+      background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+      background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+      background-color:#d0451b;
+      -moz-border-radius:3px;
+      -webkit-border-radius:3px;
+      border-radius:3px;
+      border:1px solid #942911;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff;
+      font-family:arial;
+      font-size:13px;
+      /* padding:6px 24px 6px 24px; */
+      margin-top: 3px;
+      margin-bottom: 3px;
+      padding: 3px;
+      text-decoration:none;
+      text-shadow:0px 1px 0px #854629;
+    }
+    #buttons > input:hover {
+      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
+      background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+      background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+      background:-o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+      background:-ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+      background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
+      background-color:#bc3315;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="drawCanvas" width="350" height="350" style="border:1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+  </canvas>
+  <canvas id="fractalCanvas" width="350" height="350" style="display:none">
+    Your browser does not support the canvas element.
+  </canvas>
+  <div id="buttons">
+    <input type="button" id="clear" value="clear" onclick="reset()">
+    <hr>
+    <input type="button" id="undo" value="undo" onclick="undo()">
+    <hr>
+    <input type="button" id="line" value="line" onclick="changeMode('line')">
+    <input type="button" id="circle" value="circle" onclick="changeMode('circle')">
+    <input type="button" id="ellipse" value="ellipse" onclick="changeMode('ellipse')">
+    <hr>
+    <input type="button" id="rectangle" value="rectangle" onclick="changeMode('rectangle')">
+    <input type="button" id="polygon" value="polygon" onclick="changeMode('polygon')">
+    <input type="button" id="polyline" value="polyline" onclick="changeMode('polyline')">
+    <hr>
+    <label><input type="checkbox" id="aaModeSel"/> antialiasing</label>
+    <hr>
+    <label><input type="checkbox" id="fractModeSel"/> fractal mode</label>
+  </div>
+  <div id="fracTxt" style="display:none"><label>These are instructions!<br></label></div>
+  <div id="hintTxt" style="display:none"><label><em>Note:</em> circles and ellipses are not currently supported with antialiasing turned on.</label></div>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="list.js"></script>
+  <script src="pa1.js"></script>
+  <script type="text/javascript">
+    $('#aaModeSel').click(function() {
+      $("#hintTxt").toggle(this.checked);
+      if (this.checked) {
+        antialiasing = true;
+      } else {
+        antialiasing = false;
+      }
+      redraw ();
+    });
+    $('#fractModeSel').click(function() {
+      $("#fracTxt").toggle(this.checked);
+      $("#fractalCanvas").toggle(this.checked);
+      $("#fractalCanvas").css({'display': 'default',
+        'border': '1px solid #c3c3c3'});
+      redraw ();
+    });
+  </script>
+</body>
+</html>
