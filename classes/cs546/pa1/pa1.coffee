@@ -140,10 +140,15 @@ class Line
       sy = if @pt1.y < @pt2.y then 1 else -1
       err = dx - dy
       dist = @distance()
-      pix = @pt1
+      pix = 
+        point: 
+          x: @pt1.x
+          y: @pt1.y
+        color: new Color(@col1.r, @col1,g, @col1.b, @col1.a)
 
       step = () ->
-        p = Geometry.distance(@pt1, pix)
+        p = Geometry.distance(@pt1, pix) / dist
+
 
 
 ###############################################################################
