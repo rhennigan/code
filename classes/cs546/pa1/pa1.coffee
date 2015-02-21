@@ -506,7 +506,6 @@ class DrawingCanvas
     @modified = true
 
   refresh: =>
-    #console.log drawingCanvas.graphicsPrimitives
     if @modified
       @clearCanvas()
       shape.draw(this) for shape in @graphicsPrimitives
