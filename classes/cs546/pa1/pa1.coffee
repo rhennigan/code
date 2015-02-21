@@ -96,8 +96,6 @@ class Line
 
       [dx, dy] = [x1 - x0, y1 - y0]
       gradient = dy / dx
-      console.log "(x0, y0), (x1, y1) = (#{x0}, #{y0}), (#{x1}, #{y1})"
-      console.log "gradient = #{gradient}"
 
       # handle first endpoint
       xend = round x0
@@ -150,9 +148,7 @@ class Line
           color.write(p1.x, p1.y, canvas, rfpart(intery))
           color.write(p2.x, p2.y, canvas, fpart(intery))
 
-
         intery += gradient
-        console.log intery
 
     else # antialiasing is off
       dx = Math.abs(@pt2.x - @pt1.x)
