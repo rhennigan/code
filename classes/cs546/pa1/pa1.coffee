@@ -109,6 +109,11 @@ class Line
 
       # main loop
       for x in [xpxl1 + 1 .. xpxl2]
+        if steep
+          p1 = {x: ipart intery, y: x}
+          p2 = {x: ipart (intery + 1), y: x}
+          point = {x: (p1.x + p2.x) / 2.0, y: (p1.y + p2.y) / 2.0}
+          color = new Color()
 
     else
       drawLine(this)
