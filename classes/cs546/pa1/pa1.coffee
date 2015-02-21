@@ -86,7 +86,7 @@ class Line
 
       if steep
         @col1.write ypxl1, xpxl1, canvas, rfpart(yend) * xgap
-        @col1.write ypxl1, xpxl1, canvas, rfpart(yend) * xgap
+        @col1.write ypxl1 + 1, xpxl1, canvas, fpart(yend) * xgap
 
     else
       drawLine(this)
