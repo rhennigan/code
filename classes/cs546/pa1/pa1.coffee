@@ -72,6 +72,9 @@ class Line
 
       steep = Math.abs(y1 - y0) > Math.abs(x1 - x0)
 
+      [x0, y0, x1, y1] = [y0, x0, y1, x1] if steep
+      
+
     else
       drawLine(this)
 
