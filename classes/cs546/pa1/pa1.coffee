@@ -87,3 +87,6 @@ class DrawingCanvas
   #   console.log "(#{x}, #{y})"
 
 window.DrawingCanvas = DrawingCanvas
+
+line = new Line()
+console.log(line)
