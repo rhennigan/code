@@ -159,6 +159,8 @@ class Line
           err += dx
           pix.point.y += sy
 
+        return
+
       step() until pix.point.x == @pt.x and pix.point.y == @pt2.y
 
 
