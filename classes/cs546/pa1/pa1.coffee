@@ -5,10 +5,18 @@ Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
   dy = y2 - y1
   Math.sqrt(dx * dx + dy * dy)
 
+Geometry::tags =
+  LINE: 'line'
+  CIRCLE: 'circle'
+  ELLIPSE: 'ellipse'
+  RECTANGLE: 'rectangle'
+  POLYGON: 'polygon'
+  POLYLINE: 'polyline'
+
 Geometry::createPrimitive = (drawMode, mouse) ->
   defaultColor = new Color(0, 0, 0)
   switch drawMode
-    when 'line' 
+    when @tags.LINE
       new Line(mouse, mouse, defaultColor)
     when 'circle' 
       new Circle(mouse, 0, defaultColor)
