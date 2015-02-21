@@ -10,6 +10,15 @@ class Color
     @b = b
     @a = a
 
+Color::interpolate = (c1, c2, p) ->
+  p2 = if p < 0.0 then 0.0 else if p > 1.0 then 1.0 else p
+  p1 = 1.0 - p2
+  r = Math.floor(p1*c1.r + p2*c2.r)
+  g = Math.floor(p1*c1.g + p2*c2.g)
+  b = Math.floor(p1*c1.b + p2*c2.b)
+  a = Math.floor(p1*c1.a + p2*c2.a)
+  new Color(r, g, b, a)
+
 ###############################################################################
 
 class Line 
