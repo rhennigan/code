@@ -17,7 +17,7 @@ Geometry::createPrimitive = (drawMode, mouse) ->
     when 'rectangle'
       new Rectangle(mouse, mouse, defaultColor)
     when 'polygon'
-      new Polygon([mouse, mouse], defaultColor)  
+      new Polygon([mouse, mouse], defaultColor)
     else 
       new Line(mouse, mouse, defaultColor)
 
@@ -390,7 +390,7 @@ class DrawingCanvas
   height: 256
   refreshRate: 1000 / 1
   antialiasing: false
-  drawMode: 'rectangle'
+  drawMode: 'polygon'
   graphicsPrimitives: []
   modified: false
   drawingInProgress: false
