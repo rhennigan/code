@@ -230,7 +230,6 @@ class DrawingCanvas
     else
       console.log 'canvas unchanged'
 
-    console.log 'waiting for next frame'
     setTimeout @refresh(), @refreshRate
 
   reset: ->
