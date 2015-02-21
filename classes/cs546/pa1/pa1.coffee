@@ -207,6 +207,7 @@ class DrawingCanvas
       y: event.clientY - rect.top
 
     @canvas.addEventListener "mousedown", (e) =>
+      @modified = @drawingInProgress = true
       mouse = @getMousePos(e)
       console.log mouse
 
