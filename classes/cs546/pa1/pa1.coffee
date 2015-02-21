@@ -445,10 +445,8 @@ ui =
     fractal:      document.getElementById('fractModeSel')
 
   lbl:
-    hint: document.getElementById('hintTxt')
+    aa: document.getElementById('aaTxt')
     frac: document.getElementById('fracTxt')
-
-
 
 ###############################################################################
 
@@ -543,7 +541,9 @@ class DrawingCanvas
     ui.buttons.polyline.addEventListener "click", (e) => 
       @switchMode(Geometry::tags.POLYLINE)
 
-    ui.checkb.antialiasing.addEventListener "click", (e) => 
+    ui.checkb.antialiasing.addEventListener "click", (e) ->
+      console.log ui.lbl.aa
+      # ui.lbl.aa.toggle(@checked)
       
 
   clearCanvas: ->
@@ -576,15 +576,15 @@ drawingCanvas = new DrawingCanvas()
 
 console.log Geometry::tags.LINE
 
-$('#aaModeSel').click( ->
-  $("#hintTxt").toggle(@checked)
-  antialiasing = @checked
-  redraw ();
-    });
-    $('#fractModeSel').click(function() {
-      $("#fracTxt").toggle(this.checked);
-      $("#fractalCanvas").toggle(this.checked);
-      $("#fractalCanvas").css({'display': 'default',
-        'border': '1px solid #c3c3c3'});
-      redraw ();
-    });
+# $('#aaModeSel').click( ->
+#   $("#hintTxt").toggle(@checked)
+#   antialiasing = @checked
+#   redraw ();
+#     });
+#     $('#fractModeSel').click(function() {
+#       $("#fracTxt").toggle(this.checked);
+#       $("#fractalCanvas").toggle(this.checked);
+#       $("#fractalCanvas").css({'display': 'default',
+#         'border': '1px solid #c3c3c3'});
+#       redraw ();
+#     });

@@ -659,6 +659,14 @@
       rectangle: document.getElementById('rectangle'),
       polygon: document.getElementById('polygon'),
       polyline: document.getElementById('polyline')
+    },
+    checkb: {
+      antialiasing: document.getElementById('aaModeSel'),
+      fractal: document.getElementById('fractModeSel')
+    },
+    lbl: {
+      aa: document.getElementById('aaTxt'),
+      frac: document.getElementById('fracTxt')
     }
   };
 
@@ -808,11 +816,14 @@
           return _this.switchMode(Geometry.prototype.tags.POLYGON);
         };
       })(this));
-      return ui.buttons.polyline.addEventListener("click", (function(_this) {
+      ui.buttons.polyline.addEventListener("click", (function(_this) {
         return function(e) {
           return _this.switchMode(Geometry.prototype.tags.POLYLINE);
         };
       })(this));
+      return ui.checkb.antialiasing.addEventListener("click", function(e) {
+        return console.log(ui.lbl.aa);
+      });
     };
 
     DrawingCanvas.prototype.clearCanvas = function() {
