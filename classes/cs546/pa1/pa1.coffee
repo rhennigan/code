@@ -317,15 +317,11 @@ window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
 
 
-
-test = [1,2,3,4,5]
-[..., last] = test
-console.log last
-
-line = new Line({x:1, y:1}, {x:25, y:30}, new Color(255, 0, 0))
-drawingCanvas.graphicsPrimitives.push(line)
+shape = new Circle({x:25, y:30}, 10, new Color(255, 0, 0))
+drawingCanvas.graphicsPrimitives.push(shape)
 drawingCanvas.modified = true
 drawingCanvas.refresh()
+console.log drawingCanvas.graphicsPrimitives
 # console.log canvas
 # line.draw(canvas)
 # canvas.modified = true
