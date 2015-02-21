@@ -471,8 +471,8 @@ class DrawingCanvas
     @initialize()
 
   switchMode: (mode) ->
-    $("##{@drawMode}").css("background-color", "#cccccc")
-    $("##{mode}").css("background-color", "#888888")
+    $("##{@drawMode}").css 'background-color', '#cccccc'
+    $("##{mode}").css 'background-color', '#888888'
     @drawMode = mode
     console.log(@drawMode)
 
@@ -551,7 +551,7 @@ class DrawingCanvas
       @switchMode(Geometry::tags.POLYLINE)
 
     ui.checkb.antialiasing.addEventListener "click", (e) ->
-      $("#aaTxt").toggle(@checked)
+      $("#aaTxt").toggle @checked
       
 
   clearCanvas: ->
@@ -581,6 +581,7 @@ class DrawingCanvas
 
 window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
+fractalCanvas = new DrawingCanvas()
 
 console.log Geometry::tags.LINE
 
