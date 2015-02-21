@@ -210,8 +210,7 @@ class DrawingCanvas
       @modified = @drawingInProgress = true
       shape = Geometry::createPrimitive(@drawMode, @getMousePos(e))
       @graphicsPrimitives.push(shape)
-      console.log shape
-      console.log drawingCanvas.modified
+      console.log @graphicsPrimitives
 
     @canvas.addEventListener "click", (e) => @getMousePos(e)
 
