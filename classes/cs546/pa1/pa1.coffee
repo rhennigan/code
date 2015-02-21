@@ -7,9 +7,12 @@ Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
 
 Geometry::createPrimitive = (drawMode, mouse) ->
   switch drawMode
-    when 'line' new Line(mouse, mouse, new Color(0, 0, 0))
-    when 'circle' new Circle(mouse, 0, new Color(0, 0, 0))
-    else new Line(mouse, mouse, new Color(0, 0, 0))
+    when 'line' 
+      new Line(mouse, mouse, new Color(0, 0, 0))
+    when 'circle' 
+      new Circle(mouse, 0, new Color(0, 0, 0))
+    else 
+      new Line(mouse, mouse, new Color(0, 0, 0))
 
 ###############################################################################
 
@@ -236,7 +239,7 @@ class Circle
 class DrawingCanvas
   width: 256
   height: 256
-  refreshRate: 1000 / 10
+  refreshRate: 1000 / 1
   antialiasing: true
   drawMode: 'circle'
   graphicsPrimitives: []
