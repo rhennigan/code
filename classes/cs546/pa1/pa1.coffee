@@ -29,10 +29,12 @@ class DrawingCanvas
     @drawingContext.clearRect 0, 0, @width, @height
     @data = @drawingContext.getImageData 0, 0, @width, @height
     @drawingContext.putImageData @data, 0, 0
+    @modified = true
 
   refresh: ->
     @clearCanvas()
     shape.draw() for shape in @graphicsPrimitives
+    @modified = false
     setTimeout @refresh, @refreshRate
 
   reset: ->
