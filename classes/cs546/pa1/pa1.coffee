@@ -126,7 +126,7 @@ class Line
           p2 = {x: x, y: ipart(intery) + 1}
 
         point = {x: (p1.x + p2.x) / 2.0, y: (p1.y + p2.y) / 2.0}
-        p = Geometry.distance(@pt1, point) / line.distance()
+        p = Geometry.distance(@pt1, point) / @distance()
         color = Color.interpolate(@col1, @col2, p)
         color.write(p1.x, p1.y, canvas, rfpart(intery))
         color.write(p2.x, p2.y, canvas, fpart(intery))
@@ -134,7 +134,12 @@ class Line
       intery += gradient
 
     else # antialiasing is off
-      drawLine(this)
+      dx = Math.abs(@pt2.x - @pt1.x)
+      dy = Math.abs(@pt2.y - @pt1.y)
+      sx = if @pt1.x < @pt2.x then 1 else -1
+      sy = if @pt1.y < @pt2.y then 1 else -1
+      err = dx - dy
+      dist = @distance()
 
 
 ###############################################################################
