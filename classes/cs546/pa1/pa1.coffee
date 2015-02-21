@@ -256,6 +256,24 @@ class Ellipse
     @a = Math.abs(mouse.x - @center.x)
     @b = Math.abs(mouse.y - @center.y)
 
+  draw: (canvas) ->
+    a2 = @a * @a
+    b2 = @b * @b
+    twoa2 = 2 * a2
+    twob2 = 2 * b2
+
+    x = 0
+    y = @b
+    px = 0
+    py = twoa2 * y
+
+    color = @color
+    cx = Math.round @center.x
+    cy = Math.round @center.y
+
+    write = (x, y) ->
+      color.write(x + cx, y + cy, canvas)
+
 ###############################################################################
 
 class DrawingCanvas
