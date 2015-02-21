@@ -508,9 +508,9 @@ class DrawingCanvas
 
     @canvas.addEventListener "mouseup", (e) =>
       console.log "mouseup"
-      [..., current] = @graphicsPrimitives
+      # [..., current] = @graphicsPrimitives
       @drawingInProgress = false unless @polyInProgress
-      console.log current
+      # console.log current
 
     @canvas.addEventListener "dblclick", (e) =>
       console.log "dblclick"
