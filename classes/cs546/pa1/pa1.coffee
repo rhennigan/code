@@ -67,6 +67,7 @@ class Line
       [x0, y0] = [@pt1.x, @pt1.y]
       [x1, y1] = [@pt2.x, @pt2.y]
       [r0, g0, b0, a0] = [@col1.r, @col1.g, @col1.b, @col1.a]
+      [r1, g1, b1, a1] = [@col2.r, @col2.g, @col2.b, @col2.a]
     else
       drawLine(this)
 
