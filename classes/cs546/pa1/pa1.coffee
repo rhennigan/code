@@ -75,6 +75,11 @@ class Line
       [x0, y0, x1, y1] = [y0, x0, y1, x1] if steep
       [x0, x1, y0, y1] = [x1, x0, y1, y0] if x0 > x1
 
+      [dx, dy] = [x1 - x0, y1 - y0]
+      gradient = dy / dx
+
+      
+
     else
       drawLine(this)
 
