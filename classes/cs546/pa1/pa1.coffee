@@ -173,7 +173,7 @@ class Line
 class DrawingCanvas
   width: 256
   height: 256
-  refreshRate: 1000/30
+  refreshRate: 1000/5
   antialiasing: false
   drawMode: 'line'
   graphicsPrimitives: []
@@ -187,7 +187,7 @@ class DrawingCanvas
     @createDrawingContext()
     @setupEventHandlers()
     @clearCanvas()
-    @refresh()
+    @initialize()
 
   createCanvas: ->
     @canvas = document.createElement 'canvas'
@@ -230,7 +230,8 @@ class DrawingCanvas
     else
       console.log 'canvas unchanged'
 
-    setTimeout @refresh(), @refreshRate
+  initialize: ->
+    setInterval @refresh, @refreshRate
 
   reset: ->
     @clearCanvas()
