@@ -26,6 +26,8 @@ Geometry::createPrimitive = (drawMode, mouse) ->
       new Rectangle(mouse, mouse, defaultColor)
     when @tags.POLYGON
       new Polygon([mouse, mouse], defaultColor)
+    when @tags.POLYLINE
+      new Polyline([mouse, mouse], defaultColor)
     else 
       new Line(mouse, mouse, defaultColor)
 
