@@ -73,6 +73,34 @@
   </style>
 </head>
 <body>
+  <div id="buttons">
+    <input type="button" id="clear" value="clear" onclick="reset()">
+    <hr>
+    <input type="button" id="undo" value="undo" onclick="undo()">
+    <hr>
+    <input type="button" id="line" value="line" 
+    onclick="changeMode('line')">
+    <input type="button" id="circle" value="circle" 
+    onclick="changeMode('circle')">
+    <input type="button" id="ellipse" value="ellipse" 
+    onclick="changeMode('ellipse')">
+    <hr>
+    <input type="button" id="rectangle" value="rectangle" 
+    onclick="changeMode('rectangle')">
+    <input type="button" id="polygon" value="polygon" 
+    onclick="changeMode('polygon')">
+    <input type="button" id="polyline" value="polyline" 
+    onclick="changeMode('polyline')">
+    <hr>
+    <div>
+      <label><input type="checkbox" id="aaModeSel"/> antialiasing</label>
+    </div>
+    <hr>
+    <div>
+      <label><input type="checkbox" id="fractModeSel"/> fractal mode</label>
+    </div>
+  </div>
+
   <script type="text/javascript" src="pa1.js"></script>
 </body>
 </html>
