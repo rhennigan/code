@@ -27,7 +27,7 @@ class DrawingCanvas
     @drawingContext = @canvas.getContext '2d'
 
   setupEventHandlers: ->
-    @canvas.addEventListener 'click', (event) -> @getMousePos(event)
+    @canvas.addEventListener 'click', (e) => @getMousePos(event)
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
