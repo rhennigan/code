@@ -329,13 +329,13 @@ class Rectangle
     @pt2.y = mouse.y
 
   draw: (canvas) ->
-    p11 = x: @pt1.x, y: @pt1.y
-    p12 = x: @pt2.x, y: @pt1.y
-    p21 = x: @pt1.x, y: @pt2.y
-    p22 = x: @pt2.x, y: @pt2.y
+    corners = [
+      [{x: @pt1.x, y: @pt1.y}, {x: @pt2.x, y: @pt1.y}]
+      [{x: @pt1.x, y: @pt2.y}, {x: @pt2.x, y: @pt2.y}]
+    ]
 
     lines = [
-      new Line(p11, p12, @color)
+      new Line(corners[0][0], corners[0][1], @color)
       new Line(p12, p22, @color)
       new Line(p22, p21, @color)
       new Line(p21, p11, @color)
