@@ -63,7 +63,7 @@ class Line
     @col2 = col2;
 
   distance: ->
-    Geometry.distance pt1, pt2
+    Geometry::distance(@pt1, @pt2)
 
   draw: (canvas) ->
     if canvas.antialiasing
