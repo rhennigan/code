@@ -147,7 +147,7 @@ class Line
         color: new Color(@col1.r, @col1.g, @col1.b, @col1.a)
 
       step = () ->
-        p = Geometry.distance(@pt1, pix.point) / dist
+        p = Geometry::distance(@pt1, pix.point) / dist
         pix.color = Color.interpolate(@col1, @col2, p)
         pix.color.write(pix.point.x, pix.point.y, canvas)
 
