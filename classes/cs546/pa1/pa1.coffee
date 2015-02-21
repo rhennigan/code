@@ -394,6 +394,7 @@ class DrawingCanvas
   graphicsPrimitives: []
   modified: false
   drawingInProgress: false
+  polyInProgress: false
   data: null
 
   constructor: ->
