@@ -11,6 +11,7 @@ class DrawingCanvas
     @createCanvas()
     @resizeCanvas()
     @createDrawingContext()
+    @setupEventHandlers()
     @clearCanvas()
     @refresh()
 
@@ -24,6 +25,9 @@ class DrawingCanvas
 
   createDrawingContext: ->
     @drawingContext = @canvas.getContext '2d'
+
+  setupEventHandlers: ->
+    @canvas.addEventListener 'mousedown'
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
