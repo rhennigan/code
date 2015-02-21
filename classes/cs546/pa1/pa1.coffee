@@ -225,8 +225,7 @@ class DrawingCanvas
 
     @canvas.addEventListener "mousemove", (e) =>
       @modified = @drawingInProgress = true
-      shape = Geometry::createPrimitive(@drawMode, @getMousePos(e))
-      @graphicsPrimitives.push(shape)
+      @graphicsPrimitives[-1]
 
     @canvas.addEventListener "click", (e) => @getMousePos(e)
 
@@ -264,6 +263,9 @@ Geometry::createPrimitive = (drawMode, mouse) ->
       new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
     else
       new Line({x:1, y:1}, mouse, new Color(0, 0, 0))
+
+test = [1,2,3,4,5]
+console.log test[-1]
 
 line = new Line({x:1, y:1}, {x:25, y:30}, new Color(255, 0, 0))
 drawingCanvas.graphicsPrimitives.push(line)
