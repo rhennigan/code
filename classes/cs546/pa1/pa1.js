@@ -652,7 +652,13 @@
   ui = {
     buttons: {
       clear: document.getElementById('clear'),
-      undo: document.getElementById('undo')
+      undo: document.getElementById('undo'),
+      line: document.getElementById('line'),
+      circle: document.getElementById('circle'),
+      ellipse: document.getElementById('ellipse'),
+      rectangle: document.getElementById('rectangle'),
+      polygon: document.getElementById('polygon'),
+      polyline: document.getElementById('polyline')
     }
   };
 
@@ -665,7 +671,7 @@
 
     DrawingCanvas.prototype.antialiasing = false;
 
-    DrawingCanvas.prototype.drawMode = Geometry.prototype.tags.LINE;
+    DrawingCanvas.prototype.drawMode = Geometry.prototype.tags.CIRCLE;
 
     DrawingCanvas.prototype.graphicsPrimitives = [];
 
@@ -688,6 +694,13 @@
       this.clearCanvas();
       this.initialize();
     }
+
+    DrawingCanvas.prototype.switchMode = function(mode) {
+      $("#" + drawMode).css("background-color", "#cccccc");
+      $("#" + mode).css("background-color", "#888888");
+      this.drawMode = mode;
+      return console.log(drawMode);
+    };
 
     DrawingCanvas.prototype.createCanvas = function() {
       this.canvas = document.createElement('canvas');
@@ -769,9 +782,14 @@
           return _this.reset();
         };
       })(this));
-      return ui.buttons.undo.addEventListener("click", (function(_this) {
+      ui.buttons.undo.addEventListener("click", (function(_this) {
         return function(e) {
           return _this.undo();
+        };
+      })(this));
+      return ui.buttons.line.addEventListener("click", (function(_this) {
+        return function(e) {
+          return _this.switchMode(Geometry.prototype.tags.LINE);
         };
       })(this));
     };

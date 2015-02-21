@@ -449,7 +449,7 @@ class DrawingCanvas
   height: 256
   refreshRate: 1000 / 20
   antialiasing: false
-  drawMode: Geometry::tags.LINE
+  drawMode: Geometry::tags.CIRCLE
   graphicsPrimitives: []
   modified: false
   drawingInProgress: false
