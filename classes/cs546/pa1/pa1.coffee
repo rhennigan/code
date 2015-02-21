@@ -206,7 +206,7 @@ class DrawingCanvas
       x: event.clientX - rect.left
       y: event.clientY - rect.top
 
-    @canvas.addEventListener "click", (e) => @getMousePos(e)
+    @canvas.addEventListener "click", (e) => console.log @getMousePos(e)
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
