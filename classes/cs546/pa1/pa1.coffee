@@ -231,6 +231,6 @@ class DrawingCanvas
 window.DrawingCanvas = DrawingCanvas
 
 line = new Line({x:10, y:20}, {x:30, y:50}, new Color(100, 150, 200))
-console.log DrawingCanvas
-line.draw(DrawingCanvas)
-console.log(line)
+console.log window.DrawingCanvas
+# line.draw(DrawingCanvas)
+# console.log(line)
