@@ -56,10 +56,10 @@ class DrawingCanvas
     @graphicsPrimitives.pop()
     @modified = true
 
-  getMousePos: (event) ->
-    rect = @canvas.getBoundingClientRect()
-    x: event.clientX - rect.left
-    y: event.clientY - rect.top
-    console.log "(#{x}, #{y})"
+  # getMousePos: (event) ->
+  #   rect = @canvas.getBoundingClientRect()
+  #   x: event.clientX - rect.left
+  #   y: event.clientY - rect.top
+  #   console.log "(#{x}, #{y})"
 
 window.DrawingCanvas = DrawingCanvas
