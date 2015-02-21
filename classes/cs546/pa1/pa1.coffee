@@ -64,7 +64,7 @@ class Line
       round = (x) -> Math.round(x)
       fpart = (x) -> if x < 0 then 1 - (x - ipart(x)) else x - ipart(x)
       rfpart = (x) -> 1 - fpart(x)
-      
+      x0, y0 = @pt1.x, @pt1.y
     else
       drawLine(this)
 
