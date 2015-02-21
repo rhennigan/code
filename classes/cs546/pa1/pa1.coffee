@@ -579,9 +579,11 @@ class DrawingCanvas
     @graphicsPrimitives.pop()
     @modified = true
 
-initialize = () ->
+loadDC = () ->
   window.DrawingCanvas = DrawingCanvas
   drawingCanvas = new DrawingCanvas()
+
+loadFC = () ->
   fractalCanvas = new DrawingCanvas()
 
 # $('#aaModeSel').click( ->
