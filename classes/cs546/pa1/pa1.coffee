@@ -126,12 +126,12 @@ class Line
           p2 = {x: x, y: ipart(intery) + 1}
 
         point = {x: (p1.x + p2.x) / 2.0, y: (p1.y + p2.y) / 2.0}
-
         p = Geometry.distance(@pt1, point) / line.distance()
         color = Color.interpolate(@col1, @col2, p)
-
         color.write(p1.x, p1.y, canvas, rfpart(intery))
         color.write(p2.x, p2.y, canvas, fpart(intery))
+
+      intery += gradient
 
     else
       drawLine(this)
