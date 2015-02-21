@@ -366,7 +366,15 @@ class Polygon
     line = new Line()
     line.col1 = line.col2 = @color
     len = @vertices.length
+    
     for i in [0...len - 1]
+      line.pt1 = @vertices[i]
+      line.pt2 = @vertices[i + 1]
+      line.draw(canvas)
+
+    line.pt1 = @vertices[len - 1]
+    line.pt2 = @vertices[0]
+    line.draw(canvas)
 
 
 ###############################################################################
