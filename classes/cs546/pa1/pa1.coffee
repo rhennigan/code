@@ -178,7 +178,7 @@ class DrawingCanvas
   drawMode: 'line'
   graphicsPrimitives: []
   modified: false
-  polyInProgress: false
+  drawingInProgress: false
   data: null
 
   constructor: ->
