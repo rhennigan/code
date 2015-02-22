@@ -744,10 +744,6 @@ Geometry::rotate = ({x: x, y: y}, theta) ->
   x: x * Math.cos(theta) - y * Math.sin(theta)
   y: y * Math.cos(theta) + x * Math.sin(theta)
 
-polygon = fractalCanvas.polygon
-polyline = fractalCanvas.polyline
-segments = polygon.getLines()
-
 Fractal::split = (polyline, segments) ->
   points = polyline.vertices
   [first, ..., last] = points
@@ -786,3 +782,13 @@ Fractal::split = (polyline, segments) ->
         Geometry::vecAdd(pt, segment.pt1)
 
     new Polyline(translatedPoints, polyline.color)
+
+polygon = fractalCanvas.polygon
+polyline = fractalCanvas.polyline
+segments = polygon.getLines()
+
+newPolylines = Fractal::split(polyline, polygon.getLines())
+console.log newPolylines
+
+fractalCanvas.graphicsPrimitives = newPolylines
+fractalCanvas.modified = true
