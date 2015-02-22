@@ -840,6 +840,7 @@ class FractalCanvas
       drawingCanvas.graphicsPrimitives = [@polyline, @polygon]
       drawingCanvas.modified = true
       @iterate()
+      drawingCanvas.newFractal = true
 
   reset: =>
     @clearCanvas()

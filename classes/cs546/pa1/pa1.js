@@ -1280,7 +1280,8 @@
           console.log(_this.polygon);
           drawingCanvas.graphicsPrimitives = [_this.polyline, _this.polygon];
           drawingCanvas.modified = true;
-          return _this.iterate();
+          _this.iterate();
+          return drawingCanvas.newFractal = true;
         };
       })(this));
     };
