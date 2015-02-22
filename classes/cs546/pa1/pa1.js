@@ -1297,12 +1297,16 @@
       console.log(n);
       if (n) {
         this.graphicsPrimitives = Fractal.prototype.splitOne(this.polyline, this.polygon.getLines());
+        while (n -= 1) {
+          this.graphicsPrimitives = Fractal.prototype.splitAll(this.polyline, this.graphicsPrimitives);
+        }
+        this.modified = true;
+        return this.refresh();
+      } else {
+        this.graphicsPrimitives = [this.polygon];
+        this.modified = true;
+        return this.refresh();
       }
-      while (n -= 1) {
-        this.graphicsPrimitives = Fractal.prototype.splitAll(this.polyline, this.graphicsPrimitives);
-      }
-      this.modified = true;
-      return this.refresh();
     };
 
     return FractalCanvas;
