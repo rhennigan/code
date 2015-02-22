@@ -777,4 +777,8 @@ rotatedPoints =
   for pt in scaledPoints
     Geometry::rotate(pt, theta)
 
-console.log rotatedPoints
+translatedPoints = 
+  for pt in rotatedPoints
+    Geometry::vecAdd(pt, segment.pt1)
+
+console.log translatedPoints
