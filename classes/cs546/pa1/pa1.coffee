@@ -429,6 +429,9 @@ class Polyline
 
 ###############################################################################
 
+BTN_BACKGROUND_ENABLED = "#EEEEEE"
+BTN_BACKGROUND_DISABLED = "#EEEEEE"
+
 ui =
   buttons: 
     clear:     document.getElementById('clear')
