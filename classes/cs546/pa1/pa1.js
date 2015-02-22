@@ -1134,6 +1134,15 @@
     return x1 * x2 + y1 * y2;
   };
 
+  Geometry.prototype.rotate = function(arg, theta) {
+    var x, y;
+    x = arg.x, y = arg.y;
+    return {
+      x: x * Math.cos(theta) - y * Math.sin(theta),
+      y: y * Math.cos(theta) + x * Math.sin(theta)
+    };
+  };
+
   polygon = fractalCanvas.polygon;
 
   polyline = fractalCanvas.polyline;

@@ -737,6 +737,10 @@ Geometry::normalize = ({x: x, y: y}) ->
 Geometry::dot = ({x: x1, y: y1}, {x: x2, y: y2}) ->
   x1 * x2 + y1 * y2
 
+Geometry::rotate = ({x: x, y: y}, theta) ->
+  x: x * Math.cos(theta) - y * Math.sin(theta)
+  y: y * Math.cos(theta) + x * Math.sin(theta)
+
 polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline
 
