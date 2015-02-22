@@ -623,8 +623,14 @@ class DrawingCanvas
     @canvas.addEventListener "dblclick", (e) =>
       console.log "dblclick"
       @polyInProgress = @drawingInProgress = false
-      [..., current] = @graphicsPrimitives
-      console.log current
+      if @fractalMode
+        switch @graphicsPrimitives.length
+          when 0
+            @switchMode(Geometry::tags.POLYLINE)
+          when 1
+            @switchMode(Geometry::tags.POLYGON)
+          else
+            alert('something went wrong')
 
     @canvas.addEventListener "click", (e) => 
       console.log "click"
