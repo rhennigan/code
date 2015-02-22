@@ -564,7 +564,7 @@ Fractal::splitAll = (polyline, polylines) ->
 class DrawingCanvas
   width: 400
   height: 400
-  refreshRate: 1000 / 20
+  refreshRate: 1000 / 2
   antialiasing: false
   drawMode: Geometry::tags.CIRCLE
   graphicsPrimitives: []

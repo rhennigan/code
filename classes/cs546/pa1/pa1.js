@@ -869,7 +869,7 @@
 
     DrawingCanvas.prototype.height = 400;
 
-    DrawingCanvas.prototype.refreshRate = 1000 / 20;
+    DrawingCanvas.prototype.refreshRate = 1000 / 2;
 
     DrawingCanvas.prototype.antialiasing = false;
 
