@@ -468,6 +468,18 @@ ui =
 
 ###############################################################################
 
+class Fractal
+  polyline: new Polyline()
+  polygon: new Polygon()
+
+  constructor: (polyline = @polyline, polygon = @polygon) ->
+    @polyline = polyline
+    @polygon = polygon
+
+  
+
+###############################################################################
+
 class DrawingCanvas
   width: 400
   height: 400
