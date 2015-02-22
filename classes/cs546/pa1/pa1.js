@@ -567,6 +567,7 @@
 
     Polygon.prototype.getLines = function() {
       var i, j, ref, results;
+      console.log("len = " + this.vertices.length);
       results = [];
       for (i = j = 0, ref = this.vertices.length; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
         console.log("(" + i + ", " + (i + (1 % this.vertices.length)));
