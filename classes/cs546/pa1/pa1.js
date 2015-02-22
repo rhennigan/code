@@ -567,11 +567,9 @@
 
     Polygon.prototype.getLines = function() {
       var i, j, len, ref, results;
-      console.log("len = " + this.vertices.length);
       len = this.vertices.length;
       results = [];
-      for (i = j = 0, ref = this.vertices.length; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
-        console.log("(" + i + ", " + ((i + 1) % len) + ")");
+      for (i = j = 0, ref = len; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
         results.push(new Line(this.vertices[(i + 1) % len], this.vertices[i], this.color));
       }
       return results;
@@ -627,10 +625,11 @@
     };
 
     Polyline.prototype.getLines = function() {
-      var i, j, ref, results;
+      var i, j, len, ref, results;
+      len = this.vertices.length;
       results = [];
-      for (i = j = 0, ref = this.vertices.length; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
-        results.push(new Line(this.vertices[i], this.vertices[i + 1 % this.vertices.length], this.color));
+      for (i = j = 0, ref = len - 1; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
+        results.push(new Line(this.vertices[i + 1], this.vertices[i], this.color));
       }
       return results;
     };
