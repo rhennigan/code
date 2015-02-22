@@ -857,6 +857,8 @@ class FractalCanvas
       @refresh()
     else
       @graphicsPrimitives = [@polygon]
+      @modified = true
+      @refresh()
 
 ###############################################################################
 
