@@ -832,7 +832,8 @@
           $("#right-canvas").toggle(checked);
           if (checked) {
             _this.switchMode(Geometry.prototype.tags.POLYLINE);
-            return $("#line").prop("disabled", true);
+            $("#line").prop("disabled", true);
+            return $("#line").css('background-color', '#CCCCCC');
           }
         };
       })(this));
