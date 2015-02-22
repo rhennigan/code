@@ -829,6 +829,7 @@ class FractalCanvas
       @modified = true
       @refresh()
     ui.buttons.sample.addEventListener "click", (e) =>
+      console.log 'sample'
       @polyline = @samplePolyline
       @polygon = @samplePolygon
       drawingCanvas.graphicsPrimitives = [@polyline, @polygon]

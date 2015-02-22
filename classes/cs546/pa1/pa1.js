@@ -1268,6 +1268,7 @@
       })(this));
       return ui.buttons.sample.addEventListener("click", (function(_this) {
         return function(e) {
+          console.log('sample');
           _this.polyline = _this.samplePolyline;
           _this.polygon = _this.samplePolygon;
           drawingCanvas.graphicsPrimitives = [_this.polyline, _this.polygon];
