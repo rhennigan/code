@@ -590,6 +590,7 @@ class DrawingCanvas
       checked = $("#fractModeSel").is(':checked')
       $("#fracTxt").toggle checked
       $("#right-canvas").toggle checked
+      $("#sample").toggle checked
       if checked
         @switchMode(Geometry::tags.POLYLINE)
         ui.disableButton mode for mode in [
@@ -598,7 +599,7 @@ class DrawingCanvas
             Geometry::tags.ELLIPSE
             Geometry::tags.RECTANGLE
           ]
-        $("#sample").toggle checked
+        
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
