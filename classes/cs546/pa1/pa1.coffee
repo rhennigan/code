@@ -379,7 +379,7 @@ class Polygon
 
   getLines: ->
     for i in [0...@vertices.length]
-      new Line(@vertices[i], @vertices[i + 1 % @vertices.length], @color)
+      new Line(@vertices[i], @vertices[i + (1 % @vertices.length)], @color)
 
   draw: (canvas) ->
     line = new Line()
