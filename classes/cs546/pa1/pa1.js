@@ -4,8 +4,6 @@
     bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     slice = [].slice;
 
-  console.log('test');
-
   Geometry = (function() {
     function Geometry() {}
 

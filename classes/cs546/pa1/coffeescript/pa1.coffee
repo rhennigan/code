@@ -1,5 +1,3 @@
-console.log 'test' 
-
 class Geometry
 
 Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
