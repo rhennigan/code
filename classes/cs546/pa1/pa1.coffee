@@ -742,10 +742,10 @@ segments = polygon.getLines()
 segment = segments[0]
 segmentDistance = segment.distance()
 polylineDistance = Geometry::distance(first, last)
-console.log polylineDistance
 
 scaledPoints =
   for pt in points
     s = Geometry::vecSub(pt, first)
     Geometry::vecSMul(segmentDistance, Geometry::normalize(s))
 
+console.log scaledPoints

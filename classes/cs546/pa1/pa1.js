@@ -1136,8 +1136,6 @@
 
   polylineDistance = Geometry.prototype.distance(first, last);
 
-  console.log(polylineDistance);
-
   scaledPoints = (function() {
     var j, len1, results;
     results = [];
@@ -1148,5 +1146,7 @@
     }
     return results;
   })();
+
+  console.log(scaledPoints);
 
 }).call(this);
