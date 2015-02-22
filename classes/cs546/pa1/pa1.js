@@ -572,7 +572,7 @@
       results = [];
       for (i = j = 0, ref = this.vertices.length; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
         console.log("(" + i + ", " + ((i + 1) % len) + ")");
-        results.push(new Line(this.vertices[i], this.vertices[(i + 1) % len], this.color));
+        results.push(new Line(this.vertices[(i + 1) % len], this.vertices[i], this.color));
       }
       return results;
     };

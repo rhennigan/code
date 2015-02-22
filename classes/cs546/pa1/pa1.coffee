@@ -378,11 +378,9 @@ class Polygon
     @vertices[len - 1] = mouse
 
   getLines: ->
-    console.log "len = #{@vertices.length}"
     len = @vertices.length
     for i in [0...@vertices.length]
-      console.log "(#{i}, #{(i+1) % len})"
-      new Line(@vertices[i], @vertices[(i+1) % len], @color)
+      new Line(@vertices[(i+1) % len], @vertices[i], @color)
 
   draw: (canvas) ->
     line = new Line()
