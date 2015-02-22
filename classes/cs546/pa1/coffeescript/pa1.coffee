@@ -40,7 +40,7 @@ Geometry::tags =
   POLYLINE: 'polyline'
 
 Geometry::createPrimitive = (drawMode, mouse) ->
-  defaultColor = new Color(0, 0, 0, 128)
+  defaultColor = new Color(0, 0, 0, 192)
   switch drawMode
     when @tags.LINE
       new Line(mouse, mouse, defaultColor)

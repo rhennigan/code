@@ -102,7 +102,7 @@
 
   Geometry.prototype.createPrimitive = function(drawMode, mouse) {
     var defaultColor;
-    defaultColor = new Color(0, 0, 0, 128);
+    defaultColor = new Color(0, 0, 0, 192);
     switch (drawMode) {
       case this.tags.LINE:
         return new Line(mouse, mouse, defaultColor);
