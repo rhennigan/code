@@ -734,10 +734,9 @@ Geometry::normalize = ({x: x, y: y}) ->
 polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline
 
-console.log polygon
-console.log polyline
-
 points = polyline.vertices
+console.log points
+
 [first, ..., last] = points
 
 segments = polygon.getLines()
@@ -752,4 +751,3 @@ scaledPoints =
     s = Geometry::vecSub(pt, first)
     Geometry::vecSMul(segmentDistance, Geometry::normalize(s))
 
-console.log scaledPoints
