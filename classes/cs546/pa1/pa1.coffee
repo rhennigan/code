@@ -564,12 +564,10 @@ class DrawingCanvas
       $("#right-canvas").toggle checked
       if checked
         @switchMode(Geometry::tags.POLYLINE)
-
-        disableButton = (mode) ->
-          $("##{mode}").prop("disabled", true)
-          $("##{mode}").css 'background-color', '#EEEEEE'
-          $("##{mode}").css 'color', '#CCCCCC'
-      
+        ui.disableButton mode for mode in [
+            Geometry::tags.LINE
+            Geometry::tags.CIRCLE
+          ]      
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height

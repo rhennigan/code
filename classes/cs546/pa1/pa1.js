@@ -667,6 +667,11 @@
     lbl: {
       aa: document.getElementById('aaTxt'),
       frac: document.getElementById('fracTxt')
+    },
+    disableButton: function(mode) {
+      $("#" + mode).prop("disabled", true);
+      $("#" + mode).css('background-color', '#EEEEEE');
+      return $("#" + mode).css('color', '#CCCCCC');
     }
   };
 
@@ -826,15 +831,19 @@
       });
       return ui.checkb.fractal.addEventListener("click", (function(_this) {
         return function(e) {
-          var checked;
+          var checked, j, len1, mode, ref, results;
           checked = $("#fractModeSel").is(':checked');
           $("#fracTxt").toggle(checked);
           $("#right-canvas").toggle(checked);
           if (checked) {
             _this.switchMode(Geometry.prototype.tags.POLYLINE);
-            $("#line").prop("disabled", true);
-            $("#line").css('background-color', '#EEEEEE');
-            return $("#line").css('color', '#CCCCCC');
+            ref = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE];
+            results = [];
+            for (j = 0, len1 = ref.length; j < len1; j++) {
+              mode = ref[j];
+              results.push(ui.disableButton(mode));
+            }
+            return results;
           }
         };
       })(this));
