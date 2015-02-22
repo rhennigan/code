@@ -773,9 +773,9 @@ console.log t2
 
 theta0 = 
   if t1 > t2 
-    theta
-  else 
     -theta
+  else 
+    theta
 
 console.log theta
 console.log theta0

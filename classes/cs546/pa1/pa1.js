@@ -1190,7 +1190,7 @@
 
   console.log(t2);
 
-  theta0 = t1 > t2 ? theta : -theta;
+  theta0 = t1 > t2 ? -theta : theta;
 
   console.log(theta);
 
