@@ -654,3 +654,5 @@ fractalPolyline = new Polyline([
     ], new Color(0, 0, 0))
 
 fractalCanvas.graphicsPrimitives.push(fractalPolyline)
+fractalCanvas.refresh()
+console.log fractalCanvas
