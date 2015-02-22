@@ -936,7 +936,7 @@
           var current, ref, ref1, shape;
           console.log('mousedown');
           if (_this.fractalMode && _this.graphicsPrimitives.length === 2) {
-            console.log('do that thing here');
+            _this.reset();
           }
           _this.modified = _this.drawingInProgress = true;
           if (_this.polyInProgress) {
