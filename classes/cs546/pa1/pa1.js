@@ -1294,7 +1294,7 @@
     FractalCanvas.prototype.iterate = function() {
       var i, j, ref;
       this.graphicsPrimitives = Fractal.prototype.splitOne(this.polyline, this.polygon.getLines());
-      for (i = j = 1, ref = this.iterations; 1 <= ref ? j <= ref : j >= ref; i = 1 <= ref ? ++j : --j) {
+      for (i = j = 0, ref = this.iterations; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
         this.graphicsPrimitives = Fractal.prototype.splitAll(this.polyline, this.graphicsPrimitives);
       }
       this.modified = true;
