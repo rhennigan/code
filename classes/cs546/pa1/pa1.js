@@ -826,15 +826,18 @@
         return $("#aaTxt").toggle(this.checked);
       });
       switchMode = this.switchMode;
-      return ui.checkb.fractal.addEventListener("click", function(e) {
-        console.log(ui.checkb.fractal);
-        console.log($("#fractModeSel").is(':checked'));
-        $("#fracTxt").toggle(this.checked);
-        $("#right-canvas").toggle(this.checked);
-        if (this.checked) {
-          return switchMode(Geometry.prototype.tags.POLYLINE);
-        }
-      });
+      return ui.checkb.fractal.addEventListener("click", (function(_this) {
+        return function(e) {
+          var checked;
+          checked = $("#fractModeSel").is(':checked');
+          console.log(checked);
+          $("#fracTxt").toggle(checked);
+          $("#right-canvas").toggle(checked);
+          if (checked) {
+            return switchMode(Geometry.prototype.tags.POLYLINE);
+          }
+        };
+      })(this));
     };
 
     DrawingCanvas.prototype.clearCanvas = function() {
