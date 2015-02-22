@@ -637,7 +637,9 @@ class DrawingCanvas
     @canvas.addEventListener "dblclick", (e) =>
       console.log "dblclick"
       [..., current] = @graphicsPrimitives
-      console.log current.vertices.length
+      len = current.vertices.length
+      [current.vertices..., v1, v2] = current.vertices
+      console.log @graphicsPrimitives
       @polyInProgress = @drawingInProgress = false
       if @fractalMode
         switch @graphicsPrimitives.length
