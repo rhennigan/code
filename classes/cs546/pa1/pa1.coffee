@@ -759,8 +759,7 @@ scale = segmentDistance / polylineDistance
 
 scaledPoints =
   for pt in points
-    s = Geometry::vecSub(pt, first)
-    Geometry::vecSMul(segmentDistance, Geometry::normalize(s))
+    Geometry::vecSMul(scale, Geometry::vecSub(pt, first))
 
 [firstScaled, ..., lastScaled] = scaledPoints
 u = Geometry::vecSub(lastScaled, firstScaled)
@@ -782,4 +781,3 @@ translatedPoints =
   for pt in rotatedPoints
     Geometry::vecAdd(pt, segment.pt1)
 
-console.log translatedPoints
