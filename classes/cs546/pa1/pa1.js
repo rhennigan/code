@@ -837,7 +837,7 @@
           $("#right-canvas").toggle(checked);
           if (checked) {
             _this.switchMode(Geometry.prototype.tags.POLYLINE);
-            ref = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE];
+            ref = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYGON];
             results = [];
             for (j = 0, len1 = ref.length; j < len1; j++) {
               mode = ref[j];

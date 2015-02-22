@@ -567,6 +567,9 @@ class DrawingCanvas
         ui.disableButton mode for mode in [
             Geometry::tags.LINE
             Geometry::tags.CIRCLE
+            Geometry::tags.ELLIPSE
+            Geometry::tags.RECTANGLE
+            Geometry::tags.POLYGON
           ]      
 
   clearCanvas: ->
