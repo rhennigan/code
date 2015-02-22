@@ -1312,12 +1312,13 @@
     };
 
     FractalCanvas.prototype.writeStatus = function() {
-      var gfx, j, len, len1, ref;
-      len = 0;
+      var gfx, j, len1, ref, segments, vertices;
+      vertices = segments = 0;
       ref = this.graphicsPrimitives;
       for (j = 0, len1 = ref.length; j < len1; j++) {
         gfx = ref[j];
-        len += gfx.vertices.length - 1;
+        segments += gfx.vertices.length - 1;
+        vertices += gfx.vertices.length;
       }
       this.drawingContext.font = "12px Courier";
       return this.drawingContext.fillText("graphics primitives: " + len, 10, 10);

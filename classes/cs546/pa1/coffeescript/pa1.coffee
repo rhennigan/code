@@ -862,9 +862,10 @@ class FractalCanvas
       @refresh()
 
   writeStatus: =>
-    len = 0
+    vertices = segments = 0
     for gfx in @graphicsPrimitives
-      len += gfx.vertices.length - 1
+      segments += gfx.vertices.length - 1
+      vertices += gfx.vertices.length
     @drawingContext.font = "12px Courier"
     @drawingContext.fillText("graphics primitives: #{len}", 10, 10)
 
