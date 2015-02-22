@@ -841,11 +841,23 @@
       })(this));
       ui.checkb.antialiasing.addEventListener("click", (function(_this) {
         return function(e) {
-          var checked;
+          var checked, j, len1, mode, ref, ref1, results;
           _this.antialiasing = checked = $("#aaModeSel").is(':checked');
           $("#aaTxt").toggle(checked);
           _this.modified = true;
-          return _this.refresh();
+          _this.refresh();
+          if (checked) {
+            if ((ref = _this.drawMode) === Geometry.prototype.tags.CIRCLE || ref === Geometry.prototype.tags.ELLIPSE) {
+              _this.switchMode(Geometry.prototype.tags.LINE);
+            }
+            ref1 = [Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE];
+            results = [];
+            for (j = 0, len1 = ref1.length; j < len1; j++) {
+              mode = ref1[j];
+              results.push(ui.disableButton(mode));
+            }
+            return results;
+          }
         };
       })(this));
       return ui.checkb.fractal.addEventListener("click", (function(_this) {
