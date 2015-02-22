@@ -718,6 +718,9 @@ fractalCanvas.modified = true
 setTimeout fractalCanvas.refresh 3000
 console.log fractalCanvas
 
+Geometry::vecSub = ({x: x1, y: y1}, {x: x2, y: y2}) ->
+  {x: x1 - x2, y: y1 - y2}
+
 polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline
 
@@ -730,6 +733,9 @@ segments = polygon.getLines()
 segment = segments[0]
 segmentDistance = segment.distance()
 polylineDistance = Geometry::distance(first, last)
+
+scaledPoints =
+  for pt in points
 
 console.log segmentDistance
 console.log polylineDistance
