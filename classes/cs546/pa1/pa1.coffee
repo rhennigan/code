@@ -749,5 +749,4 @@ scaledPoints =
     s = Geometry::vecSub(pt, first)
     Geometry::vecSMul(segmentDistance, Geometry::normalize(s))
 
-console.log segmentDistance
-console.log polylineDistance
+console.log scaledPoints
