@@ -638,6 +638,13 @@ class DrawingCanvas
           when 1
             @switchMode(Geometry::tags.POLYGON)
             ui.enableButton(Geometry::tags.POLYGON)
+            ui.disableButton mode for mode in [
+              Geometry::tags.LINE
+              Geometry::tags.CIRCLE
+              Geometry::tags.ELLIPSE
+              Geometry::tags.RECTANGLE
+              Geometry::tags.POLYLINE
+            ]
           else
             alert('something went wrong')
 

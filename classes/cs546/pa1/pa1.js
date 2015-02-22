@@ -869,6 +869,8 @@
 
     DrawingCanvas.prototype.data = null;
 
+    DrawingCanvas.prototype.fractalMode = false;
+
     function DrawingCanvas() {
       this.reset = bind(this.reset, this);
       this.refresh = bind(this.refresh, this);
@@ -949,11 +951,37 @@
       })(this));
       this.canvas.addEventListener("dblclick", (function(_this) {
         return function(e) {
-          var current, ref;
+          var j, k, len1, len2, mode, ref, ref1, results, results1;
           console.log("dblclick");
           _this.polyInProgress = _this.drawingInProgress = false;
-          ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
-          return console.log(current);
+          if (_this.fractalMode) {
+            switch (_this.graphicsPrimitives.length) {
+              case 0:
+                _this.switchMode(Geometry.prototype.tags.POLYLINE);
+                ui.enableButton(Geometry.prototype.tags.POLYLINE);
+                ref = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYGON];
+                results = [];
+                for (j = 0, len1 = ref.length; j < len1; j++) {
+                  mode = ref[j];
+                  results.push(ui.disableButton(mode));
+                }
+                return results;
+                break;
+              case 1:
+                _this.switchMode(Geometry.prototype.tags.POLYGON);
+                ui.enableButton(Geometry.prototype.tags.POLYGON);
+                ref1 = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYLINE];
+                results1 = [];
+                for (k = 0, len2 = ref1.length; k < len2; k++) {
+                  mode = ref1[k];
+                  results1.push(ui.disableButton(mode));
+                }
+                return results1;
+                break;
+              default:
+                return alert('something went wrong');
+            }
+          }
         };
       })(this));
       this.canvas.addEventListener("click", (function(_this) {
@@ -1033,7 +1061,7 @@
       })(this));
       return ui.checkb.fractal.addEventListener("click", (function(_this) {
         return function(e) {
-          var checked, j, len1, mode, ref, results;
+          var checked, j, len1, mode, ref;
           checked = $("#fractModeSel").is(':checked');
           $("#fracTxt").toggle(checked);
           $("#right-canvas").toggle(checked);
@@ -1041,12 +1069,13 @@
           if (checked) {
             _this.switchMode(Geometry.prototype.tags.POLYLINE);
             ref = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE];
-            results = [];
             for (j = 0, len1 = ref.length; j < len1; j++) {
               mode = ref[j];
-              results.push(ui.disableButton(mode));
+              ui.disableButton(mode);
             }
-            return results;
+            return _this.fractalMode = true;
+          } else {
+            return _this.fractalMode = false;
           }
         };
       })(this));
@@ -1223,9 +1252,5 @@
   document.getElementById('left-canvas').appendChild(drawingCanvas.canvas);
 
   document.getElementById('right-canvas').appendChild(fractalCanvas.canvas);
-
-  fractalCanvas.iterate();
-
-  console.log(fractalCanvas);
 
 }).call(this);
