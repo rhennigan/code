@@ -1253,6 +1253,7 @@
           shape.draw(this);
         }
         this.drawingContext.putImageData(this.data, 0, 0);
+        this.writeStatus();
         return this.modified = false;
       }
     };

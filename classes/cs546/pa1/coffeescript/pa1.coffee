@@ -820,6 +820,7 @@ class FractalCanvas
       @clearCanvas()
       shape.draw(this) for shape in @graphicsPrimitives
       @drawingContext.putImageData(@data, 0, 0)
+      @writeStatus()
       @modified = false
 
   initialize: ->
