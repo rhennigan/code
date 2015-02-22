@@ -1089,6 +1089,8 @@
           $("#fracTxt").toggle(checked);
           $("#right-canvas").toggle(checked);
           $("#sample").toggle(checked);
+          $("#addIterations").toggle(checked);
+          $("#subIterations").toggle(checked);
           if (checked) {
             _this.reset();
             _this.modified = true;
@@ -1246,9 +1248,14 @@
     };
 
     FractalCanvas.prototype.initialize = function() {
-      ui.buttons.ellipse.addEventListener("click", (function(_this) {
+      ui.buttons.addIterations.addEventListener("click", (function(_this) {
         return function(e) {
-          return _this.switchMode(Geometry.prototype.tags.ELLIPSE);
+          return _this.iterations++;
+        };
+      })(this));
+      ui.buttons.subIterations.addEventListener("click", (function(_this) {
+        return function(e) {
+          return _this.iterations--;
         };
       })(this));
       return setInterval(this.refresh, this.refreshRate);

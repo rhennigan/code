@@ -714,6 +714,8 @@ class DrawingCanvas
       $("#fracTxt").toggle checked
       $("#right-canvas").toggle checked
       $("#sample").toggle checked
+      $("#addIterations").toggle checked
+      $("#subIterations").toggle checked
       if checked
         @reset()
         @modified = true
@@ -815,12 +817,8 @@ class FractalCanvas
       @modified = false
 
   initialize: ->
-    ui.buttons.addIterations.addEventListener "click", (e) => 
-      @iterations++
-
-    ui.buttons.subIterations.addEventListener "click", (e) => 
-      @iterations--
-
+    ui.buttons.addIterations.addEventListener "click", (e) => @iterations++
+    ui.buttons.subIterations.addEventListener "click", (e) => @iterations--
     setInterval @refresh, @refreshRate
 
   reset: =>
