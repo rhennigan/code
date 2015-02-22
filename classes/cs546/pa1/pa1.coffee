@@ -652,8 +652,12 @@ class DrawingCanvas
               Geometry::tags.POLYLINE
             ]
           when 2
-            console.log @graphicsPrimitives[0].tag
-            console.log @graphicsPrimitives[1].tag
+            t1 = Geometry::tags.POLYLINE == @graphicsPrimitives[0].tag
+            t2 = Geometry::tags.POLYGON == @graphicsPrimitives[1].tag
+            if t1 and t2
+              fractalCanvas.polyline = @graphicsPrimitives[0]
+              fractalCanvas.polygon = @graphicsPrimitives[1]
+              fractalCanvas.iterate()
           else
             alert('something went wrong')
 

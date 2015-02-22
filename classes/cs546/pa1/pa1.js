@@ -963,7 +963,7 @@
       })(this));
       this.canvas.addEventListener("dblclick", (function(_this) {
         return function(e) {
-          var j, k, len1, len2, mode, ref, ref1, results, results1;
+          var j, k, len1, len2, mode, ref, ref1, results, results1, t1, t2;
           console.log("dblclick");
           _this.polyInProgress = _this.drawingInProgress = false;
           if (_this.fractalMode) {
@@ -991,8 +991,14 @@
                 return results1;
                 break;
               case 2:
-                console.log(_this.graphicsPrimitives[0].tag);
-                return console.log(_this.graphicsPrimitives[1].tag);
+                t1 = Geometry.prototype.tags.POLYLINE === _this.graphicsPrimitives[0].tag;
+                t2 = Geometry.prototype.tags.POLYGON === _this.graphicsPrimitives[1].tag;
+                if (t1 && t2) {
+                  fractalCanvas.polyline = _this.graphicsPrimitives[0];
+                  fractalCanvas.polygon = _this.graphicsPrimitives[1];
+                  return fractalCanvas.iterate();
+                }
+                break;
               default:
                 return alert('something went wrong');
             }
