@@ -472,15 +472,15 @@ BTN_TEXT_DISABLED       = "#CCCCCC"
 
 ui =
   buttons: 
-    clear:     document.getElementById('clear')
-    undo:      document.getElementById('undo')
-    line:      document.getElementById('line')
-    circle:    document.getElementById('circle')
-    ellipse:   document.getElementById('ellipse')
-    rectangle: document.getElementById('rectangle')
-    polygon:   document.getElementById('polygon')
-    polyline:  document.getElementById('polyline')
-    sample:    document.getElementById('sample')
+    clear:         document.getElementById('clear')
+    undo:          document.getElementById('undo')
+    line:          document.getElementById('line')
+    circle:        document.getElementById('circle')
+    ellipse:       document.getElementById('ellipse')
+    rectangle:     document.getElementById('rectangle')
+    polygon:       document.getElementById('polygon')
+    polyline:      document.getElementById('polyline')
+    sample:        document.getElementById('sample')
     addIterations: document.getElementById('addIterations')
     subIterations: document.getElementById('subIterations')
 
@@ -815,8 +815,12 @@ class FractalCanvas
       @modified = false
 
   initialize: ->
-    ui.buttons.ellipse.addEventListener "click", (e) => 
-      @switchMode(Geometry::tags.ELLIPSE)
+    ui.buttons.addIterations.addEventListener "click", (e) => 
+      @iterations++
+
+    ui.buttons.subIterations.addEventListener "click", (e) => 
+      @iterations--
+
     setInterval @refresh, @refreshRate
 
   reset: =>
