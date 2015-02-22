@@ -596,7 +596,6 @@ class DrawingCanvas
             Geometry::tags.CIRCLE
             Geometry::tags.ELLIPSE
             Geometry::tags.RECTANGLE
-            Geometry::tags.POLYGON
           ]
 
   clearCanvas: ->
