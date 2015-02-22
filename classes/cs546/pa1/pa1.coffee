@@ -570,6 +570,9 @@ class DrawingCanvas
       $("#aaTxt").toggle checked
       @modified = true
       @refresh()
+      if checked
+        if @drawMode in [Geometry::tags.CIRCLE, Geometry::tags.ELLIPSE]
+          @switchMode Geometry::tags.LINE
 
     ui.checkb.fractal.addEventListener "click", (e) =>
       checked = $("#fractModeSel").is(':checked')
