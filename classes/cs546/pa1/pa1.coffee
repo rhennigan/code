@@ -559,6 +559,7 @@ class DrawingCanvas
       $("#right-canvas").toggle checked
       if checked
         @switchMode(Geometry::tags.POLYLINE)
+        $("#line").prop("disabled", true)
       
 
   clearCanvas: ->
