@@ -817,8 +817,12 @@ class FractalCanvas
       @modified = false
 
   initialize: ->
-    ui.buttons.addIterations.addEventListener "click", (e) => @iterations++
-    ui.buttons.subIterations.addEventListener "click", (e) => @iterations--
+    ui.buttons.addIterations.addEventListener "click", (e) => 
+      @iterations++
+      @modified = true
+    ui.buttons.subIterations.addEventListener "click", (e) => 
+      @iterations--
+      @modified = true
     setInterval @refresh, @refreshRate
 
   reset: =>

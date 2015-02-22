@@ -1250,12 +1250,14 @@
     FractalCanvas.prototype.initialize = function() {
       ui.buttons.addIterations.addEventListener("click", (function(_this) {
         return function(e) {
-          return _this.iterations++;
+          _this.iterations++;
+          return _this.modified = true;
         };
       })(this));
       ui.buttons.subIterations.addEventListener("click", (function(_this) {
         return function(e) {
-          return _this.iterations--;
+          _this.iterations--;
+          return _this.modified = true;
         };
       })(this));
       return setInterval(this.refresh, this.refreshRate);
