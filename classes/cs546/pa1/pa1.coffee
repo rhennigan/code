@@ -118,6 +118,7 @@ class Line
   pt2: {x: 0, y: 0}
   col1: new Color()
   col2: new Color()
+  tag: Geometry::tags.LINE
 
   constructor: (pt1 = @pt1, pt2 = @pt2, col1 = @col1, col2 = col1) ->
     @pt1 = pt1;
@@ -240,6 +241,7 @@ class Circle
   center: {x: 0, y: 0}
   radius: 0
   color: new Color()
+  tag: Geometry::tags.CIRCLE
 
   constructor: (center = @center, radius = @radius, color = @color) ->
     @center = center;
@@ -288,6 +290,7 @@ class Ellipse
   a: 0
   b: 0
   color: new Color()
+  tag: Geometry::tags.ELLIPSE
 
   constructor: (center = @center, a = @a, b = @b, color = @color) ->
     @center = center
@@ -361,6 +364,7 @@ class Rectangle
   pt1: {x: 0, y: 0}
   pt2: {x: 0, y: 0}
   color: new Color()
+  tag: Geometry::tags.RECTANGLE
 
   constructor: (pt1 = @pt1, pt2 = @pt2, color = @color) ->
     @pt1 = pt1
@@ -388,6 +392,7 @@ class Rectangle
 class Polygon
   vertices: []
   color: new Color()
+  tag: Geometry::tags.POLYGON
 
   constructor: (vertices = @vertices, color = @color) ->
     @vertices = vertices
@@ -427,6 +432,7 @@ class Polygon
 class Polyline
   vertices: []
   color: new Color()
+  tag: Geometry::tags.POLYLINE
 
   constructor: (vertices = @vertices, color = @color) ->
     @vertices = vertices
