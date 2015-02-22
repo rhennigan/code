@@ -556,7 +556,7 @@ class DrawingCanvas
     switchMode = @switchMode
     ui.checkb.fractal.addEventListener "click", (e) ->
       console.log ui.checkb.fractal
-      console.log $("#fractModeSel")
+      console.log $("#fractModeSel").is(':checked')
       $("#fracTxt").toggle @checked
       $("#right-canvas").toggle @checked
       if @checked

@@ -828,7 +828,7 @@
       switchMode = this.switchMode;
       return ui.checkb.fractal.addEventListener("click", function(e) {
         console.log(ui.checkb.fractal);
-        console.log($("#fractModeSel"));
+        console.log($("#fractModeSel").is(':checked'));
         $("#fracTxt").toggle(this.checked);
         $("#right-canvas").toggle(this.checked);
         if (this.checked) {
