@@ -667,7 +667,7 @@ class DrawingCanvas
 
     @canvas.addEventListener "click", (e) => 
       console.log "click"
-      @getMousePos(e)
+      console.log @
 
     ui.buttons.clear.addEventListener "click", (e) => 
       @reset()

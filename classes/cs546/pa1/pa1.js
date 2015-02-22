@@ -1014,7 +1014,7 @@
       this.canvas.addEventListener("click", (function(_this) {
         return function(e) {
           console.log("click");
-          return _this.getMousePos(e);
+          return console.log(_this);
         };
       })(this));
       ui.buttons.clear.addEventListener("click", (function(_this) {
