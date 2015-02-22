@@ -568,6 +568,8 @@ class DrawingCanvas
     ui.checkb.antialiasing.addEventListener "click", (e) =>
       @antialiasing = checked = $("#aaModeSel").is(':checked')
       $("#aaTxt").toggle checked
+      @modified = true
+      @refresh()
 
     ui.checkb.fractal.addEventListener "click", (e) =>
       checked = $("#fractModeSel").is(':checked')

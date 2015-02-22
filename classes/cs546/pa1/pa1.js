@@ -695,7 +695,7 @@
 
     DrawingCanvas.prototype.refreshRate = 1000 / 20;
 
-    DrawingCanvas.prototype.antialiasing = true;
+    DrawingCanvas.prototype.antialiasing = false;
 
     DrawingCanvas.prototype.drawMode = Geometry.prototype.tags.CIRCLE;
 
@@ -843,7 +843,9 @@
         return function(e) {
           var checked;
           _this.antialiasing = checked = $("#aaModeSel").is(':checked');
-          return $("#aaTxt").toggle(checked);
+          $("#aaTxt").toggle(checked);
+          _this.modified = true;
+          return _this.refresh();
         };
       })(this));
       return ui.checkb.fractal.addEventListener("click", (function(_this) {
