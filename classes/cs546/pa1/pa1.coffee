@@ -768,3 +768,6 @@ theta = Math.acos(Geometry::dot(u, v) / (nu * nv))
 
 t1 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, theta), v))
 t2 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, -theta), v))
+theta = if t1 > t2 then theta else -theta
+
+console.log theta
