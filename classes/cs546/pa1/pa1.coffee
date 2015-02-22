@@ -580,7 +580,8 @@ class DrawingCanvas
             Geometry::tags.ELLIPSE
             Geometry::tags.RECTANGLE
             Geometry::tags.POLYGON
-          ]      
+          ]
+        ui.enableButton Geometry::tags.CIRCLE
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
