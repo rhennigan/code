@@ -1126,9 +1126,11 @@
 
   points = polyline.vertices;
 
-  console.log(points);
-
   first = points[0], last = points[points.length - 1];
+
+  console.log(first);
+
+  console.log(last);
 
   segments = polygon.getLines();
 

@@ -735,14 +735,13 @@ polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline
 
 points = polyline.vertices
-console.log points
-
 [first, ..., last] = points
-
 segments = polygon.getLines()
 
 # loop over segments here
 segment = segments[0]
+console.log segment
+
 segmentDistance = segment.distance()
 polylineDistance = Geometry::distance(first, last)
 
