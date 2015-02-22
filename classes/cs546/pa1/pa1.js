@@ -3,6 +3,8 @@
   var BTN_BACKGROUND_DISABLED, BTN_BACKGROUND_ENABLED, BTN_TEXT_DISABLED, BTN_TEXT_ENABLED, Circle, Color, DrawingCanvas, Ellipse, Fractal, FractalCanvas, Geometry, Line, Polygon, Polyline, Rectangle, drawingCanvas, fractalCanvas, ui,
     bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
+  console.log('test');
+
   Geometry = (function() {
     function Geometry() {}
 
