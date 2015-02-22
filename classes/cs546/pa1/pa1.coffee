@@ -768,13 +768,10 @@ theta = Math.acos(Geometry::dot(u, v) / (nu * nv))
 
 t1 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, theta), v))
 t2 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, -theta), v))
-console.log t1
-console.log t2
-
 theta = if t1 > t2 then -theta else theta
 
 rotatedPoints = 
-  for pt in points
+  for pt in scaledPoints
     Geometry::rotate(pt, theta)
 
 console.log rotatedPoints

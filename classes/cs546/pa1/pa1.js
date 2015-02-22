@@ -1186,17 +1186,13 @@
 
   t2 = Geometry.prototype.norm(Geometry.prototype.vecSub(Geometry.prototype.rotate(lastScaled, -theta), v));
 
-  console.log(t1);
-
-  console.log(t2);
-
   theta = t1 > t2 ? -theta : theta;
 
   rotatedPoints = (function() {
     var j, len1, results;
     results = [];
-    for (j = 0, len1 = points.length; j < len1; j++) {
-      pt = points[j];
+    for (j = 0, len1 = scaledPoints.length; j < len1; j++) {
+      pt = scaledPoints[j];
       results.push(Geometry.prototype.rotate(pt, theta));
     }
     return results;
