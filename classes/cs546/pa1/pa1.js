@@ -1258,12 +1258,21 @@
           return _this.refresh();
         };
       })(this));
-      return ui.buttons.subIterations.addEventListener("click", (function(_this) {
+      ui.buttons.subIterations.addEventListener("click", (function(_this) {
         return function(e) {
           _this.iterations--;
           _this.reset();
           _this.modified = true;
           return _this.refresh();
+        };
+      })(this));
+      return ui.buttons.sample.addEventListener("click", (function(_this) {
+        return function(e) {
+          _this.polyline = _this.samplePolyline;
+          _this.polygon = _this.samplePolygon;
+          drawingCanvas.graphicsPrimitives = [_this.polyline, _this.polygon];
+          drawingCanvas.reset();
+          return drawingCanvas.modified = true;
         };
       })(this));
     };
