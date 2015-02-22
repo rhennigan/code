@@ -679,7 +679,6 @@ class FractalCanvas
 
   initialize: ->
     setInterval @refresh, @refreshRate
-    @switchMode Geometry::tags.LINE
     console.log 'here'
 
   reset: =>

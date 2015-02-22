@@ -1011,7 +1011,6 @@
 
     FractalCanvas.prototype.initialize = function() {
       setInterval(this.refresh, this.refreshRate);
-      this.switchMode(Geometry.prototype.tags.LINE);
       return console.log('here');
     };
 
