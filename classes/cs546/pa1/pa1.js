@@ -1128,10 +1128,6 @@
 
   first = points[0], last = points[points.length - 1];
 
-  console.log(first);
-
-  console.log(last);
-
   segments = polygon.getLines();
 
   segment = segments[0];
@@ -1139,6 +1135,8 @@
   segmentDistance = segment.distance();
 
   polylineDistance = Geometry.prototype.distance(first, last);
+
+  console.log(polylineDistance);
 
   scaledPoints = (function() {
     var j, len1, results;

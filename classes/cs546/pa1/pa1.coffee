@@ -740,10 +740,9 @@ segments = polygon.getLines()
 
 # loop over segments here
 segment = segments[0]
-console.log segment
-
 segmentDistance = segment.distance()
 polylineDistance = Geometry::distance(first, last)
+console.log polylineDistance
 
 scaledPoints =
   for pt in points
