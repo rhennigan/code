@@ -598,7 +598,6 @@ class DrawingCanvas
             Geometry::tags.RECTANGLE
             Geometry::tags.POLYGON
           ]
-        ui.enableButton Geometry::tags.CIRCLE
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
@@ -631,16 +630,3 @@ fractalCanvas = new DrawingCanvas()
 
 document.getElementById('left-canvas').appendChild drawingCanvas.canvas
 document.getElementById('right-canvas').appendChild fractalCanvas.canvas
-
-# $('#aaModeSel').click( ->
-#   $("#hintTxt").toggle(@checked)
-#   antialiasing = @checked
-#   redraw ();
-#     });
-#     $('#fractModeSel').click(function() {
-#       $("#fracTxt").toggle(this.checked);
-#       $("#fractalCanvas").toggle(this.checked);
-#       $("#fractalCanvas").css({'display': 'default',
-#         'border': '1px solid #c3c3c3'});
-#       redraw ();
-#     });
