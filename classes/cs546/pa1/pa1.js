@@ -214,6 +214,8 @@
 
     Line.prototype.col2 = new Color();
 
+    Line.prototype.tag = Geometry.prototype.tags.LINE;
+
     function Line(pt1, pt2, col1, col2) {
       if (pt1 == null) {
         pt1 = this.pt1;
@@ -392,6 +394,8 @@
 
     Circle.prototype.color = new Color();
 
+    Circle.prototype.tag = Geometry.prototype.tags.CIRCLE;
+
     function Circle(center, radius, color) {
       if (center == null) {
         center = this.center;
@@ -463,6 +467,8 @@
     Ellipse.prototype.b = 0;
 
     Ellipse.prototype.color = new Color();
+
+    Ellipse.prototype.tag = Geometry.prototype.tags.ELLIPSE;
 
     function Ellipse(center, a, b, color) {
       if (center == null) {
@@ -564,6 +570,8 @@
 
     Rectangle.prototype.color = new Color();
 
+    Rectangle.prototype.tag = Geometry.prototype.tags.RECTANGLE;
+
     function Rectangle(pt1, pt2, color) {
       if (pt1 == null) {
         pt1 = this.pt1;
@@ -610,6 +618,8 @@
     Polygon.prototype.vertices = [];
 
     Polygon.prototype.color = new Color();
+
+    Polygon.prototype.tag = Geometry.prototype.tags.POLYGON;
 
     function Polygon(vertices, color) {
       if (vertices == null) {
@@ -669,6 +679,8 @@
     Polyline.prototype.vertices = [];
 
     Polyline.prototype.color = new Color();
+
+    Polyline.prototype.tag = Geometry.prototype.tags.POLYLINE;
 
     function Polyline(vertices, color) {
       if (vertices == null) {
@@ -978,6 +990,9 @@
                 }
                 return results1;
                 break;
+              case 2:
+                console.log(_this.graphicsPrimitives[0].tag);
+                return console.log(_this.graphicsPrimitives[1].tag);
               default:
                 return alert('something went wrong');
             }

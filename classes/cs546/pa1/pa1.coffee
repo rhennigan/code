@@ -651,6 +651,9 @@ class DrawingCanvas
               Geometry::tags.RECTANGLE
               Geometry::tags.POLYLINE
             ]
+          when 2
+            console.log @graphicsPrimitives[0].tag
+            console.log @graphicsPrimitives[1].tag
           else
             alert('something went wrong')
 
