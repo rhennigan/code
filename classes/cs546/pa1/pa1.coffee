@@ -734,6 +734,9 @@ Geometry::normalize = ({x: x, y: y}) ->
 polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline
 
+console.log polygon
+console.log polyline
+
 points = polyline.vertices
 [first, ..., last] = points
 

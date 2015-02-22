@@ -1124,6 +1124,10 @@
 
   polyline = fractalCanvas.polyline;
 
+  console.log(polygon);
+
+  console.log(polyline);
+
   points = polyline.vertices;
 
   first = points[0], last = points[points.length - 1];
