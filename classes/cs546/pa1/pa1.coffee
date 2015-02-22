@@ -700,12 +700,14 @@ class DrawingCanvas
       $("#right-canvas").toggle checked
       $("#sample").toggle checked
       if checked
+        @clear()
         @switchMode(Geometry::tags.POLYLINE)
         ui.disableButton mode for mode in [
             Geometry::tags.LINE
             Geometry::tags.CIRCLE
             Geometry::tags.ELLIPSE
             Geometry::tags.RECTANGLE
+            Geometry::tags.POLYGON
           ]
         @fractalMode = true
       else
