@@ -1321,7 +1321,8 @@
         vertices += gfx.vertices.length;
       }
       this.drawingContext.font = "12px Courier";
-      return this.drawingContext.fillText("graphics primitives: " + len, 10, 10);
+      this.drawingContext.fillText("vertices: " + vertices, 10, 15);
+      return this.drawingContext.fillText("line segments: " + segments, 10, 30);
     };
 
     return FractalCanvas;

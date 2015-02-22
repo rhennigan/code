@@ -867,7 +867,8 @@ class FractalCanvas
       segments += gfx.vertices.length - 1
       vertices += gfx.vertices.length
     @drawingContext.font = "12px Courier"
-    @drawingContext.fillText("graphics primitives: #{len}", 10, 10)
+    @drawingContext.fillText("vertices: #{vertices}", 10, 15)
+    @drawingContext.fillText("line segments: #{segments}", 10, 30)
 
 ###############################################################################
 
