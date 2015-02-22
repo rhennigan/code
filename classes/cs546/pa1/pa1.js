@@ -753,7 +753,9 @@
       rectangle: document.getElementById('rectangle'),
       polygon: document.getElementById('polygon'),
       polyline: document.getElementById('polyline'),
-      sample: document.getElementById('sample')
+      sample: document.getElementById('sample'),
+      addIterations: document.getElementById('addIterations'),
+      subIterations: document.getElementById('subIterations')
     },
     checkb: {
       antialiasing: document.getElementById('aaModeSel'),
@@ -1244,8 +1246,12 @@
     };
 
     FractalCanvas.prototype.initialize = function() {
-      setInterval(this.refresh, this.refreshRate);
-      return console.log('here');
+      ui.buttons.ellipse.addEventListener("click", (function(_this) {
+        return function(e) {
+          return _this.switchMode(Geometry.prototype.tags.ELLIPSE);
+        };
+      })(this));
+      return setInterval(this.refresh, this.refreshRate);
     };
 
     FractalCanvas.prototype.reset = function() {

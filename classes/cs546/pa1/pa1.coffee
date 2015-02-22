@@ -481,6 +481,8 @@ ui =
     polygon:   document.getElementById('polygon')
     polyline:  document.getElementById('polyline')
     sample:    document.getElementById('sample')
+    addIterations: document.getElementById('addIterations')
+    subIterations: document.getElementById('subIterations')
 
   checkb:
     antialiasing: document.getElementById('aaModeSel')
@@ -813,8 +815,9 @@ class FractalCanvas
       @modified = false
 
   initialize: ->
+    ui.buttons.ellipse.addEventListener "click", (e) => 
+      @switchMode(Geometry::tags.ELLIPSE)
     setInterval @refresh, @refreshRate
-    console.log 'here'
 
   reset: =>
     @clearCanvas()
