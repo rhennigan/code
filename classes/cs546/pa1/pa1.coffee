@@ -758,4 +758,8 @@ scaledPoints =
 u = Geometry::vecSub(lastScaled, firstScaled)
 v = Geometry::vecSub(segment.pt2, segment.pt1)
 
-theta = Math.acos()
+nu = Geometry::norm(u)
+nv = Geometry::norm(v)
+theta = Math.acos(Geometry::dot(u, v) / (nu * nv))
+
+console.log theta
