@@ -562,6 +562,7 @@ class DrawingCanvas
   drawingInProgress: false
   polyInProgress: false
   data: null
+  fractalMode: false
 
   constructor: ->
     @createCanvas()
@@ -793,9 +794,9 @@ fractalCanvas = new FractalCanvas()
 document.getElementById('left-canvas').appendChild drawingCanvas.canvas
 document.getElementById('right-canvas').appendChild fractalCanvas.canvas
 
-fractalCanvas.iterate()
+# fractalCanvas.iterate()
 
-console.log fractalCanvas
+# console.log fractalCanvas
 
 # fractalCanvas.graphicsPrimitives = [fractalCanvas.polyline, fractalCanvas.polygon]
 # fractalCanvas.modified = true
