@@ -1272,7 +1272,6 @@
           _this.polyline = _this.samplePolyline;
           _this.polygon = _this.samplePolygon;
           drawingCanvas.graphicsPrimitives = [_this.polyline, _this.polygon];
-          drawingCanvas.reset();
           return drawingCanvas.modified = true;
         };
       })(this));
