@@ -439,6 +439,7 @@
         write(+x, -y);
         return write(-x, -y);
       };
+      writeQuadrants(x, y);
       p = Math.round(b2 - (a2 * this.b) + (0.25 * a2));
       step1 = function() {
         x++;

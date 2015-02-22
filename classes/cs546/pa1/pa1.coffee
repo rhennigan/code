@@ -297,6 +297,8 @@ class Ellipse
       write(+x, -y)
       write(-x, -y)
 
+    writeQuadrants(x, y)
+
     p = Math.round(b2 - (a2 * @b) + (0.25 * a2))
 
     step1 = () ->
