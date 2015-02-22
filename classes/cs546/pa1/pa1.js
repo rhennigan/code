@@ -871,18 +871,19 @@
       })(this));
       return ui.checkb.fractal.addEventListener("click", (function(_this) {
         return function(e) {
-          var checked, j, len1, mode, ref;
+          var checked, j, len1, mode, ref, results;
           checked = $("#fractModeSel").is(':checked');
           $("#fracTxt").toggle(checked);
           $("#right-canvas").toggle(checked);
           if (checked) {
             _this.switchMode(Geometry.prototype.tags.POLYLINE);
-            ref = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYGON];
+            ref = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE];
+            results = [];
             for (j = 0, len1 = ref.length; j < len1; j++) {
               mode = ref[j];
-              ui.disableButton(mode);
+              results.push(ui.disableButton(mode));
             }
-            return ui.enableButton(Geometry.prototype.tags.CIRCLE);
+            return results;
           }
         };
       })(this));
