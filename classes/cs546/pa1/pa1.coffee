@@ -446,6 +446,7 @@ ui =
     rectangle: document.getElementById('rectangle')
     polygon:   document.getElementById('polygon')
     polyline:  document.getElementById('polyline')
+    sample:    document.getElementById('sample')
 
   checkb:
     antialiasing: document.getElementById('aaModeSel')
@@ -597,6 +598,7 @@ class DrawingCanvas
             Geometry::tags.ELLIPSE
             Geometry::tags.RECTANGLE
           ]
+        ui.disableButton 
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
