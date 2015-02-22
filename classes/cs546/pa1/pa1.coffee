@@ -718,6 +718,9 @@ fractalCanvas.modified = true
 setTimeout fractalCanvas.refresh 3000
 console.log fractalCanvas
 
+Geometry::vecAdd = ({x: x1, y: y1}, {x: x2, y: y2}) ->
+  {x: x1 + x2, y: y1 + y2}
+
 Geometry::vecSub = ({x: x1, y: y1}, {x: x2, y: y2}) ->
   {x: x1 - x2, y: y1 - y2}
 
