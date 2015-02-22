@@ -667,7 +667,8 @@
       ellipse: document.getElementById('ellipse'),
       rectangle: document.getElementById('rectangle'),
       polygon: document.getElementById('polygon'),
-      polyline: document.getElementById('polyline')
+      polyline: document.getElementById('polyline'),
+      sample: document.getElementById('sample')
     },
     checkb: {
       antialiasing: document.getElementById('aaModeSel'),
@@ -871,19 +872,18 @@
       })(this));
       return ui.checkb.fractal.addEventListener("click", (function(_this) {
         return function(e) {
-          var checked, j, len1, mode, ref, results;
+          var checked, j, len1, mode, ref;
           checked = $("#fractModeSel").is(':checked');
           $("#fracTxt").toggle(checked);
           $("#right-canvas").toggle(checked);
           if (checked) {
             _this.switchMode(Geometry.prototype.tags.POLYLINE);
             ref = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE];
-            results = [];
             for (j = 0, len1 = ref.length; j < len1; j++) {
               mode = ref[j];
-              results.push(ui.disableButton(mode));
+              ui.disableButton(mode);
             }
-            return results;
+            return ui.enableButton('sample');
           }
         };
       })(this));

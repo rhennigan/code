@@ -598,7 +598,7 @@ class DrawingCanvas
             Geometry::tags.ELLIPSE
             Geometry::tags.RECTANGLE
           ]
-        ui.disableButton 
+        $("#sample").toggle checked
 
   clearCanvas: ->
     @drawingContext.clearRect 0, 0, @width, @height
