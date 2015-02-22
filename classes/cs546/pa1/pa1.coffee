@@ -723,3 +723,8 @@ polyline = fractalCanvas.polyline
 
 points = polyline.vertices
 [first, ..., last] = points
+
+segments = polygon.getLines()
+
+console.log "first: #{first}, last: #{last}"
+console.log "segments: #{segments}"
