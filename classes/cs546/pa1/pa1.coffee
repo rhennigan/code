@@ -771,7 +771,11 @@ t2 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, -theta), v))
 console.log t1
 console.log t2
 
-theta0 = if t1 > t2 then theta else -theta
+theta0 = 
+  if t1 > t2 
+    theta
+  else 
+    -theta
 
 console.log theta
 console.log theta0
