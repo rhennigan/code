@@ -919,14 +919,16 @@
     };
 
     DrawingCanvas.prototype.setupEventHandlers = function() {
-      this.getMousePos = function() {
-        var rect;
-        rect = this.canvas.getBoundingClientRect();
-        return {
-          x: event.clientX - rect.left,
-          y: event.clientY - rect.top
+      this.getMousePos = (function(_this) {
+        return function(event) {
+          var rect;
+          rect = _this.canvas.getBoundingClientRect();
+          return {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top
+          };
         };
-      };
+      })(this);
       this.canvas.addEventListener("mousedown", (function(_this) {
         return function(e) {
           var current, ref, ref1, shape;

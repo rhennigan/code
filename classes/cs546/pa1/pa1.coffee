@@ -598,7 +598,7 @@ class DrawingCanvas
     @drawingContext = @canvas.getContext '2d'
 
   setupEventHandlers: =>
-    @getMousePos = -> 
+    @getMousePos = (event) => 
       rect = @canvas.getBoundingClientRect()
       x: event.clientX - rect.left
       y: event.clientY - rect.top
