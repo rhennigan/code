@@ -1254,16 +1254,14 @@
         return function(e) {
           _this.iterations++;
           _this.reset();
-          _this.modified = true;
-          return _this.refresh();
+          return _this.iterate();
         };
       })(this));
       ui.buttons.subIterations.addEventListener("click", (function(_this) {
         return function(e) {
           _this.iterations--;
           _this.reset();
-          _this.modified = true;
-          return _this.refresh();
+          return _this.iterate();
         };
       })(this));
       return ui.buttons.sample.addEventListener("click", (function(_this) {

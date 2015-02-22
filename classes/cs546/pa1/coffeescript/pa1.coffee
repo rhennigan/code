@@ -821,13 +821,11 @@ class FractalCanvas
     ui.buttons.addIterations.addEventListener "click", (e) => 
       @iterations++
       @reset()
-      @modified = true
-      @refresh()
+      @iterate()
     ui.buttons.subIterations.addEventListener "click", (e) => 
       @iterations--
       @reset()
-      @modified = true
-      @refresh()
+      @iterate()
     ui.buttons.sample.addEventListener "click", (e) =>
       console.log 'sample'
       @polyline = samplePolyline
