@@ -791,10 +791,6 @@ fractalCanvas.modified = true
 setTimeout fractalCanvas.refresh 3000
 console.log fractalCanvas
 
-
-
-
-
 polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline
 segments = polygon.getLines()
