@@ -429,8 +429,10 @@ class Polyline
 
 ###############################################################################
 
-BTN_BACKGROUND_ENABLED = "#EEEEEE"
+BTN_BACKGROUND_ENABLED  = "#CCCCCC"
 BTN_BACKGROUND_DISABLED = "#EEEEEE"
+BTN_TEXT_ENABLED        = "#000000"
+BTN_TEXT_DISABLED       = "#CCCCCC"
 
 ui =
   buttons: 
