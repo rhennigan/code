@@ -1080,16 +1080,16 @@
       y: 173
     }, {
       x: 100,
-      y: 0
+      y: 346
     }, {
       x: 300,
-      y: 0
+      y: 346
     }
   ], new Color(0, 0, 0));
 
   console.log(fractalPolyline);
 
-  fractalCanvas.graphicsPrimitives = [fractalPolygon];
+  fractalCanvas.graphicsPrimitives = [fractalPolyline, fractalPolygon];
 
   fractalCanvas.modified = true;
 

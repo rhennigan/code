@@ -719,7 +719,7 @@ fractalPolygon = new Polygon([
 
 console.log fractalPolyline
 
-fractalCanvas.graphicsPrimitives = [fractalPolygon]
+fractalCanvas.graphicsPrimitives = [fractalPolyline, fractalPolygon]
 fractalCanvas.modified = true
 setTimeout fractalCanvas.refresh 3000
 console.log fractalCanvas
