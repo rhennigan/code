@@ -847,7 +847,7 @@ class FractalCanvas
     @graphicsPrimitives = []
 
   iterate: =>
-    n = @iterations - 1
+    n = @iterations
     console.log n
     if n > 0
       @graphicsPrimitives = Fractal::splitOne(@polyline, @polygon.getLines())
