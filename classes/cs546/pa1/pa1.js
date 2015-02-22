@@ -841,7 +841,7 @@
       })(this));
       ui.checkb.antialiasing.addEventListener("click", (function(_this) {
         return function(e) {
-          var checked, j, len1, mode, ref, ref1, results;
+          var checked, j, k, len1, len2, mode, ref, ref1, ref2, results, results1;
           _this.antialiasing = checked = $("#aaModeSel").is(':checked');
           $("#aaTxt").toggle(checked);
           _this.modified = true;
@@ -857,6 +857,14 @@
               results.push(ui.disableButton(mode));
             }
             return results;
+          } else {
+            ref2 = [Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE];
+            results1 = [];
+            for (k = 0, len2 = ref2.length; k < len2; k++) {
+              mode = ref2[k];
+              results1.push(ui.enableButton(mode));
+            }
+            return results1;
           }
         };
       })(this));

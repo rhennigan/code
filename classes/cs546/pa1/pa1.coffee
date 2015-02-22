@@ -577,6 +577,11 @@ class DrawingCanvas
             Geometry::tags.CIRCLE
             Geometry::tags.ELLIPSE
           ]
+      else
+        ui.enableButton mode for mode in [
+            Geometry::tags.CIRCLE
+            Geometry::tags.ELLIPSE
+          ]
 
     ui.checkb.fractal.addEventListener "click", (e) =>
       checked = $("#fractModeSel").is(':checked')
