@@ -455,8 +455,8 @@ ui =
 
   disableButton: (mode) ->
     $("##{mode}").prop("disabled", true)
-    $("##{mode}").css 'background-color', '#EEEEEE'
-    $("##{mode}").css 'color', '#CCCCCC'
+    $("##{mode}").css 'background-color', BTN_BACKGROUND_DISABLED
+    $("##{mode}").css 'color', BTN_TEXT_DISABLED
 
 ###############################################################################
 
