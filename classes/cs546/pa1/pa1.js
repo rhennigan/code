@@ -975,18 +975,20 @@
       })(this));
       this.canvas.addEventListener("dblclick", (function(_this) {
         return function(e) {
-          var j, k, len1, len2, mode, ref, ref1, results, results1, t1, t2;
+          var current, j, k, len1, len2, mode, ref, ref1, ref2, results, results1, t1, t2;
           console.log("dblclick");
+          ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
+          console.log(current.vertices.length);
           _this.polyInProgress = _this.drawingInProgress = false;
           if (_this.fractalMode) {
             switch (_this.graphicsPrimitives.length) {
               case 0:
                 ui.enableButton(Geometry.prototype.tags.POLYLINE);
                 _this.switchMode(Geometry.prototype.tags.POLYLINE);
-                ref = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYGON];
+                ref1 = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYGON];
                 results = [];
-                for (j = 0, len1 = ref.length; j < len1; j++) {
-                  mode = ref[j];
+                for (j = 0, len1 = ref1.length; j < len1; j++) {
+                  mode = ref1[j];
                   results.push(ui.disableButton(mode));
                 }
                 return results;
@@ -994,10 +996,10 @@
               case 1:
                 ui.enableButton(Geometry.prototype.tags.POLYGON);
                 _this.switchMode(Geometry.prototype.tags.POLYGON);
-                ref1 = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYLINE];
+                ref2 = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYLINE];
                 results1 = [];
-                for (k = 0, len2 = ref1.length; k < len2; k++) {
-                  mode = ref1[k];
+                for (k = 0, len2 = ref2.length; k < len2; k++) {
+                  mode = ref2[k];
                   results1.push(ui.disableButton(mode));
                 }
                 return results1;
