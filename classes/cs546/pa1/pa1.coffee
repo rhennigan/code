@@ -419,7 +419,7 @@ class Polyline
   getLines: ->
     len = @vertices.length
     for i in [0...len - 1]
-      new Line(@vertices[i + 1], @vertices[i], @color)
+      new Line(@vertices[i], @vertices[i + 1], @color)
 
   draw: (canvas) ->
     line = new Line()
@@ -795,4 +795,11 @@ newPolylines = Fractal::split(polyline, polygon.getLines())
 console.log newPolylines
 
 fractalCanvas.graphicsPrimitives = newPolylines
+fractalCanvas.modified = true
+
+newPolylines =
+  for pl in newPolylines
+    Fractal::split(polyline, pl.getLines())
+
+fractalCanvas.graphicsPrimitives = [].concat newPolylines...
 fractalCanvas.modified = true
