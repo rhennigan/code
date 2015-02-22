@@ -712,9 +712,9 @@ fractalPolyline = new Polyline([
     ], new Color(0, 0, 0))
 
 fractalPolygon = new Polygon([
-      {x: 200, y: 360}
-      {x:  50, y: 100}
-      {x: 350, y: 100}
+      {x: 200, y:  50}
+      {x:  50, y: 310}
+      {x: 350, y: 310}
     ], new Color(0, 0, 0))
 
 console.log fractalPolyline

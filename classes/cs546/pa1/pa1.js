@@ -1077,13 +1077,13 @@
   fractalPolygon = new Polygon([
     {
       x: 200,
-      y: 360
+      y: 50
     }, {
       x: 50,
-      y: 100
+      y: 310
     }, {
       x: 350,
-      y: 100
+      y: 310
     }
   ], new Color(0, 0, 0));
 
