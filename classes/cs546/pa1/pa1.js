@@ -1052,7 +1052,7 @@
 
   fractalCanvas.modified = true;
 
-  setTimeout(fractalCanvas.refresh()(3000));
+  setTimeout(fractalCanvas.refresh(3000));
 
   console.log(fractalCanvas);
 
