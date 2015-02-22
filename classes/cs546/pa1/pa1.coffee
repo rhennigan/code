@@ -627,8 +627,17 @@ class DrawingCanvas
         switch @graphicsPrimitives.length
           when 0
             @switchMode(Geometry::tags.POLYLINE)
+            ui.enableButton(Geometry::tags.POLYLINE)
+            ui.disableButton mode for mode in [
+              Geometry::tags.LINE
+              Geometry::tags.CIRCLE
+              Geometry::tags.ELLIPSE
+              Geometry::tags.RECTANGLE
+              Geometry::tags.POLYGON
+            ]
           when 1
             @switchMode(Geometry::tags.POLYGON)
+            ui.enableButton(Geometry::tags.POLYGON)
           else
             alert('something went wrong')
 
