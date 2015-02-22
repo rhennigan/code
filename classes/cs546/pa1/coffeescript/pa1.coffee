@@ -847,8 +847,9 @@ class FractalCanvas
     @graphicsPrimitives = []
 
   iterate: =>
+    n = @iterations
     @graphicsPrimitives = Fractal::splitOne(@polyline, @polygon.getLines())
-    for i in [0..@iterations]
+    while n -= 1
       @graphicsPrimitives = Fractal::splitAll(@polyline, @graphicsPrimitives)
     @modified = true
     @refresh()
