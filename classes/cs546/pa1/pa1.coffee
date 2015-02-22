@@ -700,7 +700,8 @@ class DrawingCanvas
       $("#right-canvas").toggle checked
       $("#sample").toggle checked
       if checked
-        @clear()
+        @reset()
+        @modified = true
         @switchMode(Geometry::tags.POLYLINE)
         ui.disableButton mode for mode in [
             Geometry::tags.LINE
