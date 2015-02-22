@@ -476,54 +476,7 @@ class Fractal
     @polyline = polyline
     @polygon = polygon
 
-
-
 ###############################################################################
-
-class FractalCanvas
-  width 400
-  height 400
-  refreshRate: 1000 / 20
-  antialiasing: true
-  graphicsPrimitives: []
-  data: null
-
-  constructor: ->
-    @createCanvas()
-    @resizeCanvas()
-    @createDrawingContext()
-
-  createCanvas: ->
-    @canvas = document.createElement 'canvas'
-    document.body.appendChild @canvas
-
-  resizeCanvas: ->
-    @canvas.width = @width
-    @canvas.height = @height
-
-  createDrawingContext: ->
-    @drawingContext = @canvas.getContext '2d'
-
-  clearCanvas: ->
-    @drawingContext.clearRect 0, 0, @width, @height
-    @data = @drawingContext.getImageData 0, 0, @width, @height
-    @drawingContext.putImageData @data, 0, 0
-    @modified = true
-
-  refresh: =>
-    if @modified
-      @clearCanvas()
-      shape.draw(this) for shape in @graphicsPrimitives
-      @drawingContext.putImageData(@data, 0, 0)
-      @modified = false
-
-  initialize: ->
-    setInterval @refresh, @refreshRate
-    @switchMode Geometry::tags.LINE
-
-  reset: =>
-    @clearCanvas()
-    @graphicsPrimitives = []
 
 class DrawingCanvas
   width: 400
@@ -683,9 +636,58 @@ class DrawingCanvas
     @graphicsPrimitives.pop()
     @modified = true
 
+###############################################################################
+
+class FractalCanvas
+  width 400
+  height 400
+  refreshRate: 1000 / 20
+  antialiasing: true
+  graphicsPrimitives: []
+  data: null
+
+  constructor: ->
+    @createCanvas()
+    @resizeCanvas()
+    @createDrawingContext()
+
+  createCanvas: ->
+    @canvas = document.createElement 'canvas'
+    document.body.appendChild @canvas
+
+  resizeCanvas: ->
+    @canvas.width = @width
+    @canvas.height = @height
+
+  createDrawingContext: ->
+    @drawingContext = @canvas.getContext '2d'
+
+  clearCanvas: ->
+    @drawingContext.clearRect 0, 0, @width, @height
+    @data = @drawingContext.getImageData 0, 0, @width, @height
+    @drawingContext.putImageData @data, 0, 0
+    @modified = true
+
+  refresh: =>
+    if @modified
+      @clearCanvas()
+      shape.draw(this) for shape in @graphicsPrimitives
+      @drawingContext.putImageData(@data, 0, 0)
+      @modified = false
+
+  initialize: ->
+    setInterval @refresh, @refreshRate
+    @switchMode Geometry::tags.LINE
+
+  reset: =>
+    @clearCanvas()
+    @graphicsPrimitives = []
+
+###############################################################################
+
 window.DrawingCanvas = DrawingCanvas
 drawingCanvas = new DrawingCanvas()
-fractalCanvas = new DrawingCanvas()
+fractalCanvas = new FractalCanvas()
 
 document.getElementById('left-canvas').appendChild drawingCanvas.canvas
 document.getElementById('right-canvas').appendChild fractalCanvas.canvas
