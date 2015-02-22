@@ -785,6 +785,12 @@ Fractal::splitOne = (polyline, segments) ->
 
     new Polyline(translatedPoints, polyline.color)
 
+Fractal::splitAll = (polyline, polylines) ->
+  newPolylines =
+    for pl in polylines
+      Fractal::split(polyline, pl.getLines())
+  [].concat newPolylines...
+
 polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline
 segments = polygon.getLines()
