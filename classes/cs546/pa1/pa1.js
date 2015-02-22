@@ -827,10 +827,10 @@
       });
       switchMode = this.switchMode;
       return ui.checkb.fractal.addEventListener("click", function(e) {
+        console.log(ui.checkb.fractal);
         $("#fracTxt").toggle(this.checked);
         $("#right-canvas").toggle(this.checked);
         if (this.checked) {
-          console.log(switchMode);
           return switchMode(Geometry.prototype.tags.POLYLINE);
         }
       });

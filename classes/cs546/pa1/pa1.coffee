@@ -555,10 +555,10 @@ class DrawingCanvas
 
     switchMode = @switchMode
     ui.checkb.fractal.addEventListener "click", (e) ->
+      console.log ui.checkb.fractal
       $("#fracTxt").toggle @checked
       $("#right-canvas").toggle @checked
       if @checked
-        console.log switchMode
         switchMode(Geometry::tags.POLYLINE)
       
 
