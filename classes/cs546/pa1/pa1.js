@@ -1295,7 +1295,7 @@
       var n;
       n = this.iterations - 1;
       console.log(n);
-      if (n) {
+      if (n > 0) {
         this.graphicsPrimitives = Fractal.prototype.splitOne(this.polyline, this.polygon.getLines());
         while (n -= 1) {
           this.graphicsPrimitives = Fractal.prototype.splitAll(this.polyline, this.graphicsPrimitives);
