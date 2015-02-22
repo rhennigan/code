@@ -778,8 +778,11 @@ class FractalCanvas
     @clearCanvas()
     @graphicsPrimitives = []
 
-  startFractal: =>
+  iterate: =>
     @graphicsPrimitives = Fractal::splitOne(@polyline, @polygon.getLines())
+    for i in [1..@iterations]
+      @graphicsPrimitives = Fractal::splitAll(@polyline, @graphicsPrimitives)
+    @modified = true
 
 ###############################################################################
 
@@ -790,37 +793,39 @@ fractalCanvas = new FractalCanvas()
 document.getElementById('left-canvas').appendChild drawingCanvas.canvas
 document.getElementById('right-canvas').appendChild fractalCanvas.canvas
 
-fractalCanvas.graphicsPrimitives = [fractalCanvas.polyline, fractalCanvas.polygon]
-fractalCanvas.modified = true
-setTimeout fractalCanvas.refresh 3000
-console.log fractalCanvas
 
-polygon = fractalCanvas.polygon
-polyline = fractalCanvas.polyline
-segments = polygon.getLines()
 
-console.log segments
+# fractalCanvas.graphicsPrimitives = [fractalCanvas.polyline, fractalCanvas.polygon]
+# fractalCanvas.modified = true
+# setTimeout fractalCanvas.refresh 3000
+# console.log fractalCanvas
 
-newPolylines = Fractal::split(polyline, polygon.getLines())
-console.log newPolylines
+# polygon = fractalCanvas.polygon
+# polyline = fractalCanvas.polyline
+# segments = polygon.getLines()
 
-fractalCanvas.graphicsPrimitives = newPolylines
-fractalCanvas.modified = true
+# console.log segments
 
-newPolylines =
-  for pl in newPolylines
-    Fractal::split(polyline, pl.getLines())
+# newPolylines = Fractal::split(polyline, polygon.getLines())
+# console.log newPolylines
 
-newPolylines = [].concat newPolylines...
+# fractalCanvas.graphicsPrimitives = newPolylines
+# fractalCanvas.modified = true
 
-fractalCanvas.graphicsPrimitives = newPolylines
-fractalCanvas.modified = true
+# newPolylines =
+#   for pl in newPolylines
+#     Fractal::split(polyline, pl.getLines())
 
-newPolylines =
-  for pl in newPolylines
-    Fractal::split(polyline, pl.getLines())
+# newPolylines = [].concat newPolylines...
 
-newPolylines = [].concat newPolylines...
+# fractalCanvas.graphicsPrimitives = newPolylines
+# fractalCanvas.modified = true
 
-fractalCanvas.graphicsPrimitives = newPolylines
-fractalCanvas.modified = true
+# newPolylines =
+#   for pl in newPolylines
+#     Fractal::split(polyline, pl.getLines())
+
+# newPolylines = [].concat newPolylines...
+
+# fractalCanvas.graphicsPrimitives = newPolylines
+# fractalCanvas.modified = true
