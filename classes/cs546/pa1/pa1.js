@@ -887,6 +887,8 @@
 
     DrawingCanvas.prototype.fractalMode = false;
 
+    DrawingCanvas.prototype.newFractal = false;
+
     function DrawingCanvas() {
       this.reset = bind(this.reset, this);
       this.refresh = bind(this.refresh, this);
@@ -1005,7 +1007,8 @@
                 if (t1 && t2) {
                   fractalCanvas.polyline = _this.graphicsPrimitives[0];
                   fractalCanvas.polygon = _this.graphicsPrimitives[1];
-                  return fractalCanvas.iterate();
+                  fractalCanvas.iterate();
+                  return _this.newFractal = true;
                 }
                 break;
               default:

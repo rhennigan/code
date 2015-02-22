@@ -573,6 +573,7 @@ class DrawingCanvas
   polyInProgress: false
   data: null
   fractalMode: false
+  newFractal: false
 
   constructor: ->
     @createCanvas()
@@ -664,6 +665,7 @@ class DrawingCanvas
               fractalCanvas.polyline = @graphicsPrimitives[0]
               fractalCanvas.polygon = @graphicsPrimitives[1]
               fractalCanvas.iterate()
+              @newFractal = true
           else
             alert('something went wrong')
 
