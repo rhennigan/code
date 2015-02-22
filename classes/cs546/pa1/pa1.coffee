@@ -801,12 +801,16 @@ newPolylines =
   for pl in newPolylines
     Fractal::split(polyline, pl.getLines())
 
-fractalCanvas.graphicsPrimitives = [].concat newPolylines...
+newPolylines = [].concat newPolylines...
+
+fractalCanvas.graphicsPrimitives = newPolylines
 fractalCanvas.modified = true
 
 newPolylines =
   for pl in newPolylines
     Fractal::split(polyline, pl.getLines())
 
-fractalCanvas.graphicsPrimitives = [].concat newPolylines...
+newPolylines = [].concat newPolylines...
+
+fractalCanvas.graphicsPrimitives = newPolylines
 fractalCanvas.modified = true

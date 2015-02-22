@@ -1232,7 +1232,9 @@
     return results;
   })();
 
-  fractalCanvas.graphicsPrimitives = (ref = []).concat.apply(ref, newPolylines);
+  newPolylines = (ref = []).concat.apply(ref, newPolylines);
+
+  fractalCanvas.graphicsPrimitives = newPolylines;
 
   fractalCanvas.modified = true;
 
@@ -1246,7 +1248,9 @@
     return results;
   })();
 
-  fractalCanvas.graphicsPrimitives = (ref1 = []).concat.apply(ref1, newPolylines);
+  newPolylines = (ref1 = []).concat.apply(ref1, newPolylines);
+
+  fractalCanvas.graphicsPrimitives = newPolylines;
 
   fractalCanvas.modified = true;
 
