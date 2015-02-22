@@ -967,6 +967,25 @@
 
     FractalCanvas.prototype.data = null;
 
+    FractalCanvas.prototype.samplePolyline = new Polyline([
+      {
+        x: 50,
+        y: 200
+      }, {
+        x: 150,
+        y: 200
+      }, {
+        x: 200,
+        y: 100
+      }, {
+        x: 250,
+        y: 200
+      }, {
+        x: 350,
+        y: 200
+      }
+    ], new Color(0, 0, 0));
+
     function FractalCanvas() {
       this.reset = bind(this.reset, this);
       this.refresh = bind(this.refresh, this);
@@ -1039,19 +1058,19 @@
   fractalPolyline = new Polyline([
     {
       x: 50,
-      y: 200
+      y: 125
     }, {
       x: 150,
-      y: 200
+      y: 125
     }, {
       x: 200,
-      y: 100
+      y: 25
     }, {
       x: 250,
-      y: 200
+      y: 125
     }, {
       x: 350,
-      y: 200
+      y: 125
     }
   ], new Color(0, 0, 0));
 
