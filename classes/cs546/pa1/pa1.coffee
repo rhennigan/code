@@ -729,7 +729,10 @@ Geometry::norm = ({x: x, y: y}) ->
 
 Geometry::normalize = ({x: x, y: y}) ->
   norm = Geometry::norm({x: x, y: y})
-  {x: x / norm, y: y / norm}
+  if norm <= 0.0001
+    {x: 0.0, y: 0.0}
+  else
+    {x: x / norm, y: y / norm}
 
 polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline

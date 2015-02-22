@@ -1114,10 +1114,17 @@
       x: x,
       y: y
     });
-    return {
-      x: x / norm,
-      y: y / norm
-    };
+    if (norm <= 0.0001) {
+      return {
+        x: 0.0,
+        y: 0.0
+      };
+    } else {
+      return {
+        x: x / norm,
+        y: y / norm
+      };
+    }
   };
 
   polygon = fractalCanvas.polygon;
