@@ -711,9 +711,15 @@ fractalPolyline = new Polyline([
       {x: 350, y:125}
     ], new Color(0, 0, 0))
 
+fractalPolygon = new Polygon([
+      {x: 200, y: 173}
+      {x: 100, y: 346}
+      {x: 300, y: 346}
+    ], new Color(0, 0, 0))
+
 console.log fractalPolyline
 
-fractalCanvas.graphicsPrimitives = [fractalPolyline]
+fractalCanvas.graphicsPrimitives = [fractalPolygon]
 fractalCanvas.modified = true
 setTimeout fractalCanvas.refresh 3000
 console.log fractalCanvas
