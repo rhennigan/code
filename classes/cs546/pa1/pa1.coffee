@@ -685,6 +685,9 @@ class DrawingCanvas
             Geometry::tags.ELLIPSE
             Geometry::tags.RECTANGLE
           ]
+        @fractalMode = true
+      else
+        @fractalMode = false
         
 
   clearCanvas: ->
