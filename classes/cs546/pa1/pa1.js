@@ -978,6 +978,8 @@
 
   fractalCanvas.graphicsPrimitives.push(fractalPolyline);
 
+  fractalCanvas.modified = true;
+
   fractalCanvas.refresh();
 
   console.log(fractalCanvas);
