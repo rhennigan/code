@@ -752,3 +752,8 @@ scaledPoints =
     Geometry::vecSMul(segmentDistance, Geometry::normalize(s))
 
 [firstScaled, ..., lastScaled] = scaledPoints
+u = Geometry::vecSub(lastScaled, firstScaled)
+v = Geometry::vecSub(segment.pt2, segment.pt1)
+
+console.log u
+console.log v
