@@ -458,6 +458,11 @@ ui =
     $("##{mode}").css 'background-color', BTN_BACKGROUND_DISABLED
     $("##{mode}").css 'color', BTN_TEXT_DISABLED
 
+  enableButton: (mode) ->
+    $("##{mode}").prop("disabled", false)
+    $("##{mode}").css 'background-color', BTN_BACKGROUND_ENABLED
+    $("##{mode}").css 'color', BTN_TEXT_ENABLED
+
 ###############################################################################
 
 class DrawingCanvas
