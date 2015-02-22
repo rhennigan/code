@@ -1269,10 +1269,13 @@
       return ui.buttons.sample.addEventListener("click", (function(_this) {
         return function(e) {
           console.log('sample');
-          _this.polyline = _this.samplePolyline;
-          _this.polygon = _this.samplePolygon;
+          _this.polyline = samplePolyline;
+          _this.polygon = samplePolygon;
+          console.log(_this.polyline);
+          console.log(_this.polygon);
           drawingCanvas.graphicsPrimitives = [_this.polyline, _this.polygon];
-          return drawingCanvas.modified = true;
+          drawingCanvas.modified = true;
+          return _this.iterate();
         };
       })(this));
     };

@@ -830,10 +830,13 @@ class FractalCanvas
       @refresh()
     ui.buttons.sample.addEventListener "click", (e) =>
       console.log 'sample'
-      @polyline = @samplePolyline
-      @polygon = @samplePolygon
+      @polyline = samplePolyline
+      @polygon = samplePolygon
+      console.log @polyline
+      console.log @polygon
       drawingCanvas.graphicsPrimitives = [@polyline, @polygon]
       drawingCanvas.modified = true
+      @iterate()
 
   reset: =>
     @clearCanvas()
