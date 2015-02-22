@@ -765,7 +765,7 @@ class FractalCanvas
   antialiasing: true
   graphicsPrimitives: []
   data: null
-  iterations: 4
+  iterations: 5
 
   samplePolyline = new Polyline([
       {x: 50, y:200}

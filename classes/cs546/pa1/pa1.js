@@ -1161,7 +1161,7 @@
 
     FractalCanvas.prototype.data = null;
 
-    FractalCanvas.prototype.iterations = 4;
+    FractalCanvas.prototype.iterations = 5;
 
     samplePolyline = new Polyline([
       {
