@@ -553,12 +553,13 @@ class DrawingCanvas
     ui.checkb.antialiasing.addEventListener "click", (e) ->
       $("#aaTxt").toggle @checked
 
-    ui.checkb.fractal.addEventListener "click", (e) =>
+    switchMode = @switchMode
+    ui.checkb.fractal.addEventListener "click", (e) ->
       $("#fracTxt").toggle @checked
       $("#right-canvas").toggle @checked
       if @checked
-        console.log @switchMode
-        @switchMode(Geometry::tags.POLYLINE)
+        console.log switchMode
+        switchMode(Geometry::tags.POLYLINE)
       
 
   clearCanvas: ->
