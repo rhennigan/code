@@ -721,3 +721,5 @@ console.log fractalCanvas
 polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline
 
+points = polyline.vertices
+[first, ..., last] = points
