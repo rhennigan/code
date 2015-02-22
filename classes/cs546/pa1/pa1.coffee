@@ -777,6 +777,10 @@ class FractalCanvas
     @clearCanvas()
     @graphicsPrimitives = []
 
+  startFractal: =>
+    segments = @polygon.getLines()
+    polylines = Fractal::split(polyline, polygon.getLines())
+
 ###############################################################################
 
 window.DrawingCanvas = DrawingCanvas
