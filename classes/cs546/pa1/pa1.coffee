@@ -717,3 +717,7 @@ fractalCanvas.graphicsPrimitives = [fractalCanvas.polyline, fractalCanvas.polygo
 fractalCanvas.modified = true
 setTimeout fractalCanvas.refresh 3000
 console.log fractalCanvas
+
+polygon = fractalCanvas.polygon
+polyline = fractalCanvas.polyline
+
