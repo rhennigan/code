@@ -936,20 +936,27 @@
       })(this);
       this.canvas.addEventListener("mousedown", (function(_this) {
         return function(e) {
-          var current, ref, ref1, shape;
+          var current, j, len1, mode, ref, ref1, ref2, shape;
           console.log('mousedown');
           if (_this.fractalMode && _this.newFractal && _this.graphicsPrimitives.length === 2) {
+            ui.enableButton(Geometry.prototype.tags.POLYLINE);
+            _this.switchMode(Geometry.prototype.tags.POLYLINE);
+            ref = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYGON];
+            for (j = 0, len1 = ref.length; j < len1; j++) {
+              mode = ref[j];
+              ui.disableButton(mode);
+            }
             _this.reset();
             _this.newFractal = false;
           }
           _this.modified = _this.drawingInProgress = true;
           if (_this.polyInProgress) {
-            ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
+            ref1 = _this.graphicsPrimitives, current = ref1[ref1.length - 1];
             return current.insert(_this.getMousePos(e));
           } else {
             shape = Geometry.prototype.createPrimitive(_this.drawMode, _this.getMousePos(e));
             _this.graphicsPrimitives.push(shape);
-            if ((ref1 = _this.drawMode) === Geometry.prototype.tags.POLYGON || ref1 === Geometry.prototype.tags.POLYLINE) {
+            if ((ref2 = _this.drawMode) === Geometry.prototype.tags.POLYGON || ref2 === Geometry.prototype.tags.POLYLINE) {
               return _this.polyInProgress = true;
             }
           }

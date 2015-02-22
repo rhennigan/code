@@ -609,8 +609,17 @@ class DrawingCanvas
     @canvas.addEventListener "mousedown", (e) =>
       console.log 'mousedown'
       if @fractalMode and @newFractal and @graphicsPrimitives.length is 2
-          @reset()
-          @newFractal = false
+        ui.enableButton(Geometry::tags.POLYLINE)
+        @switchMode(Geometry::tags.POLYLINE)
+        ui.disableButton mode for mode in [
+          Geometry::tags.LINE
+          Geometry::tags.CIRCLE
+          Geometry::tags.ELLIPSE
+          Geometry::tags.RECTANGLE
+          Geometry::tags.POLYGON
+        ]
+        @reset()
+        @newFractal = false
       @modified = @drawingInProgress = true
       if @polyInProgress
         [..., current] = @graphicsPrimitives
