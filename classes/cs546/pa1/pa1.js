@@ -937,8 +937,9 @@
         return function(e) {
           var current, ref, ref1, shape;
           console.log('mousedown');
-          if (_this.fractalMode && _this.graphicsPrimitives.length === 2) {
+          if (_this.fractalMode && _this.newFractal && _this.graphicsPrimitives.length === 2) {
             _this.reset();
+            _this.newFractal = false;
           }
           _this.modified = _this.drawingInProgress = true;
           if (_this.polyInProgress) {

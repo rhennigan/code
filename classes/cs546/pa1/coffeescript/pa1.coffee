@@ -608,8 +608,9 @@ class DrawingCanvas
 
     @canvas.addEventListener "mousedown", (e) =>
       console.log 'mousedown'
-      if @fractalMode and @graphicsPrimitives.length is 2
+      if @fractalMode and @newFractal and @graphicsPrimitives.length is 2
           @reset()
+          @newFractal = false
       @modified = @drawingInProgress = true
       if @polyInProgress
         [..., current] = @graphicsPrimitives
