@@ -728,5 +728,8 @@ segments = polygon.getLines()
 
 # loop over segments here
 segment = segments[0]
+segmentDistance = segment.distance()
+polylineDistance = Geometry::distance(first, last)
 
-console.log segment
+console.log segmentDistance
+console.log polylineDistance
