@@ -1182,6 +1182,8 @@
 
   theta = Math.acos(Geometry.prototype.dot(u, v) / (nu * nv));
 
+  console.log(theta);
+
   t1 = Geometry.prototype.norm(Geometry.prototype.vecSub(Geometry.prototype.rotate(lastScaled, theta), v));
 
   t2 = Geometry.prototype.norm(Geometry.prototype.vecSub(Geometry.prototype.rotate(lastScaled, -theta), v));

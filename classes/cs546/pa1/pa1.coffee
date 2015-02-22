@@ -765,6 +765,7 @@ v = Geometry::vecSub(segment.pt2, segment.pt1)
 nu = Geometry::norm(u)
 nv = Geometry::norm(v)
 theta = Math.acos(Geometry::dot(u, v) / (nu * nv))
+console.log theta
 
 t1 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, theta), v))
 t2 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, -theta), v))
