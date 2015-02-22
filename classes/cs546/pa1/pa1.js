@@ -1211,6 +1211,7 @@
     FractalCanvas.prototype.polygon = samplePolygon;
 
     function FractalCanvas() {
+      this.writeStatus = bind(this.writeStatus, this);
       this.iterate = bind(this.iterate, this);
       this.reset = bind(this.reset, this);
       this.refresh = bind(this.refresh, this);
@@ -1307,6 +1308,13 @@
         this.modified = true;
         return this.refresh();
       }
+    };
+
+    FractalCanvas.prototype.writeStatus = function() {
+      var len;
+      len = this.graphicsPrimitives.length;
+      this.drawingContext.font = "12px Courier";
+      return this.drawingContext.fillText("graphics primitives: " + len, 10, 10);
     };
 
     return FractalCanvas;

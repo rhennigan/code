@@ -860,6 +860,11 @@ class FractalCanvas
       @modified = true
       @refresh()
 
+  writeStatus: =>
+    len = @graphicsPrimitives.length
+    @drawingContext.font = "12px Courier"
+    @drawingContext.fillText("graphics primitives: #{len}", 10, 10)
+
 ###############################################################################
 
 window.DrawingCanvas = DrawingCanvas
