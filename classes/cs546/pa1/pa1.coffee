@@ -448,6 +448,11 @@ ui =
     aa: document.getElementById('aaTxt')
     frac: document.getElementById('fracTxt')
 
+  disableButton: (mode) ->
+    $("##{mode}").prop("disabled", true)
+    $("##{mode}").css 'background-color', '#EEEEEE'
+    $("##{mode}").css 'color', '#CCCCCC'
+
 ###############################################################################
 
 class DrawingCanvas
