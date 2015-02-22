@@ -639,8 +639,8 @@ class DrawingCanvas
 ###############################################################################
 
 class FractalCanvas
-  width 400
-  height 400
+  width: 400
+  height: 400
   refreshRate: 1000 / 20
   antialiasing: true
   graphicsPrimitives: []
