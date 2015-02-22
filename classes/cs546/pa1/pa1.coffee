@@ -721,8 +721,11 @@ console.log fractalCanvas
 Geometry::vecSub = ({x: x1, y: y1}, {x: x2, y: y2}) ->
   {x: x1 - x2, y: y1 - y2}
 
+Geometry::vecSMul = (s, {x: x, y: y}) ->
+  {x: s * x, y: s * y}
+
 Geometry::norm = ({x: x, y: y}) ->
-  Math.sqrt(x*x + y*y)
+  Math.sqrt(x * x + y * y)
 
 Geometry::normalize = ({x: x, y: y}) ->
   norm = Geometry::norm({x: x, y: y})
@@ -743,6 +746,8 @@ polylineDistance = Geometry::distance(first, last)
 
 scaledPoints =
   for pt in points
+    s = Geometry::vecSub(pt, first)
+    Geometry::vecSMul(segmentDistance, Geometry::normalize(s))
 
 console.log segmentDistance
 console.log polylineDistance
