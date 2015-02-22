@@ -565,8 +565,9 @@ class DrawingCanvas
     ui.buttons.polyline.addEventListener "click", (e) => 
       @switchMode(Geometry::tags.POLYLINE)
 
-    ui.checkb.antialiasing.addEventListener "click", (e) ->
-      $("#aaTxt").toggle @checked
+    ui.checkb.antialiasing.addEventListener "click", (e) =>
+      checked = $("#aaModeSel").is(':checked')
+      $("#aaTxt").toggle checked
 
     ui.checkb.fractal.addEventListener "click", (e) =>
       checked = $("#fractModeSel").is(':checked')
