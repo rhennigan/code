@@ -749,6 +749,14 @@ class DrawingCanvas
           ]
         @fractalMode = true
       else
+        ui.enableButton mode for mode in [
+            Geometry::tags.LINE
+            Geometry::tags.CIRCLE
+            Geometry::tags.ELLIPSE
+            Geometry::tags.RECTANGLE
+            Geometry::tags.POLYGON
+            Geometry::tags.POLYLINE
+        ]
         @fractalMode = false
         
 

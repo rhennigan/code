@@ -1107,7 +1107,7 @@
       })(this));
       return ui.checkb.fractal.addEventListener("click", (function(_this) {
         return function(e) {
-          var checked, j, len1, mode, ref;
+          var checked, j, k, len1, len2, mode, ref, ref1;
           checked = $("#fractModeSel").is(':checked');
           $("#fracTxt").toggle(checked);
           $("#right-canvas").toggle(checked);
@@ -1125,6 +1125,11 @@
             }
             return _this.fractalMode = true;
           } else {
+            ref1 = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYGON, Geometry.prototype.tags.POLYLINE];
+            for (k = 0, len2 = ref1.length; k < len2; k++) {
+              mode = ref1[k];
+              ui.enableButton(mode);
+            }
             return _this.fractalMode = false;
           }
         };
