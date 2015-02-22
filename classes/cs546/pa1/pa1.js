@@ -1051,6 +1051,8 @@
     }
   ], new Color(0, 0, 0));
 
+  console.log(fractalPolyline);
+
   fractalCanvas.graphicsPrimitives = [fractalPolyline];
 
   fractalCanvas.modified = true;

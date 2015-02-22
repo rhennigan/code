@@ -704,6 +704,8 @@ fractalPolyline = new Polyline([
       x: 290, y:200
     ], new Color(0, 0, 0))
 
+console.log fractalPolyline
+
 fractalCanvas.graphicsPrimitives = [fractalPolyline]
 fractalCanvas.modified = true
 setTimeout fractalCanvas.refresh 3000
