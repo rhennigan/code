@@ -811,8 +811,11 @@
       })(this));
       this.canvas.addEventListener("dblclick", (function(_this) {
         return function(e) {
+          var current, ref;
           console.log("dblclick");
-          return _this.polyInProgress = _this.drawingInProgress = false;
+          _this.polyInProgress = _this.drawingInProgress = false;
+          ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
+          return console.log(current);
         };
       })(this));
       this.canvas.addEventListener("click", (function(_this) {

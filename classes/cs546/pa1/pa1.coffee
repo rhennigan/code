@@ -549,6 +549,8 @@ class DrawingCanvas
     @canvas.addEventListener "dblclick", (e) =>
       console.log "dblclick"
       @polyInProgress = @drawingInProgress = false
+      [..., current] = @graphicsPrimitives
+      console.log current
 
     @canvas.addEventListener "click", (e) => 
       console.log "click"
