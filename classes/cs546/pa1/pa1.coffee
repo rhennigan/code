@@ -731,9 +731,9 @@ class FractalCanvas
     ], new Color(0, 0, 0))
 
   samplePolygon = new Polygon([
-      {x: 200, y:  50}
-      {x:  50, y: 310}
-      {x: 350, y: 310}
+      {x: 200, y:  30}
+      {x:  50, y: 290}
+      {x: 350, y: 290}
     ], new Color(0, 0, 0))
 
   polyline: samplePolyline

@@ -1131,13 +1131,13 @@
     samplePolygon = new Polygon([
       {
         x: 200,
-        y: 50
+        y: 30
       }, {
         x: 50,
-        y: 310
+        y: 290
       }, {
         x: 350,
-        y: 310
+        y: 290
       }
     ], new Color(0, 0, 0));
 
