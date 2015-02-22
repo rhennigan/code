@@ -833,7 +833,8 @@
           if (checked) {
             _this.switchMode(Geometry.prototype.tags.POLYLINE);
             $("#line").prop("disabled", true);
-            return $("#line").css('background-color', '#CCCCCC');
+            $("#line").css('background-color', '#EEEEEE');
+            return $("#line").css('color', '#EEEEEE');
           }
         };
       })(this));

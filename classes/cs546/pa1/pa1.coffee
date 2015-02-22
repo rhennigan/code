@@ -560,7 +560,8 @@ class DrawingCanvas
       if checked
         @switchMode(Geometry::tags.POLYLINE)
         $("#line").prop("disabled", true)
-        $("#line").css 'background-color', '#CCCCCC'
+        $("#line").css 'background-color', '#EEEEEE'
+        $("#line").css 'color', '#EEEEEE'
       
 
   clearCanvas: ->
