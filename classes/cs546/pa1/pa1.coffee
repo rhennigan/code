@@ -702,7 +702,7 @@ fractalPolyline = new Polyline([
       x: 290, y:200
     ], new Color(0, 0, 0))
 
-fractalCanvas.graphicsPrimitives.push(fractalPolyline)
+fractalCanvas.graphicsPrimitives = [fractalPolyline]
 fractalCanvas.modified = true
 fractalCanvas.refresh()
 console.log fractalCanvas
