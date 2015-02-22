@@ -417,6 +417,7 @@ class Polyline
     @vertices[len - 1] = mouse
 
   getLines: ->
+    len = @vertices.length
     for i in [0...@vertices.length]
       new Line(@vertices[i], @vertices[i + 1 % @vertices.length], @color)
 
