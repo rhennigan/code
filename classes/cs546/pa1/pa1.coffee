@@ -818,10 +818,12 @@ class FractalCanvas
   initialize: ->
     ui.buttons.addIterations.addEventListener "click", (e) => 
       @iterations++
+      @reset()
       @modified = true
       @refresh()
     ui.buttons.subIterations.addEventListener "click", (e) => 
       @iterations--
+      @reset()
       @modified = true
       @refresh()
 
