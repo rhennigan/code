@@ -762,7 +762,6 @@ class DrawingCanvas
 class FractalCanvas
   width: 400
   height: 400
-  refreshRate: 1000 / 20
   antialiasing: true
   graphicsPrimitives: []
   data: null
@@ -820,10 +819,11 @@ class FractalCanvas
     ui.buttons.addIterations.addEventListener "click", (e) => 
       @iterations++
       @modified = true
+      @refresh()
     ui.buttons.subIterations.addEventListener "click", (e) => 
       @iterations--
       @modified = true
-    setInterval @refresh, @refreshRate
+      @refresh()
 
   reset: =>
     @clearCanvas()
@@ -834,6 +834,7 @@ class FractalCanvas
     for i in [1..@iterations]
       @graphicsPrimitives = Fractal::splitAll(@polyline, @graphicsPrimitives)
     @modified = true
+    @refresh()
 
 ###############################################################################
 

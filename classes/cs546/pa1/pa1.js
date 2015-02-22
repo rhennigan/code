@@ -1155,8 +1155,6 @@
 
     FractalCanvas.prototype.height = 400;
 
-    FractalCanvas.prototype.refreshRate = 1000 / 20;
-
     FractalCanvas.prototype.antialiasing = true;
 
     FractalCanvas.prototype.graphicsPrimitives = [];
@@ -1251,16 +1249,17 @@
       ui.buttons.addIterations.addEventListener("click", (function(_this) {
         return function(e) {
           _this.iterations++;
-          return _this.modified = true;
+          _this.modified = true;
+          return _this.refresh();
         };
       })(this));
-      ui.buttons.subIterations.addEventListener("click", (function(_this) {
+      return ui.buttons.subIterations.addEventListener("click", (function(_this) {
         return function(e) {
           _this.iterations--;
-          return _this.modified = true;
+          _this.modified = true;
+          return _this.refresh();
         };
       })(this));
-      return setInterval(this.refresh, this.refreshRate);
     };
 
     FractalCanvas.prototype.reset = function() {
@@ -1274,7 +1273,8 @@
       for (i = j = 1, ref = this.iterations; 1 <= ref ? j <= ref : j >= ref; i = 1 <= ref ? ++j : --j) {
         this.graphicsPrimitives = Fractal.prototype.splitAll(this.polyline, this.graphicsPrimitives);
       }
-      return this.modified = true;
+      this.modified = true;
+      return this.refresh();
     };
 
     return FractalCanvas;
