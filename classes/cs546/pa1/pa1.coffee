@@ -765,10 +765,10 @@ v = Geometry::vecSub(segment.pt2, segment.pt1)
 nu = Geometry::norm(u)
 nv = Geometry::norm(v)
 theta = Math.acos(Geometry::dot(u, v) / (nu * nv))
-console.log theta
 
 t1 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, theta), v))
 t2 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, -theta), v))
-theta = if t1 > t2 then theta else -theta
+console.log t1
+console.log t2
 
-console.log theta
+theta = if t1 > t2 then theta else -theta

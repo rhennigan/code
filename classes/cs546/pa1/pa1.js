@@ -1182,14 +1182,14 @@
 
   theta = Math.acos(Geometry.prototype.dot(u, v) / (nu * nv));
 
-  console.log(theta);
-
   t1 = Geometry.prototype.norm(Geometry.prototype.vecSub(Geometry.prototype.rotate(lastScaled, theta), v));
 
   t2 = Geometry.prototype.norm(Geometry.prototype.vecSub(Geometry.prototype.rotate(lastScaled, -theta), v));
 
-  theta = t1 > t2 ? theta : -theta;
+  console.log(t1);
 
-  console.log(theta);
+  console.log(t2);
+
+  theta = t1 > t2 ? theta : -theta;
 
 }).call(this);
