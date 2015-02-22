@@ -569,7 +569,8 @@
       var i, j, ref, results;
       results = [];
       for (i = j = 0, ref = this.vertices.length; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
-        results.push(new Line(this.vertices[i], this.vertices[i + (1 % this.vertices.length)], this.color));
+        console.log("(" + i + ", " + (i + (1 % this.vertices.length)));
+        results.push(new Line(this.vertices[i], this.vertices[(i + 1) % this.vertices.length], this.color));
       }
       return results;
     };
