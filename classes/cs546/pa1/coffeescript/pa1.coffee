@@ -828,7 +828,7 @@ class FractalCanvas
       @reset()
       @iterate()
     ui.buttons.subIterations.addEventListener "click", (e) => 
-      @iterations--
+      @iterations = if @iterations <= 0 then 0 else @iterations - 1
       @reset()
       @iterate()
     ui.buttons.sample.addEventListener "click", (e) =>

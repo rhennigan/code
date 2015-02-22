@@ -1266,7 +1266,7 @@
       })(this));
       ui.buttons.subIterations.addEventListener("click", (function(_this) {
         return function(e) {
-          _this.iterations--;
+          _this.iterations = _this.iterations <= 0 ? 0 : _this.iterations - 1;
           _this.reset();
           return _this.iterate();
         };
