@@ -647,13 +647,23 @@ class FractalCanvas
   antialiasing: true
   graphicsPrimitives: []
   data: null
+
   samplePolyline: new Polyline([
-    {x: 50, y:200}
-    {x: 150, y:200}
-    {x: 200, y:100}
-    {x: 250, y:200}
-    {x: 350, y:200}
-  ], new Color(0, 0, 0))
+      {x: 50, y:200}
+      {x: 150, y:200}
+      {x: 200, y:113}
+      {x: 250, y:200}
+      {x: 350, y:200}
+    ], new Color(0, 0, 0))
+
+  samplePolygon: new Polygon([
+      {x: 200, y:  50}
+      {x:  50, y: 310}
+      {x: 350, y: 310}
+    ], new Color(0, 0, 0))
+
+  polyline: samplePolyline
+  polygon: samplePolygon
 
   constructor: ->
     @createCanvas()
