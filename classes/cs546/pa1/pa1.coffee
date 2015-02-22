@@ -5,6 +5,32 @@ Geometry::distance = ({x: x1, y: y1}, {x: x2, y: y2}) ->
   dy = y2 - y1
   Math.sqrt(dx * dx + dy * dy)
 
+Geometry::vecAdd = ({x: x1, y: y1}, {x: x2, y: y2}) ->
+  {x: x1 + x2, y: y1 + y2}
+
+Geometry::vecSub = ({x: x1, y: y1}, {x: x2, y: y2}) ->
+  {x: x1 - x2, y: y1 - y2}
+
+Geometry::vecSMul = (s, {x: x, y: y}) ->
+  {x: s * x, y: s * y}
+
+Geometry::norm = ({x: x, y: y}) ->
+  Math.sqrt(x * x + y * y)
+
+Geometry::normalize = ({x: x, y: y}) ->
+  norm = Geometry::norm({x: x, y: y})
+  if norm <= 0.0001
+    {x: 0.0, y: 0.0}
+  else
+    {x: x / norm, y: y / norm}
+
+Geometry::dot = ({x: x1, y: y1}, {x: x2, y: y2}) ->
+  x1 * x2 + y1 * y2
+
+Geometry::rotate = ({x: x, y: y}, theta) ->
+  x: x * Math.cos(theta) - y * Math.sin(theta)
+  y: y * Math.cos(theta) + x * Math.sin(theta)
+
 Geometry::tags =
   LINE: 'line'
   CIRCLE: 'circle'
@@ -478,6 +504,51 @@ class Fractal
     @polyline = polyline
     @polygon = polygon
 
+Fractal::splitOne = (polyline, segments) ->
+  points = polyline.vertices
+  [first, ..., last] = points
+  
+  for segment in segments
+    segmentDistance = segment.distance()
+    polylineDistance = Geometry::distance(first, last)
+    scale = segmentDistance / polylineDistance
+
+    scaledPoints =
+      for pt in points
+        Geometry::vecSMul(scale, Geometry::vecSub(pt, first))
+
+    [firstScaled, ..., lastScaled] = scaledPoints
+    u = Geometry::vecSub(lastScaled, firstScaled)
+    v = Geometry::vecSub(segment.pt2, segment.pt1)
+
+    nu = Geometry::norm(u)
+    nv = Geometry::norm(v)
+    theta = Math.acos(Geometry::dot(u, v) / (nu * nv))
+
+    t1 = Geometry::vecSub(Geometry::rotate(lastScaled, theta), v)
+    t2 = Geometry::vecSub(Geometry::rotate(lastScaled, -theta), v)
+    theta = 
+      if Geometry::norm(t1) > Geometry::norm(t2) 
+        -theta 
+      else 
+        theta
+
+    rotatedPoints = 
+      for pt in scaledPoints
+        Geometry::rotate(pt, theta)
+
+    translatedPoints = 
+      for pt in rotatedPoints
+        Geometry::vecAdd(pt, segment.pt1)
+
+    new Polyline(translatedPoints, polyline.color)
+
+Fractal::splitAll = (polyline, polylines) ->
+  newPolylines =
+    for pl in polylines
+      Fractal::split(polyline, pl.getLines())
+  [].concat newPolylines...
+
 ###############################################################################
 
 class DrawingCanvas
@@ -720,76 +791,9 @@ fractalCanvas.modified = true
 setTimeout fractalCanvas.refresh 3000
 console.log fractalCanvas
 
-Geometry::vecAdd = ({x: x1, y: y1}, {x: x2, y: y2}) ->
-  {x: x1 + x2, y: y1 + y2}
 
-Geometry::vecSub = ({x: x1, y: y1}, {x: x2, y: y2}) ->
-  {x: x1 - x2, y: y1 - y2}
 
-Geometry::vecSMul = (s, {x: x, y: y}) ->
-  {x: s * x, y: s * y}
 
-Geometry::norm = ({x: x, y: y}) ->
-  Math.sqrt(x * x + y * y)
-
-Geometry::normalize = ({x: x, y: y}) ->
-  norm = Geometry::norm({x: x, y: y})
-  if norm <= 0.0001
-    {x: 0.0, y: 0.0}
-  else
-    {x: x / norm, y: y / norm}
-
-Geometry::dot = ({x: x1, y: y1}, {x: x2, y: y2}) ->
-  x1 * x2 + y1 * y2
-
-Geometry::rotate = ({x: x, y: y}, theta) ->
-  x: x * Math.cos(theta) - y * Math.sin(theta)
-  y: y * Math.cos(theta) + x * Math.sin(theta)
-
-Fractal::splitOne = (polyline, segments) ->
-  points = polyline.vertices
-  [first, ..., last] = points
-  
-  for segment in segments
-    segmentDistance = segment.distance()
-    polylineDistance = Geometry::distance(first, last)
-    scale = segmentDistance / polylineDistance
-
-    scaledPoints =
-      for pt in points
-        Geometry::vecSMul(scale, Geometry::vecSub(pt, first))
-
-    [firstScaled, ..., lastScaled] = scaledPoints
-    u = Geometry::vecSub(lastScaled, firstScaled)
-    v = Geometry::vecSub(segment.pt2, segment.pt1)
-
-    nu = Geometry::norm(u)
-    nv = Geometry::norm(v)
-    theta = Math.acos(Geometry::dot(u, v) / (nu * nv))
-
-    t1 = Geometry::vecSub(Geometry::rotate(lastScaled, theta), v)
-    t2 = Geometry::vecSub(Geometry::rotate(lastScaled, -theta), v)
-    theta = 
-      if Geometry::norm(t1) > Geometry::norm(t2) 
-        -theta 
-      else 
-        theta
-
-    rotatedPoints = 
-      for pt in scaledPoints
-        Geometry::rotate(pt, theta)
-
-    translatedPoints = 
-      for pt in rotatedPoints
-        Geometry::vecAdd(pt, segment.pt1)
-
-    new Polyline(translatedPoints, polyline.color)
-
-Fractal::splitAll = (polyline, polylines) ->
-  newPolylines =
-    for pl in polylines
-      Fractal::split(polyline, pl.getLines())
-  [].concat newPolylines...
 
 polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline
