@@ -626,8 +626,8 @@ class DrawingCanvas
       if @fractalMode
         switch @graphicsPrimitives.length
           when 0
-            @switchMode(Geometry::tags.POLYLINE)
             ui.enableButton(Geometry::tags.POLYLINE)
+            @switchMode(Geometry::tags.POLYLINE)
             ui.disableButton mode for mode in [
               Geometry::tags.LINE
               Geometry::tags.CIRCLE
@@ -636,8 +636,8 @@ class DrawingCanvas
               Geometry::tags.POLYGON
             ]
           when 1
-            @switchMode(Geometry::tags.POLYGON)
             ui.enableButton(Geometry::tags.POLYGON)
+            @switchMode(Geometry::tags.POLYGON)
             ui.disableButton mode for mode in [
               Geometry::tags.LINE
               Geometry::tags.CIRCLE

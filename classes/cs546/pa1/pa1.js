@@ -957,8 +957,8 @@
           if (_this.fractalMode) {
             switch (_this.graphicsPrimitives.length) {
               case 0:
-                _this.switchMode(Geometry.prototype.tags.POLYLINE);
                 ui.enableButton(Geometry.prototype.tags.POLYLINE);
+                _this.switchMode(Geometry.prototype.tags.POLYLINE);
                 ref = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYGON];
                 results = [];
                 for (j = 0, len1 = ref.length; j < len1; j++) {
@@ -968,8 +968,8 @@
                 return results;
                 break;
               case 1:
-                _this.switchMode(Geometry.prototype.tags.POLYGON);
                 ui.enableButton(Geometry.prototype.tags.POLYGON);
+                _this.switchMode(Geometry.prototype.tags.POLYGON);
                 ref1 = [Geometry.prototype.tags.LINE, Geometry.prototype.tags.CIRCLE, Geometry.prototype.tags.ELLIPSE, Geometry.prototype.tags.RECTANGLE, Geometry.prototype.tags.POLYLINE];
                 results1 = [];
                 for (k = 0, len2 = ref1.length; k < len2; k++) {
