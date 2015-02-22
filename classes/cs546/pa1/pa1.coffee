@@ -751,33 +751,32 @@ points = polyline.vertices
 [first, ..., last] = points
 segments = polygon.getLines()
 
-# loop over segments here
-segment = segments[0]
-segmentDistance = segment.distance()
-polylineDistance = Geometry::distance(first, last)
-scale = segmentDistance / polylineDistance
+for segment in segments
+  segmentDistance = segment.distance()
+  polylineDistance = Geometry::distance(first, last)
+  scale = segmentDistance / polylineDistance
 
-scaledPoints =
-  for pt in points
-    Geometry::vecSMul(scale, Geometry::vecSub(pt, first))
+  scaledPoints =
+    for pt in points
+      Geometry::vecSMul(scale, Geometry::vecSub(pt, first))
 
-[firstScaled, ..., lastScaled] = scaledPoints
-u = Geometry::vecSub(lastScaled, firstScaled)
-v = Geometry::vecSub(segment.pt2, segment.pt1)
+  [firstScaled, ..., lastScaled] = scaledPoints
+  u = Geometry::vecSub(lastScaled, firstScaled)
+  v = Geometry::vecSub(segment.pt2, segment.pt1)
 
-nu = Geometry::norm(u)
-nv = Geometry::norm(v)
-theta = Math.acos(Geometry::dot(u, v) / (nu * nv))
+  nu = Geometry::norm(u)
+  nv = Geometry::norm(v)
+  theta = Math.acos(Geometry::dot(u, v) / (nu * nv))
 
-t1 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, theta), v))
-t2 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, -theta), v))
-theta = if t1 > t2 then -theta else theta
+  t1 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, theta), v))
+  t2 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, -theta), v))
+  theta = if t1 > t2 then -theta else theta
 
-rotatedPoints = 
-  for pt in scaledPoints
-    Geometry::rotate(pt, theta)
+  rotatedPoints = 
+    for pt in scaledPoints
+      Geometry::rotate(pt, theta)
 
-translatedPoints = 
-  for pt in rotatedPoints
-    Geometry::vecAdd(pt, segment.pt1)
+  translatedPoints = 
+    for pt in rotatedPoints
+      Geometry::vecAdd(pt, segment.pt1)
 
