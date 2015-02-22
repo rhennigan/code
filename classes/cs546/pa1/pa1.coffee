@@ -726,5 +726,6 @@ points = polyline.vertices
 
 segments = polygon.getLines()
 
-console.log "first: #{first}, last: #{last}"
-console.log "segments: #{segments}"
+console.log first
+console.log last
+console.log segments

@@ -1092,8 +1092,10 @@
 
   segments = polygon.getLines();
 
-  console.log("first: " + first + ", last: " + last);
+  console.log(first);
 
-  console.log("segments: " + segments);
+  console.log(last);
+
+  console.log(segments);
 
 }).call(this);
