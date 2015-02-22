@@ -381,8 +381,8 @@ class Polygon
     console.log "len = #{@vertices.length}"
     len = @vertices.length
     for i in [0...@vertices.length]
-      console.log "(#{i}, #{i+1 % 3})"
-      new Line(@vertices[i], @vertices[(i + 1) % @vertices.length], @color)
+      console.log "(#{i}, #{(i+1) % len})"
+      new Line(@vertices[i], @vertices[(i+1) % len], @color)
 
   draw: (canvas) ->
     line = new Line()
