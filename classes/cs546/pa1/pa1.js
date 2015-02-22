@@ -970,6 +970,8 @@
       this.createCanvas();
       this.resizeCanvas();
       this.createDrawingContext();
+      this.clearCanvas();
+      this.initialize();
     }
 
     FractalCanvas.prototype.createCanvas = function() {
@@ -1009,7 +1011,8 @@
 
     FractalCanvas.prototype.initialize = function() {
       setInterval(this.refresh, this.refreshRate);
-      return this.switchMode(Geometry.prototype.tags.LINE);
+      this.switchMode(Geometry.prototype.tags.LINE);
+      return console.log('here');
     };
 
     FractalCanvas.prototype.reset = function() {

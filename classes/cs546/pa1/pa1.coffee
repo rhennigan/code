@@ -650,6 +650,8 @@ class FractalCanvas
     @createCanvas()
     @resizeCanvas()
     @createDrawingContext()
+    @clearCanvas()
+    @initialize()
 
   createCanvas: ->
     @canvas = document.createElement 'canvas'
@@ -678,6 +680,7 @@ class FractalCanvas
   initialize: ->
     setInterval @refresh, @refreshRate
     @switchMode Geometry::tags.LINE
+    console.log 'here'
 
   reset: =>
     @clearCanvas()
