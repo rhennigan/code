@@ -648,7 +648,7 @@ class FractalCanvas
   graphicsPrimitives: []
   data: null
 
-  samplePolyline: new Polyline([
+  samplePolyline = new Polyline([
       {x: 50, y:200}
       {x: 150, y:200}
       {x: 200, y:113}
@@ -656,7 +656,7 @@ class FractalCanvas
       {x: 350, y:200}
     ], new Color(0, 0, 0))
 
-  samplePolygon: new Polygon([
+  samplePolygon = new Polygon([
       {x: 200, y:  50}
       {x:  50, y: 310}
       {x: 350, y: 310}
@@ -713,23 +713,7 @@ fractalCanvas = new FractalCanvas()
 document.getElementById('left-canvas').appendChild drawingCanvas.canvas
 document.getElementById('right-canvas').appendChild fractalCanvas.canvas
 
-fractalPolyline = new Polyline([
-      {x: 50, y:200}
-      {x: 150, y:200}
-      {x: 200, y:113}
-      {x: 250, y:200}
-      {x: 350, y:200}
-    ], new Color(0, 0, 0))
-
-fractalPolygon = new Polygon([
-      {x: 200, y:  50}
-      {x:  50, y: 310}
-      {x: 350, y: 310}
-    ], new Color(0, 0, 0))
-
-console.log fractalPolyline
-
-fractalCanvas.graphicsPrimitives = [fractalPolyline, fractalPolygon]
+fractalCanvas.graphicsPrimitives = [fractalCanvas.polyline, fractalCanvas.polygon]
 fractalCanvas.modified = true
 setTimeout fractalCanvas.refresh 3000
 console.log fractalCanvas
