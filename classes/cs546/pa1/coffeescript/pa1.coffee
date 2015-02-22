@@ -564,7 +564,7 @@ Fractal::splitAll = (polyline, polylines) ->
 class DrawingCanvas
   width: 400
   height: 400
-  refreshRate: 1000 / 2
+  refreshRate: 1000 / 20
   antialiasing: false
   drawMode: Geometry::tags.CIRCLE
   graphicsPrimitives: []
@@ -685,7 +685,6 @@ class DrawingCanvas
 
     @canvas.addEventListener "click", (e) => 
       console.log "click"
-      console.log @
 
     ui.buttons.clear.addEventListener "click", (e) => 
       @reset()

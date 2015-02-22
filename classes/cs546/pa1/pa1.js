@@ -870,7 +870,7 @@
 
     DrawingCanvas.prototype.height = 400;
 
-    DrawingCanvas.prototype.refreshRate = 1000 / 2;
+    DrawingCanvas.prototype.refreshRate = 1000 / 20;
 
     DrawingCanvas.prototype.antialiasing = false;
 
@@ -1032,8 +1032,7 @@
       })(this));
       this.canvas.addEventListener("click", (function(_this) {
         return function(e) {
-          console.log("click");
-          return console.log(_this);
+          return console.log("click");
         };
       })(this));
       ui.buttons.clear.addEventListener("click", (function(_this) {
