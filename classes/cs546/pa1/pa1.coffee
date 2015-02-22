@@ -469,7 +469,7 @@ class DrawingCanvas
   width: 400
   height: 400
   refreshRate: 1000 / 20
-  antialiasing: true
+  antialiasing: false
   drawMode: Geometry::tags.CIRCLE
   graphicsPrimitives: []
   modified: false
@@ -566,7 +566,7 @@ class DrawingCanvas
       @switchMode(Geometry::tags.POLYLINE)
 
     ui.checkb.antialiasing.addEventListener "click", (e) =>
-      checked = $("#aaModeSel").is(':checked')
+      @antialiasing = checked = $("#aaModeSel").is(':checked')
       $("#aaTxt").toggle checked
 
     ui.checkb.fractal.addEventListener "click", (e) =>

@@ -839,9 +839,13 @@
           return _this.switchMode(Geometry.prototype.tags.POLYLINE);
         };
       })(this));
-      ui.checkb.antialiasing.addEventListener("click", function(e) {
-        return $("#aaTxt").toggle(this.checked);
-      });
+      ui.checkb.antialiasing.addEventListener("click", (function(_this) {
+        return function(e) {
+          var checked;
+          _this.antialiasing = checked = $("#aaModeSel").is(':checked');
+          return $("#aaTxt").toggle(checked);
+        };
+      })(this));
       return ui.checkb.fractal.addEventListener("click", (function(_this) {
         return function(e) {
           var checked, j, len1, mode, ref;
