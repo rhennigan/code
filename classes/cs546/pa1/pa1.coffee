@@ -697,11 +697,11 @@ document.getElementById('left-canvas').appendChild drawingCanvas.canvas
 document.getElementById('right-canvas').appendChild fractalCanvas.canvas
 
 fractalPolyline = new Polyline([
-      x: 10, y:200
-      x: 50, y:200
-      x: 100, y:300
-      x: 150, y:200
-      x: 290, y:200
+      {x: 50, y:200}
+      {x: 100, y:200}
+      {x: 200, y:300}
+      {x: 300, y:200}
+      {x: 350, y:200}
     ], new Color(0, 0, 0))
 
 console.log fractalPolyline
