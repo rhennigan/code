@@ -734,6 +734,9 @@ Geometry::normalize = ({x: x, y: y}) ->
   else
     {x: x / norm, y: y / norm}
 
+Geometry::dot = ({x: x1, y: y1}, {x: x2, y: y2}) ->
+  x1 * x2 + y1 * y2
+
 polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline
 
@@ -755,5 +758,4 @@ scaledPoints =
 u = Geometry::vecSub(lastScaled, firstScaled)
 v = Geometry::vecSub(segment.pt2, segment.pt1)
 
-console.log u
-console.log v
+theta = Math.acos()
