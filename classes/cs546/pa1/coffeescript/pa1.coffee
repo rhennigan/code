@@ -757,6 +757,7 @@ class DrawingCanvas
             Geometry::tags.POLYGON
             Geometry::tags.POLYLINE
         ]
+        @switchMode(Geometry::tags.LINE)
         @fractalMode = false
         
 

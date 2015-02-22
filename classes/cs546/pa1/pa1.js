@@ -1130,6 +1130,7 @@
               mode = ref1[k];
               ui.enableButton(mode);
             }
+            _this.switchMode(Geometry.prototype.tags.LINE);
             return _this.fractalMode = false;
           }
         };
