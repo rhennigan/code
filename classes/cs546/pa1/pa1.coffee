@@ -746,7 +746,7 @@ Geometry::rotate = ({x: x, y: y}, theta) ->
   x: x * Math.cos(theta) - y * Math.sin(theta)
   y: y * Math.cos(theta) + x * Math.sin(theta)
 
-Fractal::split = (polyline, segments) ->
+Fractal::splitOne = (polyline, segments) ->
   points = polyline.vertices
   [first, ..., last] = points
   
