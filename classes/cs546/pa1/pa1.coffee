@@ -768,9 +768,13 @@ for segment in segments
   nv = Geometry::norm(v)
   theta = Math.acos(Geometry::dot(u, v) / (nu * nv))
 
-  t1 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, theta), v))
-  t2 = Geometry::norm(Geometry::vecSub(Geometry::rotate(lastScaled, -theta), v))
-  theta = if t1 > t2 then -theta else theta
+  t1 = Geometry::vecSub(Geometry::rotate(lastScaled, theta), v)
+  t2 = Geometry::vecSub(Geometry::rotate(lastScaled, -theta), v)
+  theta = 
+    if Geometry::norm(t1) > Geometry::norm(t2) 
+      -theta 
+    else 
+      theta
 
   rotatedPoints = 
     for pt in scaledPoints
