@@ -725,7 +725,6 @@
     };
 
     DrawingCanvas.prototype.setupEventHandlers = function() {
-      var switchMode;
       this.getMousePos = function() {
         var rect;
         rect = this.canvas.getBoundingClientRect();
@@ -825,16 +824,14 @@
       ui.checkb.antialiasing.addEventListener("click", function(e) {
         return $("#aaTxt").toggle(this.checked);
       });
-      switchMode = this.switchMode;
       return ui.checkb.fractal.addEventListener("click", (function(_this) {
         return function(e) {
           var checked;
           checked = $("#fractModeSel").is(':checked');
-          console.log(checked);
           $("#fracTxt").toggle(checked);
           $("#right-canvas").toggle(checked);
           if (checked) {
-            return switchMode(Geometry.prototype.tags.POLYLINE);
+            return _this.switchMode(Geometry.prototype.tags.POLYLINE);
           }
         };
       })(this));
