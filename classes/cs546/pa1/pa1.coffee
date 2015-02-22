@@ -546,7 +546,7 @@ Fractal::splitOne = (polyline, segments) ->
 Fractal::splitAll = (polyline, polylines) ->
   newPolylines =
     for pl in polylines
-      Fractal::split(polyline, pl.getLines())
+      Fractal::splitOne(polyline, pl.getLines())
   [].concat newPolylines...
 
 ###############################################################################

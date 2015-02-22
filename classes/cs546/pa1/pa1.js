@@ -841,7 +841,7 @@
       results = [];
       for (j = 0, len1 = polylines.length; j < len1; j++) {
         pl = polylines[j];
-        results.push(Fractal.prototype.split(polyline, pl.getLines()));
+        results.push(Fractal.prototype.splitOne(polyline, pl.getLines()));
       }
       return results;
     })();
