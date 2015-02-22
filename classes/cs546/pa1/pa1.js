@@ -1210,6 +1210,8 @@
 
   segments = polygon.getLines();
 
+  console.log(segments);
+
   newPolylines = Fractal.prototype.split(polyline, polygon.getLines());
 
   console.log(newPolylines);

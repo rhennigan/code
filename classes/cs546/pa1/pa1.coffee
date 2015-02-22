@@ -787,6 +787,8 @@ polygon = fractalCanvas.polygon
 polyline = fractalCanvas.polyline
 segments = polygon.getLines()
 
+console.log segments
+
 newPolylines = Fractal::split(polyline, polygon.getLines())
 console.log newPolylines
 
