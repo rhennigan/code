@@ -10,7 +10,7 @@ fi
 
 for file in $FILES
 do
-	echo $file
+	echo 'ignoring: ' $file
 	echo $file >> .gitignore
 done
 
