@@ -1,0 +1,22 @@
+Running warmUpExercise ... 
+5x5 matrix of ones: 
+ans =
+
+   1   1   1   1   1
+   1   1   1   1   1
+   1   1   1   1   1
+   1   1   1   1   1
+   1   1   1   1   1
+
+Program paused. Press enter to continue.
+Plotting Data ...
+Program paused. Press enter to continue.
+Running Gradient Descent ...
+ans =  33.041
+Theta found by gradient descent: -3.496976 1.163178 
+For population = 35,000, we predict a profit of 5741.452687
+For population = 70,000, we predict a profit of 46452.667358
+Program paused. Press enter to continue.
+Visualizing J(theta_0, theta_1) ...
+>> 
+
