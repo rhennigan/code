@@ -29,7 +29,7 @@ w0 = inv(Sw) * (m1 - m2)';
 w  = w0 / norm(w0);
 
 % Get w and training accuracy
-w = %YOUR CODE HERE
+% w = %YOUR CODE HERE
 accuracy = %YOUR CODE HERE
 
 
