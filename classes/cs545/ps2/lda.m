@@ -29,15 +29,8 @@ w0 = inv(Sw) * (m1 - m2)';
 w  = w0 / norm(w0);
 % t = (X-mean(X)) * w;
 t = (X - 0.5 * (m1 + m2)) * w;
-
-
-for i = 1:length(X)
-  if t(i) < 0
-    t(i) = 0;
-  else
-    t(i) = 1;
-  end
-end
+t(find(t<0)) = 0;
+t(find(t>0)) = 1;
 
 accuracy = 100 * (1 - sum(abs(t-y)) / length(y));
 fprintf('Training Accuracy of LDA is: %d \n', accuracy);
