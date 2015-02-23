@@ -14,7 +14,7 @@ pos_data = bsxfun(@minus, pos_data, mean([pos_mean; neg_mean]))
 neg_data = bsxfun(@minus, neg_data, mean([pos_mean; neg_mean]))
 
 % Covariance of the data
-cov_all = pos_data' * neg_data
+cov_all = (pos_data' * pos_data + neg_data' * neg_data) / length(X)
 
 % Get w and training accuracy
 w = %YOUR CODE HERE
