@@ -31,9 +31,9 @@ t = (X-mean(X)) * w;
 
 for i = 1:length(X)
   if t(i) < 0
-    t(i) = 0
+    t(i) = 0;
   else
-    t(i) = 1
+    t(i) = 1;
   end
 end
 
