@@ -30,7 +30,10 @@ w  = w0 / norm(w0);
 t = (X-mean(X)) * w;
 
 for i = 1:length(X)
-  
+  if t(i) < 0
+    t(i) = 0
+  else
+    t(i) = 1
 
 % Get w and training accuracy
 % w = %YOUR CODE HERE
