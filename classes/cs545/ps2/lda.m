@@ -2,19 +2,30 @@ function [w, accuracy ] = lda(X, y)
 % Linear Discriminant Analysis
 
 % get the pos and neg data
-pos_data = X(find(y), :)
-neg_data = X(find(1 - y), :)
+% pos_data = X(find(y), :)
+% neg_data = X(find(1 - y), :)
 
-% Mean of each class
-pos_mean = mean(pos_data)
-neg_mean = mean(neg_data)
+% % Mean of each class
+% pos_mean = mean(pos_data)
+% neg_mean = mean(neg_data)
 
-% Center the data
-pos_data = bsxfun(@minus, pos_data, mean([pos_mean; neg_mean]))
-neg_data = bsxfun(@minus, neg_data, mean([pos_mean; neg_mean]))
+% % Center the data
+% pos_data = bsxfun(@minus, pos_data, mean([pos_mean; neg_mean]))
+% neg_data = bsxfun(@minus, neg_data, mean([pos_mean; neg_mean]))
 
-% Covariance of the data
-cov_all = (pos_data' * pos_data + neg_data' * neg_data) / length(X)
+% % Covariance of the data
+% cov_all = (pos_data' * pos_data + neg_data' * neg_data) / length(X)
+
+X1 = X(find(y), :);
+X2 = X(find(1 - y), :);
+
+m1 = mean(X1);
+m2 = mean(X2);
+
+S1 = (X1-mean(X1))'*(X1-mean(X1)) / length(X1);
+S2 = (X2-mean(X2))'*(X2-mean(X2)) / length(X2);
+
+
 
 % Get w and training accuracy
 w = %YOUR CODE HERE
