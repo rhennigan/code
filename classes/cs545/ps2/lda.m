@@ -24,7 +24,7 @@ m2 = mean(X2);
 
 S1 = (X1-m1)' * (X1-m1) / length(X1);
 S2 = (X2-m2)' * (X2-m2) / length(X2);
-Sw = S1 + S2;
+Sw = (S1 + S2) / 2;
 w0 = inv(Sw) * (m1 - m2)';
 w  = w0 / norm(w0);
 % t = (X-mean(X)) * w;
@@ -33,7 +33,6 @@ t(find(t<0)) = 0;
 t(find(t>0)) = 1;
 
 accuracy = 100 * (1 - sum(abs(t-y)) / length(y));
-fprintf('Training Accuracy of LDA is: %d \n', accuracy);
 
 % Get w and training accuracy
 % w = %YOUR CODE HERE
@@ -44,8 +43,8 @@ neg_mean = m2;
 
 % Plot Gaussian Ellipsoids
 
-h_pos = plot_gaussian_ellipsoid(pos_mean, Sw / 2);
-h_neg = plot_gaussian_ellipsoid(neg_mean, Sw / 2);
+h_pos = plot_gaussian_ellipsoid(pos_mean, Sw);
+h_neg = plot_gaussian_ellipsoid(neg_mean, Sw);
 set(h_pos,'color','r');
 set(h_neg,'color','g');
 end
