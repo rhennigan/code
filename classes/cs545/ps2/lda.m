@@ -22,8 +22,8 @@ X2 = X(find(1 - y), :);
 m1 = mean(X1);
 m2 = mean(X2);
 
-S1 = (X1-mean(X1))'*(X1-mean(X1)) / length(X1);
-S2 = (X2-mean(X2))'*(X2-mean(X2)) / length(X2);
+S1 = (X1-m1)' * (X1-m1) / length(X1);
+S2 = (X2-m2)' * (X2-m2) / length(X2);
 
 
 
