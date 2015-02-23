@@ -29,9 +29,8 @@ w0 = inv(Sw) * (m1 - m2)';
 w  = w0 / norm(w0);
 t = (X-mean(X)) * w;
 
-for (i = 1; i <= length(X); i++) {
+for i = 1:length(X)
   
-  }
 
 % Get w and training accuracy
 % w = %YOUR CODE HERE
