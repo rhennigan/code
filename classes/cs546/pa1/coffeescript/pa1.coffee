@@ -881,14 +881,16 @@ class FractalCanvas
       @refresh()
 
   writeStatus: =>
-    vertices = segments = 0
+    vertices = segments = perimeter = 0
     for gfx in @graphicsPrimitives
       segments += gfx.vertices.length - 1
       vertices += gfx.vertices.length
+      perimeter += line.distance() for line in gfx.getLines()
     @drawingContext.font = "12px Courier"
     @drawingContext.fillText("iterations: #{@iterations}", 10, 15)
     @drawingContext.fillText("vertices: #{vertices}", 10, 30)
     @drawingContext.fillText("line segments: #{segments}", 10, 45)
+    @drawingContext.fillText("perimeter length: #{perimeter}", 10, 60)
 
 ###############################################################################
 

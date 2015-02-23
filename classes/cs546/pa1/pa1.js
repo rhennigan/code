@@ -1327,18 +1327,24 @@
     };
 
     FractalCanvas.prototype.writeStatus = function() {
-      var gfx, j, len1, ref, segments, vertices;
-      vertices = segments = 0;
+      var gfx, j, k, len1, len2, line, perimeter, ref, ref1, segments, vertices;
+      vertices = segments = perimeter = 0;
       ref = this.graphicsPrimitives;
       for (j = 0, len1 = ref.length; j < len1; j++) {
         gfx = ref[j];
         segments += gfx.vertices.length - 1;
         vertices += gfx.vertices.length;
+        ref1 = gfx.getLines();
+        for (k = 0, len2 = ref1.length; k < len2; k++) {
+          line = ref1[k];
+          perimeter += line.distance();
+        }
       }
       this.drawingContext.font = "12px Courier";
       this.drawingContext.fillText("iterations: " + this.iterations, 10, 15);
       this.drawingContext.fillText("vertices: " + vertices, 10, 30);
-      return this.drawingContext.fillText("line segments: " + segments, 10, 45);
+      this.drawingContext.fillText("line segments: " + segments, 10, 45);
+      return this.drawingContext.fillText("perimeter length: " + perimeter, 10, 60);
     };
 
     return FractalCanvas;
