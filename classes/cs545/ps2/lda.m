@@ -34,7 +34,7 @@ Sw = (S1 + S2) / 2;
 w0 = inv(Sw) * (m1 - m2)';
 w  = w0 / norm(w0);
 % t = (X-mean(X)) * w;
-t = (X - 0.5 * (m1 + m2)) * w;
+t = bsxfun(@minus, X, 0.5 * (m1 + m2)) * w;
 t(find(t<0)) = 0;
 t(find(t>0)) = 1;
 
