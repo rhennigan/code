@@ -10,8 +10,8 @@ pos_mean = sum(pos_data) / length(pos_data)
 neg_mean = sum(neg_data) / length(neg_data)
 
 % Center the data
-pos_data = bsxfun(@minus, pos_data, pos_mean)
-neg_data = bsxfun(@minus, neg_data, neg_mean)
+pos_data = bsxfun(@minus, pos_data, 0.5 * (pos_mean + neg_mean))
+neg_data = bsxfun(@minus, neg_data, 0.5 * (pos_mean + neg_mean))
 
 % Covariance of the data
 cov_all = %YOUR CODE HERE
