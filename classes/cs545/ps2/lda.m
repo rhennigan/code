@@ -6,8 +6,8 @@ pos_data = X(find(y), :)
 neg_data = X(find(1 - y), :)
 
 % Mean of each class
-pos_mean = sum(pos_data) / length(pos_data)
-neg_mean = sum(neg_data) / length(neg_data)
+pos_mean = mean(pos_data)
+neg_mean = mean(neg_data)
 
 % Center the data
 pos_data = bsxfun(@minus, pos_data, 0.5 * (pos_mean + neg_mean))
