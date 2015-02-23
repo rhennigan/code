@@ -13,7 +13,7 @@ function [w, accuracy] = lda(X, y)
 % pos_data = bsxfun(@minus, pos_data, mean([pos_mean; neg_mean]))
 % neg_data = bsxfun(@minus, neg_data, mean([pos_mean; neg_mean]))
 
-% % Covariance of the data
+% 
 % cov_all = (pos_data' * pos_data + neg_data' * neg_data) / length(X)
 
 % get the pos and neg data
@@ -31,29 +31,24 @@ C2 = bsxfun(@minus, X2, m2);
 n1 = length(X1);
 n2 = length(X2);
 
+% Covariance of the data
 S1 = C1' * C1 / n1;
 S2 = C2' * C2 / n2;
 Sw = (S1 + S2) / 2;
+
+% Get w and training accuracy
 w0 = inv(Sw) * (m1 - m2)';
 w  = w0 / norm(w0);
+
 % t = (X-mean(X)) * w;
 t = bsxfun(@minus, X, 0.5 * (m1 + m2)) * w;
 t(find(t<0)) = 0;
 t(find(t>0)) = 1;
-
 accuracy = 100 * (1 - sum(abs(t-y)) / length(y));
 
-% Get w and training accuracy
-% w = %YOUR CODE HERE
-% accuracy = %YOUR CODE HERE
-
-pos_mean = m1;
-neg_mean = m2;
-
 % Plot Gaussian Ellipsoids
-
-h_pos = plot_gaussian_ellipsoid(pos_mean, Sw);
-h_neg = plot_gaussian_ellipsoid(neg_mean, Sw);
+h_pos = plot_gaussian_ellipsoid(m1, Sw);
+h_neg = plot_gaussian_ellipsoid(m2, Sw);
 set(h_pos,'color','r');
 set(h_neg,'color','g');
 end
