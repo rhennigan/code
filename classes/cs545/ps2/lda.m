@@ -34,8 +34,11 @@ w  = w0 / norm(w0);
 
 
 % Plot Gaussian Ellipsoids
-h_pos = plot_gaussian_ellipsoid(pos_mean, cov_all);
-h_neg = plot_gaussian_ellipsoid(neg_mean, cov_all);
+h_pos = plot_gaussian_ellipsoid(m1, Sw);
+h_neg = plot_gaussian_ellipsoid(m2, Sw);
+
+% h_pos = plot_gaussian_ellipsoid(pos_mean, cov_all);
+% h_neg = plot_gaussian_ellipsoid(neg_mean, cov_all);
 set(h_pos,'color','r');
 set(h_neg,'color','g');
 end
