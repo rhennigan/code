@@ -54,4 +54,3 @@ h_neg = plot_gaussian_ellipsoid(neg_mean, Sw);
 set(h_pos,'color','r');
 set(h_neg,'color','g');
 end
-
