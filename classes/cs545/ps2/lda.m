@@ -22,8 +22,14 @@ X2 = X(find(1 - y), :);
 m1 = mean(X1);
 m2 = mean(X2);
 
-S1 = (X1-m1)' * (X1-m1) / length(X1);
-S2 = (X2-m2)' * (X2-m2) / length(X2);
+M1 = bsxfun(@minus, X1, m1);
+M2 = bsxfun(@minus, X2, m2);
+
+n1 = length(X1);
+n2 = length(X2);
+
+S1 = M1' * M1 / n1;
+S2 = M2' * M2 / n2;
 Sw = (S1 + S2) / 2;
 w0 = inv(Sw) * (m1 - m2)';
 w  = w0 / norm(w0);
