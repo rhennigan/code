@@ -34,8 +34,6 @@ w  = w0 / norm(w0);
 
 pos_mean = m1;
 neg_mean = m2;
-m = mean(X);
-cov_all = (X-m)' * (X-m) / length(X);
 
 % Plot Gaussian Ellipsoids
 
