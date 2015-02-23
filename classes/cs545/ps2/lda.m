@@ -1,4 +1,4 @@
-function [w, accuracy ] = lda(X, y)
+function [w, accuracy] = lda(X, y)
 % Linear Discriminant Analysis
 
 % get the pos and neg data
