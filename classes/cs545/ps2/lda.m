@@ -3,14 +3,14 @@ function [w, accuracy ] = lda(X, y)
 
 % get the pos and neg data
 pos_data = X(find(y), :)
-neg_data = X(find(1 .- y), :)
+neg_data = X(find(1 - y), :)
 
 % Mean of each class
-pos_mean = %YOUR CODE HERE
-neg_mean = %YOUR CODE HERE
+pos_mean = sum(pos_data) / length(pos_data)
+neg_mean = sum(neg_data) / length(neg_data)
 
 % Center the data
-pos_data = %YOUR CODE HERE
+pos_data = -pos_mean .+ pos_data
 neg_data = %YOUR CODE HERE
 
 % Covariance of the data
