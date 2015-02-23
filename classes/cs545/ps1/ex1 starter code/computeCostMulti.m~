@@ -1,6 +1,0 @@
-function J = computeCostMulti(X, y, theta)
-  m = length(y);
-  J = 0;
-  S = X * theta - y;
-  J = S' * S / (2 * m);
-end
