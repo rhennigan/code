@@ -890,7 +890,7 @@ class FractalCanvas
     @drawingContext.fillText("iterations: #{@iterations}", 10, 15)
     @drawingContext.fillText("vertices: #{vertices}", 10, 30)
     @drawingContext.fillText("line segments: #{segments}", 10, 45)
-    @drawingContext.fillText("perimeter length: #{perimeter}", 10, 60)
+    @drawingContext.fillText("perimeter length: #{Math.floor(perimeter)}", 10, 60)
 
 ###############################################################################
 

@@ -1344,7 +1344,7 @@
       this.drawingContext.fillText("iterations: " + this.iterations, 10, 15);
       this.drawingContext.fillText("vertices: " + vertices, 10, 30);
       this.drawingContext.fillText("line segments: " + segments, 10, 45);
-      return this.drawingContext.fillText("perimeter length: " + perimeter, 10, 60);
+      return this.drawingContext.fillText("perimeter length: " + (Math.floor(perimeter)), 10, 60);
     };
 
     return FractalCanvas;
