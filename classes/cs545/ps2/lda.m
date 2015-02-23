@@ -2,8 +2,8 @@ function [w, accuracy ] = lda(X, y)
 % Linear Discriminant Analysis
 
 % get the pos and neg data
-pos_data = %YOUR CODE HERE
-neg_data = %YOUR CODE HERE
+pos_data = X(find(y), :)
+neg_data = X(find(1 .- y), :)
 
 % Mean of each class
 pos_mean = %YOUR CODE HERE
