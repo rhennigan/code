@@ -27,7 +27,9 @@ S2 = (X2-m2)' * (X2-m2) / length(X2);
 Sw = S1 + S2;
 w0 = inv(Sw) * (m1 - m2)';
 w  = w0 / norm(w0);
-t = (X-mean(X)) * w;
+% t = (X-mean(X)) * w;
+t = (X - 0.5 * (m1 + m2)) * w;
+
 
 for i = 1:length(X)
   if t(i) < 0
@@ -36,6 +38,8 @@ for i = 1:length(X)
     t(i) = 1;
   end
 end
+
+accuracy = 1 - sum(abs(t-y)) / length(y);
 
 % Get w and training accuracy
 % w = %YOUR CODE HERE
