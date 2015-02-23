@@ -30,7 +30,7 @@ w  = w0 / norm(w0);
 
 % Get w and training accuracy
 % w = %YOUR CODE HERE
-accuracy = %YOUR CODE HERE
+% accuracy = %YOUR CODE HERE
 
 
 % Plot Gaussian Ellipsoids
