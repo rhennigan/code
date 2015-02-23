@@ -29,7 +29,7 @@ function [w, accuracy] = lda(X, y)
   t = bsxfun(@minus, X, 0.5 * (m1 + m2)) * w;
   t(find(t < 0)) = 0;
   t(find(t > 0)) = 1;
-  accuracy = 100 * (1 - sum(abs(t - y)) / (n1 + n2)));
+  accuracy = 100 * (1 - sum(abs(t - y)) / (n1 + n2));
 
   % Plot Gaussian Ellipsoids
   h_pos = plot_gaussian_ellipsoid(m1, Sw);
