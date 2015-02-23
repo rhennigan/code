@@ -39,7 +39,7 @@ for i = 1:length(X)
   end
 end
 
-accuracy = 1 - sum(abs(t-y)) / length(y);
+accuracy = 100 * (1 - sum(abs(t-y)) / length(y));
 fprintf('Training Accuracy of LDA is: %d \n', accuracy);
 
 % Get w and training accuracy
