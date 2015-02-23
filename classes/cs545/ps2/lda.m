@@ -34,6 +34,8 @@ for i = 1:length(X)
     t(i) = 0
   else
     t(i) = 1
+  end
+end
 
 % Get w and training accuracy
 % w = %YOUR CODE HERE
