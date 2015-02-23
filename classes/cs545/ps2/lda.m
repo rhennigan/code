@@ -39,8 +39,8 @@ cov_all = (X-m)' * (X-m) / length(X);
 
 % Plot Gaussian Ellipsoids
 
-h_pos = plot_gaussian_ellipsoid(pos_mean, cov_all);
-h_neg = plot_gaussian_ellipsoid(neg_mean, cov_all);
+h_pos = plot_gaussian_ellipsoid(pos_mean, Sw / 2);
+h_neg = plot_gaussian_ellipsoid(neg_mean, Sw / 2);
 set(h_pos,'color','r');
 set(h_neg,'color','g');
 end
