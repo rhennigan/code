@@ -1362,5 +1362,3 @@
   document.getElementById('right-canvas').appendChild(fractalCanvas.canvas);
 
 }).call(this);
-
-//# sourceMappingURL=pa1.js.map
