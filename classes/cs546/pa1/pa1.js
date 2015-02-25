@@ -101,23 +101,32 @@
   };
 
   Geometry.prototype.createPrimitive = function(drawMode, mouse) {
-    var defaultColor;
-    defaultColor = new Color(0, 0, 0, 128);
+    var b1, b2, color1, color2, g1, g2, primaryColor, r1, r2, secondaryColor;
+    color1 = document.getElementById('picker1').color;
+    color2 = document.getElementById('picker2').color;
+    r1 = color1.rgb[0] * 255;
+    g1 = color1.rgb[1] * 255;
+    b1 = color1.rgb[2] * 255;
+    r2 = color2.rgb[0] * 255;
+    g2 = color2.rgb[1] * 255;
+    b2 = color2.rgb[2] * 255;
+    primaryColor = new Color(r1, g1, b1, 192);
+    secondaryColor = new Color(r2, g2, b2, 192);
     switch (drawMode) {
       case this.tags.LINE:
-        return new Line(mouse, mouse, defaultColor);
+        return new Line(mouse, mouse, primaryColor, secondaryColor);
       case this.tags.CIRCLE:
-        return new Circle(mouse, 0, defaultColor);
+        return new Circle(mouse, 0, primaryColor);
       case this.tags.ELLIPSE:
-        return new Ellipse(mouse, 0, 0, defaultColor);
+        return new Ellipse(mouse, 0, 0, primaryColor);
       case this.tags.RECTANGLE:
-        return new Rectangle(mouse, mouse, defaultColor);
+        return new Rectangle(mouse, mouse, primaryColor);
       case this.tags.POLYGON:
-        return new Polygon([mouse, mouse], defaultColor);
+        return new Polygon([mouse, mouse], primaryColor);
       case this.tags.POLYLINE:
-        return new Polyline([mouse, mouse], defaultColor);
+        return new Polyline([mouse, mouse], primaryColor, secondaryColor);
       default:
-        return new Line(mouse, mouse, defaultColor);
+        return new Line(mouse, mouse, primaryColor, secondaryColor);
     }
   };
 
@@ -679,19 +688,25 @@
   Polyline = (function() {
     Polyline.prototype.vertices = [];
 
-    Polyline.prototype.color = new Color();
+    Polyline.prototype.color1 = new Color();
+
+    Polyline.prototype.color2 = new Color();
 
     Polyline.prototype.tag = Geometry.prototype.tags.POLYLINE;
 
-    function Polyline(vertices, color) {
+    function Polyline(vertices, color1, color2) {
       if (vertices == null) {
         vertices = this.vertices;
       }
-      if (color == null) {
-        color = this.color;
+      if (color1 == null) {
+        color1 = this.color1;
+      }
+      if (color2 == null) {
+        color2 = this.color2;
       }
       this.vertices = vertices;
-      this.color = color;
+      this.color1 = color1;
+      this.color2 = color2;
     }
 
     Polyline.prototype.insert = function(vertex) {
@@ -719,14 +734,21 @@
     };
 
     Polyline.prototype.draw = function(canvas) {
-      var i, j, len, line, ref, results;
-      line = new Line();
-      line.col1 = line.col2 = this.color;
+      var acc, j, k, len, len1, len2, line, lines, results, totalLength;
       len = this.vertices.length;
+      lines = this.getLines();
+      totalLength = 0;
+      for (j = 0, len1 = lines.length; j < len1; j++) {
+        line = lines[j];
+        totalLength += line.distance();
+      }
+      acc = 0;
       results = [];
-      for (i = j = 0, ref = len - 1; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
-        line.pt1 = this.vertices[i];
-        line.pt2 = this.vertices[i + 1];
+      for (k = 0, len2 = lines.length; k < len2; k++) {
+        line = lines[k];
+        line.col1 = Color.prototype.interpolate(this.color1, this.color2, acc / totalLength);
+        acc += line.distance();
+        line.col2 = Color.prototype.interpolate(this.color1, this.color2, acc / totalLength);
         results.push(line.draw(canvas));
       }
       return results;
@@ -844,7 +866,7 @@
         }
         return results1;
       })();
-      results.push(new Polyline(translatedPoints, polyline.color));
+      results.push(new Polyline(translatedPoints, polyline.color1, polyline.color2));
     }
     return results;
   };
@@ -1030,7 +1052,8 @@
       })(this));
       this.canvas.addEventListener("click", (function(_this) {
         return function(e) {
-          return console.log("click");
+          console.log("click");
+          return console.log(document.getElementById('picker1').color);
         };
       })(this));
       ui.buttons.clear.addEventListener("click", (function(_this) {
@@ -1259,12 +1282,20 @@
     };
 
     FractalCanvas.prototype.refresh = function() {
-      var j, len1, ref, shape;
+      var c1, c2, j, len1, ref, shape;
       if (this.modified) {
         this.clearCanvas();
         ref = this.graphicsPrimitives;
         for (j = 0, len1 = ref.length; j < len1; j++) {
           shape = ref[j];
+          c1 = document.getElementById('picker1').color;
+          c2 = document.getElementById('picker2').color;
+          shape.color1.r = c1.rgb[0] * 255;
+          shape.color1.g = c1.rgb[1] * 255;
+          shape.color1.b = c1.rgb[2] * 255;
+          shape.color2.r = c2.rgb[0] * 255;
+          shape.color2.g = c2.rgb[1] * 255;
+          shape.color2.b = c2.rgb[2] * 255;
           shape.draw(this);
         }
         this.drawingContext.putImageData(this.data, 0, 0);
@@ -1360,5 +1391,7 @@
   document.getElementById('left-canvas').appendChild(drawingCanvas.canvas);
 
   document.getElementById('right-canvas').appendChild(fractalCanvas.canvas);
+
+  console.log(document.getElementById('picker1').color);
 
 }).call(this);

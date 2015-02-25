@@ -40,22 +40,31 @@ Geometry::tags =
   POLYLINE: 'polyline'
 
 Geometry::createPrimitive = (drawMode, mouse) ->
-  defaultColor = new Color(0, 0, 0, 128)
+  color1 = document.getElementById('picker1').color
+  color2 = document.getElementById('picker2').color
+  r1 = color1.rgb[0]*255
+  g1 = color1.rgb[1]*255
+  b1 = color1.rgb[2]*255
+  r2 = color2.rgb[0]*255
+  g2 = color2.rgb[1]*255
+  b2 = color2.rgb[2]*255
+  primaryColor = new Color(r1, g1, b1, 192)
+  secondaryColor = new Color(r2, g2, b2, 192)
   switch drawMode
     when @tags.LINE
-      new Line(mouse, mouse, defaultColor)
+      new Line(mouse, mouse, primaryColor, secondaryColor)
     when @tags.CIRCLE
-      new Circle(mouse, 0, defaultColor)
+      new Circle(mouse, 0, primaryColor)
     when @tags.ELLIPSE
-      new Ellipse(mouse, 0, 0, defaultColor)
+      new Ellipse(mouse, 0, 0, primaryColor)
     when @tags.RECTANGLE
-      new Rectangle(mouse, mouse, defaultColor)
+      new Rectangle(mouse, mouse, primaryColor)
     when @tags.POLYGON
-      new Polygon([mouse, mouse], defaultColor)
+      new Polygon([mouse, mouse], primaryColor)
     when @tags.POLYLINE
-      new Polyline([mouse, mouse], defaultColor)
+      new Polyline([mouse, mouse], primaryColor, secondaryColor)
     else 
-      new Line(mouse, mouse, defaultColor)
+      new Line(mouse, mouse, primaryColor, secondaryColor)
 
 ###############################################################################
 
@@ -431,12 +440,14 @@ class Polygon
 
 class Polyline
   vertices: []
-  color: new Color()
+  color1: new Color()
+  color2: new Color()
   tag: Geometry::tags.POLYLINE
 
-  constructor: (vertices = @vertices, color = @color) ->
+  constructor: (vertices = @vertices, color1 = @color1, color2 = @color2) ->
     @vertices = vertices
-    @color = color
+    @color1 = color1
+    @color2 = color2
 
   insert: (vertex) ->
     @vertices.push(vertex)
@@ -454,13 +465,16 @@ class Polyline
       new Line(@vertices[i], @vertices[i + 1], @color)
 
   draw: (canvas) ->
-    line = new Line()
-    line.col1 = line.col2 = @color
     len = @vertices.length
-    
-    for i in [0...len - 1]
-      line.pt1 = @vertices[i]
-      line.pt2 = @vertices[i + 1]
+    lines = @.getLines()
+    totalLength = 0
+    totalLength += line.distance() for line in lines
+
+    acc = 0
+    for line in lines
+      line.col1 = Color::interpolate(@color1, @color2, acc/totalLength)
+      acc += line.distance()
+      line.col2 = Color::interpolate(@color1, @color2, acc/totalLength)
       line.draw(canvas)
 
 ###############################################################################
@@ -549,7 +563,7 @@ Fractal::splitOne = (polyline, segments) ->
       for pt in rotatedPoints
         Geometry::vecAdd(pt, segment.pt1)
 
-    new Polyline(translatedPoints, polyline.color)
+    new Polyline(translatedPoints, polyline.color1, polyline.color2)
 
 Fractal::splitAll = (polyline, polylines) ->
   newPolylines =
@@ -683,6 +697,7 @@ class DrawingCanvas
 
     @canvas.addEventListener "click", (e) => 
       console.log "click"
+      console.log document.getElementById('picker1').color
 
     ui.buttons.clear.addEventListener "click", (e) => 
       @reset()
@@ -834,10 +849,26 @@ class FractalCanvas
     @drawingContext.putImageData @data, 0, 0
     @modified = true
 
+  # refresh: =>
+  #   if @modified
+  #     @clearCanvas()
+  #     shape.draw(this) for shape in @graphicsPrimitives
+  #     @drawingContext.putImageData(@data, 0, 0)
+  #     @writeStatus()
+  #     @modified = false
   refresh: =>
     if @modified
       @clearCanvas()
-      shape.draw(this) for shape in @graphicsPrimitives
+      for shape in @graphicsPrimitives
+        c1 = document.getElementById('picker1').color
+        c2 = document.getElementById('picker2').color
+        shape.color1.r = c1.rgb[0]*255
+        shape.color1.g = c1.rgb[1]*255
+        shape.color1.b = c1.rgb[2]*255
+        shape.color2.r = c2.rgb[0]*255
+        shape.color2.g = c2.rgb[1]*255
+        shape.color2.b = c2.rgb[2]*255
+        shape.draw(this)
       @drawingContext.putImageData(@data, 0, 0)
       @writeStatus()
       @modified = false
@@ -901,41 +932,4 @@ fractalCanvas = new FractalCanvas()
 document.getElementById('left-canvas').appendChild drawingCanvas.canvas
 document.getElementById('right-canvas').appendChild fractalCanvas.canvas
 
-# fractalCanvas.iterate()
-
-# console.log fractalCanvas
-
-# fractalCanvas.graphicsPrimitives = [fractalCanvas.polyline, fractalCanvas.polygon]
-# fractalCanvas.modified = true
-# setTimeout fractalCanvas.refresh 3000
-# console.log fractalCanvas
-
-# polygon = fractalCanvas.polygon
-# polyline = fractalCanvas.polyline
-# segments = polygon.getLines()
-
-# console.log segments
-
-# newPolylines = Fractal::split(polyline, polygon.getLines())
-# console.log newPolylines
-
-# fractalCanvas.graphicsPrimitives = newPolylines
-# fractalCanvas.modified = true
-
-# newPolylines =
-#   for pl in newPolylines
-#     Fractal::split(polyline, pl.getLines())
-
-# newPolylines = [].concat newPolylines...
-
-# fractalCanvas.graphicsPrimitives = newPolylines
-# fractalCanvas.modified = true
-
-# newPolylines =
-#   for pl in newPolylines
-#     Fractal::split(polyline, pl.getLines())
-
-# newPolylines = [].concat newPolylines...
-
-# fractalCanvas.graphicsPrimitives = newPolylines
-# fractalCanvas.modified = true
+console.log document.getElementById('picker1').color

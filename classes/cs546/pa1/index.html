@@ -3,6 +3,7 @@
   <title>Drawing Lines</title>
 
   <script src="jquery-1.11.2.min.js"></script>
+  <script src="jscolor.js"></script>
 
   <style type="text/css">
     body {
@@ -54,7 +55,7 @@
 
     input {
       width: 13px;
-      height: 25px;
+      height: 20px;
       padding: 0;
       margin:0;
       vertical-align: bottom;
@@ -67,13 +68,13 @@
       position: absolute;
       top: 5px;
       left: 10px;
-      width: 100px;
+      width: 120px;
     }
 
     #buttons > input {
       display: block;
       margin-top: 5px;
-      width: 100px;
+      width: 50px;
       background-color:#cccccc;
       -moz-border-radius:5px;
       -webkit-border-radius:5px;
@@ -83,7 +84,7 @@
       cursor:pointer;
       color:#000000;
       font-family:Arial;
-      font-size:14px;
+      font-size:12px;
       text-decoration:none;
     }
 
@@ -92,7 +93,6 @@
 <body>
   <div id="buttons">
     <input type="button" id="clear" value="clear">
-    <hr>
     <input type="button" id="undo" value="undo">
     <hr>
     <input type="button" id="line" value="line">
@@ -109,10 +109,16 @@
       <label><input type="checkbox" id="fractModeSel"/> fractal mode</label>
     </div>
     <hr>
+
+    <input class="color {pickerFaceColor:'transparent',pickerFace:3, pickerBorder:0, pickerInsetColor:'black', hash:true, pickerClosable:true}" id="picker1" value="000000">
+    <input class="color {pickerFaceColor:'transparent',pickerFace:3, pickerBorder:0, pickerInsetColor:'black', hash:true, pickerClosable:true}" id="picker2" value="000000">
+    <hr>
+    <input type="button" id="addIterations" value="+detail" style="display:none">
+    <input type="button" id="subIterations" value="-detail" style="display:none">
     <input type="button" id="sample" value="sample" style="display:none">
-    <input type="button" id="addIterations" value="iterations+" style="display:none">
-    <input type="button" id="subIterations" value="iterations-" style="display:none">
+    
   </div>
+  
 
   <div id="left-canvas" class="left-canvas"></div>
   <div id="right-canvas" class="right-canvas" style="display:none"></div>
