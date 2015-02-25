@@ -925,8 +925,7 @@
     DrawingCanvas.prototype.switchMode = function(mode) {
       $("#" + this.drawMode).css('background-color', '#cccccc');
       $("#" + mode).css('background-color', '#888888');
-      this.drawMode = mode;
-      return console.log(this.drawMode);
+      return this.drawMode = mode;
     };
 
     DrawingCanvas.prototype.createCanvas = function() {
@@ -957,7 +956,6 @@
       this.canvas.addEventListener("mousedown", (function(_this) {
         return function(e) {
           var current, j, len1, mode, ref, ref1, ref2, shape;
-          console.log('mousedown');
           if (_this.fractalMode && _this.newFractal && _this.graphicsPrimitives.length === 2) {
             ui.enableButton(Geometry.prototype.tags.POLYLINE);
             _this.switchMode(Geometry.prototype.tags.POLYLINE);
@@ -985,7 +983,6 @@
       this.canvas.addEventListener("mousemove", (function(_this) {
         return function(e) {
           var current, ref;
-          console.log("mousemove: " + _this.drawingInProgress + ", " + _this.polyInProgress);
           if (_this.drawingInProgress) {
             _this.modified = true;
             ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
@@ -995,7 +992,6 @@
       })(this));
       this.canvas.addEventListener("mouseup", (function(_this) {
         return function(e) {
-          console.log("mouseup");
           if (!_this.polyInProgress) {
             return _this.drawingInProgress = false;
           }
@@ -1004,11 +1000,9 @@
       this.canvas.addEventListener("dblclick", (function(_this) {
         return function(e) {
           var current, j, k, l, len, len1, len2, mode, ref, ref1, ref2, ref3, results, results1, t1, t2, v1, v2;
-          console.log("dblclick");
           ref = _this.graphicsPrimitives, current = ref[ref.length - 1];
           len = current.vertices.length;
           ref1 = current.vertices, current.vertices = 3 <= ref1.length ? slice.call(ref1, 0, j = ref1.length - 2) : (j = 0, []), v1 = ref1[j++], v2 = ref1[j++];
-          console.log(_this.graphicsPrimitives);
           _this.polyInProgress = _this.drawingInProgress = false;
           if (_this.fractalMode) {
             switch (_this.graphicsPrimitives.length) {
@@ -1052,8 +1046,7 @@
       })(this));
       this.canvas.addEventListener("click", (function(_this) {
         return function(e) {
-          console.log("click");
-          return console.log(document.getElementById('picker1').color);
+          return console.log("click");
         };
       })(this));
       ui.buttons.clear.addEventListener("click", (function(_this) {
@@ -1321,11 +1314,8 @@
       })(this));
       return ui.buttons.sample.addEventListener("click", (function(_this) {
         return function(e) {
-          console.log('sample');
           _this.polyline = samplePolyline;
           _this.polygon = samplePolygon;
-          console.log(_this.polyline);
-          console.log(_this.polygon);
           drawingCanvas.graphicsPrimitives = [_this.polyline, _this.polygon];
           drawingCanvas.modified = true;
           _this.iterate();
@@ -1342,7 +1332,6 @@
     FractalCanvas.prototype.iterate = function() {
       var n;
       n = this.iterations;
-      console.log(n);
       if (n > 0) {
         this.graphicsPrimitives = Fractal.prototype.splitOne(this.polyline, this.polygon.getLines());
         while (n -= 1) {
@@ -1392,6 +1381,6 @@
 
   document.getElementById('right-canvas').appendChild(fractalCanvas.canvas);
 
-  console.log(document.getElementById('picker1').color);
-
 }).call(this);
+
+//# sourceMappingURL=pa1.js.map

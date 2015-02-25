@@ -599,7 +599,6 @@ class DrawingCanvas
     $("##{@drawMode}").css 'background-color', '#cccccc'
     $("##{mode}").css 'background-color', '#888888'
     @drawMode = mode
-    console.log(@drawMode)
 
   createCanvas: ->
     @canvas = document.createElement 'canvas'
@@ -619,7 +618,6 @@ class DrawingCanvas
       y: event.clientY - rect.top
 
     @canvas.addEventListener "mousedown", (e) =>
-      console.log 'mousedown'
       if @fractalMode and @newFractal and @graphicsPrimitives.length is 2
         ui.enableButton(Geometry::tags.POLYLINE)
         @switchMode(Geometry::tags.POLYLINE)
@@ -643,24 +641,19 @@ class DrawingCanvas
           @polyInProgress = true
 
     @canvas.addEventListener "mousemove", (e) =>
-      console.log "mousemove: " + @drawingInProgress + ", " + @polyInProgress
       if @drawingInProgress
         @modified = true
         [..., current] = @graphicsPrimitives
         current.drag(@getMousePos(e))
 
     @canvas.addEventListener "mouseup", (e) =>
-      console.log "mouseup"
       # [..., current] = @graphicsPrimitives
       @drawingInProgress = false unless @polyInProgress
-      # console.log current
 
     @canvas.addEventListener "dblclick", (e) =>
-      console.log "dblclick"
       [..., current] = @graphicsPrimitives
       len = current.vertices.length
       [current.vertices..., v1, v2] = current.vertices
-      console.log @graphicsPrimitives
       @polyInProgress = @drawingInProgress = false
       if @fractalMode
         switch @graphicsPrimitives.length
@@ -697,7 +690,6 @@ class DrawingCanvas
 
     @canvas.addEventListener "click", (e) => 
       console.log "click"
-      console.log document.getElementById('picker1').color
 
     ui.buttons.clear.addEventListener "click", (e) => 
       @reset()
@@ -883,11 +875,8 @@ class FractalCanvas
       @reset()
       @iterate()
     ui.buttons.sample.addEventListener "click", (e) =>
-      console.log 'sample'
       @polyline = samplePolyline
       @polygon = samplePolygon
-      console.log @polyline
-      console.log @polygon
       drawingCanvas.graphicsPrimitives = [@polyline, @polygon]
       drawingCanvas.modified = true
       @iterate()
@@ -899,7 +888,6 @@ class FractalCanvas
 
   iterate: =>
     n = @iterations
-    console.log n
     if n > 0
       @graphicsPrimitives = Fractal::splitOne(@polyline, @polygon.getLines())
       while n -= 1
@@ -931,5 +919,3 @@ fractalCanvas = new FractalCanvas()
 
 document.getElementById('left-canvas').appendChild drawingCanvas.canvas
 document.getElementById('right-canvas').appendChild fractalCanvas.canvas
-
-console.log document.getElementById('picker1').color
