@@ -202,10 +202,11 @@ float perlin_noise(vec3 P) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-vec4 turbulence_shift(float x, float y, float z,
+vec4 turbulence_shift(vec3 P,
     float power, float frequency, 
     int octaves, int seed)
 {
+    vec3 s = vec3(1073741824.0);
     const float X0 = (12414.0 / 65536.0);
     const float Y0 = (65124.0 / 65536.0);
     const float Z0 = (31337.0 / 65536.0);
