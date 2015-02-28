@@ -359,8 +359,8 @@ float MakeInt32Range(float value)
 
 float GradientCoherentNoise3D(float x, float y, float z, int seed)
 {
-    float s = (float)seed;
-    vec4 pos = (vec4)(x+s, y+s, z+s, 0.0);
+    float s = float(seed);
+    vec4 pos = vec4(x+s, y+s, z+s, 0.0);
     
     return sgnoise3d(pos);
 }
@@ -383,7 +383,7 @@ float Perlin(float x, float y, float z,
         float nx = MakeInt32Range(x);
         float ny = MakeInt32Range(y);
         float nz = MakeInt32Range(z);
-        seed = (seed + i) & 0xffffffff;
+        seed = mod(seed + i, 0xffffffff + 1);
         signal = GradientCoherentNoise3D(nx, ny, nz, seed);
         value += signal * cp;
         x *= lacunarity;
