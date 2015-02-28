@@ -215,10 +215,14 @@ vec4 turbulence_shift(float x, float y, float z,
     const float X2 = (53820.0 / 65536.0);
     const float Y2 = (11213.0 / 65536.0);
     const float Z2 = (44845.0 / 65536.0);
+
+    vec3 v0 = vec3(x+X0, y+Y0, z+Z0);
+    vec3 v1 = vec3(x+X1, y+Y1, z+Z1);
+    vec3 v2 = vec3(x+X2, y+Y2, z+Z2);
     
-    float xD = perlin_noise(x+X0, y+Y0, z+Z0, frequency, 2.0, 0.5, octaves, seed+0);
-    float yD = perlin_noise(x+X1, y+Y1, z+Z1, frequency, 2.0, 0.5, octaves, seed+1);
-    float zD = perlin_noise(x+X2, y+Y2, z+Z2, frequency, 2.0, 0.5, octaves, seed+2);
+    float xD = perlin_noise(, frequency, 2.0, 0.5, octaves, seed+0);
+    float yD = perlin_noise(, frequency, 2.0, 0.5, octaves, seed+1);
+    float zD = perlin_noise(, frequency, 2.0, 0.5, octaves, seed+2);
     
     float xd = x + power * xD;
     float yd = y + power * yD;
