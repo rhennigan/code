@@ -125,14 +125,14 @@ float gradient1d(int i, float v)
 float gradient2d(ivec2 i, vec2 v)
 {
     int index = (lattice2d(i) & G_MASK) * G_VECSIZE;
-    vec2 g = (vec2)(G[index + 0], G[index + 1]);
+    vec2 g = vec2(G[index + 0], G[index + 1]);
     return dot(v, g);
 }
  
 float gradient3d(int4 i, vec4 v)
 {
     int index = (lattice3d(i) & G_MASK) * G_VECSIZE;
-    vec4 g = (vec4)(G[index + 0], G[index + 1], G[index + 2], 1.0f);
+    vec4 g = vec4(G[index + 0], G[index + 1], G[index + 2], 1.0f);
     return dot(v, g);
 }
 
@@ -151,7 +151,7 @@ float sgnoise1d(float position)
 {
     float p = position;
     float pf = floor(p);
-    int ip = (int)pf;
+    int ip = int(pf);
     float fp = p - pf;        
     ip &= P_MASK;
     
