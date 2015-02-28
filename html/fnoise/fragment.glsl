@@ -252,7 +252,7 @@ float make_32_r(float value) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-float billow(vec3 P, float f, float lac, float per) {
+float billow(vec3 P, float f, float lac, float per, float seed) {
 
     float x = P.x;
     float y = P.y;
@@ -287,8 +287,9 @@ float billow(vec3 P, float f, float lac, float per) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void main(void) {
-  vec3 ps = turbulence_shift(vec3(aspect*pos.x + p, pos.y + p, p), 0.02, 1);
-  float noise = perlin_noise(ps);
+  vec3 s_pos = vec3(aspect*pos.x + p, pos.y + p, p);
+  vec3 ps = turbulence_shift(s_pos, 0.02, 1);
+  float noise = perlin_noise(ps) + billow(s_pos, 1.0, 2.0, 2.0);
   vec4 color = color_px(noise, p);
   gl_FragColor = color;
 }
