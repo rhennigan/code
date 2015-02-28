@@ -79,7 +79,7 @@
         console.log(time);
         draw = function() {
           var avgFPS, ft, i, len, p, tmp;
-          p = (Date.now() - time) / 50000;
+          p = (Date.now() - 1425166257376) / 20000;
           tmp = Date.now();
           frameTimes[++frameIndex % 5] = 1000 / (tmp - frameLast);
           frameLast = tmp;
