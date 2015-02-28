@@ -41,7 +41,7 @@ varying vec2 pos;
 // UTILITIES
 ////////////////////////////////////////////////////////////////////////////////
 
-#define WRAP 128.0
+#define WRAP 256.0
 #define SHFL  34.0
 
 vec3 wrap(vec3 v) {
