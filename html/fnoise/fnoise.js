@@ -49,7 +49,7 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlus, btnSub, canvas, frameIndex, frameLast, frameTimes;
+    var aspect, canvas, frameIndex, frameLast, frameTimes;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
@@ -58,7 +58,7 @@
     if (PhiloGL.hasWebGL() === !true) {
       alert("Your browser does not support WebGL");
     }
-    PhiloGL('fnCanvas', {
+    return PhiloGL('fnCanvas', {
       program: [
         {
           id: 'fnoise',
@@ -78,7 +78,7 @@
         time = Date.now();
         draw = function() {
           var avgFPS, ft, i, len, p, tmp;
-          p = phaseS * ((Date.now() - time) / 80000);
+          p = (Date.now() - time) / 1000;
           tmp = Date.now();
           frameTimes[++frameIndex % 5] = 1000 / (tmp - frameLast);
           frameLast = tmp;
@@ -99,7 +99,6 @@
             program: 'fnoise',
             uniforms: {
               p: p,
-              order: order,
               aspect: aspect
             }
           });
@@ -108,40 +107,6 @@
         return draw();
       }
     });
-    btnPlus = document.getElementById('order+');
-    btnPlus.addEventListener("click", (function(_this) {
-      return function(e) {
-        var order;
-        order = order >= 30 ? 30 : order + 1;
-        document.getElementById('orderTxt').value = order;
-        return console.log(order);
-      };
-    })(this));
-    btnSub = document.getElementById('order-');
-    btnSub.addEventListener("click", (function(_this) {
-      return function(e) {
-        var order;
-        order = order <= 1 ? 0 : order - 1;
-        document.getElementById('orderTxt').value = order;
-        return console.log(order);
-      };
-    })(this));
-    btnPlus = document.getElementById('phase+');
-    btnPlus.addEventListener("click", (function(_this) {
-      return function(e) {
-        phaseS *= 1.2;
-        document.getElementById('phaseTxt').value = phaseS;
-        return console.log(phaseS);
-      };
-    })(this));
-    btnSub = document.getElementById('phase-');
-    return btnSub.addEventListener("click", (function(_this) {
-      return function(e) {
-        phaseS /= 1.2;
-        document.getElementById('phaseTxt').value = phaseS;
-        return console.log(phaseS);
-      };
-    })(this));
   };
 
   load();
