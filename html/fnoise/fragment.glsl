@@ -166,27 +166,27 @@ float sgnoise2d(vec2 position)
 {
     vec2 p = position;
     vec2 pf = floor(p);
-    ivec2 ip = (ivec2)((int)pf.x, (int)pf.y);
+    ivec2 ip = ivec2(int(pf.x), int(pf.y));
     vec2 fp = p - pf;        
     ip &= P_MASK;
     
-    const ivec2 I00 = (ivec2)(0, 0);
-    const ivec2 I01 = (ivec2)(0, 1);
-    const ivec2 I10 = (ivec2)(1, 0);
-    const ivec2 I11 = (ivec2)(1, 1);
+    const ivec2 I00 = ivec2(0, 0);
+    const ivec2 I01 = ivec2(0, 1);
+    const ivec2 I10 = ivec2(1, 0);
+    const ivec2 I11 = ivec2(1, 1);
     
-    const vec2 F00 = (vec2)(0.0f, 0.0f);
-    const vec2 F01 = (vec2)(0.0f, 1.0f);
-    const vec2 F10 = (vec2)(1.0f, 0.0f);
-    const vec2 F11 = (vec2)(1.0f, 1.0f);
+    const vec2 F00 = vec2(0.0f, 0.0f);
+    const vec2 F01 = vec2(0.0f, 1.0f);
+    const vec2 F10 = vec2(1.0f, 0.0f);
+    const vec2 F11 = vec2(1.0f, 1.0f);
  
     float n00 = gradient2d(ip + I00, fp - F00);
     float n10 = gradient2d(ip + I10, fp - F10);
     float n01 = gradient2d(ip + I01, fp - F01);
     float n11 = gradient2d(ip + I11, fp - F11);
  
-    const vec2 n0001 = (vec2)(n00, n01);
-    const vec2 n1011 = (vec2)(n10, n11);
+    const vec2 n0001 = vec2(n00, n01);
+    const vec2 n1011 = vec2(n10, n11);
  
     vec2 n2 = mix2d(n0001, n1011, smooth(fp.x));
     float n = mix1d(n2.x, n2.y, smooth(fp.y));
