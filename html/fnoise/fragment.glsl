@@ -166,15 +166,18 @@ float snoise(vec3 v) {
   vec3 p2 = vec3(a1.xy, h.z);
   vec3 p3 = vec3(a1.zw, h.w);
 
-  vec4 norm = taylorInvSqrt(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+  vec4 pp = vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3));
+  vec4 norm = taylorInvSqrt(pp);
   p0 *= norm.x;
   p1 *= norm.y;
   p2 *= norm.z;
   p3 *= norm.w;
 
-  vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
+  vec4 xx = vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3));
+  vec4 m = max(0.6 - xx, 0.0);
   m = m * m;
-  return 42.0 * dot(m*m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
+  vec4 px = vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3));
+  return 42.0 * dot(m*m, px);
 
 }
 
