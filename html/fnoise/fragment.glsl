@@ -288,10 +288,10 @@ float billow(vec3 P, float f, float lac, float per, float seed) {
 
 void main(void) {
   vec3 s_pos = vec3(aspect*pos.x + p, pos.y + p, p);
-  vec3 ps = turbulence_shift(s_pos, 0.02, 1);
+  vec3 ps = turbulence_shift(s_pos, 0.05, 1);
   float noise = perlin_noise(ps);
   float b_noise = billow(s_pos, 0.2, 2.0, 0.5, 1.0);
-  vec4 color = color_px(0.5*(noise+b_noise), p);
+  vec4 color = color_px((noise+b_noise+noise*b_noise)/3.0, p);
   gl_FragColor = color;
 }
 
