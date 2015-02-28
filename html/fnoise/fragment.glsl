@@ -252,6 +252,8 @@ float make_32_r(float value) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
+#define OCTAVES_B 4
+
 float billow(vec3 P, float f, float lac, float per, float seed) {
 
     float x = P.x;
@@ -267,7 +269,7 @@ float billow(vec3 P, float f, float lac, float per, float seed) {
     y *= f;
     z *= f;
 
-    for(int i = 0; i < OCTAVES; i++) {
+    for(int i = 0; i < OCTAVES_B; i++) {
         nx = make_32_r(x+2.0*seed);
         ny = make_32_r(y+3.0*seed);
         nz = make_32_r(z+4.0*seed);
@@ -290,7 +292,7 @@ void main(void) {
   vec3 s_pos = vec3(aspect*pos.x + p, pos.y + p, p);
   vec3 ps = turbulence_shift(s_pos, 0.02, 1);
   float noise = perlin_noise(ps);
-  float b_noise = billow(ps, 0.1, 2.0, 0.5, 1.0);
+  float b_noise = billow(s_pos, 0.1, 2.0, 0.5, 1.0);
   vec4 color = color_px(b_noise, p);
   gl_FragColor = color;
 }
