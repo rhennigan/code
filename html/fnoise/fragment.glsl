@@ -243,9 +243,9 @@ vec3 turbulence_shift(vec3 P, float power, int seed) {
     vec3 v1 = s + vec3(P.x+X1, P.y+Y1, P.z+Z1);
     vec3 v2 = s + vec3(P.x+X2, P.y+Y2, P.z+Z2);
     
-    float xD = perlin_noise(v0);
-    float yD = perlin_noise(v1);
-    float zD = perlin_noise(v2);
+    float xD = perlin_noise4(v0);
+    float yD = perlin_noise4(v1);
+    float zD = perlin_noise4(v2);
     
     float xd = P.x + power * xD;
     float yd = P.y + power * yD;
@@ -288,7 +288,7 @@ float billow(vec3 P, float f, float lac, float per, float seed) {
         ny = make_32_r(y+3.0*seed);
         nz = make_32_r(z+4.0*seed);
         seed = seed + float(i);
-        signal = perlin_noise(vec3(nx, ny, nz));
+        signal = perlin_noise4(vec3(nx, ny, nz));
         signal = 2.0 * abs(signal) - 1.0;
         value += signal * curp;
         x *= lac;
@@ -304,8 +304,8 @@ float billow(vec3 P, float f, float lac, float per, float seed) {
 
 void main(void) {
   vec3 s_pos = vec3(aspect*pos.x + p, pos.y + p, p);
-  vec3 ps = turbulence_shift(s_pos, 0.01, 1);
-  float noise = perlin_noise(ps);
+  vec3 ps = turbulence_shift(s_pos, 0.03, 1);
+  float noise = perlin_noise8(ps);
   float b_noise = billow(s_pos, 0.2, 2.0, 0.5, 1.0);
   vec4 color = color_px((noise+b_noise+noise*b_noise)/3.0, p);
   gl_FragColor = color;
