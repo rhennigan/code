@@ -2,6 +2,50 @@
 (function() {
   var IO, cb, err, fragmentShader, load, vertexShader;
 
+  IO = (function() {
+    function IO() {}
+
+    return IO;
+
+  })();
+
+  IO.prototype.load = function(url, store, cb, cbErr) {
+    var req;
+    req = new XMLHttpRequest();
+    req.open('GET', url, true);
+    req.onreadystatechange = function() {
+      if (req.readyState === 4) {
+        if (req.status === 200) {
+          return cb(store, req.responseText);
+        } else {
+          return cbErr(url);
+        }
+      }
+    };
+    return req.send(null);
+  };
+
+  cb = function(sh, txt) {
+    sh.text = txt;
+    return console.log(sh.text);
+  };
+
+  err = function(url) {
+    return alert("failed to load " + url);
+  };
+
+  vertexShader = {
+    text: null
+  };
+
+  fragmentShader = {
+    text: null
+  };
+
+  IO.prototype.load('vertex.glsl', vertexShader, cb, err);
+
+  IO.prototype.load('fragment.glsl', fragmentShader, cb, err);
+
   PhiloGL.unpack();
 
   load = function() {
@@ -100,50 +144,6 @@
   };
 
   load();
-
-  IO = (function() {
-    function IO() {}
-
-    return IO;
-
-  })();
-
-  IO.prototype.load = function(url, store, cb, cbErr) {
-    var req;
-    req = new XMLHttpRequest();
-    req.open('GET', url, true);
-    req.onreadystatechange = function() {
-      if (req.readyState === 4) {
-        if (req.status === 200) {
-          return cb(store, req.responseText);
-        } else {
-          return cbErr(url);
-        }
-      }
-    };
-    return req.send(null);
-  };
-
-  cb = function(sh, txt) {
-    sh.text = txt;
-    return console.log(sh.text);
-  };
-
-  err = function(url) {
-    return alert("failed to load " + url);
-  };
-
-  vertexShader = {
-    text: null
-  };
-
-  fragmentShader = {
-    text: null
-  };
-
-  IO.prototype.load('vertex.glsl', vertexShader, cb, err);
-
-  IO.prototype.load('fragment.glsl', fragmentShader, cb, err);
 
 }).call(this);
 
