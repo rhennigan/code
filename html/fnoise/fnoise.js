@@ -49,12 +49,15 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusTurb, canvas, frameIndex, frameLast, frameTimes;
+    var aspect, btnPlusTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, persistence, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
     frameLast = 0;
     frameIndex = 0;
+    turbulence = 0.02;
+    persistence = 2.0;
+    lacunarity = 2.0;
     if (PhiloGL.hasWebGL() === !true) {
       alert("Your browser does not support WebGL");
     }
@@ -114,10 +117,9 @@
     btnPlusTurb = document.getElementById('turbulence+');
     return btnPlusTurb.addEventListener("click", (function(_this) {
       return function(e) {
-        var order;
-        order = order >= 30 ? 30 : order + 1;
-        document.getElementById('orderTxt').value = order;
-        return console.log(order);
+        turbulence = turbulence >= 1.0 ? 1.0 : turbulence + 0.001;
+        document.getElementById('turbulenceTxt').value = turbulence;
+        return console.log(turbulence);
       };
     })(this));
   };
