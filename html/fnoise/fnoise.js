@@ -49,7 +49,7 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusPers, btnPlusTurb, btnSubPers, btnSubTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, persistence, turbulence;
+    var aspect, btnPlusLac, btnPlusPers, btnPlusTurb, btnSubPers, btnSubTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, persistence, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
@@ -146,20 +146,20 @@
         return console.log(persistence);
       };
     })(this));
-    btnPlusPers = document.getElementById('persistence+');
-    btnPlusPers.addEventListener("click", (function(_this) {
+    btnPlusLac = document.getElementById('lacunarity+');
+    btnPlusLac.addEventListener("click", (function(_this) {
       return function(e) {
-        persistence = persistence >= 5.0 ? 5.0 : persistence + 0.1;
-        document.getElementById('persistenceTxt').value = persistence;
-        return console.log(persistence);
+        lacunarity = lacunarity >= 5.0 ? 5.0 : lacunarity + 0.1;
+        document.getElementById('lacunarityTxt').value = lacunarity;
+        return console.log(lacunarity);
       };
     })(this));
-    btnSubPers = document.getElementById('persistence+');
-    return btnSubPers.addEventListener("click", (function(_this) {
+    btnPlusLac = document.getElementById('lacunarity+');
+    return btnPlusLac.addEventListener("click", (function(_this) {
       return function(e) {
-        persistence = persistence <= 0.0 ? 0.0 : persistence - 0.1;
-        document.getElementById('persistenceTxt').value = persistence;
-        return console.log(persistence);
+        lacunarity = lacunarity <= 0.0 ? 0.0 : lacunarity - 0.1;
+        document.getElementById('lacunarityTxt').value = lacunarity;
+        return console.log(lacunarity);
       };
     })(this));
   };
