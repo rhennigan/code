@@ -72,8 +72,6 @@ vec4 color_px(float val, float p) {
   const float p2 = 0.50;
   const float p3 = 0.75;
 
-  float t = 0.5 * (sin(4.0 * p) + 1.0);
-
   vec4 col = vec4(0.0, 0.0, 0.0, 1.0);
   float v = S(val, 0.0, 1.0);
   if (v <= -0.00001) {
@@ -83,9 +81,9 @@ vec4 color_px(float val, float p) {
   } else if (v < p1) {
     float t2 = INT(v, 0.0, p1);
     float t1 = 1.0 - t2;
-    col[0] = t1 * c11 + t2 * (t*c21+(1.0-t)*cr1);
-    col[1] = t1 * c12 + t2 * (t*c22+(1.0-t)*cr2);
-    col[2] = t1 * c13 + t2 * (t*c23+(1.0-t)*cr3);
+    col[0] = t1 * c11 + t2 * c21;
+    col[1] = t1 * c12 + t2 * c22;
+    col[2] = t1 * c13 + t2 * c23;
   } else if (v < p2) {
     float t2 = INT(v, p1, p2);
     float t1 = 1.0 - t2;
