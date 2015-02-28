@@ -188,12 +188,28 @@ float snoise(vec3 v) {
 
 #define OCTAVES 4
 
-float perlin_noise(vec3 P) {
+float perlin_noise4(vec3 P) {
   float n = 0.0;
   float div = 1.0;
   float mul = 1.0;
 
-  for (int i = 0; i < OCTAVES; i++) {
+  for (int i = 0; i < 4; i++) {
+    div /= 2.0;
+    mul *= 2.0;
+    n+= div * abs(snoise(P*mul));
+  }
+
+  float rn = 1.0 - n;
+
+  return rn * rn;
+}
+
+float perlin_noise8(vec3 P) {
+  float n = 0.0;
+  float div = 1.0;
+  float mul = 1.0;
+
+  for (int i = 0; i < 8; i++) {
     div /= 2.0;
     mul *= 2.0;
     n+= div * abs(snoise(P*mul));
@@ -288,7 +304,7 @@ float billow(vec3 P, float f, float lac, float per, float seed) {
 
 void main(void) {
   vec3 s_pos = vec3(aspect*pos.x + p, pos.y + p, p);
-  vec3 ps = turbulence_shift(s_pos, 0.05, 1);
+  vec3 ps = turbulence_shift(s_pos, 0.01, 1);
   float noise = perlin_noise(ps);
   float b_noise = billow(s_pos, 0.2, 2.0, 0.5, 1.0);
   vec4 color = color_px((noise+b_noise+noise*b_noise)/3.0, p);
