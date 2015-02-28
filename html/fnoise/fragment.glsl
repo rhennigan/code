@@ -55,6 +55,447 @@ vec4 orthonormalize(vec4 v1, vec4 v2)
 
 ////////////////////////////////////////////////////////////////////////////////
 
+float mix1d(float a, float b, float t)
+{
+    float ba = b - a;
+    float tba = t * ba;
+    float atba = a + tba;
+    return atba;    
+}
+ 
+vec2 mix2d(vec2 a, vec2 b, float t)
+{
+    vec2 ba = b - a;
+    vec2 tba = t * ba;
+    vec2 atba = a + tba;
+    return atba;    
+}
+ 
+vec4 mix3d(vec4 a, vec4 b, float t)
+{
+    vec4 ba = b - a;
+    vec4 tba = t * ba;
+    vec4 atba = a + tba;
+    return atba;    
+}
+
+//vec4 mix4d(vec4 a, vec4 b, float t)
+//{
+//    vec4 ba = b - a;
+//    vec4 tba = t * ba;
+//    vec4 atba = a + tba;
+//    return atba;    
+//}
+
+////////////////////////////////////////////////////////////////////////////////
+// Lattice points
+////////////////////////////////////////////////////////////////////////////////
+ 
+int lattice1d(int i)
+{
+    return P[i];
+}
+ 
+int lattice2d(int2 i)
+{
+    return P[i.x + P[i.y]];
+}
+ 
+int lattice3d(int4 i)
+{
+    return P[i.x + P[i.y + P[i.z]]];
+}
+
+//int lattice4d(int4 i)
+//{
+//    return P[i.x + P[i.y + P[i.z + P[i.w]]]];
+//}
+
+////////////////////////////////////////////////////////////////////////////////
+// Gradients
+////////////////////////////////////////////////////////////////////////////////
+
+float gradient1d(int i, float v)
+{
+    int index = (lattice1d(i) & G_MASK) * G_VECSIZE;
+    float g = G[index + 0];
+    return (v * g);
+}
+ 
+float gradient2d(int2 i, vec2 v)
+{
+    int index = (lattice2d(i) & G_MASK) * G_VECSIZE;
+    vec2 g = (vec2)(G[index + 0], G[index + 1]);
+    return dot(v, g);
+}
+ 
+float gradient3d(int4 i, vec4 v)
+{
+    int index = (lattice3d(i) & G_MASK) * G_VECSIZE;
+    vec4 g = (vec4)(G[index + 0], G[index + 1], G[index + 2], 1.0f);
+    return dot(v, g);
+}
+
+//float gradient4d(int4 i, vec4 v)
+//{
+//    int index = (lattice4d(i) & G_MASK) * G_VECSIZE;
+//    vec4 g = (vec4)(G[index + 0], G[index + 1], G[index + 2], G[index + 3]);
+//    return dot(v, g);
+//}
+
+////////////////////////////////////////////////////////////////////////////////
+// Signed gradient noise
+////////////////////////////////////////////////////////////////////////////////
+
+float sgnoise1d(float position)
+{
+    float p = position;
+    float pf = floor(p);
+    int ip = (int)pf;
+    float fp = p - pf;        
+    ip &= P_MASK;
+    
+    float n0 = gradient1d(ip + 0, fp - 0.0f);
+    float n1 = gradient1d(ip + 1, fp - 1.0f);
+ 
+    float n = mix1d(n0, n1, smooth(fp));
+    return n * (1.0f / 0.7f);
+}
+ 
+float sgnoise2d(vec2 position)
+{
+    vec2 p = position;
+    vec2 pf = floor(p);
+    int2 ip = (int2)((int)pf.x, (int)pf.y);
+    vec2 fp = p - pf;        
+    ip &= P_MASK;
+    
+    const int2 I00 = (int2)(0, 0);
+    const int2 I01 = (int2)(0, 1);
+    const int2 I10 = (int2)(1, 0);
+    const int2 I11 = (int2)(1, 1);
+    
+    const vec2 F00 = (vec2)(0.0f, 0.0f);
+    const vec2 F01 = (vec2)(0.0f, 1.0f);
+    const vec2 F10 = (vec2)(1.0f, 0.0f);
+    const vec2 F11 = (vec2)(1.0f, 1.0f);
+ 
+    float n00 = gradient2d(ip + I00, fp - F00);
+    float n10 = gradient2d(ip + I10, fp - F10);
+    float n01 = gradient2d(ip + I01, fp - F01);
+    float n11 = gradient2d(ip + I11, fp - F11);
+ 
+    const vec2 n0001 = (vec2)(n00, n01);
+    const vec2 n1011 = (vec2)(n10, n11);
+ 
+    vec2 n2 = mix2d(n0001, n1011, smooth(fp.x));
+    float n = mix1d(n2.x, n2.y, smooth(fp.y));
+    return n * (1.0f / 0.7f);
+}
+ 
+float sgnoise3d(vec4 position)
+{
+ 
+    vec4 p = position;
+    vec4 pf = floor(p);
+    int4 ip = (int4)((int)pf.x, (int)pf.y, (int)pf.z, 0.0);
+    vec4 fp = p - pf;        
+    ip &= P_MASK;
+ 
+    int4 I000 = (int4)(0, 0, 0, 0);
+    int4 I001 = (int4)(0, 0, 1, 0);  
+    int4 I010 = (int4)(0, 1, 0, 0);
+    int4 I011 = (int4)(0, 1, 1, 0);
+    int4 I100 = (int4)(1, 0, 0, 0);
+    int4 I101 = (int4)(1, 0, 1, 0);
+    int4 I110 = (int4)(1, 1, 0, 0);
+    int4 I111 = (int4)(1, 1, 1, 0);
+    
+    vec4 F000 = (vec4)(0.0f, 0.0f, 0.0f, 0.0f);
+    vec4 F001 = (vec4)(0.0f, 0.0f, 1.0f, 0.0f);
+    vec4 F010 = (vec4)(0.0f, 1.0f, 0.0f, 0.0f);
+    vec4 F011 = (vec4)(0.0f, 1.0f, 1.0f, 0.0f);
+    vec4 F100 = (vec4)(1.0f, 0.0f, 0.0f, 0.0f);
+    vec4 F101 = (vec4)(1.0f, 0.0f, 1.0f, 0.0f);
+    vec4 F110 = (vec4)(1.0f, 1.0f, 0.0f, 0.0f);
+    vec4 F111 = (vec4)(1.0f, 1.0f, 1.0f, 0.0f);
+    
+    float n000 = gradient3d(ip + I000, fp - F000);
+    float n001 = gradient3d(ip + I001, fp - F001);
+    
+    float n010 = gradient3d(ip + I010, fp - F010);
+    float n011 = gradient3d(ip + I011, fp - F011);
+    
+    float n100 = gradient3d(ip + I100, fp - F100);
+    float n101 = gradient3d(ip + I101, fp - F101);
+ 
+    float n110 = gradient3d(ip + I110, fp - F110);
+    float n111 = gradient3d(ip + I111, fp - F111);
+ 
+    vec4 n40 = (vec4)(n000, n001, n010, n011);
+    vec4 n41 = (vec4)(n100, n101, n110, n111);
+ 
+    vec4 n4 = mix3d(n40, n41, smooth(fp.x));
+    vec2 n2 = mix2d(n4.xy, n4.zw, smooth(fp.y));
+    float n = mix1d(n2.x, n2.y, smooth(fp.z));
+    return n * (1.0f / 0.7f);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Unsigned gradient noise
+////////////////////////////////////////////////////////////////////////////////
+ 
+float ugnoise1d(float position)
+{
+    return (0.5f - 0.5f * sgnoise1d(position));
+}
+
+float ugnoise2d(vec2 position)
+{
+    return (0.5f - 0.5f * sgnoise2d(position));
+}
+
+float ugnoise3d(vec4 position)
+{
+    return (0.5f - 0.5f * sgnoise3d(position));
+}
+ 
+////////////////////////////////////////////////////////////////////////////////
+
+float turbulence3d(
+    vec4 position, 
+    float frequency,
+    float lacunarity, 
+    float increment, 
+    float octaves)
+{
+    int i = 0;
+    float fi = 0.0f;
+    float remainder = 0.0f; 
+    float sample = 0.0f;    
+    float value = 0.0f;
+    int iterations = (int)octaves;
+    
+    for (i = 0; i < iterations; i++)
+    {
+        fi = (float)i;
+        sample = (1.0f - 2.0f * sgnoise3d(position * frequency));
+        sample *= pow( lacunarity, -fi * increment );
+        value += fabs(sample);
+        frequency *= lacunarity;
+    }
+    
+    remainder = octaves - (float)iterations;
+    if ( remainder > 0.0f )
+    {
+        sample = remainder * (1.0f - 2.0f * sgnoise3d(position * frequency));
+        sample *= pow( lacunarity, -fi * increment );
+        value += fabs(sample);
+    }
+        
+    return value;   
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+float MakeInt32Range(float value)
+{
+    if (value >= 1073741824.0f) 
+    {
+        return (2.0f * remainder(value, 1073741824.0f)) - 1073741824.0f; 
+    }
+    else if (value <= -1073741824.0f) 
+    {
+        return (2.0f * remainder(value, 1073741824.0f)) + 1073741824.0f;
+    }
+    else
+    {
+        return value;
+    }
+    
+}
+
+float GradientCoherentNoise3D(float x, float y, float z, int seed)
+{
+    float s = (float)seed;
+    vec4 pos = (vec4)(x+s, y+s, z+s, 0.0f);
+    
+    return sgnoise3d(pos);
+}
+
+float Perlin(float x, float y, float z, 
+    float frequency, float lacunarity, float persistence,
+    int octaves, int seed)
+{
+    seed = seed + 0;
+    
+    float value = 0.0f;
+    float signal = 0.0f;
+    float cp = 1.0f;
+    
+    x *= frequency;
+    y *= frequency;
+    z *= frequency;
+    for (int i = 0; i < octaves; i++)
+    {
+        float nx = MakeInt32Range(x);
+        float ny = MakeInt32Range(y);
+        float nz = MakeInt32Range(z);
+        seed = (seed + i) & 0xffffffff;
+        signal = GradientCoherentNoise3D(nx, ny, nz, seed);
+        value += signal * cp;
+        x *= lacunarity;
+        y *= lacunarity;
+        z *= lacunarity;
+        cp *= persistence;
+    }
+    return value;
+}
+
+float RidgedMultifractal(float x, float y, float z, 
+    float frequency, float lacunarity, int octaves, 
+    int seed)
+{
+    
+    x *= frequency;
+    y *= frequency;
+    z *= frequency;
+    
+    float signal = 0.0f;
+    float value = 0.0f;
+    float weight = 1.0f;
+    float offset = 1.0f;
+    float gain = 2.0f;
+    float f = 1.0f;
+    
+    for(int i = 0; i < octaves; i++)
+    {
+        float nx = MakeInt32Range(x);
+        float ny = MakeInt32Range(y);
+        float nz = MakeInt32Range(z);
+        seed = (seed + i) & 0x7fffffff;
+        signal = GradientCoherentNoise3D(nx, ny, nz, seed);
+        signal = fabs(signal);
+        signal = offset - signal;
+        signal *= signal;
+        signal *= weight;
+        weight = signal * gain;
+        if (weight > 1.0f) { weight = 1.0f; }
+        if (weight < 0.0f) { weight = 0.0f; }
+        value += (signal * pow(f, -1.0f));
+        f *= lacunarity;
+        x *= lacunarity;
+        y *= lacunarity;
+        z *= lacunarity;
+    }
+    
+    return (value * 1.25f) - 1.0f;
+}
+
+float Billow(float x, float y, float z, 
+    float frequency, float lacunarity, float persistence,
+    int octaves, int seed)
+{
+    float value = 0.0f;
+    float signal = 0.0f;
+    float curp = 1.0f;
+    float nx, ny, nz;
+    x *= frequency;
+    y *= frequency;
+    z *= frequency;
+    for(int i = 0; i < octaves; i++)
+    {
+        nx = MakeInt32Range(x);
+        ny = MakeInt32Range(y);
+        nz = MakeInt32Range(z);
+        seed = (seed + i) & 0x7fffffff;
+        signal = GradientCoherentNoise3D(nx, ny, nz, seed);
+        signal = 2.0f * fabs(signal) - 1.0f;
+        value += signal * curp;
+        x *= lacunarity;
+        y *= lacunarity;
+        z *= lacunarity;
+        curp *= persistence;
+    }
+
+    return value + 0.5f;
+}
+
+float ScaleBias(float value, float scale, float bias)
+{
+    return value * scale + bias;
+}
+
+float MapCubicSCurve(float value)
+{
+    return (value * value * (3.0f - 2.0f * value));
+}
+
+float InterpolateLinear(float a, float b, float position)
+{
+    return ((1.0f - position) * a) + (position * b);
+}
+
+float Select(float value1, float value2, float selector, 
+    float selectMin, float selectMax, float fallOff)
+{
+    float cv = selector;
+    if (fallOff > 0.0f)
+    {
+        if (cv < (selectMin - fallOff)) { return value1; }
+        else if (cv < (selectMin + fallOff))
+        {
+            float lc = (selectMin - fallOff);
+            float uc = (selectMin + fallOff);
+            float a = MapCubicSCurve((cv - lc) / (uc - lc));
+            return InterpolateLinear(value1, value2, a);
+
+        }
+        else if (cv < (selectMax - fallOff)) { return value2; }
+        else if (cv < (selectMax + fallOff))
+        {
+            float lc = (selectMax - fallOff);
+            float uc = (selectMax + fallOff);
+            float a = MapCubicSCurve((cv - lc) / (uc - lc));
+            return InterpolateLinear(value2, value1, a);
+
+        }
+        return value1;
+    }
+    else
+    {
+        if (cv < selectMin || cv > selectMax) { return value1; }
+        return value2;
+    }
+}
+
+vec4 TurbulenceShift(
+    float x, float y, float z,
+    float power, float frequency, 
+    int octaves, int seed)
+{
+    float X0 = (12414.0f / 65536.0f);
+    float Y0 = (65124.0f / 65536.0f);
+    float Z0 = (31337.0f / 65536.0f);
+    float X1 = (26519.0f / 65536.0f);
+    float Y1 = (18128.0f / 65536.0f);
+    float Z1 = (60493.0f / 65536.0f);
+    float X2 = (53820.0f / 65536.0f);
+    float Y2 = (11213.0f / 65536.0f);
+    float Z2 = (44845.0f / 65536.0f);
+    
+    float xD = Perlin(x+X0, y+Y0, z+Z0, frequency, 2.0f, 0.5f, octaves, seed+0);
+    float yD = Perlin(x+X1, y+Y1, z+Z1, frequency, 2.0f, 0.5f, octaves, seed+1);
+    float zD = Perlin(x+X2, y+Y2, z+Z2, frequency, 2.0f, 0.5f, octaves, seed+2);
+    
+    float xd = x + power * xD;
+    float yd = y + power * yD;
+    float zd = z + power * zD;
+    return (vec4)(xd, yd, zd, 0.0f);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 
 #define SCALE 65.0
 #define MAG 5.0
