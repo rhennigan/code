@@ -75,7 +75,8 @@ precision highp float;
 #define c53 1.000
 
 uniform sampler2D sampler1;
-uniform P[512];
+uniform int P[512];
+uniform int order;
 uniform float p;
 uniform float aspect;
 
