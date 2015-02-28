@@ -227,9 +227,9 @@ vec3 turbulence_shift(vec3 P, float power, int seed) {
     float yD = perlin_noise(v1);
     float zD = perlin_noise(v2);
     
-    float xd = x + power * xD;
-    float yd = y + power * yD;
-    float zd = z + power * zD;
+    float xd = P.x + power * xD;
+    float yd = P.y + power * yD;
+    float zd = P.z + power * zD;
 
     return vec3(xd, yd, zd);
 }
