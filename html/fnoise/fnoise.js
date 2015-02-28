@@ -138,7 +138,7 @@
         return console.log(persistence);
       };
     })(this));
-    btnSubPers = document.getElementById('persistence+');
+    btnSubPers = document.getElementById('persistence-');
     btnSubPers.addEventListener("click", (function(_this) {
       return function(e) {
         persistence = persistence <= 0.0 ? 0.0 : persistence - 0.1;
@@ -154,7 +154,7 @@
         return console.log(lacunarity);
       };
     })(this));
-    btnPlusLac = document.getElementById('lacunarity+');
+    btnPlusLac = document.getElementById('lacunarity-');
     return btnPlusLac.addEventListener("click", (function(_this) {
       return function(e) {
         lacunarity = lacunarity <= 0.0 ? 0.0 : lacunarity - 0.1;
