@@ -61,7 +61,7 @@ vec3 smooth(vec3 v) {
 }
 
 vec4 shuffle(vec4 v) {
-  float f = (v * (SHFL * v + 1.0)) / WRAP;
+  vec4 f = (v * (SHFL * v + 1.0)) / WRAP;
   return -WRAP * floor(f) + SHFL * v * v + v;
 }
 
@@ -182,7 +182,7 @@ float perlin_noise(vec3 P) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void main(void) {
-  float noise = perlin_noise(vec3(pos.x, pos.y, p));
+  float noise = perlin_noise(10.0*vec3(pos.x, pos.y, p));
   vec4 color = color_px(noise, p);
   gl_FragColor = color;
 }
