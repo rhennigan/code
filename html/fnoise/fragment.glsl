@@ -159,15 +159,15 @@ float gradient1d(int i, float v)
 
 float gradient2d(ivec2 i, vec2 v)
 {
-    int index = int(mod(float(lattice2d(i)), float(G_MASK))) * G_VECSIZE;
+    int index = int(mod(float(lattice2d(i)), float(G_SIZE))) * G_VECSIZE;
     vec2 g = vec2(G[index + 0], G[index + 1]);
     return dot(v, g);
 }
  
 float gradient3d(ivec4 i, vec4 v)
 {
-    int index = (lattice3d(i) & G_MASK) * G_VECSIZE;
-    vec4 g = vec4(G[index + 0], G[index + 1], G[index + 2], 1.0f);
+    int index = int(mod(float(lattice3d(i)), float(G_SIZE))) * G_VECSIZE;
+    vec4 g = vec4(G[index + 0], G[index + 1], G[index + 2], 1.0);
     return dot(v, g);
 }
 
