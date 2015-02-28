@@ -1,20 +1,17 @@
 class IO
 
-IO::load = (url, cb, cbErr) ->
+IO::load = (url, store, cb, cbErr) ->
   req = new XMLHttpRequest()
   req.open('GET', url, true)
 
   req.onreadystatechange = () ->
     if req.readyState == 4
       if req.status == 200
-        cb(req.responseText)
+        cb(store, req.responseText)
       else
         cbErr(url)
 
   req.send(null)
-
-vertexShader = {text: null}
-fragmentShader = {text: null}
 
 cb = (sh, txt) -> 
   sh.text = txt
@@ -23,6 +20,8 @@ cb = (sh, txt) ->
 err = (url) ->
   alert "failed to load #{url}"
 
+vertexShader = {text: null}
+fragmentShader = {text: null}
 IO::load('vertex.glsl', cb, err)
 # IO::loads = (urls, cb, cbErr) ->
 #   numUrls = urls.length

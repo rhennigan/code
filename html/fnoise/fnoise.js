@@ -108,28 +108,20 @@
 
   })();
 
-  IO.prototype.load = function(url, cb, cbErr) {
+  IO.prototype.load = function(url, store, cb, cbErr) {
     var req;
     req = new XMLHttpRequest();
     req.open('GET', url, true);
     req.onreadystatechange = function() {
       if (req.readyState === 4) {
         if (req.status === 200) {
-          return cb(req.responseText);
+          return cb(store, req.responseText);
         } else {
           return cbErr(url);
         }
       }
     };
     return req.send(null);
-  };
-
-  vertexShader = {
-    text: null
-  };
-
-  fragmentShader = {
-    text: null
   };
 
   cb = function(sh, txt) {
@@ -139,6 +131,14 @@
 
   err = function(url) {
     return alert("failed to load " + url);
+  };
+
+  vertexShader = {
+    text: null
+  };
+
+  fragmentShader = {
+    text: null
   };
 
   IO.prototype.load('vertex.glsl', cb, err);
