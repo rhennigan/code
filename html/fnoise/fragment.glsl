@@ -303,8 +303,8 @@ float billow(vec3 P, float f, float lac, float per, float seed) {
 ////////////////////////////////////////////////////////////////////////////////
 
 #define turbulence  0.02
-#define persistence 2.2
-#define lacunarity  2.0
+#define persistence 2.8
+#define lacunarity  2.5
 
 void main(void) {
   vec3 s_pos = vec3(aspect*pos.x + p, pos.y + p, p);
