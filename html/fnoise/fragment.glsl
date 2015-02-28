@@ -265,8 +265,8 @@ float perlin_noise(vec3 P) {
   float mul = 1.0;
 
   for (int i = 0; i < OCTAVES; i++) {
-    div /= 2.5;
-    mul *= 2.2;
+    div /= 1.93;
+    mul *= 2.11;
     n+= div * abs(snoise(P*mul));
   }
 
