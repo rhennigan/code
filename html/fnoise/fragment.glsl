@@ -112,8 +112,8 @@ vec4 color_px(float val, float p) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#define N   7.0
-#define NN 49.0
+#define N   8.0
+#define NN 64.0
 
 float snoise(vec3 v) {
   const vec2 C = vec2(1.0/6.0, 1.0/3.0);
