@@ -74,7 +74,7 @@ vec4 normalized(vec4 v)
     float d = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
     d = d > 0.0 ? d : 1.0;
     vec4 result = vec4(v.x, v.y, v.z, 0.0) / d;
-    //result.w = 1.0f;
+    //result.w = 1.0;
     return result;
 }
 
@@ -306,25 +306,25 @@ float turbulence3d(
     float octaves)
 {
     int i = 0;
-    float fi = 0.0f;
-    float remainder = 0.0f; 
-    float sample = 0.0f;    
-    float value = 0.0f;
-    int iterations = (int)octaves;
+    float fi = 0.0;
+    float remainder = 0.0; 
+    float sample = 0.0;    
+    float value = 0.0;
+    int iterations = int(octaves);
     
     for (i = 0; i < iterations; i++)
     {
-        fi = (float)i;
-        sample = (1.0f - 2.0f * sgnoise3d(position * frequency));
+        fi = float(i);
+        sample = (1.0 - 2.0 * sgnoise3d(position * frequency));
         sample *= pow( lacunarity, -fi * increment );
-        value += fabs(sample);
+        value += abs(sample);
         frequency *= lacunarity;
     }
     
-    remainder = octaves - (float)iterations;
-    if ( remainder > 0.0f )
+    remainder = octaves - float(iterations);
+    if ( remainder > 0.0 )
     {
-        sample = remainder * (1.0f - 2.0f * sgnoise3d(position * frequency));
+        sample = remainder * (1.0 - 2.0 * sgnoise3d(position * frequency));
         sample *= pow( lacunarity, -fi * increment );
         value += fabs(sample);
     }
@@ -336,13 +336,13 @@ float turbulence3d(
 
 float MakeInt32Range(float value)
 {
-    if (value >= 1073741824.0f) 
+    if (value >= 1073741824.0) 
     {
-        return (2.0f * remainder(value, 1073741824.0f)) - 1073741824.0f; 
+        return (2.0 * remainder(value, 1073741824.0)) - 1073741824.0; 
     }
-    else if (value <= -1073741824.0f) 
+    else if (value <= -1073741824.0) 
     {
-        return (2.0f * remainder(value, 1073741824.0f)) + 1073741824.0f;
+        return (2.0 * remainder(value, 1073741824.0)) + 1073741824.0;
     }
     else
     {
@@ -354,7 +354,7 @@ float MakeInt32Range(float value)
 float GradientCoherentNoise3D(float x, float y, float z, int seed)
 {
     float s = (float)seed;
-    vec4 pos = (vec4)(x+s, y+s, z+s, 0.0f);
+    vec4 pos = (vec4)(x+s, y+s, z+s, 0.0);
     
     return sgnoise3d(pos);
 }
@@ -365,9 +365,9 @@ float Perlin(float x, float y, float z,
 {
     seed = seed + 0;
     
-    float value = 0.0f;
-    float signal = 0.0f;
-    float cp = 1.0f;
+    float value = 0.0;
+    float signal = 0.0;
+    float cp = 1.0;
     
     x *= frequency;
     y *= frequency;
@@ -397,12 +397,12 @@ float RidgedMultifractal(float x, float y, float z,
     y *= frequency;
     z *= frequency;
     
-    float signal = 0.0f;
-    float value = 0.0f;
-    float weight = 1.0f;
-    float offset = 1.0f;
-    float gain = 2.0f;
-    float f = 1.0f;
+    float signal = 0.0;
+    float value = 0.0;
+    float weight = 1.0;
+    float offset = 1.0;
+    float gain = 2.0;
+    float f = 1.0;
     
     for(int i = 0; i < octaves; i++)
     {
@@ -416,25 +416,25 @@ float RidgedMultifractal(float x, float y, float z,
         signal *= signal;
         signal *= weight;
         weight = signal * gain;
-        if (weight > 1.0f) { weight = 1.0f; }
-        if (weight < 0.0f) { weight = 0.0f; }
-        value += (signal * pow(f, -1.0f));
+        if (weight > 1.0) { weight = 1.0; }
+        if (weight < 0.0) { weight = 0.0; }
+        value += (signal * pow(f, -1.0));
         f *= lacunarity;
         x *= lacunarity;
         y *= lacunarity;
         z *= lacunarity;
     }
     
-    return (value * 1.25f) - 1.0f;
+    return (value * 1.25f) - 1.0;
 }
 
 float Billow(float x, float y, float z, 
     float frequency, float lacunarity, float persistence,
     int octaves, int seed)
 {
-    float value = 0.0f;
-    float signal = 0.0f;
-    float curp = 1.0f;
+    float value = 0.0;
+    float signal = 0.0;
+    float curp = 1.0;
     float nx, ny, nz;
     x *= frequency;
     y *= frequency;
@@ -446,7 +446,7 @@ float Billow(float x, float y, float z,
         nz = MakeInt32Range(z);
         seed = (seed + i) & 0x7fffffff;
         signal = GradientCoherentNoise3D(nx, ny, nz, seed);
-        signal = 2.0f * fabs(signal) - 1.0f;
+        signal = 2.0 * fabs(signal) - 1.0;
         value += signal * curp;
         x *= lacunarity;
         y *= lacunarity;
@@ -464,19 +464,19 @@ float ScaleBias(float value, float scale, float bias)
 
 float MapCubicSCurve(float value)
 {
-    return (value * value * (3.0f - 2.0f * value));
+    return (value * value * (3.0 - 2.0 * value));
 }
 
 float InterpolateLinear(float a, float b, float position)
 {
-    return ((1.0f - position) * a) + (position * b);
+    return ((1.0 - position) * a) + (position * b);
 }
 
 float Select(float value1, float value2, float selector, 
     float selectMin, float selectMax, float fallOff)
 {
     float cv = selector;
-    if (fallOff > 0.0f)
+    if (fallOff > 0.0)
     {
         if (cv < (selectMin - fallOff)) { return value1; }
         else if (cv < (selectMin + fallOff))
@@ -510,24 +510,24 @@ vec4 TurbulenceShift(
     float power, float frequency, 
     int octaves, int seed)
 {
-    float X0 = (12414.0f / 65536.0f);
-    float Y0 = (65124.0f / 65536.0f);
-    float Z0 = (31337.0f / 65536.0f);
-    float X1 = (26519.0f / 65536.0f);
-    float Y1 = (18128.0f / 65536.0f);
-    float Z1 = (60493.0f / 65536.0f);
-    float X2 = (53820.0f / 65536.0f);
-    float Y2 = (11213.0f / 65536.0f);
-    float Z2 = (44845.0f / 65536.0f);
+    float X0 = (12414.0 / 65536.0);
+    float Y0 = (65124.0 / 65536.0);
+    float Z0 = (31337.0 / 65536.0);
+    float X1 = (26519.0 / 65536.0);
+    float Y1 = (18128.0 / 65536.0);
+    float Z1 = (60493.0 / 65536.0);
+    float X2 = (53820.0 / 65536.0);
+    float Y2 = (11213.0 / 65536.0);
+    float Z2 = (44845.0 / 65536.0);
     
-    float xD = Perlin(x+X0, y+Y0, z+Z0, frequency, 2.0f, 0.5f, octaves, seed+0);
-    float yD = Perlin(x+X1, y+Y1, z+Z1, frequency, 2.0f, 0.5f, octaves, seed+1);
-    float zD = Perlin(x+X2, y+Y2, z+Z2, frequency, 2.0f, 0.5f, octaves, seed+2);
+    float xD = Perlin(x+X0, y+Y0, z+Z0, frequency, 2.0, 0.5f, octaves, seed+0);
+    float yD = Perlin(x+X1, y+Y1, z+Z1, frequency, 2.0, 0.5f, octaves, seed+1);
+    float zD = Perlin(x+X2, y+Y2, z+Z2, frequency, 2.0, 0.5f, octaves, seed+2);
     
     float xd = x + power * xD;
     float yd = y + power * yD;
     float zd = z + power * zD;
-    return (vec4)(xd, yd, zd, 0.0f);
+    return (vec4)(xd, yd, zd, 0.0);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
