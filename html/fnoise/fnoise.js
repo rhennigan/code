@@ -80,6 +80,9 @@
         var draw, time;
         time = Date.now();
         console.log(time);
+        document.getElementById('turbulenceTxt').value = turbulence;
+        document.getElementById('persistenceTxt').value = persistence;
+        document.getElementById('lacunarityTxt').value = lacunarity;
         draw = function() {
           var avgFPS, ft, i, len, p, tmp;
           p = (Date.now() - 1425166257376) / 20000;
