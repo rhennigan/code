@@ -13,10 +13,12 @@ IO::load = (url, cb, cbErr) ->
 
   req.send(null)
 
-test = null
-cb = (txt) -> 
-  test = txt
-  console.log test
+vertexShader = {text: null}
+fragmentShader = {text: null}
+
+cb = (sh, txt) -> 
+  sh.text = txt
+  console.log sh
 
 err = (url) ->
   alert "failed to load #{url}"
