@@ -179,11 +179,19 @@ float gnoise(vec3 P) {
 
 float perlin_noise(vec3 P) {
   float n = 0.0;
+  float div = 1.0;
+  float mul = 1.0;
 
-  n += 1.0 * abs( gnoise( P ) );
-  n += 0.5 * abs( gnoise( P * 2.0 ) );
-  n += 0.25 * abs( gnoise( P * 4.0 ) );
-  n += 0.125 * abs( gnoise( P * 8.0 ) );
+  for (int i = 0; i < OCTAVES; i++) {
+    div /= 2.0;
+    mul *= 2.0;
+    n+= div * abs*(gnoise(P*mul));
+  }
+
+  // n += 1.0 * abs( gnoise( P ) );
+  // n += 0.5 * abs( gnoise( P * 2.0 ) );
+  // n += 0.25 * abs( gnoise( P * 4.0 ) );
+  // n += 0.125 * abs( gnoise( P * 8.0 ) );
 
   float rn = 1.0 - n;
 
