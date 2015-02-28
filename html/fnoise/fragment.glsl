@@ -202,29 +202,28 @@ float perlin_noise(vec3 P) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-float turbulence3d(vec3 loc, float f, float l, float inc) {
-    int i = 0;
-    float fi = 0.0;
-    float remainder = 0.0;
-    float sample = 0.0;
-    float value = 0.0;
-
-    for (i = 0; i < OCTAVES; i++) {
-        fi = float(i);
-        sample = (1.0 - 2.0 * snoise(loc * f));
-        sample *= pow(l, -fi * inc);
-        value += abs(sample);
-        f *= l;
-    }
+vec4 turbulence_shift(float x, float y, float z,
+    float power, float frequency, 
+    int octaves, int seed)
+{
+    const float X0 = (12414.0 / 65536.0);
+    const float Y0 = (65124.0 / 65536.0);
+    const float Z0 = (31337.0 / 65536.0);
+    const float X1 = (26519.0 / 65536.0);
+    const float Y1 = (18128.0 / 65536.0);
+    const float Z1 = (60493.0 / 65536.0);
+    const float X2 = (53820.0 / 65536.0);
+    const float Y2 = (11213.0 / 65536.0);
+    const float Z2 = (44845.0 / 65536.0);
     
-    remainder = OCTAVES - float(iterations);
-    if (remainder > 0.0) {
-        sample = remainder * (1.0 - 2.0 * sgnoise3d(loc * f));
-        sample *= pow( l, -fi * inc );
-        value += abs(sample);
-    }
-
-    return value;   
+    float xD = perlin_noise(x+X0, y+Y0, z+Z0, frequency, 2.0, 0.5, octaves, seed+0);
+    float yD = perlin_noise(x+X1, y+Y1, z+Z1, frequency, 2.0, 0.5, octaves, seed+1);
+    float zD = perlin_noise(x+X2, y+Y2, z+Z2, frequency, 2.0, 0.5, octaves, seed+2);
+    
+    float xd = x + power * xD;
+    float yd = y + power * yD;
+    float zd = z + power * zD;
+    return vec4(xd, yd, zd, 0.0);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
