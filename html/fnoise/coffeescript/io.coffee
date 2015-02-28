@@ -14,13 +14,13 @@ IO::load = (url, store, cb, cbErr) ->
   req.send(null)
 
 cb = (sh, txt) -> 
-  sh.text = txt
-  console.log sh.text
+  sh.text(txt)
+  console.log sh
 
 err = (url) ->
   alert "failed to load #{url}"
 
 vertexShader = {text: null}
 fragmentShader = {text: null}
-IO::load('vertex.glsl', vertexShader, cb, err)
-IO::load('fragment.glsl', fragmentShader, cb, err)
+IO::load('vertex.glsl', $("#shader-vs"), cb, err)
+IO::load('fragment.glsl', $("#shader-fs"), cb, err)

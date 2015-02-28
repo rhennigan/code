@@ -26,8 +26,8 @@
   };
 
   cb = function(sh, txt) {
-    sh.text = txt;
-    return console.log(sh.text);
+    sh.text(txt);
+    return console.log(sh);
   };
 
   err = function(url) {
@@ -42,9 +42,9 @@
     text: null
   };
 
-  IO.prototype.load('vertex.glsl', vertexShader, cb, err);
+  IO.prototype.load('vertex.glsl', $("#shader-vs"), cb, err);
 
-  IO.prototype.load('fragment.glsl', fragmentShader, cb, err);
+  IO.prototype.load('fragment.glsl', $("#shader-fs"), cb, err);
 
   PhiloGL.unpack();
 
