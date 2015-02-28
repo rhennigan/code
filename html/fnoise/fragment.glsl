@@ -217,7 +217,7 @@ float turbulence3d(vec3 loc, float f, float l, float inc) {
         f *= l;
     }
     
-    remainder = octaves - float(iterations);
+    remainder = OCTAVES - float(iterations);
     if (remainder > 0.0) {
         sample = remainder * (1.0 - 2.0 * sgnoise3d(loc * f));
         sample *= pow( l, -fi * inc );
