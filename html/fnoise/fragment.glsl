@@ -236,6 +236,25 @@ vec3 turbulence_shift(vec3 P, float power, int seed) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
+float MakeInt32Range(float value)
+{
+    if (value >= 1073741824.0) 
+    {
+        return (2.0 * remainder(value, 1073741824.0)) - 1073741824.0; 
+    }
+    else if (value <= -1073741824.0) 
+    {
+        return (2.0 * remainder(value, 1073741824.0)) + 1073741824.0;
+    }
+    else
+    {
+        return value;
+    }
+    
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 float billow(vec3 P, float frequency, float lacunarity, float persistence, int seed) {
 
     float x = P.x;
@@ -251,8 +270,7 @@ float billow(vec3 P, float frequency, float lacunarity, float persistence, int s
     y *= frequency;
     z *= frequency;
 
-    for(int i = 0; i < octaves; i++)
-    {
+    for(int i = 0; i < OCTAVES; i++) {
         nx = MakeInt32Range(x);
         ny = MakeInt32Range(y);
         nz = MakeInt32Range(z);
