@@ -272,7 +272,7 @@ float billow(vec3 P, float frequency, float lacunarity, float persistence, int s
         ny = make_32_r(y);
         nz = make_32_r(z);
         seed = seed + i;
-        signal = GradientCoherentNoise3D(nx, ny, nz, seed);
+        signal = perlin_noise(vec3(nx, ny, nz));
         signal = 2.0 * abs(signal) - 1.0;
         value += signal * curp;
         x *= lacunarity;
