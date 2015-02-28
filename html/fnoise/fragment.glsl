@@ -204,28 +204,26 @@ float perlin_noise(vec3 P) {
 
 
 
-float turbulence3d(vec4 position, float frequency, float lacunarity, float increment, float octaves) {
-    int i = 0;
-    float fi = 0.0;
-    float remainder = 0.0; 
-    float sample = 0.0;    
-    float value = 0.0;
-    int iterations = int(octaves);
-    
-    for (i = 0; i < iterations; i++)
-    {
+float turbulence3d(vec4 loc, float f, float l, float inc, float octaves) {
+    int   i          =   0;
+    float fi         = 0.0;
+    float remainder  = 0.0;
+    float sample     = 0.0;
+    float value      = 0.0;
+    int   iterations = int(octaves);
+
+    for (i = 0; i < iterations; i++) {
         fi = float(i);
-        sample = (1.0 - 2.0 * sgnoise3d(position * frequency));
-        sample *= pow( lacunarity, -fi * increment );
+        sample = (1.0 - 2.0 * sgnoise3d(loc * f));
+        sample *= pow( l, -fi * inc );
         value += abs(sample);
-        frequency *= lacunarity;
+        f *= l;
     }
     
     remainder = octaves - float(iterations);
-    if ( remainder > 0.0 )
-    {
-        sample = remainder * (1.0 - 2.0 * sgnoise3d(position * frequency));
-        sample *= pow( lacunarity, -fi * increment );
+    if (remainder > 0.0) {
+        sample = remainder * (1.0 - 2.0 * sgnoise3d(loc * f));
+        sample *= pow( l, -fi * inc );
         value += abs(sample);
     }
 
