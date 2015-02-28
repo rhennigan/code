@@ -53,9 +53,10 @@ vec4 wrap(vec4 v) {
 }
 
 vec3 smooth(vec3 v) {
-  vec3 v2 = v*v;
-  vec3 v3 = v2*v;
-  return v*v*v*(3.0 * v * (2.0 * v - 5.0) + 10.0);
+  vec3 v3 = v*v*v;
+  vec3 v4 = v*v3;
+  vec3 v5 = v*v4;
+  return 10.0*v3 - 15.0*v4 + 6.0*v5;
 }
 
 vec4 shuffle(vec4 v) {
