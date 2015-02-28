@@ -236,17 +236,21 @@ vec3 turbulence_shift(vec3 P, float power, int seed) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-float billow(float x, float y, float z, 
-    float frequency, float lacunarity, float persistence,
-    int octaves, int seed)
-{
+float billow(vec3 P, float frequency, float lacunarity, float persistence, int seed) {
+
+    float x = P.x;
+    float y = P.y;
+    float z = P.z;
+
     float value = 0.0;
     float signal = 0.0;
     float curp = 1.0;
     float nx, ny, nz;
+
     x *= frequency;
     y *= frequency;
     z *= frequency;
+
     for(int i = 0; i < octaves; i++)
     {
         nx = MakeInt32Range(x);
