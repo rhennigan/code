@@ -61,7 +61,8 @@ vec3 smooth(vec3 v) {
 }
 
 vec4 shuffle(vec4 v) {
-  return -WRAP * floor(1.0/WRAP * v * (SHFL * v + 1.0)) + SHFL * v * v + v;
+  float f = (v * (SHFL * v + 1.0)) / WRAP;
+  return -WRAP * floor(f) + SHFL * v * v + v;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
