@@ -450,9 +450,9 @@ float Billow(float x, float y, float z,
         nx = MakeInt32Range(x);
         ny = MakeInt32Range(y);
         nz = MakeInt32Range(z);
-        seed = (seed + i) & 0x7fffffff;
+        seed = seed + i;
         signal = GradientCoherentNoise3D(nx, ny, nz, seed);
-        signal = 2.0 * fabs(signal) - 1.0;
+        signal = 2.0 * abs(signal) - 1.0;
         value += signal * curp;
         x *= lacunarity;
         y *= lacunarity;
@@ -460,7 +460,7 @@ float Billow(float x, float y, float z,
         curp *= persistence;
     }
 
-    return value + 0.5f;
+    return value + 0.5;
 }
 
 float ScaleBias(float value, float scale, float bias)
@@ -526,14 +526,14 @@ vec4 TurbulenceShift(
     float Y2 = (11213.0 / 65536.0);
     float Z2 = (44845.0 / 65536.0);
     
-    float xD = Perlin(x+X0, y+Y0, z+Z0, frequency, 2.0, 0.5f, octaves, seed+0);
-    float yD = Perlin(x+X1, y+Y1, z+Z1, frequency, 2.0, 0.5f, octaves, seed+1);
-    float zD = Perlin(x+X2, y+Y2, z+Z2, frequency, 2.0, 0.5f, octaves, seed+2);
+    float xD = Perlin(x+X0, y+Y0, z+Z0, frequency, 2.0, 0.5, octaves, seed+0);
+    float yD = Perlin(x+X1, y+Y1, z+Z1, frequency, 2.0, 0.5, octaves, seed+1);
+    float zD = Perlin(x+X2, y+Y2, z+Z2, frequency, 2.0, 0.5, octaves, seed+2);
     
     float xd = x + power * xD;
     float yd = y + power * yD;
     float zd = z + power * zD;
-    return (vec4)(xd, yd, zd, 0.0);
+    return vec4(xd, yd, zd, 0.0);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
