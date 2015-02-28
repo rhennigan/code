@@ -204,14 +204,14 @@ float perlin_noise4(vec3 P) {
   return rn * rn;
 }
 
-float perlin_noise8(vec3 P) {
+float perlin_noise8(vec3 P, float persistence, float lacunarity) {
   float n = 0.0;
   float div = 1.0;
   float mul = 1.0;
 
   for (int i = 0; i < 8; i++) {
-    div /= 2.0;
-    mul *= 2.0;
+    div /= persistence;
+    mul *= lacunarity;
     n+= div * abs(snoise(P*mul));
   }
 
@@ -302,12 +302,14 @@ float billow(vec3 P, float f, float lac, float per, float seed) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#define turbulence 0.02
+#define turbulence  0.02
+#define persistence 2.2
+#define lacunarity  2.0
 
 void main(void) {
   vec3 s_pos = vec3(aspect*pos.x + p, pos.y + p, p);
   vec3 ps = turbulence_shift(s_pos, turbulence, 1);
-  float noise = perlin_noise8(ps);
+  float noise = perlin_noise8(ps, persistence, lacunarity);
   float b_noise = billow(s_pos, 0.2, 2.0, 0.5, 1.0);
   vec4 color = color_px((noise+b_noise+noise*b_noise)/3.0, p);
   gl_FragColor = color;
