@@ -100,7 +100,10 @@
             program: 'fnoise',
             uniforms: {
               p: p,
-              aspect: aspect
+              aspect: aspect,
+              turbulence: 0.02,
+              persistence: 2.6,
+              lacunarity: 2.0
             }
           });
           return Fx.requestAnimationFrame(draw);

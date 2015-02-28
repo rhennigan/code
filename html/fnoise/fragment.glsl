@@ -34,10 +34,9 @@ precision highp float;
 uniform sampler2D sampler1;
 uniform float p;
 uniform float aspect;
-uniform float turbulence  0.02
-uniform float persistence 2.8
-uniform float lacunarity  2.5
-
+uniform float turbulence;
+uniform float persistence;
+uniform float lacunarity;
 
 varying vec2 pos;
 
