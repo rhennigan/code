@@ -101,12 +101,12 @@ int lattice2d(ivec2 i)
     return P[i.x + P[i.y]];
 }
  
-int lattice3d(int4 i)
+int lattice3d(ivec4 i)
 {
     return P[i.x + P[i.y + P[i.z]]];
 }
 
-//int lattice4d(int4 i)
+//int lattice4d(ivec4 i)
 //{
 //    return P[i.x + P[i.y + P[i.z + P[i.w]]]];
 //}
@@ -129,14 +129,14 @@ float gradient2d(ivec2 i, vec2 v)
     return dot(v, g);
 }
  
-float gradient3d(int4 i, vec4 v)
+float gradient3d(ivec4 i, vec4 v)
 {
     int index = (lattice3d(i) & G_MASK) * G_VECSIZE;
     vec4 g = vec4(G[index + 0], G[index + 1], G[index + 2], 1.0f);
     return dot(v, g);
 }
 
-//float gradient4d(int4 i, vec4 v)
+//float gradient4d(ivec4 i, vec4 v)
 //{
 //    int index = (lattice4d(i) & G_MASK) * G_VECSIZE;
 //    vec4 g = (vec4)(G[index + 0], G[index + 1], G[index + 2], G[index + 3]);
@@ -198,18 +198,18 @@ float sgnoise3d(vec4 position)
  
     vec4 p = position;
     vec4 pf = floor(p);
-    int4 ip = (int4)((int)pf.x, (int)pf.y, (int)pf.z, 0.0);
+    ivec4 ip = ivec4(int(pf.x), int(pf.y), int(pf.z), 0.0);
     vec4 fp = p - pf;        
     ip &= P_MASK;
  
-    int4 I000 = (int4)(0, 0, 0, 0);
-    int4 I001 = (int4)(0, 0, 1, 0);  
-    int4 I010 = (int4)(0, 1, 0, 0);
-    int4 I011 = (int4)(0, 1, 1, 0);
-    int4 I100 = (int4)(1, 0, 0, 0);
-    int4 I101 = (int4)(1, 0, 1, 0);
-    int4 I110 = (int4)(1, 1, 0, 0);
-    int4 I111 = (int4)(1, 1, 1, 0);
+    ivec4 I000 = (ivec4)(0, 0, 0, 0);
+    ivec4 I001 = (ivec4)(0, 0, 1, 0);  
+    ivec4 I010 = (ivec4)(0, 1, 0, 0);
+    ivec4 I011 = (ivec4)(0, 1, 1, 0);
+    ivec4 I100 = (ivec4)(1, 0, 0, 0);
+    ivec4 I101 = (ivec4)(1, 0, 1, 0);
+    ivec4 I110 = (ivec4)(1, 1, 0, 0);
+    ivec4 I111 = (ivec4)(1, 1, 1, 0);
     
     vec4 F000 = (vec4)(0.0f, 0.0f, 0.0f, 0.0f);
     vec4 F001 = (vec4)(0.0f, 0.0f, 1.0f, 0.0f);
