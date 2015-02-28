@@ -64,8 +64,12 @@ vec4 shuffle(vec4 v) {
   return -WRAP * floor(f) + SHFL * v * v + v;
 }
 
-vec4 taylorInvSqrt( vec4 r ) {
+vec4 taylorInvSqrt(vec4 r) {
   return 1.79284291400159 - 0.85373472095314 * r;
+}
+
+float remainder(float x, float y) {
+  return x - y * floor(x / y);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -264,9 +268,9 @@ float billow(vec3 P, float frequency, float lacunarity, float persistence, int s
     z *= frequency;
 
     for(int i = 0; i < OCTAVES; i++) {
-        nx = MakeInt32Range(x);
-        ny = MakeInt32Range(y);
-        nz = MakeInt32Range(z);
+        nx = make_32_r(x);
+        ny = make_32_r(y);
+        nz = make_32_r(z);
         seed = seed + i;
         signal = GradientCoherentNoise3D(nx, ny, nz, seed);
         signal = 2.0 * abs(signal) - 1.0;
