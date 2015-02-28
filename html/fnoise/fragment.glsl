@@ -257,7 +257,7 @@ float snoise( vec3 v ) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#define OCTAVES 4
+#define OCTAVES 8
 
 float perlin_noise(vec3 P) {
   float n = 0.0;
@@ -265,8 +265,8 @@ float perlin_noise(vec3 P) {
   float mul = 1.0;
 
   for (int i = 0; i < OCTAVES; i++) {
-    div /= 1.93;
-    mul *= 2.11;
+    div /= 2.0;
+    mul *= 2.0;
     n+= div * abs(snoise(P*mul));
   }
 
