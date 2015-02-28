@@ -281,7 +281,7 @@ float billow(vec3 P, float f, float lac, float per, float seed) {
         curp *= per;
     }
 
-    return value;
+    return value + 0.5;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
