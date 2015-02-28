@@ -236,21 +236,14 @@ vec3 turbulence_shift(vec3 P, float power, int seed) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-float MakeInt32Range(float value)
-{
-    if (value >= 1073741824.0) 
-    {
+float make_32_r(float value) {
+    if (value >= 1073741824.0) {
         return (2.0 * remainder(value, 1073741824.0)) - 1073741824.0; 
-    }
-    else if (value <= -1073741824.0) 
-    {
+    } else if (value <= -1073741824.0) {
         return (2.0 * remainder(value, 1073741824.0)) + 1073741824.0;
-    }
-    else
-    {
+    } else {
         return value;
     }
-    
 }
 
 ////////////////////////////////////////////////////////////////////////////////
