@@ -13,10 +13,6 @@ precision highp float;
 #define c12 0.878
 #define c13 0.898
 
-#define cr1 0.839
-#define cr2 0.290
-#define cr3 0.152
-
 #define c21 0.047
 #define c22 0.352
 #define c23 0.505
@@ -87,9 +83,9 @@ vec4 color_px(float val, float p) {
   } else if (v < p2) {
     float t2 = INT(v, p1, p2);
     float t1 = 1.0 - t2;
-    col[0] = t1 * (t*c21+(1.0-t)*cr1) + t2 * c31;
-    col[1] = t1 * (t*c22+(1.0-t)*cr2) + t2 * c32;
-    col[2] = t1 * (t*c23+(1.0-t)*cr3) + t2 * c33;
+    col[0] = t1 * c21 + t2 * c31;
+    col[1] = t1 * c22 + t2 * c32;
+    col[2] = t1 * c23 + t2 * c33;
   } else if (v < p3) {
     float t2 = INT(v, p2, p3);
     float t1 = 1.0 - t2;
