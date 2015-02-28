@@ -200,7 +200,7 @@ float snoise( vec3 v ) {
 
   // Permutations
 
-  i = mod( i, 289.0 );
+  i = mod( i, WRAP );
   vec4 p = shuffle( shuffle( shuffle(
     i.z + vec4( 0.0, i1.z, i2.z, 1.0 ) )
   + i.y + vec4( 0.0, i1.y, i2.y, 1.0 ) )
