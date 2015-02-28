@@ -102,6 +102,7 @@
             aspectRatio: 1,
             program: 'fnoise',
             uniforms: {
+              P: P,
               p: p,
               aspect: aspect
             }
