@@ -67,6 +67,50 @@ vec4 shuffle(vec4 v) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
+vec4 color_px(float val, float p) {
+  const float p1 = 0.00;
+  const float p2 = 0.50;
+  const float p3 = 0.90;
+
+  float t = 0.5 * (sin(4.0 * p) + 1.0);
+
+  vec4 col = vec4(0.0, 0.0, 0.0, 1.0);
+  float v = S(val, 0.0, 1.0);
+  if (v <= -0.00001) {
+    col[0] = 0.0;
+    col[1] = 0.0;
+    col[2] = 0.0;
+  } else if (v < p1) {
+    float t2 = INT(v, 0.0, p1);
+    float t1 = 1.0 - t2;
+    col[0] = t1 * c11 + t2 * (t*c21+(1.0-t)*cr1);
+    col[1] = t1 * c12 + t2 * (t*c22+(1.0-t)*cr2);
+    col[2] = t1 * c13 + t2 * (t*c23+(1.0-t)*cr3);
+  } else if (v < p2) {
+    float t2 = INT(v, p1, p2);
+    float t1 = 1.0 - t2;
+    col[0] = t1 * (t*c21+(1.0-t)*cr1) + t2 * c31;
+    col[1] = t1 * (t*c22+(1.0-t)*cr2) + t2 * c32;
+    col[2] = t1 * (t*c23+(1.0-t)*cr3) + t2 * c33;
+  } else if (v < p3) {
+    float t2 = INT(v, p2, p3);
+    float t1 = 1.0 - t2;
+    col[0] = t1 * c31 + t2 * c41;
+    col[1] = t1 * c32 + t2 * c42;
+    col[2] = t1 * c33 + t2 * c43;
+  } else {
+    float t2 = INT(v, p3, 1.0);
+    float t1 = 1.0 - t2;
+    col[0] = t1 * c41 + t2 * c51;
+    col[1] = t1 * c42 + t2 * c52;
+    col[2] = t1 * c43 + t2 * c53;
+  }
+
+  return col;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 float perlin_noise(vec3 P) {
   vec3 Pi0 = floor(P); // Integer part for indexing
   vec3 Pi1 = Pi0 + vec3(1.0); // Integer part + 1
@@ -108,12 +152,12 @@ float perlin_noise(vec3 P) {
   vec3 g011 = vec3(gx1.z,gy1.z,gz1.z);
   vec3 g111 = vec3(gx1.w,gy1.w,gz1.w);
 
-  vec4 norm0 = taylorInvSqrt(vec4(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
+  vec4 norm0 = normalize(vec4(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
   g000 *= norm0.x;
   g010 *= norm0.y;
   g100 *= norm0.z;
   g110 *= norm0.w;
-  vec4 norm1 = taylorInvSqrt(vec4(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
+  vec4 norm1 = normalize(vec4(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
   g001 *= norm1.x;
   g011 *= norm1.y;
   g101 *= norm1.z;
