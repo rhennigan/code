@@ -1,18 +1,27 @@
 class IO
 
-IO::load = (url, data, cb, cbErr) ->
+IO::load = (url, cb, cbErr) ->
   req = new XMLHttpRequest()
   req.open('GET', url, true)
 
   req.onreadystatechange = () ->
     if req.readyState == 4
       if req.status == 200
-        cb(req.responseText, data)
+        cb(req.responseText)
       else
         cbErr(url)
 
   req.send(null)
 
+test = null
+cb = (txt) -> 
+  test = txt
+  console.log test
+
+err = (url) ->
+  alert "failed to load #{url}"
+
+IO::load('vertex.glsl', cb, err)
 # IO::loads = (urls, cb, cbErr) ->
 #   numUrls = urls.length
 #   numComplete = 0
