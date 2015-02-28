@@ -68,9 +68,9 @@ vec4 shuffle(vec4 v) {
 ////////////////////////////////////////////////////////////////////////////////
 
 vec4 color_px(float val, float p) {
-  const float p1 = 0.00;
+  const float p1 = 0.25;
   const float p2 = 0.50;
-  const float p3 = 0.90;
+  const float p3 = 0.75;
 
   float t = 0.5 * (sin(4.0 * p) + 1.0);
 
