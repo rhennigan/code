@@ -326,7 +326,7 @@ float turbulence3d(
     {
         sample = remainder * (1.0 - 2.0 * sgnoise3d(position * frequency));
         sample *= pow( lacunarity, -fi * increment );
-        value += fabs(sample);
+        value += abs(sample);
     }
         
     return value;   
