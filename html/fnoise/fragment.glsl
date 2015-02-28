@@ -61,6 +61,10 @@ vec4 shuffle(vec4 v) {
   return -WRAP * floor(f) + SHFL * v * v + v;
 }
 
+vec4 taylorInvSqrt( vec4 r ) {
+  return 1.79284291400159 - 0.85373472095314 * r;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 vec4 color_px(float val, float p) {
@@ -105,9 +109,7 @@ vec4 color_px(float val, float p) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-vec4 taylorInvSqrt( vec4 r ) {
-  return 1.79284291400159 - 0.85373472095314 * r;
-}
+
 
 float snoise( vec3 v ) {
 
@@ -201,11 +203,6 @@ float perlin_noise(vec3 P) {
     mul *= 2.0;
     n+= div * abs(snoise(P*mul));
   }
-
-  // n += 1.0 * abs( gnoise( P ) );
-  // n += 0.5 * abs( gnoise( P * 2.0 ) );
-  // n += 0.25 * abs( gnoise( P * 4.0 ) );
-  // n += 0.125 * abs( gnoise( P * 8.0 ) );
 
   float rn = 1.0 - n;
 
