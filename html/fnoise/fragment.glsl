@@ -148,10 +148,10 @@ float snoise(vec3 v) {
 
   vec3 ns = n_ * D.wyz - D.xzx;
 
-  vec4 j = p - 49.0 * floor(p * ns.z *ns.z);  //  mod(p,N*N)
+  vec4 j = p - NN * floor(p * ns.z *ns.z);  //  mod(p,N*N)
 
   vec4 x_ = floor( j * ns.z );
-  vec4 y_ = floor( j - 7.0 * x_ );    // mod(j,N)
+  vec4 y_ = floor( j - N * x_ );    // mod(j,N)
 
   vec4 x = x_ *ns.x + ns.yyyy;
   vec4 y = y_ *ns.x + ns.yyyy;
