@@ -252,7 +252,7 @@ float make_32_r(float value) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-float billow(vec3 P, float frequency, float lacunarity, float persistence, int seed) {
+float billow(vec3 P, float f, float lac, float per) {
 
     float x = P.x;
     float y = P.y;
@@ -263,9 +263,9 @@ float billow(vec3 P, float frequency, float lacunarity, float persistence, int s
     float curp = 1.0;
     float nx, ny, nz;
 
-    x *= frequency;
-    y *= frequency;
-    z *= frequency;
+    x *= f;
+    y *= f;
+    z *= f;
 
     for(int i = 0; i < OCTAVES; i++) {
         nx = make_32_r(x);
@@ -275,10 +275,10 @@ float billow(vec3 P, float frequency, float lacunarity, float persistence, int s
         signal = perlin_noise(vec3(nx, ny, nz));
         signal = 2.0 * abs(signal) - 1.0;
         value += signal * curp;
-        x *= lacunarity;
-        y *= lacunarity;
-        z *= lacunarity;
-        curp *= persistence;
+        x *= lac;
+        y *= lac;
+        z *= lac;
+        curp *= per;
     }
 
     return value + 0.5;
