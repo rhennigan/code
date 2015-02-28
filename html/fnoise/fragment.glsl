@@ -383,7 +383,7 @@ float Perlin(float x, float y, float z,
         float nx = MakeInt32Range(x);
         float ny = MakeInt32Range(y);
         float nz = MakeInt32Range(z);
-        seed = mod(seed + i, 0xffffffff + 1);
+        seed = seed + i;
         signal = GradientCoherentNoise3D(nx, ny, nz, seed);
         value += signal * cp;
         x *= lacunarity;
@@ -415,9 +415,9 @@ float RidgedMultifractal(float x, float y, float z,
         float nx = MakeInt32Range(x);
         float ny = MakeInt32Range(y);
         float nz = MakeInt32Range(z);
-        seed = (seed + i) & 0x7fffffff;
+        seed = seed + i;
         signal = GradientCoherentNoise3D(nx, ny, nz, seed);
-        signal = fabs(signal);
+        signal = abs(signal);
         signal = offset - signal;
         signal *= signal;
         signal *= weight;
@@ -431,7 +431,7 @@ float RidgedMultifractal(float x, float y, float z,
         z *= lacunarity;
     }
     
-    return (value * 1.25f) - 1.0;
+    return (value * 1.25) - 1.0;
 }
 
 float Billow(float x, float y, float z, 
