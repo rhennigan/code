@@ -96,7 +96,7 @@ int lattice1d(int i)
     return P[i];
 }
  
-int lattice2d(int2 i)
+int lattice2d(ivec2 i)
 {
     return P[i.x + P[i.y]];
 }
@@ -122,7 +122,7 @@ float gradient1d(int i, float v)
     return (v * g);
 }
  
-float gradient2d(int2 i, vec2 v)
+float gradient2d(ivec2 i, vec2 v)
 {
     int index = (lattice2d(i) & G_MASK) * G_VECSIZE;
     vec2 g = (vec2)(G[index + 0], G[index + 1]);
@@ -166,14 +166,14 @@ float sgnoise2d(vec2 position)
 {
     vec2 p = position;
     vec2 pf = floor(p);
-    int2 ip = (int2)((int)pf.x, (int)pf.y);
+    ivec2 ip = (ivec2)((int)pf.x, (int)pf.y);
     vec2 fp = p - pf;        
     ip &= P_MASK;
     
-    const int2 I00 = (int2)(0, 0);
-    const int2 I01 = (int2)(0, 1);
-    const int2 I10 = (int2)(1, 0);
-    const int2 I11 = (int2)(1, 1);
+    const ivec2 I00 = (ivec2)(0, 0);
+    const ivec2 I01 = (ivec2)(0, 1);
+    const ivec2 I10 = (ivec2)(1, 0);
+    const ivec2 I11 = (ivec2)(1, 1);
     
     const vec2 F00 = (vec2)(0.0f, 0.0f);
     const vec2 F01 = (vec2)(0.0f, 1.0f);
