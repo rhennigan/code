@@ -188,13 +188,13 @@ float sgnoise1d(float position)
     float pf = floor(p);
     int ip = int(pf);
     float fp = p - pf;        
-    ip &= P_MASK;
+    ip = int(mod(float(ip), float(P_MASK+1)));
     
-    float n0 = gradient1d(ip + 0, fp - 0.0f);
-    float n1 = gradient1d(ip + 1, fp - 1.0f);
+    float n0 = gradient1d(ip + 0, fp - 0.0);
+    float n1 = gradient1d(ip + 1, fp - 1.0);
  
     float n = mix1d(n0, n1, smooth(fp));
-    return n * (1.0f / 0.7f);
+    return n * (1.0 / 0.7);
 }
  
 float sgnoise2d(vec2 position)
@@ -203,7 +203,7 @@ float sgnoise2d(vec2 position)
     vec2 pf = floor(p);
     ivec2 ip = ivec2(int(pf.x), int(pf.y));
     vec2 fp = p - pf;        
-    ip &= P_MASK;
+    ip = int(mod(float(ip), float(P_MASK+1)));
     
     const ivec2 I00 = ivec2(0, 0);
     const ivec2 I01 = ivec2(0, 1);
