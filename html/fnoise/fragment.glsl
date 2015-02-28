@@ -265,8 +265,8 @@ float perlin_noise(vec3 P) {
   float mul = 1.0;
 
   for (int i = 0; i < OCTAVES; i++) {
-    div /= 2.0;
-    mul *= 1.5;
+    div /= 2.5;
+    mul *= 2.2;
     n+= div * abs(snoise(P*mul));
   }
 
@@ -283,7 +283,7 @@ float perlin_noise(vec3 P) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void main(void) {
-  vec2 ps = 0.25 * pos;
+  vec2 ps = 1.0 * pos;
   float noise = perlin_noise(vec3(aspect*ps.x + p, ps.y + p, p));
   vec4 color = color_px(noise, p);
   gl_FragColor = color;
