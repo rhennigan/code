@@ -203,11 +203,11 @@ float perlin_noise(vec3 P) {
 ////////////////////////////////////////////////////////////////////////////////
 
 vec3 turbulence_shift(vec3 P, float power, int seed) {
-    float s0 = float(104729 * seed);
-    float s1 = float(209459 * seed);
-    float s2 = float(418921 * seed);
+    float s0 = float(2 * seed);
+    float s1 = float(3 * seed);
+    float s2 = float(5 * seed);
 
-    vec3 s = 1073741824.0 * P + vec3(s0, s1, s2);
+    vec3 s = 7.0 * P + vec3(s0, s1, s2);
 
     const float X0 = (12414.0 / 65536.0);
     const float Y0 = (65124.0 / 65536.0);
@@ -237,7 +237,7 @@ vec3 turbulence_shift(vec3 P, float power, int seed) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void main(void) {
-  vec3 ps = turbulence_shift(vec3(aspect*pos.x + p, pos.y + p, p), 0.1, 1);
+  vec3 ps = turbulence_shift(vec3(aspect*pos.x + p, pos.y + p, p), 0.05, 1);
   float noise = perlin_noise(ps);
   vec4 color = color_px(noise, p);
   gl_FragColor = color;
