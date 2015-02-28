@@ -111,7 +111,7 @@ vec4 color_px(float val, float p) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-float perlin_noise(vec3 P) {
+float gnoise(vec3 P) {
   vec3 Pi0 = floor(P); // Integer part for indexing
   vec3 Pi1 = Pi0 + vec3(1.0); // Integer part + 1
   Pi0 = wrap(Pi0);
@@ -178,6 +178,10 @@ float perlin_noise(vec3 P) {
   float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x); 
   return 2.2 * n_xyz;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 
