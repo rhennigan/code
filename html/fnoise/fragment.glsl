@@ -236,6 +236,37 @@ vec3 turbulence_shift(vec3 P, float power, int seed) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
+float billow(float x, float y, float z, 
+    float frequency, float lacunarity, float persistence,
+    int octaves, int seed)
+{
+    float value = 0.0;
+    float signal = 0.0;
+    float curp = 1.0;
+    float nx, ny, nz;
+    x *= frequency;
+    y *= frequency;
+    z *= frequency;
+    for(int i = 0; i < octaves; i++)
+    {
+        nx = MakeInt32Range(x);
+        ny = MakeInt32Range(y);
+        nz = MakeInt32Range(z);
+        seed = seed + i;
+        signal = GradientCoherentNoise3D(nx, ny, nz, seed);
+        signal = 2.0 * abs(signal) - 1.0;
+        value += signal * curp;
+        x *= lacunarity;
+        y *= lacunarity;
+        z *= lacunarity;
+        curp *= persistence;
+    }
+
+    return value + 0.5;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 void main(void) {
   vec3 ps = turbulence_shift(vec3(aspect*pos.x + p, pos.y + p, p), 0.02, 1);
   float noise = perlin_noise(ps);
