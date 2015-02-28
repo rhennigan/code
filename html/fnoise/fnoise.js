@@ -76,6 +76,7 @@
       onLoad: function(app) {
         var draw, time;
         time = Date.now();
+        console.log(time);
         draw = function() {
           var avgFPS, ft, i, len, p, tmp;
           p = (Date.now() - time) / 50000;
