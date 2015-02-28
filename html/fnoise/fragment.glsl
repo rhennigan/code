@@ -273,7 +273,7 @@ float sgnoise3d(vec4 position)
     vec4 n4 = mix3d(n40, n41, smooth(fp.x));
     vec2 n2 = mix2d(n4.xy, n4.zw, smooth(fp.y));
     float n = mix1d(n2.x, n2.y, smooth(fp.z));
-    return n * (1.0f / 0.7f);
+    return n * (1.0 / 0.7);
 }
 
 
@@ -283,17 +283,17 @@ float sgnoise3d(vec4 position)
  
 float ugnoise1d(float position)
 {
-    return (0.5f - 0.5f * sgnoise1d(position));
+    return (0.5 - 0.5 * sgnoise1d(position));
 }
 
 float ugnoise2d(vec2 position)
 {
-    return (0.5f - 0.5f * sgnoise2d(position));
+    return (0.5 - 0.5 * sgnoise2d(position));
 }
 
 float ugnoise3d(vec4 position)
 {
-    return (0.5f - 0.5f * sgnoise3d(position));
+    return (0.5 - 0.5 * sgnoise3d(position));
 }
  
 ////////////////////////////////////////////////////////////////////////////////
