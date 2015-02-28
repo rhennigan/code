@@ -49,7 +49,7 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, persistence, turbulence;
+    var aspect, btnPlusTurb, btnSubTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, persistence, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
@@ -115,9 +115,17 @@
       }
     });
     btnPlusTurb = document.getElementById('turbulence+');
-    return btnPlusTurb.addEventListener("click", (function(_this) {
+    btnPlusTurb.addEventListener("click", (function(_this) {
       return function(e) {
         turbulence = turbulence >= 1.0 ? 1.0 : turbulence + 0.001;
+        document.getElementById('turbulenceTxt').value = turbulence;
+        return console.log(turbulence);
+      };
+    })(this));
+    btnSubTurb = document.getElementById('turbulence-');
+    return btnSubTurb.addEventListener("click", (function(_this) {
+      return function(e) {
+        turbulence = turbulence <= 0.0 ? 0.0 : turbulence - 0.001;
         document.getElementById('turbulenceTxt').value = turbulence;
         return console.log(turbulence);
       };
