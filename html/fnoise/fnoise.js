@@ -49,7 +49,7 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusTurb, btnSubTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, persistence, turbulence;
+    var aspect, btnPlusPers, btnPlusTurb, btnSubPers, btnSubTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, persistence, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
@@ -123,11 +123,43 @@
       };
     })(this));
     btnSubTurb = document.getElementById('turbulence-');
-    return btnSubTurb.addEventListener("click", (function(_this) {
+    btnSubTurb.addEventListener("click", (function(_this) {
       return function(e) {
         turbulence = turbulence <= 0.0 ? 0.0 : turbulence - 0.001;
         document.getElementById('turbulenceTxt').value = turbulence;
         return console.log(turbulence);
+      };
+    })(this));
+    btnPlusPers = document.getElementById('persistence+');
+    btnPlusPers.addEventListener("click", (function(_this) {
+      return function(e) {
+        persistence = persistence >= 5.0 ? 5.0 : persistence + 0.1;
+        document.getElementById('persistenceTxt').value = persistence;
+        return console.log(persistence);
+      };
+    })(this));
+    btnSubPers = document.getElementById('persistence+');
+    btnSubPers.addEventListener("click", (function(_this) {
+      return function(e) {
+        persistence = persistence <= 0.0 ? 0.0 : persistence - 0.1;
+        document.getElementById('persistenceTxt').value = persistence;
+        return console.log(persistence);
+      };
+    })(this));
+    btnPlusPers = document.getElementById('persistence+');
+    btnPlusPers.addEventListener("click", (function(_this) {
+      return function(e) {
+        persistence = persistence >= 5.0 ? 5.0 : persistence + 0.1;
+        document.getElementById('persistenceTxt').value = persistence;
+        return console.log(persistence);
+      };
+    })(this));
+    btnSubPers = document.getElementById('persistence+');
+    return btnSubPers.addEventListener("click", (function(_this) {
+      return function(e) {
+        persistence = persistence <= 0.0 ? 0.0 : persistence - 0.1;
+        document.getElementById('persistenceTxt').value = persistence;
+        return console.log(persistence);
       };
     })(this));
   };
