@@ -186,7 +186,7 @@ float snoise(vec3 v) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#define OCTAVES 8
+#define OCTAVES 6
 
 float perlin_noise(vec3 P) {
   float n = 0.0;
@@ -252,8 +252,6 @@ float make_32_r(float value) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#define OCTAVES_B 4
-
 float billow(vec3 P, float f, float lac, float per, float seed) {
 
     float x = P.x;
@@ -269,7 +267,7 @@ float billow(vec3 P, float f, float lac, float per, float seed) {
     y *= f;
     z *= f;
 
-    for(int i = 0; i < OCTAVES_B; i++) {
+    for(int i = 0; i < OCTAVES; i++) {
         nx = make_32_r(x+2.0*seed);
         ny = make_32_r(y+3.0*seed);
         nz = make_32_r(z+4.0*seed);
