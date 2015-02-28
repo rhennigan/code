@@ -15,7 +15,7 @@ IO::load = (url, store, cb, cbErr) ->
 
 cb = (sh, txt) -> 
   sh.text = txt
-  console.log sh
+  console.log sh.text
 
 err = (url) ->
   alert "failed to load #{url}"
@@ -24,15 +24,3 @@ vertexShader = {text: null}
 fragmentShader = {text: null}
 IO::load('vertex.glsl', vertexShader, cb, err)
 IO::load('fragment.glsl', fragmentShader, cb, err)
-# IO::loads = (urls, cb, cbErr) ->
-#   numUrls = urls.length
-#   numComplete = 0
-#   result = []
-
-#   partialCallback = (txt, idx) ->
-#     result[idx] = txt
-#     numComplete++
-#     if numComplete is numUrls then cb(result)
-
-#   for i in [0...numUrls]
-#     load(urls[i], i, partialCallback, cbErr)

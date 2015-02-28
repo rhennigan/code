@@ -126,7 +126,7 @@
 
   cb = function(sh, txt) {
     sh.text = txt;
-    return console.log(sh);
+    return console.log(sh.text);
   };
 
   err = function(url) {
