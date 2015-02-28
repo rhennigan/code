@@ -98,7 +98,7 @@
             height: canvas.height,
             toScreen: true,
             aspectRatio: 1,
-            program: 'quasicrystals',
+            program: 'fnoise',
             uniforms: {
               p: p,
               order: order,
