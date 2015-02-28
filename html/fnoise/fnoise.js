@@ -141,7 +141,9 @@
     text: null
   };
 
-  IO.prototype.load('vertex.glsl', cb, err);
+  IO.prototype.load('vertex.glsl', vertexShader, cb, err);
+
+  IO.prototype.load('fragment.glsl', fragmentShader, cb, err);
 
 }).call(this);
 

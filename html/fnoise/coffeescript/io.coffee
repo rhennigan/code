@@ -22,7 +22,8 @@ err = (url) ->
 
 vertexShader = {text: null}
 fragmentShader = {text: null}
-IO::load('vertex.glsl', cb, err)
+IO::load('vertex.glsl', vertexShader, cb, err)
+IO::load('fragment.glsl', fragmentShader, cb, err)
 # IO::loads = (urls, cb, cbErr) ->
 #   numUrls = urls.length
 #   numComplete = 0
