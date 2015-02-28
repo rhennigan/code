@@ -1,5 +1,3 @@
-#version 130
-
 #ifdef GL_ES
 precision highp float;
 #endif
@@ -154,11 +152,11 @@ int lattice3d(ivec4 i)
 
 float gradient1d(int i, float v)
 {
-    int index = (lattice1d(i) & G_MASK) * G_VECSIZE;
+    int index = mod(lattice1d(i), G_SIZE) * G_VECSIZE;
     float g = G[index + 0];
     return (v * g);
 }
- 
+
 float gradient2d(ivec2 i, vec2 v)
 {
     int index = (lattice2d(i) & G_MASK) * G_VECSIZE;
