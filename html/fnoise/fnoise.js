@@ -49,7 +49,7 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, canvas, frameIndex, frameLast, frameTimes;
+    var aspect, btnPlusTurb, canvas, frameIndex, frameLast, frameTimes;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
@@ -58,7 +58,7 @@
     if (PhiloGL.hasWebGL() === !true) {
       alert("Your browser does not support WebGL");
     }
-    return PhiloGL('fnCanvas', {
+    PhiloGL('fnCanvas', {
       program: [
         {
           id: 'fnoise',
@@ -101,9 +101,9 @@
             uniforms: {
               p: p,
               aspect: aspect,
-              turbulence: 0.02,
-              persistence: 2.6,
-              lacunarity: 2.0
+              turbulence: turbulence,
+              persistence: persistence,
+              lacunarity: lacunarity
             }
           });
           return Fx.requestAnimationFrame(draw);
@@ -111,6 +111,15 @@
         return draw();
       }
     });
+    btnPlusTurb = document.getElementById('turbulence+');
+    return btnPlusTurb.addEventListener("click", (function(_this) {
+      return function(e) {
+        var order;
+        order = order >= 30 ? 30 : order + 1;
+        document.getElementById('orderTxt').value = order;
+        return console.log(order);
+      };
+    })(this));
   };
 
   load();
