@@ -203,17 +203,17 @@ float sgnoise2d(vec2 position)
     vec2 pf = floor(p);
     ivec2 ip = ivec2(int(pf.x), int(pf.y));
     vec2 fp = p - pf;        
-    ip = int(mod(float(ip), float(P_MASK+1)));
+    ip = ivec2(mod(float(ip), float(P_MASK+1)));
     
     const ivec2 I00 = ivec2(0, 0);
     const ivec2 I01 = ivec2(0, 1);
     const ivec2 I10 = ivec2(1, 0);
     const ivec2 I11 = ivec2(1, 1);
     
-    const vec2 F00 = vec2(0.0f, 0.0f);
-    const vec2 F01 = vec2(0.0f, 1.0f);
-    const vec2 F10 = vec2(1.0f, 0.0f);
-    const vec2 F11 = vec2(1.0f, 1.0f);
+    const vec2 F00 = vec2(0.0, 0.0);
+    const vec2 F01 = vec2(0.0, 1.0);
+    const vec2 F10 = vec2(1.0, 0.0);
+    const vec2 F11 = vec2(1.0, 1.0);
  
     float n00 = gradient2d(ip + I00, fp - F00);
     float n10 = gradient2d(ip + I10, fp - F10);
