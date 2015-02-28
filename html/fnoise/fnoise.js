@@ -65,7 +65,7 @@
         {
           id: 'quasicrystals',
           from: 'ids',
-          vs: 'shader-vs',
+          vs: 'vertex.glsl',
           fs: 'shader-fs'
         }
       ],
