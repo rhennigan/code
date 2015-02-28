@@ -65,8 +65,8 @@ vec4 shuffle(vec4 v) {
 
 vec4 color_px(float val, float p) {
   const float p1 = 0.25;
-  const float p2 = 0.50;
-  const float p3 = 0.75;
+  const float p2 = 0.70;
+  const float p3 = 0.90;
 
   vec4 col = vec4(0.0, 0.0, 0.0, 1.0);
   float v = S(val, 0.0, 1.0);
@@ -193,7 +193,7 @@ float perlin_noise(vec3 P) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void main(void) {
-  float noise = perlin_noise(vec3(pos.x, pos.y, p));
+  float noise = perlin_noise(vec3(10.0*pos.x, 10.0*pos.y, p));
   vec4 color = color_px(noise, p);
   gl_FragColor = color;
 }
