@@ -6,6 +6,41 @@ precision highp float;
 #define INT(x, a, b) (((x) - (a)) / ((b) - (a)))
 
 #define PI 3.1415926535
+#define SCALE 65.0
+#define MAG 5.0
+
+#define c11 0.843
+#define c12 0.878
+#define c13 0.898
+
+#define cr1 0.839
+#define cr2 0.290
+#define cr3 0.152
+
+#define c21 0.047
+#define c22 0.352
+#define c23 0.505
+
+#define c31 0.000
+#define c32 0.000
+#define c33 0.000
+
+#define c41 0.556
+#define c42 0.678
+#define c43 0.670
+
+#define c51 1.000
+#define c52 1.000
+#define c53 1.000
+
+uniform sampler2D sampler1;
+uniform int P[512];
+uniform int G[16*4];
+uniform int order;
+uniform float p;
+uniform float aspect;
+
+varying vec2 pos;
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -202,23 +237,23 @@ float sgnoise3d(vec4 position)
     vec4 fp = p - pf;        
     ip &= P_MASK;
  
-    ivec4 I000 = (ivec4)(0, 0, 0, 0);
-    ivec4 I001 = (ivec4)(0, 0, 1, 0);  
-    ivec4 I010 = (ivec4)(0, 1, 0, 0);
-    ivec4 I011 = (ivec4)(0, 1, 1, 0);
-    ivec4 I100 = (ivec4)(1, 0, 0, 0);
-    ivec4 I101 = (ivec4)(1, 0, 1, 0);
-    ivec4 I110 = (ivec4)(1, 1, 0, 0);
-    ivec4 I111 = (ivec4)(1, 1, 1, 0);
+    ivec4 I000 = ivec4(0, 0, 0, 0);
+    ivec4 I001 = ivec4(0, 0, 1, 0);  
+    ivec4 I010 = ivec4(0, 1, 0, 0);
+    ivec4 I011 = ivec4(0, 1, 1, 0);
+    ivec4 I100 = ivec4(1, 0, 0, 0);
+    ivec4 I101 = ivec4(1, 0, 1, 0);
+    ivec4 I110 = ivec4(1, 1, 0, 0);
+    ivec4 I111 = ivec4(1, 1, 1, 0);
     
-    vec4 F000 = (vec4)(0.0f, 0.0f, 0.0f, 0.0f);
-    vec4 F001 = (vec4)(0.0f, 0.0f, 1.0f, 0.0f);
-    vec4 F010 = (vec4)(0.0f, 1.0f, 0.0f, 0.0f);
-    vec4 F011 = (vec4)(0.0f, 1.0f, 1.0f, 0.0f);
-    vec4 F100 = (vec4)(1.0f, 0.0f, 0.0f, 0.0f);
-    vec4 F101 = (vec4)(1.0f, 0.0f, 1.0f, 0.0f);
-    vec4 F110 = (vec4)(1.0f, 1.0f, 0.0f, 0.0f);
-    vec4 F111 = (vec4)(1.0f, 1.0f, 1.0f, 0.0f);
+    vec4 F000 = vec4(0.0f, 0.0f, 0.0f, 0.0f);
+    vec4 F001 = vec4(0.0f, 0.0f, 1.0f, 0.0f);
+    vec4 F010 = vec4(0.0f, 1.0f, 0.0f, 0.0f);
+    vec4 F011 = vec4(0.0f, 1.0f, 1.0f, 0.0f);
+    vec4 F100 = vec4(1.0f, 0.0f, 0.0f, 0.0f);
+    vec4 F101 = vec4(1.0f, 0.0f, 1.0f, 0.0f);
+    vec4 F110 = vec4(1.0f, 1.0f, 0.0f, 0.0f);
+    vec4 F111 = vec4(1.0f, 1.0f, 1.0f, 0.0f);
     
     float n000 = gradient3d(ip + I000, fp - F000);
     float n001 = gradient3d(ip + I001, fp - F001);
@@ -232,8 +267,8 @@ float sgnoise3d(vec4 position)
     float n110 = gradient3d(ip + I110, fp - F110);
     float n111 = gradient3d(ip + I111, fp - F111);
  
-    vec4 n40 = (vec4)(n000, n001, n010, n011);
-    vec4 n41 = (vec4)(n100, n101, n110, n111);
+    vec4 n40 = vec4(n000, n001, n010, n011);
+    vec4 n41 = vec4(n100, n101, n110, n111);
  
     vec4 n4 = mix3d(n40, n41, smooth(fp.x));
     vec2 n2 = mix2d(n4.xy, n4.zw, smooth(fp.y));
@@ -497,41 +532,7 @@ vec4 TurbulenceShift(
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#define SCALE 65.0
-#define MAG 5.0
 
-#define c11 0.843
-#define c12 0.878
-#define c13 0.898
-
-#define cr1 0.839
-#define cr2 0.290
-#define cr3 0.152
-
-#define c21 0.047
-#define c22 0.352
-#define c23 0.505
-
-#define c31 0.000
-#define c32 0.000
-#define c33 0.000
-
-#define c41 0.556
-#define c42 0.678
-#define c43 0.670
-
-#define c51 1.000
-#define c52 1.000
-#define c53 1.000
-
-uniform sampler2D sampler1;
-uniform int P[512];
-uniform int G[16*4];
-uniform int order;
-uniform float p;
-uniform float aspect;
-
-varying vec2 pos;
 
 vec4 color_px(float val, float p) {
   const float p1 = 0.00;
