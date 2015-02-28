@@ -114,8 +114,8 @@ vec4 color_px(float val, float p) {
 float perlin_noise(vec3 P) {
   vec3 Pi0 = floor(P); // Integer part for indexing
   vec3 Pi1 = Pi0 + vec3(1.0); // Integer part + 1
-  Pi0 = mod289(Pi0);
-  Pi1 = mod289(Pi1);
+  Pi0 = wrap(Pi0);
+  Pi1 = wrap(Pi1);
   vec3 Pf0 = fract(P); // Fractional part for interpolation
   vec3 Pf1 = Pf0 - vec3(1.0); // Fractional part - 1.0
   vec4 ix = vec4(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
@@ -123,9 +123,9 @@ float perlin_noise(vec3 P) {
   vec4 iz0 = Pi0.zzzz;
   vec4 iz1 = Pi1.zzzz;
 
-  vec4 ixy = permute(permute(ix) + iy);
-  vec4 ixy0 = permute(ixy + iz0);
-  vec4 ixy1 = permute(ixy + iz1);
+  vec4 ixy = shuffle(shuffle(ix) + iy);
+  vec4 ixy0 = shuffle(ixy + iz0);
+  vec4 ixy1 = shuffle(ixy + iz1);
 
   vec4 gx0 = ixy0 * (1.0 / 7.0);
   vec4 gy0 = fract(floor(gx0) * (1.0 / 7.0)) - 0.5;
