@@ -1,3 +1,5 @@
+#extension GL_EXT_gpu_shader4: enable
+
 #ifdef GL_ES
 precision highp float;
 #endif
