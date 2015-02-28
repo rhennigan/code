@@ -1,3 +1,12 @@
+#ifdef GL_ES
+precision highp float;
+#endif
+
+#define S(x, a, b) ((x) < (a) ? (a) : (x) > (b) ? (b) : (x))
+#define INT(x, a, b) (((x) - (a)) / ((b) - (a)))
+
+#define PI 3.1415926535
+
 ////////////////////////////////////////////////////////////////////////////////
 
 const int P_MASK = 255;
@@ -10,16 +19,43 @@ const int G_SIZE = 16;
 const int G_VECSIZE = 4;
 
 ////////////////////////////////////////////////////////////////////////////////
+
+//int mod(int x, int a)
+//{
+//    int n = (x / a);
+//    int v = v - n * a;
+//    if ( v < 0 )
+//        v += a;
+//    return v;   
+//}
  
+float smooth(float t)
+{
+    return t*t*t*(t*(t*6.0f-15.0f)+10.0f); 
+}
+ 
+vec4 normalized(vec4 v)
+{
+    float d = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+    d = d > 0.0f ? d : 1.0f;
+    vec4 result = vec4(v.x, v.y, v.z, 0.0f) / d;
+    //result.w = 1.0f;
+    return result;
+}
 
-#ifdef GL_ES
-precision highp float;
-#endif
+vec4 project(vec4 v, vec4 u)
+{
+    return dot(u, v) / dot(u, u) * u;
+}
 
-#define S(x, a, b) ((x) < (a) ? (a) : (x) > (b) ? (b) : (x))
-#define INT(x, a, b) (((x) - (a)) / ((b) - (a)))
+vec4 orthonormalize(vec4 v1, vec4 v2)
+{
+    return normalize(v2 - project(v2, v1));
+}
 
-#define PI 3.1415926535
+////////////////////////////////////////////////////////////////////////////////
+
+
 #define SCALE 65.0
 #define MAG 5.0
 
@@ -49,6 +85,7 @@ precision highp float;
 
 uniform sampler2D sampler1;
 uniform int P[512];
+uniform int G[16*4];
 uniform int order;
 uniform float p;
 uniform float aspect;
