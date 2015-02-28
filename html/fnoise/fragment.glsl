@@ -287,7 +287,7 @@ float billow(vec3 P, float f, float lac, float per, float seed) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void main(void) {
-  vec3 s_pos = vec3(aspect*pos.x + p, pos.y + p, p);
+  vec3 s_pos = vec3(2.0*aspect*pos.x + p, 2.0*pos.y + p, p);
   vec3 ps = turbulence_shift(s_pos, 0.02, 1);
   float noise = perlin_noise(ps);
   float b_noise = billow(s_pos, 0.1, 2.0, 0.5, 1.0);
