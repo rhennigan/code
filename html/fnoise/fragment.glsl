@@ -75,9 +75,9 @@ float remainder(float x, float y) {
 ////////////////////////////////////////////////////////////////////////////////
 
 vec4 color_px(float val, float p) {
-  const float p1 = 0.20;
-  const float p2 = 0.30;
-  const float p3 = 0.65;
+  const float p1 = 0.25;
+  const float p2 = 0.50;
+  const float p3 = 0.75;
 
   vec4 col = vec4(0.0, 0.0, 0.0, 1.0);
   float v = S(val, 0.0, 1.0);
