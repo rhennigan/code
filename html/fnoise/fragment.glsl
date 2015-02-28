@@ -45,12 +45,15 @@ varying vec2 pos;
 // UTILITIES
 ////////////////////////////////////////////////////////////////////////////////
 
+#define WRAP 256.0
+#define SHFL  34.0
+
 vec3 wrap(vec3 v) {
-  return v - 256.0 * floor(v / 256.0);
+  return v - WRAP * floor(v / WRAP);
 }
 
 vec4 wrap(vec4 v) {
-  return v - 256.0 * floor(v / 256.0);
+  return v - WRAP * floor(v / WRAP);
 }
 
 vec3 smooth(vec3 v) {
@@ -58,7 +61,7 @@ vec3 smooth(vec3 v) {
 }
 
 vec4 shuffle(vec4 v) {
-  return -256.0 * floor(1.0 / 256.0 * v * (34.0 * v + 1.0)) + 34.0 * v * v + v;
+  return -WRAP * floor(1.0/WRAP * v * (SHFL * v + 1.0)) + SHFL * v * v + v;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
