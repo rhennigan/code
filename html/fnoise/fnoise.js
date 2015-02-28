@@ -50,7 +50,7 @@
 
   load = function() {
     var aspect, btnPlus, btnSub, canvas, frameIndex, frameLast, frameTimes, order, phaseS;
-    canvas = document.getElementById('qcCanvas');
+    canvas = document.getElementById('fnCanvas');
     order = 5;
     phaseS = 1.0;
     aspect = canvas.width / canvas.height;
@@ -63,7 +63,7 @@
     PhiloGL('qcCanvas', {
       program: [
         {
-          id: 'quasicrystals',
+          id: 'fnoise',
           from: 'uris',
           path: './',
           vs: 'vertex.glsl',
