@@ -133,9 +133,9 @@ float snoise(vec3 v) {
 
   i = mod(i, WRAP);
   vec4 p = shuffle(shuffle(shuffle(
-    i.z + vec4(0.0, i1.z, i2.z, 1.0))
-  + i.y + vec4(0.0, i1.y, i2.y, 1.0))
-  + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+        i.z + vec4(0.0, i1.z, i2.z, 1.0))
+      + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+      + i.x + vec4(0.0, i1.x, i2.x, 1.0));
 
   float n_ = 1.0 / N;
 
@@ -152,7 +152,6 @@ float snoise(vec3 v) {
 
   vec4 b0 = vec4(x.xy, y.xy);
   vec4 b1 = vec4(x.zw, y.zw);
-
 
   vec4 s0 = floor(b0) * 2.0 + 1.0;
   vec4 s1 = floor(b1) * 2.0 + 1.0;
@@ -177,8 +176,8 @@ float snoise(vec3 v) {
   vec4 m = max(0.6 - xx, 0.0);
   m = m * m;
   vec4 px = vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3));
+  
   return 42.0 * dot(m*m, px);
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////
