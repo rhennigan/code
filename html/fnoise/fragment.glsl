@@ -268,10 +268,10 @@ float billow(vec3 P, float f, float lac, float per, float seed) {
     z *= f;
 
     for(int i = 0; i < OCTAVES; i++) {
-        nx = make_32_r(x);
-        ny = make_32_r(y);
-        nz = make_32_r(z);
-        seed = seed + i;
+        nx = make_32_r(x+2.0*seed);
+        ny = make_32_r(y+3.0*seed);
+        nz = make_32_r(z+4.0*seed);
+        seed = seed + float(i);
         signal = perlin_noise(vec3(nx, ny, nz));
         signal = 2.0 * abs(signal) - 1.0;
         value += signal * curp;
