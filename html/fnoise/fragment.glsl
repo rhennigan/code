@@ -257,7 +257,7 @@ float snoise( vec3 v ) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#define OCTAVES 16
+#define OCTAVES 4
 
 float perlin_noise(vec3 P) {
   float n = 0.0;
