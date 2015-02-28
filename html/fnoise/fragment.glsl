@@ -220,12 +220,12 @@ float sgnoise2d(vec2 position)
     float n01 = gradient2d(ip + I01, fp - F01);
     float n11 = gradient2d(ip + I11, fp - F11);
  
-    const vec2 n0001 = vec2(n00, n01);
-    const vec2 n1011 = vec2(n10, n11);
+    vec2 n0001 = vec2(n00, n01);
+    vec2 n1011 = vec2(n10, n11);
  
     vec2 n2 = mix2d(n0001, n1011, smooth(fp.x));
     float n = mix1d(n2.x, n2.y, smooth(fp.y));
-    return n * (1.0f / 0.7f);
+    return n * (1.0 / 0.7);
 }
  
 float sgnoise3d(vec4 position)
@@ -235,7 +235,7 @@ float sgnoise3d(vec4 position)
     vec4 pf = floor(p);
     ivec4 ip = ivec4(int(pf.x), int(pf.y), int(pf.z), 0.0);
     vec4 fp = p - pf;        
-    ip &= P_MASK;
+    ip = ivec4(mod(float(ip), float(P_MASK+1)));
  
     ivec4 I000 = ivec4(0, 0, 0, 0);
     ivec4 I001 = ivec4(0, 0, 1, 0);  
@@ -246,14 +246,14 @@ float sgnoise3d(vec4 position)
     ivec4 I110 = ivec4(1, 1, 0, 0);
     ivec4 I111 = ivec4(1, 1, 1, 0);
     
-    vec4 F000 = vec4(0.0f, 0.0f, 0.0f, 0.0f);
-    vec4 F001 = vec4(0.0f, 0.0f, 1.0f, 0.0f);
-    vec4 F010 = vec4(0.0f, 1.0f, 0.0f, 0.0f);
-    vec4 F011 = vec4(0.0f, 1.0f, 1.0f, 0.0f);
-    vec4 F100 = vec4(1.0f, 0.0f, 0.0f, 0.0f);
-    vec4 F101 = vec4(1.0f, 0.0f, 1.0f, 0.0f);
-    vec4 F110 = vec4(1.0f, 1.0f, 0.0f, 0.0f);
-    vec4 F111 = vec4(1.0f, 1.0f, 1.0f, 0.0f);
+    vec4 F000 = vec4(0.0, 0.0, 0.0, 0.0);
+    vec4 F001 = vec4(0.0, 0.0, 1.0, 0.0);
+    vec4 F010 = vec4(0.0, 1.0, 0.0, 0.0);
+    vec4 F011 = vec4(0.0, 1.0, 1.0, 0.0);
+    vec4 F100 = vec4(1.0, 0.0, 0.0, 0.0);
+    vec4 F101 = vec4(1.0, 0.0, 1.0, 0.0);
+    vec4 F110 = vec4(1.0, 1.0, 0.0, 0.0);
+    vec4 F111 = vec4(1.0, 1.0, 1.0, 0.0);
     
     float n000 = gradient3d(ip + I000, fp - F000);
     float n001 = gradient3d(ip + I001, fp - F001);
