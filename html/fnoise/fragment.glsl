@@ -14,9 +14,9 @@ const int P_SIZE = 256;
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const int G_MASK = 15;
-const int G_SIZE = 16;
-const int G_VECSIZE = 4;
+const int G_MASK    = 15;
+const int G_SIZE    = 16;
+const int G_VECSIZE =  4;
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -31,14 +31,14 @@ const int G_VECSIZE = 4;
  
 float smooth(float t)
 {
-    return t*t*t*(t*(t*6.0f-15.0f)+10.0f); 
+    return t*t*t*(t*(t*6.0-15.0)+10.0); 
 }
  
 vec4 normalized(vec4 v)
 {
     float d = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
-    d = d > 0.0f ? d : 1.0f;
-    vec4 result = vec4(v.x, v.y, v.z, 0.0f) / d;
+    d = d > 0.0 ? d : 1.0;
+    vec4 result = vec4(v.x, v.y, v.z, 0.0) / d;
     //result.w = 1.0f;
     return result;
 }
