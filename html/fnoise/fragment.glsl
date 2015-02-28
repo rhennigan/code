@@ -237,8 +237,8 @@ vec3 turbulence_shift(vec3 P, float power, int seed) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void main(void) {
-  vec2 ps = turbulence_shift(1.0 * pos, 2.0, 1);
-  float noise = perlin_noise(vec3(aspect*ps.x + p, ps.y + p, p));
+  vec3 ps = turbulence_shift(vec3(aspect*pos.x + p, pos.y + p, p), 0.1, 1);
+  float noise = perlin_noise(ps);
   vec4 color = color_px(noise, p);
   gl_FragColor = color;
 }
