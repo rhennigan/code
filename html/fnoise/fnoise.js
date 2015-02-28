@@ -49,10 +49,8 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlus, btnSub, canvas, frameIndex, frameLast, frameTimes, order, phaseS;
+    var aspect, btnPlus, btnSub, canvas, frameIndex, frameLast, frameTimes;
     canvas = document.getElementById('fnCanvas');
-    order = 5;
-    phaseS = 1.0;
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
     frameLast = 0;
@@ -60,7 +58,7 @@
     if (PhiloGL.hasWebGL() === !true) {
       alert("Your browser does not support WebGL");
     }
-    PhiloGL('qcCanvas', {
+    PhiloGL('fnCanvas', {
       program: [
         {
           id: 'fnoise',
@@ -113,6 +111,7 @@
     btnPlus = document.getElementById('order+');
     btnPlus.addEventListener("click", (function(_this) {
       return function(e) {
+        var order;
         order = order >= 30 ? 30 : order + 1;
         document.getElementById('orderTxt').value = order;
         return console.log(order);
@@ -121,6 +120,7 @@
     btnSub = document.getElementById('order-');
     btnSub.addEventListener("click", (function(_this) {
       return function(e) {
+        var order;
         order = order <= 1 ? 0 : order - 1;
         document.getElementById('orderTxt').value = order;
         return console.log(order);
