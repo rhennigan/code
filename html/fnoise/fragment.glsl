@@ -154,7 +154,7 @@ int lattice3d(ivec4 i)
 
 float gradient1d(int i, float v)
 {
-    int index = mod(lattice1d(i), G_SIZE) * G_VECSIZE;
+    int index = int(mod(float(lattice1d(i)), float(G_SIZE))) * G_VECSIZE;
     float g = G[index + 0];
     return (v * g);
 }
