@@ -188,8 +188,8 @@ float perlin_noise(vec3 P) {
   float e = 0.5;
   for (int i = 0; i < OCTAVES; i++) {
     e *= 2.0;
-    float d = float(i);
-    n = 0.5 * n * abs(gnoise(P * e));
+    float d = 1.0 / e;
+    n = d * n * abs(gnoise(P * e));
   }
 }
 
