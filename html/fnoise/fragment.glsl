@@ -35,7 +35,7 @@ precision highp float;
 
 uniform sampler2D sampler1;
 uniform int P[512];
-uniform int G[16*4];
+uniform float G[16*4];
 uniform int order;
 uniform float p;
 uniform float aspect;
