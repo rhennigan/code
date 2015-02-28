@@ -64,9 +64,10 @@
       program: [
         {
           id: 'quasicrystals',
-          from: 'ids',
+          from: 'uris',
+          path: './',
           vs: 'vertex.glsl',
-          fs: 'shader-fs'
+          fs: 'fragment.glsl'
         }
       ],
       onError: (function(_this) {
