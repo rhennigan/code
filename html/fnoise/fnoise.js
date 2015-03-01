@@ -169,7 +169,7 @@
     })(this);
     canvas.addEventListener("mousedown", (function(_this) {
       return function(e) {
-        dragStart = getMousePos(e);
+        dragStart = dragCurrent = getMousePos(e);
         mouseDragging = true;
         return console.log(dragStart);
       };
