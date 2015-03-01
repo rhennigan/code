@@ -5,7 +5,7 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTurb, btnSubPers, btnSubTurb, canvas, center, dragCurrent, dragStart, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency, turbulence;
+    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
@@ -107,6 +107,22 @@
         turbulence = turbulence <= 0.0 ? 0.0 : turbulence - 0.005;
         document.getElementById('turbulenceTxt').value = turbulence;
         return console.log(turbulence);
+      };
+    })(this));
+    btnPlusTF = document.getElementById('tfrequency+');
+    btnPlusTF.addEventListener("click", (function(_this) {
+      return function(e) {
+        tfrequency = tfrequency >= 1.0 ? 1.0 : tfrequency + 0.005;
+        document.getElementById('tfrequencyTxt').value = tfrequency;
+        return console.log(tfrequency);
+      };
+    })(this));
+    btnSubTF = document.getElementById('tfrequency-');
+    btnSubTF.addEventListener("click", (function(_this) {
+      return function(e) {
+        tfrequency = tfrequency <= 0.0 ? 0.0 : tfrequency - 0.005;
+        document.getElementById('turbulenceTxt').value = tfrequency;
+        return console.log(tfrequency);
       };
     })(this));
     btnPlusPers = document.getElementById('persistence+');
