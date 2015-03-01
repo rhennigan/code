@@ -78,12 +78,6 @@
           return function(app) {
             var draw, time;
             time = Date.now();
-            document.getElementById('turbulenceTxt').value = _this.turbulence;
-            document.getElementById('tfrequencyTxt').value = _this.tfrequency;
-            document.getElementById('persistenceTxt').value = _this.persistence;
-            document.getElementById('lacunarityTxt').value = _this.lacunarity;
-            document.getElementById('speedTxt').value = _this.speed;
-            document.getElementById('flip').value = _this.flip;
             draw = function() {
               var avgFPS, ft, i, len, tmp;
               p += _this.speed * 0.0002;
