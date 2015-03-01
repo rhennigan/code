@@ -58,7 +58,7 @@
     }
 
     Viewer.prototype.load = function() {
-      var btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, getMousePos;
+      var getMousePos;
       PhiloGL('fnCanvas', {
         program: [
           {
@@ -123,98 +123,6 @@
           };
         })(this)
       });
-      btnPlusTurb = document.getElementById('turbulence+');
-      btnPlusTurb.addEventListener("click", (function(_this) {
-        return function(e) {
-          _this.turbulence *= 1.1;
-          document.getElementById('turbulenceTxt').value = _this.turbulence;
-          return console.log(_this.turbulence);
-        };
-      })(this));
-      btnSubTurb = document.getElementById('turbulence-');
-      btnSubTurb.addEventListener("click", (function(_this) {
-        return function(e) {
-          _this.turbulence /= 1.1;
-          document.getElementById('turbulenceTxt').value = _this.turbulence;
-          return console.log(_this.turbulence);
-        };
-      })(this));
-      btnPlusTF = document.getElementById('tfrequency+');
-      btnPlusTF.addEventListener("click", (function(_this) {
-        return function(e) {
-          _this.tfrequency *= 1.1;
-          document.getElementById('tfrequencyTxt').value = _this.tfrequency;
-          return console.log(_this.tfrequency);
-        };
-      })(this));
-      btnSubTF = document.getElementById('tfrequency-');
-      btnSubTF.addEventListener("click", (function(_this) {
-        return function(e) {
-          _this.tfrequency /= 1.1;
-          document.getElementById('tfrequencyTxt').value = _this.tfrequency;
-          return console.log(_this.tfrequency);
-        };
-      })(this));
-      btnPlusPers = document.getElementById('persistence+');
-      btnPlusPers.addEventListener("click", (function(_this) {
-        return function(e) {
-          var persistence;
-          persistence = persistence >= 5.0 ? 5.0 : persistence + 0.1;
-          document.getElementById('persistenceTxt').value = persistence;
-          return console.log(persistence);
-        };
-      })(this));
-      btnSubPers = document.getElementById('persistence-');
-      btnSubPers.addEventListener("click", (function(_this) {
-        return function(e) {
-          var persistence;
-          persistence = persistence <= 0.0 ? 0.0 : persistence - 0.1;
-          document.getElementById('persistenceTxt').value = persistence;
-          return console.log(persistence);
-        };
-      })(this));
-      btnPlusLac = document.getElementById('lacunarity+');
-      btnPlusLac.addEventListener("click", (function(_this) {
-        return function(e) {
-          var lacunarity;
-          lacunarity = lacunarity >= 5.0 ? 5.0 : lacunarity + 0.1;
-          document.getElementById('lacunarityTxt').value = lacunarity;
-          return console.log(lacunarity);
-        };
-      })(this));
-      btnPlusLac = document.getElementById('lacunarity-');
-      btnPlusLac.addEventListener("click", (function(_this) {
-        return function(e) {
-          var lacunarity;
-          lacunarity = lacunarity <= 0.0 ? 0.0 : lacunarity - 0.1;
-          document.getElementById('lacunarityTxt').value = lacunarity;
-          return console.log(lacunarity);
-        };
-      })(this));
-      btnPlusSpd = document.getElementById('speed+');
-      btnPlusSpd.addEventListener("click", (function(_this) {
-        return function(e) {
-          speed *= 1.1;
-          document.getElementById('speedTxt').value = speed;
-          console.log(speed);
-          return console.log(p);
-        };
-      })(this));
-      btnPlusSpd = document.getElementById('speed-');
-      btnPlusSpd.addEventListener("click", (function(_this) {
-        return function(e) {
-          speed /= 1.1;
-          document.getElementById('speedTxt').value = speed;
-          console.log(speed);
-          return console.log(p);
-        };
-      })(this));
-      document.getElementById('flip').addEventListener("click", (function(_this) {
-        return function(e) {
-          var flip;
-          return flip = $("#flip").is(':checked');
-        };
-      })(this));
       getMousePos = (function(_this) {
         return function(event) {
           var rect;
