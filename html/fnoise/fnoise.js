@@ -49,13 +49,7 @@
       y: 0
     };
 
-    function Viewer(turbulence, tfrequency, persistence1, lacunarity1, speed1, flip1) {
-      this.turbulence = turbulence;
-      this.tfrequency = tfrequency;
-      this.persistence = persistence1;
-      this.lacunarity = lacunarity1;
-      this.speed = speed1;
-      this.flip = flip1;
+    function Viewer() {
       this.load = bind(this.load, this);
     }
 
