@@ -172,6 +172,8 @@
 
   gui.close();
 
+  gui.width = 200;
+
   console.log(gui);
 
   IO = (function() {
