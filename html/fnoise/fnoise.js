@@ -5,14 +5,14 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency;
+    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
     frameLast = 0;
     frameIndex = 0;
     p = Date.now() / 1000000000;
-    this.turbulence = 0.03;
+    turbulence = 0.03;
     tfrequency = 0.5;
     persistence = 2.0;
     lacunarity = 2.0;
@@ -54,7 +54,7 @@
           var draw, time;
           time = Date.now();
           console.log(time);
-          document.getElementById('turbulenceTxt').value = _this.turbulence;
+          document.getElementById('turbulenceTxt').value = turbulence;
           document.getElementById('tfrequencyTxt').value = tfrequency;
           document.getElementById('persistenceTxt').value = persistence;
           document.getElementById('lacunarityTxt').value = lacunarity;
