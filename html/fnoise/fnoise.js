@@ -85,7 +85,7 @@
             var draw, time;
             time = Date.now();
             draw = function() {
-              canvas.width = window.innerWidth;
+              canvas.width = window.innerWidth - 5;
               canvas.height = window.innerHeight - 5;
               aspect = canvas.width / canvas.height;
               p += _this.speed * 0.0002;
