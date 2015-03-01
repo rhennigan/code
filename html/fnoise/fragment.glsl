@@ -202,7 +202,7 @@ float perlin_noise4(vec3 P) {
     div /= 2.0;
     mul *= 2.0;
     // n+= div * abs(snoise(P*mul));
-    n+= div * snoise(P*mul);
+    n+= div * snoise(0.25*P*mul);
   }
 
   float rn = 1.0 - n;
