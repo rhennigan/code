@@ -44,7 +44,7 @@
         document.getElementById('speedTxt').value = speed;
         draw = function() {
           var avgFPS, ft, i, len, tmp;
-          p += speed * 0.001;
+          p += speed * 0.0001;
           tmp = Date.now();
           frameTimes[++frameIndex % 5] = 1000 / (tmp - frameLast);
           frameLast = tmp;
