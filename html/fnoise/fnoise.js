@@ -24,9 +24,9 @@
 
     p = Date.now() / 1000000000;
 
-    Viewer.prototype.turbulence = 0.03;
+    Viewer.prototype.turbulence = 0.02;
 
-    Viewer.prototype.tfrequency = 0.5;
+    Viewer.prototype.tfrequency = 1.0;
 
     Viewer.prototype.persistence = 2.0;
 
