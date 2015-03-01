@@ -49,16 +49,14 @@
       y: 0
     };
 
-    function Viewer(turbulence, tfrequency) {
-      if (turbulence == null) {
-        turbulence = this.turbulence;
-      }
-      if (tfrequency == null) {
-        tfrequency = this.tfrequency;
-      }
-      this.load = bind(this.load, this);
+    function Viewer(turbulence, tfrequency, persistence1, lacunarity1, speed1, flip1) {
       this.turbulence = turbulence;
       this.tfrequency = tfrequency;
+      this.persistence = persistence1;
+      this.lacunarity = lacunarity1;
+      this.speed = speed1;
+      this.flip = flip1;
+      this.load = bind(this.load, this);
     }
 
     if (PhiloGL.hasWebGL() === !true) {
@@ -88,13 +86,13 @@
             time = Date.now();
             document.getElementById('turbulenceTxt').value = _this.turbulence;
             document.getElementById('tfrequencyTxt').value = _this.tfrequency;
-            document.getElementById('persistenceTxt').value = persistence;
-            document.getElementById('lacunarityTxt').value = lacunarity;
-            document.getElementById('speedTxt').value = speed;
-            document.getElementById('flip').value = flip;
+            document.getElementById('persistenceTxt').value = _this.persistence;
+            document.getElementById('lacunarityTxt').value = _this.lacunarity;
+            document.getElementById('speedTxt').value = _this.speed;
+            document.getElementById('flip').value = _this.flip;
             draw = function() {
               var avgFPS, ft, i, len, tmp;
-              p += speed * 0.0002;
+              p += _this.speed * 0.0002;
               tmp = Date.now();
               frameTimes[++frameIndex % 5] = 1000 / (tmp - frameLast);
               frameLast = tmp;
@@ -118,11 +116,11 @@
                   aspect: aspect,
                   turbulence: _this.turbulence,
                   tfrequency: _this.tfrequency,
-                  persistence: persistence,
-                  lacunarity: lacunarity,
+                  persistence: _this.persistence,
+                  lacunarity: _this.lacunarity,
                   dX: aspect * (center.x + dragStart.x - dragCurrent.x) / canvas.width,
                   dY: (center.y + dragCurrent.y - dragStart.y) / canvas.height,
-                  flip: flip
+                  flip: _this.flip
                 }
               });
               return Fx.requestAnimationFrame(draw);
