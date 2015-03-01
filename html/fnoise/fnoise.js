@@ -179,6 +179,11 @@
         return console.log(p);
       };
     })(this));
+    document.getElementById('flip').addEventListener("click", (function(_this) {
+      return function(e) {
+        return flip = $("#flip").is(':checked');
+      };
+    })(this));
     getMousePos = (function(_this) {
       return function(event) {
         var rect;
