@@ -148,7 +148,9 @@
 
   viewer.load();
 
-  gui = new dat.GUI();
+  gui = new dat.GUI({
+    autoPlace: false
+  });
 
   gui.add(viewer, 'turbulence', 0.0, 0.2);
 
