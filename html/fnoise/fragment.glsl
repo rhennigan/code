@@ -313,7 +313,7 @@ void main(void) {
   vec3 s_pos = vec3(aspect*pos.x + dX, pos.y + dY, p);
   vec3 ps = turbulence_shift(s_pos, turbulence, 1);
   float noise = perlin_noise8(ps, persistence, lacunarity);
-  vec4 color = color_px(noise, p);
+  vec4 color = color_px(1.0-noise, p);
   // float b_noise = billow(s_pos, 0.2, 2.0, 0.5, 1.0);
   // vec4 color = color_px((noise+b_noise+noise*b_noise)/3.0, p);
   gl_FragColor = color;
