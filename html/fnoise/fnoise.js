@@ -32,6 +32,8 @@
 
     Viewer.prototype.flip = false;
 
+    Viewer.prototype.hint = 'click and drag to move';
+
     center = {
       x: 0.0,
       y: 0.0
@@ -165,6 +167,8 @@
   gui.add(viewer, 'speed').min(0);
 
   gui.add(viewer, 'flip');
+
+  gui.add(viewer, 'hint');
 
   IO = (function() {
     function IO() {}
