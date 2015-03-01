@@ -10,6 +10,10 @@
 
     canvas = document.getElementById('fnCanvas');
 
+    canvas.width = window.innerWidth;
+
+    canvas.height = window.innerHeight;
+
     aspect = canvas.width / canvas.height;
 
     frameTimes = [0, 0, 0, 0, 0];
