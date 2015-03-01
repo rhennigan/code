@@ -5,7 +5,7 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTurb, btnSubPers, btnSubTurb, canvas, dragStart, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, p, persistence, speed, turbulence;
+    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTurb, btnSubPers, btnSubTurb, canvas, dragStart, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
@@ -16,6 +16,7 @@
     persistence = 2.0;
     lacunarity = 2.2;
     speed = 1.0;
+    mouseDragging = false;
     dragStart = {
       x: 0,
       y: 0
@@ -160,7 +161,9 @@
     })(this);
     canvas.addEventListener("mousedown", (function(_this) {
       return function(e) {
-        return console.log(getMousePos(e));
+        dragStart = getMousePos(e);
+        mouseDragging = true;
+        return console.log(dragStart);
       };
     })(this));
     canvas.addEventListener("mousemove", (function(_this) {
