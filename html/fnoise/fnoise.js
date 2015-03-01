@@ -7,8 +7,6 @@
   load = (function() {
     var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency;
 
-    function load() {}
-
     canvas = document.getElementById('fnCanvas');
 
     aspect = canvas.width / canvas.height;
@@ -49,6 +47,10 @@
       x: 0,
       y: 0
     };
+
+    function load(turbulence) {
+      this.turbulence = turbulence;
+    }
 
     if (PhiloGL.hasWebGL() === !true) {
       alert("Your browser does not support WebGL");
