@@ -175,10 +175,20 @@
       };
     })(this));
     canvas.addEventListener("mousemove", (function(_this) {
-      return function(e) {};
+      return function(e) {
+        if (mouseDragging) {
+          dragCurrent = getMousePos(e);
+          return console.log({
+            x: dragCurrent.x - dragStart.x,
+            y: dragCurrent.y - dragStart.y
+          });
+        }
+      };
     })(this));
     return canvas.addEventListener("mouseup", (function(_this) {
-      return function(e) {};
+      return function(e) {
+        return mouseDragging = false;
+      };
     })(this));
   };
 
