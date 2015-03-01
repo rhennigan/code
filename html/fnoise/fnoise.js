@@ -5,7 +5,7 @@
   PhiloGL.unpack();
 
   load = (function() {
-    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency, turbulence;
+    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency;
 
     function load() {}
 
@@ -21,7 +21,7 @@
 
     p = Date.now() / 1000000000;
 
-    turbulence = 0.03;
+    load.turbulence = 0.03;
 
     tfrequency = 0.5;
 
@@ -71,7 +71,7 @@
         var draw, time;
         time = Date.now();
         console.log(time);
-        document.getElementById('turbulenceTxt').value = turbulence;
+        document.getElementById('turbulenceTxt').value = load.turbulence;
         document.getElementById('tfrequencyTxt').value = tfrequency;
         document.getElementById('persistenceTxt').value = persistence;
         document.getElementById('lacunarityTxt').value = lacunarity;
@@ -101,7 +101,7 @@
             uniforms: {
               p: p,
               aspect: aspect,
-              turbulence: turbulence,
+              turbulence: load.turbulence,
               tfrequency: tfrequency,
               persistence: persistence,
               lacunarity: lacunarity,
@@ -119,17 +119,17 @@
     btnPlusTurb = document.getElementById('turbulence+');
 
     btnPlusTurb.addEventListener("click", function(e) {
-      turbulence *= 1.1;
-      document.getElementById('turbulenceTxt').value = turbulence;
-      return console.log(turbulence);
+      load.turbulence *= 1.1;
+      document.getElementById('turbulenceTxt').value = load.turbulence;
+      return console.log(load.turbulence);
     });
 
     btnSubTurb = document.getElementById('turbulence-');
 
     btnSubTurb.addEventListener("click", function(e) {
-      turbulence /= 1.1;
-      document.getElementById('turbulenceTxt').value = turbulence;
-      return console.log(turbulence);
+      load.turbulence /= 1.1;
+      document.getElementById('turbulenceTxt').value = load.turbulence;
+      return console.log(load.turbulence);
     });
 
     btnPlusTF = document.getElementById('tfrequency+');
