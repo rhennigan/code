@@ -52,8 +52,8 @@
     frameLast = 0;
     frameIndex = 0;
     turbulence = 0.03;
-    persistence = 2.4;
-    lacunarity = 1.8;
+    persistence = 2.0;
+    lacunarity = 2.2;
     if (PhiloGL.hasWebGL() === !true) {
       alert("Your browser does not support WebGL");
     }
