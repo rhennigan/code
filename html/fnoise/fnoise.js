@@ -6,7 +6,7 @@
   PhiloGL.unpack();
 
   Viewer = (function() {
-    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency;
+    var aspect, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, lacunarity, mouseDragging, p, persistence, speed;
 
     canvas = document.getElementById('fnCanvas');
 
@@ -22,7 +22,7 @@
 
     Viewer.prototype.turbulence = 0.03;
 
-    tfrequency = 0.5;
+    Viewer.prototype.tfrequency = 0.5;
 
     persistence = 2.0;
 
@@ -63,7 +63,8 @@
     }
 
     Viewer.prototype.load = function() {
-      return PhiloGL('fnCanvas', {
+      var btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, getMousePos;
+      PhiloGL('fnCanvas', {
         program: [
           {
             id: 'fnoise',
@@ -127,123 +128,128 @@
           };
         })(this)
       });
+      btnPlusTurb = document.getElementById('turbulence+');
+      btnPlusTurb.addEventListener("click", (function(_this) {
+        return function(e) {
+          _this.turbulence *= 1.1;
+          document.getElementById('turbulenceTxt').value = _this.turbulence;
+          return console.log(_this.turbulence);
+        };
+      })(this));
+      btnSubTurb = document.getElementById('turbulence-');
+      btnSubTurb.addEventListener("click", (function(_this) {
+        return function(e) {
+          _this.turbulence /= 1.1;
+          document.getElementById('turbulenceTxt').value = _this.turbulence;
+          return console.log(_this.turbulence);
+        };
+      })(this));
+      btnPlusTF = document.getElementById('tfrequency+');
+      btnPlusTF.addEventListener("click", (function(_this) {
+        return function(e) {
+          tfrequency *= 1.1;
+          document.getElementById('tfrequencyTxt').value = tfrequency;
+          return console.log(tfrequency);
+        };
+      })(this));
+      btnSubTF = document.getElementById('tfrequency-');
+      btnSubTF.addEventListener("click", (function(_this) {
+        return function(e) {
+          tfrequency /= 1.1;
+          document.getElementById('tfrequencyTxt').value = tfrequency;
+          return console.log(tfrequency);
+        };
+      })(this));
+      btnPlusPers = document.getElementById('persistence+');
+      btnPlusPers.addEventListener("click", (function(_this) {
+        return function(e) {
+          persistence = persistence >= 5.0 ? 5.0 : persistence + 0.1;
+          document.getElementById('persistenceTxt').value = persistence;
+          return console.log(persistence);
+        };
+      })(this));
+      btnSubPers = document.getElementById('persistence-');
+      btnSubPers.addEventListener("click", (function(_this) {
+        return function(e) {
+          persistence = persistence <= 0.0 ? 0.0 : persistence - 0.1;
+          document.getElementById('persistenceTxt').value = persistence;
+          return console.log(persistence);
+        };
+      })(this));
+      btnPlusLac = document.getElementById('lacunarity+');
+      btnPlusLac.addEventListener("click", (function(_this) {
+        return function(e) {
+          lacunarity = lacunarity >= 5.0 ? 5.0 : lacunarity + 0.1;
+          document.getElementById('lacunarityTxt').value = lacunarity;
+          return console.log(lacunarity);
+        };
+      })(this));
+      btnPlusLac = document.getElementById('lacunarity-');
+      btnPlusLac.addEventListener("click", (function(_this) {
+        return function(e) {
+          lacunarity = lacunarity <= 0.0 ? 0.0 : lacunarity - 0.1;
+          document.getElementById('lacunarityTxt').value = lacunarity;
+          return console.log(lacunarity);
+        };
+      })(this));
+      btnPlusSpd = document.getElementById('speed+');
+      btnPlusSpd.addEventListener("click", (function(_this) {
+        return function(e) {
+          speed *= 1.1;
+          document.getElementById('speedTxt').value = speed;
+          console.log(speed);
+          return console.log(p);
+        };
+      })(this));
+      btnPlusSpd = document.getElementById('speed-');
+      btnPlusSpd.addEventListener("click", (function(_this) {
+        return function(e) {
+          speed /= 1.1;
+          document.getElementById('speedTxt').value = speed;
+          console.log(speed);
+          return console.log(p);
+        };
+      })(this));
+      document.getElementById('flip').addEventListener("click", (function(_this) {
+        return function(e) {
+          return flip = $("#flip").is(':checked');
+        };
+      })(this));
+      getMousePos = (function(_this) {
+        return function(event) {
+          var rect;
+          rect = canvas.getBoundingClientRect();
+          return {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top
+          };
+        };
+      })(this);
+      canvas.addEventListener("mousedown", (function(_this) {
+        return function(e) {
+          dragStart = dragCurrent = getMousePos(e);
+          return mouseDragging = true;
+        };
+      })(this));
+      canvas.addEventListener("mousemove", (function(_this) {
+        return function(e) {
+          if (mouseDragging) {
+            return dragCurrent = getMousePos(e);
+          }
+        };
+      })(this));
+      return canvas.addEventListener("mouseup", (function(_this) {
+        return function(e) {
+          mouseDragging = false;
+          center.x = center.x + dragStart.x - dragCurrent.x;
+          center.y = center.y + dragCurrent.y - dragStart.y;
+          return dragStart = dragCurrent = {
+            x: 0.0,
+            y: 0.0
+          };
+        };
+      })(this));
     };
-
-    btnPlusTurb = document.getElementById('turbulence+');
-
-    btnPlusTurb.addEventListener("click", function(e) {
-      Viewer.turbulence *= 1.1;
-      document.getElementById('turbulenceTxt').value = Viewer.turbulence;
-      return console.log(Viewer.turbulence);
-    });
-
-    btnSubTurb = document.getElementById('turbulence-');
-
-    btnSubTurb.addEventListener("click", function(e) {
-      Viewer.turbulence /= 1.1;
-      document.getElementById('turbulenceTxt').value = Viewer.turbulence;
-      return console.log(Viewer.turbulence);
-    });
-
-    btnPlusTF = document.getElementById('tfrequency+');
-
-    btnPlusTF.addEventListener("click", function(e) {
-      tfrequency *= 1.1;
-      document.getElementById('tfrequencyTxt').value = tfrequency;
-      return console.log(tfrequency);
-    });
-
-    btnSubTF = document.getElementById('tfrequency-');
-
-    btnSubTF.addEventListener("click", function(e) {
-      tfrequency /= 1.1;
-      document.getElementById('tfrequencyTxt').value = tfrequency;
-      return console.log(tfrequency);
-    });
-
-    btnPlusPers = document.getElementById('persistence+');
-
-    btnPlusPers.addEventListener("click", function(e) {
-      persistence = persistence >= 5.0 ? 5.0 : persistence + 0.1;
-      document.getElementById('persistenceTxt').value = persistence;
-      return console.log(persistence);
-    });
-
-    btnSubPers = document.getElementById('persistence-');
-
-    btnSubPers.addEventListener("click", function(e) {
-      persistence = persistence <= 0.0 ? 0.0 : persistence - 0.1;
-      document.getElementById('persistenceTxt').value = persistence;
-      return console.log(persistence);
-    });
-
-    btnPlusLac = document.getElementById('lacunarity+');
-
-    btnPlusLac.addEventListener("click", function(e) {
-      lacunarity = lacunarity >= 5.0 ? 5.0 : lacunarity + 0.1;
-      document.getElementById('lacunarityTxt').value = lacunarity;
-      return console.log(lacunarity);
-    });
-
-    btnPlusLac = document.getElementById('lacunarity-');
-
-    btnPlusLac.addEventListener("click", function(e) {
-      lacunarity = lacunarity <= 0.0 ? 0.0 : lacunarity - 0.1;
-      document.getElementById('lacunarityTxt').value = lacunarity;
-      return console.log(lacunarity);
-    });
-
-    btnPlusSpd = document.getElementById('speed+');
-
-    btnPlusSpd.addEventListener("click", function(e) {
-      speed *= 1.1;
-      document.getElementById('speedTxt').value = speed;
-      console.log(speed);
-      return console.log(p);
-    });
-
-    btnPlusSpd = document.getElementById('speed-');
-
-    btnPlusSpd.addEventListener("click", function(e) {
-      speed /= 1.1;
-      document.getElementById('speedTxt').value = speed;
-      console.log(speed);
-      return console.log(p);
-    });
-
-    document.getElementById('flip').addEventListener("click", function(e) {
-      return flip = $("#flip").is(':checked');
-    });
-
-    getMousePos = function(event) {
-      var rect;
-      rect = canvas.getBoundingClientRect();
-      return {
-        x: event.clientX - rect.left,
-        y: event.clientY - rect.top
-      };
-    };
-
-    canvas.addEventListener("mousedown", function(e) {
-      dragStart = dragCurrent = getMousePos(e);
-      return mouseDragging = true;
-    });
-
-    canvas.addEventListener("mousemove", function(e) {
-      if (mouseDragging) {
-        return dragCurrent = getMousePos(e);
-      }
-    });
-
-    canvas.addEventListener("mouseup", function(e) {
-      mouseDragging = false;
-      center.x = center.x + dragStart.x - dragCurrent.x;
-      center.y = center.y + dragCurrent.y - dragStart.y;
-      return dragStart = dragCurrent = {
-        x: 0.0,
-        y: 0.0
-      };
-    });
 
     return Viewer;
 
@@ -251,7 +257,9 @@
 
   viewer = new Viewer();
 
-  console.log(viewer);
+  viewer.load();
+
+  console.log(viewer.turbulence);
 
   IO = (function() {
     function IO() {}
