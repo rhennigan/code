@@ -99,6 +99,7 @@
     });
     gui = new dat.GUI();
     turbFolder = gui.addFolder('turbulence');
+    turbFolder.add(this, 'turbulence');
     btnPlusTurb = document.getElementById('turbulence+');
     btnPlusTurb.addEventListener("click", (function(_this) {
       return function(e) {
