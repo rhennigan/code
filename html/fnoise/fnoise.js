@@ -12,7 +12,7 @@
 
     canvas.width = window.innerWidth;
 
-    canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight - 5;
 
     aspect = canvas.width / canvas.height;
 
