@@ -5,7 +5,7 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTurb, btnSubPers, btnSubTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, p, persistence, speed, turbulence;
+    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTurb, btnSubPers, btnSubTurb, canvas, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, p, persistence, speed, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
@@ -144,12 +144,26 @@
         return console.log(p);
       };
     })(this));
-    return canvas.addEventListener("click", (function(_this) {
-      return function(e) {
-        turbulence = turbulence >= 1.0 ? 1.0 : turbulence + 0.005;
-        document.getElementById('turbulenceTxt').value = turbulence;
-        return console.log(turbulence);
+    getMousePos = (function(_this) {
+      return function(event) {
+        var rect;
+        rect = canvas.getBoundingClientRect();
+        return {
+          x: event.clientX - rect.left,
+          y: event.clientY - rect.top
+        };
       };
+    })(this);
+    canvas.addEventListener("mousedown", (function(_this) {
+      return function(e) {
+        return console.log(getMousePos(e));
+      };
+    })(this));
+    canvas.addEventListener("mousemove", (function(_this) {
+      return function(e) {};
+    })(this));
+    return canvas.addEventListener("mouseup", (function(_this) {
+      return function(e) {};
     })(this));
   };
 
