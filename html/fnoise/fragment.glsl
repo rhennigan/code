@@ -37,6 +37,8 @@ uniform float aspect;
 uniform float turbulence;
 uniform float persistence;
 uniform float lacunarity;
+uniform float dX;
+uniform float dY;
 
 varying vec2 pos;
 
