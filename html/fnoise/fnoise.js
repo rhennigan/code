@@ -86,7 +86,8 @@
               persistence: persistence,
               lacunarity: lacunarity,
               dX: aspect * (center.x + dragStart.x - dragCurrent.x) / canvas.width,
-              dY: (center.y + dragCurrent.y - dragStart.y) / canvas.height
+              dY: (center.y + dragCurrent.y - dragStart.y) / canvas.height,
+              flip: true
             }
           });
           return Fx.requestAnimationFrame(draw);
