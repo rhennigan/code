@@ -166,7 +166,7 @@
     btnPlusSpd = document.getElementById('speed+');
     btnPlusSpd.addEventListener("click", (function(_this) {
       return function(e) {
-        speed = speed >= 5.0 ? 5.0 : speed + 0.1;
+        speed *= 1.1;
         document.getElementById('speedTxt').value = speed;
         return console.log(speed);
       };
@@ -174,7 +174,7 @@
     btnPlusSpd = document.getElementById('speed-');
     return btnPlusSpd.addEventListener("click", (function(_this) {
       return function(e) {
-        speed = speed <= 0.0 ? 0.0 : speed - 0.1;
+        speed /= 1.1;
         document.getElementById('speedTxt').value = speed;
         return console.log(speed);
       };
