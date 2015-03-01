@@ -13,9 +13,9 @@
     frameIndex = 0;
     p = Date.now() / 1000000000;
     turbulence = 0.03;
-    tfrequency = 1.0;
+    tfrequency = 0.5;
     persistence = 2.0;
-    lacunarity = 2.2;
+    lacunarity = 2.0;
     speed = 1.0;
     center = {
       x: 0.0,
