@@ -264,7 +264,7 @@
 
   gui = new dat.GUI();
 
-  gui.add(viewer, 'turbulence').min(0);
+  gui.add(viewer, 'turbulence', 0.0, 0.2);
 
   IO = (function() {
     function IO() {}
