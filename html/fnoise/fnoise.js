@@ -49,13 +49,16 @@
       y: 0
     };
 
-    function Viewer(turbulence) {
+    function Viewer(turbulence, tfrequency) {
       if (turbulence == null) {
         turbulence = this.turbulence;
       }
+      if (tfrequency == null) {
+        tfrequency = this.tfrequency;
+      }
       this.load = bind(this.load, this);
       this.turbulence = turbulence;
-      console.log(this.turbulence);
+      this.tfrequency = tfrequency;
     }
 
     if (PhiloGL.hasWebGL() === !true) {
@@ -84,7 +87,7 @@
             var draw, time;
             time = Date.now();
             document.getElementById('turbulenceTxt').value = _this.turbulence;
-            document.getElementById('tfrequencyTxt').value = tfrequency;
+            document.getElementById('tfrequencyTxt').value = _this.tfrequency;
             document.getElementById('persistenceTxt').value = persistence;
             document.getElementById('lacunarityTxt').value = lacunarity;
             document.getElementById('speedTxt').value = speed;
@@ -114,7 +117,7 @@
                   p: p,
                   aspect: aspect,
                   turbulence: _this.turbulence,
-                  tfrequency: tfrequency,
+                  tfrequency: _this.tfrequency,
                   persistence: persistence,
                   lacunarity: lacunarity,
                   dX: aspect * (center.x + dragStart.x - dragCurrent.x) / canvas.width,
@@ -147,17 +150,17 @@
       btnPlusTF = document.getElementById('tfrequency+');
       btnPlusTF.addEventListener("click", (function(_this) {
         return function(e) {
-          tfrequency *= 1.1;
-          document.getElementById('tfrequencyTxt').value = tfrequency;
-          return console.log(tfrequency);
+          _this.tfrequency *= 1.1;
+          document.getElementById('tfrequencyTxt').value = _this.tfrequency;
+          return console.log(_this.tfrequency);
         };
       })(this));
       btnSubTF = document.getElementById('tfrequency-');
       btnSubTF.addEventListener("click", (function(_this) {
         return function(e) {
-          tfrequency /= 1.1;
-          document.getElementById('tfrequencyTxt').value = tfrequency;
-          return console.log(tfrequency);
+          _this.tfrequency /= 1.1;
+          document.getElementById('tfrequencyTxt').value = _this.tfrequency;
+          return console.log(_this.tfrequency);
         };
       })(this));
       btnPlusPers = document.getElementById('persistence+');
