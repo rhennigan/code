@@ -97,6 +97,7 @@
         return draw();
       }
     });
+    console.log(load);
     gui = new dat.GUI();
     turbFolder = gui.addFolder('turbulence');
     turbFolder.add(this, 'turbulence');
