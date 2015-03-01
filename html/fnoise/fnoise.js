@@ -11,7 +11,7 @@
     frameTimes = [0, 0, 0, 0, 0];
     frameLast = 0;
     frameIndex = 0;
-    p = Date.now() / 10000000;
+    p = Date.now() / 1000000000;
     turbulence = 0.03;
     persistence = 2.0;
     lacunarity = 2.2;
