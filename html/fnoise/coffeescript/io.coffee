@@ -22,5 +22,5 @@ err = (url) ->
 
 vertexShader = {text: null}
 fragmentShader = {text: null}
-IO::load('vertex.glsl', $("#shader-vs"), cb, err)
-IO::load('fragment.glsl', $("#shader-fs"), cb, err)
+# IO::load('vertex.glsl', $("#shader-vs"), cb, err)
+# IO::load('fragment.glsl', $("#shader-fs"), cb, err)

@@ -42,10 +42,6 @@
     text: null
   };
 
-  IO.prototype.load('vertex.glsl', $("#shader-vs"), cb, err);
-
-  IO.prototype.load('fragment.glsl', $("#shader-fs"), cb, err);
-
   PhiloGL.unpack();
 
   load = function() {
