@@ -53,6 +53,7 @@
         time = Date.now();
         console.log(time);
         document.getElementById('turbulenceTxt').value = turbulence;
+        document.getElementById('tfrequencyTxt').value = tfrequency;
         document.getElementById('persistenceTxt').value = persistence;
         document.getElementById('lacunarityTxt').value = lacunarity;
         document.getElementById('speedTxt').value = speed;
