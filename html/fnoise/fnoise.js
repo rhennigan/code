@@ -5,7 +5,7 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency, turbulence;
+    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
@@ -17,6 +17,7 @@
     persistence = 2.0;
     lacunarity = 2.0;
     speed = 1.0;
+    flip = false;
     center = {
       x: 0.0,
       y: 0.0
@@ -57,6 +58,7 @@
         document.getElementById('persistenceTxt').value = persistence;
         document.getElementById('lacunarityTxt').value = lacunarity;
         document.getElementById('speedTxt').value = speed;
+        document.getElementById('flip').value = flip;
         draw = function() {
           var avgFPS, ft, i, len, tmp;
           p += speed * 0.0002;
@@ -87,7 +89,7 @@
               lacunarity: lacunarity,
               dX: aspect * (center.x + dragStart.x - dragCurrent.x) / canvas.width,
               dY: (center.y + dragCurrent.y - dragStart.y) / canvas.height,
-              flip: true
+              flip: flip
             }
           });
           return Fx.requestAnimationFrame(draw);
