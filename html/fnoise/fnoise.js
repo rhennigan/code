@@ -163,7 +163,7 @@
 
   document.getElementById('container').appendChild(gui.domElement);
 
-  gui.add(viewer, 'turbulence', 0.0, 0.2);
+  gui.add(viewer, 'turbulence', 0.0, 1.0);
 
   gui.add(viewer, 'tfrequency', 0.0, 1.0);
 
