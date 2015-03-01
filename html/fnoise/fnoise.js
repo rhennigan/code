@@ -136,12 +136,19 @@
       };
     })(this));
     btnPlusSpd = document.getElementById('speed-');
-    return btnPlusSpd.addEventListener("click", (function(_this) {
+    btnPlusSpd.addEventListener("click", (function(_this) {
       return function(e) {
         speed /= 1.1;
         document.getElementById('speedTxt').value = speed;
         console.log(speed);
         return console.log(p);
+      };
+    })(this));
+    return canvas.addEventListener("click", (function(_this) {
+      return function(e) {
+        turbulence = turbulence >= 1.0 ? 1.0 : turbulence + 0.005;
+        document.getElementById('turbulenceTxt').value = turbulence;
+        return console.log(turbulence);
       };
     })(this));
   };
