@@ -82,8 +82,8 @@
               turbulence: turbulence,
               persistence: persistence,
               lacunarity: lacunarity,
-              dX: center.x,
-              dY: center.y
+              dX: center.x + dragCurrent.x - dragStart.x,
+              dY: center.y + dragCurrent.y - dragStart.y
             }
           });
           return Fx.requestAnimationFrame(draw);
