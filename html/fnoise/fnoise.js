@@ -2,55 +2,16 @@
 (function() {
   var IO, cb, err, fragmentShader, load, vertexShader;
 
-  IO = (function() {
-    function IO() {}
-
-    return IO;
-
-  })();
-
-  IO.prototype.load = function(url, store, cb, cbErr) {
-    var req;
-    req = new XMLHttpRequest();
-    req.open('GET', url, true);
-    req.onreadystatechange = function() {
-      if (req.readyState === 4) {
-        if (req.status === 200) {
-          return cb(store, req.responseText);
-        } else {
-          return cbErr(url);
-        }
-      }
-    };
-    return req.send(null);
-  };
-
-  cb = function(sh, txt) {
-    sh.text(txt);
-    return console.log(sh);
-  };
-
-  err = function(url) {
-    return alert("failed to load " + url);
-  };
-
-  vertexShader = {
-    text: null
-  };
-
-  fragmentShader = {
-    text: null
-  };
-
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTurb, btnSubPers, btnSubTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, persistence, speed, turbulence;
+    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTurb, btnSubPers, btnSubTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, p, persistence, speed, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
     frameLast = 0;
     frameIndex = 0;
+    p = Date.now() / 10000000;
     turbulence = 0.03;
     persistence = 2.0;
     lacunarity = 2.2;
@@ -82,8 +43,8 @@
         document.getElementById('lacunarityTxt').value = lacunarity;
         document.getElementById('speedTxt').value = speed;
         draw = function() {
-          var avgFPS, ft, i, len, p, tmp;
-          p = speed * ((Date.now() - 1425166257376) / 100000);
+          var avgFPS, ft, i, len, tmp;
+          p += speed * 0.001;
           tmp = Date.now();
           frameTimes[++frameIndex % 5] = 1000 / (tmp - frameLast);
           frameLast = tmp;
@@ -170,7 +131,8 @@
       return function(e) {
         speed *= 1.1;
         document.getElementById('speedTxt').value = speed;
-        return console.log(speed);
+        console.log(speed);
+        return console.log(p);
       };
     })(this));
     btnPlusSpd = document.getElementById('speed-');
@@ -178,12 +140,53 @@
       return function(e) {
         speed /= 1.1;
         document.getElementById('speedTxt').value = speed;
-        return console.log(speed);
+        console.log(speed);
+        return console.log(p);
       };
     })(this));
   };
 
   load();
+
+  IO = (function() {
+    function IO() {}
+
+    return IO;
+
+  })();
+
+  IO.prototype.load = function(url, store, cb, cbErr) {
+    var req;
+    req = new XMLHttpRequest();
+    req.open('GET', url, true);
+    req.onreadystatechange = function() {
+      if (req.readyState === 4) {
+        if (req.status === 200) {
+          return cb(store, req.responseText);
+        } else {
+          return cbErr(url);
+        }
+      }
+    };
+    return req.send(null);
+  };
+
+  cb = function(sh, txt) {
+    sh.text(txt);
+    return console.log(sh);
+  };
+
+  err = function(url) {
+    return alert("failed to load " + url);
+  };
+
+  vertexShader = {
+    text: null
+  };
+
+  fragmentShader = {
+    text: null
+  };
 
 }).call(this);
 
