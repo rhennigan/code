@@ -4,36 +4,56 @@
 
   PhiloGL.unpack();
 
-  load = function() {
+  load = (function() {
     var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency, turbulence;
+
+    function load() {}
+
     canvas = document.getElementById('fnCanvas');
+
     aspect = canvas.width / canvas.height;
+
     frameTimes = [0, 0, 0, 0, 0];
+
     frameLast = 0;
+
     frameIndex = 0;
+
     p = Date.now() / 1000000000;
+
     turbulence = 0.03;
+
     tfrequency = 0.5;
+
     persistence = 2.0;
+
     lacunarity = 2.0;
+
     speed = 1.0;
+
     flip = false;
+
     center = {
       x: 0.0,
       y: 0.0
     };
+
     mouseDragging = false;
+
     dragStart = {
       x: 0,
       y: 0
     };
+
     dragCurrent = {
       x: 0,
       y: 0
     };
+
     if (PhiloGL.hasWebGL() === !true) {
       alert("Your browser does not support WebGL");
     }
+
     PhiloGL('fnCanvas', {
       program: [
         {
@@ -44,183 +64,177 @@
           fs: 'fragment.glsl'
         }
       ],
-      onError: (function(_this) {
-        return function(e) {
-          return console.log(e);
-        };
-      })(this),
-      onLoad: (function(_this) {
-        return function(app) {
-          var draw, time;
-          time = Date.now();
-          console.log(time);
-          document.getElementById('turbulenceTxt').value = turbulence;
-          document.getElementById('tfrequencyTxt').value = tfrequency;
-          document.getElementById('persistenceTxt').value = persistence;
-          document.getElementById('lacunarityTxt').value = lacunarity;
-          document.getElementById('speedTxt').value = speed;
-          document.getElementById('flip').value = flip;
-          draw = function() {
-            var avgFPS, ft, i, len, tmp;
-            p += speed * 0.0002;
-            tmp = Date.now();
-            frameTimes[++frameIndex % 5] = 1000 / (tmp - frameLast);
-            frameLast = tmp;
-            avgFPS = 0;
-            for (i = 0, len = frameTimes.length; i < len; i++) {
-              ft = frameTimes[i];
-              avgFPS += ft;
+      onError: function(e) {
+        return console.log(e);
+      },
+      onLoad: function(app) {
+        var draw, time;
+        time = Date.now();
+        console.log(time);
+        document.getElementById('turbulenceTxt').value = turbulence;
+        document.getElementById('tfrequencyTxt').value = tfrequency;
+        document.getElementById('persistenceTxt').value = persistence;
+        document.getElementById('lacunarityTxt').value = lacunarity;
+        document.getElementById('speedTxt').value = speed;
+        document.getElementById('flip').value = flip;
+        draw = function() {
+          var avgFPS, ft, i, len, tmp;
+          p += speed * 0.0002;
+          tmp = Date.now();
+          frameTimes[++frameIndex % 5] = 1000 / (tmp - frameLast);
+          frameLast = tmp;
+          avgFPS = 0;
+          for (i = 0, len = frameTimes.length; i < len; i++) {
+            ft = frameTimes[i];
+            avgFPS += ft;
+          }
+          avgFPS /= 5.0;
+          if (frameIndex % 5 === 0) {
+            document.getElementById('fpsTxt').value = Math.round(avgFPS);
+          }
+          Media.Image.postProcess({
+            width: canvas.width,
+            height: canvas.height,
+            toScreen: true,
+            aspectRatio: 1,
+            program: 'fnoise',
+            uniforms: {
+              p: p,
+              aspect: aspect,
+              turbulence: turbulence,
+              tfrequency: tfrequency,
+              persistence: persistence,
+              lacunarity: lacunarity,
+              dX: aspect * (center.x + dragStart.x - dragCurrent.x) / canvas.width,
+              dY: (center.y + dragCurrent.y - dragStart.y) / canvas.height,
+              flip: flip
             }
-            avgFPS /= 5.0;
-            if (frameIndex % 5 === 0) {
-              document.getElementById('fpsTxt').value = Math.round(avgFPS);
-            }
-            Media.Image.postProcess({
-              width: canvas.width,
-              height: canvas.height,
-              toScreen: true,
-              aspectRatio: 1,
-              program: 'fnoise',
-              uniforms: {
-                p: p,
-                aspect: aspect,
-                turbulence: turbulence,
-                tfrequency: tfrequency,
-                persistence: persistence,
-                lacunarity: lacunarity,
-                dX: aspect * (center.x + dragStart.x - dragCurrent.x) / canvas.width,
-                dY: (center.y + dragCurrent.y - dragStart.y) / canvas.height,
-                flip: flip
-              }
-            });
-            return Fx.requestAnimationFrame(draw);
-          };
-          return draw();
+          });
+          return Fx.requestAnimationFrame(draw);
         };
-      })(this)
+        return draw();
+      }
     });
+
     btnPlusTurb = document.getElementById('turbulence+');
-    btnPlusTurb.addEventListener("click", (function(_this) {
-      return function(e) {
-        turbulence *= 1.1;
-        document.getElementById('turbulenceTxt').value = turbulence;
-        return console.log(turbulence);
-      };
-    })(this));
+
+    btnPlusTurb.addEventListener("click", function(e) {
+      turbulence *= 1.1;
+      document.getElementById('turbulenceTxt').value = turbulence;
+      return console.log(turbulence);
+    });
+
     btnSubTurb = document.getElementById('turbulence-');
-    btnSubTurb.addEventListener("click", (function(_this) {
-      return function(e) {
-        turbulence /= 1.1;
-        document.getElementById('turbulenceTxt').value = turbulence;
-        return console.log(turbulence);
-      };
-    })(this));
+
+    btnSubTurb.addEventListener("click", function(e) {
+      turbulence /= 1.1;
+      document.getElementById('turbulenceTxt').value = turbulence;
+      return console.log(turbulence);
+    });
+
     btnPlusTF = document.getElementById('tfrequency+');
-    btnPlusTF.addEventListener("click", (function(_this) {
-      return function(e) {
-        tfrequency *= 1.1;
-        document.getElementById('tfrequencyTxt').value = tfrequency;
-        return console.log(tfrequency);
-      };
-    })(this));
+
+    btnPlusTF.addEventListener("click", function(e) {
+      tfrequency *= 1.1;
+      document.getElementById('tfrequencyTxt').value = tfrequency;
+      return console.log(tfrequency);
+    });
+
     btnSubTF = document.getElementById('tfrequency-');
-    btnSubTF.addEventListener("click", (function(_this) {
-      return function(e) {
-        tfrequency /= 1.1;
-        document.getElementById('tfrequencyTxt').value = tfrequency;
-        return console.log(tfrequency);
-      };
-    })(this));
+
+    btnSubTF.addEventListener("click", function(e) {
+      tfrequency /= 1.1;
+      document.getElementById('tfrequencyTxt').value = tfrequency;
+      return console.log(tfrequency);
+    });
+
     btnPlusPers = document.getElementById('persistence+');
-    btnPlusPers.addEventListener("click", (function(_this) {
-      return function(e) {
-        persistence = persistence >= 5.0 ? 5.0 : persistence + 0.1;
-        document.getElementById('persistenceTxt').value = persistence;
-        return console.log(persistence);
-      };
-    })(this));
+
+    btnPlusPers.addEventListener("click", function(e) {
+      persistence = persistence >= 5.0 ? 5.0 : persistence + 0.1;
+      document.getElementById('persistenceTxt').value = persistence;
+      return console.log(persistence);
+    });
+
     btnSubPers = document.getElementById('persistence-');
-    btnSubPers.addEventListener("click", (function(_this) {
-      return function(e) {
-        persistence = persistence <= 0.0 ? 0.0 : persistence - 0.1;
-        document.getElementById('persistenceTxt').value = persistence;
-        return console.log(persistence);
-      };
-    })(this));
+
+    btnSubPers.addEventListener("click", function(e) {
+      persistence = persistence <= 0.0 ? 0.0 : persistence - 0.1;
+      document.getElementById('persistenceTxt').value = persistence;
+      return console.log(persistence);
+    });
+
     btnPlusLac = document.getElementById('lacunarity+');
-    btnPlusLac.addEventListener("click", (function(_this) {
-      return function(e) {
-        lacunarity = lacunarity >= 5.0 ? 5.0 : lacunarity + 0.1;
-        document.getElementById('lacunarityTxt').value = lacunarity;
-        return console.log(lacunarity);
-      };
-    })(this));
+
+    btnPlusLac.addEventListener("click", function(e) {
+      lacunarity = lacunarity >= 5.0 ? 5.0 : lacunarity + 0.1;
+      document.getElementById('lacunarityTxt').value = lacunarity;
+      return console.log(lacunarity);
+    });
+
     btnPlusLac = document.getElementById('lacunarity-');
-    btnPlusLac.addEventListener("click", (function(_this) {
-      return function(e) {
-        lacunarity = lacunarity <= 0.0 ? 0.0 : lacunarity - 0.1;
-        document.getElementById('lacunarityTxt').value = lacunarity;
-        return console.log(lacunarity);
-      };
-    })(this));
+
+    btnPlusLac.addEventListener("click", function(e) {
+      lacunarity = lacunarity <= 0.0 ? 0.0 : lacunarity - 0.1;
+      document.getElementById('lacunarityTxt').value = lacunarity;
+      return console.log(lacunarity);
+    });
+
     btnPlusSpd = document.getElementById('speed+');
-    btnPlusSpd.addEventListener("click", (function(_this) {
-      return function(e) {
-        speed *= 1.1;
-        document.getElementById('speedTxt').value = speed;
-        console.log(speed);
-        return console.log(p);
-      };
-    })(this));
+
+    btnPlusSpd.addEventListener("click", function(e) {
+      speed *= 1.1;
+      document.getElementById('speedTxt').value = speed;
+      console.log(speed);
+      return console.log(p);
+    });
+
     btnPlusSpd = document.getElementById('speed-');
-    btnPlusSpd.addEventListener("click", (function(_this) {
-      return function(e) {
-        speed /= 1.1;
-        document.getElementById('speedTxt').value = speed;
-        console.log(speed);
-        return console.log(p);
+
+    btnPlusSpd.addEventListener("click", function(e) {
+      speed /= 1.1;
+      document.getElementById('speedTxt').value = speed;
+      console.log(speed);
+      return console.log(p);
+    });
+
+    document.getElementById('flip').addEventListener("click", function(e) {
+      return flip = $("#flip").is(':checked');
+    });
+
+    getMousePos = function(event) {
+      var rect;
+      rect = canvas.getBoundingClientRect();
+      return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top
       };
-    })(this));
-    document.getElementById('flip').addEventListener("click", (function(_this) {
-      return function(e) {
-        return flip = $("#flip").is(':checked');
+    };
+
+    canvas.addEventListener("mousedown", function(e) {
+      dragStart = dragCurrent = getMousePos(e);
+      return mouseDragging = true;
+    });
+
+    canvas.addEventListener("mousemove", function(e) {
+      if (mouseDragging) {
+        return dragCurrent = getMousePos(e);
+      }
+    });
+
+    canvas.addEventListener("mouseup", function(e) {
+      mouseDragging = false;
+      center.x = center.x + dragStart.x - dragCurrent.x;
+      center.y = center.y + dragCurrent.y - dragStart.y;
+      return dragStart = dragCurrent = {
+        x: 0.0,
+        y: 0.0
       };
-    })(this));
-    getMousePos = (function(_this) {
-      return function(event) {
-        var rect;
-        rect = canvas.getBoundingClientRect();
-        return {
-          x: event.clientX - rect.left,
-          y: event.clientY - rect.top
-        };
-      };
-    })(this);
-    canvas.addEventListener("mousedown", (function(_this) {
-      return function(e) {
-        dragStart = dragCurrent = getMousePos(e);
-        return mouseDragging = true;
-      };
-    })(this));
-    canvas.addEventListener("mousemove", (function(_this) {
-      return function(e) {
-        if (mouseDragging) {
-          return dragCurrent = getMousePos(e);
-        }
-      };
-    })(this));
-    return canvas.addEventListener("mouseup", (function(_this) {
-      return function(e) {
-        mouseDragging = false;
-        center.x = center.x + dragStart.x - dragCurrent.x;
-        center.y = center.y + dragCurrent.y - dragStart.y;
-        return dragStart = dragCurrent = {
-          x: 0.0,
-          y: 0.0
-        };
-      };
-    })(this));
-  };
+    });
+
+    return load;
+
+  })();
 
   load();
 
