@@ -17,8 +17,8 @@
     lacunarity = 2.2;
     speed = 1.0;
     center = {
-      x: 0,
-      y: 0
+      x: 0.0,
+      y: 0.0
     };
     mouseDragging = false;
     dragStart = {
