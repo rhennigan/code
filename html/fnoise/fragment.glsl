@@ -271,37 +271,37 @@ float make_32_r(float value) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-// float billow(vec3 P, float f, float lac, float per, float seed) {
+float billow(vec3 P, float f, float lac, float per, float seed) {
 
-//     float x = P.x;
-//     float y = P.y;
-//     float z = P.z;
+    float x = P.x;
+    float y = P.y;
+    float z = P.z;
 
-//     float value = 0.0;
-//     float signal = 0.0;
-//     float curp = 1.0;
-//     float nx, ny, nz;
+    float value = 0.0;
+    float signal = 0.0;
+    float curp = 1.0;
+    float nx, ny, nz;
 
-//     x *= f;
-//     y *= f;
-//     z *= f;
+    x *= f;
+    y *= f;
+    z *= f;
 
-//     for(int i = 0; i < OCTAVES; i++) {
-//         nx = make_32_r(x+2.0*seed);
-//         ny = make_32_r(y+3.0*seed);
-//         nz = make_32_r(z+4.0*seed);
-//         seed = seed + float(i);
-//         signal = perlin_noise4(vec3(nx, ny, nz));
-//         signal = 2.0 * abs(signal) - 1.0;
-//         value += signal * curp;
-//         x *= lac;
-//         y *= lac;
-//         z *= lac;
-//         curp *= per;
-//     }
+    for(int i = 0; i < OCTAVES; i++) {
+        nx = make_32_r(x+2.0*seed);
+        ny = make_32_r(y+3.0*seed);
+        nz = make_32_r(z+4.0*seed);
+        seed = seed + float(i);
+        signal = perlin_noise4(vec3(nx, ny, nz));
+        signal = 2.0 * abs(signal) - 1.0;
+        value += signal * curp;
+        x *= lac;
+        y *= lac;
+        z *= lac;
+        curp *= per;
+    }
 
-//     return 0.5 * value + 0.5;
-// }
+    return 0.5 * value + 0.5;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -309,9 +309,8 @@ void main(void) {
   vec3 s_pos = vec3(aspect*pos.x + p, pos.y + p, p);
   vec3 ps = turbulence_shift(s_pos, turbulence, 1);
   float noise = perlin_noise8(ps, persistence, lacunarity);
-  vec4 color = color_px(noise, p);
-  // float b_noise = billow(s_pos, 0.2, 2.0, 0.5, 1.0);
-  // vec4 color = color_px((noise+b_noise+noise*b_noise)/3.0, p);
+  float b_noise = billow(s_pos, 0.2, 2.0, 0.5, 1.0);
+  vec4 color = color_px((noise+b_noise+noise*b_noise)/3.0, p);
   gl_FragColor = color;
 }
 
