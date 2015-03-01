@@ -85,6 +85,9 @@
             var draw, time;
             time = Date.now();
             draw = function() {
+              canvas.width = window.innerWidth;
+              canvas.height = window.innerHeight - 5;
+              aspect = canvas.width / canvas.height;
               p += _this.speed * 0.0002;
               Media.Image.postProcess({
                 width: canvas.width,
