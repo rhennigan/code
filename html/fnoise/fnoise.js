@@ -12,9 +12,7 @@
     frameLast = 0;
     frameIndex = 0;
     p = Date.now() / 1000000000;
-    ({
-      turbulence: 0.03
-    });
+    this.turbulence = 0.03;
     tfrequency = 0.5;
     persistence = 2.0;
     lacunarity = 2.0;
@@ -224,7 +222,7 @@
     })(this));
   };
 
-  fn = load();
+  fn = new load();
 
   gui = new dat.GUI();
 
