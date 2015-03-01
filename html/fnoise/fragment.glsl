@@ -35,6 +35,7 @@ uniform sampler2D sampler1;
 uniform float p;
 uniform float aspect;
 uniform float turbulence;
+uniform float tfrequency;
 uniform float persistence;
 uniform float lacunarity;
 uniform float dX;
@@ -202,7 +203,7 @@ float perlin_noise4(vec3 P) {
     div /= 2.0;
     mul *= 2.0;
     // n+= div * abs(snoise(P*mul));
-    n+= div * snoise(0.25*P*mul);
+    n+= div * snoise(tfrequency * P * mul);
   }
 
   float rn = 1.0 - n;

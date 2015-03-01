@@ -5,7 +5,7 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTurb, btnSubPers, btnSubTurb, canvas, center, dragCurrent, dragStart, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, turbulence;
+    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTurb, btnSubPers, btnSubTurb, canvas, center, dragCurrent, dragStart, frameIndex, frameLast, frameTimes, getMousePos, lacunarity, mouseDragging, p, persistence, speed, tfrequency, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
@@ -13,6 +13,7 @@
     frameIndex = 0;
     p = Date.now() / 1000000000;
     turbulence = 0.03;
+    tfrequency = 1.0;
     persistence = 2.0;
     lacunarity = 2.2;
     speed = 1.0;
@@ -80,6 +81,7 @@
               p: p,
               aspect: aspect,
               turbulence: turbulence,
+              tfrequency: tfrequency,
               persistence: persistence,
               lacunarity: lacunarity,
               dX: aspect * (center.x + dragStart.x - dragCurrent.x) / canvas.width,
