@@ -311,7 +311,7 @@ float make_32_r(float value) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void main(void) {
-  vec3 s_pos = vec3(aspect * 0.5 * (pos.x + dX), (0.5 * pos.y + dY), p);
+  vec3 s_pos = vec3(aspect * 0.5 * pos.x + 0.5*dX, (0.5 * pos.y + dY), p);
   vec3 ps = turbulence_shift(s_pos, turbulence, 1);
   float noise = perlin_noise8(ps, persistence, lacunarity);
   vec4 color = color_px(flip ? 1.0-noise : noise, p);
