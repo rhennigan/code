@@ -170,24 +170,25 @@
     canvas.addEventListener("mousedown", (function(_this) {
       return function(e) {
         dragStart = dragCurrent = getMousePos(e);
-        mouseDragging = true;
-        return console.log(dragStart);
+        return mouseDragging = true;
       };
     })(this));
     canvas.addEventListener("mousemove", (function(_this) {
       return function(e) {
         if (mouseDragging) {
-          dragCurrent = getMousePos(e);
-          return console.log({
-            x: dragCurrent.x - dragStart.x,
-            y: dragCurrent.y - dragStart.y
-          });
+          return dragCurrent = getMousePos(e);
         }
       };
     })(this));
     return canvas.addEventListener("mouseup", (function(_this) {
       return function(e) {
-        return mouseDragging = false;
+        mouseDragging = false;
+        center.x = center.x + dragStart.x - dragCurrent.x;
+        center.y = center.y + dragCurrent.y - dragStart.y;
+        return dragStart = dragCurrent = {
+          x: 0.0,
+          y: 0.0
+        };
       };
     })(this));
   };
