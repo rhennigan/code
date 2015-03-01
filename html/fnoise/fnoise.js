@@ -83,7 +83,7 @@
         document.getElementById('speedTxt').value = speed;
         draw = function() {
           var avgFPS, ft, i, len, p, tmp;
-          p = speed * ((Date.now() - 1425166257376) / 50000);
+          p = speed * ((Date.now() - 1425166257376) / 100000);
           tmp = Date.now();
           frameTimes[++frameIndex % 5] = 1000 / (tmp - frameLast);
           frameLast = tmp;
