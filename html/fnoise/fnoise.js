@@ -113,7 +113,7 @@
     btnPlusTF = document.getElementById('tfrequency+');
     btnPlusTF.addEventListener("click", (function(_this) {
       return function(e) {
-        tfrequency = tfrequency >= 1.0 ? 1.0 : tfrequency + 0.005;
+        tfrequency *= 1.1;
         document.getElementById('tfrequencyTxt').value = tfrequency;
         return console.log(tfrequency);
       };
@@ -121,8 +121,8 @@
     btnSubTF = document.getElementById('tfrequency-');
     btnSubTF.addEventListener("click", (function(_this) {
       return function(e) {
-        tfrequency = tfrequency <= 0.0 ? 0.0 : tfrequency - 0.005;
-        document.getElementById('turbulenceTxt').value = tfrequency;
+        tfrequency /= 1.1;
+        document.getElementById('tfrequencyTxt').value = tfrequency;
         return console.log(tfrequency);
       };
     })(this));
