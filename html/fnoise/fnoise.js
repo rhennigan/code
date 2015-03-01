@@ -168,11 +168,9 @@
 
   gui.add(viewer, 'flip');
 
-  gui.add(viewer, 'hint');
-
   gui.close();
 
-  gui.width = 200;
+  gui.width = 300;
 
   console.log(gui);
 
