@@ -120,7 +120,7 @@
     btnPlusTurb = document.getElementById('turbulence+');
     btnPlusTurb.addEventListener("click", (function(_this) {
       return function(e) {
-        turbulence = turbulence >= 1.0 ? 1.0 : turbulence + 0.001;
+        turbulence = turbulence >= 1.0 ? 1.0 : turbulence + 0.005;
         document.getElementById('turbulenceTxt').value = turbulence;
         return console.log(turbulence);
       };
@@ -128,7 +128,7 @@
     btnSubTurb = document.getElementById('turbulence-');
     btnSubTurb.addEventListener("click", (function(_this) {
       return function(e) {
-        turbulence = turbulence <= 0.0 ? 0.0 : turbulence - 0.001;
+        turbulence = turbulence <= 0.0 ? 0.0 : turbulence - 0.005;
         document.getElementById('turbulenceTxt').value = turbulence;
         return console.log(turbulence);
       };
