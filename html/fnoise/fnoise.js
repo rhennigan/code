@@ -84,7 +84,7 @@
               uniforms: {
                 p: p,
                 aspect: aspect,
-                turbulence: _this.turbulence,
+                turbulence: turbulence,
                 tfrequency: tfrequency,
                 persistence: persistence,
                 lacunarity: lacunarity,
