@@ -152,7 +152,7 @@
     autoPlace: false
   });
 
-  document.getElementById('body').appendChild(gui.domElement);
+  document.getElementById('container').appendChild(gui.domElement);
 
   gui.add(viewer, 'turbulence', 0.0, 0.2);
 
