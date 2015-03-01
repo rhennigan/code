@@ -6,7 +6,7 @@
   PhiloGL.unpack();
 
   Viewer = (function() {
-    var aspect, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, lacunarity, mouseDragging, p, persistence, speed;
+    var aspect, canvas, center, dragCurrent, dragStart, frameIndex, frameLast, frameTimes, mouseDragging, p;
 
     canvas = document.getElementById('fnCanvas');
 
@@ -24,13 +24,13 @@
 
     Viewer.prototype.tfrequency = 0.5;
 
-    persistence = 2.0;
+    Viewer.prototype.persistence = 2.0;
 
-    lacunarity = 2.0;
+    Viewer.prototype.lacunarity = 2.0;
 
-    speed = 1.0;
+    Viewer.prototype.speed = 1.0;
 
-    flip = false;
+    Viewer.prototype.flip = false;
 
     center = {
       x: 0.0,
@@ -166,6 +166,7 @@
       btnPlusPers = document.getElementById('persistence+');
       btnPlusPers.addEventListener("click", (function(_this) {
         return function(e) {
+          var persistence;
           persistence = persistence >= 5.0 ? 5.0 : persistence + 0.1;
           document.getElementById('persistenceTxt').value = persistence;
           return console.log(persistence);
@@ -174,6 +175,7 @@
       btnSubPers = document.getElementById('persistence-');
       btnSubPers.addEventListener("click", (function(_this) {
         return function(e) {
+          var persistence;
           persistence = persistence <= 0.0 ? 0.0 : persistence - 0.1;
           document.getElementById('persistenceTxt').value = persistence;
           return console.log(persistence);
@@ -182,6 +184,7 @@
       btnPlusLac = document.getElementById('lacunarity+');
       btnPlusLac.addEventListener("click", (function(_this) {
         return function(e) {
+          var lacunarity;
           lacunarity = lacunarity >= 5.0 ? 5.0 : lacunarity + 0.1;
           document.getElementById('lacunarityTxt').value = lacunarity;
           return console.log(lacunarity);
@@ -190,6 +193,7 @@
       btnPlusLac = document.getElementById('lacunarity-');
       btnPlusLac.addEventListener("click", (function(_this) {
         return function(e) {
+          var lacunarity;
           lacunarity = lacunarity <= 0.0 ? 0.0 : lacunarity - 0.1;
           document.getElementById('lacunarityTxt').value = lacunarity;
           return console.log(lacunarity);
@@ -215,6 +219,7 @@
       })(this));
       document.getElementById('flip').addEventListener("click", (function(_this) {
         return function(e) {
+          var flip;
           return flip = $("#flip").is(':checked');
         };
       })(this));
