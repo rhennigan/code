@@ -45,7 +45,7 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusLac, btnPlusPers, btnPlusTurb, btnSubPers, btnSubTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, persistence, turbulence;
+    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTurb, btnSubPers, btnSubTurb, canvas, frameIndex, frameLast, frameTimes, lacunarity, persistence, speed, turbulence;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
@@ -54,6 +54,7 @@
     turbulence = 0.03;
     persistence = 2.0;
     lacunarity = 2.2;
+    speed = 1.0;
     if (PhiloGL.hasWebGL() === !true) {
       alert("Your browser does not support WebGL");
     }
@@ -79,6 +80,7 @@
         document.getElementById('turbulenceTxt').value = turbulence;
         document.getElementById('persistenceTxt').value = persistence;
         document.getElementById('lacunarityTxt').value = lacunarity;
+        document.getElementById('speedTxt').value = speed;
         draw = function() {
           var avgFPS, ft, i, len, p, tmp;
           p = (Date.now() - 1425166257376) / 50000;
@@ -154,11 +156,27 @@
       };
     })(this));
     btnPlusLac = document.getElementById('lacunarity-');
-    return btnPlusLac.addEventListener("click", (function(_this) {
+    btnPlusLac.addEventListener("click", (function(_this) {
       return function(e) {
         lacunarity = lacunarity <= 0.0 ? 0.0 : lacunarity - 0.1;
         document.getElementById('lacunarityTxt').value = lacunarity;
         return console.log(lacunarity);
+      };
+    })(this));
+    btnPlusSpd = document.getElementById('speed+');
+    btnPlusSpd.addEventListener("click", (function(_this) {
+      return function(e) {
+        speed = speed >= 5.0 ? 5.0 : speed + 0.1;
+        document.getElementById('speedTxt').value = speed;
+        return console.log(speed);
+      };
+    })(this));
+    btnPlusSpd = document.getElementById('speed-');
+    return btnPlusSpd.addEventListener("click", (function(_this) {
+      return function(e) {
+        speed = speed <= 0.0 ? 0.0 : speed - 0.1;
+        document.getElementById('speedTxt').value = speed;
+        return console.log(speed);
       };
     })(this));
   };
