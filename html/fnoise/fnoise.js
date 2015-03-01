@@ -19,7 +19,7 @@
 
     p = Date.now() / 1000000000;
 
-    load.turbulence = 0.03;
+    load.prototype.turbulence = 0.03;
 
     tfrequency = 0.5;
 
@@ -242,7 +242,7 @@
 
   viewer = new load();
 
-  console.log(viewer.turbulence);
+  console.log(viewer);
 
   IO = (function() {
     function IO() {}
