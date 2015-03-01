@@ -53,6 +53,7 @@
         turbulence = this.turbulence;
       }
       this.turbulence = turbulence;
+      console.log(this.turbulence);
     }
 
     if (PhiloGL.hasWebGL() === !true) {
