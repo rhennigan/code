@@ -79,20 +79,7 @@
             var draw, time;
             time = Date.now();
             draw = function() {
-              var avgFPS, ft, i, len, tmp;
               p += _this.speed * 0.0002;
-              tmp = Date.now();
-              frameTimes[++frameIndex % 5] = 1000 / (tmp - frameLast);
-              frameLast = tmp;
-              avgFPS = 0;
-              for (i = 0, len = frameTimes.length; i < len; i++) {
-                ft = frameTimes[i];
-                avgFPS += ft;
-              }
-              avgFPS /= 5.0;
-              if (frameIndex % 5 === 0) {
-                document.getElementById('fpsTxt').value = Math.round(avgFPS);
-              }
               Media.Image.postProcess({
                 width: canvas.width,
                 height: canvas.height,
