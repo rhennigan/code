@@ -200,7 +200,7 @@ float perlin_noise4(vec3 P) {
   float div = 1.0;
   float mul = 1.0;
 
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 8; i++) {
     div /= 2.0;
     mul *= 2.0;
     // n+= div * abs(snoise(P*mul));
@@ -217,7 +217,7 @@ float perlin_noise8(vec3 P, float persistence, float lacunarity) {
   float div = 1.0;
   float mul = 1.0;
 
-  for (int i = 0; i < 6; i++) {
+  for (int i = 0; i < 16; i++) {
     div /= persistence;
     mul *= lacunarity;
     n+= div * abs(snoise(P*mul));
