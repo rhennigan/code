@@ -107,7 +107,9 @@
               aspect: aspect,
               turbulence: turbulence,
               persistence: persistence,
-              lacunarity: lacunarity
+              lacunarity: lacunarity,
+              dX: 0.0,
+              dY: 0.0
             }
           });
           return Fx.requestAnimationFrame(draw);
