@@ -82,7 +82,7 @@
               turbulence: turbulence,
               persistence: persistence,
               lacunarity: lacunarity,
-              dX: (center.x + dragStart.x - dragCurrent.x) / canvas.width,
+              dX: aspect * (center.x + dragStart.x - dragCurrent.x) / canvas.width,
               dY: (center.y + dragCurrent.y - dragStart.y) / canvas.height
             }
           });
