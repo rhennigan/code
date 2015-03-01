@@ -271,6 +271,14 @@
 
   gui.add(viewer, 'tfrequency', 0.0, 1.0);
 
+  gui.add(viewer, 'persistence', 0.0, 5.0);
+
+  gui.add(viewer, 'lacunarity', 0.0, 5.0);
+
+  gui.add(viewer, 'speed').min(0);
+
+  gui.add(viewer, 'flip');
+
   IO = (function() {
     function IO() {}
 
