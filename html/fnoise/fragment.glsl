@@ -25,9 +25,9 @@ precision highp float;
 #define c42 0.290
 #define c43 0.152
 
-#define c51 0.000
-#define c52 0.000
-#define c53 0.000
+#define c51 1.000
+#define c52 1.000
+#define c53 1.000
 
 ////////////////////////////////////////////////////////////////////////////////
 
