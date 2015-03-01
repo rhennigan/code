@@ -170,6 +170,10 @@
 
   gui.add(viewer, 'hint');
 
+  gui.close();
+
+  console.log(gui);
+
   IO = (function() {
     function IO() {}
 
