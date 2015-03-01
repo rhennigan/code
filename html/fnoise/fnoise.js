@@ -5,14 +5,16 @@
   PhiloGL.unpack();
 
   load = function() {
-    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, getMousePos, gui, lacunarity, mouseDragging, p, persistence, speed, tfrequency, turbFolder, turbulence;
+    var aspect, btnPlusLac, btnPlusPers, btnPlusSpd, btnPlusTF, btnPlusTurb, btnSubPers, btnSubTF, btnSubTurb, canvas, center, dragCurrent, dragStart, flip, frameIndex, frameLast, frameTimes, getMousePos, gui, lacunarity, mouseDragging, p, persistence, speed, tfrequency, turbFolder;
     canvas = document.getElementById('fnCanvas');
     aspect = canvas.width / canvas.height;
     frameTimes = [0, 0, 0, 0, 0];
     frameLast = 0;
     frameIndex = 0;
     p = Date.now() / 1000000000;
-    turbulence = 0.03;
+    ({
+      turbulence: 0.03
+    });
     tfrequency = 0.5;
     persistence = 2.0;
     lacunarity = 2.0;
@@ -49,58 +51,60 @@
           return console.log(e);
         };
       })(this),
-      onLoad: function(app) {
-        var draw, time;
-        time = Date.now();
-        console.log(time);
-        document.getElementById('turbulenceTxt').value = turbulence;
-        document.getElementById('tfrequencyTxt').value = tfrequency;
-        document.getElementById('persistenceTxt').value = persistence;
-        document.getElementById('lacunarityTxt').value = lacunarity;
-        document.getElementById('speedTxt').value = speed;
-        document.getElementById('flip').value = flip;
-        draw = function() {
-          var avgFPS, ft, i, len, tmp;
-          p += speed * 0.0002;
-          tmp = Date.now();
-          frameTimes[++frameIndex % 5] = 1000 / (tmp - frameLast);
-          frameLast = tmp;
-          avgFPS = 0;
-          for (i = 0, len = frameTimes.length; i < len; i++) {
-            ft = frameTimes[i];
-            avgFPS += ft;
-          }
-          avgFPS /= 5.0;
-          if (frameIndex % 5 === 0) {
-            document.getElementById('fpsTxt').value = Math.round(avgFPS);
-          }
-          Media.Image.postProcess({
-            width: canvas.width,
-            height: canvas.height,
-            toScreen: true,
-            aspectRatio: 1,
-            program: 'fnoise',
-            uniforms: {
-              p: p,
-              aspect: aspect,
-              turbulence: turbulence,
-              tfrequency: tfrequency,
-              persistence: persistence,
-              lacunarity: lacunarity,
-              dX: aspect * (center.x + dragStart.x - dragCurrent.x) / canvas.width,
-              dY: (center.y + dragCurrent.y - dragStart.y) / canvas.height,
-              flip: flip
+      onLoad: (function(_this) {
+        return function(app) {
+          var draw, time;
+          time = Date.now();
+          console.log(time);
+          document.getElementById('turbulenceTxt').value = _this.turbulence;
+          document.getElementById('tfrequencyTxt').value = tfrequency;
+          document.getElementById('persistenceTxt').value = persistence;
+          document.getElementById('lacunarityTxt').value = lacunarity;
+          document.getElementById('speedTxt').value = speed;
+          document.getElementById('flip').value = flip;
+          draw = function() {
+            var avgFPS, ft, i, len, tmp;
+            p += speed * 0.0002;
+            tmp = Date.now();
+            frameTimes[++frameIndex % 5] = 1000 / (tmp - frameLast);
+            frameLast = tmp;
+            avgFPS = 0;
+            for (i = 0, len = frameTimes.length; i < len; i++) {
+              ft = frameTimes[i];
+              avgFPS += ft;
             }
-          });
-          return Fx.requestAnimationFrame(draw);
+            avgFPS /= 5.0;
+            if (frameIndex % 5 === 0) {
+              document.getElementById('fpsTxt').value = Math.round(avgFPS);
+            }
+            Media.Image.postProcess({
+              width: canvas.width,
+              height: canvas.height,
+              toScreen: true,
+              aspectRatio: 1,
+              program: 'fnoise',
+              uniforms: {
+                p: p,
+                aspect: aspect,
+                turbulence: _this.turbulence,
+                tfrequency: tfrequency,
+                persistence: persistence,
+                lacunarity: lacunarity,
+                dX: aspect * (center.x + dragStart.x - dragCurrent.x) / canvas.width,
+                dY: (center.y + dragCurrent.y - dragStart.y) / canvas.height,
+                flip: flip
+              }
+            });
+            return Fx.requestAnimationFrame(draw);
+          };
+          return draw();
         };
-        return draw();
-      }
+      })(this)
     });
-    console.log(load);
+    console.log(this);
     gui = new dat.GUI();
     turbFolder = gui.addFolder('turbulence');
-    turbFolder.add(load, 'turbulence');
+    turbFolder.add(this, 'turbulence');
     btnPlusTurb = document.getElementById('turbulence+');
     btnPlusTurb.addEventListener("click", (function(_this) {
       return function(e) {
