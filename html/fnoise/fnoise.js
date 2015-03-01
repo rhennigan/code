@@ -49,6 +49,9 @@
     };
 
     function load(turbulence) {
+      if (turbulence == null) {
+        turbulence = this.turbulence;
+      }
       this.turbulence = turbulence;
     }
 
@@ -72,7 +75,6 @@
       onLoad: function(app) {
         var draw, time;
         time = Date.now();
-        console.log(time);
         document.getElementById('turbulenceTxt').value = load.turbulence;
         document.getElementById('tfrequencyTxt').value = tfrequency;
         document.getElementById('persistenceTxt').value = persistence;
