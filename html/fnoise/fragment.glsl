@@ -199,7 +199,8 @@ float perlin_noise4(vec3 P) {
   for (int i = 0; i < 4; i++) {
     div /= 2.0;
     mul *= 2.0;
-    n+= div * abs(snoise(P*mul));
+    // n+= div * abs(snoise(P*mul));
+    n+= div * snoise(P*mul);
   }
 
   float rn = 1.0 - n;
