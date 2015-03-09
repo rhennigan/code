@@ -1,0 +1,15 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #FFFFFF;
+  background: #000000;
+}
+
+#container {
+  position: absolute;
+  top: 0px;
+  cursor: pointer;
+}
