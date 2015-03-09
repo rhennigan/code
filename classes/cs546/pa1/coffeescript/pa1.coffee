@@ -841,13 +841,6 @@ class FractalCanvas
     @drawingContext.putImageData @data, 0, 0
     @modified = true
 
-  # refresh: =>
-  #   if @modified
-  #     @clearCanvas()
-  #     shape.draw(this) for shape in @graphicsPrimitives
-  #     @drawingContext.putImageData(@data, 0, 0)
-  #     @writeStatus()
-  #     @modified = false
   refresh: =>
     if @modified
       @clearCanvas()
