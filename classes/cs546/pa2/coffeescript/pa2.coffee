@@ -13,9 +13,9 @@ IO::load = (url, store, cb, cbErr) ->
 
   req.send(null)
 
-cb = (sh, txt) -> 
-  sh.text(txt)
-  console.log sh
+cb = (obj, txt) -> 
+  obj.text = txt
+  console.log obj
   console.log objectText
 
 err = (url) ->
