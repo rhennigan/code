@@ -3,14 +3,14 @@ SVG_STROKE = 0.5
 
 ###############################################################################
 
-loadObject =  (url, store, cb, cbErr) ->
+loadObject =  (url, store, cb, cbErr, container) ->
   req = new XMLHttpRequest()
   req.open('GET', url, true)
 
   req.onreadystatechange = () ->
     if req.readyState == 4
       if req.status == 200
-        cb(store, req.responseText)
+        cb(container, store, req.responseText)
       else
         cbErr(url)
 
