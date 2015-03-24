@@ -121,7 +121,8 @@ createMeshLines = (faces) ->
 
 ###############################################################################
 
-createSVGLine = (p1, p2, stroke) ->
+createSVGLine = (l, stroke) ->
+  [p1, p2] = [l.p1, l.p2]
   line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
   line.setAttribute('x1', p1.x)
   line.setAttribute('y1', p1.y)
