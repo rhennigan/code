@@ -177,7 +177,7 @@ callback = (obj, txt) ->
       svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
       svg.setAttribute('width', SVG_SIZE)
       svg.setAttribute('height', SVG_SIZE)
-      svg.setAttribute('border', '1px')
+      svg.setAttribute('style', "border: 1px solid black;")
       svg
   
   container = document.getElementById('container')
@@ -209,7 +209,7 @@ err = (url) ->
 main = () ->
   object3D = {vertices: [], faces: []}
   # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
-  loadObject('objects/UtahVWBug.obj', object3D, callback, err)
+  loadObject('objects/Seashell.obj', object3D, callback, err)
 
 main()
 
