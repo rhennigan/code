@@ -270,9 +270,8 @@ main = () ->
   document.getElementById('selector').addEventListener "change", (e) => 
       load(selector.value)
 
-  document.getElementById('selector').addEventListener "click", (e) => 
-      @switchMode(Geometry::tags.LINE)
-
+  document.getElementById('rotate').addEventListener "click", (e) => 
+      rotate(object3D, 1.1, 0.0, 0.0)
   
   # object3D = {vertices: [], faces: []}
   # loadObject('objects/Beethoven.obj', object3D, callback, err)
