@@ -72,9 +72,9 @@ compareBy =
   x: (v1, v2) ->
     if v1.x < v2.x then -1 else if v1.x > v2.x then 1 else 0
   y: (v1, v2) ->
-    if v1.x < v2.x then -1 else if v1.x > v2.x then 1 else 0
+    if v1.y < v2.y then -1 else if v1.y > v2.y then 1 else 0
   z: (v1, v2) ->
-    if v1.x < v2.x then -1 else if v1.x > v2.x then 1 else 0
+    if v1.z < v2.z then -1 else if v1.z > v2.z then 1 else 0
 
 ###############################################################################
 
@@ -87,9 +87,9 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   rescaled = rescaleVertices(obj.vertices, 100.0)
-  xsort = rescaled.sort(compareBy.x)
+  sorted = rescaled.sort(compareBy.y)
 
-  console.log xsort
+  console.log sorted
 
 ###############################################################################
 
