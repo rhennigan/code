@@ -103,7 +103,7 @@ class Line
     @v2 = v2
 
   toString: () ->
-    "(#{v1.toString()}, #{v2.toString()})"
+    "(#{@v1.toString()}, #{@v2.toString()})"
 
 ###############################################################################
 
@@ -179,15 +179,12 @@ main = () ->
   object3D = {vertices: [], faces: []}
   # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
   loadObject('objects/Cone.obj', object3D, callback, err)
-  console.log union([{v1: 1, v2: 2}, {v1: 3, v2: 25}, {v1: 1, v2: 2}, {v1: 1, v2: 2}])
-  console.log union([1,2,2,10,1,5,5,3,2])
-  test = {}
-  test[5.671] = "hooray!"
-  test['this'] = 'hello'
-  test[{x: 5.3, y: 10.1}] = 23
-  test[{x: -5.3, y: 10.1}] = 42
-  console.log test
-  console.log {x: -5.3, y: 10.1}.toString()
+  l1 = new Line(1, 2)
+  l2 = new Line(2, 3)
+  l3 = new Line(1, 2)
+  l4 = new Line(3, 2)
+  ul = union([l1, l2, l3, l4])
+  console.log ul
 
 main()
 
