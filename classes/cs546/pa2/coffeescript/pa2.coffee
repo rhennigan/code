@@ -282,7 +282,7 @@ load = (object) ->
 main = () ->
   SVG_SIZE = Math.min(window.innerWidth, window.innerHeight - 150)/2
   document.getElementById('imgTbl').width = 2*SVG_SIZE
-  object3D = load('UtahTeapot')
+  object3D = load('SpaceShuttle')
 
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)
