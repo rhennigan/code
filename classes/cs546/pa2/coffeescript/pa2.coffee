@@ -1,3 +1,7 @@
+SVG_SIZE = 300
+
+###############################################################################
+
 loadObject =  (url, store, cb, cbErr) ->
   req = new XMLHttpRequest()
   req.open('GET', url, true)
