@@ -199,11 +199,11 @@ err = (url) ->
 
 ###############################################################################
 
-rotateXY = (object3D, t) ->
+rotate = (object3D, txy, txz, tyz) ->
   rotatedVertices = for v in object3D.vertices
     {
-      x: v.x * Math.cos(t) - v.y * Math.sin(t)
-      y: v.y * Math.cos(t) + v.x * Math.sin(t)
+      x: v.x * Math.cos(txy) - v.y * Math.sin(txy)
+      y: v.y * Math.cos(txy) + v.x * Math.sin(txy)
       z: v.z
     }
 
@@ -212,10 +212,10 @@ rotateXY = (object3D, t) ->
 
     p1 = rotatedVertices[meshLine.p1]
     p2 = rotatedVertices[meshLine.p2]
-    
+
     svgLine = object3D.svgLines[i]
 
-    
+
     
 
 
