@@ -73,9 +73,9 @@ rescaleVertices = (vertices, size) ->
 ###############################################################################
 
 orthoProj = (vertices) ->
-  xy: () -> {x: v.x, y: v.y} for v in vertices
-  xz: () -> {x: v.x, y: v.z} for v in vertices
-  yz: () -> {x: v.y, y: v.z} for v in vertices
+  xy: {x: v.x, y: v.y} for v in vertices
+  xz: {x: v.x, y: v.z} for v in vertices
+  yz: {x: v.y, y: v.z} for v in vertices
 
 ###############################################################################
 
@@ -100,6 +100,9 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   rescaled = rescaleVertices(obj.vertices, SVG_SIZE)
+  {oXY, oXZ, oYZ} = orthoProj(rescaled)
+  console.log oXY
+
   [svgXY, svgXZ, svgYZ] = 
     for i in [1..3]
       svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
@@ -112,8 +115,6 @@ callback = (obj, txt) ->
   for i in [0..20]
     line = createSVGLine(1, 25*i, 25*i, 25*i, 1)
     svgXY.appendChild(line)
-
-  console.log svgXY
 
   container.appendChild(svgXY)
 
