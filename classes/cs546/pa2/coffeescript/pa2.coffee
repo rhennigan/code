@@ -89,9 +89,7 @@ union = (a) ->
   j = 0
   for i in [0...len]
     item = a[i]
-    if seen[item] !== 1
-      seen[item] = 1
-      out[j++] = item
+    if seen[item] isnt 1 then [seen[item], out[j++]] = [1, item]
   out
 
 ###############################################################################
