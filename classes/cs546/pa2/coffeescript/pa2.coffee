@@ -223,11 +223,10 @@ rotate = (object3D, txy, txz, tyz) ->
     p1 = rotatedVertices[meshLine.p1]
     p2 = rotatedVertices[meshLine.p2]
 
-    svgLine = object3D.svgLines[i]
-    svgLine.setAttribute('x1', p1.x)
-    svgLine.setAttribute('y1', p1.y)
-    svgLine.setAttribute('x2', p1.x)
-    svgLine.setAttribute('y2', p1.y)
+    object3D.svgLinesXY[i].setAttribute('x1', p1.x)
+    object3D.svgLinesXY[i].setAttribute('y1', p1.y)
+    object3D.svgLinesXY[i].setAttribute('x2', p1.x)
+    object3D.svgLinesXY[i].setAttribute('y2', p1.y)
 
 
 ###############################################################################
