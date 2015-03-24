@@ -1,5 +1,6 @@
 SVG_SIZE = 400
 SVG_STROKE = 0.5
+R_INC = Math.PI / 10
 
 ###############################################################################
 
@@ -277,8 +278,6 @@ load = (object) ->
 
 ###############################################################################
 
-[txy, txz, tyz] = [0.0, 0.0, 0.0]
-
 main = () ->
   SVG_SIZE = Math.min(window.innerWidth, window.innerHeight - 150)/2
   document.getElementById('imgTbl').width = 2*SVG_SIZE
@@ -288,22 +287,22 @@ main = () ->
       object3D = load(selector.value)
 
   document.getElementById('rotateXY+').addEventListener "click", (e) => 
-      rotate(object3D, -0.1, 0, 0)
+      rotate(object3D, -R_INC, 0, 0)
   
   document.getElementById('rotateXZ+').addEventListener "click", (e) => 
-      rotate(object3D, 0, 0.1, 0)
+      rotate(object3D, 0, R_INC, 0)
 
   document.getElementById('rotateYZ+').addEventListener "click", (e) => 
-      rotate(object3D, 0, 0, -0.1)
+      rotate(object3D, 0, 0, -R_INC)
 
   document.getElementById('rotateXY-').addEventListener "click", (e) => 
-      rotate(object3D, 0.1, 0, 0)
+      rotate(object3D, R_INC, 0, 0)
   
   document.getElementById('rotateXZ-').addEventListener "click", (e) => 
-      rotate(object3D, 0, -0.1, 0)
+      rotate(object3D, 0, -R_INC, 0)
 
   document.getElementById('rotateYZ-').addEventListener "click", (e) => 
-      rotate(object3D, 0, 0, 0.1)
+      rotate(object3D, 0, 0, R_INC)
   # object3D = {vertices: [], faces: []}
   # loadObject('objects/Beethoven.obj', object3D, callback, err)
 
