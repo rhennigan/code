@@ -28,7 +28,14 @@ getVertexRanges = (obj) ->
   x1 = y1 = z1 = +Infinity
   x2 = y2 = z2 = -Infinity
 
+  clampL = (n, n1) ->
+    if n < n1 then n else n1
+
+  clampR = (n, n2) ->
+    if n > n2 then n else n2
+
   for vertex in obj.vertices
+    x1 = clampL(vertex.x, x1)
     if vertex.x < x1
       x1 = vertex.x
     if vertex.x > x2
