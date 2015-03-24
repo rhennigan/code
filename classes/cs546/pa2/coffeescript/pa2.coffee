@@ -189,6 +189,11 @@ callback = (obj, txt) ->
     svgXZ.appendChild(lineXZ)
     svgYZ.appendChild(lineYZ)
 
+  labelXY = document.createElementNS('http://www.w3.org/2000/svg', 'text')
+  
+
+  svgXY.appendChild(labelXY)
+
   clear()
   container.appendChild(svgXY)
   container.appendChild(svgXZ)
