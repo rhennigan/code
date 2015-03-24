@@ -76,9 +76,9 @@ callback = (obj, txt) ->
     if line[0] == 'f'
       obj.faces.push(parseFace(line))
 
-  rescaled = rescaleVertices(obj, 100.0)
+  rescaled = rescaleVertices(obj.vertices, 100.0)
 
-  console.log getVertexRanges({vertices: rescaled, faces: obj.faces})
+  console.log getVertexRanges(rescaled)
 
 ###############################################################################
 
