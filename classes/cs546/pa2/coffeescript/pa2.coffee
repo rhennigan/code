@@ -57,9 +57,14 @@ rescaleVertices = (obj, size) ->
   rz = r.z2 - r.z1
 
   rm = Math.max(rx, ry, rz)
+  s = size / rm
 
   for v in obj.vertices
-    
+    {
+      x: s * (v.x - r.x1)
+      y: s * (v.y - r.y1)
+      z: s * (v.z - r.z1)
+    }
 
 ###############################################################################
 
@@ -72,8 +77,9 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   ranges = getVertexRanges(obj)
+  rescaled = rescaleVertices(obj, 100.0)
 
-  console.log ranges
+  console.log rescaled
 
 ###############################################################################
 
