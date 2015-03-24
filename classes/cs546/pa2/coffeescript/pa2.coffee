@@ -190,9 +190,10 @@ callback = (obj, txt) ->
     svgYZ.appendChild(lineYZ)
 
   labelXY = document.createElementNS('http://www.w3.org/2000/svg', 'text')
-  labelXY.setAttribute('x', 100)
-  labelXY.setAttribute('y', 100)
+  labelXY.setAttribute('x', SVG_SIZE/2)
+  labelXY.setAttribute('y', 0)
   labelXY.setAttribute('fill', 'black')
+  labelXY.innerHTML = 'top'
   svgXY.appendChild(labelXY)
   console.log labelXY
 
