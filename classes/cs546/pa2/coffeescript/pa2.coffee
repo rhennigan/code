@@ -194,6 +194,7 @@ callback = (obj, txt) ->
   labelXY.setAttribute('y', 0)
   labelXY.setAttribute('fill', 'black')
   svgXY.appendChild(labelXY)
+  console.log labelXY
 
   clear()
   container.appendChild(svgXY)
@@ -222,7 +223,6 @@ load = (object) ->
 
 main = () ->
   SVG_SIZE = Math.min(window.innerWidth, window.innerHeight)/2 - 20
-  console.log window.innerWidth
   document.getElementById('selector').addEventListener "change", (e) => 
       load(selector.value)
 
