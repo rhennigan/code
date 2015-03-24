@@ -49,6 +49,14 @@ getVertexRanges = (obj) ->
 
 ###############################################################################
 
+rescaleVertices = (obj) ->
+  r = getVertexRanges(obj)
+  rx = r.x2 - r.x1
+  ry = r.y2 - r.y1
+  rz = r.z2 - r.z1
+
+###############################################################################
+
 callback = (obj, txt) -> 
   lines = txt.split('\n')
   for line in lines
@@ -58,7 +66,7 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   ranges = getVertexRanges(obj)
-  
+
   console.log ranges
 
 ###############################################################################
