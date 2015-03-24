@@ -104,8 +104,8 @@ callback = (obj, txt) ->
   svg1.setAttribute('height', 500)
   w = document.getElementById('container')
 
-  for i in [0..100]
-    line = createSVGLine(1, 3*i, 500, 3*i, 1)
+  for i in [0..25..500]
+    line = createSVGLine(1, i, i, i, 1)
     svg1.appendChild(line)
 
   console.log svg1
