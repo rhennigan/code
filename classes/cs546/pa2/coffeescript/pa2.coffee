@@ -78,6 +78,17 @@ compareBy =
 
 ###############################################################################
 
+createSVGLine = (x1, y1, x2, y2, stroke) ->
+  line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
+  line.setAttribute('x1', x1)
+  line.setAttribute('y1', y1)
+  line.setAttribute('x2', x2)
+  line.setAttribute('y2', y2)
+  line.setAttribute('stroke-width', stroke)
+  line
+
+###############################################################################
+
 callback = (obj, txt) -> 
   lines = txt.split('\n')
   for line in lines
@@ -88,6 +99,9 @@ callback = (obj, txt) ->
 
   rescaled = rescaleVertices(obj.vertices, 100.0)
   svg1 = document.getElementById('svg1')
+
+  for i in [0..100]
+    svg1.appendChild()
 
   console.log sorted
 
