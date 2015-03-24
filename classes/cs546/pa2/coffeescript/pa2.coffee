@@ -1,17 +1,17 @@
 class IO
 
-IO::load = (url, store, cb, cbErr) ->
-  req = new XMLHttpRequest()
-  req.open('GET', url, true)
+  load: (url, store, cb, cbErr) ->
+    req = new XMLHttpRequest()
+    req.open('GET', url, true)
 
-  req.onreadystatechange = () ->
-    if req.readyState == 4
-      if req.status == 200
-        cb(store, req.responseText)
-      else
-        cbErr(url)
+    req.onreadystatechange = () ->
+      if req.readyState == 4
+        if req.status == 200
+          cb(store, req.responseText)
+        else
+          cbErr(url)
 
-  req.send(null)
+    req.send(null)
 
 cb = (obj, txt) -> 
   obj.text = txt.split('\n')
