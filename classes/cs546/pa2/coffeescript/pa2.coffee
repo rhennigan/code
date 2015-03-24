@@ -209,6 +209,10 @@ rotate = (object3D, txy, txz, tyz) ->
   stxy = Math.sin(txy)
   stxz = Math.sin(txz)
   styz = Math.sin(tyz)
+  s2x = SVG_SIZE - 2*x
+  s2y = SVG_SIZE - 2*y
+  s2z = SVG_SIZE - 2*z
+  
   rotatedVertices = for v in object3D.vertices
     [x, y, z] = [v.x, v.y, v.z]
     {
