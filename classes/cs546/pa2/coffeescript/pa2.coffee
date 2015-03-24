@@ -200,11 +200,14 @@ err = (url) ->
 ###############################################################################
 
 rotate = (object3D, txy, txz, tyz) ->
+  cos = Math.cos
+  sin = Math.sin
   rotatedVertices = for v in object3D.vertices
+    [x, y, z] = [v.x, v.y, v.z]
     {
-      x: v.x * Math.cos(txy) - v.y * Math.sin(txy)
-      y: v.y * Math.cos(txy) + v.x * Math.sin(txy)
-      z: v.z
+      x: x*cos(txy)*cos(txz) - y*cos(txz)*sin(txy) + z*sin(txz)
+      y: x*cos(tyz)*sin(txy) - (z*cos(txz) + y*sin(txy)*sin(txz))*sin(tyz) + cos(txy)*(y*cos(tyz) + x*sin(txz)*sin(tyz))
+      z: z*cos(txz)*cos(tyz) + cos(tyz)*(-(x*cos(txy)) + y*sin(txy))*sin(txz) + (y*cos(txy) + x*sin(txy))*sin(tyz)
     }
 
   for i in [0...object3D.svgLines.length]
