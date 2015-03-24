@@ -100,11 +100,10 @@ createMeshLines = (faces) ->
   for face in faces
     len = face.length
     for i in [0...len]
-      line = 
-        {
-          v1: Math.min(face[i], face[(i+1)%len])
-          v2: Math.max(face[i], face[(i+1)%len])
-        }
+      lines.push({
+        v1: Math.min(face[i], face[(i+1)%len])
+        v2: Math.max(face[i], face[(i+1)%len])
+        })
 
 ###############################################################################
 
