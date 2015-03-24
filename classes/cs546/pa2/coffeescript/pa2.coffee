@@ -221,8 +221,9 @@ load = (object) ->
 ###############################################################################
 
 main = () ->
-  object3D = {vertices: [], faces: []}
-  loadObject('objects/Beethoven.obj', object3D, callback, err)
+  load('Beethoven')
+  # object3D = {vertices: [], faces: []}
+  # loadObject('objects/Beethoven.obj', object3D, callback, err)
 
 main()
 
