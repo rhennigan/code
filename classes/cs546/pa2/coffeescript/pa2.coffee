@@ -12,7 +12,8 @@ loadObject =  (url, store, cb, cbErr) ->
   req.send(null)
 
 parseVertex = (vertexString) ->
-  vertexString.split(' ')[1..]
+  split = vertexString.split(' ')
+  [x, y, z] = split[1..3]
 
 callback = (obj, txt) -> 
   vertices = []
