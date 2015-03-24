@@ -189,13 +189,16 @@ callback = (obj, txt) ->
     svgXZ.appendChild(lineXZ)
     svgYZ.appendChild(lineYZ)
 
-  labelXY = document.createElementNS('http://www.w3.org/2000/svg', 'text')
-  labelXY.setAttribute('x', 10)
-  labelXY.setAttribute('y', 38)
-  labelXY.setAttribute('fill', 'black')
-  labelXY.setAttribute('font-size', '28px')
-  labelXY.setAttribute('font-family', 'helvetica')
-  labelXY.innerHTML = 'top'
+  createLabel = (text) ->
+    label = document.createElementNS('http://www.w3.org/2000/svg', 'text')
+    label.setAttribute('x', 10)
+    label.setAttribute('y', 38)
+    label.setAttribute('fill', 'black')
+    label.setAttribute('font-size', '28px')
+    label.setAttribute('font-family', 'helvetica')
+    label.innerHTML = text
+    label
+
   svgXY.appendChild(labelXY)
   console.log labelXY
 
