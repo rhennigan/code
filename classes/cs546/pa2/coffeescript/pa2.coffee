@@ -11,6 +11,8 @@ loadObject =  (url, store, cb, cbErr) ->
 
   req.send(null)
 
+###############################################################################
+
 parseVertex = (vertexString) ->
   split = vertexString.split(' ')
   [x, y, z] = split[1..3]
@@ -20,9 +22,13 @@ parseVertex = (vertexString) ->
     z: parseFloat(z)
   }
 
+###############################################################################
+
 parseFace = (faceString) ->
   split = faceString.split(' ')
   parseInt(i) - 1 for i in split[1..]
+
+###############################################################################
 
 getVertexRanges = (obj) ->
   x1 = y1 = z1 = +Infinity
@@ -41,6 +47,8 @@ getVertexRanges = (obj) ->
 
   {x1: x1, x2: x2, y1: y1, y2: y2, z1: z1, z2: z2}
 
+###############################################################################
+
 callback = (obj, txt) -> 
   lines = txt.split('\n')
   for line in lines
@@ -51,8 +59,12 @@ callback = (obj, txt) ->
 
   console.log getVertexRanges(obj)
 
+###############################################################################
+
 err = (url) ->
   alert "failed to load #{url}"
+
+###############################################################################
 
 objectText = {vertices: [], faces: []}
 
