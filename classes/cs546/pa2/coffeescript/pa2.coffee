@@ -180,7 +180,6 @@ callback = (obj, txt) ->
   container = document.getElementById('container')
 
   meshLines = createMeshLines(obj.faces)
-  console.log op.xy[0]
 
   for line in meshLines
     lineXY = createSVGLine(op.xy[line.p1], op.xy[line.p2], SVG_STROKE)
@@ -205,9 +204,6 @@ main = () ->
   object3D = {vertices: [], faces: []}
   # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
   loadObject('objects/Horse.obj', object3D, callback, err)
-  console.log getVertexRanges(object3D.vertices)
-  arr = [1, 5, 1, 25, 25,2,31,5,35,235,46,32]
-  console.log arr.max()
 
 main()
 
