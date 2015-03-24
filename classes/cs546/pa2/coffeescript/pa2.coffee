@@ -113,10 +113,9 @@ createMeshLines = (faces) ->
   for face in faces
     len = face.length
     for i in [0...len]
-      lines.push({
-        v1: Math.min(face[i], face[(i+1)%len])
-        v2: Math.max(face[i], face[(i+1)%len])
-        })
+      v1 = Math.min(face[i], face[(i+1)%len])
+      v2 = Math.max(face[i], face[(i+1)%len])
+      lines.push(new Line(v1, v2))
 
   union(lines)
 
