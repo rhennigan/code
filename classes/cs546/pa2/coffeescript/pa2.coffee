@@ -127,6 +127,8 @@ err = (url) ->
 
 ###############################################################################
 
-objectText = {vertices: [], faces: []}
+main = () ->
+  objectText = {vertices: [], faces: []}
+  loadObject('objects/SpaceShuttle.obj', objectText, callback, err)
 
-loadObject('objects/SpaceShuttle.obj', objectText, callback, err)
+main()
