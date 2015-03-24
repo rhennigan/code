@@ -24,7 +24,6 @@ parseFace = (faceString) ->
   split = faceString.split(' ')
   parseInt(i) for i in split[1..]
 
-
 callback = (obj, txt) -> 
   vertices = []
   faces = []
