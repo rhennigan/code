@@ -162,9 +162,9 @@ callback = (obj, txt) ->
   
   container = document.getElementById('container')
 
-  meshLines = createMeshLines(obj.faces)
+  obj.meshLines = createMeshLines(obj.faces)
 
-  for line in meshLines
+  for line in obj.meshLines
     lineXY = createSVGLine(op.xy[line.p1], op.xy[line.p2], SVG_STROKE)
     lineXZ = createSVGLine(op.xz[line.p1], op.xz[line.p2], SVG_STROKE)
     lineYZ = createSVGLine(op.yz[line.p1], op.yz[line.p2], SVG_STROKE)
@@ -196,6 +196,11 @@ callback = (obj, txt) ->
 
 err = (url) ->
   alert "failed to load #{url}"
+
+###############################################################################
+
+rotateXY = (object3D) ->
+
 
 ###############################################################################
 
