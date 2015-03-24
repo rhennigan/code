@@ -259,15 +259,21 @@ load = (object) ->
       svgLinesYZ: []
     }
   loadObject("objects/#{object}.obj", object3D, callback, err)
+  object3D
 
 ###############################################################################
 
 main = () ->
   SVG_SIZE = Math.min(window.innerWidth, window.innerHeight)/2 - 50
+  object3D = load('UtahTeapot')
+
   document.getElementById('selector').addEventListener "change", (e) => 
       load(selector.value)
 
-  load('UtahTeapot')
+  document.getElementById('selector').addEventListener "click", (e) => 
+      @switchMode(Geometry::tags.LINE)
+
+  
   # object3D = {vertices: [], faces: []}
   # loadObject('objects/Beethoven.obj', object3D, callback, err)
 
