@@ -43,6 +43,19 @@ getVertexRanges = (vertices) ->
   ys = v.y for v in vertices
   zs = v.z for v in vertices
 
+  console.log xs
+
+  {
+    x1: xs.min()
+    x2: xs.max()
+
+    y1: ys.min()
+    y2: ys.max()
+
+    z1: zs.min()
+    z2: zs.max()
+  }
+
 # getVertexRanges = (vertices) ->
 #   x1 = y1 = z1 = +Infinity
 #   x2 = y2 = z2 = -Infinity
