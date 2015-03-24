@@ -19,7 +19,10 @@ callback = (obj, txt) ->
 
   lines = txt.split('\n')
   for line in lines
-    
+    if line[0] == 'v'
+      vertices.push(line)
+    if line[0] == 'f'
+      faces.push(line)
 
   obj = {vertices: vertices, faces: faces}
   console.log obj
