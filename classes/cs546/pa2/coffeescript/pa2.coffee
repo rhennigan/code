@@ -123,6 +123,14 @@ callback = (obj, txt) ->
     svgXY.appendChild(line2)
     svgXY.appendChild(line3)
 
+  for face in obj.faces
+    line1 = createSVGLine(op.xz[face[0]], op.xz[face[1]], SVG_STROKE)
+    line2 = createSVGLine(op.xz[face[1]], op.xz[face[2]], SVG_STROKE)
+    line3 = createSVGLine(op.xz[face[2]], op.xz[face[0]], SVG_STROKE)
+    svgXZ.appendChild(line1)
+    svgXZ.appendChild(line2)
+    svgXZ.appendChild(line3)
+
   container.appendChild(svgXY)
 
 ###############################################################################
