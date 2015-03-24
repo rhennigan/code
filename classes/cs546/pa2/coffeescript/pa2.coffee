@@ -42,7 +42,8 @@ Array::min = () ->
   Math.min.apply(null, @)
 
 getVertexRanges = (vertices) ->
-  xs = (v.x for v in vertices)
+  xs = for v in vertices
+    v.x
   ys = (v.y for v in vertices)
   zs = (v.z for v in vertices)
 
