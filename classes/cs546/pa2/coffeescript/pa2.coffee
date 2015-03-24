@@ -87,8 +87,9 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   rescaled = rescaleVertices(obj.vertices, 100.0)
+  xsort = rescaled.sort(compareBy.x)
 
-  console.log getVertexRanges(rescaled)
+  console.log xsort
 
 ###############################################################################
 
