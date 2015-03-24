@@ -144,7 +144,6 @@ callback = (obj, txt) ->
 
   rescaled = rescaleVertices(obj.vertices, SVG_SIZE)
   op = orthoProj(rescaled)
-  meshLines = createMeshLines(obj.faces)
 
   [svgXY, svgXZ, svgYZ] = 
     for i in [1..3]
@@ -155,15 +154,15 @@ callback = (obj, txt) ->
   
   container = document.getElementById('container')
 
-  # for face in obj.faces
-  #   len = face.length
-  #   for i in [0...len]
-  #     lineXY = createSVGLine(op.xy[face[i]], op.xy[face[(i+1)%len]], SVG_STROKE)
-  #     lineXZ = createSVGLine(op.xz[face[i]], op.xz[face[(i+1)%len]], SVG_STROKE)
-  #     lineYZ = createSVGLine(op.yz[face[i]], op.yz[face[(i+1)%len]], SVG_STROKE)
-  #     svgXY.appendChild(lineXY)
-  #     svgXZ.appendChild(lineXZ)
-  #     svgYZ.appendChild(lineYZ)
+  meshLines = createMeshLines(obj.faces)
+
+  for line in meshLines
+    lineXY = createSVGLine(op.xy[line.p1], op.xy[line.p2], SVG_STROKE)
+    lineXZ = createSVGLine(op.xz[line.p1], op.xz[line.p2], SVG_STROKE)
+    lineYZ = createSVGLine(op.yz[line.p1], op.yz[line.p2], SVG_STROKE)
+    svgXY.appendChild(lineXY)
+    svgXZ.appendChild(lineXZ)
+    svgYZ.appendChild(lineYZ)
 
   container.appendChild(svgXY)
   container.appendChild(svgXZ)
