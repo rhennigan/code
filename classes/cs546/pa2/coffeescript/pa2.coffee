@@ -102,19 +102,19 @@ callback = (obj, txt) ->
     if line[0] == 'f'
       obj.faces.push(parseFace(line))
 
-  rescaled = rescaleVertices(obj.vertices, 100.0)
-  svg1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-  svg1.setAttribute('width', 500)
-  svg1.setAttribute('height', 500)
+  rescaled = rescaleVertices(obj.vertices, SVG_SIZE)
+  svgXY = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  svgXY.setAttribute('width', SVG_SIZE)
+  svgXY.setAttribute('height', SVG_SIZE)
   w = document.getElementById('container')
 
   for i in [0..20]
     line = createSVGLine(1, 25*i, 25*i, 25*i, 1)
-    svg1.appendChild(line)
+    svgXY.appendChild(line)
 
-  console.log svg1
+  console.log svgXY
 
-  w.appendChild(svg1)
+  w.appendChild(svgXY)
 
 ###############################################################################
 
