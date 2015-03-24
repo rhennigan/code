@@ -174,6 +174,8 @@ callback = (obj, txt) ->
   rescaled = rescaleVertices(obj.vertices, SVG_SIZE)
   console.log getVertexRanges(rescaled)
   op = orthoProj(rescaled)
+  console.log rescaled
+  console.log op
 
   [svgXY, svgXZ, svgYZ] = 
     for i in [1..3]
