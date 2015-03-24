@@ -35,8 +35,8 @@ parseFace = (faceString) ->
 
 ###############################################################################
 
-Array::max = () ->
-  Math.max.apply(null, @)
+Array::max = () -> Math.max.apply(null, @)
+Array::min = () -> Math.min.apply(null, @)
 
 getVertexRanges = (vertices) ->
   x1 = y1 = z1 = +Infinity
@@ -183,6 +183,8 @@ main = () ->
   # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
   loadObject('objects/Horse.obj', object3D, callback, err)
   console.log getVertexRanges(object3D.vertices)
+  arr = [1, 5, 1, 25, 25,2,31,5,35,235,46,32]
+  console.log arr.max()
 
 main()
 
