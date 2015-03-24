@@ -69,13 +69,13 @@ y = y0(y,:);
  
 X1 = X;
  
-z2 = X1 * Theta1';
-a2 = sigmoid(z2);
+Z2 = X1 * Theta1';
+X2 = sigmoid(Z2);
  
-n = size(a2, 1);
-a2 = [ones(n,1) a2];
+n = size(X2, 1);
+X2 = [ones(n,1) X2];
  
-z3 = a2 * Theta2';
+z3 = X2 * Theta2';
 a3 = sigmoid(z3);
  
 regularization = (lambda/(2*m)) * (sum(sum((Theta1(:,2:end)).^2)) + sum(sum((Theta2(:,2:end)).^2)));
@@ -84,10 +84,10 @@ J = ((1/m) * sum(sum((-y .* log(a3))-((1-y) .* log(1-a3))))) + regularization;
  
  
 delta_3 = a3 - y;
-delta_2 = (delta_3 * Theta2(:,2:end)) .* sigmoidGradient(z2);
+delta_2 = (delta_3 * Theta2(:,2:end)) .* sigmoidGradient(Z2);
  
  
-delta_cap2 = delta_3' * a2; 
+delta_cap2 = delta_3' * X2; 
 delta_cap1 = delta_2' * X1;
  
 Theta1_grad = ((1/m) * delta_cap1) + ((lambda/m) * (Theta1));
