@@ -152,8 +152,8 @@ callback = (obj, txt) ->
   obj.vertices = rescaleVertices(obj.vertices, SVG_SIZE)
   op = orthoProj(obj.vertices)
 
-  [svgXY, svgXZ, svgYZ] = 
-    for i in [1..3]
+  [svgXY, svgXZ, svgYZ, svgIP] = 
+    for i in [1..4]
       svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
       svg.setAttribute('width', SVG_SIZE)
       svg.setAttribute('height', SVG_SIZE)
@@ -166,12 +166,19 @@ callback = (obj, txt) ->
     lineXY = createSVGLine(op.xy[line.p1], op.xy[line.p2], SVG_STROKE)
     lineXZ = createSVGLine(op.xz[line.p1], op.xz[line.p2], SVG_STROKE)
     lineYZ = createSVGLine(op.yz[line.p1], op.yz[line.p2], SVG_STROKE)
+    ip1 = isometricProjection(obj.vertices[line.p1])
+    ip2 = isometricProjection(obj.vertices[line.p2])
+    ips1 = {x: ip1.x + SVG_SIZE/2, y: ip1.y - SVG_SIZE/3}
+    ips2 = {x: ip2.x + SVG_SIZE/2, y: ip2.y - SVG_SIZE/3}
+    lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
     svgXY.appendChild(lineXY)
     svgXZ.appendChild(lineXZ)
     svgYZ.appendChild(lineYZ)
+    svgIP.appendChild(lineIP)
     obj.svgLinesXY.push(lineXY)
     obj.svgLinesXZ.push(lineXZ)
     obj.svgLinesYZ.push(lineYZ)
+    obj.svgLinesIP.push(lineIP)
 
   createLabel = (text) ->
     label = document.createElementNS('http://www.w3.org/2000/svg', 'text')
@@ -186,15 +193,18 @@ callback = (obj, txt) ->
   svgXY.appendChild(createLabel('xy'))
   svgXZ.appendChild(createLabel('xz'))
   svgYZ.appendChild(createLabel('yz'))
+  svgIP.appendChild(createLabel('isometric'))
 
   containerXY = document.getElementById('containerXY')
   containerXZ = document.getElementById('containerXZ')
   containerYZ = document.getElementById('containerYZ')
+  containerIP = document.getElementById('containerIP')
 
   clear()
   containerXY.appendChild(svgXY)
   containerXZ.appendChild(svgXZ)
   containerYZ.appendChild(svgYZ)
+  containerIP.appendChild(svgIP)
 
 ###############################################################################
 
@@ -245,8 +255,26 @@ rotate = (object3D, txy, txz, tyz) ->
     object3D.svgLinesYZ[i].setAttribute('x2', p2.y)
     object3D.svgLinesYZ[i].setAttribute('y2', p2.z)
 
+    ip1 = isometricProjection(p1)
+    ip2 = isometricProjection(p2)
+    ips1 = {x: ip1.x + SVG_SIZE/2, y: ip1.y - SVG_SIZE/3}
+    ips2 = {x: ip2.x + SVG_SIZE/2, y: ip2.y - SVG_SIZE/3}
+    lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
+
+    object3D.svgLinesIP[i].setAttribute('x1', ips1.x)
+    object3D.svgLinesIP[i].setAttribute('y1', ips1.y)
+    object3D.svgLinesIP[i].setAttribute('x2', ips2.x)
+    object3D.svgLinesIP[i].setAttribute('y2', ips2.y)
+
   object3D.vertices = rotatedVertices
 
+###############################################################################
+
+isometricProjection = (v) ->
+  {
+    x: (v.x - v.y) / Math.sqrt(2.0)
+    y: (v.x + v.y + 2.0*v.z) / Math.sqrt(6.0)
+  }
 
 ###############################################################################
 
@@ -259,6 +287,7 @@ clear = () ->
   cc('containerXY')
   cc('containerXZ')
   cc('containerYZ')
+  cc('containerIP')
   
 
 ###############################################################################
@@ -272,6 +301,7 @@ load = (object) ->
       svgLinesXY: []
       svgLinesXZ: []
       svgLinesYZ: []
+      svgLinesIP: []
     }
   loadObject("objects/#{object}.obj", object3D, callback, err)
   object3D
