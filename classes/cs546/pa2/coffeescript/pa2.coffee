@@ -110,7 +110,7 @@ callback = (obj, txt) ->
       svg.setAttribute('height', SVG_SIZE)
       svg
   
-  w = document.getElementById('container')
+  container = document.getElementById('container')
 
   for i in [0..20]
     line = createSVGLine(1, 25*i, 25*i, 25*i, 1)
@@ -118,7 +118,7 @@ callback = (obj, txt) ->
 
   console.log svgXY
 
-  w.appendChild(svgXY)
+  container.appendChild(svgXY)
 
 ###############################################################################
 
