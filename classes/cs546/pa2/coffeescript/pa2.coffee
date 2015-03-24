@@ -193,14 +193,15 @@ callback = (obj, txt) ->
     label = document.createElementNS('http://www.w3.org/2000/svg', 'text')
     label.setAttribute('x', 10)
     label.setAttribute('y', 38)
-    label.setAttribute('fill', 'black')
+    label.setAttribute('fill', 'red')
     label.setAttribute('font-size', '28px')
     label.setAttribute('font-family', 'helvetica')
     label.innerHTML = text
     label
 
-  svgXY.appendChild(labelXY)
-  console.log labelXY
+  svgXY.appendChild(createLabel('xy'))
+  svgXZ.appendChild(createLabel('xz'))
+  svgYZ.appendChild(createLabel('yz'))
 
   clear()
   container.appendChild(svgXY)
