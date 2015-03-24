@@ -175,6 +175,7 @@ main = () ->
   test[{x: 5.3, y: 10.1}] = 23
   test[{x: -5.3, y: 10.1}] = 42
   console.log test
+  console.log {x: -5.3, y: 10.1}.toString()
 
 main()
 
