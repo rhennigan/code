@@ -20,6 +20,10 @@ parseVertex = (vertexString) ->
     z: parseFloat(z)
   }
 
+parseFace = (faceString) ->
+  split = faceString.split(' ')
+  
+
 callback = (obj, txt) -> 
   vertices = []
   faces = []
