@@ -250,9 +250,15 @@ rotate = (object3D, txy, txz, tyz) ->
 ###############################################################################
 
 clear = () ->
-  container = document.getElementById('container')
-  while container.hasChildNodes()
-    container.removeChild(container.firstChild)
+  cc = (cname) ->
+    container = document.getElementById(cname)
+    while container.hasChildNodes()
+      container.removeChild(container.firstChild)
+
+  cc('containerXY')
+  cc('containerXZ')
+  cc('containerYZ')
+  
 
 ###############################################################################
 
