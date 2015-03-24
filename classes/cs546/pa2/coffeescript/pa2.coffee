@@ -222,7 +222,7 @@ load = (object) ->
 
 main = () ->
   document.getElementById('selector').addEventListener "change", (e) => 
-      load('SedanCar')
+      load(selector.value)
 
   load('Beethoven')
   # object3D = {vertices: [], faces: []}
