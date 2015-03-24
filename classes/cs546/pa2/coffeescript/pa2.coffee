@@ -16,7 +16,7 @@ IO::load = (url, store, cb, cbErr) ->
 cb = (sh, txt) -> 
   sh.text(txt)
   console.log sh
-  console.log txt
+  console.log txt.split('\n')
 
 err = (url) ->
   alert "failed to load #{url}"
