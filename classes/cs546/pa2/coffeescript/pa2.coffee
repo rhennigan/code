@@ -14,9 +14,13 @@ class IO
     req.send(null)
 
 callback = (obj, txt) -> 
-  lines = txt.split('\n')
   vertices = []
   faces = []
+
+  lines = txt.split('\n')
+  for line in lines
+    
+
   obj = {vertices: vertices, faces: faces}
   console.log obj
   console.log lines
