@@ -155,6 +155,7 @@ callback = (obj, txt) ->
   container = document.getElementById('container')
 
   meshLines = createMeshLines(obj.faces)
+  console.log meshLines
 
   for line in meshLines
     lineXY = createSVGLine(op.xy[line.p1], op.xy[line.p2], SVG_STROKE)
