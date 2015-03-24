@@ -268,6 +268,8 @@ load = (object) ->
 
 ###############################################################################
 
+[txy, txz, tyz] = [0.0, 0.0, 0.0]
+
 main = () ->
   SVG_SIZE = Math.min(window.innerWidth, window.innerHeight)/2 - 50
   object3D = load('UtahTeapot')
@@ -276,7 +278,7 @@ main = () ->
       load(selector.value)
 
   document.getElementById('rotate').addEventListener "click", (e) => 
-      rotate(object3D, 1.1, 0.0, 0.0)
+      rotate(object3D, txy+=0.1, txz+=0.1, tyz+=0.1)
   
   # object3D = {vertices: [], faces: []}
   # loadObject('objects/Beethoven.obj', object3D, callback, err)
