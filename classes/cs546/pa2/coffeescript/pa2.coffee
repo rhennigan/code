@@ -44,11 +44,10 @@ Array::min = () ->
 getVertexRanges = (vertices) ->
   xs = for v in vertices
     v.x
-  ys = (v.y for v in vertices)
-  zs = (v.z for v in vertices)
-
-  console.log xs.min()
-  console.log xs.max()
+  ys = for v in vertices
+    v.y
+  zs = for v in vertices
+    v.z
 
   {
     x1: xs.min()
@@ -82,6 +81,7 @@ getVertexRanges = (vertices) ->
 
 rescaleVertices = (vertices, size) ->
   r = getVertexRanges(vertices)
+  console.log r
 
   rx = r.x2 - r.x1
   ry = r.y2 - r.y1
