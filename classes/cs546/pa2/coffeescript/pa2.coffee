@@ -51,9 +51,12 @@ getVertexRanges = (obj) ->
 
 rescaleVertices = (obj) ->
   r = getVertexRanges(obj)
+
   rx = r.x2 - r.x1
   ry = r.y2 - r.y1
   rz = r.z2 - r.z1
+
+  rm = Math.max(rx, ry, rz)
 
 ###############################################################################
 
