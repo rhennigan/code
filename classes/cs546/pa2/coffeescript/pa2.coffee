@@ -72,6 +72,13 @@ rescaleVertices = (vertices, size) ->
 
 ###############################################################################
 
+orthoProj = (vertices) ->
+  xy: () -> {x: v.x, y: v.y} for v in vertices
+  xz: () -> {x: v.x, y: v.z} for v in vertices
+  yz: () -> {x: v.y, y: v.z} for v in vertices
+
+###############################################################################
+
 createSVGLine = (x1, y1, x2, y2, stroke) ->
   line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
   line.setAttribute('x1', x1)
