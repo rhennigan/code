@@ -104,9 +104,9 @@ callback = (obj, txt) ->
   w = document.getElementById('container')
 
   for i in [0..100]
-    svg1.appendChild()
+    svg1.appendChild(createSVGLine(1, 3*i, 500, 3*i, 1))
 
-  console.log sorted
+  w.appendChild(svg1)
 
 ###############################################################################
 
