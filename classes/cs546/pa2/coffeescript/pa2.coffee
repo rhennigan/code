@@ -70,7 +70,6 @@ rescaleVertices = (vertices, size) ->
   rz = r.z2 - r.z1
 
   rm = Math.max(rx, ry, rz)
-  s = size / rm
 
   for v in vertices
     {
