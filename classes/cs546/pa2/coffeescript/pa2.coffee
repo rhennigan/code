@@ -22,7 +22,7 @@ parseVertex = (vertexString) ->
 
 parseFace = (faceString) ->
   split = faceString.split(' ')
-  parseInt(i) for i in split[1..]
+  parseInt(i) - 1 for i in split[1..]
 
 callback = (obj, txt) -> 
   vertices = []
