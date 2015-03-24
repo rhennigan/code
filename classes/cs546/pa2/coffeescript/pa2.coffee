@@ -207,7 +207,7 @@ clear = () ->
 ###############################################################################
 
 load = (object) ->
-  object3D = {vertices: [], faces: []}
+  object3D = {vertices: [], faces: [], meshLines: [], svgLines: []}
   loadObject("objects/#{object}.obj", object3D, callback, err)
 
 ###############################################################################
