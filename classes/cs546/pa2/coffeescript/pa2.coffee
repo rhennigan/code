@@ -81,12 +81,12 @@ orthoProj = (vertices) ->
 
 ###############################################################################
 
-createSVGLine = (x1, y1, x2, y2, stroke) ->
+createSVGLine = (p1, p2, stroke) ->
   line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
-  line.setAttribute('x1', x1)
-  line.setAttribute('y1', y1)
-  line.setAttribute('x2', x2)
-  line.setAttribute('y2', y2)
+  line.setAttribute('x1', p1.x)
+  line.setAttribute('y1', p1.y)
+  line.setAttribute('x2', p2.x)
+  line.setAttribute('y2', p2.y)
   line.setAttribute('stroke-width', stroke)
   line.setAttribute('stroke', 'black')
   line
@@ -114,8 +114,8 @@ callback = (obj, txt) ->
   
   container = document.getElementById('container')
 
-  for i in [0..20]
-    line = createSVGLine(1, 25*i, 25*i, 25*i, 1)
+  for face in obj.faces
+    line1 = createSVGLine(op.xy[face[0]], 25*i, 25*i, 25*i, 1)
     svgXY.appendChild(line)
 
   container.appendChild(svgXY)
