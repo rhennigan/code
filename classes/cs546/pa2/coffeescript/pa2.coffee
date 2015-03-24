@@ -201,7 +201,12 @@ err = (url) ->
 
 rotateXY = (object3D, theta) ->
   for i in [0...object3D.vertices.length]
-    
+    [x, y, z] = object3D.vertices[i]
+    object3D.vertices[i] = {
+      x: x*Math.cos(t) - y*Math.sin(t)
+      y: y*Math.cos(t) + x*Math.sin(t)
+      z: z
+    }
 
 
 ###############################################################################
