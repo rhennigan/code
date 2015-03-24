@@ -225,8 +225,18 @@ rotate = (object3D, txy, txz, tyz) ->
 
     object3D.svgLinesXY[i].setAttribute('x1', p1.x)
     object3D.svgLinesXY[i].setAttribute('y1', p1.y)
-    object3D.svgLinesXY[i].setAttribute('x2', p1.x)
-    object3D.svgLinesXY[i].setAttribute('y2', p1.y)
+    object3D.svgLinesXY[i].setAttribute('x2', p2.x)
+    object3D.svgLinesXY[i].setAttribute('y2', p2.y)
+
+    object3D.svgLinesXZ[i].setAttribute('x1', p1.x)
+    object3D.svgLinesXZ[i].setAttribute('y1', p1.z)
+    object3D.svgLinesXZ[i].setAttribute('x2', p2.x)
+    object3D.svgLinesXZ[i].setAttribute('y2', p2.z)
+
+    object3D.svgLinesYZ[i].setAttribute('x1', p1.y)
+    object3D.svgLinesYZ[i].setAttribute('y1', p1.z)
+    object3D.svgLinesYZ[i].setAttribute('x2', p2.y)
+    object3D.svgLinesYZ[i].setAttribute('y2', p2.z)
 
 
 ###############################################################################
