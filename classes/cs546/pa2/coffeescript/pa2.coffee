@@ -1,14 +1,15 @@
 class IO
+  container: null
 
-  load: (url, dest, callback, callbackError) ->
+  load: (url, callback, callbackError) ->
     req = new XMLHttpRequest()
     req.open('GET', url, true)
 
     req.onreadystatechange = () ->
       if req.readyState == 4
         if req.status == 200
-          cb(store, req.responseText)
+          callback(req.responseText)
         else
-          cbErr(url)
+          callbackError(url)
 
     req.send(null)
