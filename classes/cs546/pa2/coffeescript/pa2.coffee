@@ -15,8 +15,11 @@ class IO
 
 callback = (obj, txt) -> 
   lines = txt.split('\n')
+  vertices = []
+  faces = []
+  obj = {vertices: vertices, faces: faces}
   console.log obj
-  console.log objectText
+  console.log lines
 
 err = (url) ->
   alert "failed to load #{url}"
