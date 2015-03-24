@@ -168,6 +168,7 @@ main = () ->
   # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
   loadObject('objects/Cone.obj', object3D, callback, err)
   console.log union([{v1: 1, v2: 2}, {v1: 3, v2: 25}, {v1: 1, v2: 2}, {v1: 1, v2: 2}])
+  console.log union([1,2,2,10,1,5,5,3,2])
 
 main()
 
