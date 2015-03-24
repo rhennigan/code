@@ -119,23 +119,11 @@ callback = (obj, txt) ->
     len = face.length
     for i in [0...len]
       lineXY = createSVGLine(op.xy[face[i]], op.xy[face[(i+1)%len]], SVG_STROKE)
+      lineXZ = createSVGLine(op.xz[face[i]], op.xz[face[(i+1)%len]], SVG_STROKE)
+      lineYZ = createSVGLine(op.yz[face[i]], op.yz[face[(i+1)%len]], SVG_STROKE)
       svgXY.appendChild(lineXY)
-
-  for face in obj.faces
-    line1 = createSVGLine(op.xz[face[0]], op.xz[face[1]], SVG_STROKE)
-    line2 = createSVGLine(op.xz[face[1]], op.xz[face[2]], SVG_STROKE)
-    line3 = createSVGLine(op.xz[face[2]], op.xz[face[0]], SVG_STROKE)
-    svgXZ.appendChild(line1)
-    svgXZ.appendChild(line2)
-    svgXZ.appendChild(line3)
-
-  for face in obj.faces
-    line1 = createSVGLine(op.yz[face[0]], op.yz[face[1]], SVG_STROKE)
-    line2 = createSVGLine(op.yz[face[1]], op.yz[face[2]], SVG_STROKE)
-    line3 = createSVGLine(op.yz[face[2]], op.yz[face[0]], SVG_STROKE)
-    svgYZ.appendChild(line1)
-    svgYZ.appendChild(line2)
-    svgYZ.appendChild(line3)
+      svgXZ.appendChild(lineXZ)
+      svgYZ.appendChild(lineYZ)
 
   container.appendChild(svgXY)
   container.appendChild(svgXZ)
@@ -149,7 +137,7 @@ err = (url) ->
 ###############################################################################
 
 main = () ->
-  objectText = {vertices: [], faces: []}
-  loadObject('objects/UtahTeapot.obj', objectText, callback, err)
+  object3D = {vertices: [], faces: []}
+  loadObject('objects/UtahTeapot.obj', object3D, callback, err)
 
 main()
