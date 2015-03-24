@@ -1,5 +1,5 @@
 SVG_SIZE = 400
-SVG_STROKE = 0.25
+SVG_STROKE = 0.5
 
 ###############################################################################
 
@@ -218,7 +218,7 @@ main = () ->
   document.getElementById('selector').addEventListener "change", (e) => 
       load(selector.value)
 
-  load('Beethoven')
+  load('UtahTeapot')
   # object3D = {vertices: [], faces: []}
   # loadObject('objects/Beethoven.obj', object3D, callback, err)
 
