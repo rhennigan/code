@@ -25,22 +25,18 @@ parseFace = (faceString) ->
   parseInt(i) - 1 for i in split[1..]
 
 callback = (obj, txt) -> 
-  vertices = []
-  faces = []
-
   lines = txt.split('\n')
   for line in lines
     if line[0] == 'v'
-      vertices.push(parseVertex(line))
+      obj.vertices.push(parseVertex(line))
     if line[0] == 'f'
-      faces.push(parseFace(line))
-
-  obj = {vertices: vertices, faces: faces}
+      obj.faces.push(parseFace(line))
+      
   console.log obj
 
 err = (url) ->
   alert "failed to load #{url}"
 
-objectText = {text: null}
+objectText = {vertices: [], faces: []}
 
 loadObject('objects/SpaceShuttle.obj', objectText, callback, err)
