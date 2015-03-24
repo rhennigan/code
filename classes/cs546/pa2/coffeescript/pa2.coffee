@@ -149,8 +149,8 @@ callback = (obj, txt) ->
     if line[0] == 'f'
       obj.faces.push(parseFace(line))
 
-  rescaled = rescaleVertices(obj.vertices, SVG_SIZE)
-  op = orthoProj(rescaled)
+  obj.vertices = rescaleVertices(obj.vertices, SVG_SIZE)
+  op = orthoProj(obj.vertices)
 
   [svgXY, svgXZ, svgYZ] = 
     for i in [1..3]
