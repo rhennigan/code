@@ -49,7 +49,7 @@ getVertexRanges = (obj) ->
 
 ###############################################################################
 
-rescaleVertices = (obj) ->
+rescaleVertices = (obj, size) ->
   r = getVertexRanges(obj)
 
   rx = r.x2 - r.x1
@@ -57,6 +57,9 @@ rescaleVertices = (obj) ->
   rz = r.z2 - r.z1
 
   rm = Math.max(rx, ry, rz)
+
+  for v in obj.vertices
+    
 
 ###############################################################################
 
