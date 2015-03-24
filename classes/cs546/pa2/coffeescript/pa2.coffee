@@ -179,10 +179,7 @@ main = () ->
   object3D = {vertices: [], faces: []}
   # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
   loadObject('objects/Horse.obj', object3D, callback, err)
-  f1 = [1, 2, 3]
-  f2 = [1, 3, 4]
-  ml = createMeshLines([f1, f2])
-  console.log ml
+  console.log getVertexRanges(object3D.vertices)
 
 main()
 
