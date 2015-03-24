@@ -96,9 +96,9 @@ rescaleVertices = (vertices, size) ->
 
   for v in vertices
     {
-      x: (v.x - r.x1) / rm
-      y: (v.y - r.y1) / rm
-      z: (v.z - r.z1) / rm
+      x: size * (v.x - r.x1) / rm
+      y: size * (v.y - r.y1) / rm
+      z: size * (v.z - r.z1) / rm
     }
 
 ###############################################################################
@@ -172,6 +172,7 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   rescaled = rescaleVertices(obj.vertices, SVG_SIZE)
+  console.log getVertexRanges(rescaled)
   op = orthoProj(rescaled)
 
   [svgXY, svgXZ, svgYZ] = 
