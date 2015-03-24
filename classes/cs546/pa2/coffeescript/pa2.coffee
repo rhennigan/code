@@ -221,6 +221,10 @@ load = (object) ->
 ###############################################################################
 
 main = () ->
+  document.getElementById('test').addEventListener "click", (e) => 
+      clear()
+      load('SedanCar')
+      
   load('Beethoven')
   # object3D = {vertices: [], faces: []}
   # loadObject('objects/Beethoven.obj', object3D, callback, err)
