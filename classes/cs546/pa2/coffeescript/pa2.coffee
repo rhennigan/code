@@ -215,9 +215,9 @@ rotate = (object3D, txy, txz, tyz) ->
     s2y = SVG_SIZE - 2*y
     s2z = SVG_SIZE - 2*z
     {
-      x: (-(ctxy*ctxz*s2x) + ctxz*s2y*stxy - s2z*stxz)/2.0
-      y: (-(ctyz*s2x*stxy) + ctxz*s2z*styz + s2y*stxy*stxz*styz - ctxy*(ctyz*s2y + s2x*stxz*styz))/2.0
-      z: -(ctyz*(ctxz*s2z - ctxy*s2x*stxz + s2y*stxy*stxz))/2.0 - ((ctxy*s2y + s2x*stxy)*styz)/2.0
+      x: (-(ctxy*ctxz*s2x) + size + ctxz*s2y*stxy - s2z*stxz)/2.0
+      y: (size - ctyz*s2x*stxy + ctxz*s2z*styz + s2y*stxy*stxz*styz - ctxy*(ctyz*s2y + s2x*stxz*styz))/2.0
+      z: (-(ctxz*ctyz*s2z) + size + ctyz*(ctxy*s2x - s2y*stxy)*stxz - (ctxy*s2y + s2x*stxy)*styz)/2.0
     }
 
   for i in [0...object3D.meshLines.length]
