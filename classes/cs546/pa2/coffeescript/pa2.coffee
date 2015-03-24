@@ -180,12 +180,10 @@ main = () ->
   object3D = {vertices: [], faces: []}
   # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
   loadObject('objects/Cone.obj', object3D, callback, err)
-  l1 = new Line(1, 2)
-  l2 = new Line(2, 3)
-  l3 = new Line(1, 2)
-  l4 = new Line(3, 2)
-  ul = union([l1, l2, l3, l4])
-  console.log ul
+  f1 = [1, 2, 3]
+  f2 = [1, 3, 4]
+  ml = createMeshLines([f1, f2])
+  console.log ml
 
 main()
 
