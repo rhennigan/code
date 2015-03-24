@@ -100,7 +100,7 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   rescaled = rescaleVertices(obj.vertices, SVG_SIZE)
-  {oXY, oXZ, oYZ} = orthoProj(rescaled)
+  {oXY: xy, xz: oXZ, yz: oYZ} = orthoProj(rescaled)
   console.log oXY
 
   [svgXY, svgXZ, svgYZ] = 
