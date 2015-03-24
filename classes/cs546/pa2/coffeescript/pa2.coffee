@@ -35,6 +35,9 @@ parseFace = (faceString) ->
 
 ###############################################################################
 
+Array::max = () ->
+  Math.max.apply(null, @)
+
 getVertexRanges = (vertices) ->
   x1 = y1 = z1 = +Infinity
   x2 = y2 = z2 = -Infinity
