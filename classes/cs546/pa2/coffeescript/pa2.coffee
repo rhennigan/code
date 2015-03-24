@@ -85,6 +85,7 @@ createSVGLine = (x1, y1, x2, y2, stroke) ->
   line.setAttribute('x2', x2)
   line.setAttribute('y2', y2)
   line.setAttribute('stroke-width', stroke)
+  line.setAttribute('stroke', 'black')
   line
 
 ###############################################################################
@@ -98,7 +99,7 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   rescaled = rescaleVertices(obj.vertices, 100.0)
-  svg1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg1')
+  svg1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   svg1.setAttribute('width', 500)
   svg1.setAttribute('height', 500)
   w = document.getElementById('container')
