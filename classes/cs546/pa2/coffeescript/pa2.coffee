@@ -79,7 +79,7 @@ callback = (obj, txt) ->
   ranges = getVertexRanges(obj)
   rescaled = rescaleVertices(obj, 100.0)
 
-  console.log rescaled
+  console.log getVertexRanges({vertices: rescaled, faces: obj.faces})
 
 ###############################################################################
 
