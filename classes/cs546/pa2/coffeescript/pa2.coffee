@@ -159,8 +159,6 @@ callback = (obj, txt) ->
       # svg.setAttribute('style', "border: 1px solid black;")
       svg
   
-  container = document.getElementById('container')
-
   obj.meshLines = createMeshLines(obj.faces)
 
   for line in obj.meshLines
@@ -188,11 +186,14 @@ callback = (obj, txt) ->
   svgXZ.appendChild(createLabel('xz'))
   svgYZ.appendChild(createLabel('yz'))
 
+  containerXY = document.getElementById('containerXY')
+  containerXZ = document.getElementById('containerXZ')
+  containerYZ = document.getElementById('containerYZ')
+
   clear()
-  container.appendChild(svgXY)
-  container.appendChild(svgXZ)
-  container.appendChild(document.createElement("br"))
-  container.appendChild(svgYZ)
+  containerXY.appendChild(svgXY)
+  containerXZ.appendChild(svgXZ)
+  containerYZ.appendChild(svgYZ)
 
 ###############################################################################
 
