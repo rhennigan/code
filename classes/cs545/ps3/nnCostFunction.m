@@ -110,5 +110,4 @@ Theta2_grad(:, 1) = Theta2_grad(:, 1) - (lm * (Theta2(:, 1)));
 % Unroll gradients
 grad = [Theta1_grad(:) ; Theta2_grad(:)];
 
-
 end
