@@ -83,7 +83,7 @@ orthoProj = (vertices) ->
 ###############################################################################
 
 union = (a) ->
-  seen = {}
+  seen = Object.create(null)
   out = []
   len = a.length
   j = 0
