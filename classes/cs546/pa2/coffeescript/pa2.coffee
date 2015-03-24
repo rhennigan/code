@@ -13,8 +13,8 @@ class IO
 
     req.send(null)
 
-cb = (obj, txt) -> 
-  obj.text = txt.split('\n')
+callback = (obj, txt) -> 
+  lines = txt.split('\n')
   console.log obj
   console.log objectText
 
@@ -23,5 +23,4 @@ err = (url) ->
 
 objectText = {text: null}
 
-# IO::load('objects/SpaceShuttle.obj', $("#test"), cb, err)
-IO::load('objects/SpaceShuttle.obj', objectText, cb, err)
+IO::load('objects/SpaceShuttle.obj', objectText, callback, err)
