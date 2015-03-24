@@ -98,7 +98,7 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   rescaled = rescaleVertices(obj.vertices, 100.0)
-  svg1 = document.getElementById('svg1')
+  svg1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg1')
 
   for i in [0..100]
     svg1.appendChild()
