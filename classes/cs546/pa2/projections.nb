@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    113120,       2094]
-NotebookOptionsPosition[    111226,       2025]
-NotebookOutlinePosition[    111574,       2040]
-CellTagsIndexPosition[    111531,       2037]
+NotebookDataLength[    113237,       2097]
+NotebookOptionsPosition[    111343,       2028]
+NotebookOutlinePosition[    111691,       2043]
+CellTagsIndexPosition[    111648,       2040]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -240,12 +240,15 @@ ww033HDDDTfc8FHk0jNqeRpuuOGGG2644f8D/w153UoU
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"export", "[", "\"\<Cone\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.636177609578865*^9, 3.636177616082585*^9}}],
+ RowBox[{"export", "[", "\"\<SedanCar\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.636177609578865*^9, 3.636177616082585*^9}, {
+  3.6361802383608894`*^9, 3.636180270065741*^9}}],
 
 Cell[BoxData["\<\"E:\\\\GDrive\\\\GitHub\\\\code\\\\classes\\\\cs546\\\\pa2\\\
-\\objects\\\\Cone.obj\"\>"], "Output",
- CellChangeTimes->{3.6361776167751656`*^9, 3.6361776733880525`*^9}]
+\\objects\\\\PottedPlant.obj\"\>"], "Output",
+ CellChangeTimes->{
+  3.6361776167751656`*^9, 3.6361776733880525`*^9, {3.6361802404380846`*^9, 
+   3.636180262326415*^9}}]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -2049,52 +2052,52 @@ Cell[3858, 105, 355, 6, 31, "Input"],
 Cell[4216, 113, 7246, 123, 445, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11499, 241, 136, 2, 31, "Input"],
-Cell[11638, 245, 185, 2, 31, "Output"]
+Cell[11499, 241, 191, 3, 31, "Input"],
+Cell[11693, 246, 247, 4, 31, "Output"]
 }, Open  ]],
-Cell[11838, 250, 836, 21, 72, "Input"],
+Cell[11955, 253, 836, 21, 72, "Input"],
 Cell[CellGroupData[{
-Cell[12699, 275, 294, 8, 31, "Input"],
-Cell[12996, 285, 452, 15, 31, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[13485, 305, 503, 12, 52, "Input"],
-Cell[13991, 319, 270, 5, 31, "Output"]
+Cell[12816, 278, 294, 8, 31, "Input"],
+Cell[13113, 288, 452, 15, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14298, 329, 407, 10, 52, "Input"],
-Cell[14708, 341, 217, 3, 31, "Output"]
+Cell[13602, 308, 503, 12, 52, "Input"],
+Cell[14108, 322, 270, 5, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14962, 349, 403, 10, 52, "Input"],
-Cell[15368, 361, 188, 3, 31, "Output"]
+Cell[14415, 332, 407, 10, 52, "Input"],
+Cell[14825, 344, 217, 3, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15593, 369, 212, 4, 31, "Input"],
-Cell[15808, 375, 272, 6, 31, "Output"]
-}, Open  ]],
-Cell[16095, 384, 428, 12, 31, "Input"],
-Cell[16526, 398, 100, 1, 31, "Input"],
-Cell[CellGroupData[{
-Cell[16651, 403, 99, 1, 31, "Input"],
-Cell[16753, 406, 11330, 292, 171, "Output"]
-}, Open  ]],
-Cell[28098, 701, 866, 24, 31, "Input"],
-Cell[CellGroupData[{
-Cell[28989, 729, 373, 7, 31, "Input"],
-Cell[29365, 738, 8647, 144, 412, "Output"]
+Cell[15079, 352, 403, 10, 52, "Input"],
+Cell[15485, 364, 188, 3, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[38049, 887, 522, 12, 31, "Input"],
-Cell[38574, 901, 24304, 368, 244, "Output"]
+Cell[15710, 372, 212, 4, 31, "Input"],
+Cell[15925, 378, 272, 6, 31, "Output"]
+}, Open  ]],
+Cell[16212, 387, 428, 12, 31, "Input"],
+Cell[16643, 401, 100, 1, 31, "Input"],
+Cell[CellGroupData[{
+Cell[16768, 406, 99, 1, 31, "Input"],
+Cell[16870, 409, 11330, 292, 171, "Output"]
+}, Open  ]],
+Cell[28215, 704, 866, 24, 31, "Input"],
+Cell[CellGroupData[{
+Cell[29106, 732, 373, 7, 31, "Input"],
+Cell[29482, 741, 8647, 144, 412, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[62915, 1274, 497, 12, 31, "Input"],
-Cell[63415, 1288, 23845, 361, 191, "Output"]
+Cell[38166, 890, 522, 12, 31, "Input"],
+Cell[38691, 904, 24304, 368, 244, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[87297, 1654, 501, 12, 31, "Input"],
-Cell[87801, 1668, 23409, 354, 288, "Output"]
+Cell[63032, 1277, 497, 12, 31, "Input"],
+Cell[63532, 1291, 23845, 361, 191, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[87414, 1657, 501, 12, 31, "Input"],
+Cell[87918, 1671, 23409, 354, 288, "Output"]
 }, Open  ]]
 }
 ]
