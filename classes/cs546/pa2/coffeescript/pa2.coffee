@@ -104,7 +104,10 @@ callback = (obj, txt) ->
   w = document.getElementById('container')
 
   for i in [0..100]
-    svg1.appendChild(createSVGLine(1, 3*i, 500, 3*i, 1))
+    line = createSVGLine(1, 3*i, 500, 3*i, 1)
+    svg1.appendChild(line)
+
+  console.log svg1
 
   w.appendChild(svg1)
 
