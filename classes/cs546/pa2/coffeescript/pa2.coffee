@@ -195,6 +195,7 @@ callback = (obj, txt) ->
     svgXZ.appendChild(lineXZ)
     svgYZ.appendChild(lineYZ)
 
+  clear()
   container.appendChild(svgXY)
   container.appendChild(svgXZ)
   container.appendChild(svgYZ)
@@ -214,7 +215,6 @@ clear = () ->
 ###############################################################################
 
 load = (object) ->
-  clear()
   object3D = {vertices: [], faces: []}
   loadObject("objects/#{object}.obj", object3D, callback, err)
 
@@ -222,7 +222,6 @@ load = (object) ->
 
 main = () ->
   document.getElementById('selector').addEventListener "change", (e) => 
-      clear()
       load('SedanCar')
 
   load('Beethoven')
