@@ -206,6 +206,7 @@ callback = (obj, txt) ->
   clear()
   container.appendChild(svgXY)
   container.appendChild(svgXZ)
+  container.appendChild(document.createElement("br"))
   container.appendChild(svgYZ)
 
 ###############################################################################
@@ -229,7 +230,7 @@ load = (object) ->
 ###############################################################################
 
 main = () ->
-  SVG_SIZE = Math.min(window.innerWidth, window.innerHeight)/2 - 20
+  SVG_SIZE = Math.min(window.innerWidth, window.innerHeight)/2 - 50
   document.getElementById('selector').addEventListener "change", (e) => 
       load(selector.value)
 
