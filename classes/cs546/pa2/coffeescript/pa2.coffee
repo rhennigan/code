@@ -213,6 +213,13 @@ clear = () ->
 
 ###############################################################################
 
+load = (object) ->
+  clear()
+  object3D = {vertices: [], faces: []}
+  loadObject("objects/#{object}.obj", object3D, callback, err)
+
+###############################################################################
+
 main = () ->
   object3D = {vertices: [], faces: []}
   loadObject('objects/Beethoven.obj', object3D, callback, err)
