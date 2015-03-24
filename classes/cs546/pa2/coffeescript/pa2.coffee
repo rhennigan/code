@@ -177,6 +177,7 @@ callback = (obj, txt) ->
       svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
       svg.setAttribute('width', SVG_SIZE)
       svg.setAttribute('height', SVG_SIZE)
+      svg.setAttribute('border', '1px')
       svg
   
   container = document.getElementById('container')
