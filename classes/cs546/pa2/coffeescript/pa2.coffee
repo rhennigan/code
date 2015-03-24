@@ -118,10 +118,8 @@ callback = (obj, txt) ->
   for face in obj.faces
     len = face.length
     for i in [0...len]
-      console.log len
-      console.log [i, (i+1)%len]
-      line1 = createSVGLine(op.xy[face[i]], op.xy[face[(i+1)%len]], SVG_STROKE)
-      svgXY.appendChild(line1)
+      lineXY = createSVGLine(op.xy[face[i]], op.xy[face[(i+1)%len]], SVG_STROKE)
+      svgXY.appendChild(lineXY)
 
   for face in obj.faces
     line1 = createSVGLine(op.xz[face[0]], op.xz[face[1]], SVG_STROKE)
