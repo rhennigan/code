@@ -105,6 +105,8 @@ createMeshLines = (faces) ->
         v2: Math.max(face[i], face[(i+1)%len])
         })
 
+  union(lines)
+
 ###############################################################################
 
 createSVGLine = (p1, p2, stroke) ->
@@ -165,7 +167,7 @@ main = () ->
   object3D = {vertices: [], faces: []}
   # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
   loadObject('objects/Cone.obj', object3D, callback, err)
+  console.log createMeshLines(object3D.faces)
 
 main()
 
-console.log union([1,5,5,2,3,1,12,25,513,236,2,1,1,2,5])
