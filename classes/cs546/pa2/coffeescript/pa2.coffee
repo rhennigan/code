@@ -277,7 +277,7 @@ main = () ->
   object3D = load('UtahTeapot')
 
   document.getElementById('selector').addEventListener "change", (e) => 
-      load(selector.value)
+      object3D = load(selector.value)
 
   document.getElementById('rotateXY').addEventListener "click", (e) => 
       rotate(object3D, 0.1, 0, 0)
