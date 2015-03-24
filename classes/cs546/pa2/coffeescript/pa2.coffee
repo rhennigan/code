@@ -25,8 +25,8 @@ parseFace = (faceString) ->
   parseInt(i) - 1 for i in split[1..]
 
 getVertexRanges = (obj) ->
-  x1 = Infinity
-  x2 = -Infinity
+  x1 = y1 = z1 = +Infinity
+  x2 = y2 = z2 = -Infinity
 
   for vertex in obj.vertices
     if vertex.x < x1
