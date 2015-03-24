@@ -1,4 +1,5 @@
 SVG_SIZE = 300
+SVG_STROKE = 0.25
 
 ###############################################################################
 
@@ -115,9 +116,9 @@ callback = (obj, txt) ->
   container = document.getElementById('container')
 
   for face in obj.faces
-    line1 = createSVGLine(op.xy[face[0]], op.xy[face[1]], 1)
-    line2 = createSVGLine(op.xy[face[1]], op.xy[face[2]], 1)
-    line3 = createSVGLine(op.xy[face[2]], op.xy[face[0]], 1)
+    line1 = createSVGLine(op.xy[face[0]], op.xy[face[1]], SVG_STROKE)
+    line2 = createSVGLine(op.xy[face[1]], op.xy[face[2]], SVG_STROKE)
+    line3 = createSVGLine(op.xy[face[2]], op.xy[face[0]], SVG_STROKE)
     svgXY.appendChild(line1)
     svgXY.appendChild(line2)
     svgXY.appendChild(line3)
