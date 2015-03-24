@@ -22,5 +22,4 @@ err = (url) ->
 
 objectText = {text: null}
 
-
-
+IO::load('objects/SpaceShuttle.obj', $("#test"), cb, err)
