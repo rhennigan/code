@@ -103,9 +103,13 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   rescaled = rescaleVertices(obj.vertices, SVG_SIZE)
-  svgXY = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-  svgXY.setAttribute('width', SVG_SIZE)
-  svgXY.setAttribute('height', SVG_SIZE)
+  [svgXY, svgXZ, svgYZ] = 
+    for i in [1..3]
+      svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      svg.setAttribute('width', SVG_SIZE)
+      svg.setAttribute('height', SVG_SIZE)
+      svg
+  
   w = document.getElementById('container')
 
   for i in [0..20]
