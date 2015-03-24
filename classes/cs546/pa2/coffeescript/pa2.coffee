@@ -14,7 +14,7 @@ IO::load = (url, store, cb, cbErr) ->
   req.send(null)
 
 cb = (obj, txt) -> 
-  obj.text = txt
+  obj.text = txt.split('\n')
   console.log obj
   console.log objectText
 
