@@ -72,16 +72,6 @@ rescaleVertices = (vertices, size) ->
 
 ###############################################################################
 
-compareBy = 
-  x: (v1, v2) ->
-    if v1.x < v2.x then -1 else if v1.x > v2.x then 1 else 0
-  y: (v1, v2) ->
-    if v1.y < v2.y then -1 else if v1.y > v2.y then 1 else 0
-  z: (v1, v2) ->
-    if v1.z < v2.z then -1 else if v1.z > v2.z then 1 else 0
-
-###############################################################################
-
 createSVGLine = (x1, y1, x2, y2, stroke) ->
   line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
   line.setAttribute('x1', x1)
