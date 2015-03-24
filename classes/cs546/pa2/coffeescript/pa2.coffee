@@ -214,7 +214,7 @@ rotate = (object3D, txy, txz, tyz) ->
       z: -(ctxy*ctyz*stxz*x) + stxy*styz*x + ctyz*stxy*stxz*y + ctxy*styz*y + ctxz*ctyz*z 
     }
 
-  for i in [0...object3D.svgLines.length]
+  for i in [0...object3D.meshLines.length]
     meshLine = object3D.meshLines[i]
 
     p1 = rotatedVertices[meshLine.p1]
@@ -237,7 +237,15 @@ clear = () ->
 ###############################################################################
 
 load = (object) ->
-  object3D = {vertices: [], faces: [], meshLines: [], svgLines: []}
+  object3D = 
+    {
+      vertices: []
+      faces: []
+      meshLines: []
+      svgLinesXY: []
+      svgLinesXZ: []
+      svgLinesYZ: []
+    }
   loadObject("objects/#{object}.obj", object3D, callback, err)
 
 ###############################################################################
