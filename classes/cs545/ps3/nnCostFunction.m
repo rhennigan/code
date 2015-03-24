@@ -75,15 +75,16 @@ X2 = sigmoid(Z2);
 n = size(X2, 1);
 X2 = [ones(n,1) X2];
  
-z3 = X2 * Theta2';
-a3 = sigmoid(z3);
+Z3 = X2 * Theta2';
+A3 = sigmoid(Z3);
  
-regularization = (lambda/(2*m)) * (sum(sum((Theta1(:,2:end)).^2)) + sum(sum((Theta2(:,2:end)).^2)));
+cost_matrix = (lambda/(2*m)) * (sum(sum((Theta1(:,2:end)).^2)) + ...
+    sum(sum((Theta2(:,2:end)).^2)));
  
-J = ((1/m) * sum(sum((-y .* log(a3))-((1-y) .* log(1-a3))))) + regularization;
+J = ((1/m) * sum(sum((-y .* log(A3))-((1-y) .* log(1-A3))))) + cost_matrix;
  
  
-delta_3 = a3 - y;
+delta_3 = A3 - y;
 delta_2 = (delta_3 * Theta2(:,2:end)) .* sigmoidGradient(Z2);
  
  
