@@ -66,9 +66,9 @@ rescaleVertices = (vertices, size) ->
 
   for v in vertices
     {
-      x: s * (v.x - r.x1)
-      y: s * (v.y - r.y1)
-      z: s * (v.z - r.z1)
+      x: size - s * (v.x - r.x1)
+      y: size - s * (v.y - r.y1)
+      z: size - s * (v.z - r.z1)
     }
 
 ###############################################################################
