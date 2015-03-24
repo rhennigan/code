@@ -10589,7 +10589,7 @@ KX4M2Bu57BBy8PCwGmSnulL+fxX5YF8Rn+Sb87OfiD/yy3nZB/tin5yP87Mf
 }, Open  ]]
 },
 WindowSize->{1080, 1847},
-WindowMargins->{{Automatic, -2168}, {-351, Automatic}},
+WindowMargins->{{Automatic, -1088}, {-351, Automatic}},
 FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (July 1, 2014)",
 StyleDefinitions->"Default.nb"
 ]
