@@ -82,6 +82,30 @@ orthoProj = (vertices) ->
 
 ###############################################################################
 
+union = (a) ->
+  seen = {}
+  out = []
+  len = a.length
+  j = 0
+  for i in [0...len]
+    item = a[i]
+    if seen[item] !== 1
+      seen[item] = 1
+      out[j++] = item
+  out
+
+###############################################################################
+
+createMeshLines = (faces) ->
+  lines = []
+
+  for face in faces
+    len = face.length
+    for i in [0...len]
+      line = {v1: face[i], v2: face[(i+1)%len]}
+
+###############################################################################
+
 createSVGLine = (p1, p2, stroke) ->
   line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
   line.setAttribute('x1', p1.x)
