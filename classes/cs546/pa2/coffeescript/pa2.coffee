@@ -172,6 +172,8 @@ main = () ->
   test = {}
   test[5.671] = "hooray!"
   test['this'] = 'hello'
+  test[{x: 5.3, y: 10.1}] = 23
+  test[{x: -5.3, y: 10.1}] = 42
   console.log test
 
 main()
