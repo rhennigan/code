@@ -206,13 +206,14 @@ err = (url) ->
 
 ###############################################################################
 
+clear = () ->
+  container = document.getElementById('container')
 
 
 ###############################################################################
 
 main = () ->
   object3D = {vertices: [], faces: []}
-  # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
   loadObject('objects/Beethoven.obj', object3D, callback, err)
 
 main()
