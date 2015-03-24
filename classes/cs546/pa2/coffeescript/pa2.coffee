@@ -211,7 +211,6 @@ clear = () ->
   while container.hasChildNodes()
     container.removeChild(container.firstChild)
 
-
 ###############################################################################
 
 main = () ->
