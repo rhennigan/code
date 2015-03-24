@@ -152,6 +152,6 @@ err = (url) ->
 
 main = () ->
   objectText = {vertices: [], faces: []}
-  loadObject('objects/SpaceShuttle.obj', objectText, callback, err)
+  loadObject('objects/UtahTeapot.obj', objectText, callback, err)
 
 main()
