@@ -24,7 +24,6 @@ callback = (obj, txt) ->
 
   obj = {vertices: vertices, faces: faces}
   console.log obj
-  console.log lines
 
 err = (url) ->
   alert "failed to load #{url}"
