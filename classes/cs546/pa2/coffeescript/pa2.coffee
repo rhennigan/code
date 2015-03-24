@@ -193,6 +193,7 @@ callback = (obj, txt) ->
   labelXY.setAttribute('x', 25)
   labelXY.setAttribute('y', 25)
   labelXY.setAttribute('fill', 'black')
+  labelXY.setAttribute('font-size', '28px')
   labelXY.innerHTML = 'top'
   svgXY.appendChild(labelXY)
   console.log labelXY
