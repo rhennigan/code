@@ -200,8 +200,12 @@ err = (url) ->
 ###############################################################################
 
 rotate = (object3D, txy, txz, tyz) ->
-  cos = Math.cos
-  sin = Math.sin
+  ctxy = Math.cos(txy)
+  ctxz = Math.cos(txz)
+  ctyz = Math.cos(tyz)
+  stxy = Math.sin(txy)
+  stxz = Math.sin(txz)
+  styz = Math.sin(tyz)
   rotatedVertices = for v in object3D.vertices
     [x, y, z] = [v.x, v.y, v.z]
     {
