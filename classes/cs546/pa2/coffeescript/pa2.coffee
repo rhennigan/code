@@ -156,7 +156,7 @@ callback = (obj, txt) ->
       svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
       svg.setAttribute('width', SVG_SIZE)
       svg.setAttribute('height', SVG_SIZE)
-      # svg.setAttribute('style', "border: 1px solid black;")
+      svg.setAttribute('style', "border: 1px solid black;")
       svg
   
   obj.meshLines = createMeshLines(obj.faces)
