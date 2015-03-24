@@ -34,6 +34,16 @@ getVertexRanges = (obj) ->
     if vertex.x > x2
       x2 = vertex.x
 
+    if vertex.y < y1
+      y1 = vertex.y
+    if vertex.y > y2
+      y2 = vertex.y
+
+    if vertex.y < y1
+      y1 = vertex.y
+    if vertex.y > y2
+      y2 = vertex.y
+
   {x1: x1, x2: x2, y1: y1, y2: y2, z1: z1, z2: z2}
 
 callback = (obj, txt) -> 
