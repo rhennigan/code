@@ -287,13 +287,22 @@ main = () ->
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)
 
-  document.getElementById('rotateXY').addEventListener "click", (e) => 
-      rotate(object3D, 0.1, 0, 0)
+  document.getElementById('rotateXY+').addEventListener "click", (e) => 
+      rotate(object3D, -0.1, 0, 0)
   
-  document.getElementById('rotateXZ').addEventListener "click", (e) => 
+  document.getElementById('rotateXZ+').addEventListener "click", (e) => 
       rotate(object3D, 0, 0.1, 0)
 
-  document.getElementById('rotateYZ').addEventListener "click", (e) => 
+  document.getElementById('rotateYZ+').addEventListener "click", (e) => 
+      rotate(object3D, 0, 0, -0.1)
+
+  document.getElementById('rotateXY-').addEventListener "click", (e) => 
+      rotate(object3D, 0.1, 0, 0)
+  
+  document.getElementById('rotateXZ-').addEventListener "click", (e) => 
+      rotate(object3D, 0, -0.1, 0)
+
+  document.getElementById('rotateYZ-').addEventListener "click", (e) => 
       rotate(object3D, 0, 0, 0.1)
   # object3D = {vertices: [], faces: []}
   # loadObject('objects/Beethoven.obj', object3D, callback, err)
