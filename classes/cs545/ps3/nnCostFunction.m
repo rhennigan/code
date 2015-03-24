@@ -95,11 +95,13 @@ d2 = (d3 * Theta2(:, 2:end)) .* sigmoidGradient(Z2);
 dc1 = d2' * X1;
 dc2 = d3' * X2; 
 
-Theta1_grad = m1 * dc1 + ((lambda / m) * Theta1);
-Theta2_grad = m1 * dc2 + ((lambda / m) * Theta2);
+lm = lambda / m;
 
-Theta1_grad(:,1) = Theta1_grad(:,1) - ((lambda/m) * (Theta1(:,1)));
-Theta2_grad(:,1) = Theta2_grad(:,1) - ((lambda/m) * (Theta2(:,1)));
+Theta1_grad = m1 * dc1 + lm * Theta1;
+Theta2_grad = m1 * dc2 + lm * Theta2;
+
+Theta1_grad(:, 1) = Theta1_grad(:, 1) - (lm * (Theta1(:, 1)));
+Theta2_grad(:, 1) = Theta2_grad(:, 1) - (lm * (Theta2(:, 1)));
 
 % -------------------------------------------------------------
 
