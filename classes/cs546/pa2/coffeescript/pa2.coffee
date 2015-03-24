@@ -211,9 +211,7 @@ rotateXY = (object3D, t) ->
     meshLine = object3D.meshLines[i]
     svgLine = object3D.svgLines[i]
 
-    [x1, y1, z1] = [meshLine.p1.x, meshLine.p1.y, meshLine.p1.z]
-
-
+    
     
 
 
