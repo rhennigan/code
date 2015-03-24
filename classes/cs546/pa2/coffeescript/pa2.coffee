@@ -164,3 +164,5 @@ main = () ->
   loadObject('objects/Cone.obj', object3D, callback, err)
 
 main()
+
+console.log union([1,5,5,2,3,1,12,25,513,236,2,1,1,2,5])
