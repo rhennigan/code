@@ -3,15 +3,14 @@ SVG_STROKE = 0.5
 
 ###############################################################################
 
-loadObject =  (url, store, cb, cbErr, container) ->
-  console.log container
+loadObject =  (url, store, cb, cbErr) ->
   req = new XMLHttpRequest()
   req.open('GET', url, true)
 
   req.onreadystatechange = () ->
     if req.readyState == 4
       if req.status == 200
-        cb(container, store, req.responseText)
+        cb(store, req.responseText)
       else
         cbErr(url)
 
@@ -60,6 +59,23 @@ getVertexRanges = (vertices) ->
     z1: zs.min()
     z2: zs.max()
   }
+
+# getVertexRanges = (vertices) ->
+#   x1 = y1 = z1 = +Infinity
+#   x2 = y2 = z2 = -Infinity
+
+#   clampL = (n, n1) ->
+#     if n < n1 then n else n1
+
+#   clampR = (n, n2) ->
+#     if n > n2 then n else n2
+
+#   for vertex in vertices
+#     [x1, x2] = [clampL(vertex.x, x1), clampR(vertex.x, x2)]
+#     [y1, y2] = [clampL(vertex.y, y1), clampR(vertex.y, y2)]
+#     [z1, z2] = [clampL(vertex.z, z1), clampR(vertex.z, z2)]
+
+#   {x1: x1, x2: x2, y1: y1, y2: y2, z1: z1, z2: z2}
 
 ###############################################################################
 
@@ -142,7 +158,7 @@ createSVGLine = (p1, p2, stroke) ->
 
 ###############################################################################
 
-callback = (container, obj, txt) -> 
+callback = (obj, txt) -> 
   lines = txt.split('\n')
   for line in lines
     if line[0] == 'v'
@@ -164,6 +180,8 @@ callback = (container, obj, txt) ->
       svg.setAttribute('style', "border: 1px solid black;")
       svg
   
+  container = document.getElementById('container')
+
   meshLines = createMeshLines(obj.faces)
 
   for line in meshLines[..10]
@@ -191,33 +209,7 @@ err = (url) ->
 main = () ->
   object3D = {vertices: [], faces: []}
   # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
-  loadObject('objects/BassGuitar.obj', object3D, callback, err, document.getElementById('BassGuitar'))
-  loadObject('objects/Beethoven.obj', object3D, callback, err, document.getElementById('Beethoven'))
-  loadObject('objects/CastleWall.obj', object3D, callback, err, document.getElementById('CastleWall'))
-  # loadObject('objects/Cone.obj', object3D, callback, err, document.getElementById('Cone'))
-  # loadObject('objects/Cow.obj', object3D, callback, err, document.getElementById('Cow'))
-  # loadObject('objects/Deimos.obj', object3D, callback, err, document.getElementById('Deimos'))
-  # loadObject('objects/Galleon.obj', object3D, callback, err, document.getElementById('Galleon'))
-  # loadObject('objects/HammerheadShark.obj', object3D, callback, err, document.getElementById('HammerheadShark'))
-  # loadObject('objects/Horse.obj', object3D, callback, err, document.getElementById('Horse'))
-  # loadObject('objects/KleinBottle.obj', object3D, callback, err, document.getElementById('KleinBottle'))
-  # loadObject('objects/MoebiusStrip.obj', object3D, callback, err, document.getElementById('MoebiusStrip'))
-  # loadObject('objects/Phobos.obj', object3D, callback, err, document.getElementById('Phobos'))
-  # loadObject('objects/PottedPlant.obj', object3D, callback, err, document.getElementById('PottedPlant'))
-  # loadObject('objects/Seashell.obj', object3D, callback, err, document.getElementById('Seashell'))
-  # loadObject('objects/SedanCar.obj', object3D, callback, err, document.getElementById('SedanCar'))
-  # loadObject('objects/SpaceShuttle.obj', object3D, callback, err, document.getElementById('SpaceShuttle'))
-  # loadObject('objects/StanfordBunny.obj', object3D, callback, err, document.getElementById('StanfordBunny'))
-  # loadObject('objects/Torus.obj', object3D, callback, err, document.getElementById('Torus'))
-  # loadObject('objects/Tree.obj', object3D, callback, err, document.getElementById('Tree'))
-  # loadObject('objects/Triceratops.obj', object3D, callback, err, document.getElementById('Triceratops'))
-  # loadObject('objects/Tugboat.obj', object3D, callback, err, document.getElementById('Tugboat'))
-  # loadObject('objects/UtahTeapot.obj', object3D, callback, err, document.getElementById('UtahTeapot'))
-  # loadObject('objects/UtahVWBug.obj', object3D, callback, err, document.getElementById('UtahVWBug'))
-  # loadObject('objects/Vase.obj', object3D, callback, err, document.getElementById('Vase'))
-  # loadObject('objects/VikingLander.obj', object3D, callback, err, document.getElementById('VikingLander'))
-  # loadObject('objects/Wrench.obj', object3D, callback, err, document.getElementById('Wrench'))
-  # loadObject('objects/Zeppelin.obj', object3D, callback, err, document.getElementById('Zeppelin'))
+  loadObject('objects/Beethoven.obj', object3D, callback, err)
 
 main()
 
