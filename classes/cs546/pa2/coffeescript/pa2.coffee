@@ -215,8 +215,8 @@ load = (object) ->
 ###############################################################################
 
 main = () ->
-  SVG_SIZE = screen.availWidth/4
-  console.log screen.availWidth
+  SVG_SIZE = window.innerWidth/2
+  console.log window.innerWidth
   document.getElementById('selector').addEventListener "change", (e) => 
       load(selector.value)
 
