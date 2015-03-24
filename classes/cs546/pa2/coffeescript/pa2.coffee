@@ -174,7 +174,7 @@ callback = (obj, txt) ->
       svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
       svg.setAttribute('width', SVG_SIZE)
       svg.setAttribute('height', SVG_SIZE)
-      svg.setAttribute('style', "border: 1px solid black;")
+      # svg.setAttribute('style', "border: 1px solid black;")
       svg
   
   container = document.getElementById('container')
@@ -215,7 +215,7 @@ load = (object) ->
 ###############################################################################
 
 main = () ->
-  SVG_SIZE = Math.min(window.innerWidth, window.innerHeight)/2 - 50
+  SVG_SIZE = Math.min(window.innerWidth, window.innerHeight)/2 - 20
   console.log window.innerWidth
   document.getElementById('selector').addEventListener "change", (e) => 
       load(selector.value)
