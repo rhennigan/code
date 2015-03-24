@@ -93,8 +93,8 @@ delta_cap1 = delta_2' * a1;
 Theta1_grad = ((1/m) * delta_cap1) + ((lambda/m) * (Theta1));
 Theta2_grad = ((1/m) * delta_cap2) + ((lambda/m) * (Theta2));
 
-Theta1_grad = [Theta1_grad(:,1)/m Theta1_grad(:,2:end)/m+(lambda/m)*Theta1(:,2:end)];
-Theta2_grad = [Theta2_grad(:,1)/m Theta2_grad(:,2:end)/m+(lambda/m)*Theta2(:,2:end)];
+Theta1_grad(:,1) -= ((lambda/m) * (Theta1(:,1)));
+Theta2_grad(:,1) -= ((lambda/m) * (Theta2(:,1)));
 
 % -------------------------------------------------------------
 
