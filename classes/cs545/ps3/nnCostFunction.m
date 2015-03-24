@@ -67,9 +67,9 @@ y0 = eye(num_labels);
 y = y0(y,:);
  
  
-a1 = X;
+X1 = X;
  
-z2 = a1 * Theta1';
+z2 = X1 * Theta1';
 a2 = sigmoid(z2);
  
 n = size(a2, 1);
@@ -88,7 +88,7 @@ delta_2 = (delta_3 * Theta2(:,2:end)) .* sigmoidGradient(z2);
  
  
 delta_cap2 = delta_3' * a2; 
-delta_cap1 = delta_2' * a1;
+delta_cap1 = delta_2' * X1;
  
 Theta1_grad = ((1/m) * delta_cap1) + ((lambda/m) * (Theta1));
 Theta2_grad = ((1/m) * delta_cap2) + ((lambda/m) * (Theta2));
