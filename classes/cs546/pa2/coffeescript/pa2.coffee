@@ -167,10 +167,7 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   rescaled = rescaleVertices(obj.vertices, SVG_SIZE)
-  console.log getVertexRanges(rescaled)
   op = orthoProj(rescaled)
-  console.log rescaled
-  console.log op
 
   [svgXY, svgXZ, svgYZ] = 
     for i in [1..3]
@@ -183,9 +180,6 @@ callback = (obj, txt) ->
   container = document.getElementById('container')
 
   meshLines = createMeshLines(obj.faces)
-
-  for line in meshLines[..10]
-    console.log [op.xy[line.p1], op.xy[line.p2]]
 
   for line in meshLines
     lineXY = createSVGLine(op.xy[line.p1], op.xy[line.p2], SVG_STROKE)
