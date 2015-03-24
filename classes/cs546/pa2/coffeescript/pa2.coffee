@@ -203,6 +203,9 @@ rotateXY = (object3D, t) ->
   for i in [0...object3D.meshLines.length]
     meshLine = object3D.meshLines[i]
     svgLine = object3D.svgLines[i]
+
+    p1 = meshLine.p1
+    p2 = meshLine.p2
     object3D.svgLines[i] = {
       x: x * Math.cos(t) - y * Math.sin(t)
       y: y * Math.cos(t) + x * Math.sin(t)
