@@ -4,6 +4,7 @@ SVG_STROKE = 0.5
 ###############################################################################
 
 loadObject =  (url, store, cb, cbErr, container) ->
+  console.log container
   req = new XMLHttpRequest()
   req.open('GET', url, true)
 
