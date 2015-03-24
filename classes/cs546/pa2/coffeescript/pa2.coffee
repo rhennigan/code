@@ -70,7 +70,26 @@ rescaleVertices = (vertices, size) ->
 
 compareBy = 
   x: (v1, v2) ->
-    
+    if v1.x < v2.x
+      -1
+    else if v1.x > v2.x
+      1
+    else 
+      0
+  y: (v1, v2) ->
+    if v1.x < v2.x
+      -1
+    else if v1.x > v2.x
+      1
+    else 
+      0
+  z: (v1, v2) ->
+    if v1.x < v2.x
+      -1
+    else if v1.x > v2.x
+      1
+    else 
+      0
 
 ###############################################################################
 
