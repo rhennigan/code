@@ -208,6 +208,8 @@ err = (url) ->
 
 clear = () ->
   container = document.getElementById('container')
+  while container.hasChildNodes()
+    container.removeChild(container.firstChild)
 
 
 ###############################################################################
