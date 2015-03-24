@@ -90,12 +90,11 @@ J = ((1 / m) * sum(sum((-y .* l0A3) - ((1 - y) .* l1A3)))) + cost_matrix;
 d3 = A3 - y;
 d2 = (d3 * Theta2(:, 2:end)) .* sigmoidGradient(Z2);
  
- 
-delta_cap2 = d3' * X2; 
-delta_cap1 = d2' * X1;
- 
-Theta1_grad = ((1/m) * delta_cap1) + ((lambda/m) * (Theta1));
-Theta2_grad = ((1/m) * delta_cap2) + ((lambda/m) * (Theta2));
+dc1 = d2' * X1;
+dc2 = d3' * X2; 
+
+Theta1_grad = ((1/m) * dc1) + ((lambda/m) * (Theta1));
+Theta2_grad = ((1/m) * dc2) + ((lambda/m) * (Theta2));
 
 Theta1_grad(:,1) = Theta1_grad(:,1) - ((lambda/m) * (Theta1(:,1)));
 Theta2_grad(:,1) = Theta2_grad(:,1) - ((lambda/m) * (Theta2(:,1)));
