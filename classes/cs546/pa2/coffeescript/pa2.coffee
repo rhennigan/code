@@ -35,15 +35,18 @@ parseFace = (faceString) ->
 
 ###############################################################################
 
-Array::max = () -> Math.max.apply(null, @)
-Array::min = () -> Math.min.apply(null, @)
+Array::max = () -> 
+  Math.max.apply(null, @)
+
+Array::min = () -> 
+  Math.min.apply(null, @)
 
 getVertexRanges = (vertices) ->
   xs = (v.x for v in vertices)
   ys = (v.y for v in vertices)
   zs = (v.z for v in vertices)
 
-  console.log xs
+  console.log vertices
 
   {
     x1: xs.min()
