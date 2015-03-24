@@ -30,7 +30,7 @@ parseFace = (faceString) ->
 
 ###############################################################################
 
-getVertexRanges = (obj) ->
+getVertexRanges = (vertices) ->
   x1 = y1 = z1 = +Infinity
   x2 = y2 = z2 = -Infinity
 
@@ -40,7 +40,7 @@ getVertexRanges = (obj) ->
   clampR = (n, n2) ->
     if n > n2 then n else n2
 
-  for vertex in obj.vertices
+  for vertex in vertices
     [x1, x2] = [clampL(vertex.x, x1), clampR(vertex.x, x2)]
     [y1, y2] = [clampL(vertex.y, y1), clampR(vertex.y, y2)]
     [z1, z2] = [clampL(vertex.z, z1), clampR(vertex.z, z2)]
@@ -49,8 +49,8 @@ getVertexRanges = (obj) ->
 
 ###############################################################################
 
-rescaleVertices = (obj, size) ->
-  r = getVertexRanges(obj)
+rescaleVertices = (vertices, size) ->
+  r = getVertexRanges(vertices)
 
   rx = r.x2 - r.x1
   ry = r.y2 - r.y1
@@ -59,7 +59,7 @@ rescaleVertices = (obj, size) ->
   rm = Math.max(rx, ry, rz)
   s = size / rm
 
-  for v in obj.vertices
+  for v in vertices
     {
       x: s * (v.x - r.x1)
       y: s * (v.y - r.y1)
@@ -76,7 +76,6 @@ callback = (obj, txt) ->
     if line[0] == 'f'
       obj.faces.push(parseFace(line))
 
-  ranges = getVertexRanges(obj)
   rescaled = rescaleVertices(obj, 100.0)
 
   console.log getVertexRanges({vertices: rescaled, faces: obj.faces})
