@@ -16,11 +16,11 @@ IO::load = (url, store, cb, cbErr) ->
 cb = (sh, txt) -> 
   sh.text(txt)
   console.log sh
-  console.log txt.split('\n')
 
 err = (url) ->
   alert "failed to load #{url}"
 
 objectText = {text: null}
 
-IO::load('objects/SpaceShuttle.obj', $("#test"), cb, err)
+# IO::load('objects/SpaceShuttle.obj', $("#test"), cb, err)
+IO::load('objects/SpaceShuttle.obj', objectText, cb, err)
