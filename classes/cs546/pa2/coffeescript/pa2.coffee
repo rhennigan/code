@@ -209,9 +209,9 @@ rotate = (object3D, txy, txz, tyz) ->
   rotatedVertices = for v in object3D.vertices
     [x, y, z] = [v.x, v.y, v.z]
     {
-      x: x*cos(txy)*cos(txz) - y*cos(txz)*sin(txy) + z*sin(txz)
-      y: x*cos(tyz)*sin(txy) - (z*cos(txz) + y*sin(txy)*sin(txz))*sin(tyz) + cos(txy)*(y*cos(tyz) + x*sin(txz)*sin(tyz))
-      z: z*cos(txz)*cos(tyz) + cos(tyz)*(-(x*cos(txy)) + y*sin(txy))*sin(txz) + (y*cos(txy) + x*sin(txy))*sin(tyz)
+      x: ctxy*ctxz*x - ctxz*stxy*y + stxz*z
+      y: ctyz*stxy*x + ctxy*stxz*styz*x + ctxy*ctyz*y - stxy*stxz*styz*y - ctxz*styz*z
+      z: -(ctxy*ctyz*stxz*x) + stxy*styz*x + ctyz*stxy*stxz*y + ctxy*styz*y + ctxz*ctyz*z 
     }
 
   for i in [0...object3D.svgLines.length]
@@ -221,9 +221,10 @@ rotate = (object3D, txy, txz, tyz) ->
     p2 = rotatedVertices[meshLine.p2]
 
     svgLine = object3D.svgLines[i]
-
-
-    
+    svgLine.setAttribute('x1', p1.x)
+    svgLine.setAttribute('y1', p1.y)
+    svgLine.setAttribute('x2', p1.x)
+    svgLine.setAttribute('y2', p1.y)
 
 
 ###############################################################################
