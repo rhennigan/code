@@ -87,8 +87,12 @@ rescaleVertices = (vertices, size) ->
   ry = r.y2 - r.y1
   rz = r.z2 - r.z1
 
+  console.log {rx: rx, ry: ry, rz: rz}
+
   rm = Math.max(rx, ry, rz)
   s = size / rm
+
+  console.log s
 
   for v in vertices
     {
