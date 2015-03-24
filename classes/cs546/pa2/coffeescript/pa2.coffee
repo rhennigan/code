@@ -280,7 +280,7 @@ load = (object) ->
 [txy, txz, tyz] = [0.0, 0.0, 0.0]
 
 main = () ->
-  SVG_SIZE = Math.min(window.innerWidth, window.innerHeight)/2 - 50
+  SVG_SIZE = Math.min(window.innerWidth, window.innerHeight - 150)/2
   document.getElementById('imgTbl').width = 2*SVG_SIZE
   object3D = load('UtahTeapot')
 
