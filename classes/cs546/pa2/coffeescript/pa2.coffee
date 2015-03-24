@@ -207,8 +207,12 @@ rotateXY = (object3D, t) ->
       z: v.z
     }
 
-  for i in [0...object3D.meshLines.length]
+  for i in [0...object3D.svgLines.length]
     meshLine = object3D.meshLines[i]
+
+    p1 = rotatedVertices[meshLine.p1]
+    p2 = rotatedVertices[meshLine.p2]
+    
     svgLine = object3D.svgLines[i]
 
     
