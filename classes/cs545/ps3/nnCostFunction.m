@@ -73,12 +73,12 @@ Z2 = X1 * Theta1';
 X2 = sigmoid(Z2);
  
 n = size(X2, 1);
-X2 = [ones(n,1) X2];
+X2 = [ones(n, 1), X2];
  
 Z3 = X2 * Theta2';
 A3 = sigmoid(Z3);
  
-cost_matrix = (lambda/(2*m)) * (sum(sum((Theta1(:,2:end)).^2)) + ...
+cost_matrix = lambda / (2*m) * (sum(sum((Theta1(:,2:end)).^2)) + ...
     sum(sum((Theta2(:,2:end)).^2)));
  
 J = ((1/m) * sum(sum((-y .* log(A3))-((1-y) .* log(1-A3))))) + cost_matrix;
