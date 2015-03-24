@@ -11,6 +11,9 @@ loadObject =  (url, store, cb, cbErr) ->
 
   req.send(null)
 
+parseVertex = (vertexString) ->
+  vertexString.split(' ')[1..]
+
 callback = (obj, txt) -> 
   vertices = []
   faces = []
@@ -18,7 +21,7 @@ callback = (obj, txt) ->
   lines = txt.split('\n')
   for line in lines
     if line[0] == 'v'
-      vertices.push(line)
+      vertices.push(parseVertex(line))
     if line[0] == 'f'
       faces.push(line)
 
