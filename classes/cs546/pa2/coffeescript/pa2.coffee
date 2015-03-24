@@ -47,7 +47,8 @@ getVertexRanges = (vertices) ->
   ys = (v.y for v in vertices)
   zs = (v.z for v in vertices)
 
-  console.log vertices
+  console.log xs.min()
+  console.log xs.max()
 
   {
     x1: xs.min()
