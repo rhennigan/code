@@ -155,15 +155,15 @@ callback = (obj, txt) ->
   
   container = document.getElementById('container')
 
-  for face in obj.faces
-    len = face.length
-    for i in [0...len]
-      lineXY = createSVGLine(op.xy[face[i]], op.xy[face[(i+1)%len]], SVG_STROKE)
-      lineXZ = createSVGLine(op.xz[face[i]], op.xz[face[(i+1)%len]], SVG_STROKE)
-      lineYZ = createSVGLine(op.yz[face[i]], op.yz[face[(i+1)%len]], SVG_STROKE)
-      svgXY.appendChild(lineXY)
-      svgXZ.appendChild(lineXZ)
-      svgYZ.appendChild(lineYZ)
+  # for face in obj.faces
+  #   len = face.length
+  #   for i in [0...len]
+  #     lineXY = createSVGLine(op.xy[face[i]], op.xy[face[(i+1)%len]], SVG_STROKE)
+  #     lineXZ = createSVGLine(op.xz[face[i]], op.xz[face[(i+1)%len]], SVG_STROKE)
+  #     lineYZ = createSVGLine(op.yz[face[i]], op.yz[face[(i+1)%len]], SVG_STROKE)
+  #     svgXY.appendChild(lineXY)
+  #     svgXZ.appendChild(lineXZ)
+  #     svgYZ.appendChild(lineYZ)
 
   container.appendChild(svgXY)
   container.appendChild(svgXZ)
