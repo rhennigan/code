@@ -60,23 +60,6 @@ getVertexRanges = (vertices) ->
     z2: zs.max()
   }
 
-# getVertexRanges = (vertices) ->
-#   x1 = y1 = z1 = +Infinity
-#   x2 = y2 = z2 = -Infinity
-
-#   clampL = (n, n1) ->
-#     if n < n1 then n else n1
-
-#   clampR = (n, n2) ->
-#     if n > n2 then n else n2
-
-#   for vertex in vertices
-#     [x1, x2] = [clampL(vertex.x, x1), clampR(vertex.x, x2)]
-#     [y1, y2] = [clampL(vertex.y, y1), clampR(vertex.y, y2)]
-#     [z1, z2] = [clampL(vertex.z, z1), clampR(vertex.z, z2)]
-
-#   {x1: x1, x2: x2, y1: y1, y2: y2, z1: z1, z2: z2}
-
 ###############################################################################
 
 rescaleVertices = (vertices, size) ->
