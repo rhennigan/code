@@ -36,7 +36,8 @@ getVertexRanges = (obj) ->
 
   for vertex in obj.vertices
     [x1, x2] = [clampL(vertex.x, x1), clampR(vertex.x, x2)]
-    
+    [y1, y2] = [clampL(vertex.y, y1), clampR(vertex.y, y2)]
+    [z1, z2] = [clampL(vertex.z, z1), clampR(vertex.z, z2)]
 
   {x1: x1, x2: x2, y1: y1, y2: y2, z1: z1, z2: z2}
 
