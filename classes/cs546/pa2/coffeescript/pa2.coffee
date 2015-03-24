@@ -22,7 +22,7 @@ parseVertex = (vertexString) ->
 
 parseFace = (faceString) ->
   split = faceString.split(' ')
-  indicesStr = split[1..]
+  parseInt(i) for i in split[1..]
 
 
 callback = (obj, txt) -> 
@@ -34,7 +34,7 @@ callback = (obj, txt) ->
     if line[0] == 'v'
       vertices.push(parseVertex(line))
     if line[0] == 'f'
-      faces.push(line)
+      faces.push(parseFace(line))
 
   obj = {vertices: vertices, faces: faces}
   console.log obj
