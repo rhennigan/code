@@ -99,6 +99,9 @@ callback = (obj, txt) ->
 
   rescaled = rescaleVertices(obj.vertices, 100.0)
   svg1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg1')
+  svg1.setAttribute('width', 500)
+  svg1.setAttribute('height', 500)
+  w = document.getElementById('container')
 
   for i in [0..100]
     svg1.appendChild()
