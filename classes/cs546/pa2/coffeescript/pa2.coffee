@@ -91,9 +91,9 @@ rescaleVertices = (vertices, size) ->
 
   for v in vertices
     {
-      x: size * (v.x - r.x1) / rm
-      y: size* (rm - ry - 2*r.y1 + 2*v.y)/(2*rm)
-      z: size - size * (v.z - r.z1) / rm
+      x: size * (rm - rx - 2*r.x1 + 2*v.x)/(2*rm)
+      y: size * (rm - ry - 2*r.y1 + 2*v.y)/(2*rm)
+      z: size - size * (rm - rz - 2*r.z1 + 2*v.z)/(2*rm)
     }
 
 ###############################################################################
@@ -209,7 +209,7 @@ err = (url) ->
 main = () ->
   object3D = {vertices: [], faces: []}
   # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
-  loadObject('objects/Beethoven.obj', object3D, callback, err)
+  loadObject('objects/Horse.obj', object3D, callback, err)
 
 main()
 
