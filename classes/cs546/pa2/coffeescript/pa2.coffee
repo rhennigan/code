@@ -87,7 +87,7 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   rescaled = rescaleVertices(obj.vertices, 100.0)
-  sorted = rescaled.sort(compareBy.y)
+  svg1 = document.getElementById('svg1')
 
   console.log sorted
 
