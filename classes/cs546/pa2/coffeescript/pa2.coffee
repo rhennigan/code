@@ -243,6 +243,8 @@ rotate = (object3D, txy, txz, tyz) ->
     object3D.svgLinesYZ[i].setAttribute('x2', p2.y)
     object3D.svgLinesYZ[i].setAttribute('y2', p2.z)
 
+  object3D.vertices = rotatedVertices
+
 
 ###############################################################################
 
@@ -278,13 +280,13 @@ main = () ->
       load(selector.value)
 
   document.getElementById('rotateXY').addEventListener "click", (e) => 
-      rotate(object3D, txy+=0.1, txz, tyz)
+      rotate(object3D, 0.1, 0, 0)
   
   document.getElementById('rotateXZ').addEventListener "click", (e) => 
-      rotate(object3D, txy, txz+=0.1, tyz)
+      rotate(object3D, 0, 0.1, 0)
 
   document.getElementById('rotateYZ').addEventListener "click", (e) => 
-      rotate(object3D, txy, txz, tyz+=0.1)
+      rotate(object3D, 0, 0, 0.1)
   # object3D = {vertices: [], faces: []}
   # loadObject('objects/Beethoven.obj', object3D, callback, err)
 
