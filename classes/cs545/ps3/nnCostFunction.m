@@ -85,7 +85,9 @@ cost_matrix = lambda / (2 * m) * (st1 + st2);
 l0A3 = log(A3);
 l1A3 = log(1 - A3);
 
-J = ((1 / m) * sum(sum((-y .* l0A3) - ((1 - y) .* l1A3)))) + cost_matrix;
+m1 = 1 / m;
+
+J = (m1 * sum(sum((-y .* l0A3) - ((1 - y) .* l1A3)))) + cost_matrix;
 
 d3 = A3 - y;
 d2 = (d3 * Theta2(:, 2:end)) .* sigmoidGradient(Z2);
@@ -93,8 +95,8 @@ d2 = (d3 * Theta2(:, 2:end)) .* sigmoidGradient(Z2);
 dc1 = d2' * X1;
 dc2 = d3' * X2; 
 
-Theta1_grad = ((1/m) * dc1) + ((lambda/m) * (Theta1));
-Theta2_grad = ((1/m) * dc2) + ((lambda/m) * (Theta2));
+Theta1_grad = m1 * dc1 + ((lambda / m) * Theta1);
+Theta2_grad = m1 * dc2 + ((lambda / m) * Theta2);
 
 Theta1_grad(:,1) = Theta1_grad(:,1) - ((lambda/m) * (Theta1(:,1)));
 Theta2_grad(:,1) = Theta2_grad(:,1) - ((lambda/m) * (Theta2(:,1)));
