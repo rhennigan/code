@@ -208,7 +208,7 @@ err = (url) ->
 main = () ->
   object3D = {vertices: [], faces: []}
   # loadObject('objects/UtahTeapot.obj', object3D, callback, err)
-  loadObject('objects/Horse.obj', object3D, callback, err)
+  loadObject('objects/UtahVWBug.obj', object3D, callback, err)
 
 main()
 
