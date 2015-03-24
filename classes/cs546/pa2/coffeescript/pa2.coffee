@@ -81,18 +81,13 @@ getVertexRanges = (vertices) ->
 
 rescaleVertices = (vertices, size) ->
   r = getVertexRanges(vertices)
-  console.log r
 
   rx = r.x2 - r.x1
   ry = r.y2 - r.y1
   rz = r.z2 - r.z1
 
-  console.log {rx: rx, ry: ry, rz: rz}
-
   rm = Math.max(rx, ry, rz)
   s = size / rm
-
-  console.log s
 
   for v in vertices
     {
