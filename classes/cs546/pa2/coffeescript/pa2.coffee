@@ -57,7 +57,9 @@ callback = (obj, txt) ->
     if line[0] == 'f'
       obj.faces.push(parseFace(line))
 
-  console.log getVertexRanges(obj)
+  ranges = getVertexRanges(obj)
+  
+  console.log ranges
 
 ###############################################################################
 
