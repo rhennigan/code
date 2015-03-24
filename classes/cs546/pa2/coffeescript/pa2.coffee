@@ -24,6 +24,18 @@ parseFace = (faceString) ->
   split = faceString.split(' ')
   parseInt(i) - 1 for i in split[1..]
 
+getVertexRanges = (obj) ->
+  x1 = Infinity
+  x2 = -Infinity
+
+  for vertex in obj.vertices
+    if vertex.x < x1
+      x1 = vertex.x
+    if vertex.x > x2
+      x2 = vertex.x
+
+  {x1: x1, x2: x2}
+
 callback = (obj, txt) -> 
   lines = txt.split('\n')
   for line in lines
@@ -31,8 +43,8 @@ callback = (obj, txt) ->
       obj.vertices.push(parseVertex(line))
     if line[0] == 'f'
       obj.faces.push(parseFace(line))
-      
-  console.log obj
+
+  console.log getVertexRanges(obj)
 
 err = (url) ->
   alert "failed to load #{url}"
