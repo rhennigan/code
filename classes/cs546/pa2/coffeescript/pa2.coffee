@@ -158,7 +158,7 @@ createSVGLine = (p1, p2, stroke) ->
 
 ###############################################################################
 
-callback = (obj, txt) -> 
+callback = (container, obj, txt) -> 
   lines = txt.split('\n')
   for line in lines
     if line[0] == 'v'
@@ -180,8 +180,6 @@ callback = (obj, txt) ->
       svg.setAttribute('style', "border: 1px solid black;")
       svg
   
-  container = document.getElementById('container')
-
   meshLines = createMeshLines(obj.faces)
 
   for line in meshLines[..10]
