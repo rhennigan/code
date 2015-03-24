@@ -35,7 +35,7 @@ getVertexRanges = (obj) ->
     if n > n2 then n else n2
 
   for vertex in obj.vertices
-    x1 = clampL(vertex.x, x1), x2 = clampR(vertex.x, x2)
+    [x1, x2] = [clampL(vertex.x, x1), clampR(vertex.x, x2)]
     
 
   {x1: x1, x2: x2, y1: y1, y2: y2, z1: z1, z2: z2}
