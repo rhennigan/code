@@ -64,7 +64,7 @@ Theta2_grad = zeros(size(Theta2));
 
 X = [ones(m, 1), X];
 y0 = eye(num_labels);
-y = y0(y,:);
+y = y0(y, :);
  
  
 X1 = X;
