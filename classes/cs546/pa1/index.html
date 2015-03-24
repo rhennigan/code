@@ -1,3 +1,142 @@
+<<<<<<< HEAD
+<html>
+<head>
+  <title>Drawing Lines</title>
+
+  <script src="lib/jquery-1.11.2.min.js"></script>
+  <script src="lib/jscolor.js"></script>
+
+  <style type="text/css">
+    body {
+      margin: 0px;
+      padding-left: 120px;
+      padding-top: 10px;
+    }
+
+    canvas {
+      border: 1px solid #BBB;
+      background-color: rgb(255, 255, 255);
+      display: block;
+    }
+
+    .left-canvas {
+      position: absolute;
+      top: 10px;
+      left: 120px;
+    }
+
+    .right-canvas {
+      position: absolute;
+      top: 10px;
+      left: 528px;
+    }
+
+    hr {
+      border: 0;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: #BBB;
+      background-color: #BBB;
+      height: 1px;
+    }
+
+    label {
+      display: block;
+      padding-left: 15px;
+      padding-top: 0px;
+      text-indent: -15px;
+      font-size: small;
+    }
+
+    .notifications {
+      position: absolute;
+      top: 420px;
+    }
+
+    input {
+      width: 13px;
+      height: 20px;
+      padding: 0;
+      margin:0;
+      vertical-align: bottom;
+      position: relative;
+      top: 3px;
+      *overflow: hidden;
+    }
+
+    #buttons {
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      width: 120px;
+    }
+
+    #buttons > input {
+      display: block;
+      margin-top: 5px;
+      width: 50px;
+      background-color:#cccccc;
+      -moz-border-radius:5px;
+      -webkit-border-radius:5px;
+      border-radius:5px;
+      border:1px solid #8c918d;
+      display:inline-block;
+      cursor:pointer;
+      color:#000000;
+      font-family:Arial;
+      font-size:10px;
+      text-decoration:none;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="buttons">
+    <input type="button" id="clear" value="clear">
+    <input type="button" id="undo" value="undo">
+    <hr>
+    <input type="button" id="line" value="line">
+    <input type="button" id="circle" value="circle">
+    <input type="button" id="ellipse" value="ellipse">
+    <input type="button" id="rectangle" value="rectangle">
+    <input type="button" id="polygon" value="polygon">
+    <input type="button" id="polyline" value="polyline">
+    <hr>
+    <div>
+      <label><input type="checkbox" id="aaModeSel"/> antialiasing</label>
+    </div>
+    <div>
+      <label><input type="checkbox" id="fractModeSel"/> fractal mode</label>
+    </div>
+    <hr>
+
+    <input class="color {pickerFaceColor:'transparent',pickerFace:3, pickerBorder:0, pickerInsetColor:'black', hash:true, pickerClosable:true}" id="picker1" value="000000">
+    <input class="color {pickerFaceColor:'transparent',pickerFace:3, pickerBorder:0, pickerInsetColor:'black', hash:true, pickerClosable:true}" id="picker2" value="000000">
+    <hr>
+    <input type="button" id="addIterations" value="+detail" style="display:none">
+    <input type="button" id="subIterations" value="-detail" style="display:none">
+    <input type="button" id="sample" value="sample" style="display:none">
+    
+  </div>
+  
+
+  <div id="left-canvas" class="left-canvas"></div>
+  <div id="right-canvas" class="right-canvas" style="display:none"></div>
+  <script type="text/javascript" src="pa1.js"></script>
+  
+  <div class="notifications">
+    <div id="fracTxt" style="display:none">
+      <label>Draw a single polyline and a single polygon in the left box. Click the sample button to see an example.<br></label>
+    </div>
+    <div id="aaTxt" style="display:none">
+      <label><em>Note:</em> circles and ellipses are not currently supported with antialiasing turned on.</label>
+    </div>
+  </div>
+
+</body>
+=======
 <html>
 <head>
   <title>Drawing Lines</title>
@@ -134,4 +273,5 @@
   </div>
 
 </body>
+>>>>>>> 8be7a983d08c76905053649b5f6b20ecf196efa3
 </html>
