@@ -300,10 +300,6 @@
     return containerIP.appendChild(svgIP);
   };
 
-  err = function(url) {
-    return alert("failed to load " + url);
-  };
-
   rotate = function(object3D, txy, txz, tyz) {
     var ctxy, ctxz, ctyz, i, ip1, ip2, ips1, ips2, k, lineIP, meshLine, p1, p2, ref, rotatedVertices, s2x, s2y, s2z, size, stxy, stxz, styz, v, x, y, z;
     ctxy = Math.cos(txy);
@@ -388,6 +384,10 @@
     cc('containerXZ');
     cc('containerYZ');
     return cc('containerIP');
+  };
+
+  err = function(url) {
+    return alert("failed to load " + url);
   };
 
   load = function(object) {
