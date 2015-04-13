@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>Orthogonal Projections</title>
+
+  <script src="lib/jquery-1.11.2.min.js"></script>
+
+  <style type="text/css">
+  </style>
+
+</head>
+<body>
+  
+<!--   <svg id="svg1" height="200" xmlns="http://www.w3.org/2000/svg">
+    <line x1=0 y1=0 x2=200 y2=100 style="stroke:black;stroke-width:1"/>
+  </svg> -->
+  Select a 3D model to display: &nbsp;
+  <select id="selector">
+    <option value="BassGuitar">BassGuitar (3600 lines)</option>
+    <option value="Beethoven">Beethoven (6090 lines)</option>
+    <option value="CastleWall">CastleWall (8177 lines)</option>
+    <option value="Cone">Cone (758 lines)</option>
+    <option value="Cow">Cow (8706 lines)</option>
+    <option value="Deimos">Deimos (28224 lines)</option>
+    <option value="Galleon">Galleon (6146 lines)</option>
+    <option value="HammerheadShark">HammerheadShark (5365 lines)</option>
+    <option value="Horse">Horse (14543 lines)</option>
+    <option value="KleinBottle">KleinBottle (6101 lines)</option>
+    <option value="MoebiusStrip">MoebiusStrip (528 lines)</option>
+    <option value="Phobos">Phobos (28224 lines)</option>
+    <option value="PottedPlant">PottedPlant (18548 lines)</option>
+    <option value="Seashell">Seashell (2594 lines)</option>
+    <option value="SedanCar">SedanCar (15397 lines)</option>
+    <option value="SpaceShuttle" selected="selected">SpaceShuttle (701 lines)</option>
+    <option value="StanfordBunny">StanfordBunny (104288 lines)</option>
+    <option value="Torus">Torus (13186 lines)</option>
+    <option value="Tree">Tree (32528 lines)</option>
+    <option value="Triceratops">Triceratops (5664 lines)</option>
+    <option value="Tugboat">Tugboat (72765 lines)</option>
+    <option value="UtahTeapot">UtahTeapot (928 lines)</option>
+    <option value="UtahVWBug">UtahVWBug (2277 lines)</option>
+    <option value="Vase">Vase (20403 lines)</option>
+    <option value="VikingLander">VikingLander (32155 lines)</option>
+    <option value="Wrench">Wrench (6114 lines)</option>
+    <option value="Zeppelin">Zeppelin (5083 lines)</option>
+  </select>
+  &nbsp;
+  (more lines result in slower load times)
+
+  <hr>
+
+  <table width=800 id="imgTbl">
+    <tr>
+      <td align="left"><input type="button" id="rotateXY+" value="rotateXY+"></td>
+      <td align="center"></td>
+      <td align="right"><input type="button" id="rotateXY-" value="rotateXY-"></td>
+      <td align="left"><input type="button" id="rotateXZ+" value="rotateXZ+"></td>
+      <td align="center"></td>
+      <td align="right"><input type="button" id="rotateXZ-" value="rotateXZ-"></td>
+    </tr>
+    <tr>
+      <td colspan="3"><div id="containerXY"></div></td>
+      <td colspan="3"><div id="containerXZ"></div></td>
+    </tr>
+    <tr>
+      <td align="left"><input type="button" id="rotateYZ+" value="rotateYZ+"></td>
+      <td align="center"></td>
+      <td align="right"><input type="button" id="rotateYZ-" value="rotateYZ-"></td>
+      <td align="left"></td>
+      <td align="center"></td>
+      <td align="right"></td>
+    </tr>
+    <tr>
+      <td colspan="3"><div id="containerYZ"></div></td>
+      <td colspan="3"><div id="containerIP"></div></td>
+    </tr>
+  </table>
+  
+  <script type="text/javascript" src="javascript/pa3.js"></script>
+
+  <hr>
+
+
+  3D models were obtained with Mathematica's <a href='http://reference.wolfram.com/language/ref/ExampleData.html'>ExampleData</a>. The exported .obj files being used in this demo can be found <a href='objects/'>here</a>.
+</body>
+</html>
