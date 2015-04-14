@@ -249,7 +249,7 @@
   };
 
   callback = function(obj, txt) {
-    var containerIP, containerXY, containerXZ, containerYZ, createLabel, i, ip1, ip2, k, l, len1, len2, line, lineIP, lineXY, lineXZ, lineYZ, lines, op, ref, ref1, svg, svgIP, svgXY, svgXZ, svgYZ;
+    var containerIP, containerXY, containerXZ, containerYZ, createLabel, i, ip1, ip2, k, l, len1, len2, line, lineIP, lineXY, lineXZ, lineYZ, lines, op, ref, ref1, svg, svgIP, svgXY, svgXZ, svgYZ, x, y;
     lines = txt.split('\n');
     for (k = 0, len1 = lines.length; k < len1; k++) {
       line = lines[k];
@@ -318,6 +318,8 @@
     containerXZ.appendChild(svgXZ);
     containerYZ.appendChild(svgYZ);
     containerIP.appendChild(svgIP);
+    x = Math.asin(1 / Math.sqrt(3));
+    y = Math.PI / 4;
     return transformVertices(obj, {
       x: 1,
       y: 1,
@@ -331,8 +333,8 @@
       y: 0,
       z: 0
     }, {
-      x: 0,
-      y: 0,
+      x: x,
+      y: y,
       z: 0
     }, {
       x: 0,

@@ -213,10 +213,12 @@ callback = (obj, txt) ->
   containerYZ.appendChild(svgYZ)
   containerIP.appendChild(svgIP)
 
+  x = Math.asin(1 / Math.sqrt(3))
+  y = Math.PI / 4
   transformVertices(obj, {x:1, y:1, z:1}, 
                          {x:0, y:0, z:0},
                          {x:0, y:0, z:0},
-                         {x:0, y:0, z:0},
+                         {x:x, y:y, z:0},
                          {x:0, y:0, z:0})
 
 ###############################################################################
