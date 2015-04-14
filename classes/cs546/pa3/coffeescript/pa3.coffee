@@ -152,6 +152,7 @@ callback = (obj, txt) ->
       obj.faces.push(parseFace(line))
 
   obj.vertices = rescaleVertices(obj.vertices, 1)
+  console.log getVertexRanges(obj.vertices)
   op = orthoProj(obj.vertices)
 
   [svgXY, svgXZ, svgYZ, svgIP] = 
@@ -185,8 +186,8 @@ callback = (obj, txt) ->
 
   createLabel = (text) ->
     label = document.createElementNS('http://www.w3.org/2000/svg', 'text')
-    label.setAttribute('x', 10)
-    label.setAttribute('y', 38)
+    label.setAttribute('x', 0.1)
+    label.setAttribute('y', 0.1)
     label.setAttribute('fill', 'red')
     label.setAttribute('font-size', '28px')
     label.setAttribute('font-family', 'helvetica')
