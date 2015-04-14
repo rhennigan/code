@@ -305,7 +305,7 @@
       label.innerHTML = text;
       return label;
     };
-    obj.projectionLabel = createLabel('projection');
+    obj.projectionLabel = createLabel('Isometric');
     svgXY.appendChild(createLabel('xy'));
     svgXZ.appendChild(createLabel('xz'));
     svgYZ.appendChild(createLabel('yz'));
@@ -820,7 +820,9 @@
       if (preset != null) {
         this.clearParameters();
         console.log(this.object3D.projectionLabel);
-        this.object3D.projectionLabel.innerHTML = preset;
+        if (this.object3D.projectionLabel != null) {
+          this.object3D.projectionLabel.innerHTML = preset;
+        }
         switch (preset) {
           case 'Isometric':
             this.rx = -Math.PI + Math.atan(Math.sqrt(2));

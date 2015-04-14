@@ -197,7 +197,7 @@ callback = (obj, txt) ->
     label.innerHTML = text
     label
 
-  obj.projectionLabel = createLabel('projection')
+  obj.projectionLabel = createLabel('Isometric')
 
   svgXY.appendChild(createLabel('xy'))
   svgXZ.appendChild(createLabel('xz'))
@@ -625,7 +625,7 @@ class Main
 
       console.log @object3D.projectionLabel
 
-      @object3D.projectionLabel.innerHTML = preset
+      if @object3D.projectionLabel? then @object3D.projectionLabel.innerHTML = preset
 
       switch preset
 
