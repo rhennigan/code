@@ -324,7 +324,7 @@
     return transformVertices(obj, {
       x: 1,
       y: 1,
-      z: -1
+      z: 1
     }, {
       x: 0,
       y: 0,
@@ -448,7 +448,7 @@
     ref2 = [shear.x, shear.y, shear.z], syz = ref2[0], sxz = ref2[1], sxy = ref2[2];
     ref3 = [rotation.x, rotation.y, rotation.z], rx = ref3[0], ry = ref3[1], rz = ref3[2];
     ref4 = [perspective.x, perspective.y, perspective.z], px = ref4[0], py = ref4[1], pz = ref4[2];
-    ref5 = [point.x, point.y, point.z], x = ref5[0], y = ref5[1], z = ref5[2];
+    ref5 = [point.x, point.y, -point.z], x = ref5[0], y = ref5[1], z = ref5[2];
     v1 = Math.tan(sxy);
     v2 = Math.cos(rz);
     v3 = Math.sin(ry);

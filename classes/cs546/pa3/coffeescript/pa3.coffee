@@ -216,7 +216,7 @@ callback = (obj, txt) ->
   x = -Math.PI + Math.atan(Math.sqrt(2))
   y = 0
   z = Math.PI / 4
-  transformVertices(obj, {x:1, y:1, z:-1}, 
+  transformVertices(obj, {x:1, y:1, z:1}, 
                          {x:0, y:0, z:0},
                          {x:0, y:0, z:0},
                          {x:x, y:y, z:z},
@@ -332,7 +332,7 @@ generalizedTransformation = (scale, translation, shear, rotation, perspective, p
   [ syz, sxz, sxy ] = [       shear.x,       shear.y,       shear.z ]
   [  rx,  ry,  rz ] = [    rotation.x,    rotation.y,    rotation.z ]
   [  px,  py,  pz ] = [ perspective.x, perspective.y, perspective.z ]
-  [   x,   y,   z ] = [       point.x,       point.y,       point.z ]
+  [   x,   y,   z ] = [       point.x,       point.y,      -point.z ]
 
   v1  = Math.tan(sxy)
   v2  = Math.cos(rz)
