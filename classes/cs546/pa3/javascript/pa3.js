@@ -680,7 +680,6 @@
       }
     };
     reset = function(preset) {
-      var transformationProperties;
       console.log("resetting " + preset);
       t = {
         scale: {
@@ -711,47 +710,40 @@
       };
       switch (preset) {
         case 'Isometric':
-          rotation.y = Math.asin(1 / Math.sqrt(3));
-          rotation.z = Math.PI / 4;
+          t.rotation.y = Math.asin(1 / Math.sqrt(3));
+          t.rotation.z = Math.PI / 4;
           break;
         case 'Dimetric':
-          rotation.x = Math.PI / 16;
-          rotation.y = Math.PI / 4;
+          t.rotation.x = Math.PI / 16;
+          t.rotation.y = Math.PI / 4;
           break;
         case 'Trimetric':
-          rotation.x = Math.PI / 16;
-          rotation.y = Math.PI / 5;
+          t.rotation.x = Math.PI / 16;
+          t.rotation.y = Math.PI / 5;
           break;
         case 'Oblique':
-          shear.x = shear.y = 0.5;
+          t.shear.x = shear.y = 0.5;
           break;
         case 'Perspective1':
-          rotation.x = Math.PI / 16;
-          rotation.y = Math.PI / 5;
-          perspective.z = 0.25;
+          t.rotation.x = Math.PI / 16;
+          t.rotation.y = Math.PI / 5;
+          t.perspective.z = 0.25;
           break;
         case 'Perspective2':
-          rotation.x = Math.PI / 16;
-          rotation.y = Math.PI / 5;
-          perspective.y = 0.125;
-          perspective.z = 0.25;
+          t.rotation.x = Math.PI / 16;
+          t.rotation.y = Math.PI / 5;
+          t.perspective.y = 0.125;
+          t.perspective.z = 0.25;
           break;
         case 'Perspective3':
-          rotation.x = Math.PI / 16;
-          rotation.y = Math.PI / 5;
-          perspective.x = 0.0625;
-          perspective.y = 0.125;
-          perspective.z = 0.25;
+          t.rotation.x = Math.PI / 16;
+          t.rotation.y = Math.PI / 5;
+          t.perspective.x = 0.0625;
+          t.perspective.y = 0.125;
+          t.perspective.z = 0.25;
       }
-      transformationProperties = {
-        scale: scale,
-        translation: translation,
-        shear: shear,
-        rotation: rotation,
-        perspective: perspective
-      };
-      console.log(transformationProperties);
-      return transformVertices(object3D, scale, translation, shear, rotation, perspective);
+      console.log(t);
+      return transformVertices(object3D, t.scale, t.translation, t.shear, t.rotation, t.perspective);
     };
     reset('Isometric');
     attachHandler = (function(_this) {

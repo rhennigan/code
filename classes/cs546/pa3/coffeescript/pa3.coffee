@@ -675,50 +675,41 @@ main = () ->
     switch preset
 
       when 'Isometric'
-        rotation.y = Math.asin(1 / Math.sqrt(3))
-        rotation.z = Math.PI / 4
+        t.rotation.y = Math.asin(1 / Math.sqrt(3))
+        t.rotation.z = Math.PI / 4
 
       when 'Dimetric'
-        rotation.x = Math.PI / 16
-        rotation.y = Math.PI / 4
+        t.rotation.x = Math.PI / 16
+        t.rotation.y = Math.PI / 4
 
       when 'Trimetric'
-        rotation.x = Math.PI / 16
-        rotation.y = Math.PI / 5
+        t.rotation.x = Math.PI / 16
+        t.rotation.y = Math.PI / 5
 
       when 'Oblique'
-        shear.x = shear.y = 0.5
+        t.shear.x = shear.y = 0.5
 
       when 'Perspective1'
-        rotation.x = Math.PI / 16
-        rotation.y = Math.PI / 5
-        perspective.z = 0.25
+        t.rotation.x = Math.PI / 16
+        t.rotation.y = Math.PI / 5
+        t.perspective.z = 0.25
 
       when 'Perspective2'
-        rotation.x = Math.PI / 16
-        rotation.y = Math.PI / 5
-        perspective.y = 0.125
-        perspective.z = 0.25
+        t.rotation.x = Math.PI / 16
+        t.rotation.y = Math.PI / 5
+        t.perspective.y = 0.125
+        t.perspective.z = 0.25
 
       when 'Perspective3'
-        rotation.x = Math.PI / 16
-        rotation.y = Math.PI / 5
-        perspective.x = 0.0625
-        perspective.y = 0.125
-        perspective.z = 0.25
-    
-    transformationProperties = 
-      {
-        scale: scale
-        translation: translation
-        shear: shear
-        rotation: rotation
-        perspective: perspective
-      }
+        t.rotation.x = Math.PI / 16
+        t.rotation.y = Math.PI / 5
+        t.perspective.x = 0.0625
+        t.perspective.y = 0.125
+        t.perspective.z = 0.25
 
-    console.log transformationProperties
+    console.log t
     
-    transformVertices(object3D, scale, translation, shear, rotation, perspective)
+    transformVertices(object3D, t.scale, t.translation, t.shear, t.rotation, t.perspective)
 
   reset('Isometric')
 
