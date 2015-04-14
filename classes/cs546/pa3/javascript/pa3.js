@@ -635,7 +635,11 @@
         z: 0
       };
       if (preset != null) {
-        return null;
+        switch (preset) {
+          case 'isometric':
+            this.rotation.x = Math.asin(1 / Math.sqrt(3));
+            return this.rotation.y = Math.PI / 4;
+        }
       }
     };
 

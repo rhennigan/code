@@ -490,7 +490,10 @@ class Viewer
     @perspective = {x: 0, y: 0, z: 0}
     
     if preset?
-      null
+      switch preset
+        when 'isometric'
+          @rotation.x = Math.asin(1 / Math.sqrt(3))
+          @rotation.y = Math.PI / 4
 
 
 ###############################################################################
