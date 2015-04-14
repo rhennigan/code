@@ -763,9 +763,6 @@
       slider(fp, 'py', -0.3, 0.3);
       slider(fp, 'pz', -0.3, 0.3);
       fpr = this.gui.addFolder('presets');
-      this.t.isometric = function() {
-        return this.reset('Isometric');
-      };
       console.log(this.t);
       return fpr.add(this.t, 'isometric');
     };
