@@ -51,7 +51,7 @@
   };
 
   getVertexRanges = function(vertices) {
-    var m, v, x1, x2, xs, y1, y2, ys, z1, z2, zs;
+    var v, xs, ys, zs;
     xs = (function() {
       var k, len1, results;
       results = [];
@@ -79,21 +79,13 @@
       }
       return results;
     })();
-    x1 = xs.min();
-    x2 = xs.max();
-    y1 = ys.min();
-    y2 = ys.max();
-    z1 = zs.min();
-    z2 = zs.max();
-    m = Math.max(Math.abs(x1), Math.abs(x2), Math.abs(y1), Math.abs(y2), Math.abs(z1), Math.abs(z2));
     return {
-      x1: x1,
-      x2: x2,
-      y1: y1,
-      y2: y2,
-      z1: z1,
-      z2: z2,
-      m: m
+      x1: xs.min(),
+      x2: xs.max(),
+      y1: ys.min(),
+      y2: ys.max(),
+      z1: zs.min(),
+      z2: zs.max()
     };
   };
 
