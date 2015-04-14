@@ -349,10 +349,7 @@ transformVertices = (object3D, scale, translation, shear, rotation, perspective)
   size = SVG_SIZE
   m = transformationMatrix(scale, translation, shear, rotation, perspective)
 
-  console.log object3D.vertices
-
   transformed = for v in object3D.vertices
-    console.log v
     {
       x: m[1][4] + m[1][1] * v.x + m[1][2] * v.y + m[1][3] * v.z
       y: m[2][4] + m[2][1] * v.x + m[2][2] * v.y + m[2][3] * v.z
