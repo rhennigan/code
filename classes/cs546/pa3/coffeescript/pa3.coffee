@@ -280,15 +280,15 @@ transformationMatrix = (scale, translation, shear, rotation, perspective) ->
   [  rx,  ry,  rz ] = [    rotation.x,    rotation.y,    rotation.z ]
   [  px,  py,  pz ] = [ perspective.x, perspective.y, perspective.z ]
 
-  v1 = Math.cos(rx)
-  v2 = Math.sin(rx)
-  v3 = Math.cos(rz)
-  v4 = Math.sin(ry)
-  v5 = Math.sin(rz)
-  v6 = Math.tan(sxy)
-  v7 = Math.tan(syz)
-  v8 = Math.cos(ry)
-  v9 = -v4
+  v1  = Math.cos(rx)
+  v2  = Math.sin(rx)
+  v3  = Math.cos(rz)
+  v4  = Math.sin(ry)
+  v5  = Math.sin(rz)
+  v6  = Math.tan(sxy)
+  v7  = Math.tan(syz)
+  v8  = Math.cos(ry)
+  v9  = -v4
   v10 = px * v6
   v11 = py + v10
   v12 = Math.tan(sxz)
@@ -326,6 +326,16 @@ transformationMatrix = (scale, translation, shear, rotation, perspective) ->
   m22 = sy*(v3*v31 + v4*v5*(v2 - v1*v7))
   m23 = sz*v17*v36
   m24 = ty + tz*v7
+
+  m31 = sx*(v16 + v23)
+  m32 = sy*(v14 + v25)
+  m33 = sz*v24
+  m34 = tz
+
+  m41 = sx*(v16*v20 + v20*v23 + px*v32 + v11*(v15 + v33))
+  m42 = sy*(v14*v20 + v20*v25 + v11*(v13 + v28) + px*v29)
+  m43 = sz*(v20*v24 + v11*v27 + px*v9)
+  m44 = 1 + px*tx + ty*v11 + tz*v20
 
   [[m11, m12, m13, m14]
    [m21, m22, m23, m24]
