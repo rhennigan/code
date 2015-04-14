@@ -595,20 +595,20 @@ main = () ->
       when 'Perspective1'
         rotation.x = Math.PI / 16
         rotation.y = Math.PI / 5
-        perspective.z = -0.25
+        perspective.z = -0.25 * 5
 
       when 'Perspective2'
         rotation.x = Math.PI / 16
         rotation.y = Math.PI / 5
-        perspective.y = -0.125
-        perspective.z = -0.25
+        perspective.y = -0.125 * 5
+        perspective.z = -0.25 * 5
 
       when 'Perspective3'
         rotation.x = Math.PI / 16
         rotation.y = Math.PI / 5
-        perspective.z = -0.0625
-        perspective.y = -0.125
-        perspective.z = -0.25
+        perspective.x = -0.0625 * 5
+        perspective.y = -0.125 * 5
+        perspective.z = -0.25 * 5
     
     transformationProperties = 
       {
@@ -618,7 +618,7 @@ main = () ->
         rotation: rotation
         perspective: perspective
       }
-    console.log transformationProperties
+    console.log perspective
     transformVertices(object3D, scale, translation, shear, rotation, perspective)
 
   attachHandler = (name) =>

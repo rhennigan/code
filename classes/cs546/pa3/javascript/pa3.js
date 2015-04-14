@@ -729,20 +729,20 @@
         case 'Perspective1':
           rotation.x = Math.PI / 16;
           rotation.y = Math.PI / 5;
-          perspective.z = -0.25;
+          perspective.z = -0.25 * 5;
           break;
         case 'Perspective2':
           rotation.x = Math.PI / 16;
           rotation.y = Math.PI / 5;
-          perspective.y = -0.125;
-          perspective.z = -0.25;
+          perspective.y = -0.125 * 5;
+          perspective.z = -0.25 * 5;
           break;
         case 'Perspective3':
           rotation.x = Math.PI / 16;
           rotation.y = Math.PI / 5;
-          perspective.z = -0.0625;
-          perspective.y = -0.125;
-          perspective.z = -0.25;
+          perspective.x = -0.0625 * 5;
+          perspective.y = -0.125 * 5;
+          perspective.z = -0.25 * 5;
       }
       transformationProperties = {
         scale: scale,
@@ -751,7 +751,7 @@
         rotation: rotation,
         perspective: perspective
       };
-      console.log(transformationProperties);
+      console.log(perspective);
       return transformVertices(object3D, scale, translation, shear, rotation, perspective);
     };
     attachHandler = (function(_this) {
