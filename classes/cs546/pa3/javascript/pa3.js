@@ -694,7 +694,8 @@
       },
       isometric: function() {
         this.clear();
-        return console.log(this.sx);
+        this.rx = -Math.PI + Math.asin(1 / Math.sqrt(3));
+        return this.rz = Math.PI / 4;
       }
     };
 

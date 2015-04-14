@@ -516,7 +516,8 @@ class Main
 
     isometric: () -> 
       @clear()
-      console.log @sx
+      @rx = -Math.PI + Math.asin(1 / Math.sqrt(3))
+      @rz = Math.PI / 4
   }
 
   gui: null
