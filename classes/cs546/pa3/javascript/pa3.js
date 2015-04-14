@@ -692,39 +692,41 @@
           py: 0,
           pz: 0
         };
-        switch (preset) {
-          case 'Isometric':
-            _this.t.rx = Math.asin(1 / Math.sqrt(3));
-            _this.t.ry = Math.PI / 4;
-            break;
-          case 'Dimetric':
-            _this.t.rx = Math.PI / 16;
-            _this.t.ry = Math.PI / 4;
-            break;
-          case 'Trimetric':
-            _this.t.rx = Math.PI / 16;
-            _this.t.ry = Math.PI / 5;
-            break;
-          case 'Oblique':
-            _this.t.syz = _this.t.sxz = 0.5;
-            break;
-          case 'Perspective1':
-            _this.t.rx = Math.PI / 16;
-            _this.t.ry = Math.PI / 5;
-            _this.t.pz = 0.25;
-            break;
-          case 'Perspective2':
-            _this.t.rx = Math.PI / 16;
-            _this.t.ry = Math.PI / 5;
-            _this.t.py = 0.125;
-            _this.t.pz = 0.25;
-            break;
-          case 'Perspective3':
-            _this.t.rx = Math.PI / 16;
-            _this.t.ry = Math.PI / 5;
-            _this.t.px = 0.0625;
-            _this.t.py = 0.125;
-            _this.t.pz = 0.25;
+        if (preset != null) {
+          switch (preset) {
+            case 'Isometric':
+              _this.t.rx = Math.asin(1 / Math.sqrt(3));
+              _this.t.ry = Math.PI / 4;
+              break;
+            case 'Dimetric':
+              _this.t.rx = Math.PI / 16;
+              _this.t.ry = Math.PI / 4;
+              break;
+            case 'Trimetric':
+              _this.t.rx = Math.PI / 16;
+              _this.t.ry = Math.PI / 5;
+              break;
+            case 'Oblique':
+              _this.t.syz = _this.t.sxz = 0.5;
+              break;
+            case 'Perspective1':
+              _this.t.rx = Math.PI / 16;
+              _this.t.ry = Math.PI / 5;
+              _this.t.pz = 0.25;
+              break;
+            case 'Perspective2':
+              _this.t.rx = Math.PI / 16;
+              _this.t.ry = Math.PI / 5;
+              _this.t.py = 0.125;
+              _this.t.pz = 0.25;
+              break;
+            case 'Perspective3':
+              _this.t.rx = Math.PI / 16;
+              _this.t.ry = Math.PI / 5;
+              _this.t.px = 0.0625;
+              _this.t.py = 0.125;
+              _this.t.pz = 0.25;
+          }
         }
         console.log(_this.t);
         return transformVertices(object3D, {

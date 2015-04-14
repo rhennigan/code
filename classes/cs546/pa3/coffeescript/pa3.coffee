@@ -674,40 +674,42 @@ main = () ->
       px:  0, py:  0, pz:  0
     }
 
-    switch preset
+    if preset?
+      
+      switch preset
 
-      when 'Isometric'
-        @t.rx = Math.asin(1 / Math.sqrt(3))
-        @t.ry = Math.PI / 4
+        when 'Isometric'
+          @t.rx = Math.asin(1 / Math.sqrt(3))
+          @t.ry = Math.PI / 4
 
-      when 'Dimetric'
-        @t.rx = Math.PI / 16
-        @t.ry = Math.PI / 4
+        when 'Dimetric'
+          @t.rx = Math.PI / 16
+          @t.ry = Math.PI / 4
 
-      when 'Trimetric'
-        @t.rx = Math.PI / 16
-        @t.ry = Math.PI / 5
+        when 'Trimetric'
+          @t.rx = Math.PI / 16
+          @t.ry = Math.PI / 5
 
-      when 'Oblique'
-        @t.syz = @t.sxz = 0.5
+        when 'Oblique'
+          @t.syz = @t.sxz = 0.5
 
-      when 'Perspective1'
-        @t.rx = Math.PI / 16
-        @t.ry = Math.PI / 5
-        @t.pz = 0.25
+        when 'Perspective1'
+          @t.rx = Math.PI / 16
+          @t.ry = Math.PI / 5
+          @t.pz = 0.25
 
-      when 'Perspective2'
-        @t.rx = Math.PI / 16
-        @t.ry = Math.PI / 5
-        @t.py = 0.125
-        @t.pz = 0.25
+        when 'Perspective2'
+          @t.rx = Math.PI / 16
+          @t.ry = Math.PI / 5
+          @t.py = 0.125
+          @t.pz = 0.25
 
-      when 'Perspective3'
-        @t.rx = Math.PI / 16
-        @t.ry = Math.PI / 5
-        @t.px = 0.0625
-        @t.py = 0.125
-        @t.pz = 0.25
+        when 'Perspective3'
+          @t.rx = Math.PI / 16
+          @t.ry = Math.PI / 5
+          @t.px = 0.0625
+          @t.py = 0.125
+          @t.pz = 0.25
 
     console.log @t
     
