@@ -777,8 +777,8 @@
         this.t.px = this.t.py = this.t.pz = 0;
         switch (preset) {
           case 'Isometric':
-            this.t.rx = Math.asin(1 / Math.sqrt(3));
-            this.t.ry = Math.PI / 4;
+            this.t.rx = -Math.PI + Math.asin(1 / Math.sqrt(3));
+            this.t.rz = Math.PI / 4;
             break;
           case 'Dimetric':
             this.t.rx = Math.PI / 16;
