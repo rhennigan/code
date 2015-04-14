@@ -612,13 +612,14 @@
 
     function Viewer() {
       this.reset = bind(this.reset, this);
-      this.draw = bind(this.draw, this);
+      this.init = bind(this.init, this);
     }
 
-    Viewer.prototype.draw = function() {
+    Viewer.prototype.init = function() {
       SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
       document.getElementById('imgTbl').width = 2 * SVG_SIZE;
-      return this.object3D = load(this.objectName);
+      this.object3D = load(this.objectName);
+      return transformVertices(this.object3D, this.scale, this.translation, this.shear, this.rotation, this.perspective);
     };
 
     Viewer.prototype.reset = function(preset) {
