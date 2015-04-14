@@ -734,6 +734,8 @@ main = () ->
   attachHandler('Perspective2')
   attachHandler('Perspective3')
 
+  gui = new dat.GUI()
+
   # document.getElementById('rotateXY+').addEventListener "click", (e) => 
   #     # rotate(object3D, -R_INC, 0, 0)
   #     # rotation.z += R_INC
