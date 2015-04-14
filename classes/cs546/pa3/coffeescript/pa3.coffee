@@ -632,7 +632,8 @@ class Main
     @gui = new dat.GUI()
 
     slider = (f, name, low, high) =>
-      control = f.add(@t, name, low, high).listen()
+      control = f.add(@t, name, low, high).step(0.01)
+      control.listen()
       control.onChange((value) => @reset())
 
     fs = @gui.addFolder('scale')
