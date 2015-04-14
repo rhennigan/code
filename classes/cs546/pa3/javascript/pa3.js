@@ -754,7 +754,7 @@
     };
 
     Main.prototype.initGUI = function() {
-      var fp, fpr, fr, fs, fsh, ft, slider;
+      var fp, fpr, fr, fs, fsh, ft, ftr, slider;
       this.gui = new dat.GUI();
       slider = (function(_this) {
         return function(f, name, low, high) {
@@ -766,26 +766,28 @@
           });
         };
       })(this);
-      fs = this.gui.addFolder('scale');
+      ftr = this.gui.addFolder('transformations');
+      fs = ftr.addFolder('scale');
       slider(fs, 'sx', -2.0, 2.0);
       slider(fs, 'sy', -2.0, 2.0);
       slider(fs, 'sz', -2.0, 2.0);
-      ft = this.gui.addFolder('translation');
+      ft = ftr.addFolder('translation');
       slider(ft, 'tx', -2.0, 2.0);
       slider(ft, 'ty', -2.0, 2.0);
       slider(ft, 'tz', -2.0, 2.0);
-      fsh = this.gui.addFolder('shear');
+      fsh = ftr.addFolder('shear');
       slider(fsh, 'sxy', -1.0, 1.0);
       slider(fsh, 'sxz', -1.0, 1.0);
       slider(fsh, 'syz', -1.0, 1.0);
-      fr = this.gui.addFolder('rotation');
+      fr = ftr.addFolder('rotation');
       slider(fr, 'rx', -2 * Math.PI, 2 * Math.PI);
       slider(fr, 'ry', -2 * Math.PI, 2 * Math.PI);
       slider(fr, 'rz', -2 * Math.PI, 2 * Math.PI);
-      fp = this.gui.addFolder('perspective');
+      fp = ftr.addFolder('perspective');
       slider(fp, 'px', -0.3, 0.3);
       slider(fp, 'py', -0.3, 0.3);
       slider(fp, 'pz', -0.3, 0.3);
+      ftr.open();
       fpr = this.gui.addFolder('presets');
       return fpr.add(this, 'isometric');
     };
