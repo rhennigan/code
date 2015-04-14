@@ -281,18 +281,18 @@ generalizedTransformation = (scale, translation, shear, rotation, perspective, p
   [  px,  py,  pz ] = [ perspective.x, perspective.y, perspective.z ]
   [   x,   y,   z ] = [       point.x,       point.y,       point.z ]
 
-  v1  = Tan[sxy]
-  v2  = Cos[rz]
-  v3  = Sin[rz]
+  v1  = Tan(sxy]
+  v2  = Cos(rz]
+  v3  = Sin(rz]
   v4  = px*v1
   v5  = py+v4
-  v6  = Sin[ry]
-  v7  = Cos[rx]
-  v8  = Sin[rx]
-  v9  = Tan[syz]
-  v10 = Tan[sxz]
+  v6  = Sin(ry]
+  v7  = Cos(rx]
+  v8  = Sin(rx]
+  v9  = Tan(syz]
+  v10 = Tan(sxz]
   v11 = -v6
-  v12 = Cos[ry]
+  v12 = Cos(ry]
   v13 = px*v10
   v14 = v5*v9
   v15 = pz+v13+v14
@@ -339,7 +339,7 @@ generalizedTransformation = (scale, translation, shear, rotation, perspective, p
   v56 = v20*v23
   v57 = v19*v24
   xo = v53 (tx+ty v1+tz v55+v20 (v12 v27+v1 (v28+v2 v7)+v55 (v17+v23 v7))+v19 (v12 v2+v55 (v18+v24 v7)+v1 (v26+v3 v7))+v21 (v11+v12 (v10 v7+v1 (v29+v7 v9))))
-  yo = v53 (ty+tz v9+(v2 v20+v19 v3) (v7+v8 v9)-(v47+v56+v57) Sec[syz] Sin[rx-syz])
+  yo = v53 (ty+tz v9+(v2 v20+v19 v3) (v7+v8 v9)-(v47+v56+v57) Sec(syz] Sin(rx-syz])
   zo = v53 (tz+v18 v19+v17 v20+v47 v7+v56 v7+v57 v7)
   {xo,yo,zo}
 
