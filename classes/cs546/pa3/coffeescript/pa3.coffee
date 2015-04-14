@@ -627,12 +627,12 @@ class Main
           @rz = Math.PI / 4
 
         when 'Dimetric'
-          @rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.25
+          @rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.4
           @rz = Math.PI / 4
 
         when 'Trimetric'
-          @rx = Math.PI / 16
-          @ry = Math.PI / 5
+          @rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.4
+          @rz = Math.PI / 4 + 0.2
 
         when 'Oblique'
           @syz = @sxz = 0.5

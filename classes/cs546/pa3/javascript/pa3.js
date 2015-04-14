@@ -823,12 +823,12 @@
             this.rz = Math.PI / 4;
             break;
           case 'Dimetric':
-            this.rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.25;
+            this.rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.4;
             this.rz = Math.PI / 4;
             break;
           case 'Trimetric':
-            this.rx = Math.PI / 16;
-            this.ry = Math.PI / 5;
+            this.rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.4;
+            this.rz = Math.PI / 4 + 0.2;
             break;
           case 'Oblique':
             this.syz = this.sxz = 0.5;
