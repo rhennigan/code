@@ -132,7 +132,7 @@ createMeshLines = (faces) ->
 ###############################################################################
 
 svgShift = (p) ->
-  0.25 * p + 0.5
+  0.33 * p + 0.5
 
 ###############################################################################
 
@@ -700,11 +700,13 @@ class Main
     slider(fs, 'sx', -2.0, 2.0)
     slider(fs, 'sy', -2.0, 2.0)
     slider(fs, 'sz', -2.0, 2.0)
+    fs.open()
 
     ft = @gui.addFolder('translation')
     slider(ft, 'tx', -2.0, 2.0)
     slider(ft, 'ty', -2.0, 2.0)
     slider(ft, 'tz', -2.0, 2.0)
+    ft.open()
 
     slider(ft, 'sxy', -1.0, 1.0)
     slider(ft, 'sxz', -1.0, 1.0)
