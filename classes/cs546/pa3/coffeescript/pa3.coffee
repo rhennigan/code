@@ -697,21 +697,12 @@ class Main
       control.onChange((value) => @reset())
 
     slider('sx', -2.0, 2.0)
+    slider('sy', -2.0, 2.0)
+    slider('sz', -2.0, 2.0)
 
-  # slider = (name, low, high) =>
-  #   control = @gui.add(@t, name, low, high)
-  #   control.onChange((value) => 
-  #     reset())
-
-  # makeGUI = () =>
-  #   slider(@gui, 'sx', -2.0, 2.0)
-  #   slider(@gui, 'sy', -2.0, 2.0)
-  #   slider(@gui, 'sz', -2.0, 2.0)
-
-  # updateGUI = () =>
-  #   @slider('sx', -2.0, 2.0)
-  #   @slider('sy', -2.0, 2.0)
-  #   @slider('sz', -2.0, 2.0)
+    slider('tx', -2.0, 2.0)
+    slider('ty', -2.0, 2.0)
+    slider('tz', -2.0, 2.0)
 
   reset: (preset) ->
 

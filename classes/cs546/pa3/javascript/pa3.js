@@ -717,7 +717,12 @@
           });
         };
       })(this);
-      return slider('sx', -2.0, 2.0);
+      slider('sx', -2.0, 2.0);
+      slider('sy', -2.0, 2.0);
+      slider('sz', -2.0, 2.0);
+      slider('tx', -2.0, 2.0);
+      slider('ty', -2.0, 2.0);
+      return slider('tz', -2.0, 2.0);
     };
 
     Main.prototype.reset = function(preset) {
