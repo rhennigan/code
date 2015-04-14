@@ -449,7 +449,7 @@
       }
       return results;
     })();
-    console.log(transformed[0]);
+    console.log(transformed);
     results = [];
     for (i = k = 0, ref = object3D.meshLines.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
       meshLine = object3D.meshLines[i];
