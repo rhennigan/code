@@ -686,7 +686,7 @@
       py: 0.0,
       pz: 0.0,
       isometric: function() {
-        return console.log('isometric fired!');
+        return console.log(this.sx);
       }
     };
 

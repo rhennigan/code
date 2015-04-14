@@ -506,7 +506,7 @@ class Main
     sxy: 0.0, sxz: 0.0, syz: 0.0,
     rx:  0.0, ry:  0.0, rz:  0.0,
     px:  0.0, py:  0.0, pz:  0.0,
-    isometric: () -> console.log 'isometric fired!'
+    isometric: () -> console.log @sx
   }
 
   gui: null
