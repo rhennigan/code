@@ -760,6 +760,10 @@
     attachHandler('Isometric');
     attachHandler('Dimetric');
     attachHandler('Trimetric');
+    attachHandler('Oblique');
+    attachHandler('Perspective1');
+    attachHandler('Perspective2');
+    attachHandler('Perspective3');
     document.getElementById('rotateXY+').addEventListener("click", (function(_this) {
       return function(e) {
         return reset('Oblique');

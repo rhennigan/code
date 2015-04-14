@@ -574,7 +574,7 @@ main = () ->
     shear       = {x: 0, y: 0, z: 0}
     rotation    = {x: 0, y: 0, z: 0}
     perspective = {x: 0, y: 0, z: 0}
-    
+
     switch preset
 
       when 'Isometric'
@@ -622,6 +622,10 @@ main = () ->
   attachHandler('Isometric')
   attachHandler('Dimetric')
   attachHandler('Trimetric')
+  attachHandler('Oblique')
+  attachHandler('Perspective1')
+  attachHandler('Perspective2')
+  attachHandler('Perspective3')
 
   document.getElementById('rotateXY+').addEventListener "click", (e) => 
       # rotate(object3D, -R_INC, 0, 0)
