@@ -436,13 +436,14 @@
     var i, ip1, ip2, ips1, ips2, k, lineIP, m, meshLine, ref, results, size, transformedVertices, v;
     size = SVG_SIZE;
     m = transformationMatrix(scale, translation, shear, rotation, perspective);
+    console.log(m);
     transformedVertices = (function() {
       var k, len1, ref, results;
       ref = object3D.vertices;
       results = [];
       for (k = 0, len1 = ref.length; k < len1; k++) {
         v = ref[k];
-        console.log(v);
+        console.log(v.x);
         results.push({
           x: m[1][4] + m[1][1] * v.x + m[1][2] * v.y + m[1][3] * v.z,
           y: m[2][4] + m[2][1] * v.x + m[2][2] * v.y + m[2][3] * v.z
