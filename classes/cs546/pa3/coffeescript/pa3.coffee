@@ -735,7 +735,8 @@ main = () ->
   attachHandler('Perspective3')
 
   gui = new dat.GUI()
-  gui.add(@t, 'sx', -1.0, 1.0)
+  c_sx = gui.add(@t, 'sx', -1.0, 1.0)
+  c_sx.onFinishChange((value) -> alert(value))
 
   # document.getElementById('rotateXY+').addEventListener "click", (e) => 
   #     # rotate(object3D, -R_INC, 0, 0)

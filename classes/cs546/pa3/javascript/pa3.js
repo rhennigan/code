@@ -648,7 +648,7 @@
   })();
 
   main = function() {
-    var attachHandler, gui, object3D, reset;
+    var attachHandler, c_sx, gui, object3D, reset;
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
     object3D = load('Cube');
@@ -772,7 +772,10 @@
     attachHandler('Perspective2');
     attachHandler('Perspective3');
     gui = new dat.GUI();
-    return gui.add(this.t, 'sx', -1.0, 1.0);
+    c_sx = gui.add(this.t, 'sx', -1.0, 1.0);
+    return c_sx.onFinishChange(function(value) {
+      return alert(value);
+    });
   };
 
   main();
