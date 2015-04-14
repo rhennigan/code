@@ -249,7 +249,7 @@
   };
 
   callback = function(obj, txt) {
-    var containerIP, containerXY, containerXZ, containerYZ, createLabel, i, ip1, ip2, k, l, len1, len2, line, lineIP, lineXY, lineXZ, lineYZ, lines, op, projectionLabel, ref, ref1, svg, svgIP, svgXY, svgXZ, svgYZ, x, y, z;
+    var containerIP, containerXY, containerXZ, containerYZ, createLabel, i, ip1, ip2, k, l, len1, len2, line, lineIP, lineXY, lineXZ, lineYZ, lines, op, ref, ref1, svg, svgIP, svgXY, svgXZ, svgYZ, x, y, z;
     lines = txt.split('\n');
     for (k = 0, len1 = lines.length; k < len1; k++) {
       line = lines[k];
@@ -305,11 +305,11 @@
       label.innerHTML = text;
       return label;
     };
-    projectionLabel = createLabel('projection');
+    obj.projectionLabel = createLabel('projection');
     svgXY.appendChild(createLabel('xy'));
     svgXZ.appendChild(createLabel('xz'));
     svgYZ.appendChild(createLabel('yz'));
-    svgIP.appendChild(projectionLabel);
+    svgIP.appendChild(obj.projectionLabel);
     containerXY = document.getElementById('containerXY');
     containerXZ = document.getElementById('containerXZ');
     containerYZ = document.getElementById('containerYZ');
