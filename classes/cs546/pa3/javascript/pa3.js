@@ -730,7 +730,7 @@
     };
 
     Main.prototype.initGUI = function() {
-      var fp, fr, fs, fsh, ft, slider;
+      var fp, fpr, fr, fs, fsh, ft, slider;
       this.gui = new dat.GUI();
       slider = (function(_this) {
         return function(f, name, low, high) {
@@ -761,7 +761,11 @@
       fp = this.gui.addFolder('perspective');
       slider(fp, 'px', -0.3, 0.3);
       slider(fp, 'py', -0.3, 0.3);
-      return slider(fp, 'pz', -0.3, 0.3);
+      slider(fp, 'pz', -0.3, 0.3);
+      fpr = this.gui.addFolder('presets');
+      return fpr.add(this.t, 'Isometric', function() {
+        return this.reset('Isometric');
+      });
     };
 
     Main.prototype.reset = function(preset) {

@@ -579,6 +579,9 @@ class Main
     slider(fp, 'pz', -0.3, 0.3)
     # fp.open()
 
+    fpr = @gui.addFolder('presets')
+    fpr.add(@t, 'Isometric', () -> @reset('Isometric'))
+
   reset: (preset) ->
 
     if preset?
