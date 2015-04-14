@@ -705,37 +705,36 @@
   })();
 
   main = function() {
-    var object3D, reset;
+    var object3D, perspective, reset, rotation, scale, shear, translation;
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
     object3D = load('SpaceShuttle');
+    scale = {
+      x: 1,
+      y: 1,
+      z: 1
+    };
+    translation = {
+      x: 0,
+      y: 0,
+      z: 0
+    };
+    shear = {
+      x: 0,
+      y: 0,
+      z: 0
+    };
+    rotation = {
+      x: 0,
+      y: 0,
+      z: 0
+    };
+    perspective = {
+      x: 0,
+      y: 0,
+      z: 0
+    };
     reset = function(preset) {
-      var perspective, rotation, scale, shear, translation;
-      scale = {
-        x: 1,
-        y: 1,
-        z: 1
-      };
-      translation = {
-        x: 0,
-        y: 0,
-        z: 0
-      };
-      shear = {
-        x: 0,
-        y: 0,
-        z: 0
-      };
-      rotation = {
-        x: 0,
-        y: 0,
-        z: 0
-      };
-      perspective = {
-        x: 0,
-        y: 0,
-        z: 0
-      };
       switch (preset) {
         case 'Isometric':
           rotation.x = Math.asin(1 / Math.sqrt(3));
@@ -750,6 +749,7 @@
     })(this));
     document.getElementById('rotateXY+').addEventListener("click", (function(_this) {
       return function(e) {
+        rotation.z += R_INC;
         return transformVertices(object3D, scale, translation, shear, rotation, perspective);
       };
     })(this));

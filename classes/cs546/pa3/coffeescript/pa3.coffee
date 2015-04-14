@@ -613,13 +613,13 @@ main = () ->
   document.getElementById('imgTbl').width = 2*SVG_SIZE
   object3D = load('SpaceShuttle')
 
-  reset = (preset) ->
-    scale       = {x: 1, y: 1, z: 1}
-    translation = {x: 0, y: 0, z: 0}
-    shear       = {x: 0, y: 0, z: 0}
-    rotation    = {x: 0, y: 0, z: 0}
-    perspective = {x: 0, y: 0, z: 0}
+  scale       = {x: 1, y: 1, z: 1}
+  translation = {x: 0, y: 0, z: 0}
+  shear       = {x: 0, y: 0, z: 0}
+  rotation    = {x: 0, y: 0, z: 0}
+  perspective = {x: 0, y: 0, z: 0}
 
+  reset = (preset) ->
     switch preset
       when 'Isometric'
         rotation.x = Math.asin(1 / Math.sqrt(3))
@@ -631,6 +631,7 @@ main = () ->
 
   document.getElementById('rotateXY+').addEventListener "click", (e) => 
       # rotate(object3D, -R_INC, 0, 0)
+      rotation.z += R_INC
       transformVertices(object3D, scale, translation, shear, rotation, perspective)
   
   document.getElementById('rotateXZ+').addEventListener "click", (e) => 
