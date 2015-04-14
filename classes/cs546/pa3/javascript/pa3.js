@@ -619,6 +619,7 @@
     Viewer.prototype.init = function() {
       SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
       document.getElementById('imgTbl').width = 2 * SVG_SIZE;
+      console.log(this.objectName);
       this.object3D = load(this.objectName);
       return transformVertices(this.object3D, this.scale, this.translation, this.shear, this.rotation, this.perspective);
     };
@@ -653,32 +654,39 @@
         switch (preset) {
           case 'Isometric':
             this.rotation.x = Math.asin(1 / Math.sqrt(3));
-            return this.rotation.y = Math.PI / 4;
+            this.rotation.y = Math.PI / 4;
+            break;
           case 'Dimetric':
             this.rotation.x = Math.PI / 16;
-            return this.rotation.y = Math.PI / 4;
+            this.rotation.y = Math.PI / 4;
+            break;
           case 'Trimetric':
             this.rotation.x = Math.PI / 16;
-            return this.rotation.y = Math.PI / 5;
+            this.rotation.y = Math.PI / 5;
+            break;
           case 'Oblique':
-            return this.shear.x = this.shear.y = 0.5;
+            this.shear.x = this.shear.y = 0.5;
+            break;
           case 'Perspective1':
             this.rotation.x = Math.PI / 16;
             this.rotation.y = Math.PI / 5;
-            return this.perspective.z = -0.25;
+            this.perspective.z = -0.25;
+            break;
           case 'Perspective2':
             this.rotation.x = Math.PI / 16;
             this.rotation.y = Math.PI / 5;
             this.perspective.y = -0.125;
-            return this.perspective.z = -0.25;
+            this.perspective.z = -0.25;
+            break;
           case 'Perspective3':
             this.rotation.x = Math.PI / 16;
             this.rotation.y = Math.PI / 5;
             this.perspective.z = -0.0625;
             this.perspective.y = -0.125;
-            return this.perspective.z = -0.25;
+            this.perspective.z = -0.25;
         }
       }
+      return transformVertices(this.object3D, this.scale, this.translation, this.shear, this.rotation, this.perspective);
     };
 
     return Viewer;
@@ -697,7 +705,7 @@
     })(this));
     document.getElementById('Isometric').addEventListener("click", (function(_this) {
       return function(e) {
-        return rotate(object3D, -R_INC, 0, 0);
+        return viewer.reset('Isometric');
       };
     })(this));
     document.getElementById('rotateXY+').addEventListener("click", (function(_this) {

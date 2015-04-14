@@ -492,6 +492,7 @@ class Viewer
   init: () =>
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2
     document.getElementById('imgTbl').width = 2 * SVG_SIZE
+    console.log @objectName
     @object3D = load(@objectName)
     transformVertices(@object3D, @scale, @translation, @shear, @rotation, @perspective)
 
@@ -539,6 +540,8 @@ class Viewer
           @perspective.y = -0.125
           @perspective.z = -0.25
 
+    transformVertices(@object3D, @scale, @translation, @shear, @rotation, @perspective)
+
 ###############################################################################
 
 main = () ->
@@ -554,7 +557,7 @@ main = () ->
       object3D = load(selector.value)
 
   document.getElementById('Isometric').addEventListener "click", (e) => 
-      rotate(object3D, -R_INC, 0, 0)
+      viewer.reset('Isometric')
 
   document.getElementById('rotateXY+').addEventListener "click", (e) => 
       rotate(object3D, -R_INC, 0, 0)
