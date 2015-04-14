@@ -646,7 +646,7 @@
   })();
 
   Main = (function() {
-    var attachHandler, object3D, objectName;
+    var attachHandler, object3D;
 
     Main.prototype.t = {
       sx: 1,
@@ -668,20 +668,24 @@
 
     Main.prototype.gui = null;
 
-    objectName = 'Cube';
+    Main.prototype.objectName = 'Cube';
 
     function Main() {
-      this.gui = new dat.GUI();
-      console.log(this.gui);
+      this.initGUI();
     }
+
+    Main.prototype.initGUI = function() {
+      this.gui = new dat.GUI();
+      return console.log(this.gui);
+    };
 
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
 
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
 
-    console.log(objectName);
+    console.log(Main.objectName);
 
-    object3D = load(objectName);
+    object3D = load(Main.objectName);
 
     Main.prototype.reset = function(preset) {
       if (preset != null) {

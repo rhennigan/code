@@ -658,16 +658,19 @@ class Main
   }
 
   gui: null
-  objectName = 'Cube'
+  objectName: 'Cube'
 
   constructor: () ->
+    @initGUI()
+
+  initGUI: ->
     @gui = new dat.GUI()
     console.log @gui
 
   SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
   document.getElementById('imgTbl').width = 2*SVG_SIZE
-  console.log objectName
-  object3D = load(objectName)
+  console.log @objectName
+  object3D = load(@objectName)
 
   # slider = (name, low, high) =>
   #   control = @gui.add(@t, name, low, high)
