@@ -731,6 +731,9 @@
         return object3D = load(selector.value);
       };
     })(this));
+    attachHandler('Isometric');
+    attachHandler('Dimetric');
+    attachHandler('Trimetric');
     document.getElementById('rotateXY+').addEventListener("click", (function(_this) {
       return function(e) {
         return reset('Oblique');

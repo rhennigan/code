@@ -611,7 +611,9 @@ main = () ->
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)
 
-  
+  attachHandler('Isometric')
+  attachHandler('Dimetric')
+  attachHandler('Trimetric')
 
   document.getElementById('rotateXY+').addEventListener "click", (e) => 
       # rotate(object3D, -R_INC, 0, 0)
