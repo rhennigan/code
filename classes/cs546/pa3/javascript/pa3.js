@@ -834,19 +834,19 @@
             this.syz = this.sxz = 0.5;
             break;
           case 'Perspective1':
-            this.rx = Math.PI / 16;
-            this.ry = Math.PI / 5;
+            this.rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.4;
+            this.rz = Math.PI / 4 + 0.2;
             this.pz = 0.25;
             break;
           case 'Perspective2':
-            this.rx = Math.PI / 16;
-            this.ry = Math.PI / 5;
+            this.rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.4;
+            this.rz = Math.PI / 4 + 0.2;
             this.py = 0.125;
             this.pz = 0.25;
             break;
           case 'Perspective3':
-            this.rx = Math.PI / 16;
-            this.ry = Math.PI / 5;
+            this.rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.4;
+            this.rz = Math.PI / 4 + 0.2;
             this.px = 0.0625;
             this.py = 0.125;
             this.pz = 0.25;
