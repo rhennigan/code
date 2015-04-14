@@ -714,7 +714,7 @@
     })(this));
     document.getElementById('rotateXY+').addEventListener("click", (function(_this) {
       return function(e) {
-        return rotate(object3D, -R_INC, 0, 0);
+        return rotate(viewer.object3D, -R_INC, 0, 0);
       };
     })(this));
     document.getElementById('rotateXZ+').addEventListener("click", (function(_this) {
