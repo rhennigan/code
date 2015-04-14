@@ -648,8 +648,6 @@
   Main = (function() {
     var attachHandler, makeGUI, object3D, objectName, reset, slider, updateGUI;
 
-    function Main() {}
-
     Main.prototype.t = {
       sx: 1,
       sy: 1,
@@ -668,9 +666,13 @@
       pz: 0
     };
 
-    Main.prototype.gui = new dat.GUI();
+    Main.prototype.gui = null;
 
     objectName = 'Cube';
+
+    function Main() {
+      this.gui = new dat.GUI();
+    }
 
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
 
@@ -689,7 +691,6 @@
     };
 
     makeGUI = function() {
-      Main.gui = new dat.GUI();
       slider(Main.gui, 'sx', -2.0, 2.0);
       slider(Main.gui, 'sy', -2.0, 2.0);
       return slider(Main.gui, 'sz', -2.0, 2.0);

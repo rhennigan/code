@@ -657,9 +657,11 @@ class Main
     px:  0, py:  0, pz:  0
   }
 
-  gui: new dat.GUI()
-
+  gui: null
   objectName = 'Cube'
+
+  constructor: () ->
+    @gui = new dat.GUI()
 
   SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
   document.getElementById('imgTbl').width = 2*SVG_SIZE
@@ -672,7 +674,6 @@ class Main
       reset())
 
   makeGUI = () =>
-    @gui = new dat.GUI()
     slider(@gui, 'sx', -2.0, 2.0)
     slider(@gui, 'sy', -2.0, 2.0)
     slider(@gui, 'sz', -2.0, 2.0)
