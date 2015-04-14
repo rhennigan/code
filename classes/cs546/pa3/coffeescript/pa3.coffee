@@ -507,7 +507,7 @@ class Main
     rx:  0.0, ry:  0.0, rz:  0.0,
     px:  0.0, py:  0.0, pz:  0.0,
 
-    isometric: () -> reset('Isometric')
+    isometric: () => @reset('Isometric')
   }
 
   gui: null

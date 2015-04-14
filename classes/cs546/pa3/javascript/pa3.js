@@ -686,7 +686,7 @@
       py: 0.0,
       pz: 0.0,
       isometric: function() {
-        return reset('Isometric');
+        return Main.reset('Isometric');
       }
     };
 
