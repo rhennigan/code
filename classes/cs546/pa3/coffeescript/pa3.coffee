@@ -200,7 +200,7 @@ callback = (obj, txt) ->
   svgXY.appendChild(createLabel('xy'))
   svgXZ.appendChild(createLabel('xz'))
   svgYZ.appendChild(createLabel('yz'))
-  svgIP.appendChild(createLabel('isometric'))
+  svgIP.appendChild(createLabel('projection'))
 
   containerXY = document.getElementById('containerXY')
   containerXZ = document.getElementById('containerXZ')
