@@ -659,6 +659,7 @@ class Main
 
   gui: null
   objectName: 'Cube'
+  object3D: null
 
   constructor: () ->
     @initSVG()
@@ -668,7 +669,7 @@ class Main
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
     document.getElementById('imgTbl').width = 2*SVG_SIZE
     console.log @objectName
-    object3D = load(@objectName)
+    @object3D = load(@objectName)
     @reset('Isometric')
 
   initGUI: ->
@@ -737,11 +738,11 @@ class Main
           @t.py = 0.125
           @t.pz = 0.25
     
-    transformVertices(object3D, {x:@t.sx , y:@t.sy , z:@t.sz }, 
-                                {x:@t.tx , y:@t.ty , z:@t.tz },
-                                {x:@t.syz, y:@t.sxz, z:@t.sxy},
-                                {x:@t.rx , y:@t.ry , z:@t.rz },
-                                {x:@t.px , y:@t.py , z:@t.pz })
+    transformVertices(@object3D, {x:@t.sx , y:@t.sy , z:@t.sz }, 
+                                 {x:@t.tx , y:@t.ty , z:@t.tz },
+                                 {x:@t.syz, y:@t.sxz, z:@t.sxy},
+                                 {x:@t.rx , y:@t.ry , z:@t.rz },
+                                 {x:@t.px , y:@t.py , z:@t.pz })
 
     console.log @gui
     # updateGUI()

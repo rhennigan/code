@@ -670,17 +670,18 @@
 
     Main.prototype.objectName = 'Cube';
 
+    Main.prototype.object3D = null;
+
     function Main() {
       this.initSVG();
       this.initGUI();
     }
 
     Main.prototype.initSVG = function() {
-      var object3D;
       SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
       document.getElementById('imgTbl').width = 2 * SVG_SIZE;
       console.log(this.objectName);
-      object3D = load(this.objectName);
+      this.object3D = load(this.objectName);
       return this.reset('Isometric');
     };
 
@@ -743,7 +744,7 @@
             this.t.pz = 0.25;
         }
       }
-      transformVertices(object3D, {
+      transformVertices(this.object3D, {
         x: this.t.sx,
         y: this.t.sy,
         z: this.t.sz
