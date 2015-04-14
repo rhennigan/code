@@ -712,6 +712,10 @@ class Main
     slider('ry', -Math.PI, Math.PI)
     slider('rz', -Math.PI, Math.PI)
 
+    slider('px', -0.3, 0.3)
+    slider('py', -0.3, 0.3)
+    slider('pz', -0.3, 0.3)
+
   reset: (preset) ->
 
     if preset?

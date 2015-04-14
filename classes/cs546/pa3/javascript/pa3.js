@@ -728,7 +728,10 @@
       slider('syz', -1.0, 1.0);
       slider('rx', -Math.PI, Math.PI);
       slider('ry', -Math.PI, Math.PI);
-      return slider('rz', -Math.PI, Math.PI);
+      slider('rz', -Math.PI, Math.PI);
+      slider('px', -0.3, 0.3);
+      slider('py', -0.3, 0.3);
+      return slider('pz', -0.3, 0.3);
     };
 
     Main.prototype.reset = function(preset) {
