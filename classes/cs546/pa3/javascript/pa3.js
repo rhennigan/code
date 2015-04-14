@@ -438,10 +438,11 @@
     m = transformationMatrix(scale, translation, shear, rotation, perspective);
     console.log(object3D.vertices.length);
     transformed = (function() {
-      var k, ref, results;
+      var k, len1, ref, results;
+      ref = object3D.vertices;
       results = [];
-      for (i = k = 0, ref = object3D.vertices.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
-        v = object3D.vertices[i];
+      for (k = 0, len1 = ref.length; k < len1; k++) {
+        v = ref[k];
         results.push({
           x: m[1][4] + m[1][1] * v.x + m[1][2] * v.y + m[1][3] * v.z,
           y: m[2][4] + m[2][1] * v.x + m[2][2] * v.y + m[2][3] * v.z
