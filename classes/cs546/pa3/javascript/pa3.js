@@ -669,41 +669,55 @@
   })();
 
   Main = (function() {
-    Main.prototype.t = {
-      sx: 1.0,
-      sy: 1.0,
-      sz: 1.0,
-      tx: 0.0,
-      ty: 0.0,
-      tz: 0.0,
-      sxy: 0.0,
-      sxz: 0.0,
-      syz: 0.0,
-      rx: 0.0,
-      ry: 0.0,
-      rz: 0.0,
-      px: 0.0,
-      py: 0.0,
-      pz: 0.0,
-      clear: function() {
-        this.sx = this.sy = this.sz = 1;
-        this.tx = this.ty = this.tz = 0;
-        this.sxy = this.sxz = this.syz = 0;
-        this.rx = this.ry = this.rz = 0;
-        return this.px = this.py = this.pz = 0;
-      },
-      isometric: function() {
-        this.clear();
-        this.rx = -Math.PI + Math.asin(1 / Math.sqrt(3));
-        return this.rz = Math.PI / 4;
-      }
-    };
-
     Main.prototype.gui = null;
 
     Main.prototype.objectName = 'Cube';
 
     Main.prototype.object3D = null;
+
+    Main.prototype.sx = 1.0;
+
+    Main.prototype.sy = 1.0;
+
+    Main.prototype.sz = 1.0;
+
+    Main.prototype.tx = 0.0;
+
+    Main.prototype.ty = 0.0;
+
+    Main.prototype.tz = 0.0;
+
+    Main.prototype.sxy = 0.0;
+
+    Main.prototype.sxz = 0.0;
+
+    Main.prototype.syz = 0.0;
+
+    Main.prototype.rx = 0.0;
+
+    Main.prototype.ry = 0.0;
+
+    Main.prototype.rz = 0.0;
+
+    Main.prototype.px = 0.0;
+
+    Main.prototype.py = 0.0;
+
+    Main.prototype.pz = 0.0;
+
+    Main.prototype.clearParameters = function() {
+      this.sx = this.sy = this.sz = 1;
+      this.tx = this.ty = this.tz = 0;
+      this.sxy = this.sxz = this.syz = 0;
+      this.rx = this.ry = this.rz = 0;
+      return this.px = this.py = this.pz = 0;
+    };
+
+    Main.prototype.isometric = function() {
+      this.clearParameters();
+      this.rx = -Math.PI + Math.asin(1 / Math.sqrt(3));
+      return this.rz = Math.PI / 4;
+    };
 
     function Main() {
       this.initSVG = bind(this.initSVG, this);

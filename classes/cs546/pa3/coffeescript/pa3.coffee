@@ -500,29 +500,28 @@ class Viewer
 ###############################################################################
 
 class Main
-  t: {
-    sx:  1.0, sy:  1.0, sz:  1.0,
-    tx:  0.0, ty:  0.0, tz:  0.0,
-    sxy: 0.0, sxz: 0.0, syz: 0.0,
-    rx:  0.0, ry:  0.0, rz:  0.0,
-    px:  0.0, py:  0.0, pz:  0.0,
-
-    clear: () ->
-      @sx  = @sy  = @sz  = 1
-      @tx  = @ty  = @tz  = 0
-      @sxy = @sxz = @syz = 0
-      @rx  = @ry  = @rz  = 0
-      @px  = @py  = @pz  = 0
-
-    isometric: () -> 
-      @clear()
-      @rx = -Math.PI + Math.asin(1 / Math.sqrt(3))
-      @rz = Math.PI / 4
-  }
 
   gui: null
   objectName: 'Cube'
   object3D: null
+
+  sx:  1.0,  sy:  1.0,  sz:  1.0,
+  tx:  0.0,  ty:  0.0,  tz:  0.0,
+  sxy: 0.0,  sxz: 0.0,  syz: 0.0,
+  rx:  0.0,  ry:  0.0,  rz:  0.0,
+  px:  0.0,  py:  0.0,  pz:  0.0,
+
+  clearParameters: () ->
+    @sx  = @sy  = @sz  = 1
+    @tx  = @ty  = @tz  = 0
+    @sxy = @sxz = @syz = 0
+    @rx  = @ry  = @rz  = 0
+    @px  = @py  = @pz  = 0
+
+  isometric: () -> 
+    @clearParameters()
+    @rx = -Math.PI + Math.asin(1 / Math.sqrt(3))
+    @rz = Math.PI / 4
 
   constructor: () ->
     @initSVG()
