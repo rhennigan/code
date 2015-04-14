@@ -654,24 +654,22 @@ main = () ->
   object3D = load('Cube')
 
   t = {
-    sx: 1, sy: 1, sz: 1,
-    scale       : {x: 1, y: 1, z: 1}
-    translation : {x: 0, y: 0, z: 0}
-    shear       : {x: 0, y: 0, z: 0}
-    rotation    : {x: 0, y: 0, z: 0}
-    perspective : {x: 0, y: 0, z: 0}
+    sx:  1, sy:  1, sz:  1,
+    tx:  0, ty:  0, tz:  0,
+    sxy: 0, sxz: 0, syz: 0,
+    rx:  0, ry:  0, rz:  0,
+    px:  0, py:  0, pz:  0
   }
 
   reset = (preset) ->
     console.log "resetting #{preset}"
 
     t = {
-      sx: 1, sy: 1, sz: 1,
-      scale       : {x: 1, y: 1, z: 1}
-      translation : {x: 0, y: 0, z: 0}
-      shear       : {x: 0, y: 0, z: 0}
-      rotation    : {x: 0, y: 0, z: 0}
-      perspective : {x: 0, y: 0, z: 0}
+      sx:  1, sy:  1, sz:  1,
+      tx:  0, ty:  0, tz:  0,
+      sxy: 0, sxz: 0, syz: 0,
+      rx:  0, ry:  0, rz:  0,
+      px:  0, py:  0, pz:  0
     }
 
     switch preset
