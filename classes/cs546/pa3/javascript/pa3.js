@@ -91,7 +91,7 @@
 
   rescaleVertices = function(vertices, size) {
     var k, l, len1, len2, len3, m, n, r, results, rm, shifted, v;
-    r = getVertexRanges(shifted);
+    r = getVertexRanges(vertices);
     m = {
       x: (r.x1 + r.x2) / 2,
       y: (r.y1 + r.y2) / 2,

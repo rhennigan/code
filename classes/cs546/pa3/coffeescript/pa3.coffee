@@ -58,7 +58,7 @@ getVertexRanges = (vertices) ->
   }
 
 rescaleVertices = (vertices, size) ->
-  r = getVertexRanges(shifted)
+  r = getVertexRanges(vertices)
   m = {x: (r.x1+r.x2)/2, y: (r.y1+r.y2)/2, z: (r.z1+r.z2)/2}
   shifted = {x: v.x - m.x, y: v.y - m.y, z: v.z - m.z} for v in vertices
   
