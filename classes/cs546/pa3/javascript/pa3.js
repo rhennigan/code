@@ -684,9 +684,9 @@
       return function() {
         var gui;
         gui = new dat.GUI();
-        slider('sx', -2.0, 2.0);
-        slider('sy', -2.0, 2.0);
-        return slider('sz', -2.0, 2.0);
+        slider(gui, 'sx', -2.0, 2.0);
+        slider(gui, 'sy', -2.0, 2.0);
+        return slider(gui, 'sz', -2.0, 2.0);
       };
     })(this);
     reset = (function(_this) {

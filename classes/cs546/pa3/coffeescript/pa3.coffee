@@ -657,6 +657,8 @@ main = () ->
     px:  0, py:  0, pz:  0
   }
 
+  gui: new dat.GUI()
+
   objectName = 'Cube'
 
   SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
@@ -670,10 +672,10 @@ main = () ->
       reset())
 
   makeGUI = () =>
-    gui = new dat.GUI()
-    slider('sx', -2.0, 2.0)
-    slider('sy', -2.0, 2.0)
-    slider('sz', -2.0, 2.0)
+    
+    slider(gui, 'sx', -2.0, 2.0)
+    slider(gui, 'sy', -2.0, 2.0)
+    slider(gui, 'sz', -2.0, 2.0)
 
   reset = (preset) =>
 
