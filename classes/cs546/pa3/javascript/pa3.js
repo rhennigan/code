@@ -648,62 +648,66 @@
   })();
 
   main = function() {
-    var attachHandler, gui, object3D, perspective, reset, rotation, scale, shear, translation;
+    var attachHandler, gui, object3D, reset, t;
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
     object3D = load('Cube');
-    scale = {
-      x: 1,
-      y: 1,
-      z: 1
-    };
-    translation = {
-      x: 0,
-      y: 0,
-      z: 0
-    };
-    shear = {
-      x: 0,
-      y: 0,
-      z: 0
-    };
-    rotation = {
-      x: 0,
-      y: 0,
-      z: 0
-    };
-    perspective = {
-      x: 0,
-      y: 0,
-      z: 0
+    t = {
+      scale: {
+        x: 1,
+        y: 1,
+        z: 1
+      },
+      translation: {
+        x: 0,
+        y: 0,
+        z: 0
+      },
+      shear: {
+        x: 0,
+        y: 0,
+        z: 0
+      },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0
+      },
+      perspective: {
+        x: 0,
+        y: 0,
+        z: 0
+      }
     };
     reset = function(preset) {
       var transformationProperties;
       console.log("resetting " + preset);
-      scale = {
-        x: 1,
-        y: 1,
-        z: 1
-      };
-      translation = {
-        x: 0,
-        y: 0,
-        z: 0
-      };
-      shear = {
-        x: 0,
-        y: 0,
-        z: 0
-      };
-      rotation = {
-        x: 0,
-        y: 0,
-        z: 0
-      };
-      perspective = {
-        x: 0,
-        y: 0,
-        z: 0
+      t = {
+        scale: {
+          x: 1,
+          y: 1,
+          z: 1
+        },
+        translation: {
+          x: 0,
+          y: 0,
+          z: 0
+        },
+        shear: {
+          x: 0,
+          y: 0,
+          z: 0
+        },
+        rotation: {
+          x: 0,
+          y: 0,
+          z: 0
+        },
+        perspective: {
+          x: 0,
+          y: 0,
+          z: 0
+        }
       };
       switch (preset) {
         case 'Isometric':
