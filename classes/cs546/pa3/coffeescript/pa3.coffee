@@ -672,6 +672,12 @@ class Main
       reset())
 
   makeGUI = () =>
+    @gui = new dat.GUI()
+    slider('sx', -2.0, 2.0)
+    slider('sy', -2.0, 2.0)
+    slider('sz', -2.0, 2.0)
+
+  updateGUI = () =>
     slider('sx', -2.0, 2.0)
     slider('sy', -2.0, 2.0)
     slider('sz', -2.0, 2.0)
