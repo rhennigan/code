@@ -475,6 +475,16 @@ load = (object) ->
 
 ###############################################################################
 
+class Viewer
+  scale:       {x: 1, y: 1, z: 1}
+  translation: {x: 0, y: 0, z: 0}
+  shear:       {x: 0, y: 0, z: 0}
+  rotation:    {x: 0, y: 0, z: 0}
+  perspective: {x: 0, y: 0, z: 0}
+
+
+###############################################################################
+
 main = () ->
   SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
   document.getElementById('imgTbl').width = 2*SVG_SIZE
