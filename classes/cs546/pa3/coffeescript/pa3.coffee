@@ -487,7 +487,7 @@ class Viewer
   perspective: {x: 0, y: 0, z: 0}
 
   constructor: () ->
-    @object3D   = load(@objectName)
+    @object3D = load(@objectName)
 
   reset: (preset) =>
     @scale       = {x: 1, y: 1, z: 1}
