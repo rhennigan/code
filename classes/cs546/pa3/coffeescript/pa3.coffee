@@ -317,6 +317,11 @@ transformationMatrix = (scale, translation, shear, rotation, perspective) ->
   v35 = Math.sin(v26)
   v36 = v34 * v35
 
+  [[]
+   []
+   []
+   []]
+
 ###############################################################################
 
 generalizedTransformation = (scale, translation, shear, rotation, perspective, point) ->

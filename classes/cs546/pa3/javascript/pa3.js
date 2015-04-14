@@ -411,7 +411,8 @@
     v33 = v14 * v9;
     v34 = 1 / Math.cos(syz);
     v35 = Math.sin(v26);
-    return v36 = v34 * v35;
+    v36 = v34 * v35;
+    return [[], [], [], []];
   };
 
   generalizedTransformation = function(scale, translation, shear, rotation, perspective, point) {
