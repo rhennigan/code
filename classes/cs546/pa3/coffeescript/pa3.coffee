@@ -539,17 +539,17 @@ class Main
 
     #@t.isometric = () -> @reset('Isometric')
 
-    attachHandler = (name) =>
-      document.getElementById(name).addEventListener "click", (e) =>
-        @reset(name)
+    # attachHandler = (name) =>
+    #   document.getElementById(name).addEventListener "click", (e) =>
+    #     @reset(name)
 
-    attachHandler('Isometric')
-    attachHandler('Dimetric')
-    attachHandler('Trimetric')
-    attachHandler('Oblique')
-    attachHandler('Perspective1')
-    attachHandler('Perspective2')
-    attachHandler('Perspective3')
+    # attachHandler('Isometric')
+    # attachHandler('Dimetric')
+    # attachHandler('Trimetric')
+    # attachHandler('Oblique')
+    # attachHandler('Perspective1')
+    # attachHandler('Perspective2')
+    # attachHandler('Perspective3')
 
     document.getElementById('selector').addEventListener "change", (e) => 
       @object3D = load(selector.value)

@@ -748,26 +748,11 @@
     }
 
     Main.prototype.initSVG = function() {
-      var attachHandler;
       SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
       document.getElementById('imgTbl').width = 2 * SVG_SIZE;
       console.log(this.objectName);
       this.object3D = load(this.objectName);
       this.reset('Isometric');
-      attachHandler = (function(_this) {
-        return function(name) {
-          return document.getElementById(name).addEventListener("click", function(e) {
-            return _this.reset(name);
-          });
-        };
-      })(this);
-      attachHandler('Isometric');
-      attachHandler('Dimetric');
-      attachHandler('Trimetric');
-      attachHandler('Oblique');
-      attachHandler('Perspective1');
-      attachHandler('Perspective2');
-      attachHandler('Perspective3');
       return document.getElementById('selector').addEventListener("change", (function(_this) {
         return function(e) {
           _this.object3D = load(selector.value);
