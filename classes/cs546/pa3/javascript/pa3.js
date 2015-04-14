@@ -711,7 +711,7 @@
       slider = (function(_this) {
         return function(name, low, high) {
           var control;
-          control = _this.gui.add(_this.t, name, low, high);
+          control = _this.gui.add(_this.t, name, low, high).listen();
           return control.onChange(function(value) {
             return _this.reset();
           });
