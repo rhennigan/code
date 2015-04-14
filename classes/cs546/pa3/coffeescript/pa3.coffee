@@ -551,10 +551,20 @@ class Viewer
 
 ###############################################################################
 
+
+
+###############################################################################
+
 main = () ->
   SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
   document.getElementById('imgTbl').width = 2*SVG_SIZE
   object3D = load('Cube')
+
+  reset = (preset) ->
+    switch preset
+      when 'Isometric'
+        transformVertices(object3D, @scale, @translation, @shear, @rotation, @perspective)
+
 
   # viewer = new Viewer()
   # console.log viewer
