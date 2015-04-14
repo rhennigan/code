@@ -740,7 +740,8 @@ main = () ->
 
   slider = (name, low, high) ->
     control = gui.add(@t, name, low, high)
-    control.onChange((value) => reset())
+    control.onChange((value) => 
+      reset())
 
   slider('sx', -2.0, 2.0)
   slider('sy', -2.0, 2.0)
