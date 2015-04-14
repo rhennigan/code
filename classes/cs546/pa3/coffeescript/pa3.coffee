@@ -669,20 +669,20 @@ class Main
   console.log objectName
   object3D = load(objectName)
 
-  slider = (name, low, high) =>
-    control = @gui.add(@t, name, low, high)
-    control.onChange((value) => 
-      reset())
+  # slider = (name, low, high) =>
+  #   control = @gui.add(@t, name, low, high)
+  #   control.onChange((value) => 
+  #     reset())
 
-  makeGUI = () =>
-    slider(@gui, 'sx', -2.0, 2.0)
-    slider(@gui, 'sy', -2.0, 2.0)
-    slider(@gui, 'sz', -2.0, 2.0)
+  # makeGUI = () =>
+  #   slider(@gui, 'sx', -2.0, 2.0)
+  #   slider(@gui, 'sy', -2.0, 2.0)
+  #   slider(@gui, 'sz', -2.0, 2.0)
 
-  updateGUI = () =>
-    @slider('sx', -2.0, 2.0)
-    @slider('sy', -2.0, 2.0)
-    @slider('sz', -2.0, 2.0)
+  # updateGUI = () =>
+  #   @slider('sx', -2.0, 2.0)
+  #   @slider('sy', -2.0, 2.0)
+  #   @slider('sz', -2.0, 2.0)
 
   reset = (preset) =>
 
@@ -737,9 +737,10 @@ class Main
                                 {x:@t.rx , y:@t.ry , z:@t.rz },
                                 {x:@t.px , y:@t.py , z:@t.pz })
 
-    updateGUI()
+    console.log @gui
+    # updateGUI()
 
-  makeGUI()
+  # makeGUI()
   reset('Isometric')
   
   attachHandler = (name) =>
