@@ -653,6 +653,9 @@
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
     object3D = load('Cube');
     t = {
+      sx: 1,
+      sy: 1,
+      sz: 1,
       scale: {
         x: 1,
         y: 1,
@@ -682,6 +685,9 @@
     reset = function(preset) {
       console.log("resetting " + preset);
       t = {
+        sx: 1,
+        sy: 1,
+        sz: 1,
         scale: {
           x: 1,
           y: 1,

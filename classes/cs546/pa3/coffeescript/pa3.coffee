@@ -654,6 +654,7 @@ main = () ->
   object3D = load('Cube')
 
   t = {
+    sx: 1, sy: 1, sz: 1,
     scale       : {x: 1, y: 1, z: 1}
     translation : {x: 0, y: 0, z: 0}
     shear       : {x: 0, y: 0, z: 0}
@@ -665,6 +666,7 @@ main = () ->
     console.log "resetting #{preset}"
 
     t = {
+      sx: 1, sy: 1, sz: 1,
       scale       : {x: 1, y: 1, z: 1}
       translation : {x: 0, y: 0, z: 0}
       shear       : {x: 0, y: 0, z: 0}
