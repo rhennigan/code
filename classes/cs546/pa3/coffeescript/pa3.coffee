@@ -482,6 +482,8 @@ class Viewer
   rotation:    {x: 0, y: 0, z: 0}
   perspective: {x: 0, y: 0, z: 0}
 
+  constructor: () ->
+
   reset: (preset) =>
     @scale       = {x: 1, y: 1, z: 1}
     @translation = {x: 0, y: 0, z: 0}
@@ -491,10 +493,14 @@ class Viewer
     
     if preset?
       switch preset
+
         when 'isometric'
           @rotation.x = Math.asin(1 / Math.sqrt(3))
           @rotation.y = Math.PI / 4
 
+        when 'dimetric'
+          @rotation.x = Math.PI / 16
+          @rotation.y = Math.PI / 4
 
 ###############################################################################
 

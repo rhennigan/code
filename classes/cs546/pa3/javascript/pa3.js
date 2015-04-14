@@ -574,10 +574,6 @@
   };
 
   Viewer = (function() {
-    function Viewer() {
-      this.reset = bind(this.reset, this);
-    }
-
     Viewer.prototype.scale = {
       x: 1,
       y: 1,
@@ -607,6 +603,10 @@
       y: 0,
       z: 0
     };
+
+    function Viewer() {
+      this.reset = bind(this.reset, this);
+    }
 
     Viewer.prototype.reset = function(preset) {
       this.scale = {
@@ -638,6 +638,9 @@
         switch (preset) {
           case 'isometric':
             this.rotation.x = Math.asin(1 / Math.sqrt(3));
+            return this.rotation.y = Math.PI / 4;
+          case 'dimetric':
+            this.rotation.x = Math.PI / 16;
             return this.rotation.y = Math.PI / 4;
         }
       }
