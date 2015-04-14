@@ -31,8 +31,8 @@
     ref = split.slice(1, 4), x = ref[0], y = ref[1], z = ref[2];
     return {
       x: parseFloat(x),
-      y: parseFloat(y),
-      z: parseFloat(z)
+      y: -parseFloat(y),
+      z: -parseFloat(z)
     };
   };
 
@@ -486,7 +486,7 @@
     yo = v55 * (ty + tz * v9 + (v2 * v20 + v19 * v4) * (v7 + v8 * v9) - (v19 * v22 + v20 * v23 + v49) * (1 / Math.cos(syz)) * Math.sin(rx - syz));
     return {
       x: xo,
-      y: -yo
+      y: yo
     };
   };
 
