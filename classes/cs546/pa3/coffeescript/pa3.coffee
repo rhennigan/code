@@ -273,9 +273,6 @@ isometricProjection = (v) ->
 
 ###############################################################################
 
-sec = (x) ->
-  1 / Math.cos(x)
-
 generalizedTransformation = (scale, translation, shear, rotation, perspective, point) ->
   [  sx,  sy,  sz ] = [       scale.x,       scale.y,       scale.z ]
   [  tx,  ty,  tz ] = [ translation.x, translation.y, translation.z ]
@@ -342,7 +339,7 @@ generalizedTransformation = (scale, translation, shear, rotation, perspective, p
   v56 = v20*v23
   v57 = v19*v24
   xo  = v53 (tx+ty v1+tz v55+v20 (v12 v27+v1 (v28+v2 v7)+v55 (v17+v23 v7))+v19 (v12 v2+v55 (v18+v24 v7)+v1 (v26+v3 v7))+v21 (v11+v12 (v10 v7+v1 (v29+v7 v9))))
-  yo  = v53 (ty+tz v9+(v2 v20+v19 v3) (v7+v8 v9)-(v47+v56+v57) sec(syz) Math.sin(rx-syz))
+  yo  = v53 (ty+tz v9+(v2 v20+v19 v3) (v7+v8 v9)-(v47+v56+v57) (1 / Math.cos(syz)) Math.sin(rx-syz))
   zo  = v53 (tz+v18 v19+v17 v20+v47 v7+v56 v7+v57 v7)
   {xo,yo,zo}
 
