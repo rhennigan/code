@@ -381,9 +381,13 @@ transformationMatrix = (scale, translation, shear, rotation, perspective) ->
 
 transformVertices = (object3D, scale, translation, shear, rotation, perspective) ->
 
+  start = new Date().getTime();
   transformedVertices = 
     for v in object3D.vertices
       generalizedTransformation(scale, translation, shear, rotation, perspective, v)
+  end = new Date().getTime();
+  time = end - start;
+  console.log "transformation time = #{time}"
 
   for i in [0...object3D.meshLines.length]
     meshLine = object3D.meshLines[i]

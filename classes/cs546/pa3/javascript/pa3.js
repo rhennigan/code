@@ -391,7 +391,8 @@
   };
 
   transformVertices = function(object3D, scale, translation, shear, rotation, perspective) {
-    var i, ip1, ip2, k, meshLine, ref, results, transformedVertices, v;
+    var end, i, ip1, ip2, k, meshLine, ref, results, start, time, transformedVertices, v;
+    start = new Date().getTime();
     transformedVertices = (function() {
       var k, len1, ref, results;
       ref = object3D.vertices;
@@ -402,6 +403,9 @@
       }
       return results;
     })();
+    end = new Date().getTime();
+    time = end - start;
+    console.log("transformation time = " + time);
     results = [];
     for (i = k = 0, ref = object3D.meshLines.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
       meshLine = object3D.meshLines[i];
