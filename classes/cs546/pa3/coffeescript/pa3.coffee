@@ -620,6 +620,7 @@ class Main
   reset: (preset) ->
 
     @clearParameters()
+    # if @object3D.projectionLabel? then @object3D.projectionLabel.innerHTML = " "
 
     if preset?
 
@@ -661,9 +662,6 @@ class Main
           @px = 0.0625
           @py = 0.125
           @pz = 0.25
-
-    else
-      if @object3D.projectionLabel? then @object3D.projectionLabel.innerHTML = " "
     
     transformVertices(@object3D, {x:@sx , y:@sy , z:@sz }, 
                                  {x:@tx , y:@ty , z:@tz },

@@ -857,10 +857,6 @@
             this.py = 0.125;
             this.pz = 0.25;
         }
-      } else {
-        if (this.object3D.projectionLabel != null) {
-          this.object3D.projectionLabel.innerHTML = " ";
-        }
       }
       return transformVertices(this.object3D, {
         x: this.sx,
