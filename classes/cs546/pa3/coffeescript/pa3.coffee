@@ -273,6 +273,11 @@ isometricProjection = (v) ->
 
 ###############################################################################
 
+generalizedTransformation = (scale, translation, shear, rotation, perspective, point) ->
+
+
+###############################################################################
+
 clear = () ->
   cc = (cname) ->
     container = document.getElementById(cname)
