@@ -666,16 +666,15 @@ main = () ->
   console.log objectName
   object3D = load(objectName)
 
-  slider = (gui, name, low, high) =>
-    control = gui.add(@t, name, low, high)
+  slider = (name, low, high) =>
+    control = @gui.add(@t, name, low, high)
     control.onChange((value) => 
       reset())
 
   makeGUI = () =>
-    
-    slider(gui, 'sx', -2.0, 2.0)
-    slider(gui, 'sy', -2.0, 2.0)
-    slider(gui, 'sz', -2.0, 2.0)
+    slider('sx', -2.0, 2.0)
+    slider('sy', -2.0, 2.0)
+    slider('sz', -2.0, 2.0)
 
   reset = (preset) =>
 

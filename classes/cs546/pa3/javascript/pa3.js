@@ -664,7 +664,8 @@
         px: 0,
         py: 0,
         pz: 0
-      }
+      },
+      gui: new dat.GUI()
     });
     objectName = 'Cube';
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
@@ -672,9 +673,9 @@
     console.log(objectName);
     object3D = load(objectName);
     slider = (function(_this) {
-      return function(gui, name, low, high) {
+      return function(name, low, high) {
         var control;
-        control = gui.add(_this.t, name, low, high);
+        control = _this.gui.add(_this.t, name, low, high);
         return control.onChange(function(value) {
           return reset();
         });
@@ -682,11 +683,9 @@
     })(this);
     makeGUI = (function(_this) {
       return function() {
-        var gui;
-        gui = new dat.GUI();
-        slider(gui, 'sx', -2.0, 2.0);
-        slider(gui, 'sy', -2.0, 2.0);
-        return slider(gui, 'sz', -2.0, 2.0);
+        slider('sx', -2.0, 2.0);
+        slider('sy', -2.0, 2.0);
+        return slider('sz', -2.0, 2.0);
       };
     })(this);
     reset = (function(_this) {
