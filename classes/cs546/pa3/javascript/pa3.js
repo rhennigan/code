@@ -433,7 +433,7 @@
   };
 
   transformVertices = function(object3D, scale, translation, shear, rotation, perspective) {
-    var i, k, m, meshLine, p1, p2, ref, results, size, transformed, v;
+    var i, k, m, meshLine, proj1, proj2, ref, results, size, transformed, v;
     size = SVG_SIZE;
     m = transformationMatrix(scale, translation, shear, rotation, perspective);
     transformed = (function() {
@@ -452,12 +452,13 @@
     results = [];
     for (i = k = 0, ref = object3D.meshLines.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
       meshLine = object3D.meshLines[i];
-      p1 = transformed[meshLine.p1];
-      p2 = transformed[meshLine.p2];
-      object3D.svgLinesIP[i].setAttribute('x1', p1.x);
-      object3D.svgLinesIP[i].setAttribute('y1', p1.y);
-      object3D.svgLinesIP[i].setAttribute('x2', p2.x);
-      results.push(object3D.svgLinesIP[i].setAttribute('y2', p2.y));
+      proj1 = transformed[meshLine.p1];
+      proj2 = transformed[meshLine.p2];
+      console.log(proj1);
+      object3D.svgLinesIP[i].setAttribute('x1', proj1.x);
+      object3D.svgLinesIP[i].setAttribute('y1', proj1.y);
+      object3D.svgLinesIP[i].setAttribute('x2', proj2.x);
+      results.push(object3D.svgLinesIP[i].setAttribute('y2', proj2.y));
     }
     return results;
   };
