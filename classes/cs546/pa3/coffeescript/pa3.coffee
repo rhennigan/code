@@ -507,6 +507,9 @@ class Viewer
           @rotation.x = Math.PI / 16
           @rotation.y = Math.PI / 5
 
+        when 'oblique'
+          @shear.x = @shear.y = 0.5
+
 ###############################################################################
 
 main = () ->

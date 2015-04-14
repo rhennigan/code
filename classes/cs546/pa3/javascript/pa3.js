@@ -645,6 +645,8 @@
           case 'trimetric':
             this.rotation.x = Math.PI / 16;
             return this.rotation.y = Math.PI / 5;
+          case 'oblique':
+            return this.shear.x = this.shear.y = 0.5;
         }
       }
     };
