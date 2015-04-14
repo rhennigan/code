@@ -438,9 +438,9 @@
     yo = v53 * (ty + tz * v9 + (v2 * v20 + v19 * v3) * (v7 + v8 * v9) - (v47 + v56 + v57) * (1 / Math.cos(syz))) * Math.sin(rx - syz);
     zo = v53 * (tz + v18 * v19 + v17 * v20 + v47 * v7 + v56 * v7 + v57 * v7);
     return {
-      xo: xo,
-      yo: yo,
-      zo: zo
+      x: xo,
+      y: yo,
+      z: zo
     };
   };
 
