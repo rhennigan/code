@@ -111,6 +111,7 @@
         z: v.z - m.z
       };
     }
+    console.log(shifted);
     rm = 0;
     for (l = 0, len2 = vertices.length; l < len2; l++) {
       v = vertices[l];
