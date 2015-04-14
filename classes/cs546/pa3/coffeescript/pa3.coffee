@@ -197,10 +197,12 @@ callback = (obj, txt) ->
     label.innerHTML = text
     label
 
+  projectionLabel = createLabel('projection')
+  
   svgXY.appendChild(createLabel('xy'))
   svgXZ.appendChild(createLabel('xz'))
   svgYZ.appendChild(createLabel('yz'))
-  svgIP.appendChild(createLabel('projection'))
+  svgIP.appendChild(projectionLabel)
 
   containerXY = document.getElementById('containerXY')
   containerXZ = document.getElementById('containerXZ')
