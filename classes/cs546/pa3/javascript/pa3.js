@@ -619,8 +619,8 @@
     Viewer.prototype.init = function() {
       SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
       document.getElementById('imgTbl').width = 2 * SVG_SIZE;
-      console.log(this.objectName);
-      this.object3D = load(this.objectName);
+      console.log(objectName);
+      this.object3D = load(objectName);
       return transformVertices(this.object3D, this.scale, this.translation, this.shear, this.rotation, this.perspective);
     };
 
