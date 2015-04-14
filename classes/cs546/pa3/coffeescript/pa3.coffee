@@ -674,9 +674,12 @@ class Main
 
   initGUI: ->
     @gui = new dat.GUI()
-    slider = (name, low, high) ->
+
+    slider = (name, low, high) =>
       control = @gui.add(@t, name, low, high)
-      control.onChange((value) => reset())
+      control.onChange((value) => @reset())
+
+    slider('sx', -2.0, 2.0)
 
   # slider = (name, low, high) =>
   #   control = @gui.add(@t, name, low, high)

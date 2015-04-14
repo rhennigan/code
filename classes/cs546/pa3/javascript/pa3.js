@@ -688,15 +688,16 @@
     Main.prototype.initGUI = function() {
       var slider;
       this.gui = new dat.GUI();
-      return slider = function(name, low, high) {
-        var control;
-        control = this.gui.add(this.t, name, low, high);
-        return control.onChange((function(_this) {
-          return function(value) {
-            return reset();
-          };
-        })(this));
-      };
+      slider = (function(_this) {
+        return function(name, low, high) {
+          var control;
+          control = _this.gui.add(_this.t, name, low, high);
+          return control.onChange(function(value) {
+            return _this.reset();
+          });
+        };
+      })(this);
+      return slider('sx', -2.0, 2.0);
     };
 
     Main.prototype.reset = function(preset) {
