@@ -666,21 +666,21 @@ class Main
   console.log objectName
   object3D = load(objectName)
 
-  slider = (name, low, high) =>
+  slider: (name, low, high) =>
     control = @gui.add(@t, name, low, high)
     control.onChange((value) => 
       reset())
 
   makeGUI = () =>
     @gui = new dat.GUI()
-    slider('sx', -2.0, 2.0)
-    slider('sy', -2.0, 2.0)
-    slider('sz', -2.0, 2.0)
+    @slider('sx', -2.0, 2.0)
+    @slider('sy', -2.0, 2.0)
+    @slider('sz', -2.0, 2.0)
 
   updateGUI = () =>
-    slider('sx', -2.0, 2.0)
-    slider('sy', -2.0, 2.0)
-    slider('sz', -2.0, 2.0)
+    @slider('sx', -2.0, 2.0)
+    @slider('sy', -2.0, 2.0)
+    @slider('sz', -2.0, 2.0)
 
   reset = (preset) =>
 
@@ -735,9 +735,10 @@ class Main
                                 {x:@t.rx , y:@t.ry , z:@t.rz },
                                 {x:@t.px , y:@t.py , z:@t.pz })
 
-    makeGUI()
+    updateGUI()
 
   reset('Isometric')
+  makeGUI()
 
   attachHandler = (name) =>
     document.getElementById(name).addEventListener "click", (e) =>

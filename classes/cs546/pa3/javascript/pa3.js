@@ -646,9 +646,11 @@
   })();
 
   Main = (function() {
-    var attachHandler, makeGUI, object3D, objectName, reset, slider;
+    var attachHandler, makeGUI, object3D, objectName, reset, updateGUI;
 
-    function Main() {}
+    function Main() {
+      this.slider = bind(this.slider, this);
+    }
 
     Main.prototype.t = {
       sx: 1,
@@ -680,19 +682,27 @@
 
     object3D = load(objectName);
 
-    slider = function(name, low, high) {
+    Main.prototype.slider = function(name, low, high) {
       var control;
-      control = Main.gui.add(Main.t, name, low, high);
-      return control.onChange(function(value) {
-        return reset();
-      });
+      control = this.gui.add(this.t, name, low, high);
+      return control.onChange((function(_this) {
+        return function(value) {
+          return reset();
+        };
+      })(this));
     };
 
     makeGUI = function() {
       Main.gui = new dat.GUI();
-      slider('sx', -2.0, 2.0);
-      slider('sy', -2.0, 2.0);
-      return slider('sz', -2.0, 2.0);
+      Main.slider('sx', -2.0, 2.0);
+      Main.slider('sy', -2.0, 2.0);
+      return Main.slider('sz', -2.0, 2.0);
+    };
+
+    updateGUI = function() {
+      Main.slider('sx', -2.0, 2.0);
+      Main.slider('sy', -2.0, 2.0);
+      return Main.slider('sz', -2.0, 2.0);
     };
 
     reset = function(preset) {
@@ -770,10 +780,12 @@
         y: Main.t.py,
         z: Main.t.pz
       });
-      return makeGUI();
+      return updateGUI();
     };
 
     reset('Isometric');
+
+    makeGUI();
 
     attachHandler = function(name) {
       return document.getElementById(name).addEventListener("click", function(e) {
