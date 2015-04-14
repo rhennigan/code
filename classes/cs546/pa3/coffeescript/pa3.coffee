@@ -387,7 +387,7 @@ transformVertices = (object3D, scale, translation, shear, rotation, perspective)
       generalizedTransformation(scale, translation, shear, rotation, perspective, v)
   end = new Date().getTime();
   time = end - start;
-  console.log "transformation time = #{time} ms"
+  # console.log "transformation time = #{time} ms"
 
   for i in [0...object3D.meshLines.length]
     meshLine = object3D.meshLines[i]
@@ -665,7 +665,6 @@ main = () ->
   object3D = load(objectName)
 
   reset = (preset) =>
-    console.log "resetting #{preset}"
 
     if preset?
 
@@ -711,8 +710,6 @@ main = () ->
           @t.px = 0.0625
           @t.py = 0.125
           @t.pz = 0.25
-
-    console.log @t
     
     transformVertices(object3D, {x:@t.sx , y:@t.sy , z:@t.sz }, 
                                 {x:@t.tx , y:@t.ty , z:@t.tz },
@@ -741,7 +738,7 @@ main = () ->
 
   gui = new dat.GUI()
   c_sx = gui.add(@t, 'sx', -1.0, 1.0)
-  c_sx.onFinishChange((value) => reset())
+  c_sx.onChange((value) => reset())
 
   # document.getElementById('rotateXY+').addEventListener "click", (e) => 
   #     # rotate(object3D, -R_INC, 0, 0)

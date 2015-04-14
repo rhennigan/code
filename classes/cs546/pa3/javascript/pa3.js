@@ -405,7 +405,6 @@
     })();
     end = new Date().getTime();
     time = end - start;
-    console.log("transformation time = " + time + " ms");
     results = [];
     for (i = k = 0, ref = object3D.meshLines.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
       meshLine = object3D.meshLines[i];
@@ -675,7 +674,6 @@
     object3D = load(objectName);
     reset = (function(_this) {
       return function(preset) {
-        console.log("resetting " + preset);
         if (preset != null) {
           _this.t = {
             sx: 1,
@@ -729,7 +727,6 @@
               _this.t.pz = 0.25;
           }
         }
-        console.log(_this.t);
         return transformVertices(object3D, {
           x: _this.t.sx,
           y: _this.t.sy,
@@ -777,7 +774,7 @@
     attachHandler('Perspective3');
     gui = new dat.GUI();
     c_sx = gui.add(this.t, 'sx', -1.0, 1.0);
-    return c_sx.onFinishChange((function(_this) {
+    return c_sx.onChange((function(_this) {
       return function(value) {
         return reset();
       };
