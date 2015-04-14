@@ -700,7 +700,7 @@
       return document.getElementById('selector').addEventListener("change", (function(_this) {
         return function(e) {
           _this.object3D = load(selector.value);
-          return _this.reset();
+          return _this.reset('Isometric');
         };
       })(this));
     };
