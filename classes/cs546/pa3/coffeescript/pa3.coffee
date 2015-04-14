@@ -661,6 +661,7 @@ main = () ->
 
   SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
   document.getElementById('imgTbl').width = 2*SVG_SIZE
+  console.log @objectName
   object3D = load(@objectName)
 
   reset = (preset) =>
@@ -675,7 +676,7 @@ main = () ->
     }
 
     if preset?
-      
+
       switch preset
 
         when 'Isometric'
@@ -740,7 +741,7 @@ main = () ->
 
   gui = new dat.GUI()
   c_sx = gui.add(@t, 'sx', -1.0, 1.0)
-  c_sx.onFinishChange((value) => reset(@objectName))
+  c_sx.onFinishChange((value) => reset())
 
   # document.getElementById('rotateXY+').addEventListener "click", (e) => 
   #     # rotate(object3D, -R_INC, 0, 0)

@@ -671,6 +671,7 @@
     });
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
+    console.log(this.objectName);
     object3D = load(this.objectName);
     reset = (function(_this) {
       return function(preset) {
@@ -778,7 +779,7 @@
     c_sx = gui.add(this.t, 'sx', -1.0, 1.0);
     return c_sx.onFinishChange((function(_this) {
       return function(value) {
-        return reset(_this.objectName);
+        return reset();
       };
     })(this));
   };
