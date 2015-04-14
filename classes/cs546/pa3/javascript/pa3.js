@@ -703,9 +703,37 @@
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
     object3D = load('Cube');
     reset = function(preset) {
+      var perspective, rotation, scale, shear, translation;
+      scale = {
+        x: 1,
+        y: 1,
+        z: 1
+      };
+      translation = {
+        x: 0,
+        y: 0,
+        z: 0
+      };
+      shear = {
+        x: 0,
+        y: 0,
+        z: 0
+      };
+      rotation = {
+        x: 0,
+        y: 0,
+        z: 0
+      };
+      perspective = {
+        x: 0,
+        y: 0,
+        z: 0
+      };
       switch (preset) {
         case 'Isometric':
-          return transformVertices(object3D, this.scale, this.translation, this.shear, this.rotation, this.perspective);
+          rotation.x = Math.asin(1 / Math.sqrt(3));
+          rotation.y = Math.PI / 4;
+          return transformVertices(object3D, scale, translation, shear, rotation, perspective);
       }
     };
     document.getElementById('selector').addEventListener("change", (function(_this) {
