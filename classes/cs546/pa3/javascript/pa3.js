@@ -706,7 +706,7 @@
     };
 
     Main.prototype.initGUI = function() {
-      var slider;
+      var fs, slider;
       this.gui = new dat.GUI();
       slider = (function(_this) {
         return function(f, name, low, high) {
@@ -717,9 +717,10 @@
           });
         };
       })(this);
-      slider('sx', -2.0, 2.0);
-      slider('sy', -2.0, 2.0);
-      slider('sz', -2.0, 2.0);
+      fs = this.gui.addFolder('scale');
+      slider(fs, 'sx', -2.0, 2.0);
+      slider(fs, 'sy', -2.0, 2.0);
+      slider(fs, 'sz', -2.0, 2.0);
       slider('tx', -2.0, 2.0);
       slider('ty', -2.0, 2.0);
       slider('tz', -2.0, 2.0);

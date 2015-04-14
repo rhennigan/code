@@ -696,9 +696,10 @@ class Main
       control = @gui.add(@t, name, low, high).listen()
       control.onChange((value) => @reset())
 
-    slider('sx', -2.0, 2.0)
-    slider('sy', -2.0, 2.0)
-    slider('sz', -2.0, 2.0)
+    fs = @gui.addFolder('scale')
+    slider(fs, 'sx', -2.0, 2.0)
+    slider(fs, 'sy', -2.0, 2.0)
+    slider(fs, 'sz', -2.0, 2.0)
 
     slider('tx', -2.0, 2.0)
     slider('ty', -2.0, 2.0)
