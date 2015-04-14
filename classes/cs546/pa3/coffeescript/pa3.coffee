@@ -675,8 +675,8 @@ main = () ->
     switch preset
 
       when 'Isometric'
-        t.ry = Math.asin(1 / Math.sqrt(3))
-        t.rz = Math.PI / 4
+        t.rx = Math.asin(1 / Math.sqrt(3))
+        t.ry = Math.PI / 4
 
       when 'Dimetric'
         t.rx = Math.PI / 16
