@@ -688,6 +688,7 @@ class Main
     document.getElementById('selector').addEventListener "change", (e) => 
       @object3D = load(selector.value)
       @reset('Isometric')
+      console.log @t
 
   initGUI: ->
     @gui = new dat.GUI()
