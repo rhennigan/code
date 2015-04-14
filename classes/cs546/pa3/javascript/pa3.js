@@ -574,7 +574,7 @@
   };
 
   Viewer = (function() {
-    Viewer.prototype.objectName = null;
+    Viewer.prototype.objectName = 'Cube';
 
     Viewer.prototype.object3D = null;
 
@@ -608,10 +608,7 @@
       z: 0
     };
 
-    function Viewer(objectName) {
-      if (objectName == null) {
-        objectName = this.objectName;
-      }
+    function Viewer() {
       this.reset = bind(this.reset, this);
       this.objectName = objectName;
       this.object3D = load(this.objectName);

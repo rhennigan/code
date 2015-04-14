@@ -477,7 +477,7 @@ load = (object) ->
 
 class Viewer
 
-  objectName: null
+  objectName: 'Cube'
   object3D:   null
 
   scale:       {x: 1, y: 1, z: 1}
@@ -486,7 +486,7 @@ class Viewer
   rotation:    {x: 0, y: 0, z: 0}
   perspective: {x: 0, y: 0, z: 0}
 
-  constructor: (objectName = @objectName) ->
+  constructor: () ->
     @objectName = objectName
     @object3D   = load(@objectName)
 
