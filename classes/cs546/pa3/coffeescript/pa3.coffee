@@ -360,6 +360,8 @@ transformVertices = (object3D, scale, translation, shear, rotation, perspective)
         y: m[2][4] + m[2][1] * v.x + m[2][2] * v.y + m[2][3] * v.z
       }
 
+  console.log object3D.vertices
+
   for i in [0...object3D.meshLines.length]
     meshLine = object3D.meshLines[i]
 
