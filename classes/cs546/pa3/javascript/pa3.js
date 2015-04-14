@@ -574,6 +574,8 @@
   };
 
   Viewer = (function() {
+    Viewer.prototype.object = 'Cube';
+
     Viewer.prototype.scale = {
       x: 1,
       y: 1,
