@@ -686,6 +686,7 @@
             this.perspective.z = -0.25;
         }
       }
+      console.log(this.object3D);
       return transformVertices(this.object3D, this.scale, this.translation, this.shear, this.rotation, this.perspective);
     };
 

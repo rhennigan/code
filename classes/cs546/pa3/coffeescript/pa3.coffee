@@ -540,6 +540,7 @@ class Viewer
           @perspective.y = -0.125
           @perspective.z = -0.25
 
+    console.log @object3D
     transformVertices(@object3D, @scale, @translation, @shear, @rotation, @perspective)
 
 ###############################################################################
