@@ -312,22 +312,22 @@
       //  The onchange event handler that typesets the
       //  math entered by the user
       //
+      mathText = "\\ left(
+      \\ begin{array}{cccc}
+       1 & 0 & 0 & 0 \\ \\
+       0 & 1 & 0 & 0 \\ \\
+       0 & 0 & 1 & 0 \\ \\
+       p_x & p_y & p_z & 1 \\ \\
+      \\ end{array}
+      \\ right)"
+
       window.UpdateMath = function (TeX) {
         QUEUE.Push(["Text", math, "\\displaystyle{"+TeX+"}"]);
       }
     })();
   </script>
 
-  <input type="button" id="testButton" value="testButton" onclick="UpdateMath(
-  \"\\left(
-    \\begin{array}{cccc}
-     1 & 0 & 0 & 0 \\\\
-     0 & 1 & 0 & 0 \\\\
-     0 & 0 & 1 & 0 \\\\
-     p_x & p_y & p_z & 1 \\\\
-    \\end{array}
-    \\right\\)\"
-  )">
+  <input type="button" id="testButton" value="testButton" onclick="UpdateMath()">
   
   <script type="text/javascript" src="javascript/pa3.js"></script>
 
