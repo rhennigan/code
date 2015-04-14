@@ -81,16 +81,21 @@ getVertexRanges = (vertices) ->
 
 ###############################################################################
 
-getVertexMean = (vertices) ->
-  xs = ys = zs = 0
-  n = vertices.length
+# getVertexMean = (vertices) ->
+#   xs = ys = zs = 0
+#   n = vertices.length
 
-  for v in vertices
-    xs += v.x
-    ys += v.y
-    zs += v.z
+#   for v in vertices
+#     xs += v.x
+#     ys += v.y
+#     zs += v.z
 
-  {x: xs / n, y: ys / n, z: zs / n}
+#   {x: xs / n, y: ys / n, z: zs / n}
+
+###############################################################################
+
+# meanShift = (vertices) ->
+#   m = getVertexMean(vertices)
 
 ###############################################################################
 
@@ -160,6 +165,16 @@ createMeshLines = (faces) ->
 
 ###############################################################################
 
+# createSVGLine = (p1, p2, stroke) ->
+#   line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
+#   line.setAttribute('x1', p1.x)
+#   line.setAttribute('y1', p1.y)
+#   line.setAttribute('x2', p2.x)
+#   line.setAttribute('y2', p2.y)
+#   line.setAttribute('stroke-width', stroke)
+#   line.setAttribute('stroke', 'black')
+#   line
+
 createSVGLine = (p1, p2, stroke) ->
   line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
   line.setAttribute('x1', p1.x)
@@ -180,7 +195,7 @@ callback = (obj, txt) ->
     if line[0] == 'f'
       obj.faces.push(parseFace(line))
 
-  obj.vertices = rescaleVertices(obj.vertices, 1)
+  # obj.vertices = rescaleVertices(obj.vertices, 1)
   console.log getVertexRanges(obj.vertices)
   op = orthoProj(obj.vertices)
 
