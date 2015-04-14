@@ -773,7 +773,7 @@
     attachHandler('Perspective2');
     attachHandler('Perspective3');
     gui = new dat.GUI();
-    c_sx = gui.add(this.t, 'sx', -1.0, 1.0);
+    c_sx = gui.add(this.t, 'sx', -2.0, 2.0);
     return c_sx.onChange((function(_this) {
       return function(value) {
         return reset();
