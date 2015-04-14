@@ -710,9 +710,9 @@ class Main
     slider(ft, 'sxz', -1.0, 1.0)
     slider(ft, 'syz', -1.0, 1.0)
 
-    slider(ft, 'rx', -Math.PI, Math.PI)
-    slider(ft, 'ry', -Math.PI, Math.PI)
-    slider(ft, 'rz', -Math.PI, Math.PI)
+    slider(ft, 'rx', -2*Math.PI, 2*Math.PI)
+    slider(ft, 'ry', -2*Math.PI, 2*Math.PI)
+    slider(ft, 'rz', -2*Math.PI, 2*Math.PI)
 
     slider(ft, 'px', -0.3, 0.3)
     slider(ft, 'py', -0.3, 0.3)
