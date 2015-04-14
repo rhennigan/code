@@ -377,18 +377,18 @@
     ref3 = [rotation.x, rotation.y, rotation.z], rx = ref3[0], ry = ref3[1], rz = ref3[2];
     ref4 = [perspective.x, perspective.y, perspective.z], px = ref4[0], py = ref4[1], pz = ref4[2];
     ref5 = [point.x, point.y, point.z], x = ref5[0], y = ref5[1], z = ref5[2];
-    v1 = Tan[sxy];
-    v2 = Cos[rz];
-    v3 = Sin[rz];
+    v1 = Math.tan(sxy);
+    v2 = Math.cos(rz);
+    v3 = Math.sin(rz);
     v4 = px * v1;
     v5 = py + v4;
-    v6 = Sin[ry];
-    v7 = Cos[rx];
-    v8 = Sin[rx];
-    v9 = Tan[syz];
-    v10 = Tan[sxz];
+    v6 = Math.sin(ry);
+    v7 = Math.cos(rx);
+    v8 = Math.sin(rx);
+    v9 = Math.tan(syz);
+    v10 = Math.tan(sxz);
     v11 = -v6;
-    v12 = Cos[ry];
+    v12 = Math.cos(ry);
     v13 = px * v10;
     v14 = v5 * v9;
     v15 = pz + v13 + v14;
@@ -435,7 +435,7 @@
     v56 = v20 * v23;
     v57 = v19 * v24;
     xo = v53(tx + ty(v1 + tz(v55 + v20((v12(v27 + v1((v28 + v2(v7)) + v55(v17 + v23(v7))))) + v19((v12(v2 + v55((v18 + v24(v7)) + v1(v26 + v3(v7))))) + v21(v11 + v12(v10(v7 + v1(v29 + v7(v9))))))))));
-    yo = v53(ty + tz(v9 + (v2(v20 + v19(v3)))((v7 + v8(v9)) - (v47 + v56 + v57)(Sec[syz](Sin[rx - syz])))));
+    yo = v53(ty + tz(v9 + (v2(v20 + v19(v3)))((v7 + v8(v9)) - (v47 + v56 + v57)(Sec(syz)(Math.sin(rx - syz))))));
     zo = v53(tz + v18(v19 + v17(v20 + v47(v7 + v56(v7 + v57(v7))))));
     return {
       xo: xo,
