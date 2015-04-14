@@ -686,13 +686,12 @@
   })();
 
   main = function() {
-    var gui, object3D;
-    SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
-    document.getElementById('imgTbl').width = 2 * SVG_SIZE;
-    object3D = load('Cube');
+    var gui, viewer;
+    viewer = new Viewer();
     gui = new dat.GUI();
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {
+        var object3D;
         return object3D = load(selector.value);
       };
     })(this));
