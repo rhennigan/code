@@ -486,7 +486,9 @@ class Viewer
   rotation:    {x: 0, y: 0, z: 0}
   perspective: {x: 0, y: 0, z: 0}
 
-  constructor: () ->
+  constructor: (objectName = @objectName) ->
+    @objectName = objectName
+    @object3D   = load(@objectName)
 
   reset: (preset) =>
     @scale       = {x: 1, y: 1, z: 1}

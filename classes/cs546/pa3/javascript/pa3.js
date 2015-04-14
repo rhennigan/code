@@ -608,8 +608,13 @@
       z: 0
     };
 
-    function Viewer() {
+    function Viewer(objectName) {
+      if (objectName == null) {
+        objectName = this.objectName;
+      }
       this.reset = bind(this.reset, this);
+      this.objectName = objectName;
+      this.object3D = load(this.objectName);
     }
 
     Viewer.prototype.reset = function(preset) {
