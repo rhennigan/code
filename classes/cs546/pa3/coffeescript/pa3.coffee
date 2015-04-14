@@ -273,6 +273,15 @@ isometricProjection = (v) ->
 
 ###############################################################################
 
+transformationMatrix = (scale, translation, shear, rotation, perspective) ->
+  [  sx,  sy,  sz ] = [       scale.x,       scale.y,       scale.z ]
+  [  tx,  ty,  tz ] = [ translation.x, translation.y, translation.z ]
+  [ syz, sxz, sxy ] = [       shear.x,       shear.y,       shear.z ]
+  [  rx,  ry,  rz ] = [    rotation.x,    rotation.y,    rotation.z ]
+  [  px,  py,  pz ] = [ perspective.x, perspective.y, perspective.z ]
+
+###############################################################################
+
 generalizedTransformation = (scale, translation, shear, rotation, perspective, point) ->
   [  sx,  sy,  sz ] = [       scale.x,       scale.y,       scale.z ]
   [  tx,  ty,  tz ] = [ translation.x, translation.y, translation.z ]
