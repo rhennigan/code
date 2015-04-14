@@ -78,7 +78,7 @@ rescaleVertices = (vertices, size) ->
     {
       x: size * v.x / rm
       y: size * v.y / rm
-      z: size * v.z / rm
+      z: -size * v.z / rm
     }
 
 ###############################################################################
@@ -467,7 +467,7 @@ generalizedTransformation = (scale, translation, shear, rotation, perspective, p
   v53 = v31 * v49
   v54 = v53 * v6
   v55 = 1 / (1 + v32 + v34 + v43 + v46 + v50 + v51 + v52 + v54)
-  
+
   xo  = v55*(tx + ty*v1 + tz*v28 + v20*(v17*v28 + v12*v30 + v23*v28*v7 + v1*(v29 + v2*v7)) + v26*(v11 + v12*(v1*v31 + (v10 + v25)*v7)) + v19*(v12*v2 + v28*(v18 + v22*v7) + v1*(v27 + v4*v7)))
   yo  = v55*(ty + tz*v9 + (v2*v20 + v19*v4)*(v7 + v8*v9) - (v19*v22 + v20*v23 + v49)*(1/Math.cos(syz))*Math.sin(rx - syz))
   {x: xo, y: yo}
