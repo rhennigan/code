@@ -616,20 +616,20 @@ main = () ->
       when 'Perspective1'
         rotation.x = Math.PI / 16
         rotation.y = Math.PI / 5
-        perspective.z = -0.25 * 5
+        perspective.z = -0.25
 
       when 'Perspective2'
         rotation.x = Math.PI / 16
         rotation.y = Math.PI / 5
-        perspective.y = -0.125 * 5
-        perspective.z = -0.25 * 5
+        perspective.y = -0.125
+        perspective.z = -0.25
 
       when 'Perspective3'
         rotation.x = Math.PI / 16
         rotation.y = Math.PI / 5
-        perspective.x = -0.0625 * 5
-        perspective.y = -0.125 * 5
-        perspective.z = -0.25 * 5
+        perspective.x = -0.0625
+        perspective.y = -0.125
+        perspective.z = -0.25
     
     transformationProperties = 
       {
