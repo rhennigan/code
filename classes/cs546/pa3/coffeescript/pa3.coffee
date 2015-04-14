@@ -648,7 +648,7 @@ class Viewer
 
 ###############################################################################
 
-main = () ->
+class Main
   t: {
     sx:  1, sy:  1, sz:  1,
     tx:  0, ty:  0, tz:  0,
@@ -775,4 +775,4 @@ main = () ->
   # object3D = {vertices: [], faces: []}
   # loadObject('objects/Beethoven.obj', object3D, callback, err)
 
-main()
+prog = new Main()
