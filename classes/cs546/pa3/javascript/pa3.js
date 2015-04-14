@@ -328,7 +328,6 @@
       }
       return results;
     })();
-    console.log(rotatedVertices);
     for (i = k = 0, ref = object3D.meshLines.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
       meshLine = object3D.meshLines[i];
       p1 = rotatedVertices[meshLine.p1];
@@ -698,57 +697,18 @@
   })();
 
   main = function() {
-    var object3D, reset;
+    var object3D;
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
-    object3D = load('Cube');
-    reset = function(preset) {
-      var perspective, rotation, scale, shear, translation;
-      scale = {
-        x: 1,
-        y: 1,
-        z: 1
-      };
-      translation = {
-        x: 0,
-        y: 0,
-        z: 0
-      };
-      shear = {
-        x: 0,
-        y: 0,
-        z: 0
-      };
-      rotation = {
-        x: 0,
-        y: 0,
-        z: 0
-      };
-      perspective = {
-        x: 0,
-        y: 0,
-        z: 0
-      };
-      switch (preset) {
-        case 'Isometric':
-          rotation.x = Math.asin(1 / Math.sqrt(3));
-          rotation.y = Math.PI / 4;
-          return transformVertices(object3D, scale, translation, shear, rotation, perspective);
-      }
-    };
+    object3D = load('SpaceShuttle');
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {
         return object3D = load(selector.value);
       };
     })(this));
-    document.getElementById('Isometric').addEventListener("click", (function(_this) {
-      return function(e) {
-        return reset('Isometric');
-      };
-    })(this));
     document.getElementById('rotateXY+').addEventListener("click", (function(_this) {
       return function(e) {
-        return rotate(viewer.object3D, -R_INC, 0, 0);
+        return rotate(object3D, -R_INC, 0, 0);
       };
     })(this));
     document.getElementById('rotateXZ+').addEventListener("click", (function(_this) {
