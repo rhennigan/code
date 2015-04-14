@@ -672,6 +672,19 @@ class Main
     @object3D = load(@objectName)
     @reset('Isometric')
 
+    attachHandler = (name) =>
+      document.getElementById(name).addEventListener "click", (e) =>
+        @reset(name)
+        console.log @t
+
+      attachHandler('Isometric')
+    attachHandler('Dimetric')
+    attachHandler('Trimetric')
+    attachHandler('Oblique')
+    attachHandler('Perspective1')
+    attachHandler('Perspective2')
+    attachHandler('Perspective3')
+
   initGUI: ->
     @gui = new dat.GUI()
 
@@ -754,22 +767,13 @@ class Main
   # makeGUI()
   
   
-  attachHandler = (name) =>
-    document.getElementById(name).addEventListener "click", (e) =>
-      @reset(name)
-      console.log @t
+  
 
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)
       @reset()
 
-  attachHandler('Isometric')
-  attachHandler('Dimetric')
-  attachHandler('Trimetric')
-  attachHandler('Oblique')
-  attachHandler('Perspective1')
-  attachHandler('Perspective2')
-  attachHandler('Perspective3')
+
 
 
 
