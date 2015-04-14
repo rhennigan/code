@@ -486,7 +486,7 @@
     yo = v55 * (ty + tz * v9 + (v2 * v20 + v19 * v4) * (v7 + v8 * v9) - (v19 * v22 + v20 * v23 + v49) * (1 / Math.cos(syz)) * Math.sin(rx - syz));
     return {
       x: xo,
-      y: -yo
+      y: yo
     };
   };
 
@@ -766,37 +766,7 @@
     attachHandler('Oblique');
     attachHandler('Perspective1');
     attachHandler('Perspective2');
-    attachHandler('Perspective3');
-    document.getElementById('rotateXY+').addEventListener("click", (function(_this) {
-      return function(e) {
-        return reset('Oblique');
-      };
-    })(this));
-    document.getElementById('rotateXZ+').addEventListener("click", (function(_this) {
-      return function(e) {
-        return rotate(object3D, 0, R_INC, 0);
-      };
-    })(this));
-    document.getElementById('rotateYZ+').addEventListener("click", (function(_this) {
-      return function(e) {
-        return rotate(object3D, 0, 0, -R_INC);
-      };
-    })(this));
-    document.getElementById('rotateXY-').addEventListener("click", (function(_this) {
-      return function(e) {
-        return rotate(object3D, R_INC, 0, 0);
-      };
-    })(this));
-    document.getElementById('rotateXZ-').addEventListener("click", (function(_this) {
-      return function(e) {
-        return rotate(object3D, 0, -R_INC, 0);
-      };
-    })(this));
-    return document.getElementById('rotateYZ-').addEventListener("click", (function(_this) {
-      return function(e) {
-        return rotate(object3D, 0, 0, R_INC);
-      };
-    })(this));
+    return attachHandler('Perspective3');
   };
 
   main();

@@ -470,7 +470,7 @@ generalizedTransformation = (scale, translation, shear, rotation, perspective, p
 
   xo  = v55*(tx + ty*v1 + tz*v28 + v20*(v17*v28 + v12*v30 + v23*v28*v7 + v1*(v29 + v2*v7)) + v26*(v11 + v12*(v1*v31 + (v10 + v25)*v7)) + v19*(v12*v2 + v28*(v18 + v22*v7) + v1*(v27 + v4*v7)))
   yo  = v55*(ty + tz*v9 + (v2*v20 + v19*v4)*(v7 + v8*v9) - (v19*v22 + v20*v23 + v49)*(1/Math.cos(syz))*Math.sin(rx - syz))
-  {x: xo, y: -yo}
+  {x: xo, y: yo}
 
 # generalizedTransformation = (scale, translation, shear, rotation, perspective, point) ->
 #   [  sx,  sy,  sz ] = [       scale.x,       scale.y,       scale.z ]
@@ -729,26 +729,26 @@ main = () ->
   attachHandler('Perspective2')
   attachHandler('Perspective3')
 
-  document.getElementById('rotateXY+').addEventListener "click", (e) => 
-      # rotate(object3D, -R_INC, 0, 0)
-      # rotation.z += R_INC
-      # transformVertices(object3D, scale, translation, shear, rotation, perspective)
-      reset('Oblique')
+  # document.getElementById('rotateXY+').addEventListener "click", (e) => 
+  #     # rotate(object3D, -R_INC, 0, 0)
+  #     # rotation.z += R_INC
+  #     # transformVertices(object3D, scale, translation, shear, rotation, perspective)
+  #     reset('Oblique')
   
-  document.getElementById('rotateXZ+').addEventListener "click", (e) => 
-      rotate(object3D, 0, R_INC, 0)
+  # document.getElementById('rotateXZ+').addEventListener "click", (e) => 
+  #     rotate(object3D, 0, R_INC, 0)
 
-  document.getElementById('rotateYZ+').addEventListener "click", (e) => 
-      rotate(object3D, 0, 0, -R_INC)
+  # document.getElementById('rotateYZ+').addEventListener "click", (e) => 
+  #     rotate(object3D, 0, 0, -R_INC)
 
-  document.getElementById('rotateXY-').addEventListener "click", (e) => 
-      rotate(object3D, R_INC, 0, 0)
+  # document.getElementById('rotateXY-').addEventListener "click", (e) => 
+  #     rotate(object3D, R_INC, 0, 0)
   
-  document.getElementById('rotateXZ-').addEventListener "click", (e) => 
-      rotate(object3D, 0, -R_INC, 0)
+  # document.getElementById('rotateXZ-').addEventListener "click", (e) => 
+  #     rotate(object3D, 0, -R_INC, 0)
 
-  document.getElementById('rotateYZ-').addEventListener "click", (e) => 
-      rotate(object3D, 0, 0, R_INC)
+  # document.getElementById('rotateYZ-').addEventListener "click", (e) => 
+  #     rotate(object3D, 0, 0, R_INC)
   # object3D = {vertices: [], faces: []}
   # loadObject('objects/Beethoven.obj', object3D, callback, err)
 
