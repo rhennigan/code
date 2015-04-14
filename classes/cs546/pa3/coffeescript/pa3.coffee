@@ -627,7 +627,7 @@ class Main
           @rz = Math.PI / 4
 
         when 'Dimetric'
-          @rx = -Math.PI + Math.atan(Math.sqrt(2)) + 2
+          @rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.25
           @rz = Math.PI / 4
 
         when 'Trimetric'
