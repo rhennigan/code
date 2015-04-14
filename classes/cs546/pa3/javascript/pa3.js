@@ -627,8 +627,8 @@
       if (preset != null) {
         switch (preset) {
           case 'Isometric':
-            this.rotation.x = Math.asin(1 / Math.sqrt(3));
-            this.rotation.y = Math.PI / 4;
+            this.rotation.x = -Math.PI + Math.atan(Math.sqrt(2));
+            this.rotation.z = Math.PI / 4;
             break;
           case 'Dimetric':
             this.rotation.x = Math.PI / 16;
