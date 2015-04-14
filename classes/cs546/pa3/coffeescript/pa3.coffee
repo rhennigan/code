@@ -737,8 +737,12 @@ main = () ->
   attachHandler('Perspective3')
 
   gui = new dat.GUI()
-  c_sx = gui.add(@t, 'sx', -2.0, 2.0)
-  c_sx.onChange((value) => reset())
+
+  slider = (name, low, high) ->
+    control = gui.add(@t, name, low, high)
+    control.onChange((value) => reset())
+
+  
 
   # document.getElementById('rotateXY+').addEventListener "click", (e) => 
   #     # rotate(object3D, -R_INC, 0, 0)

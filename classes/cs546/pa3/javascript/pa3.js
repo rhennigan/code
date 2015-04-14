@@ -647,7 +647,7 @@
   })();
 
   main = function() {
-    var attachHandler, c_sx, gui, object3D, objectName, reset;
+    var attachHandler, gui, object3D, objectName, reset, slider;
     ({
       t: {
         sx: 1,
@@ -773,12 +773,15 @@
     attachHandler('Perspective2');
     attachHandler('Perspective3');
     gui = new dat.GUI();
-    c_sx = gui.add(this.t, 'sx', -2.0, 2.0);
-    return c_sx.onChange((function(_this) {
-      return function(value) {
-        return reset();
-      };
-    })(this));
+    return slider = function(name, low, high) {
+      var control;
+      control = gui.add(this.t, name, low, high);
+      return control.onChange((function(_this) {
+        return function(value) {
+          return reset();
+        };
+      })(this));
+    };
   };
 
   main();
