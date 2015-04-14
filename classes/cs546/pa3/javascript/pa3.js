@@ -394,6 +394,7 @@
     var i, ip1, ip2, k, m, meshLine, ref, results, size, transformedVertices, v;
     size = SVG_SIZE;
     m = transformationMatrix(scale, translation, shear, rotation, perspective);
+    console.log(m);
     transformedVertices = (function() {
       var k, len1, ref, results;
       ref = object3D.vertices;
