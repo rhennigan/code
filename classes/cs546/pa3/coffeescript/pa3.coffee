@@ -622,7 +622,7 @@ class Main
     @clearParameters()
 
     if preset?
-      
+
       console.log @object3D.projectionLabel
 
       if @object3D.projectionLabel? then @object3D.projectionLabel.innerHTML = preset
@@ -661,6 +661,9 @@ class Main
           @px = 0.0625
           @py = 0.125
           @pz = 0.25
+
+    else
+      if @object3D.projectionLabel? then @object3D.projectionLabel.innerHTML = " "
     
     transformVertices(@object3D, {x:@sx , y:@sy , z:@sz }, 
                                  {x:@tx , y:@ty , z:@tz },
