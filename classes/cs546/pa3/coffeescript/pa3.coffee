@@ -595,6 +595,8 @@ class Main
     fpr = @gui.addFolder('presets')
     fpr.add(@, 'isometric')
 
+    fpr.open()
+    
   reset: (preset) ->
 
     if preset?

@@ -789,7 +789,8 @@
       slider(fp, 'pz', -0.3, 0.3);
       ftr.open();
       fpr = this.gui.addFolder('presets');
-      return fpr.add(this, 'isometric');
+      fpr.add(this, 'isometric');
+      return fpr.open();
     };
 
     Main.prototype.reset = function(preset) {
