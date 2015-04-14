@@ -700,6 +700,7 @@
   main = function() {
     var gui, viewer;
     viewer = new Viewer();
+    console.log(viewer);
     gui = new dat.GUI();
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {

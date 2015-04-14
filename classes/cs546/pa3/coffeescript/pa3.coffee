@@ -558,6 +558,7 @@ main = () ->
   # object3D = load('Cube')
 
   viewer = new Viewer()
+  console.log viewer
 
   gui = new dat.GUI()
 
