@@ -708,17 +708,23 @@ class Main
     slider(ft, 'tz', -2.0, 2.0)
     ft.open()
 
-    slider(ft, 'sxy', -1.0, 1.0)
-    slider(ft, 'sxz', -1.0, 1.0)
-    slider(ft, 'syz', -1.0, 1.0)
+    fsh = @gui.addFolder('shear')
+    slider(fsh, 'sxy', -1.0, 1.0)
+    slider(fsh, 'sxz', -1.0, 1.0)
+    slider(fsh, 'syz', -1.0, 1.0)
+    fsh.open()
 
-    slider(ft, 'rx', -2*Math.PI, 2*Math.PI)
-    slider(ft, 'ry', -2*Math.PI, 2*Math.PI)
-    slider(ft, 'rz', -2*Math.PI, 2*Math.PI)
+    fr = @gui.addFolder('rotation')
+    slider(fr, 'rx', -2*Math.PI, 2*Math.PI)
+    slider(fr, 'ry', -2*Math.PI, 2*Math.PI)
+    slider(fr, 'rz', -2*Math.PI, 2*Math.PI)
+    fr.open()
 
-    slider(ft, 'px', -0.3, 0.3)
-    slider(ft, 'py', -0.3, 0.3)
-    slider(ft, 'pz', -0.3, 0.3)
+    fp = @gui.addFolder('perspective')
+    slider(fp, 'px', -0.3, 0.3)
+    slider(fp, 'py', -0.3, 0.3)
+    slider(fp, 'pz', -0.3, 0.3)
+    fp.open()
 
   reset: (preset) ->
 

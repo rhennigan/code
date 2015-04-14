@@ -706,7 +706,7 @@
     };
 
     Main.prototype.initGUI = function() {
-      var fs, ft, slider;
+      var fp, fr, fs, fsh, ft, slider;
       this.gui = new dat.GUI();
       slider = (function(_this) {
         return function(f, name, low, high) {
@@ -727,15 +727,21 @@
       slider(ft, 'ty', -2.0, 2.0);
       slider(ft, 'tz', -2.0, 2.0);
       ft.open();
-      slider(ft, 'sxy', -1.0, 1.0);
-      slider(ft, 'sxz', -1.0, 1.0);
-      slider(ft, 'syz', -1.0, 1.0);
-      slider(ft, 'rx', -2 * Math.PI, 2 * Math.PI);
-      slider(ft, 'ry', -2 * Math.PI, 2 * Math.PI);
-      slider(ft, 'rz', -2 * Math.PI, 2 * Math.PI);
-      slider(ft, 'px', -0.3, 0.3);
-      slider(ft, 'py', -0.3, 0.3);
-      return slider(ft, 'pz', -0.3, 0.3);
+      fsh = this.gui.addFolder('shear');
+      slider(fsh, 'sxy', -1.0, 1.0);
+      slider(fsh, 'sxz', -1.0, 1.0);
+      slider(fsh, 'syz', -1.0, 1.0);
+      fsh.open();
+      fr = this.gui.addFolder('rotation');
+      slider(fr, 'rx', -2 * Math.PI, 2 * Math.PI);
+      slider(fr, 'ry', -2 * Math.PI, 2 * Math.PI);
+      slider(fr, 'rz', -2 * Math.PI, 2 * Math.PI);
+      fr.open();
+      fp = this.gui.addFolder('perspective');
+      slider(fp, 'px', -0.3, 0.3);
+      slider(fp, 'py', -0.3, 0.3);
+      slider(fp, 'pz', -0.3, 0.3);
+      return fp.open();
     };
 
     Main.prototype.reset = function(preset) {
