@@ -642,6 +642,9 @@
           case 'dimetric':
             this.rotation.x = Math.PI / 16;
             return this.rotation.y = Math.PI / 4;
+          case 'trimetric':
+            this.rotation.x = Math.PI / 16;
+            return this.rotation.y = Math.PI / 5;
         }
       }
     };

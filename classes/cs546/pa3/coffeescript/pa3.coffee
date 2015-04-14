@@ -492,6 +492,7 @@ class Viewer
     @perspective = {x: 0, y: 0, z: 0}
     
     if preset?
+
       switch preset
 
         when 'isometric'
@@ -501,6 +502,10 @@ class Viewer
         when 'dimetric'
           @rotation.x = Math.PI / 16
           @rotation.y = Math.PI / 4
+
+        when 'trimetric'
+          @rotation.x = Math.PI / 16
+          @rotation.y = Math.PI / 5
 
 ###############################################################################
 
