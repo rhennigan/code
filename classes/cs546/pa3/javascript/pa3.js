@@ -129,8 +129,8 @@
       v = vertices[l];
       results.push({
         x: size * v.x / rm,
-        y: size * v.y / rm,
-        z: -size * v.z / rm
+        y: -size * v.y / rm,
+        z: size * v.z / rm
       });
     }
     return results;
