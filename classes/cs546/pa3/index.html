@@ -312,14 +312,14 @@
       //  The onchange event handler that typesets the
       //  math entered by the user
       //
-      var mathText = "\left(
-      \begin{array}{cccc}
-       1 & 0 & 0 & 0 \\
-       0 & 1 & 0 & 0 \\
-       0 & 0 & 1 & 0 \\
-       p_x & p_y & p_z & 1\\
-      \end{array}
-      \right)";
+      var mathText = "\\left(
+      \\begin{array}{cccc}
+       1 & 0 & 0 & 0 \\\\
+       0 & 1 & 0 & 0 \\\\
+       0 & 0 & 1 & 0 \\\\
+       p_x & p_y & p_z & 1\\\\
+      \\end{array}
+      \\right)";
 
       window.UpdateMath = function () {
         QUEUE.Push(["Text", math, "\\displaystyle{"+mathText+"}"]);
