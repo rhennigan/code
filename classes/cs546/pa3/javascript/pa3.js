@@ -608,7 +608,7 @@
       z: 0
     };
 
-    Viewer.prototype.reset = function() {
+    Viewer.prototype.reset = function(preset) {
       this.scale = {
         x: 1,
         y: 1,
@@ -629,11 +629,14 @@
         y: 0,
         z: 0
       };
-      return this.perspective = {
+      this.perspective = {
         x: 0,
         y: 0,
         z: 0
       };
+      if (preset != null) {
+        return null;
+      }
     };
 
     return Viewer;
