@@ -622,7 +622,7 @@ class Main
       switch preset
 
         when 'Isometric'
-          @rx = Math.asin(1 / Math.sqrt(3))
+          @rx = -Math.asin(1 / Math.sqrt(3))
           @ry = Math.PI / 4
 
         when 'Dimetric'

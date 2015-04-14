@@ -818,7 +818,7 @@
         this.clearParameters();
         switch (preset) {
           case 'Isometric':
-            this.rx = Math.asin(1 / Math.sqrt(3));
+            this.rx = -Math.asin(1 / Math.sqrt(3));
             this.ry = Math.PI / 4;
             break;
           case 'Dimetric':
