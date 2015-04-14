@@ -694,6 +694,7 @@
     Main.prototype.object3D = null;
 
     function Main() {
+      this.initSVG = bind(this.initSVG, this);
       this.initSVG();
       this.initGUI();
     }
@@ -705,6 +706,9 @@
       console.log(this.objectName);
       this.object3D = load(this.objectName);
       this.reset('Isometric');
+      this.t.isometric = function() {
+        return this.reset('Isometric');
+      };
       attachHandler = (function(_this) {
         return function(name) {
           return document.getElementById(name).addEventListener("click", function(e) {

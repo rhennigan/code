@@ -516,12 +516,14 @@ class Main
     @initSVG()
     @initGUI()
 
-  initSVG: ->
+  initSVG: =>
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
     document.getElementById('imgTbl').width = 2*SVG_SIZE
     console.log @objectName
     @object3D = load(@objectName)
     @reset('Isometric')
+
+    @t.isometric = () -> @reset('Isometric')
 
     attachHandler = (name) =>
       document.getElementById(name).addEventListener "click", (e) =>
