@@ -235,10 +235,10 @@
   createSVGLine = function(p1, p2, stroke) {
     var line;
     line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', 0.4 * p1.x + 0.5);
-    line.setAttribute('y1', 0.4 * p1.y + 0.5);
-    line.setAttribute('x2', 0.4 * p2.x + 0.5);
-    line.setAttribute('y2', 0.4 * p2.y + 0.5);
+    line.setAttribute('x1', 0.25 * p1.x + 0.5);
+    line.setAttribute('y1', 0.25 * p1.y + 0.5);
+    line.setAttribute('x2', 0.25 * p2.x + 0.5);
+    line.setAttribute('y2', 0.25 * p2.y + 0.5);
     line.setAttribute('stroke-width', stroke);
     line.setAttribute('stroke', 'black');
     return line;
@@ -277,7 +277,6 @@
     for (l = 0, len2 = ref1.length; l < len2; l++) {
       line = ref1[l];
       lineXY = createSVGLine(op.xy[line.p1], op.xy[line.p2], SVG_STROKE);
-      console.log(lineXY);
       lineXZ = createSVGLine(op.xz[line.p1], op.xz[line.p2], SVG_STROKE);
       lineYZ = createSVGLine(op.yz[line.p1], op.yz[line.p2], SVG_STROKE);
       ip1 = isometricProjection(obj.vertices[line.p1]);
@@ -290,7 +289,7 @@
         x: ip2.x + SVG_SIZE / 2,
         y: ip2.y - SVG_SIZE / 3
       };
-      lineIP = createSVGLine(ips1, ips2, SVG_STROKE);
+      lineIP = createSVGLine(ip1, ip2, SVG_STROKE);
       svgXY.appendChild(lineXY);
       svgXZ.appendChild(lineXZ);
       svgYZ.appendChild(lineYZ);

@@ -133,10 +133,10 @@ createMeshLines = (faces) ->
 
 createSVGLine = (p1, p2, stroke) ->
   line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
-  line.setAttribute('x1', 0.4*p1.x + 0.5)
-  line.setAttribute('y1', 0.4*p1.y + 0.5)
-  line.setAttribute('x2', 0.4*p2.x + 0.5)
-  line.setAttribute('y2', 0.4*p2.y + 0.5)
+  line.setAttribute('x1', 0.25*p1.x + 0.5)
+  line.setAttribute('y1', 0.25*p1.y + 0.5)
+  line.setAttribute('x2', 0.25*p2.x + 0.5)
+  line.setAttribute('y2', 0.25*p2.y + 0.5)
   line.setAttribute('stroke-width', stroke)
   line.setAttribute('stroke', 'black')
   line
@@ -168,14 +168,13 @@ callback = (obj, txt) ->
 
   for line in obj.meshLines
     lineXY = createSVGLine(op.xy[line.p1], op.xy[line.p2], SVG_STROKE)
-    console.log lineXY
     lineXZ = createSVGLine(op.xz[line.p1], op.xz[line.p2], SVG_STROKE)
     lineYZ = createSVGLine(op.yz[line.p1], op.yz[line.p2], SVG_STROKE)
     ip1 = isometricProjection(obj.vertices[line.p1])
     ip2 = isometricProjection(obj.vertices[line.p2])
     ips1 = {x: ip1.x + SVG_SIZE/2, y: ip1.y - SVG_SIZE/3}
     ips2 = {x: ip2.x + SVG_SIZE/2, y: ip2.y - SVG_SIZE/3}
-    lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
+    lineIP = createSVGLine(ip1, ip2, SVG_STROKE)
     svgXY.appendChild(lineXY)
     svgXZ.appendChild(lineXZ)
     svgYZ.appendChild(lineYZ)
