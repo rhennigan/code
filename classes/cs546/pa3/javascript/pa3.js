@@ -676,24 +676,24 @@
     reset = (function(_this) {
       return function(preset) {
         console.log("resetting " + preset);
-        _this.t = {
-          sx: 1,
-          sy: 1,
-          sz: 1,
-          tx: 0,
-          ty: 0,
-          tz: 0,
-          sxy: 0,
-          sxz: 0,
-          syz: 0,
-          rx: 0,
-          ry: 0,
-          rz: 0,
-          px: 0,
-          py: 0,
-          pz: 0
-        };
         if (preset != null) {
+          _this.t = {
+            sx: 1,
+            sy: 1,
+            sz: 1,
+            tx: 0,
+            ty: 0,
+            tz: 0,
+            sxy: 0,
+            sxz: 0,
+            syz: 0,
+            rx: 0,
+            ry: 0,
+            rz: 0,
+            px: 0,
+            py: 0,
+            pz: 0
+          };
           switch (preset) {
             case 'Isometric':
               _this.t.rx = Math.asin(1 / Math.sqrt(3));
