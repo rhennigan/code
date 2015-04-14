@@ -646,11 +646,9 @@
   })();
 
   Main = (function() {
-    var attachHandler, makeGUI, object3D, objectName, reset, updateGUI;
+    var attachHandler, makeGUI, object3D, objectName, reset, slider, updateGUI;
 
-    function Main() {
-      this.slider = bind(this.slider, this);
-    }
+    function Main() {}
 
     Main.prototype.t = {
       sx: 1,
@@ -682,21 +680,19 @@
 
     object3D = load(objectName);
 
-    Main.prototype.slider = function(gui, name, low, high) {
+    slider = function(gui, name, low, high) {
       var control;
-      control = this.ui.add(this.t, name, low, high);
-      return control.onChange((function(_this) {
-        return function(value) {
-          return reset();
-        };
-      })(this));
+      control = gui.add(Main.t, name, low, high);
+      return control.onChange(function(value) {
+        return reset();
+      });
     };
 
     makeGUI = function() {
       Main.gui = new dat.GUI();
-      Main.slider('sx', -2.0, 2.0);
-      Main.slider('sy', -2.0, 2.0);
-      return Main.slider('sz', -2.0, 2.0);
+      slider(Main.gui, 'sx', -2.0, 2.0);
+      slider(Main.gui, 'sy', -2.0, 2.0);
+      return slider(Main.gui, 'sz', -2.0, 2.0);
     };
 
     updateGUI = function() {
