@@ -387,7 +387,7 @@ transformVertices = (object3D, scale, translation, shear, rotation, perspective)
       generalizedTransformation(scale, translation, shear, rotation, perspective, v)
   end = new Date().getTime();
   time = end - start;
-  console.log "transformation time = #{time}"
+  console.log "transformation time = #{time} ms"
 
   for i in [0...object3D.meshLines.length]
     meshLine = object3D.meshLines[i]
@@ -643,7 +643,7 @@ main = () ->
         rotation: rotation
         perspective: perspective
       }
-    console.log perspective
+    
     transformVertices(object3D, scale, translation, shear, rotation, perspective)
 
   attachHandler = (name) =>

@@ -405,7 +405,7 @@
     })();
     end = new Date().getTime();
     time = end - start;
-    console.log("transformation time = " + time);
+    console.log("transformation time = " + time + " ms");
     results = [];
     for (i = k = 0, ref = object3D.meshLines.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
       meshLine = object3D.meshLines[i];
@@ -750,7 +750,6 @@
         rotation: rotation,
         perspective: perspective
       };
-      console.log(perspective);
       return transformVertices(object3D, scale, translation, shear, rotation, perspective);
     };
     attachHandler = (function(_this) {
