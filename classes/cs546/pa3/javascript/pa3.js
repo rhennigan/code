@@ -5,7 +5,7 @@
 
   SVG_SIZE = 400;
 
-  SVG_STROKE = 0.01;
+  SVG_STROKE = 0.0025;
 
   R_INC = Math.PI / 8;
 
@@ -479,7 +479,6 @@
       meshLine = object3D.meshLines[i];
       ip1 = transformedVertices[meshLine.p1];
       ip2 = transformedVertices[meshLine.p2];
-      console.log(ip1);
       ips1 = {
         x: ip1.x + SVG_SIZE / 2,
         y: ip1.y - SVG_SIZE / 3
