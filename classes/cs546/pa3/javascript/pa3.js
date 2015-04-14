@@ -346,6 +346,7 @@
       object3D.svgLinesYZ[i].setAttribute('y2', p2.z);
       ip1 = isometricProjection(p1);
       ip2 = isometricProjection(p2);
+      console.log(ip1);
       ips1 = {
         x: ip1.x + SVG_SIZE / 2,
         y: ip1.y - SVG_SIZE / 3

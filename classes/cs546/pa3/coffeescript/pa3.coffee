@@ -252,6 +252,9 @@ rotate = (object3D, txy, txz, tyz) ->
 
     ip1 = isometricProjection(p1)
     ip2 = isometricProjection(p2)
+
+    console.log ip1
+
     ips1 = {x: ip1.x + SVG_SIZE/2, y: ip1.y - SVG_SIZE/3}
     ips2 = {x: ip2.x + SVG_SIZE/2, y: ip2.y - SVG_SIZE/3}
     lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
