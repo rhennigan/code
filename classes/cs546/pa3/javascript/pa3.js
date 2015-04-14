@@ -610,7 +610,6 @@
 
     function Viewer() {
       this.reset = bind(this.reset, this);
-      this.objectName = objectName;
       this.object3D = load(this.objectName);
     }
 
