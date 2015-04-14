@@ -817,8 +817,8 @@
     };
 
     Main.prototype.reset = function(preset) {
+      this.clearParameters();
       if (preset != null) {
-        this.clearParameters();
         console.log(this.object3D.projectionLabel);
         if (this.object3D.projectionLabel != null) {
           this.object3D.projectionLabel.innerHTML = preset;

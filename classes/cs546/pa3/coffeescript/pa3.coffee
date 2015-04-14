@@ -619,10 +619,10 @@ class Main
 
   reset: (preset) ->
 
+    @clearParameters()
+
     if preset?
-
-      @clearParameters()
-
+      
       console.log @object3D.projectionLabel
 
       if @object3D.projectionLabel? then @object3D.projectionLabel.innerHTML = preset
