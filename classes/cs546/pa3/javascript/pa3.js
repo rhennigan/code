@@ -573,10 +573,11 @@
   };
 
   main = function() {
-    var object3D;
+    var gui, object3D;
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
     object3D = load('Cube');
+    gui = new dat.GUI();
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {
         return object3D = load(selector.value);

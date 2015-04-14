@@ -480,6 +480,8 @@ main = () ->
   document.getElementById('imgTbl').width = 2*SVG_SIZE
   object3D = load('Cube')
 
+  gui = new dat.GUI()
+
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)
 
