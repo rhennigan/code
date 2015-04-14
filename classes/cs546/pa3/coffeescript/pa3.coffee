@@ -604,8 +604,14 @@ main = () ->
     
     transformVertices(object3D, scale, translation, shear, rotation, perspective)
 
+  attachHandler = (name) ->
+    document.getElementById(name).addEventListener "change", (e) =>
+      reset(name)
+
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)
+
+  
 
   document.getElementById('rotateXY+').addEventListener "click", (e) => 
       # rotate(object3D, -R_INC, 0, 0)

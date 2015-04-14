@@ -653,7 +653,7 @@
   })();
 
   main = function() {
-    var object3D, perspective, reset, rotation, scale, shear, translation;
+    var attachHandler, object3D, perspective, reset, rotation, scale, shear, translation;
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
     object3D = load('Cube');
@@ -718,6 +718,13 @@
           perspective.z = -0.25;
       }
       return transformVertices(object3D, scale, translation, shear, rotation, perspective);
+    };
+    attachHandler = function(name) {
+      return document.getElementById(name).addEventListener("change", (function(_this) {
+        return function(e) {
+          return reset(name);
+        };
+      })(this));
     };
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {
