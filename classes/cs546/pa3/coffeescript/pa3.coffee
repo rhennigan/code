@@ -168,6 +168,7 @@ callback = (obj, txt) ->
 
   for line in obj.meshLines
     lineXY = createSVGLine(op.xy[line.p1], op.xy[line.p2], SVG_STROKE)
+    console.log lineXY
     lineXZ = createSVGLine(op.xz[line.p1], op.xz[line.p2], SVG_STROKE)
     lineYZ = createSVGLine(op.yz[line.p1], op.yz[line.p2], SVG_STROKE)
     ip1 = isometricProjection(obj.vertices[line.p1])

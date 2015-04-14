@@ -277,6 +277,7 @@
     for (l = 0, len2 = ref1.length; l < len2; l++) {
       line = ref1[l];
       lineXY = createSVGLine(op.xy[line.p1], op.xy[line.p2], SVG_STROKE);
+      console.log(lineXY);
       lineXZ = createSVGLine(op.xz[line.p1], op.xz[line.p2], SVG_STROKE);
       lineYZ = createSVGLine(op.yz[line.p1], op.yz[line.p2], SVG_STROKE);
       ip1 = isometricProjection(obj.vertices[line.p1]);
