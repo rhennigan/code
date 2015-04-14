@@ -666,8 +666,8 @@ class Main
   console.log objectName
   object3D = load(objectName)
 
-  slider: (name, low, high) =>
-    control = @gui.add(@t, name, low, high)
+  slider: (gui, name, low, high) =>
+    control = @ui.add(@t, name, low, high)
     control.onChange((value) => 
       reset())
 
@@ -737,9 +737,9 @@ class Main
 
     updateGUI()
 
-  reset('Isometric')
   makeGUI()
-
+  reset('Isometric')
+  
   attachHandler = (name) =>
     document.getElementById(name).addEventListener "click", (e) =>
       reset(name)

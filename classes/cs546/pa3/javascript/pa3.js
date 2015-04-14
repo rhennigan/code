@@ -682,9 +682,9 @@
 
     object3D = load(objectName);
 
-    Main.prototype.slider = function(name, low, high) {
+    Main.prototype.slider = function(gui, name, low, high) {
       var control;
-      control = this.gui.add(this.t, name, low, high);
+      control = this.ui.add(this.t, name, low, high);
       return control.onChange((function(_this) {
         return function(value) {
           return reset();
@@ -783,9 +783,9 @@
       return updateGUI();
     };
 
-    reset('Isometric');
-
     makeGUI();
+
+    reset('Isometric');
 
     attachHandler = function(name) {
       return document.getElementById(name).addEventListener("click", function(e) {
