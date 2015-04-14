@@ -442,6 +442,7 @@
       results = [];
       for (k = 0, len1 = ref.length; k < len1; k++) {
         v = ref[k];
+        console.log(v);
         results.push({
           x: m[1][4] + m[1][1] * v.x + m[1][2] * v.y + m[1][3] * v.z,
           y: m[2][4] + m[2][1] * v.x + m[2][2] * v.y + m[2][3] * v.z
@@ -450,6 +451,7 @@
       return results;
     })();
     console.log(object3D.vertices);
+    console.log(transformedVertices);
     results = [];
     for (i = k = 0, ref = object3D.meshLines.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
       meshLine = object3D.meshLines[i];
