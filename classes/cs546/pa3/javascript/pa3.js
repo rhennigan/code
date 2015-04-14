@@ -370,12 +370,48 @@
   };
 
   transformationMatrix = function(scale, translation, shear, rotation, perspective) {
-    var px, py, pz, ref, ref1, ref2, ref3, ref4, rx, ry, rz, sx, sxy, sxz, sy, syz, sz, tx, ty, tz;
+    var px, py, pz, ref, ref1, ref2, ref3, ref4, rx, ry, rz, sx, sxy, sxz, sy, syz, sz, tx, ty, tz, v1, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v2, v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v3, v30, v31, v32, v33, v34, v35, v36, v4, v5, v6, v7, v8, v9;
     ref = [scale.x, scale.y, scale.z], sx = ref[0], sy = ref[1], sz = ref[2];
     ref1 = [translation.x, translation.y, translation.z], tx = ref1[0], ty = ref1[1], tz = ref1[2];
     ref2 = [shear.x, shear.y, shear.z], syz = ref2[0], sxz = ref2[1], sxy = ref2[2];
     ref3 = [rotation.x, rotation.y, rotation.z], rx = ref3[0], ry = ref3[1], rz = ref3[2];
-    return ref4 = [perspective.x, perspective.y, perspective.z], px = ref4[0], py = ref4[1], pz = ref4[2], ref4;
+    ref4 = [perspective.x, perspective.y, perspective.z], px = ref4[0], py = ref4[1], pz = ref4[2];
+    v1 = Math.cos(rx);
+    v2 = Math.sin(rx);
+    v3 = Math.cos(rz);
+    v4 = Math.sin(ry);
+    v5 = Math.sin(rz);
+    v6 = Math.tan(sxy);
+    v7 = Math.tan(syz);
+    v8 = Math.cos(ry);
+    v9 = -v4;
+    v10 = px * v6;
+    v11 = py + v10;
+    v12 = Math.tan(sxz);
+    v13 = v1 * v3;
+    v14 = v2 * v3;
+    v15 = v1 * v5;
+    v16 = v2 * v5;
+    v17 = -v8;
+    v18 = px * v12;
+    v19 = v11 * v7;
+    v20 = pz + v18 + v19;
+    v21 = v6 * v7;
+    v22 = v12 + v21;
+    v23 = v13 * v4;
+    v24 = v1 * v8;
+    v25 = v15 * v9;
+    v26 = rx - syz;
+    v27 = v17 * v2;
+    v28 = v16 * v4;
+    v29 = v17 * v5;
+    v30 = v2 * v7;
+    v31 = v1 + v30;
+    v32 = v3 * v8;
+    v33 = v14 * v9;
+    v34 = 1 / Math.cos(syz);
+    v35 = Math.sin(v26);
+    return v36 = v34 * v35;
   };
 
   generalizedTransformation = function(scale, translation, shear, rotation, perspective, point) {

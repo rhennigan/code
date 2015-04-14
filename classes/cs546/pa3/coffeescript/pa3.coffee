@@ -280,6 +280,43 @@ transformationMatrix = (scale, translation, shear, rotation, perspective) ->
   [  rx,  ry,  rz ] = [    rotation.x,    rotation.y,    rotation.z ]
   [  px,  py,  pz ] = [ perspective.x, perspective.y, perspective.z ]
 
+  v1 = Math.cos(rx)
+  v2 = Math.sin(rx)
+  v3 = Math.cos(rz)
+  v4 = Math.sin(ry)
+  v5 = Math.sin(rz)
+  v6 = Math.tan(sxy)
+  v7 = Math.tan(syz)
+  v8 = Math.cos(ry)
+  v9 = -v4
+  v10 = px * v6
+  v11 = py + v10
+  v12 = Math.tan(sxz)
+  v13 = v1 * v3
+  v14 = v2 * v3
+  v15 = v1 * v5
+  v16 = v2 * v5
+  v17 = -v8
+  v18 = px * v12
+  v19 = v11 * v7
+  v20 = pz + v18 + v19
+  v21 = v6 * v7
+  v22 = v12 + v21
+  v23 = v13 * v4
+  v24 = v1 * v8
+  v25 = v15 * v9
+  v26 = rx - syz
+  v27 = v17 * v2
+  v28 = v16 * v4
+  v29 = v17 * v5
+  v30 = v2 * v7
+  v31 = v1 + v30
+  v32 = v3 * v8
+  v33 = v14 * v9
+  v34 = 1 / Math.cos(syz)
+  v35 = Math.sin(v26)
+  v36 = v34 * v35
+
 ###############################################################################
 
 generalizedTransformation = (scale, translation, shear, rotation, perspective, point) ->
