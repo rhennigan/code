@@ -749,7 +749,6 @@ class Main
                                  {x:@t.rx , y:@t.ry , z:@t.rz },
                                  {x:@t.px , y:@t.py , z:@t.pz })
 
-    console.log @gui
     # updateGUI()
 
   # makeGUI()

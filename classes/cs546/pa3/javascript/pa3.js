@@ -754,7 +754,7 @@
             this.t.pz = 0.25;
         }
       }
-      transformVertices(this.object3D, {
+      return transformVertices(this.object3D, {
         x: this.t.sx,
         y: this.t.sy,
         z: this.t.sz
@@ -775,7 +775,6 @@
         y: this.t.py,
         z: this.t.pz
       });
-      return console.log(this.gui);
     };
 
     attachHandler = function(name) {
