@@ -693,7 +693,7 @@ class Main
     @gui = new dat.GUI()
 
     slider = (f, name, low, high) =>
-      control = @gui.add(@t, name, low, high).listen()
+      control = f.add(@t, name, low, high).listen()
       control.onChange((value) => @reset())
 
     fs = @gui.addFolder('scale')
@@ -701,21 +701,22 @@ class Main
     slider(fs, 'sy', -2.0, 2.0)
     slider(fs, 'sz', -2.0, 2.0)
 
-    slider('tx', -2.0, 2.0)
-    slider('ty', -2.0, 2.0)
-    slider('tz', -2.0, 2.0)
+    ft = @gui.addFolder('translation')
+    slider(ft, 'tx', -2.0, 2.0)
+    slider(ft, 'ty', -2.0, 2.0)
+    slider(ft, 'tz', -2.0, 2.0)
 
-    slider('sxy', -1.0, 1.0)
-    slider('sxz', -1.0, 1.0)
-    slider('syz', -1.0, 1.0)
+    slider(ft, 'sxy', -1.0, 1.0)
+    slider(ft, 'sxz', -1.0, 1.0)
+    slider(ft, 'syz', -1.0, 1.0)
 
-    slider('rx', -Math.PI, Math.PI)
-    slider('ry', -Math.PI, Math.PI)
-    slider('rz', -Math.PI, Math.PI)
+    slider(ft, 'rx', -Math.PI, Math.PI)
+    slider(ft, 'ry', -Math.PI, Math.PI)
+    slider(ft, 'rz', -Math.PI, Math.PI)
 
-    slider('px', -0.3, 0.3)
-    slider('py', -0.3, 0.3)
-    slider('pz', -0.3, 0.3)
+    slider(ft, 'px', -0.3, 0.3)
+    slider(ft, 'py', -0.3, 0.3)
+    slider(ft, 'pz', -0.3, 0.3)
 
   reset: (preset) ->
 
