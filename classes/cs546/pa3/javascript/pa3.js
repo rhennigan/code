@@ -684,13 +684,13 @@
       this.reset('Isometric');
       attachHandler = (function(_this) {
         return function(name) {
-          document.getElementById(name).addEventListener("click", function(e) {
+          return document.getElementById(name).addEventListener("click", function(e) {
             _this.reset(name);
             return console.log(_this.t);
           });
-          return attachHandler('Isometric');
         };
       })(this);
+      attachHandler('Isometric');
       attachHandler('Dimetric');
       attachHandler('Trimetric');
       attachHandler('Oblique');

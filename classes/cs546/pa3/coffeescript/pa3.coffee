@@ -677,7 +677,7 @@ class Main
         @reset(name)
         console.log @t
 
-      attachHandler('Isometric')
+    attachHandler('Isometric')
     attachHandler('Dimetric')
     attachHandler('Trimetric')
     attachHandler('Oblique')
