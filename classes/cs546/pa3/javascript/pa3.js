@@ -673,9 +673,8 @@
     });
     reset = (function(_this) {
       return function(preset) {
-        var t;
         console.log("resetting " + preset);
-        _this.t = t = {
+        _this.t = {
           sx: 1,
           sy: 1,
           sz: 1,
@@ -694,16 +693,16 @@
         };
         switch (preset) {
           case 'Isometric':
-            t.rx = Math.asin(1 / Math.sqrt(3));
-            t.ry = Math.PI / 4;
+            _this.t.rx = Math.asin(1 / Math.sqrt(3));
+            _this.t.ry = Math.PI / 4;
             break;
           case 'Dimetric':
-            t.rx = Math.PI / 16;
-            t.ry = Math.PI / 4;
+            _this.t.rx = Math.PI / 16;
+            _this.t.ry = Math.PI / 4;
             break;
           case 'Trimetric':
-            t.rx = Math.PI / 16;
-            t.ry = Math.PI / 5;
+            _this.t.rx = Math.PI / 16;
+            _this.t.ry = Math.PI / 5;
             break;
           case 'Oblique':
             t.syz = t.sxz = 0.5;
@@ -726,27 +725,27 @@
             t.py = 0.125;
             t.pz = 0.25;
         }
-        console.log(t);
+        console.log(_this.t);
         return transformVertices(object3D, {
-          x: t.sx,
-          y: t.sy,
-          z: t.sz
+          x: _this.t.sx,
+          y: _this.t.sy,
+          z: _this.t.sz
         }, {
-          x: t.tx,
-          y: t.ty,
-          z: t.tz
+          x: _this.t.tx,
+          y: _this.t.ty,
+          z: _this.t.tz
         }, {
-          x: t.syz,
-          y: t.sxz,
-          z: t.sxy
+          x: _this.t.syz,
+          y: _this.t.sxz,
+          z: _this.t.sxy
         }, {
-          x: t.rx,
-          y: t.ry,
-          z: t.rz
+          x: _this.t.rx,
+          y: _this.t.ry,
+          z: _this.t.rz
         }, {
-          x: t.px,
-          y: t.py,
-          z: t.pz
+          x: _this.t.px,
+          y: _this.t.py,
+          z: _this.t.pz
         });
       };
     })(this);

@@ -664,7 +664,7 @@ main = () ->
   reset = (preset) =>
     console.log "resetting #{preset}"
 
-    @t = t = {
+    @t = {
       sx:  1, sy:  1, sz:  1,
       tx:  0, ty:  0, tz:  0,
       sxy: 0, sxz: 0, syz: 0,
@@ -675,16 +675,16 @@ main = () ->
     switch preset
 
       when 'Isometric'
-        t.rx = Math.asin(1 / Math.sqrt(3))
-        t.ry = Math.PI / 4
+        @t.rx = Math.asin(1 / Math.sqrt(3))
+        @t.ry = Math.PI / 4
 
       when 'Dimetric'
-        t.rx = Math.PI / 16
-        t.ry = Math.PI / 4
+        @t.rx = Math.PI / 16
+        @t.ry = Math.PI / 4
 
       when 'Trimetric'
-        t.rx = Math.PI / 16
-        t.ry = Math.PI / 5
+        @t.rx = Math.PI / 16
+        @t.ry = Math.PI / 5
 
       when 'Oblique'
         t.syz = t.sxz = 0.5
@@ -707,13 +707,13 @@ main = () ->
         t.py = 0.125
         t.pz = 0.25
 
-    console.log t
+    console.log @t
     
-    transformVertices(object3D, {x:t.sx , y:t.sy , z:t.sz }, 
-                                {x:t.tx , y:t.ty , z:t.tz },
-                                {x:t.syz, y:t.sxz, z:t.sxy},
-                                {x:t.rx , y:t.ry , z:t.rz },
-                                {x:t.px , y:t.py , z:t.pz })
+    transformVertices(object3D, {x:@t.sx , y:@t.sy , z:@t.sz }, 
+                                {x:@t.tx , y:@t.ty , z:@t.tz },
+                                {x:@t.syz, y:@t.sxz, z:@t.sxy},
+                                {x:@t.rx , y:@t.ry , z:@t.rz },
+                                {x:@t.px , y:@t.py , z:@t.pz })
 
   reset('Isometric')
 
