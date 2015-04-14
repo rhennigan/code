@@ -685,7 +685,7 @@
 
     reset = function(preset) {
       if (preset != null) {
-        Main.t = {
+        this.t = {
           sx: 1,
           sy: 1,
           sz: 1,
@@ -704,61 +704,61 @@
         };
         switch (preset) {
           case 'Isometric':
-            Main.t.rx = Math.asin(1 / Math.sqrt(3));
-            Main.t.ry = Math.PI / 4;
+            this.t.rx = Math.asin(1 / Math.sqrt(3));
+            this.t.ry = Math.PI / 4;
             break;
           case 'Dimetric':
-            Main.t.rx = Math.PI / 16;
-            Main.t.ry = Math.PI / 4;
+            this.t.rx = Math.PI / 16;
+            this.t.ry = Math.PI / 4;
             break;
           case 'Trimetric':
-            Main.t.rx = Math.PI / 16;
-            Main.t.ry = Math.PI / 5;
+            this.t.rx = Math.PI / 16;
+            this.t.ry = Math.PI / 5;
             break;
           case 'Oblique':
-            Main.t.syz = Main.t.sxz = 0.5;
+            this.t.syz = this.t.sxz = 0.5;
             break;
           case 'Perspective1':
-            Main.t.rx = Math.PI / 16;
-            Main.t.ry = Math.PI / 5;
-            Main.t.pz = 0.25;
+            this.t.rx = Math.PI / 16;
+            this.t.ry = Math.PI / 5;
+            this.t.pz = 0.25;
             break;
           case 'Perspective2':
-            Main.t.rx = Math.PI / 16;
-            Main.t.ry = Math.PI / 5;
-            Main.t.py = 0.125;
-            Main.t.pz = 0.25;
+            this.t.rx = Math.PI / 16;
+            this.t.ry = Math.PI / 5;
+            this.t.py = 0.125;
+            this.t.pz = 0.25;
             break;
           case 'Perspective3':
-            Main.t.rx = Math.PI / 16;
-            Main.t.ry = Math.PI / 5;
-            Main.t.px = 0.0625;
-            Main.t.py = 0.125;
-            Main.t.pz = 0.25;
+            this.t.rx = Math.PI / 16;
+            this.t.ry = Math.PI / 5;
+            this.t.px = 0.0625;
+            this.t.py = 0.125;
+            this.t.pz = 0.25;
         }
       }
       transformVertices(object3D, {
-        x: Main.t.sx,
-        y: Main.t.sy,
-        z: Main.t.sz
+        x: this.t.sx,
+        y: this.t.sy,
+        z: this.t.sz
       }, {
-        x: Main.t.tx,
-        y: Main.t.ty,
-        z: Main.t.tz
+        x: this.t.tx,
+        y: this.t.ty,
+        z: this.t.tz
       }, {
-        x: Main.t.syz,
-        y: Main.t.sxz,
-        z: Main.t.sxy
+        x: this.t.syz,
+        y: this.t.sxz,
+        z: this.t.sxy
       }, {
-        x: Main.t.rx,
-        y: Main.t.ry,
-        z: Main.t.rz
+        x: this.t.rx,
+        y: this.t.ry,
+        z: this.t.rz
       }, {
-        x: Main.t.px,
-        y: Main.t.py,
-        z: Main.t.pz
+        x: this.t.px,
+        y: this.t.py,
+        z: this.t.pz
       });
-      return console.log(Main.gui);
+      return console.log(this.gui);
     };
 
     reset('Isometric');

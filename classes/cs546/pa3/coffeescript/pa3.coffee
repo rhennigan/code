@@ -684,7 +684,7 @@ class Main
   #   @slider('sy', -2.0, 2.0)
   #   @slider('sz', -2.0, 2.0)
 
-  reset = (preset) =>
+  reset = (preset) ->
 
     if preset?
 
