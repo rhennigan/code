@@ -581,6 +581,7 @@ class Main
 
     fpr = @gui.addFolder('presets')
     @t.isometric = () -> @reset('Isometric')
+    console.log @t
     fpr.add(@t, 'isometric')
 
   reset: (preset) ->

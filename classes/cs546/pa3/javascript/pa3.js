@@ -766,6 +766,7 @@
       this.t.isometric = function() {
         return this.reset('Isometric');
       };
+      console.log(this.t);
       return fpr.add(this.t, 'isometric');
     };
 
