@@ -477,8 +477,8 @@ load = (object) ->
 
 class Viewer
 
-  objectName: 'Cube'
-  object3D:   null
+  objectName = 'Cube'
+  object3D   = null
 
   scale:       {x: 1, y: 1, z: 1}
   translation: {x: 0, y: 0, z: 0}
@@ -487,7 +487,13 @@ class Viewer
   perspective: {x: 0, y: 0, z: 0}
 
   constructor: () ->
+    
+
+  draw: () =>
+    SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2
+    document.getElementById('imgTbl').width = 2 * SVG_SIZE
     @object3D = load(@objectName)
+
 
   reset: (preset) =>
     @scale       = {x: 1, y: 1, z: 1}

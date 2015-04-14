@@ -574,9 +574,11 @@
   };
 
   Viewer = (function() {
-    Viewer.prototype.objectName = 'Cube';
+    var object3D, objectName;
 
-    Viewer.prototype.object3D = null;
+    objectName = 'Cube';
+
+    object3D = null;
 
     Viewer.prototype.scale = {
       x: 1,
@@ -610,8 +612,14 @@
 
     function Viewer() {
       this.reset = bind(this.reset, this);
-      this.object3D = load(this.objectName);
+      this.draw = bind(this.draw, this);
     }
+
+    Viewer.prototype.draw = function() {
+      SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
+      document.getElementById('imgTbl').width = 2 * SVG_SIZE;
+      return this.object3D = load(this.objectName);
+    };
 
     Viewer.prototype.reset = function(preset) {
       this.scale = {
