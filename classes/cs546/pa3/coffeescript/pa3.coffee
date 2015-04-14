@@ -704,6 +704,10 @@ class Main
     slider('ty', -2.0, 2.0)
     slider('tz', -2.0, 2.0)
 
+    slider('sxy', -1.0, 1.0)
+    slider('sxz', -1.0, 1.0)
+    slider('syz', -1.0, 1.0)
+
   reset: (preset) ->
 
     if preset?

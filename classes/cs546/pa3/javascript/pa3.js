@@ -722,7 +722,10 @@
       slider('sz', -2.0, 2.0);
       slider('tx', -2.0, 2.0);
       slider('ty', -2.0, 2.0);
-      return slider('tz', -2.0, 2.0);
+      slider('tz', -2.0, 2.0);
+      slider('sxy', -1.0, 1.0);
+      slider('sxz', -1.0, 1.0);
+      return slider('syz', -1.0, 1.0);
     };
 
     Main.prototype.reset = function(preset) {
