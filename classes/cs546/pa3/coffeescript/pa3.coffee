@@ -495,20 +495,35 @@ class Viewer
 
       switch preset
 
-        when 'isometric'
+        when 'Isometric'
           @rotation.x = Math.asin(1 / Math.sqrt(3))
           @rotation.y = Math.PI / 4
 
-        when 'dimetric'
+        when 'Dimetric'
           @rotation.x = Math.PI / 16
           @rotation.y = Math.PI / 4
 
-        when 'trimetric'
+        when 'Trimetric'
           @rotation.x = Math.PI / 16
           @rotation.y = Math.PI / 5
 
-        when 'oblique'
+        when 'Oblique'
           @shear.x = @shear.y = 0.5
+
+        when 'Perspective1'
+          @rotation.x = Math.PI / 16
+          @rotation.y = Math.PI / 5
+          @perspective.z = -0.25
+
+        when 'Perspective2'
+          @rotation.x = Math.PI / 16
+          @rotation.y = Math.PI / 5
+          @perspective.z = -0.25
+
+        when 'Perspective3'
+          @rotation.x = Math.PI / 16
+          @rotation.y = Math.PI / 5
+          @perspective.z = -0.25
 
 ###############################################################################
 

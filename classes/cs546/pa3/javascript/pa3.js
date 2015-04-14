@@ -636,17 +636,29 @@
       };
       if (preset != null) {
         switch (preset) {
-          case 'isometric':
+          case 'Isometric':
             this.rotation.x = Math.asin(1 / Math.sqrt(3));
             return this.rotation.y = Math.PI / 4;
-          case 'dimetric':
+          case 'Dimetric':
             this.rotation.x = Math.PI / 16;
             return this.rotation.y = Math.PI / 4;
-          case 'trimetric':
+          case 'Trimetric':
             this.rotation.x = Math.PI / 16;
             return this.rotation.y = Math.PI / 5;
-          case 'oblique':
+          case 'Oblique':
             return this.shear.x = this.shear.y = 0.5;
+          case 'Perspective1':
+            this.rotation.x = Math.PI / 16;
+            this.rotation.y = Math.PI / 5;
+            return this.perspective.z = -0.25;
+          case 'Perspective2':
+            this.rotation.x = Math.PI / 16;
+            this.rotation.y = Math.PI / 5;
+            return this.perspective.z = -0.25;
+          case 'Perspective3':
+            this.rotation.x = Math.PI / 16;
+            this.rotation.y = Math.PI / 5;
+            return this.perspective.z = -0.25;
         }
       }
     };
