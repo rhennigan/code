@@ -653,7 +653,7 @@
   })();
 
   main = function() {
-    var k, len1, object3D, perspective, projection, projections, reset, rotation, scale, shear, translation;
+    var attachHandler, object3D, perspective, reset, rotation, scale, shear, translation;
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
     object3D = load('Cube');
@@ -720,20 +720,21 @@
       }
       return transformVertices(object3D, scale, translation, shear, rotation, perspective);
     };
+    attachHandler = (function(_this) {
+      return function(name) {
+        return document.getElementById(name).addEventListener("click", function(e) {
+          return reset(name);
+        });
+      };
+    })(this);
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {
         return object3D = load(selector.value);
       };
     })(this));
-    projections = ['Isometric', 'Dimetric', 'Trimetric'];
-    for (k = 0, len1 = projections.length; k < len1; k++) {
-      projection = projections[k];
-      document.getElementById(projection).addEventListener("change", (function(_this) {
-        return function(e) {
-          return reset(projection);
-        };
-      })(this));
-    }
+    attachHandler('Isometric');
+    attachHandler('Dimetric');
+    attachHandler('Trimetric');
     document.getElementById('rotateXY+').addEventListener("click", (function(_this) {
       return function(e) {
         return reset('Oblique');
