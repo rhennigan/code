@@ -90,7 +90,7 @@
   };
 
   rescaleVertices = function(vertices, size) {
-    var k, l, len1, len2, m, r, results, rm, shifted, v;
+    var k, l, len1, len2, len3, m, n, r, results, rm, shifted, v;
     r = getVertexRanges(shifted);
     m = {
       x: (r.x1 + r.x2) / 2,
@@ -105,10 +105,14 @@
         z: v.z - m.z
       };
     }
-    rm = Math.max(Math.abs(r.x1), Math.abs(r.x2), Math.abs(r.y1), Math.abs(r.y2), Math.abs(r.z1), Math.abs(r.z2));
-    results = [];
+    rm = 0;
     for (l = 0, len2 = vertices.length; l < len2; l++) {
       v = vertices[l];
+      rm = Math.max(m, Math.abs(v.x), Math.abs(v.y), Math.abs(v.z));
+    }
+    results = [];
+    for (n = 0, len3 = vertices.length; n < len3; n++) {
+      v = vertices[n];
       results.push({
         x: .05 * size + .90 * size * (rm - rx - 2 * r.x1 + 2 * v.x) / (2 * rm),
         y: .05 * size + .90 * size * (rm - ry - 2 * r.y1 + 2 * v.y) / (2 * rm),

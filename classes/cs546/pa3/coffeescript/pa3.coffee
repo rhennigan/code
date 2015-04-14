@@ -62,10 +62,10 @@ rescaleVertices = (vertices, size) ->
   m = {x: (r.x1+r.x2)/2, y: (r.y1+r.y2)/2, z: (r.z1+r.z2)/2}
   shifted = {x: v.x - m.x, y: v.y - m.y, z: v.z - m.z} for v in vertices
   
+  rm = 0
 
-  rm = Math.max(Math.abs(r.x1), Math.abs(r.x2), 
-                Math.abs(r.y1), Math.abs(r.y2),
-                Math.abs(r.z1), Math.abs(r.z2))
+  for v in vertices
+    rm = Math.max(m, Math.abs(v.x), Math.abs(v.y), Math.abs(v.z))
 
   for v in vertices
     {
