@@ -46,27 +46,29 @@ getVertexRanges = (vertices) ->
   zs = for v in vertices
     v.z
 
+  x1 = xs.min()
+  x2 = xs.max()
+  y1 = ys.min()
+  y2 = ys.max()
+  z1 = zs.min()
+  z2 = zs.max()
+
+  m = Math.max(Math.abs(x1), Math.abs(x2), 
+               Math.abs(y1), Math.abs(y2),
+               Math.abs(z1), Math.abs(z2))
+
   {
-    x1: xs.min()
-    x2: xs.max()
+    x1: x1
+    x2: x2
 
-    y1: ys.min()
-    y2: ys.max()
+    y1: y1
+    y2: y2
 
-    z1: zs.min()
-    z2: zs.max()
+    z1: z1
+    z2: z2
+
+    m: m
   }
-
-getVertexMean = (vertices) ->
-  xs = ys = zs = 0
-  n = vertices.length
-
-  for v in vertices
-    xs += v.x
-    ys += v.y
-    zs += v.z
-
-  {x: xs / n, y: ys / n, z: zs / n}
 
 rescaleVertices = (vertices, size) ->
   r = getVertexRanges(shifted)
