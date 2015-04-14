@@ -672,6 +672,7 @@
 
     function Main() {
       this.gui = new dat.GUI();
+      console.log(this.gui);
     }
 
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
@@ -682,9 +683,9 @@
 
     object3D = load(objectName);
 
-    slider = function(gui, name, low, high) {
+    slider = function(name, low, high) {
       var control;
-      control = gui.add(Main.t, name, low, high);
+      control = Main.gui.add(Main.t, name, low, high);
       return control.onChange(function(value) {
         return reset();
       });
