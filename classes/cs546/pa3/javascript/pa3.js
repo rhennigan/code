@@ -670,21 +670,21 @@
 
   Main = (function() {
     Main.prototype.t = {
-      sx: 1,
-      sy: 1,
-      sz: 1,
-      tx: 0,
-      ty: 0,
-      tz: 0,
-      sxy: 0,
-      sxz: 0,
-      syz: 0,
-      rx: 0,
-      ry: 0,
-      rz: 0,
-      px: 0,
-      py: 0,
-      pz: 0
+      sx: 1.0,
+      sy: 1.0,
+      sz: 1.0,
+      tx: 0.0,
+      ty: 0.0,
+      tz: 0.0,
+      sxy: 0.0,
+      sxz: 0.0,
+      syz: 0.0,
+      rx: 0.0,
+      ry: 0.0,
+      rz: 0.0,
+      px: 0.0,
+      py: 0.0,
+      pz: 0.0
     };
 
     Main.prototype.gui = null;
