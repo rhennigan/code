@@ -370,11 +370,13 @@
   };
 
   generalizedTransformation = function(scale, translation, shear, rotation, perspective, point) {
-    var ref, ref1, ref2, ref3, rx, ry, rz, sx, sxy, sxz, sy, syz, sz, tx, ty, tz;
+    var px, py, pz, ref, ref1, ref2, ref3, ref4, rx, ry, rz, sx, sxy, sxz, sy, syz, sz, tx, ty, tz, x, y, z;
     ref = [scale.x, scale.y, scale.z], sx = ref[0], sy = ref[1], sz = ref[2];
     ref1 = [translation.x, translation.y, translation.z], tx = ref1[0], ty = ref1[1], tz = ref1[2];
     ref2 = [shear.x, shear.y, shear.z], syz = ref2[0], sxz = ref2[1], sxy = ref2[2];
-    return ref3 = [rotation.x, rotation.y, rotation.z], rx = ref3[0], ry = ref3[1], rz = ref3[2], ref3;
+    ref3 = [rotation.x, rotation.y, rotation.z], rx = ref3[0], ry = ref3[1], rz = ref3[2];
+    ref4 = [perspective.x, perspective.y, perspective.z], px = ref4[0], py = ref4[1], pz = ref4[2];
+    return x = point[0], y = point[1], z = point[2], point;
   };
 
   clear = function() {
