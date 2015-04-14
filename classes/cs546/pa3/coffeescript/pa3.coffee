@@ -518,10 +518,7 @@ class Main
     @rx  = @ry  = @rz  = 0
     @px  = @py  = @pz  = 0
 
-  isometric: () -> 
-    @clearParameters()
-    @rx = -Math.PI + Math.asin(1 / Math.sqrt(3))
-    @rz = Math.PI / 4
+  isometric: () -> @reset('Isometric')
 
   constructor: () ->
     @initSVG()

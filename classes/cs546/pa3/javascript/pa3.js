@@ -714,9 +714,7 @@
     };
 
     Main.prototype.isometric = function() {
-      this.clearParameters();
-      this.rx = -Math.PI + Math.asin(1 / Math.sqrt(3));
-      return this.rz = Math.PI / 4;
+      return this.reset('Isometric');
     };
 
     function Main() {
