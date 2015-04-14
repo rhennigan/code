@@ -144,7 +144,7 @@ callback = (obj, txt) ->
     if line[0] == 'f'
       obj.faces.push(parseFace(line))
 
-  # obj.vertices = rescaleVertices(obj.vertices, 1)
+  obj.vertices = rescaleVertices(obj.vertices, 1)
   console.log getVertexRanges(obj.vertices)
   op = orthoProj(obj.vertices)
 

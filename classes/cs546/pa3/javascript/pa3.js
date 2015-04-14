@@ -242,6 +242,7 @@
         obj.faces.push(parseFace(line));
       }
     }
+    obj.vertices = rescaleVertices(obj.vertices, 1);
     console.log(getVertexRanges(obj.vertices));
     op = orthoProj(obj.vertices);
     ref = (function() {
