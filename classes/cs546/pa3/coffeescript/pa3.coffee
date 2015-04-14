@@ -709,7 +709,11 @@ main = () ->
 
     console.log t
     
-    transformVertices(object3D, t.scale, t.translation, t.shear, t.rotation, t.perspective)
+    transformVertices(object3D, {x:t.sx , y:t.sy , z:t.sz }, 
+                                {x:t.tx , y:t.ty , z:t.tz },
+                                {x:t.syz, y:t.sxz, z:t.sxy},
+                                {x:t.rx , y:t.ry , z:t.rz },
+                                {x:t.px , y:t.py , z:t.pz })
 
   reset('Isometric')
 
