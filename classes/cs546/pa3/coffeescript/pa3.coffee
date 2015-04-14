@@ -657,12 +657,12 @@ main = () ->
     px:  0, py:  0, pz:  0
   }
 
-  objectName: 'Cube'
+  objectName = 'Cube'
 
   SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
   document.getElementById('imgTbl').width = 2*SVG_SIZE
-  console.log @objectName
-  object3D = load(@objectName)
+  console.log objectName
+  object3D = load(objectName)
 
   reset = (preset) =>
     console.log "resetting #{preset}"

@@ -648,7 +648,7 @@
   })();
 
   main = function() {
-    var attachHandler, c_sx, gui, object3D, reset;
+    var attachHandler, c_sx, gui, object3D, objectName, reset;
     ({
       t: {
         sx: 1,
@@ -666,13 +666,13 @@
         px: 0,
         py: 0,
         pz: 0
-      },
-      objectName: 'Cube'
+      }
     });
+    objectName = 'Cube';
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
-    console.log(this.objectName);
-    object3D = load(this.objectName);
+    console.log(objectName);
+    object3D = load(objectName);
     reset = (function(_this) {
       return function(preset) {
         console.log("resetting " + preset);
