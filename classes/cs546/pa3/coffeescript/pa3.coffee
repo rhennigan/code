@@ -718,8 +718,9 @@ class Main
     if preset?
 
       @t.sx = @t.sy = @t.sz = 1
-
-       = {
+      @t.tx = @t.ty = @t.tz = 0
+      
+      {
         sx:  1, sy:  1, sz:  1,
         tx:  0, ty:  0, tz:  0,
         sxy: 0, sxz: 0, syz: 0,
