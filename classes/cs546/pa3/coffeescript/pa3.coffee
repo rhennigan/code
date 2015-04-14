@@ -344,6 +344,12 @@ transformationMatrix = (scale, translation, shear, rotation, perspective) ->
 
 ###############################################################################
 
+transformVertices = (object3D, scale, translation, shear, rotation, perspective) ->
+  m = transformationMatrix(scale, translation, shear, rotation, perspective)
+  
+
+###############################################################################
+
 generalizedTransformation = (scale, translation, shear, rotation, perspective, point) ->
   [  sx,  sy,  sz ] = [       scale.x,       scale.y,       scale.z ]
   [  tx,  ty,  tz ] = [ translation.x, translation.y, translation.z ]
