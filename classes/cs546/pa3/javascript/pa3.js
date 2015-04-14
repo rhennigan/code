@@ -648,30 +648,12 @@
   })();
 
   main = function() {
-    var attachHandler, gui, object3D, reset, t;
+    var attachHandler, gui, object3D, reset;
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
     object3D = load('Cube');
-    t = {
-      sx: 1,
-      sy: 1,
-      sz: 1,
-      tx: 0,
-      ty: 0,
-      tz: 0,
-      sxy: 0,
-      sxz: 0,
-      syz: 0,
-      rx: 0,
-      ry: 0,
-      rz: 0,
-      px: 0,
-      py: 0,
-      pz: 0
-    };
-    reset = function(preset) {
-      console.log("resetting " + preset);
-      t = {
+    ({
+      t: {
         sx: 1,
         sy: 1,
         sz: 1,
@@ -687,70 +669,93 @@
         px: 0,
         py: 0,
         pz: 0
-      };
-      switch (preset) {
-        case 'Isometric':
-          t.rx = Math.asin(1 / Math.sqrt(3));
-          t.ry = Math.PI / 4;
-          break;
-        case 'Dimetric':
-          t.rx = Math.PI / 16;
-          t.ry = Math.PI / 4;
-          break;
-        case 'Trimetric':
-          t.rx = Math.PI / 16;
-          t.ry = Math.PI / 5;
-          break;
-        case 'Oblique':
-          t.syz = t.sxz = 0.5;
-          break;
-        case 'Perspective1':
-          t.rx = Math.PI / 16;
-          t.ry = Math.PI / 5;
-          t.pz = 0.25;
-          break;
-        case 'Perspective2':
-          t.rx = Math.PI / 16;
-          t.ry = Math.PI / 5;
-          t.py = 0.125;
-          t.pz = 0.25;
-          break;
-        case 'Perspective3':
-          t.rx = Math.PI / 16;
-          t.ry = Math.PI / 5;
-          t.px = 0.0625;
-          t.py = 0.125;
-          t.pz = 0.25;
       }
-      console.log(t);
-      return transformVertices(object3D, {
-        x: t.sx,
-        y: t.sy,
-        z: t.sz
-      }, {
-        x: t.tx,
-        y: t.ty,
-        z: t.tz
-      }, {
-        x: t.syz,
-        y: t.sxz,
-        z: t.sxy
-      }, {
-        x: t.rx,
-        y: t.ry,
-        z: t.rz
-      }, {
-        x: t.px,
-        y: t.py,
-        z: t.pz
-      });
-    };
+    });
+    reset = (function(_this) {
+      return function(preset) {
+        var t;
+        console.log("resetting " + preset);
+        _this.t = t = {
+          sx: 1,
+          sy: 1,
+          sz: 1,
+          tx: 0,
+          ty: 0,
+          tz: 0,
+          sxy: 0,
+          sxz: 0,
+          syz: 0,
+          rx: 0,
+          ry: 0,
+          rz: 0,
+          px: 0,
+          py: 0,
+          pz: 0
+        };
+        switch (preset) {
+          case 'Isometric':
+            t.rx = Math.asin(1 / Math.sqrt(3));
+            t.ry = Math.PI / 4;
+            break;
+          case 'Dimetric':
+            t.rx = Math.PI / 16;
+            t.ry = Math.PI / 4;
+            break;
+          case 'Trimetric':
+            t.rx = Math.PI / 16;
+            t.ry = Math.PI / 5;
+            break;
+          case 'Oblique':
+            t.syz = t.sxz = 0.5;
+            break;
+          case 'Perspective1':
+            t.rx = Math.PI / 16;
+            t.ry = Math.PI / 5;
+            t.pz = 0.25;
+            break;
+          case 'Perspective2':
+            t.rx = Math.PI / 16;
+            t.ry = Math.PI / 5;
+            t.py = 0.125;
+            t.pz = 0.25;
+            break;
+          case 'Perspective3':
+            t.rx = Math.PI / 16;
+            t.ry = Math.PI / 5;
+            t.px = 0.0625;
+            t.py = 0.125;
+            t.pz = 0.25;
+        }
+        console.log(t);
+        return transformVertices(object3D, {
+          x: t.sx,
+          y: t.sy,
+          z: t.sz
+        }, {
+          x: t.tx,
+          y: t.ty,
+          z: t.tz
+        }, {
+          x: t.syz,
+          y: t.sxz,
+          z: t.sxy
+        }, {
+          x: t.rx,
+          y: t.ry,
+          z: t.rz
+        }, {
+          x: t.px,
+          y: t.py,
+          z: t.pz
+        });
+      };
+    })(this);
     reset('Isometric');
     attachHandler = (function(_this) {
       return function(name) {
         return document.getElementById(name).addEventListener("click", function(e) {
           reset(name);
-          return console.log(t);
+          return console.log(_this.t);
         });
       };
     })(this);

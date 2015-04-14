@@ -653,7 +653,7 @@ main = () ->
   document.getElementById('imgTbl').width = 2*SVG_SIZE
   object3D = load('Cube')
 
-  t = {
+  t: {
     sx:  1, sy:  1, sz:  1,
     tx:  0, ty:  0, tz:  0,
     sxy: 0, sxz: 0, syz: 0,
@@ -661,10 +661,10 @@ main = () ->
     px:  0, py:  0, pz:  0
   }
 
-  reset = (preset) ->
+  reset = (preset) =>
     console.log "resetting #{preset}"
 
-    t = {
+    @t = t = {
       sx:  1, sy:  1, sz:  1,
       tx:  0, ty:  0, tz:  0,
       sxy: 0, sxz: 0, syz: 0,
@@ -720,7 +720,7 @@ main = () ->
   attachHandler = (name) =>
     document.getElementById(name).addEventListener "click", (e) =>
       reset(name)
-      console.log t
+      console.log @t
 
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)
