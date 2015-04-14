@@ -567,6 +567,7 @@ main = () ->
   perspective = {x: 0, y: 0, z: 0}
 
   reset = (preset) ->
+    console.log "resetting #{preset}"
     switch preset
 
       when 'Isometric'
@@ -604,7 +605,7 @@ main = () ->
     
     transformVertices(object3D, scale, translation, shear, rotation, perspective)
 
-  attachHandler = (name) ->
+  attachHandler = (name) =>
     document.getElementById(name).addEventListener "change", (e) =>
       reset(name)
 

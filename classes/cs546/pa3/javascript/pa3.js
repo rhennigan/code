@@ -683,6 +683,7 @@
       z: 0
     };
     reset = function(preset) {
+      console.log("resetting " + preset);
       switch (preset) {
         case 'Isometric':
           rotation.x = Math.asin(1 / Math.sqrt(3));
@@ -719,13 +720,13 @@
       }
       return transformVertices(object3D, scale, translation, shear, rotation, perspective);
     };
-    attachHandler = function(name) {
-      return document.getElementById(name).addEventListener("change", (function(_this) {
-        return function(e) {
+    attachHandler = (function(_this) {
+      return function(name) {
+        return document.getElementById(name).addEventListener("change", function(e) {
           return reset(name);
-        };
-      })(this));
-    };
+        });
+      };
+    })(this);
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {
         return object3D = load(selector.value);
