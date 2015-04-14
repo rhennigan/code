@@ -735,7 +735,7 @@
       slider = (function(_this) {
         return function(f, name, low, high) {
           var control;
-          control = f.add(_this.t, name, low, high).step(0.01);
+          control = f.add(_this.t, name, low, high).step(0.001);
           control.listen();
           return control.onChange(function(value) {
             return _this.reset();
