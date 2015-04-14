@@ -370,7 +370,7 @@
   };
 
   transformationMatrix = function(scale, translation, shear, rotation, perspective) {
-    var m11, m12, m13, m14, px, py, pz, ref, ref1, ref2, ref3, ref4, rx, ry, rz, sx, sxy, sxz, sy, syz, sz, tx, ty, tz, v1, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v2, v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v3, v30, v31, v32, v33, v34, v35, v36, v4, v5, v6, v7, v8, v9;
+    var m11, m12, m13, m14, m21, m22, m23, m24, px, py, pz, ref, ref1, ref2, ref3, ref4, rx, ry, rz, sx, sxy, sxz, sy, syz, sz, tx, ty, tz, v1, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v2, v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v3, v30, v31, v32, v33, v34, v35, v36, v4, v5, v6, v7, v8, v9;
     ref = [scale.x, scale.y, scale.z], sx = ref[0], sy = ref[1], sz = ref[2];
     ref1 = [translation.x, translation.y, translation.z], tx = ref1[0], ty = ref1[1], tz = ref1[2];
     ref2 = [shear.x, shear.y, shear.z], syz = ref2[0], sxz = ref2[1], sxy = ref2[2];
@@ -416,6 +416,10 @@
     m12 = sy * (v14 * v22 + v22 * v25 + v29 + v13 * v6 + v28 * v6);
     m13 = sz * (v22 * v24 + v27 * v6 + v9);
     m14 = tx + tz * v22 + ty * v6;
+    m21 = sx * (v31 * v5 + v3 * v36 * v9);
+    m22 = sy * (v3 * v31 + v4 * v5 * (v2 - v1 * v7));
+    m23 = sz * v17 * v36;
+    m24 = ty + tz * v7;
     return [[], [], [], []];
   };
 

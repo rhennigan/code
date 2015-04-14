@@ -322,7 +322,10 @@ transformationMatrix = (scale, translation, shear, rotation, perspective) ->
   m13 = sz*(v22*v24 + v27*v6 + v9)
   m14 = tx + tz*v22 + ty*v6
 
-
+  m21 = sx*(v31*v5 + v3*v36*v9)
+  m22 = sy*(v3*v31 + v4*v5*(v2 - v1*v7))
+  m23 = sz*v17*v36
+  m24 = ty + tz*v7
 
   [[]
    []
