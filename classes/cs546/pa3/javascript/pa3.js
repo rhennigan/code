@@ -818,6 +818,8 @@
     Main.prototype.reset = function(preset) {
       if (preset != null) {
         this.clearParameters();
+        console.log(this.object3D.projectionLabel);
+        this.object3D.projectionLabel.innerHTML = preset;
         switch (preset) {
           case 'Isometric':
             this.rx = -Math.PI + Math.atan(Math.sqrt(2));

@@ -622,6 +622,10 @@ class Main
 
       @clearParameters()
 
+      console.log @object3D.projectionLabel
+
+      @object3D.projectionLabel.innerHTML = preset
+
       switch preset
 
         when 'Isometric'
