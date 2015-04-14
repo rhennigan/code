@@ -449,12 +449,13 @@
       }
       return results;
     })();
+    console.log(transformed[0]);
     results = [];
     for (i = k = 0, ref = object3D.meshLines.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
       meshLine = object3D.meshLines[i];
+      console.log(meshLine);
       proj1 = transformed[meshLine.p1];
       proj2 = transformed[meshLine.p2];
-      console.log(proj1);
       object3D.svgLinesIP[i].setAttribute('x1', proj1.x);
       object3D.svgLinesIP[i].setAttribute('y1', proj1.y);
       object3D.svgLinesIP[i].setAttribute('x2', proj2.x);
