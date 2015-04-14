@@ -649,10 +649,6 @@ class Viewer
 ###############################################################################
 
 main = () ->
-  SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
-  document.getElementById('imgTbl').width = 2*SVG_SIZE
-  object3D = load('Cube')
-
   t: {
     sx:  1, sy:  1, sz:  1,
     tx:  0, ty:  0, tz:  0,
@@ -660,6 +656,14 @@ main = () ->
     rx:  0, ry:  0, rz:  0,
     px:  0, py:  0, pz:  0
   }
+
+  objectName: 'Cube'
+
+  SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
+  document.getElementById('imgTbl').width = 2*SVG_SIZE
+  object3D = load(@objectName)
+
+  
 
   reset = (preset) =>
     console.log "resetting #{preset}"
