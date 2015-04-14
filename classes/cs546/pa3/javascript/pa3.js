@@ -717,6 +717,30 @@
       return this.reset('Isometric');
     };
 
+    Main.prototype.dimetric = function() {
+      return this.reset('Dimetric');
+    };
+
+    Main.prototype.trimetric = function() {
+      return this.reset('Trimetric');
+    };
+
+    Main.prototype.oblique = function() {
+      return this.reset('Oblique');
+    };
+
+    Main.prototype.perspective1 = function() {
+      return this.reset('Perspective1');
+    };
+
+    Main.prototype.perspective2 = function() {
+      return this.reset('Perspective2');
+    };
+
+    Main.prototype.perspective3 = function() {
+      return this.reset('Perspective3');
+    };
+
     function Main() {
       this.initSVG = bind(this.initSVG, this);
       this.initSVG();

@@ -519,6 +519,12 @@ class Main
     @px  = @py  = @pz  = 0
 
   isometric: () -> @reset('Isometric')
+  dimetric: () -> @reset('Dimetric')
+  trimetric: () -> @reset('Trimetric')
+  oblique: () -> @reset('Oblique')
+  perspective1: () -> @reset('Perspective1')
+  perspective2: () -> @reset('Perspective2')
+  perspective3: () -> @reset('Perspective3')
 
   constructor: () ->
     @initSVG()
@@ -596,7 +602,7 @@ class Main
     fpr.add(@, 'isometric')
 
     fpr.open()
-    
+
   reset: (preset) ->
 
     if preset?
