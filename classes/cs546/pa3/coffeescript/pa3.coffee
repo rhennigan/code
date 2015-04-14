@@ -661,16 +661,19 @@ class Main
   objectName: 'Cube'
 
   constructor: () ->
+    @initSVG()
     @initGUI()
+
+  initSVG: ->
+    SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
+    document.getElementById('imgTbl').width = 2*SVG_SIZE
+    console.log @objectName
+    object3D = load(@objectName)
+    @reset('Isometric')
 
   initGUI: ->
     @gui = new dat.GUI()
     console.log @gui
-
-  SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
-  document.getElementById('imgTbl').width = 2*SVG_SIZE
-  console.log @objectName
-  object3D = load(@objectName)
 
   # slider = (name, low, high) =>
   #   control = @gui.add(@t, name, low, high)
@@ -744,7 +747,7 @@ class Main
     # updateGUI()
 
   # makeGUI()
-  @reset('Isometric')
+  
   
   attachHandler = (name) =>
     document.getElementById(name).addEventListener "click", (e) =>

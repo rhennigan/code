@@ -646,7 +646,7 @@
   })();
 
   Main = (function() {
-    var attachHandler, object3D;
+    var attachHandler;
 
     Main.prototype.t = {
       sx: 1,
@@ -671,21 +671,23 @@
     Main.prototype.objectName = 'Cube';
 
     function Main() {
+      this.initSVG();
       this.initGUI();
     }
+
+    Main.prototype.initSVG = function() {
+      var object3D;
+      SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
+      document.getElementById('imgTbl').width = 2 * SVG_SIZE;
+      console.log(this.objectName);
+      object3D = load(this.objectName);
+      return this.reset('Isometric');
+    };
 
     Main.prototype.initGUI = function() {
       this.gui = new dat.GUI();
       return console.log(this.gui);
     };
-
-    SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
-
-    document.getElementById('imgTbl').width = 2 * SVG_SIZE;
-
-    console.log(Main.objectName);
-
-    object3D = load(Main.objectName);
 
     Main.prototype.reset = function(preset) {
       if (preset != null) {
@@ -765,8 +767,6 @@
       return console.log(this.gui);
     };
 
-    Main.reset('Isometric');
-
     attachHandler = function(name) {
       return document.getElementById(name).addEventListener("click", function(e) {
         Main.reset(name);
@@ -775,6 +775,7 @@
     };
 
     document.getElementById('selector').addEventListener("change", function(e) {
+      var object3D;
       object3D = load(selector.value);
       return Main.reset();
     });
