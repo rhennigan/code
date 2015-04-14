@@ -436,7 +436,7 @@
     var i, k, m, meshLine, p1, p2, ref, results, size, transformed, v;
     size = SVG_SIZE;
     m = transformationMatrix(scale, translation, shear, rotation, perspective);
-    console.log(object3D.vertices[0]);
+    console.log(object3D.vertices);
     transformed = (function() {
       var k, len1, ref, results;
       ref = object3D.vertices;
@@ -450,6 +450,7 @@
       }
       return results;
     })();
+    console.log(transformed);
     results = [];
     for (i = k = 0, ref = object3D.meshLines.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
       meshLine = object3D.meshLines[i];
