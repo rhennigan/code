@@ -697,8 +697,7 @@
     })(this));
     document.getElementById('rotateXY+').addEventListener("click", (function(_this) {
       return function(e) {
-        rotation.z += R_INC;
-        return transformVertices(object3D, scale, translation, shear, rotation, perspective);
+        return reset('Isometric');
       };
     })(this));
     document.getElementById('rotateXZ+').addEventListener("click", (function(_this) {

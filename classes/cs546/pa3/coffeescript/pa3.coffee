@@ -578,8 +578,9 @@ main = () ->
 
   document.getElementById('rotateXY+').addEventListener "click", (e) => 
       # rotate(object3D, -R_INC, 0, 0)
-      rotation.z += R_INC
-      transformVertices(object3D, scale, translation, shear, rotation, perspective)
+      # rotation.z += R_INC
+      # transformVertices(object3D, scale, translation, shear, rotation, perspective)
+      reset('Isometric')
   
   document.getElementById('rotateXZ+').addEventListener "click", (e) => 
       rotate(object3D, 0, R_INC, 0)
