@@ -724,23 +724,9 @@
       if (preset != null) {
         this.t.sx = this.t.sy = this.t.sz = 1;
         this.t.tx = this.t.ty = this.t.tz = 0;
-        ({
-          sx: 1,
-          sy: 1,
-          sz: 1,
-          tx: 0,
-          ty: 0,
-          tz: 0,
-          sxy: 0,
-          sxz: 0,
-          syz: 0,
-          rx: 0,
-          ry: 0,
-          rz: 0,
-          px: 0,
-          py: 0,
-          pz: 0
-        });
+        this.t.sxy = this.t.sxz = this.t.syz = 0;
+        this.t.rx = this.t.ry = this.t.rz = 0;
+        this.t.px = this.t.py = this.t.pz = 0;
         switch (preset) {
           case 'Isometric':
             this.t.rx = Math.asin(1 / Math.sqrt(3));

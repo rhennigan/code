@@ -719,14 +719,9 @@ class Main
 
       @t.sx = @t.sy = @t.sz = 1
       @t.tx = @t.ty = @t.tz = 0
-      
-      {
-        sx:  1, sy:  1, sz:  1,
-        tx:  0, ty:  0, tz:  0,
-        sxy: 0, sxz: 0, syz: 0,
-        rx:  0, ry:  0, rz:  0,
-        px:  0, py:  0, pz:  0
-      }
+      @t.sxy = @t.sxz = @t.syz = 0
+      @t.rx = @t.ry = @t.rz = 0
+      @t.px = @t.py = @t.pz = 0
 
       switch preset
 
