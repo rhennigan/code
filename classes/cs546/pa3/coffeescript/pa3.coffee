@@ -1,7 +1,3 @@
-SVG_SIZE = 400
-SVG_STROKE = 0.5
-R_INC = Math.PI / 8
-
 ###############################################################################
 
 loadObject =  (url, store, cb, cbErr) ->
@@ -61,55 +57,30 @@ getVertexRanges = (vertices) ->
     z2: zs.max()
   }
 
-###############################################################################
+getVertexMean = (vertices) ->
+  xs = ys = zs = 0
+  n = vertices.length
 
-# rescaleVertices = (vertices, size) ->
-#   r = getVertexRanges(vertices)
+  for v in vertices
+    xs += v.x
+    ys += v.y
+    zs += v.z
 
-#   rx = r.x2 - r.x1
-#   ry = r.y2 - r.y1
-#   rz = r.z2 - r.z1
-
-#   rm = Math.max(rx, ry, rz)
-
-#   for v in vertices
-#     {
-#       x: .05*size + .90*size * (rm - rx - 2*r.x1 + 2*v.x)/(2*rm)
-#       y: .05*size + .90*size * (rm - ry - 2*r.y1 + 2*v.y)/(2*rm)
-#       z: .95*size - .90*size * (rm - rz - 2*r.z1 + 2*v.z)/(2*rm)
-#     }
-
-###############################################################################
-
-# getVertexMean = (vertices) ->
-#   xs = ys = zs = 0
-#   n = vertices.length
-
-#   for v in vertices
-#     xs += v.x
-#     ys += v.y
-#     zs += v.z
-
-#   {x: xs / n, y: ys / n, z: zs / n}
-
-###############################################################################
-
-# meanShift = (vertices) ->
-#   m = getVertexMean(vertices)
-
-###############################################################################
+  {x: xs / n, y: ys / n, z: zs / n}
 
 rescaleVertices = (vertices, size) ->
-  r = getVertexRanges(vertices)
+  r = getVertexRanges(shifted)
+  m = {x: (r.x1+r.x2)/2, y: (r.y1+r.y2)/2, z: (r.z1+r.z2)/2}
+  shifted = {x: v.x - m.x, y: v.y - m.y, z: v.z - m.z} for v in vertices
+  
 
-  rx = r.x2 - r.x1
-  ry = r.y2 - r.y1
-  rz = r.z2 - r.z1
-
-  rm = Math.max(rx, ry, rz)
+  rm = Math.max(Math.abs(r.x1), Math.abs(r.x2), 
+                Math.abs(r.y1), Math.abs(r.y2),
+                Math.abs(r.z1), Math.abs(r.z2))
 
   for v in vertices
     {
+      x: 
       x: .05*size + .90*size * (rm - rx - 2*r.x1 + 2*v.x)/(2*rm)
       y: .05*size + .90*size * (rm - ry - 2*r.y1 + 2*v.y)/(2*rm)
       z: .95*size - .90*size * (rm - rz - 2*r.z1 + 2*v.z)/(2*rm)
