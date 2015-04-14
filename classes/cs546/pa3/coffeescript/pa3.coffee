@@ -253,8 +253,6 @@ rotate = (object3D, txy, txz, tyz) ->
     ip1 = isometricProjection(p1)
     ip2 = isometricProjection(p2)
 
-    console.log ip1
-
     ips1 = {x: ip1.x + SVG_SIZE/2, y: ip1.y - SVG_SIZE/3}
     ips2 = {x: ip2.x + SVG_SIZE/2, y: ip2.y - SVG_SIZE/3}
     lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
@@ -364,13 +362,17 @@ transformVertices = (object3D, scale, translation, shear, rotation, perspective)
   for i in [0...object3D.meshLines.length]
     meshLine = object3D.meshLines[i]
 
-    p1 = transformedVertices[meshLine.p1]
-    p2 = transformedVertices[meshLine.p2]
+    ip1 = transformedVertices[meshLine.p1]
+    ip2 = transformedVertices[meshLine.p2]
 
-    object3D.svgLinesIP[i].setAttribute('x1', proj1.x)
-    object3D.svgLinesIP[i].setAttribute('y1', proj1.y)
-    object3D.svgLinesIP[i].setAttribute('x2', proj2.x)
-    object3D.svgLinesIP[i].setAttribute('y2', proj2.y)
+    ips1 = {x: ip1.x + SVG_SIZE/2, y: ip1.y - SVG_SIZE/3}
+    ips2 = {x: ip2.x + SVG_SIZE/2, y: ip2.y - SVG_SIZE/3}
+    lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
+
+    object3D.svgLinesIP[i].setAttribute('x1', ips1.x)
+    object3D.svgLinesIP[i].setAttribute('y1', ips1.y)
+    object3D.svgLinesIP[i].setAttribute('x2', ips2.x)
+    object3D.svgLinesIP[i].setAttribute('y2', ips2.y)
 
 ###############################################################################
 
