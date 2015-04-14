@@ -288,14 +288,7 @@
 
   <div id="matrixTest">
   \[
-    \left(
-    \begin{array}{cccc}
-     1 & 0 & 0 & 0 \\
-     0 & 1 & 0 & 0 \\
-     0 & 0 & 1 & 0 \\
-     p_x & p_y & p_z & 1 \\
-    \end{array}
-    \right)
+
   \]
   </div>
 
@@ -312,7 +305,7 @@
       //  Get the element jax when MathJax has produced it.
       //
       QUEUE.Push(function () {
-        math = MathJax.Hub.getAllJax("MathOutput")[0];
+        math = MathJax.Hub.getAllJax("matrixTest")[0];
       });
 
       //
@@ -320,7 +313,7 @@
       //  math entered by the user
       //
       window.UpdateMath = function (TeX) {
-        QUEUE.Push(["Text",math,"\\displaystyle{"+TeX+"}"]);
+        QUEUE.Push(["Text", math, "\\displaystyle{"+TeX+"}"]);
       }
     })();
   </script>
