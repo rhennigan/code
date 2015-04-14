@@ -524,6 +524,8 @@ class Main
     @object3D = load(@objectName)
     @reset('Isometric')
 
+    #@t.isometric = () -> @reset('Isometric')
+
     attachHandler = (name) =>
       document.getElementById(name).addEventListener "click", (e) =>
         @reset(name)
