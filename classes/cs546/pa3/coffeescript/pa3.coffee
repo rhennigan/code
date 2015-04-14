@@ -487,6 +487,7 @@ class Viewer
   perspective: {x: 0, y: 0, z: 0}
 
   constructor: () ->
+    @init()
 
   init: () =>
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2
@@ -549,6 +550,9 @@ main = () ->
 
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)
+
+  document.getElementById('Isometric').addEventListener "click", (e) => 
+      rotate(object3D, -R_INC, 0, 0)
 
   document.getElementById('rotateXY+').addEventListener "click", (e) => 
       rotate(object3D, -R_INC, 0, 0)

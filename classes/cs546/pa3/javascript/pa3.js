@@ -613,6 +613,7 @@
     function Viewer() {
       this.reset = bind(this.reset, this);
       this.init = bind(this.init, this);
+      this.init();
     }
 
     Viewer.prototype.init = function() {
@@ -693,6 +694,11 @@
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {
         return object3D = load(selector.value);
+      };
+    })(this));
+    document.getElementById('Isometric').addEventListener("click", (function(_this) {
+      return function(e) {
+        return rotate(object3D, -R_INC, 0, 0);
       };
     })(this));
     document.getElementById('rotateXY+').addEventListener("click", (function(_this) {
