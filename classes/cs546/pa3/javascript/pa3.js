@@ -684,7 +684,8 @@
       rz: 0.0,
       px: 0.0,
       py: 0.0,
-      pz: 0.0
+      pz: 0.0,
+      isometric: function() {}
     };
 
     Main.prototype.gui = null;
