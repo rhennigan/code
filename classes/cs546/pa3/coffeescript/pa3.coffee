@@ -599,9 +599,9 @@ class Main
     # fr.open()
 
     fp = ftr.addFolder('perspective')
-    slider(fp, 'px', -0.3, 0.3)
-    slider(fp, 'py', -0.3, 0.3)
-    slider(fp, 'pz', -0.3, 0.3)
+    slider(fp, 'px', -0.5, 0.5)
+    slider(fp, 'py', -0.5, 0.5)
+    slider(fp, 'pz', -0.5, 0.5)
     # fp.open()
 
     ftr.open()

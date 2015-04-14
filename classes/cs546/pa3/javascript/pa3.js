@@ -803,9 +803,9 @@
       slider(fr, 'ry', -2 * Math.PI, 2 * Math.PI);
       slider(fr, 'rz', -2 * Math.PI, 2 * Math.PI);
       fp = ftr.addFolder('perspective');
-      slider(fp, 'px', -0.3, 0.3);
-      slider(fp, 'py', -0.3, 0.3);
-      slider(fp, 'pz', -0.3, 0.3);
+      slider(fp, 'px', -0.5, 0.5);
+      slider(fp, 'py', -0.5, 0.5);
+      slider(fp, 'pz', -0.5, 0.5);
       ftr.open();
       fpr = this.gui.addFolder('presets');
       fpr.add(this, 'straight');
