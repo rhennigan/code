@@ -771,7 +771,8 @@
     attachHandler('Perspective1');
     attachHandler('Perspective2');
     attachHandler('Perspective3');
-    return gui = new dat.GUI();
+    gui = new dat.GUI();
+    return gui.add(this.t, 'sx', -1.0, 1.0);
   };
 
   main();
