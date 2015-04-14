@@ -568,7 +568,7 @@ main = () ->
 
   reset = (preset) ->
     switch preset
-      
+
       when 'Isometric'
         rotation.x = Math.asin(1 / Math.sqrt(3))
         rotation.y = Math.PI / 4
@@ -582,7 +582,7 @@ main = () ->
         rotation.y = Math.PI / 5
 
       when 'Oblique'
-        shear.x = @shear.y = 0.5
+        shear.x = shear.y = 0.5
 
       when 'Perspective1'
         rotation.x = Math.PI / 16
@@ -611,7 +611,7 @@ main = () ->
       # rotate(object3D, -R_INC, 0, 0)
       # rotation.z += R_INC
       # transformVertices(object3D, scale, translation, shear, rotation, perspective)
-      reset('Isometric')
+      reset('Oblique')
   
   document.getElementById('rotateXZ+').addEventListener "click", (e) => 
       rotate(object3D, 0, R_INC, 0)

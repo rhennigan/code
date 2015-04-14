@@ -697,7 +697,7 @@
           rotation.y = Math.PI / 5;
           break;
         case 'Oblique':
-          shear.x = this.shear.y = 0.5;
+          shear.x = shear.y = 0.5;
           break;
         case 'Perspective1':
           rotation.x = Math.PI / 16;
@@ -726,7 +726,7 @@
     })(this));
     document.getElementById('rotateXY+').addEventListener("click", (function(_this) {
       return function(e) {
-        return reset('Isometric');
+        return reset('Oblique');
       };
     })(this));
     document.getElementById('rotateXZ+').addEventListener("click", (function(_this) {
