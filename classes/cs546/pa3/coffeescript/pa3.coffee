@@ -499,8 +499,8 @@ class Viewer
   init: () =>
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2
     document.getElementById('imgTbl').width = 2 * SVG_SIZE
-    console.log objectName
     object3D = load(objectName)
+    console.log object3D
     transformVertices(object3D, @scale, @translation, @shear, @rotation, @perspective)
 
   reset: (preset) =>
