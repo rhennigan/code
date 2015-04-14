@@ -349,7 +349,7 @@ transformVertices = (object3D, scale, translation, shear, rotation, perspective)
   size = SVG_SIZE
   m = transformationMatrix(scale, translation, shear, rotation, perspective)
 
-  console.log m
+  console.log object3D.vertices[0]
 
   transformed = for v in object3D.vertices
     {
@@ -357,16 +357,11 @@ transformVertices = (object3D, scale, translation, shear, rotation, perspective)
       y: m[2][4] + m[2][1] * v.x + m[2][2] * v.y + m[2][3] * v.z
     }
 
-  console.log transformed
-
   for i in [0...object3D.meshLines.length]
     meshLine = object3D.meshLines[i]
 
     p1 = transformed[meshLine.p1]
     p2 = transformed[meshLine.p2]
-
-    console.log p1
-    console.log p2
 
     object3D.svgLinesIP[i].setAttribute('x1', p1.x)
     object3D.svgLinesIP[i].setAttribute('y1', p1.y)
