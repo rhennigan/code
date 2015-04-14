@@ -229,6 +229,8 @@ rotate = (object3D, txy, txz, tyz) ->
       z: (-(ctxz*ctyz*s2z) + size + ctyz*(ctxy*s2x - s2y*stxy)*stxz - (ctxy*s2y + s2x*stxy)*styz)/2.0
     }
 
+  console.log rotatedVertices
+
   for i in [0...object3D.meshLines.length]
     meshLine = object3D.meshLines[i]
 
