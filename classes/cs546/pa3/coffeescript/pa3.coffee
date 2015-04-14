@@ -365,6 +365,8 @@ transformVertices = (object3D, scale, translation, shear, rotation, perspective)
     ip1 = transformedVertices[meshLine.p1]
     ip2 = transformedVertices[meshLine.p2]
 
+    console.log ip1
+
     ips1 = {x: ip1.x + SVG_SIZE/2, y: ip1.y - SVG_SIZE/3}
     ips2 = {x: ip2.x + SVG_SIZE/2, y: ip2.y - SVG_SIZE/3}
     lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
@@ -552,14 +554,10 @@ class Viewer
 
 ###############################################################################
 
-
-
-###############################################################################
-
 main = () ->
   SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
   document.getElementById('imgTbl').width = 2*SVG_SIZE
-  object3D = load('SpaceShuttle')
+  object3D = load('Cube')
 
   scale       = {x: 1, y: 1, z: 1}
   translation = {x: 0, y: 0, z: 0}

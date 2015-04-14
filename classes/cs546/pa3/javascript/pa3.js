@@ -455,6 +455,7 @@
       meshLine = object3D.meshLines[i];
       ip1 = transformedVertices[meshLine.p1];
       ip2 = transformedVertices[meshLine.p2];
+      console.log(ip1);
       ips1 = {
         x: ip1.x + SVG_SIZE / 2,
         y: ip1.y - SVG_SIZE / 3
@@ -708,7 +709,7 @@
     var object3D, perspective, reset, rotation, scale, shear, translation;
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
-    object3D = load('SpaceShuttle');
+    object3D = load('Cube');
     scale = {
       x: 1,
       y: 1,
