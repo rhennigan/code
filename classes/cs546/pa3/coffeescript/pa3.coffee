@@ -63,6 +63,37 @@ getVertexRanges = (vertices) ->
 
 ###############################################################################
 
+# rescaleVertices = (vertices, size) ->
+#   r = getVertexRanges(vertices)
+
+#   rx = r.x2 - r.x1
+#   ry = r.y2 - r.y1
+#   rz = r.z2 - r.z1
+
+#   rm = Math.max(rx, ry, rz)
+
+#   for v in vertices
+#     {
+#       x: .05*size + .90*size * (rm - rx - 2*r.x1 + 2*v.x)/(2*rm)
+#       y: .05*size + .90*size * (rm - ry - 2*r.y1 + 2*v.y)/(2*rm)
+#       z: .95*size - .90*size * (rm - rz - 2*r.z1 + 2*v.z)/(2*rm)
+#     }
+
+###############################################################################
+
+getVertexMean = (vertices) ->
+  xs = ys = zs = 0
+  n = vertices.length
+
+  for v in vertices
+    xs += v.x
+    ys += v.y
+    zs += v.z
+
+  {x: xs / n, y: ys / n, z: zs / n}
+
+###############################################################################
+
 rescaleVertices = (vertices, size) ->
   r = getVertexRanges(vertices)
 
