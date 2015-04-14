@@ -69,9 +69,11 @@ rescaleVertices = (vertices, size) ->
   
   rm = 0
   for v in vertices
+    x = Math.abs(v.x)
+    console.log x
     rm = Math.max(m, Math.abs(v.x), Math.abs(v.y), Math.abs(v.z))
 
-  console.log rm
+
 
   for v in vertices
     {
