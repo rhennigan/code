@@ -426,6 +426,7 @@ load = (object) ->
       svgLinesXZ: []
       svgLinesYZ: []
       svgLinesIP: []
+      projectionLabel: null
     }
   loadObject("objects/#{object}.obj", object3D, callback, err)
   object3D

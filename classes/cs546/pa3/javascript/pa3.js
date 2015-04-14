@@ -543,7 +543,8 @@
       svgLinesXY: [],
       svgLinesXZ: [],
       svgLinesYZ: [],
-      svgLinesIP: []
+      svgLinesIP: [],
+      projectionLabel: null
     };
     loadObject("objects/" + object + ".obj", object3D, callback, err);
     return object3D;
