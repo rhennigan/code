@@ -675,37 +675,37 @@ main = () ->
     switch preset
 
       when 'Isometric'
-        t.rotation.y = Math.asin(1 / Math.sqrt(3))
-        t.rotation.z = Math.PI / 4
+        t.ry = Math.asin(1 / Math.sqrt(3))
+        t.rz = Math.PI / 4
 
       when 'Dimetric'
-        t.rotation.x = Math.PI / 16
-        t.rotation.y = Math.PI / 4
+        t.rx = Math.PI / 16
+        t.ry = Math.PI / 4
 
       when 'Trimetric'
-        t.rotation.x = Math.PI / 16
-        t.rotation.y = Math.PI / 5
+        t.rx = Math.PI / 16
+        t.ry = Math.PI / 5
 
       when 'Oblique'
-        t.shear.x = shear.y = 0.5
+        t.syz = t.sxz = 0.5
 
       when 'Perspective1'
-        t.rotation.x = Math.PI / 16
-        t.rotation.y = Math.PI / 5
-        t.perspective.z = 0.25
+        t.rx = Math.PI / 16
+        t.ry = Math.PI / 5
+        t.pz = 0.25
 
       when 'Perspective2'
-        t.rotation.x = Math.PI / 16
-        t.rotation.y = Math.PI / 5
-        t.perspective.y = 0.125
-        t.perspective.z = 0.25
+        t.rx = Math.PI / 16
+        t.ry = Math.PI / 5
+        t.py = 0.125
+        t.pz = 0.25
 
       when 'Perspective3'
-        t.rotation.x = Math.PI / 16
-        t.rotation.y = Math.PI / 5
-        t.perspective.x = 0.0625
-        t.perspective.y = 0.125
-        t.perspective.z = 0.25
+        t.rx = Math.PI / 16
+        t.ry = Math.PI / 5
+        t.px = 0.0625
+        t.py = 0.125
+        t.pz = 0.25
 
     console.log t
     
