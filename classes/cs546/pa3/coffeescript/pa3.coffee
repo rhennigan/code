@@ -139,9 +139,9 @@ svgShift = (p) ->
 createSVGLine = (p1, p2, stroke) ->
   line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
   line.setAttribute('x1', svgShift(p1.x))
-  line.setAttribute('y1', 1-svgShift(p1.y))
+  line.setAttribute('y1', svgShift(p1.y))
   line.setAttribute('x2', svgShift(p2.x))
-  line.setAttribute('y2', 1-svgShift(p2.y))
+  line.setAttribute('y2', svgShift(p2.y))
   line.setAttribute('stroke-width', stroke)
   line.setAttribute('stroke', 'black')
   line
