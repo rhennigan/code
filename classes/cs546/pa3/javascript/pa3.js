@@ -774,9 +774,11 @@
     attachHandler('Perspective3');
     gui = new dat.GUI();
     c_sx = gui.add(this.t, 'sx', -1.0, 1.0);
-    return c_sx.onFinishChange(function(value) {
-      return alert(value);
-    });
+    return c_sx.onFinishChange((function(_this) {
+      return function(value) {
+        return reset(_this.objectName);
+      };
+    })(this));
   };
 
   main();

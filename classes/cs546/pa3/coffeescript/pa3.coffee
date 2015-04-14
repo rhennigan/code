@@ -663,8 +663,6 @@ main = () ->
   document.getElementById('imgTbl').width = 2*SVG_SIZE
   object3D = load(@objectName)
 
-  
-
   reset = (preset) =>
     console.log "resetting #{preset}"
 
@@ -740,7 +738,7 @@ main = () ->
 
   gui = new dat.GUI()
   c_sx = gui.add(@t, 'sx', -1.0, 1.0)
-  c_sx.onFinishChange((value) -> alert(value))
+  c_sx.onFinishChange((value) => reset(@objectName))
 
   # document.getElementById('rotateXY+').addEventListener "click", (e) => 
   #     # rotate(object3D, -R_INC, 0, 0)
