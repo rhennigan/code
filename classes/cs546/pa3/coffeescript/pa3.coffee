@@ -671,8 +671,8 @@ main = () ->
     switch preset
 
       when 'Isometric'
-        rotation.x = Math.asin(1 / Math.sqrt(3))
-        rotation.y = Math.PI / 4
+        rotation.y = Math.asin(1 / Math.sqrt(3))
+        rotation.z = Math.PI / 4
 
       when 'Dimetric'
         rotation.x = Math.PI / 16

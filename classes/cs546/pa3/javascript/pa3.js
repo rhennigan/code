@@ -707,8 +707,8 @@
       };
       switch (preset) {
         case 'Isometric':
-          rotation.x = Math.asin(1 / Math.sqrt(3));
-          rotation.y = Math.PI / 4;
+          rotation.y = Math.asin(1 / Math.sqrt(3));
+          rotation.z = Math.PI / 4;
           break;
         case 'Dimetric':
           rotation.x = Math.PI / 16;
