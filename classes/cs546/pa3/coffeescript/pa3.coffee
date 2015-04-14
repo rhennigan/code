@@ -708,6 +708,10 @@ class Main
     slider('sxz', -1.0, 1.0)
     slider('syz', -1.0, 1.0)
 
+    slider('rx', -Math.PI, Math.PI)
+    slider('ry', -Math.PI, Math.PI)
+    slider('rz', -Math.PI, Math.PI)
+
   reset: (preset) ->
 
     if preset?
