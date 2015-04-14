@@ -574,7 +574,9 @@
   };
 
   Viewer = (function() {
-    Viewer.prototype.object = 'Cube';
+    Viewer.prototype.objectName = null;
+
+    Viewer.prototype.object3D = null;
 
     Viewer.prototype.scale = {
       x: 1,
