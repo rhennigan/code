@@ -556,58 +556,6 @@ class Viewer
 
 ###############################################################################
 
-# main = () ->
-#   SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
-#   document.getElementById('imgTbl').width = 2*SVG_SIZE
-#   object3D = load('Cube')
-
-#   reset = (preset) ->
-#     scale       = {x: 1, y: 1, z: 1}
-#     translation = {x: 0, y: 0, z: 0}
-#     shear       = {x: 0, y: 0, z: 0}
-#     rotation    = {x: 0, y: 0, z: 0}
-#     perspective = {x: 0, y: 0, z: 0}
-
-#     switch preset
-#       when 'Isometric'
-#         rotation.x = Math.asin(1 / Math.sqrt(3))
-#         rotation.y = Math.PI / 4
-#         transformVertices(object3D, scale, translation, shear, rotation, perspective)
-
-
-#   # viewer = new Viewer()
-#   # console.log viewer
-
-#   # gui = new dat.GUI()
-
-#   document.getElementById('selector').addEventListener "change", (e) => 
-#       object3D = load(selector.value)
-
-#   document.getElementById('Isometric').addEventListener "click", (e) => 
-#       reset('Isometric')
-
-#   document.getElementById('rotateXY+').addEventListener "click", (e) => 
-#       rotate(viewer.object3D, -R_INC, 0, 0)
-  
-#   document.getElementById('rotateXZ+').addEventListener "click", (e) => 
-#       rotate(object3D, 0, R_INC, 0)
-
-#   document.getElementById('rotateYZ+').addEventListener "click", (e) => 
-#       rotate(object3D, 0, 0, -R_INC)
-
-#   document.getElementById('rotateXY-').addEventListener "click", (e) => 
-#       rotate(object3D, R_INC, 0, 0)
-  
-#   document.getElementById('rotateXZ-').addEventListener "click", (e) => 
-#       rotate(object3D, 0, -R_INC, 0)
-
-#   document.getElementById('rotateYZ-').addEventListener "click", (e) => 
-#       rotate(object3D, 0, 0, R_INC)
-#   # object3D = {vertices: [], faces: []}
-#   # loadObject('objects/Beethoven.obj', object3D, callback, err)
-
-# main()
-
 main = () ->
   SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
   document.getElementById('imgTbl').width = 2*SVG_SIZE
