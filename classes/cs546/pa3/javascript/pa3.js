@@ -507,7 +507,7 @@
     yo = v55 * (ty + tz * v9 + (v2 * v20 + v19 * v4) * (v7 + v8 * v9) - (v19 * v22 + v20 * v23 + v49) * (1 / Math.cos(syz)) * Math.sin(rx - syz));
     return {
       x: xo,
-      y: -yo
+      y: yo
     };
   };
 
@@ -713,6 +713,11 @@
       return this.px = this.py = this.pz = 0;
     };
 
+    Main.prototype.straight = function() {
+      this.clearParameters();
+      return this.reset();
+    };
+
     Main.prototype.isometric = function() {
       return this.reset('Isometric');
     };
@@ -797,6 +802,7 @@
       slider(fp, 'pz', -0.3, 0.3);
       ftr.open();
       fpr = this.gui.addFolder('presets');
+      fpr.add(this, 'straight');
       fpr.add(this, 'isometric');
       fpr.add(this, 'dimetric');
       fpr.add(this, 'trimetric');
