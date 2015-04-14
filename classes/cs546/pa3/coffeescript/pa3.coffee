@@ -458,7 +458,6 @@ clear = () ->
   cc('containerYZ')
   cc('containerIP')
   
-
 ###############################################################################
 
 err = (url) ->
@@ -553,20 +552,20 @@ class Viewer
 ###############################################################################
 
 main = () ->
-  # SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
-  # document.getElementById('imgTbl').width = 2*SVG_SIZE
-  # object3D = load('Cube')
+  SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175)/2
+  document.getElementById('imgTbl').width = 2*SVG_SIZE
+  object3D = load('Cube')
 
-  viewer = new Viewer()
-  console.log viewer
+  # viewer = new Viewer()
+  # console.log viewer
 
-  gui = new dat.GUI()
+  # gui = new dat.GUI()
 
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)
 
   document.getElementById('Isometric').addEventListener "click", (e) => 
-      viewer.reset('Isometric')
+      reset('Isometric')
 
   document.getElementById('rotateXY+').addEventListener "click", (e) => 
       rotate(viewer.object3D, -R_INC, 0, 0)

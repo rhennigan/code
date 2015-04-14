@@ -698,19 +698,18 @@
   })();
 
   main = function() {
-    var gui, viewer;
-    viewer = new Viewer();
-    console.log(viewer);
-    gui = new dat.GUI();
+    var object3D;
+    SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2;
+    document.getElementById('imgTbl').width = 2 * SVG_SIZE;
+    object3D = load('Cube');
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {
-        var object3D;
         return object3D = load(selector.value);
       };
     })(this));
     document.getElementById('Isometric').addEventListener("click", (function(_this) {
       return function(e) {
-        return viewer.reset('Isometric');
+        return reset('Isometric');
       };
     })(this));
     document.getElementById('rotateXY+').addEventListener("click", (function(_this) {
