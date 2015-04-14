@@ -654,10 +654,13 @@
           case 'Perspective2':
             this.rotation.x = Math.PI / 16;
             this.rotation.y = Math.PI / 5;
+            this.perspective.y = -0.125;
             return this.perspective.z = -0.25;
           case 'Perspective3':
             this.rotation.x = Math.PI / 16;
             this.rotation.y = Math.PI / 5;
+            this.perspective.z = -0.0625;
+            this.perspective.y = -0.125;
             return this.perspective.z = -0.25;
         }
       }
