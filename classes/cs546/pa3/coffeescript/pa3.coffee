@@ -487,7 +487,7 @@ class Viewer
   perspective: {x: 0, y: 0, z: 0}
 
   constructor: () ->
-    
+
   init: () =>
     SVG_SIZE = Math.min(window.innerWidth - 30, window.innerHeight - 175) / 2
     document.getElementById('imgTbl').width = 2 * SVG_SIZE
