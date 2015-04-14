@@ -684,6 +684,31 @@
     };
     reset = function(preset) {
       console.log("resetting " + preset);
+      scale = {
+        x: 1,
+        y: 1,
+        z: 1
+      };
+      translation = {
+        x: 0,
+        y: 0,
+        z: 0
+      };
+      shear = {
+        x: 0,
+        y: 0,
+        z: 0
+      };
+      rotation = {
+        x: 0,
+        y: 0,
+        z: 0
+      };
+      perspective = {
+        x: 0,
+        y: 0,
+        z: 0
+      };
       switch (preset) {
         case 'Isometric':
           rotation.x = Math.asin(1 / Math.sqrt(3));
