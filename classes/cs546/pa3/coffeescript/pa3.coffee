@@ -1,5 +1,5 @@
 SVG_SIZE = 400
-SVG_STROKE = 0.5
+SVG_STROKE = 0.01
 R_INC = Math.PI / 8
 
 ###############################################################################
@@ -70,10 +70,9 @@ rescaleVertices = (vertices, size) ->
   rm = 0
   for v in vertices
     x = Math.abs(v.x)
-    console.log x
-    rm = Math.max(m, Math.abs(v.x), Math.abs(v.y), Math.abs(v.z))
-
-
+    y = Math.abs(v.y)
+    z = Math.abs(v.z)
+    rm = Math.max(rm, x, y, z)
 
   for v in vertices
     {
@@ -162,7 +161,7 @@ callback = (obj, txt) ->
       svg.setAttribute('width', SVG_SIZE)
       svg.setAttribute('height', SVG_SIZE)
       svg.setAttribute('style', "border: 1px solid black;")
-      svg.setAttribute('viewBox', "-1 -1 1 1")
+      svg.setAttribute('viewBox', "-1.1 -1.1 1.1 1.1")
       svg
   
   obj.meshLines = createMeshLines(obj.faces)

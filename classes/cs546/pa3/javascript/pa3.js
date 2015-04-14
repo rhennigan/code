@@ -5,7 +5,7 @@
 
   SVG_SIZE = 400;
 
-  SVG_STROKE = 0.5;
+  SVG_STROKE = 0.01;
 
   R_INC = Math.PI / 8;
 
@@ -96,7 +96,7 @@
   };
 
   rescaleVertices = function(vertices, size) {
-    var k, l, len1, len2, m, r, results, rm, shifted, v, x;
+    var k, l, len1, len2, m, r, results, rm, shifted, v, x, y, z;
     r = getVertexRanges(vertices);
     m = {
       x: (r.x1 + r.x2) / 2,
@@ -120,8 +120,9 @@
     for (k = 0, len1 = vertices.length; k < len1; k++) {
       v = vertices[k];
       x = Math.abs(v.x);
-      console.log(x);
-      rm = Math.max(m, Math.abs(v.x), Math.abs(v.y), Math.abs(v.z));
+      y = Math.abs(v.y);
+      z = Math.abs(v.z);
+      rm = Math.max(rm, x, y, z);
     }
     results = [];
     for (l = 0, len2 = vertices.length; l < len2; l++) {
@@ -266,7 +267,7 @@
         svg.setAttribute('width', SVG_SIZE);
         svg.setAttribute('height', SVG_SIZE);
         svg.setAttribute('style', "border: 1px solid black;");
-        svg.setAttribute('viewBox', "-1 -1 1 1");
+        svg.setAttribute('viewBox', "-1.1 -1.1 1.1 1.1");
         results.push(svg);
       }
       return results;
