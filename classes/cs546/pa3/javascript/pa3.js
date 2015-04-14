@@ -733,8 +733,7 @@
       attachHandler = (function(_this) {
         return function(name) {
           return document.getElementById(name).addEventListener("click", function(e) {
-            _this.reset(name);
-            return console.log(_this.t);
+            return _this.reset(name);
           });
         };
       })(this);
@@ -760,7 +759,7 @@
       slider = (function(_this) {
         return function(f, name, low, high) {
           var control;
-          control = f.add(_this.t, name, low, high).step(0.001);
+          control = f.add(_this, name, low, high).step(0.001);
           control.listen();
           return control.onChange(function(value) {
             return _this.reset();
@@ -788,8 +787,7 @@
       slider(fp, 'py', -0.3, 0.3);
       slider(fp, 'pz', -0.3, 0.3);
       fpr = this.gui.addFolder('presets');
-      console.log(this.t);
-      return fpr.add(this.t, 'isometric');
+      return fpr.add(this, 'isometric');
     };
 
     Main.prototype.reset = function(preset) {

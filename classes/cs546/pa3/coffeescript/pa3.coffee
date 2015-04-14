@@ -536,7 +536,6 @@ class Main
     attachHandler = (name) =>
       document.getElementById(name).addEventListener "click", (e) =>
         @reset(name)
-        console.log @t
 
     attachHandler('Isometric')
     attachHandler('Dimetric')
@@ -555,7 +554,7 @@ class Main
     @gui = new dat.GUI()
 
     slider = (f, name, low, high) =>
-      control = f.add(@t, name, low, high).step(0.001)
+      control = f.add(@, name, low, high).step(0.001)
       control.listen()
       control.onChange((value) => @reset())
 
@@ -590,8 +589,7 @@ class Main
     # fp.open()
 
     fpr = @gui.addFolder('presets')
-    console.log @t
-    fpr.add(@t, 'isometric')
+    fpr.add(@, 'isometric')
 
   reset: (preset) ->
 
