@@ -172,8 +172,6 @@ callback = (obj, txt) ->
     lineYZ = createSVGLine(op.yz[line.p1], op.yz[line.p2], SVG_STROKE)
     ip1 = isometricProjection(obj.vertices[line.p1])
     ip2 = isometricProjection(obj.vertices[line.p2])
-    ips1 = {x: ip1.x + SVG_SIZE/2, y: ip1.y - SVG_SIZE/3}
-    ips2 = {x: ip2.x + SVG_SIZE/2, y: ip2.y - SVG_SIZE/3}
     lineIP = createSVGLine(ip1, ip2, SVG_STROKE)
     svgXY.appendChild(lineXY)
     svgXZ.appendChild(lineXZ)
@@ -212,69 +210,69 @@ callback = (obj, txt) ->
 
 ###############################################################################
 
-rotate = (object3D, txy, txz, tyz) ->
-  ctxy = Math.cos(txy)
-  ctxz = Math.cos(txz)
-  ctyz = Math.cos(tyz)
-  stxy = Math.sin(txy)
-  stxz = Math.sin(txz)
-  styz = Math.sin(tyz)
+# rotate = (object3D, txy, txz, tyz) ->
+#   ctxy = Math.cos(txy)
+#   ctxz = Math.cos(txz)
+#   ctyz = Math.cos(tyz)
+#   stxy = Math.sin(txy)
+#   stxz = Math.sin(txz)
+#   styz = Math.sin(tyz)
 
-  size = SVG_SIZE
+#   size = SVG_SIZE
 
-  rotatedVertices = for v in object3D.vertices
-    [x, y, z] = [v.x, v.y, v.z]
-    s2x = size - 2*x
-    s2y = size - 2*y
-    s2z = size - 2*z
-    {
-      x: (-(ctxy*ctxz*s2x) + size + ctxz*s2y*stxy - s2z*stxz)/2.0
-      y: (size - ctyz*s2x*stxy + ctxz*s2z*styz + s2y*stxy*stxz*styz - ctxy*(ctyz*s2y + s2x*stxz*styz))/2.0
-      z: (-(ctxz*ctyz*s2z) + size + ctyz*(ctxy*s2x - s2y*stxy)*stxz - (ctxy*s2y + s2x*stxy)*styz)/2.0
-    }
+#   rotatedVertices = for v in object3D.vertices
+#     [x, y, z] = [v.x, v.y, v.z]
+#     s2x = size - 2*x
+#     s2y = size - 2*y
+#     s2z = size - 2*z
+#     {
+#       x: (-(ctxy*ctxz*s2x) + size + ctxz*s2y*stxy - s2z*stxz)/2.0
+#       y: (size - ctyz*s2x*stxy + ctxz*s2z*styz + s2y*stxy*stxz*styz - ctxy*(ctyz*s2y + s2x*stxz*styz))/2.0
+#       z: (-(ctxz*ctyz*s2z) + size + ctyz*(ctxy*s2x - s2y*stxy)*stxz - (ctxy*s2y + s2x*stxy)*styz)/2.0
+#     }
 
-  for i in [0...object3D.meshLines.length]
-    meshLine = object3D.meshLines[i]
+#   for i in [0...object3D.meshLines.length]
+#     meshLine = object3D.meshLines[i]
 
-    p1 = rotatedVertices[meshLine.p1]
-    p2 = rotatedVertices[meshLine.p2]
+#     p1 = rotatedVertices[meshLine.p1]
+#     p2 = rotatedVertices[meshLine.p2]
 
-    object3D.svgLinesXY[i].setAttribute('x1', p1.x)
-    object3D.svgLinesXY[i].setAttribute('y1', p1.y)
-    object3D.svgLinesXY[i].setAttribute('x2', p2.x)
-    object3D.svgLinesXY[i].setAttribute('y2', p2.y)
+#     object3D.svgLinesXY[i].setAttribute('x1', p1.x)
+#     object3D.svgLinesXY[i].setAttribute('y1', p1.y)
+#     object3D.svgLinesXY[i].setAttribute('x2', p2.x)
+#     object3D.svgLinesXY[i].setAttribute('y2', p2.y)
 
-    object3D.svgLinesXZ[i].setAttribute('x1', p1.x)
-    object3D.svgLinesXZ[i].setAttribute('y1', p1.z)
-    object3D.svgLinesXZ[i].setAttribute('x2', p2.x)
-    object3D.svgLinesXZ[i].setAttribute('y2', p2.z)
+#     object3D.svgLinesXZ[i].setAttribute('x1', p1.x)
+#     object3D.svgLinesXZ[i].setAttribute('y1', p1.z)
+#     object3D.svgLinesXZ[i].setAttribute('x2', p2.x)
+#     object3D.svgLinesXZ[i].setAttribute('y2', p2.z)
 
-    object3D.svgLinesYZ[i].setAttribute('x1', p1.y)
-    object3D.svgLinesYZ[i].setAttribute('y1', p1.z)
-    object3D.svgLinesYZ[i].setAttribute('x2', p2.y)
-    object3D.svgLinesYZ[i].setAttribute('y2', p2.z)
+#     object3D.svgLinesYZ[i].setAttribute('x1', p1.y)
+#     object3D.svgLinesYZ[i].setAttribute('y1', p1.z)
+#     object3D.svgLinesYZ[i].setAttribute('x2', p2.y)
+#     object3D.svgLinesYZ[i].setAttribute('y2', p2.z)
 
-    ip1 = isometricProjection(p1)
-    ip2 = isometricProjection(p2)
+#     ip1 = isometricProjection(p1)
+#     ip2 = isometricProjection(p2)
 
-    ips1 = {x: ip1.x + SVG_SIZE/2, y: ip1.y - SVG_SIZE/3}
-    ips2 = {x: ip2.x + SVG_SIZE/2, y: ip2.y - SVG_SIZE/3}
-    lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
+#     ips1 = {x: ip1.x + SVG_SIZE/2, y: ip1.y - SVG_SIZE/3}
+#     ips2 = {x: ip2.x + SVG_SIZE/2, y: ip2.y - SVG_SIZE/3}
+#     lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
 
-    object3D.svgLinesIP[i].setAttribute('x1', ips1.x)
-    object3D.svgLinesIP[i].setAttribute('y1', ips1.y)
-    object3D.svgLinesIP[i].setAttribute('x2', ips2.x)
-    object3D.svgLinesIP[i].setAttribute('y2', ips2.y)
+#     object3D.svgLinesIP[i].setAttribute('x1', ips1.x)
+#     object3D.svgLinesIP[i].setAttribute('y1', ips1.y)
+#     object3D.svgLinesIP[i].setAttribute('x2', ips2.x)
+#     object3D.svgLinesIP[i].setAttribute('y2', ips2.y)
 
-  object3D.vertices = rotatedVertices
+#   object3D.vertices = rotatedVertices
 
 ###############################################################################
 
-isometricProjection = (v) ->
-  {
-    x: (v.x - v.y) / Math.sqrt(2.0)
-    y: (v.x + v.y + 2.0*v.z) / Math.sqrt(6.0)
-  }
+# isometricProjection = (v) ->
+#   {
+#     x: (v.x - v.y) / Math.sqrt(2.0)
+#     y: (v.x + v.y + 2.0*v.z) / Math.sqrt(6.0)
+#   }
 
 ###############################################################################
 
