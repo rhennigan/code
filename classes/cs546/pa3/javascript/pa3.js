@@ -683,6 +683,7 @@
       z: 0
     };
     reset = function(preset) {
+      var transformationProperties;
       console.log("resetting " + preset);
       scale = {
         x: 1,
@@ -743,6 +744,14 @@
           perspective.y = -0.125;
           perspective.z = -0.25;
       }
+      transformationProperties = {
+        scale: scale,
+        translation: translation,
+        shear: shear,
+        rotation: rotation,
+        perspective: perspective
+      };
+      console.log(transformationProperties);
       return transformVertices(object3D, scale, translation, shear, rotation, perspective);
     };
     attachHandler = (function(_this) {
