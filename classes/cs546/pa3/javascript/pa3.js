@@ -317,7 +317,28 @@
     containerXY.appendChild(svgXY);
     containerXZ.appendChild(svgXZ);
     containerYZ.appendChild(svgYZ);
-    return containerIP.appendChild(svgIP);
+    containerIP.appendChild(svgIP);
+    return transformVertices(obj, {
+      x: 1,
+      y: 1,
+      z: 1
+    }, {
+      x: 0,
+      y: 0,
+      z: 0
+    }, {
+      x: 0,
+      y: 0,
+      z: 0
+    }, {
+      x: 0,
+      y: 0,
+      z: 0
+    }, {
+      x: 0,
+      y: 0,
+      z: 0
+    });
   };
 
   isometricProjection = function(v) {
