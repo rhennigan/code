@@ -711,6 +711,8 @@ main = () ->
         rotation: rotation
         perspective: perspective
       }
+
+    console.log transformationProperties
     
     transformVertices(object3D, scale, translation, shear, rotation, perspective)
 

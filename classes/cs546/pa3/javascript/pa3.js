@@ -746,6 +746,7 @@
         rotation: rotation,
         perspective: perspective
       };
+      console.log(transformationProperties);
       return transformVertices(object3D, scale, translation, shear, rotation, perspective);
     };
     reset('Isometric');
