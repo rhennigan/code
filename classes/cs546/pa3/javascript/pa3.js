@@ -758,7 +758,8 @@
     })(this);
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {
-        return object3D = load(selector.value);
+        object3D = load(selector.value);
+        return reset('Isometric');
       };
     })(this));
     attachHandler('Isometric');

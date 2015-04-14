@@ -722,6 +722,7 @@ main = () ->
 
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)
+      reset('Isometric')
 
   attachHandler('Isometric')
   attachHandler('Dimetric')
