@@ -685,7 +685,15 @@
       px: 0.0,
       py: 0.0,
       pz: 0.0,
+      clear: function() {
+        this.sx = this.sy = this.sz = 1;
+        this.tx = this.ty = this.tz = 0;
+        this.sxy = this.sxz = this.syz = 0;
+        this.rx = this.ry = this.rz = 0;
+        return this.px = this.py = this.pz = 0;
+      },
       isometric: function() {
+        this.clear();
         return console.log(this.sx);
       }
     };
