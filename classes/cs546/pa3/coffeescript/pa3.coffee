@@ -720,6 +720,7 @@ main = () ->
   attachHandler = (name) =>
     document.getElementById(name).addEventListener "click", (e) =>
       reset(name)
+      console.log t
 
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)

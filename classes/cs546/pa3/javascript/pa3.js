@@ -749,7 +749,8 @@
     attachHandler = (function(_this) {
       return function(name) {
         return document.getElementById(name).addEventListener("click", function(e) {
-          return reset(name);
+          reset(name);
+          return console.log(t);
         });
       };
     })(this);
