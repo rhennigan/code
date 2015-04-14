@@ -414,7 +414,6 @@ generalizedTransformation = (scale, translation, shear, rotation, perspective, p
   zo  = v53*(tz + v18*v19 + v17*v20 + v47*v7 + v56*v7 + v57*v7)
   {x: xo, y: yo, z: zo}
 
-
 ###############################################################################
 
 clear = () ->
