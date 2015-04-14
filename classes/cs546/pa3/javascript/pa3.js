@@ -249,7 +249,7 @@
       }
     }
     obj.vertices = rescaleVertices(obj.vertices, 1);
-    console.log(getVertexRanges(obj.vertices));
+    console.log(obj.vertices);
     op = orthoProj(obj.vertices);
     ref = (function() {
       var l, results;
