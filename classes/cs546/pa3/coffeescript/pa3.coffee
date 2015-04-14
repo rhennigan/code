@@ -221,63 +221,6 @@ callback = (obj, txt) ->
                          {x:x, y:y, z:0},
                          {x:0, y:0, z:0})
 
-###############################################################################
-
-# rotate = (object3D, txy, txz, tyz) ->
-#   ctxy = Math.cos(txy)
-#   ctxz = Math.cos(txz)
-#   ctyz = Math.cos(tyz)
-#   stxy = Math.sin(txy)
-#   stxz = Math.sin(txz)
-#   styz = Math.sin(tyz)
-
-#   size = SVG_SIZE
-
-#   rotatedVertices = for v in object3D.vertices
-#     [x, y, z] = [v.x, v.y, v.z]
-#     s2x = size - 2*x
-#     s2y = size - 2*y
-#     s2z = size - 2*z
-#     {
-#       x: (-(ctxy*ctxz*s2x) + size + ctxz*s2y*stxy - s2z*stxz)/2.0
-#       y: (size - ctyz*s2x*stxy + ctxz*s2z*styz + s2y*stxy*stxz*styz - ctxy*(ctyz*s2y + s2x*stxz*styz))/2.0
-#       z: (-(ctxz*ctyz*s2z) + size + ctyz*(ctxy*s2x - s2y*stxy)*stxz - (ctxy*s2y + s2x*stxy)*styz)/2.0
-#     }
-
-#   for i in [0...object3D.meshLines.length]
-#     meshLine = object3D.meshLines[i]
-
-#     p1 = rotatedVertices[meshLine.p1]
-#     p2 = rotatedVertices[meshLine.p2]
-
-#     object3D.svgLinesXY[i].setAttribute('x1', p1.x)
-#     object3D.svgLinesXY[i].setAttribute('y1', p1.y)
-#     object3D.svgLinesXY[i].setAttribute('x2', p2.x)
-#     object3D.svgLinesXY[i].setAttribute('y2', p2.y)
-
-#     object3D.svgLinesXZ[i].setAttribute('x1', p1.x)
-#     object3D.svgLinesXZ[i].setAttribute('y1', p1.z)
-#     object3D.svgLinesXZ[i].setAttribute('x2', p2.x)
-#     object3D.svgLinesXZ[i].setAttribute('y2', p2.z)
-
-#     object3D.svgLinesYZ[i].setAttribute('x1', p1.y)
-#     object3D.svgLinesYZ[i].setAttribute('y1', p1.z)
-#     object3D.svgLinesYZ[i].setAttribute('x2', p2.y)
-#     object3D.svgLinesYZ[i].setAttribute('y2', p2.z)
-
-#     ip1 = isometricProjection(p1)
-#     ip2 = isometricProjection(p2)
-
-#     ips1 = {x: ip1.x + SVG_SIZE/2, y: ip1.y - SVG_SIZE/3}
-#     ips2 = {x: ip2.x + SVG_SIZE/2, y: ip2.y - SVG_SIZE/3}
-#     lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
-
-#     object3D.svgLinesIP[i].setAttribute('x1', ips1.x)
-#     object3D.svgLinesIP[i].setAttribute('y1', ips1.y)
-#     object3D.svgLinesIP[i].setAttribute('x2', ips2.x)
-#     object3D.svgLinesIP[i].setAttribute('y2', ips2.y)
-
-#   object3D.vertices = rotatedVertices
 
 ###############################################################################
 
@@ -360,33 +303,6 @@ transformationMatrix = (scale, translation, shear, rotation, perspective) ->
 
 ###############################################################################
 
-# transformVertices = (object3D, scale, translation, shear, rotation, perspective) ->
-
-#   size = SVG_SIZE
-#   m = transformationMatrix(scale, translation, shear, rotation, perspective)
-
-#   console.log m
-
-#   transformedVertices = 
-#     for v in object3D.vertices
-#       {
-#         x: m[0][3] + m[0][0] * v.x + m[0][1] * v.y + m[0][2] * v.z
-#         y: m[1][3] + m[1][0] * v.x + m[1][1] * v.y + m[1][2] * v.z
-#       }
-
-#   for i in [0...object3D.meshLines.length]
-#     meshLine = object3D.meshLines[i]
-
-#     ip1 = transformedVertices[meshLine.p1]
-#     ip2 = transformedVertices[meshLine.p2]
-
-#     # lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
-
-#     object3D.svgLinesIP[i].setAttribute('x1', svgShift(ip1.x))
-#     object3D.svgLinesIP[i].setAttribute('y1', svgShift(ip1.y))
-#     object3D.svgLinesIP[i].setAttribute('x2', svgShift(ip2.x))
-#     object3D.svgLinesIP[i].setAttribute('y2', svgShift(ip2.y))
-
 transformVertices = (object3D, scale, translation, shear, rotation, perspective) ->
 
   start = new Date().getTime();
@@ -395,15 +311,12 @@ transformVertices = (object3D, scale, translation, shear, rotation, perspective)
       generalizedTransformation(scale, translation, shear, rotation, perspective, v)
   end = new Date().getTime();
   time = end - start;
-  # console.log "transformation time = #{time} ms"
 
   for i in [0...object3D.meshLines.length]
     meshLine = object3D.meshLines[i]
 
     ip1 = transformedVertices[meshLine.p1]
     ip2 = transformedVertices[meshLine.p2]
-
-    # lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
 
     object3D.svgLinesIP[i].setAttribute('x1', svgShift(ip1.x))
     object3D.svgLinesIP[i].setAttribute('y1', svgShift(ip1.y))
@@ -716,33 +629,5 @@ class Main
                                  {x:@t.syz, y:@t.sxz, z:@t.sxy},
                                  {x:@t.rx , y:@t.ry , z:@t.rz },
                                  {x:@t.px , y:@t.py , z:@t.pz })
-
-    # updateGUI()
-
-  # makeGUI()
-
-
-  # document.getElementById('rotateXY+').addEventListener "click", (e) => 
-  #     # rotate(object3D, -R_INC, 0, 0)
-  #     # rotation.z += R_INC
-  #     # transformVertices(object3D, scale, translation, shear, rotation, perspective)
-  #     reset('Oblique')
-  
-  # document.getElementById('rotateXZ+').addEventListener "click", (e) => 
-  #     rotate(object3D, 0, R_INC, 0)
-
-  # document.getElementById('rotateYZ+').addEventListener "click", (e) => 
-  #     rotate(object3D, 0, 0, -R_INC)
-
-  # document.getElementById('rotateXY-').addEventListener "click", (e) => 
-  #     rotate(object3D, R_INC, 0, 0)
-  
-  # document.getElementById('rotateXZ-').addEventListener "click", (e) => 
-  #     rotate(object3D, 0, -R_INC, 0)
-
-  # document.getElementById('rotateYZ-').addEventListener "click", (e) => 
-  #     rotate(object3D, 0, 0, R_INC)
-  # object3D = {vertices: [], faces: []}
-  # loadObject('objects/Beethoven.obj', object3D, callback, err)
 
 prog = new Main()
