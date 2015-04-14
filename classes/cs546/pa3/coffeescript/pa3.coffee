@@ -687,25 +687,25 @@ main = () ->
         @t.ry = Math.PI / 5
 
       when 'Oblique'
-        t.syz = t.sxz = 0.5
+        @t.syz = @t.sxz = 0.5
 
       when 'Perspective1'
-        t.rx = Math.PI / 16
-        t.ry = Math.PI / 5
-        t.pz = 0.25
+        @t.rx = Math.PI / 16
+        @t.ry = Math.PI / 5
+        @t.pz = 0.25
 
       when 'Perspective2'
-        t.rx = Math.PI / 16
-        t.ry = Math.PI / 5
-        t.py = 0.125
-        t.pz = 0.25
+        @t.rx = Math.PI / 16
+        @t.ry = Math.PI / 5
+        @t.py = 0.125
+        @t.pz = 0.25
 
       when 'Perspective3'
-        t.rx = Math.PI / 16
-        t.ry = Math.PI / 5
-        t.px = 0.0625
-        t.py = 0.125
-        t.pz = 0.25
+        @t.rx = Math.PI / 16
+        @t.ry = Math.PI / 5
+        @t.px = 0.0625
+        @t.py = 0.125
+        @t.pz = 0.25
 
     console.log @t
     

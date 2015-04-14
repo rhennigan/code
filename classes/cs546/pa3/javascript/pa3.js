@@ -705,25 +705,25 @@
             _this.t.ry = Math.PI / 5;
             break;
           case 'Oblique':
-            t.syz = t.sxz = 0.5;
+            _this.t.syz = _this.t.sxz = 0.5;
             break;
           case 'Perspective1':
-            t.rx = Math.PI / 16;
-            t.ry = Math.PI / 5;
-            t.pz = 0.25;
+            _this.t.rx = Math.PI / 16;
+            _this.t.ry = Math.PI / 5;
+            _this.t.pz = 0.25;
             break;
           case 'Perspective2':
-            t.rx = Math.PI / 16;
-            t.ry = Math.PI / 5;
-            t.py = 0.125;
-            t.pz = 0.25;
+            _this.t.rx = Math.PI / 16;
+            _this.t.ry = Math.PI / 5;
+            _this.t.py = 0.125;
+            _this.t.pz = 0.25;
             break;
           case 'Perspective3':
-            t.rx = Math.PI / 16;
-            t.ry = Math.PI / 5;
-            t.px = 0.0625;
-            t.py = 0.125;
-            t.pz = 0.25;
+            _this.t.rx = Math.PI / 16;
+            _this.t.ry = Math.PI / 5;
+            _this.t.px = 0.0625;
+            _this.t.py = 0.125;
+            _this.t.pz = 0.25;
         }
         console.log(_this.t);
         return transformVertices(object3D, {
