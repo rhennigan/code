@@ -435,6 +435,7 @@
 
   transformVertices = function(object3D, scale, translation, shear, rotation, perspective) {
     var i, k, m, meshLine, proj1, proj2, ref, results, size, transformed, v;
+    console.log(object3D);
     size = SVG_SIZE;
     m = transformationMatrix(scale, translation, shear, rotation, perspective);
     transformed = (function() {
@@ -450,11 +451,9 @@
       }
       return results;
     })();
-    console.log(transformed);
     results = [];
     for (i = k = 0, ref = object3D.meshLines.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
       meshLine = object3D.meshLines[i];
-      console.log(meshLine);
       proj1 = transformed[meshLine.p1];
       proj2 = transformed[meshLine.p2];
       object3D.svgLinesIP[i].setAttribute('x1', proj1.x);
