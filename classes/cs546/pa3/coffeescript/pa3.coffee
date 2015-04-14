@@ -568,10 +568,41 @@ main = () ->
 
   reset = (preset) ->
     switch preset
+      
       when 'Isometric'
         rotation.x = Math.asin(1 / Math.sqrt(3))
         rotation.y = Math.PI / 4
-        transformVertices(object3D, scale, translation, shear, rotation, perspective)
+
+      when 'Dimetric'
+        rotation.x = Math.PI / 16
+        rotation.y = Math.PI / 4
+
+      when 'Trimetric'
+        rotation.x = Math.PI / 16
+        rotation.y = Math.PI / 5
+
+      when 'Oblique'
+        shear.x = @shear.y = 0.5
+
+      when 'Perspective1'
+        rotation.x = Math.PI / 16
+        rotation.y = Math.PI / 5
+        perspective.z = -0.25
+
+      when 'Perspective2'
+        rotation.x = Math.PI / 16
+        rotation.y = Math.PI / 5
+        perspective.y = -0.125
+        perspective.z = -0.25
+
+      when 'Perspective3'
+        rotation.x = Math.PI / 16
+        rotation.y = Math.PI / 5
+        perspective.z = -0.0625
+        perspective.y = -0.125
+        perspective.z = -0.25
+    
+    transformVertices(object3D, scale, translation, shear, rotation, perspective)
 
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)

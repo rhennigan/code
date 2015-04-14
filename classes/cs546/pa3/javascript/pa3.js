@@ -687,8 +687,37 @@
         case 'Isometric':
           rotation.x = Math.asin(1 / Math.sqrt(3));
           rotation.y = Math.PI / 4;
-          return transformVertices(object3D, scale, translation, shear, rotation, perspective);
+          break;
+        case 'Dimetric':
+          rotation.x = Math.PI / 16;
+          rotation.y = Math.PI / 4;
+          break;
+        case 'Trimetric':
+          rotation.x = Math.PI / 16;
+          rotation.y = Math.PI / 5;
+          break;
+        case 'Oblique':
+          shear.x = this.shear.y = 0.5;
+          break;
+        case 'Perspective1':
+          rotation.x = Math.PI / 16;
+          rotation.y = Math.PI / 5;
+          perspective.z = -0.25;
+          break;
+        case 'Perspective2':
+          rotation.x = Math.PI / 16;
+          rotation.y = Math.PI / 5;
+          perspective.y = -0.125;
+          perspective.z = -0.25;
+          break;
+        case 'Perspective3':
+          rotation.x = Math.PI / 16;
+          rotation.y = Math.PI / 5;
+          perspective.z = -0.0625;
+          perspective.y = -0.125;
+          perspective.z = -0.25;
       }
+      return transformVertices(object3D, scale, translation, shear, rotation, perspective);
     };
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {
