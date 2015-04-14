@@ -24,8 +24,8 @@ parseVertex = (vertexString) ->
   [x, y, z] = split[1..3]
   {
     x: parseFloat(x)
-    y: -parseFloat(y)
-    z: -parseFloat(z)
+    y: parseFloat(y)
+    z: parseFloat(z)
   }
 
 ###############################################################################

@@ -31,8 +31,8 @@
     ref = split.slice(1, 4), x = ref[0], y = ref[1], z = ref[2];
     return {
       x: parseFloat(x),
-      y: -parseFloat(y),
-      z: -parseFloat(z)
+      y: parseFloat(y),
+      z: parseFloat(z)
     };
   };
 
