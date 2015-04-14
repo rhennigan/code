@@ -64,13 +64,14 @@ getVertexRanges = (vertices) ->
 rescaleVertices = (vertices, size) ->
   r = getVertexRanges(vertices)
   m = {x: (r.x1+r.x2)/2, y: (r.y1+r.y2)/2, z: (r.z1+r.z2)/2}
-  shifted = {x: v.x - m.x, y: v.y - m.y, z: v.z - m.z} for v in vertices
-  console.log shifted
+  shifted = for v in vertices
+    {x: v.x - m.x, y: v.y - m.y, z: v.z - m.z}
   
   rm = 0
-
   for v in vertices
     rm = Math.max(m, Math.abs(v.x), Math.abs(v.y), Math.abs(v.z))
+
+  console.log rm
 
   for v in vertices
     {
