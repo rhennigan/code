@@ -189,7 +189,7 @@ callback = (obj, txt) ->
     label.setAttribute('x', 0.1)
     label.setAttribute('y', 0.1)
     label.setAttribute('fill', 'red')
-    label.setAttribute('font-size', '28px')
+    label.setAttribute('font-size', 0.05)
     label.setAttribute('font-family', 'helvetica')
     label.innerHTML = text
     label
