@@ -207,6 +207,7 @@ callback = (obj, txt) ->
       svg.setAttribute('width', SVG_SIZE)
       svg.setAttribute('height', SVG_SIZE)
       svg.setAttribute('style', "border: 1px solid black;")
+      svg.setAttribute('viewBox', "0 0 1 1")
       svg
   
   obj.meshLines = createMeshLines(obj.faces)
