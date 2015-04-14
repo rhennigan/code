@@ -525,6 +525,7 @@ class Main
   straight: () -> 
     @clearParameters()
     @reset()
+    if @object3D.projectionLabel? then @object3D.projectionLabel.innerHTML = 'Straight'
 
   isometric: () -> @reset('Isometric')
   dimetric: () -> @reset('Dimetric')
@@ -619,9 +620,9 @@ class Main
 
   reset: (preset) ->
 
-    @clearParameters()
-
     if preset?
+
+      @clearParameters()
 
       console.log @object3D.projectionLabel
 

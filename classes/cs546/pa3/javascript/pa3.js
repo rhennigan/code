@@ -718,7 +718,10 @@
 
     Main.prototype.straight = function() {
       this.clearParameters();
-      return this.reset();
+      this.reset();
+      if (this.object3D.projectionLabel != null) {
+        return this.object3D.projectionLabel.innerHTML = 'Straight';
+      }
     };
 
     Main.prototype.isometric = function() {
@@ -817,8 +820,8 @@
     };
 
     Main.prototype.reset = function(preset) {
-      this.clearParameters();
       if (preset != null) {
+        this.clearParameters();
         console.log(this.object3D.projectionLabel);
         if (this.object3D.projectionLabel != null) {
           this.object3D.projectionLabel.innerHTML = preset;
