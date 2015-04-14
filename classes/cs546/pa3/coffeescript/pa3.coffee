@@ -674,7 +674,9 @@ class Main
 
   initGUI: ->
     @gui = new dat.GUI()
-    console.log @gui
+    slider = (name, low, high) ->
+      control = @gui.add(@t, name, low, high)
+      control.onChange((value) => reset())
 
   # slider = (name, low, high) =>
   #   control = @gui.add(@t, name, low, high)

@@ -686,8 +686,17 @@
     };
 
     Main.prototype.initGUI = function() {
+      var slider;
       this.gui = new dat.GUI();
-      return console.log(this.gui);
+      return slider = function(name, low, high) {
+        var control;
+        control = this.gui.add(this.t, name, low, high);
+        return control.onChange((function(_this) {
+          return function(value) {
+            return reset();
+          };
+        })(this));
+      };
     };
 
     Main.prototype.reset = function(preset) {
