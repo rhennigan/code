@@ -355,6 +355,14 @@ transformVertices = (object3D, scale, translation, shear, rotation, perspective)
       y: m[2][4] + m[2][1] * v.x + m[2][2] * v.y + m[2][3] * v.z
     }
 
+  for i in [0...object3D.meshLines.length]
+    meshLine = object3D.meshLines[i]
+
+    p1 = transformed[meshLine.p1]
+    p2 = transformed[meshLine.p2]
+
+    line = createSVGLine(p1, p2, SVG_STROKE)
+
 
 ###############################################################################
 

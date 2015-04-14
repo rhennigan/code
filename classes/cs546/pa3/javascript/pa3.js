@@ -432,10 +432,10 @@
   };
 
   transformVertices = function(object3D, scale, translation, shear, rotation, perspective) {
-    var m, size, transformed, v;
+    var i, k, line, m, meshLine, p1, p2, ref, results, size, transformed, v;
     size = SVG_SIZE;
     m = transformationMatrix(scale, translation, shear, rotation, perspective);
-    return transformed = (function() {
+    transformed = (function() {
       var k, len1, ref, results;
       ref = object3D.vertices;
       results = [];
@@ -448,6 +448,14 @@
       }
       return results;
     })();
+    results = [];
+    for (i = k = 0, ref = object3D.meshLines.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
+      meshLine = object3D.meshLines[i];
+      p1 = transformed[meshLine.p1];
+      p2 = transformed[meshLine.p2];
+      results.push(line = createSVGLine(p1, p2, SVG_STROKE));
+    }
+    return results;
   };
 
   generalizedTransformation = function(scale, translation, shear, rotation, perspective, point) {
