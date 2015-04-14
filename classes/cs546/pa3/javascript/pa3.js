@@ -818,9 +818,6 @@
 
     Main.prototype.reset = function(preset) {
       this.clearParameters();
-      if (this.object3D.projectionLabel != null) {
-        this.object3D.projectionLabel.innerHTML = 'Straight';
-      }
       if (preset != null) {
         console.log(this.object3D.projectionLabel);
         if (this.object3D.projectionLabel != null) {

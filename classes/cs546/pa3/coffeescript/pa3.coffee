@@ -620,7 +620,6 @@ class Main
   reset: (preset) ->
 
     @clearParameters()
-    if @object3D.projectionLabel? then @object3D.projectionLabel.innerHTML = 'Straight'
 
     if preset?
 
