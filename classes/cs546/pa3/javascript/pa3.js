@@ -792,11 +792,7 @@
 
     Main.prototype.reset = function(preset) {
       if (preset != null) {
-        this.t.sx = this.t.sy = this.t.sz = 1;
-        this.t.tx = this.t.ty = this.t.tz = 0;
-        this.t.sxy = this.t.sxz = this.t.syz = 0;
-        this.t.rx = this.t.ry = this.t.rz = 0;
-        this.t.px = this.t.py = this.t.pz = 0;
+        this.clearParameters();
         switch (preset) {
           case 'Isometric':
             this.t.rx = -Math.PI + Math.asin(1 / Math.sqrt(3));

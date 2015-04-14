@@ -595,11 +595,7 @@ class Main
 
     if preset?
 
-      @t.sx = @t.sy = @t.sz = 1
-      @t.tx = @t.ty = @t.tz = 0
-      @t.sxy = @t.sxz = @t.syz = 0
-      @t.rx = @t.ry = @t.rz = 0
-      @t.px = @t.py = @t.pz = 0
+      @clearParameters()
 
       switch preset
 
