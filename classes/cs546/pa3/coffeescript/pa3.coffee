@@ -736,16 +736,16 @@ main = () ->
   attachHandler('Perspective2')
   attachHandler('Perspective3')
 
-  gui = new dat.GUI()
-
-  slider = (name, low, high) ->
+  slider = (gui, name, low, high) =>
     control = gui.add(@t, name, low, high)
     control.onChange((value) => 
       reset())
 
-  slider('sx', -2.0, 2.0)
-  slider('sy', -2.0, 2.0)
-  slider('sz', -2.0, 2.0)
+  makeGUI = () =>
+    gui = new dat.GUI()
+    slider('sx', -2.0, 2.0)
+    slider('sy', -2.0, 2.0)
+    slider('sz', -2.0, 2.0)
 
   # document.getElementById('rotateXY+').addEventListener "click", (e) => 
   #     # rotate(object3D, -R_INC, 0, 0)

@@ -646,7 +646,7 @@
   })();
 
   main = function() {
-    var attachHandler, gui, object3D, objectName, reset, slider;
+    var attachHandler, makeGUI, object3D, objectName, reset, slider;
     ({
       t: {
         sx: 1,
@@ -771,19 +771,24 @@
     attachHandler('Perspective1');
     attachHandler('Perspective2');
     attachHandler('Perspective3');
-    gui = new dat.GUI();
-    slider = function(name, low, high) {
-      var control;
-      control = gui.add(this.t, name, low, high);
-      return control.onChange((function(_this) {
-        return function(value) {
+    slider = (function(_this) {
+      return function(gui, name, low, high) {
+        var control;
+        control = gui.add(_this.t, name, low, high);
+        return control.onChange(function(value) {
           return reset();
-        };
-      })(this));
-    };
-    slider('sx', -2.0, 2.0);
-    slider('sy', -2.0, 2.0);
-    return slider('sz', -2.0, 2.0);
+        });
+      };
+    })(this);
+    return makeGUI = (function(_this) {
+      return function() {
+        var gui;
+        gui = new dat.GUI();
+        slider('sx', -2.0, 2.0);
+        slider('sy', -2.0, 2.0);
+        return slider('sz', -2.0, 2.0);
+      };
+    })(this);
   };
 
   main();
