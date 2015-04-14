@@ -776,9 +776,9 @@
       })(this);
       ftr = this.gui.addFolder('transformations');
       fs = ftr.addFolder('scale');
-      slider(fs, 'sx', -2.0, 2.0);
-      slider(fs, 'sy', -2.0, 2.0);
-      slider(fs, 'sz', -2.0, 2.0);
+      slider(fs, 'sx', -5.0, 5.0);
+      slider(fs, 'sy', -5.0, 5.0);
+      slider(fs, 'sz', -5.0, 5.0);
       ft = ftr.addFolder('translation');
       slider(ft, 'tx', -2.0, 2.0);
       slider(ft, 'ty', -2.0, 2.0);
