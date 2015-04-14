@@ -696,7 +696,13 @@
       attachHandler('Oblique');
       attachHandler('Perspective1');
       attachHandler('Perspective2');
-      return attachHandler('Perspective3');
+      attachHandler('Perspective3');
+      return document.getElementById('selector').addEventListener("change", (function(_this) {
+        return function(e) {
+          _this.object3D = load(selector.value);
+          return _this.reset();
+        };
+      })(this));
     };
 
     Main.prototype.initGUI = function() {
@@ -790,12 +796,6 @@
         z: this.t.pz
       });
     };
-
-    document.getElementById('selector').addEventListener("change", function(e) {
-      var object3D;
-      object3D = load(selector.value);
-      return Main.reset();
-    });
 
     return Main;
 

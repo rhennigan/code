@@ -685,6 +685,10 @@ class Main
     attachHandler('Perspective2')
     attachHandler('Perspective3')
 
+    document.getElementById('selector').addEventListener "change", (e) => 
+      @object3D = load(selector.value)
+      @reset()
+
   initGUI: ->
     @gui = new dat.GUI()
 
@@ -765,16 +769,6 @@ class Main
     # updateGUI()
 
   # makeGUI()
-  
-  
-  
-
-  document.getElementById('selector').addEventListener "change", (e) => 
-      object3D = load(selector.value)
-      @reset()
-
-
-
 
 
   # document.getElementById('rotateXY+').addEventListener "click", (e) => 
