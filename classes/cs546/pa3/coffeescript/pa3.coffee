@@ -570,7 +570,10 @@ class Main
     slider = (f, name, low, high) =>
       control = f.add(@, name, low, high).step(0.001)
       control.listen()
-      control.onChange((value) => @reset())
+      control.onChange((value) => 
+        @reset()
+        if @object3D.projectionLabel? then @object3D.projectionLabel.innerHTML = 'Custom'
+        )
 
     ftr = @gui.addFolder('transformations')
 

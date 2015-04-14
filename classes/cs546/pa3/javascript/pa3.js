@@ -781,7 +781,10 @@
           control = f.add(_this, name, low, high).step(0.001);
           control.listen();
           return control.onChange(function(value) {
-            return _this.reset();
+            _this.reset();
+            if (_this.object3D.projectionLabel != null) {
+              return _this.object3D.projectionLabel.innerHTML = 'Custom';
+            }
           });
         };
       })(this);
