@@ -600,6 +600,12 @@ class Main
 
     fpr = @gui.addFolder('presets')
     fpr.add(@, 'isometric')
+    fpr.add(@, 'dimetric')
+    fpr.add(@, 'trimetric')
+    fpr.add(@, 'oblique')
+    fpr.add(@, 'perspective1')
+    fpr.add(@, 'perspective2')
+    fpr.add(@, 'perspective3')
 
     fpr.open()
 

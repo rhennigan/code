@@ -814,6 +814,12 @@
       ftr.open();
       fpr = this.gui.addFolder('presets');
       fpr.add(this, 'isometric');
+      fpr.add(this, 'dimetric');
+      fpr.add(this, 'trimetric');
+      fpr.add(this, 'oblique');
+      fpr.add(this, 'perspective1');
+      fpr.add(this, 'perspective2');
+      fpr.add(this, 'perspective3');
       return fpr.open();
     };
 
