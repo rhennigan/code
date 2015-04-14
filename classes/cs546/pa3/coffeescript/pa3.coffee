@@ -684,7 +684,7 @@ class Main
   #   @slider('sy', -2.0, 2.0)
   #   @slider('sz', -2.0, 2.0)
 
-  reset = (preset) ->
+  reset: (preset) ->
 
     if preset?
 
@@ -741,16 +741,16 @@ class Main
     # updateGUI()
 
   # makeGUI()
-  reset('Isometric')
+  @reset('Isometric')
   
   attachHandler = (name) =>
     document.getElementById(name).addEventListener "click", (e) =>
-      reset(name)
+      @reset(name)
       console.log @t
 
   document.getElementById('selector').addEventListener "change", (e) => 
       object3D = load(selector.value)
-      reset()
+      @reset()
 
   attachHandler('Isometric')
   attachHandler('Dimetric')

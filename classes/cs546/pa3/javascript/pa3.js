@@ -646,7 +646,7 @@
   })();
 
   Main = (function() {
-    var attachHandler, object3D, objectName, reset;
+    var attachHandler, object3D, objectName;
 
     Main.prototype.t = {
       sx: 1,
@@ -683,7 +683,7 @@
 
     object3D = load(objectName);
 
-    reset = function(preset) {
+    Main.prototype.reset = function(preset) {
       if (preset != null) {
         this.t = {
           sx: 1,
@@ -761,18 +761,18 @@
       return console.log(this.gui);
     };
 
-    reset('Isometric');
+    Main.reset('Isometric');
 
     attachHandler = function(name) {
       return document.getElementById(name).addEventListener("click", function(e) {
-        reset(name);
+        Main.reset(name);
         return console.log(Main.t);
       });
     };
 
     document.getElementById('selector').addEventListener("change", function(e) {
       object3D = load(selector.value);
-      return reset();
+      return Main.reset();
     });
 
     attachHandler('Isometric');
