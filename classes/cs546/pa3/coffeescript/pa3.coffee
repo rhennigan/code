@@ -175,6 +175,8 @@ createMeshLines = (faces) ->
 #   line.setAttribute('stroke', 'black')
 #   line
 
+
+
 createSVGLine = (p1, p2, stroke) ->
   line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
   line.setAttribute('x1', p1.x)
