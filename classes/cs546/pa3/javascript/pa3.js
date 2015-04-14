@@ -233,7 +233,7 @@
   };
 
   svgShift = function(p) {
-    return 0.33 * p + 0.5;
+    return 0.3 * p + 0.5;
   };
 
   createSVGLine = function(p1, p2, stroke) {
