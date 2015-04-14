@@ -273,11 +273,11 @@ callback = (obj, txt) ->
 
 ###############################################################################
 
-# isometricProjection = (v) ->
-#   {
-#     x: (v.x - v.y) / Math.sqrt(2.0)
-#     y: (v.x + v.y + 2.0*v.z) / Math.sqrt(6.0)
-#   }
+isometricProjection = (v) ->
+  {
+    x: (v.x - v.y) / Math.sqrt(2.0)
+    y: (v.x + v.y + 2.0*v.z) / Math.sqrt(6.0)
+  }
 
 ###############################################################################
 
@@ -372,10 +372,10 @@ transformVertices = (object3D, scale, translation, shear, rotation, perspective)
 
     # lineIP = createSVGLine(ips1, ips2, SVG_STROKE)
 
-    object3D.svgLinesIP[i].setAttribute('x1', ip1.x)
-    object3D.svgLinesIP[i].setAttribute('y1', ip1.y)
-    object3D.svgLinesIP[i].setAttribute('x2', ip2.x)
-    object3D.svgLinesIP[i].setAttribute('y2', ip2.y)
+    object3D.svgLinesIP[i].setAttribute('x1', svgShift(ip1.x))
+    object3D.svgLinesIP[i].setAttribute('y1', svgShift(ip1.y))
+    object3D.svgLinesIP[i].setAttribute('x2', svgShift(ip2.x))
+    object3D.svgLinesIP[i].setAttribute('y2', svgShift(ip2.y))
 
 ###############################################################################
 
