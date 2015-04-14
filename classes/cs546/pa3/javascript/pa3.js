@@ -235,10 +235,10 @@
   createSVGLine = function(p1, p2, stroke) {
     var line;
     line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', p1.x);
-    line.setAttribute('y1', p1.y);
-    line.setAttribute('x2', p2.x);
-    line.setAttribute('y2', p2.y);
+    line.setAttribute('x1', 0.4 * p1.x + 0.5);
+    line.setAttribute('y1', 0.4 * p1.y + 0.5);
+    line.setAttribute('x2', 0.4 * p2.x + 0.5);
+    line.setAttribute('y2', 0.4 * p2.y + 0.5);
     line.setAttribute('stroke-width', stroke);
     line.setAttribute('stroke', 'black');
     return line;
