@@ -671,6 +671,24 @@
     document.getElementById('imgTbl').width = 2 * SVG_SIZE;
     console.log(objectName);
     object3D = load(objectName);
+    slider = (function(_this) {
+      return function(gui, name, low, high) {
+        var control;
+        control = gui.add(_this.t, name, low, high);
+        return control.onChange(function(value) {
+          return reset();
+        });
+      };
+    })(this);
+    makeGUI = (function(_this) {
+      return function() {
+        var gui;
+        gui = new dat.GUI();
+        slider('sx', -2.0, 2.0);
+        slider('sy', -2.0, 2.0);
+        return slider('sz', -2.0, 2.0);
+      };
+    })(this);
     reset = (function(_this) {
       return function(preset) {
         if (preset != null) {
@@ -726,7 +744,7 @@
               _this.t.pz = 0.25;
           }
         }
-        return transformVertices(object3D, {
+        transformVertices(object3D, {
           x: _this.t.sx,
           y: _this.t.sy,
           z: _this.t.sz
@@ -747,6 +765,7 @@
           y: _this.t.py,
           z: _this.t.pz
         });
+        return makeGUI();
       };
     })(this);
     reset('Isometric');
@@ -770,25 +789,7 @@
     attachHandler('Oblique');
     attachHandler('Perspective1');
     attachHandler('Perspective2');
-    attachHandler('Perspective3');
-    slider = (function(_this) {
-      return function(gui, name, low, high) {
-        var control;
-        control = gui.add(_this.t, name, low, high);
-        return control.onChange(function(value) {
-          return reset();
-        });
-      };
-    })(this);
-    return makeGUI = (function(_this) {
-      return function() {
-        var gui;
-        gui = new dat.GUI();
-        slider('sx', -2.0, 2.0);
-        slider('sy', -2.0, 2.0);
-        return slider('sz', -2.0, 2.0);
-      };
-    })(this);
+    return attachHandler('Perspective3');
   };
 
   main();

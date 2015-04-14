@@ -664,6 +664,17 @@ main = () ->
   console.log objectName
   object3D = load(objectName)
 
+  slider = (gui, name, low, high) =>
+    control = gui.add(@t, name, low, high)
+    control.onChange((value) => 
+      reset())
+
+  makeGUI = () =>
+    gui = new dat.GUI()
+    slider('sx', -2.0, 2.0)
+    slider('sy', -2.0, 2.0)
+    slider('sz', -2.0, 2.0)
+
   reset = (preset) =>
 
     if preset?
@@ -717,6 +728,8 @@ main = () ->
                                 {x:@t.rx , y:@t.ry , z:@t.rz },
                                 {x:@t.px , y:@t.py , z:@t.pz })
 
+    makeGUI()
+
   reset('Isometric')
 
   attachHandler = (name) =>
@@ -736,16 +749,7 @@ main = () ->
   attachHandler('Perspective2')
   attachHandler('Perspective3')
 
-  slider = (gui, name, low, high) =>
-    control = gui.add(@t, name, low, high)
-    control.onChange((value) => 
-      reset())
 
-  makeGUI = () =>
-    gui = new dat.GUI()
-    slider('sx', -2.0, 2.0)
-    slider('sy', -2.0, 2.0)
-    slider('sz', -2.0, 2.0)
 
   # document.getElementById('rotateXY+').addEventListener "click", (e) => 
   #     # rotate(object3D, -R_INC, 0, 0)
