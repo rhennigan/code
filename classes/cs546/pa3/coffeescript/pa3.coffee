@@ -317,6 +317,13 @@ transformationMatrix = (scale, translation, shear, rotation, perspective) ->
   v35 = Math.sin(v26)
   v36 = v34 * v35
 
+  m11 = sx*(v16*v22 + v22*v23 + v32 + v15*v6 + v33*v6)
+  m12 = sy*(v14*v22 + v22*v25 + v29 + v13*v6 + v28*v6)
+  m13 = sz*(v22*v24 + v27*v6 + v9)
+  m14 = tx + tz*v22 + ty*v6
+
+
+
   [[]
    []
    []
