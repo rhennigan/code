@@ -762,7 +762,7 @@
     document.getElementById('selector').addEventListener("change", (function(_this) {
       return function(e) {
         object3D = load(selector.value);
-        return reset('Isometric');
+        return reset();
       };
     })(this));
     attachHandler('Isometric');
@@ -773,7 +773,7 @@
     attachHandler('Perspective2');
     attachHandler('Perspective3');
     gui = new dat.GUI();
-    return slider = function(name, low, high) {
+    slider = function(name, low, high) {
       var control;
       control = gui.add(this.t, name, low, high);
       return control.onChange((function(_this) {
@@ -782,6 +782,9 @@
         };
       })(this));
     };
+    slider('sx', -2.0, 2.0);
+    slider('sy', -2.0, 2.0);
+    return slider('sz', -2.0, 2.0);
   };
 
   main();
