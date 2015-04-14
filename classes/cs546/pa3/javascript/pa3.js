@@ -795,59 +795,59 @@
         this.clearParameters();
         switch (preset) {
           case 'Isometric':
-            this.t.rx = -Math.PI + Math.asin(1 / Math.sqrt(3));
-            this.t.rz = Math.PI / 4;
+            this.rx = -Math.PI + Math.asin(1 / Math.sqrt(3));
+            this.rz = Math.PI / 4;
             break;
           case 'Dimetric':
-            this.t.rx = Math.PI / 16;
-            this.t.ry = Math.PI / 4;
+            this.rx = Math.PI / 16;
+            this.ry = Math.PI / 4;
             break;
           case 'Trimetric':
-            this.t.rx = Math.PI / 16;
-            this.t.ry = Math.PI / 5;
+            this.rx = Math.PI / 16;
+            this.ry = Math.PI / 5;
             break;
           case 'Oblique':
-            this.t.syz = this.t.sxz = 0.5;
+            this.syz = this.sxz = 0.5;
             break;
           case 'Perspective1':
-            this.t.rx = Math.PI / 16;
-            this.t.ry = Math.PI / 5;
-            this.t.pz = 0.25;
+            this.rx = Math.PI / 16;
+            this.ry = Math.PI / 5;
+            this.pz = 0.25;
             break;
           case 'Perspective2':
-            this.t.rx = Math.PI / 16;
-            this.t.ry = Math.PI / 5;
-            this.t.py = 0.125;
-            this.t.pz = 0.25;
+            this.rx = Math.PI / 16;
+            this.ry = Math.PI / 5;
+            this.py = 0.125;
+            this.pz = 0.25;
             break;
           case 'Perspective3':
-            this.t.rx = Math.PI / 16;
-            this.t.ry = Math.PI / 5;
-            this.t.px = 0.0625;
-            this.t.py = 0.125;
-            this.t.pz = 0.25;
+            this.rx = Math.PI / 16;
+            this.ry = Math.PI / 5;
+            this.px = 0.0625;
+            this.py = 0.125;
+            this.pz = 0.25;
         }
       }
       return transformVertices(this.object3D, {
-        x: this.t.sx,
-        y: this.t.sy,
-        z: this.t.sz
+        x: this.sx,
+        y: this.sy,
+        z: this.sz
       }, {
-        x: this.t.tx,
-        y: this.t.ty,
-        z: this.t.tz
+        x: this.tx,
+        y: this.ty,
+        z: this.tz
       }, {
-        x: this.t.syz,
-        y: this.t.sxz,
-        z: this.t.sxy
+        x: this.syz,
+        y: this.sxz,
+        z: this.sxy
       }, {
-        x: this.t.rx,
-        y: this.t.ry,
-        z: this.t.rz
+        x: this.rx,
+        y: this.ry,
+        z: this.rz
       }, {
-        x: this.t.px,
-        y: this.t.py,
-        z: this.t.pz
+        x: this.px,
+        y: this.py,
+        z: this.pz
       });
     };
 
