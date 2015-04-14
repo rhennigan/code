@@ -505,9 +505,7 @@ class Main
     tx:  0.0, ty:  0.0, tz:  0.0,
     sxy: 0.0, sxz: 0.0, syz: 0.0,
     rx:  0.0, ry:  0.0, rz:  0.0,
-    px:  0.0, py:  0.0, pz:  0.0,
-
-    isometric: () => @reset('Isometric')
+    px:  0.0, py:  0.0, pz:  0.0
   }
 
   gui: null
@@ -582,6 +580,7 @@ class Main
     # fp.open()
 
     fpr = @gui.addFolder('presets')
+    @t.isometric = () -> @reset('Isometric')
     fpr.add(@t, 'isometric')
 
   reset: (preset) ->

@@ -684,10 +684,7 @@
       rz: 0.0,
       px: 0.0,
       py: 0.0,
-      pz: 0.0,
-      isometric: function() {
-        return Main.reset('Isometric');
-      }
+      pz: 0.0
     };
 
     Main.prototype.gui = null;
@@ -766,6 +763,9 @@
       slider(fp, 'py', -0.3, 0.3);
       slider(fp, 'pz', -0.3, 0.3);
       fpr = this.gui.addFolder('presets');
+      this.t.isometric = function() {
+        return this.reset('Isometric');
+      };
       return fpr.add(this.t, 'isometric');
     };
 
