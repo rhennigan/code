@@ -420,7 +420,7 @@
     m22 = sy * (v3 * v31 + v4 * v5 * (v2 - v1 * v7));
     m23 = sz * v17 * v36;
     m24 = ty + tz * v7;
-    return [[], [], [], []];
+    return [[m11, m12, m13, m14], [m21, m22, m23, m24], [m31, m32, m33, m34], [m41, m42, m43, m44]];
   };
 
   generalizedTransformation = function(scale, translation, shear, rotation, perspective, point) {
