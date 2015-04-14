@@ -454,10 +454,10 @@
       meshLine = object3D.meshLines[i];
       p1 = transformed[meshLine.p1];
       p2 = transformed[meshLine.p2];
-      object3D.svgLinesP[i].setAttribute('x1', p1.x);
-      object3D.svgLinesP[i].setAttribute('y1', p1.y);
-      object3D.svgLinesP[i].setAttribute('x2', p2.x);
-      results.push(object3D.svgLinesP[i].setAttribute('y2', p2.y));
+      object3D.svgLinesIP[i].setAttribute('x1', p1.x);
+      object3D.svgLinesIP[i].setAttribute('y1', p1.y);
+      object3D.svgLinesIP[i].setAttribute('x2', p2.x);
+      results.push(object3D.svgLinesIP[i].setAttribute('y2', p2.y));
     }
     return results;
   };
