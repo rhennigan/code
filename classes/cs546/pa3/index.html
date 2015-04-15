@@ -286,41 +286,6 @@
     </tr>
   </table>
 
-  <div id="matrixTest">
-  \[
-
-  \]
-  </div>
-
-  <script>
-    //
-    //  Use a closure to hide the local variables from the
-    //  global namespace
-    //
-    (function () {
-      var QUEUE = MathJax.Hub.queue;  // shorthand for the queue
-      var math = null;                // the element jax for the math output.
-
-      //
-      //  Get the element jax when MathJax has produced it.
-      //
-      QUEUE.Push(function () {
-        math = MathJax.Hub.getAllJax("matrixTest")[0];
-      });
-
-      //
-      //  The onchange event handler that typesets the
-      //  math entered by the user
-      //
-      var mathText = "5x + y = z";
-
-      window.UpdateMath = function () {
-        QUEUE.Push(["Text", math, "\\displaystyle{"+mathText+"}"]);
-      }
-    })();
-  </script>
-
-  <input type="button" id="testButton" value="testButton" onclick="UpdateMath()">
   
   <script type="text/javascript" src="javascript/pa3.js"></script>
 
