@@ -649,20 +649,20 @@ class Main
         when 'Perspective1'
           @rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.75
           @rz =  Math.PI / 4 + 0.2
-          @pz =  0.5
+          @pz =  0.4
 
         when 'Perspective2'
           @rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.75
           @rz =  Math.PI / 4 + 0.2
-          @py =  0.25
-          @pz =  0.5
+          @py =  0.2
+          @pz =  0.4
 
         when 'Perspective3'
           @rx = -Math.PI + Math.atan(Math.sqrt(2)) + 0.75
           @rz =  Math.PI / 4 + 0.2
-          @px =  0.125
-          @py =  0.25
-          @pz =  0.5
+          @px =  0.1
+          @py =  0.2
+          @pz =  0.4
     
     transformVertices(@object3D, {x:@sx , y:@sy , z:@sz }, 
                                  {x:@tx , y:@ty , z:@tz },
