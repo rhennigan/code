@@ -30,7 +30,14 @@ With[
       ];
       exp]
   },
-  factorExp[exp_] := SortBy[Select[Tally[First[Last[Reap[{f[exp], Map[f, exp, Infinity]}]]]],Depth[#[[1]]] > 1 &], -Last[#] &]
+
+  factorExp[exp_] := SortBy[
+    Select[
+      (Tally @* First @* Last @* Reap) @ {f[exp], Map[f, exp, Infinity]},
+      Depth[ #[[1]] ] > 1 &
+    ],
+    -Last[#] &
+  ]
 ]
 
 End[] (* End Private Context *)
