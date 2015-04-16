@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      9922,        297]
-NotebookOptionsPosition[      9304,        272]
-NotebookOutlinePosition[      9649,        287]
-CellTagsIndexPosition[      9606,        284]
+NotebookDataLength[      3169,        117]
+NotebookOptionsPosition[      2711,         96]
+NotebookOutlinePosition[      3056,        111]
+CellTagsIndexPosition[      3013,        108]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -64,7 +64,7 @@ Cell[BoxData[
    RowBox[{"Tan", "[", "t", "]"}]}]}]], "Output",
  CellChangeTimes->{
   3.6381566069904575`*^9, 3.6381566384665766`*^9, {3.638156728832967*^9, 
-   3.6381567538129587`*^9}}]
+   3.6381567538129587`*^9}, 3.6381568294301453`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -74,201 +74,25 @@ Cell[BoxData[
  CellChangeTimes->{{3.6381566411025934`*^9, 3.6381566450954866`*^9}}],
 
 Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Set", "::", "shape"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Lists \[NoBreak]\\!\\({subexpression$1431, count$1431}\\)\
-\[NoBreak] and \[NoBreak]\\!\\(\\(\\(Cos[t]\\)\\) + \\(\\(\\(\\((\\(Cos[t]\\)\
-\\^2 + \\(\\(\\(\\(Cos[t]\\)\\)\\\\ \\(\\(Sin[t]\\)\\)\\)\\))\\)\\)\\\\ \
-\\@\\(Sin[\\(\\(t\\^2\\)\\)]\\)\\\\ \\(\\(Tan[t]\\)\\)\\)\\)\\)\[NoBreak] are \
-not the same shape. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Set/shape\\\", ButtonNote -> \
-\\\"Set::shape\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{
-  3.6381566456227865`*^9, {3.63815673165937*^9, 3.638156755633319*^9}}],
-
-Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-   RowBox[{"If", "[", 
-    RowBox[{
-     RowBox[{"count$1431", ">", "1"}], ",", 
-     RowBox[{
-      RowBox[{"newVar$1431", "=", 
-       RowBox[{"Symbol", "[", 
-        RowBox[{"\<\"v\"\>", "<>", 
-         RowBox[{"ToString", "[", 
-          RowBox[{"0", "+", "1"}], "]"}]}], "]"}]}], ";", 
-      RowBox[{"Sow", "[", 
-       RowBox[{"{", 
-        RowBox[{"newVar$1431", ",", "subexpression$1431"}], "}"}], "]"}], ";", 
-      RowBox[{"newExp$1431", "=", 
-       RowBox[{"simp", "[", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"Cos", "[", "t", "]"}], "+", 
-          RowBox[{
-           RowBox[{"(", 
-            RowBox[{
-             SuperscriptBox[
-              RowBox[{"Cos", "[", "t", "]"}], "2"], "+", 
-             RowBox[{
-              RowBox[{"Cos", "[", "t", "]"}], " ", 
-              RowBox[{"Sin", "[", "t", "]"}]}]}], ")"}], " ", 
-           SqrtBox[
-            RowBox[{"Sin", "[", 
-             SuperscriptBox["t", "2"], "]"}]], " ", 
-           RowBox[{"Tan", "[", "t", "]"}]}]}], "/.", "\[VeryThinSpace]", 
-         RowBox[{"subexpression$1431", "\[Rule]", "newVar$1431"}]}], "]"}]}], 
-      ";", 
-      RowBox[{"factor", "[", 
-       RowBox[{"newExp$1431", ",", 
-        RowBox[{"0", "+", "1"}]}], "]"}]}], ",", 
-     RowBox[{
-      RowBox[{"Cos", "[", "t", "]"}], "+", 
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{
-         SuperscriptBox[
-          RowBox[{"Cos", "[", "t", "]"}], "2"], "+", 
-         RowBox[{
-          RowBox[{"Cos", "[", "t", "]"}], " ", 
-          RowBox[{"Sin", "[", "t", "]"}]}]}], ")"}], " ", 
-       SqrtBox[
-        RowBox[{"Sin", "[", 
-         SuperscriptBox["t", "2"], "]"}]], " ", 
-       RowBox[{"Tan", "[", "t", "]"}]}]}]}], "]"}], ",", 
-   RowBox[{"{", "}"}]}], "}"}]], "Output",
- CellChangeTimes->{
-  3.6381566456227865`*^9, {3.63815673165937*^9, 3.6381567556490097`*^9}}]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"inReals", "[", "exp_", "]"}], ":=", 
-  RowBox[{"Element", "[", 
-   RowBox[{
-    RowBox[{"Union", "[", 
-     RowBox[{"Cases", "[", 
-      RowBox[{"exp", ",", "_Symbol", ",", "Infinity"}], "]"}], "]"}], ",", 
-    "Reals"}], "]"}]}]], "Input",
- CellChangeTimes->{{3.6365385959037485`*^9, 3.6365386454069543`*^9}}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"simp", "[", "exp_", "]"}], ":=", 
-  RowBox[{"Simplify", "[", 
-   RowBox[{"exp", ",", 
-    RowBox[{"inReals", "[", "exp", "]"}]}], "]"}]}]], "Input",
- CellChangeTimes->{{3.6365385882464905`*^9, 3.636538591837186*^9}, {
-   3.636538648640584*^9, 3.6365386539026165`*^9}, 3.636539796712825*^9, {
-   3.636541967416605*^9, 3.636541985328768*^9}}],
-
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"With", "[", 
-   RowBox[{
+   RowBox[{"v1", "+", 
+    RowBox[{"v1", " ", 
+     RowBox[{"(", 
+      RowBox[{"v1", "+", 
+       RowBox[{"Sin", "[", "t", "]"}]}], ")"}], " ", 
+     SqrtBox[
+      RowBox[{"Sin", "[", 
+       SuperscriptBox["t", "2"], "]"}]], " ", 
+     RowBox[{"Tan", "[", "t", "]"}]}]}], ",", 
+   RowBox[{"{", 
     RowBox[{"{", 
-     RowBox[{"f", "=", 
-      RowBox[{"Function", "[", 
-       RowBox[{"exp", ",", 
-        RowBox[{
-         RowBox[{"If", "[", 
-          RowBox[{
-           RowBox[{
-            RowBox[{
-             RowBox[{"Head", "[", "exp", "]"}], "===", "Times"}], "&&", 
-            RowBox[{
-             RowBox[{"Length", "[", "exp", "]"}], ">", "2"}]}], ",", 
-           "\[IndentingNewLine]", 
-           RowBox[{"Sow", "/@", 
-            RowBox[{"(", 
-             RowBox[{"Times", "@@@", 
-              RowBox[{"Subsets", "[", 
-               RowBox[{
-                RowBox[{"List", "@@", "exp"}], ",", 
-                RowBox[{"{", 
-                 RowBox[{"2", ",", "Infinity"}], "}"}]}], "]"}]}], ")"}]}], 
-           ",", "\[IndentingNewLine]", 
-           RowBox[{"Sow", "[", "exp", "]"}]}], "\[IndentingNewLine]", "]"}], 
-         ";", "exp"}]}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"factorExp", "[", "exp_", "]"}], ":=", 
-     RowBox[{"SortBy", "[", 
-      RowBox[{
-       RowBox[{"Select", "[", 
-        RowBox[{
-         RowBox[{"Tally", "[", 
-          RowBox[{"First", "[", 
-           RowBox[{"Last", "[", 
-            RowBox[{"Reap", "[", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"f", "[", "exp", "]"}], ",", 
-               RowBox[{"Map", "[", 
-                RowBox[{"f", ",", "exp", ",", "Infinity"}], "]"}]}], "}"}], 
-             "]"}], "]"}], "]"}], "]"}], ",", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"Depth", "[", 
-            RowBox[{
-            "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-            "]"}], ">", "1"}], "&"}]}], "]"}], ",", 
-       RowBox[{
-        RowBox[{"-", 
-         RowBox[{"Last", "[", "#", "]"}]}], "&"}]}], "]"}]}]}], 
-   "\[IndentingNewLine]", "]"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{"ClearAll", "[", "factor", "]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"factor", "[", 
-   RowBox[{"exp_", ",", "varCount_"}], "]"}], ":=", 
-  RowBox[{"Module", "[", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"subexpression", ",", "count", ",", "newVar", ",", "newExp"}], 
-     "}"}], ",", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"subexpression", ",", "count"}], "}"}], "=", 
-      RowBox[{"First", "[", 
-       RowBox[{"factorExp", "[", "exp", "]"}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"If", "[", 
-      RowBox[{
-       RowBox[{"count", ">", "1"}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"newVar", "=", 
-         RowBox[{"Symbol", "[", 
-          RowBox[{"\"\<v\>\"", "<>", 
-           RowBox[{"ToString", "[", 
-            RowBox[{"varCount", "+", "1"}], "]"}]}], "]"}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"Sow", "[", 
-         RowBox[{"{", 
-          RowBox[{"newVar", ",", "subexpression"}], "}"}], "]"}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"newExp", "=", 
-         RowBox[{"simp", "[", 
-          RowBox[{"exp", "/.", 
-           RowBox[{"subexpression", "\[Rule]", "newVar"}]}], "]"}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"factor", "[", 
-         RowBox[{"newExp", ",", 
-          RowBox[{"varCount", "+", "1"}]}], "]"}]}], ",", 
-       "\[IndentingNewLine]", "exp"}], "\[IndentingNewLine]", "]"}]}]}], 
-   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"factor", "[", "exp_", "]"}], ":=", 
-   RowBox[{"Reap", "[", 
-    RowBox[{"factor", "[", 
-     RowBox[{"exp", ",", "0"}], "]"}], "]"}]}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
- CellChangeTimes->{{3.6381567941042995`*^9, 3.6381567974644527`*^9}}]
+     RowBox[{"{", 
+      RowBox[{"v1", ",", 
+       RowBox[{"Cos", "[", "t", "]"}]}], "}"}], "}"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.638156843347774*^9}]
+}, Open  ]]
 },
 WindowSize->{783, 883},
 WindowMargins->{{Automatic, -1992}, {Automatic, -64}},
@@ -289,19 +113,14 @@ Notebook[{
 Cell[558, 20, 258, 5, 31, "Input"],
 Cell[CellGroupData[{
 Cell[841, 29, 586, 18, 35, "Input"],
-Cell[1430, 49, 543, 17, 39, "Output"]
+Cell[1430, 49, 567, 17, 39, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2010, 71, 131, 2, 31, "Input"],
-Cell[2144, 75, 732, 14, 43, "Message"],
-Cell[2879, 91, 1885, 53, 151, "Output"]
-}, Open  ]],
-Cell[4779, 147, 345, 9, 31, "Input"],
-Cell[5127, 158, 375, 8, 31, "Input"],
-Cell[5505, 168, 3795, 102, 492, "Input"]
+Cell[2034, 71, 131, 2, 31, "Input"],
+Cell[2168, 75, 527, 18, 43, "Output"]
+}, Open  ]]
 }
 ]
 *)
 
 (* End of internal cache information *)
-

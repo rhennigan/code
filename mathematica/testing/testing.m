@@ -21,23 +21,14 @@ inReals[exp_] := Element[Union[Cases[exp, _Symbol, Infinity]], Reals]
 
 simp[exp_] := Simplify[exp, inReals[exp]]
 
-With[
-  {
-    f = Function[exp,
-      If[Head[exp] === Times && Length[exp] > 2,
-        Sow /@ (Times @@@ Subsets[List @@ exp, {2, Infinity}]),
-        Sow[exp]
-      ];
-      exp]
-  },
-
-  factorExp[exp_] := SortBy[
-    Select[
-      (Tally @* First @* Last @* Reap) @ {f[exp], Map[f, exp, Infinity]},
-      Depth[ #[[1]] ] > 1 &
-    ],
-    -Last[#] &
-  ]
+With[{f = Function[exp, If[Head[exp] === Times && Length[exp] > 2,
+  Sow /@ (Times @@@ Subsets[List @@ exp, {2, Infinity}]),
+  Sow[exp]
+]; exp]},
+  factorExp[exp_] :=
+      SortBy[Select[
+        Tally[First[Last[Reap[{f[exp], Map[f, exp, Infinity]}]]]],
+        Depth[#[[1]]] > 1 &], -Last[#] &]
 ]
 
 ClearAll[factor]
