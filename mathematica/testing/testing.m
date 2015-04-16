@@ -47,12 +47,12 @@ factor[exp_, varCount_] := Module[
   If[count > 1,
     newVar = Symbol["v" <> ToString[varCount + 1]];
     Sow[{newVar, subexpression}];
-    newExp = simp[exp /. subexpression -> newVar];
+    newExp = exp /. subexpression -> newVar;
     factor[newExp, varCount + 1],
     exp
   ]
 ]
-factor[exp_] := Reap[factor[exp, 0]]
+factor[exp_] := Reap[factor[simp[exp], 0]]
 
 End[] (* End Private Context *)
 
