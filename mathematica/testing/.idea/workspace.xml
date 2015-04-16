@@ -26,8 +26,8 @@
       <file leaf-file-name="testing.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testing.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.93649083">
-              <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.66200215">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -382,12 +382,12 @@
       <workItem from="1429166982301" duration="138000" />
       <workItem from="1429167147780" duration="209000" />
       <workItem from="1429167385422" duration="66000" />
-      <workItem from="1429167477645" duration="1672000" />
+      <workItem from="1429167477645" duration="1929000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3154000" />
+    <option name="totallyTimeSpent" value="3411000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -433,6 +433,10 @@
     <breakpoint-manager />
     <watches-manager />
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/testing.m">
       <provider selected="true" editor-type-id="text-editor">
@@ -475,8 +479,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testing.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93649083">
-          <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.66200215">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
       </provider>
