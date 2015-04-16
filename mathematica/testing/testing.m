@@ -42,7 +42,6 @@ With[
       ]
 ]
 
-ClearAll[factor]
 factor[exp_, varCount_] := Module[
   {subexpression, count, newVar, newExp},
   {subexpression, count} = First[factorExp[exp]];
@@ -55,6 +54,8 @@ factor[exp_, varCount_] := Module[
   ]
 ]
 factor[exp_] := Reap[factor[exp, 0]]
+
+FactorExpression[exp_] := factor[exp]
 
 End[] (* End Private Context *)
 
