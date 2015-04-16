@@ -34,7 +34,7 @@ With[
       SortBy[
         Select[
           (Tally @* First @* Last @* Reap) @ {f[exp], Map[f, exp, Infinity]},
-          Depth[#?1?] > 1 &
+          Depth[ #[[1]] ] > 1 &
         ],
         -Last[#] &
       ]
