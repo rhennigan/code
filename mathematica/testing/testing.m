@@ -40,8 +40,6 @@ With[
   ]
 ]
 
-End[] (* End Private Context *)
-
 ClearAll[factor]
 factor[exp_, varCount_] := Module[
   {subexpression, count, newVar, newExp},
@@ -55,5 +53,7 @@ factor[exp_, varCount_] := Module[
   ]
 ]
 factor[exp_] := Reap[factor[exp, 0]]
+
+End[] (* End Private Context *)
 
 EndPackage[]
