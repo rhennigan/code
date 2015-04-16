@@ -15,6 +15,8 @@
 BeginPackage["testing`"]
 (* Exported symbols added here with SymbolName::usage *)
 
+FactorExpression::usage = ""
+
 Begin["`Private`"] (* Begin Private Context *)
 
 inReals[exp_] := Element[Union[Cases[exp, _Symbol, Infinity]], Reals]
@@ -47,12 +49,12 @@ factor[exp_, varCount_] := Module[
   If[count > 1,
     newVar = Symbol["v" <> ToString[varCount + 1]];
     Sow[{newVar, subexpression}];
-    newExp = exp /. subexpression -> newVar;
+    newExp = simp[exp /. subexpression -> newVar];
     factor[newExp, varCount + 1],
     exp
   ]
 ]
-factor[exp_] := Reap[factor[simp[exp], 0]]
+factor[exp_] := Reap[factor[exp, 0]]
 
 End[] (* End Private Context *)
 
