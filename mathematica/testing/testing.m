@@ -1,16 +1,16 @@
-(* Mathematica Package         *)
-(* Created by IntelliJ IDEA    *)
+(* Mathematica Package              *)
+(* Created by IntelliJ IDEA         *)
 
-(* :Title: testing     *)
-(* :Context: testing`  *)
-(* :Author: rhennigan            *)
-(* :Date: 4/16/2015              *)
+(* :Title: testing                  *)
+(* :Context: testing`               *)
+(* :Author: rhennigan               *)
+(* :Date: 4/16/2015                 *)
 
-(* :Package Version: 1.0       *)
-(* :Mathematica Version:       *)
-(* :Copyright: (c) 2015 rhennigan *)
-(* :Keywords:                  *)
-(* :Discussion:                *)
+(* :Package Version: 1.0            *)
+(* :Mathematica Version:            *)
+(* :Copyright: (c) 2015 rhennigan   *)
+(* :Keywords:                       *)
+(* :Discussion:                     *)
 
 BeginPackage["testing`"]
 (* Exported symbols added here with SymbolName::usage *)
