@@ -20,17 +20,18 @@ FactorExpression::usage = ""
 Begin["`Private`"] (* Begin Private Context *)
 
 inReals[exp_] := Module[
-  {allSymbols, symbols},
+  {allSymbols, symbols, membership},
   allSymbols = Cases[exp, _Symbol, Infinity];
   symbols = Union[allSymbols];
-  Element[symbols, Reals]
+  membership = Element[symbols, Reals];
+  Return[membership];
 ]
 
 simp[exp_] := Module[
   {assumption, simplified},
   assumption = inReals[exp];
   simplified = Simplify[exp, assumption];
-  Return simplified;
+  Return[simplified];
 ]
 
 commutativeSubsets[exp_] := Module[
