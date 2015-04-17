@@ -41,10 +41,14 @@ commutativeSubsets[exp_] := Module[
     Sow[exp]];
   exp]
 
-factorExp[exp_] :=
+factorExp[exp_] := Module[
+  {subexpressions, subexpressionCounts},
+  subexpressions = (First @* Last) @ Reap[Map[commutativeSubsets, exp, Infinity]];
+  subexpressionCounts = Tally[subexpressions];
+]
     SortBy[
       Select[
-        (Tally @* First @* Last @* Reap) @ {f[exp], Map[f, exp, Infinity]},
+        (tallyFirstLast @* Reap) @ {f[exp], Map[f, exp, Infinity]},
         Depth[ #1[[1]] ] > 1 &
       ],
       -Last[#1] &
