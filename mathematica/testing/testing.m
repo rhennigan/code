@@ -39,7 +39,8 @@ commutativeSubsets[exp_] := Module[
       subproducts = Times @@@ subproducts;
       Sow /@ subproducts],
     Sow[exp]];
-  exp]
+  Return[exp];
+]
 
 factorExp[exp_] := Module[
   {subexpressions, compoundSubexpressions, subexpressionCounts, mostRedundant},
@@ -47,6 +48,7 @@ factorExp[exp_] := Module[
   compoundSubexpressions = Select[subexpressions, Depth[#] > 1 &];
   subexpressionCounts = Tally[compoundSubexpressions];
   mostRedundant = First[MaximalBy[subexpressionCounts, Last]];
+  Return[mostRedundant];
 ]
     SortBy[
       Select[
