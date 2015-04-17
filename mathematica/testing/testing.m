@@ -71,20 +71,7 @@ factorExpression[exp_, varCount_] := Module[
   Return[result];
 ]
 
-factor[exp_, varCount_] := Module[
-  {subexpression, count, newVar, newExp},
-  {subexpression, count} = First[factorExp[exp]];
-  If[count > 1,
-    newVar = Symbol["v" <> ToString[varCount + 1]];
-    Sow[{newVar, subexpression}];
-    newExp = simp[exp /. subexpression -> newVar];
-    factor[newExp, varCount + 1],
-    exp
-  ]
-]
-factor[exp_] := Reap[factor[exp, 0]]
-
-FactorExpression[exp_] := factor[exp]
+FactorExpression[exp_] := Reap[factorExpression[exp, 0]]
 
 End[] (* End Private Context *)
 

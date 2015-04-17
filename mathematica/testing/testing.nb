@@ -10,22 +10,25 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     33266,        890]
-NotebookOptionsPosition[     31999,        842]
-NotebookOutlinePosition[     32501,        863]
-CellTagsIndexPosition[     32416,        858]
+NotebookDataLength[     33362,        893]
+NotebookOptionsPosition[     32093,        845]
+NotebookOutlinePosition[     32595,        866]
+CellTagsIndexPosition[     32510,        861]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[{
  RowBox[{"Get", "[", 
-  "\"\<E:\\\\GDrive\\\\GitHub\\\\code\\\\mathematica\\\\testing\\\\testing.m\>\
-\"", "]"}], "\[IndentingNewLine]", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<testing.m\>\""}], 
+    "}"}], "]"}], "]"}], "\[IndentingNewLine]", 
  RowBox[{"Needs", "[", "\"\<testing`\>\"", "]"}]}], "Input",
  CellChangeTimes->{{3.6381565108499346`*^9, 3.6381565174936748`*^9}, {
-  3.638156549727295*^9, 3.6381565809904795`*^9}, {3.6381569765343933`*^9, 
-  3.6381569949913654`*^9}}],
+   3.638156549727295*^9, 3.6381565809904795`*^9}, {3.6381569765343933`*^9, 
+   3.6381569949913654`*^9}, 3.638257233054979*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -851,46 +854,46 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "Info3638241092-3555341"->{
-  Cell[30752, 802, 582, 13, 62, "Print",
+  Cell[30846, 805, 582, 13, 62, "Print",
    CellTags->"Info3638241092-3555341"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info3638241092-3555341", 32311, 852}
+ {"Info3638241092-3555341", 32405, 855}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 387, 7, 52, "Input"],
-Cell[948, 29, 23986, 593, 652, "Input"],
-Cell[24937, 624, 4132, 110, 412, "Input"],
+Cell[558, 20, 481, 10, 52, "Input"],
+Cell[1042, 32, 23986, 593, 652, "Input"],
+Cell[25031, 627, 4132, 110, 412, "Input"],
 Cell[CellGroupData[{
-Cell[29094, 738, 154, 3, 31, "Input"],
-Cell[29251, 743, 215, 7, 31, "Output"]
+Cell[29188, 741, 154, 3, 31, "Input"],
+Cell[29345, 746, 215, 7, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[29503, 755, 139, 3, 31, "Input"],
-Cell[29645, 760, 115, 3, 31, "Output"]
+Cell[29597, 758, 139, 3, 31, "Input"],
+Cell[29739, 763, 115, 3, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[29797, 768, 320, 8, 31, "Input"],
-Cell[30120, 778, 110, 2, 31, "Output"]
+Cell[29891, 771, 320, 8, 31, "Input"],
+Cell[30214, 781, 110, 2, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[30267, 785, 216, 4, 31, "Input"],
-Cell[30486, 791, 109, 2, 31, "Output"]
+Cell[30361, 788, 216, 4, 31, "Input"],
+Cell[30580, 794, 109, 2, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[30632, 798, 117, 2, 31, "Input"],
-Cell[30752, 802, 582, 13, 62, "Print",
+Cell[30726, 801, 117, 2, 31, "Input"],
+Cell[30846, 805, 582, 13, 62, "Print",
  CellTags->"Info3638241092-3555341"]
 }, Open  ]],
-Cell[31349, 818, 129, 2, 31, "Input"],
-Cell[31481, 822, 280, 8, 31, "Input"],
+Cell[31443, 821, 129, 2, 31, "Input"],
+Cell[31575, 825, 280, 8, 31, "Input"],
 Cell[CellGroupData[{
-Cell[31786, 834, 122, 2, 31, "Input"],
-Cell[31911, 838, 72, 1, 31, "Output"]
+Cell[31880, 837, 122, 2, 31, "Input"],
+Cell[32005, 841, 72, 1, 31, "Output"]
 }, Open  ]]
 }
 ]
