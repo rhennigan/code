@@ -78,6 +78,7 @@ factorExpression[exp_, varCount_Integer] := Module[
   ]
 ]
 
+FactorExpression[exp_] /; Depth[exp] == 1 := {exp, {}}
 FactorExpression[exp_] := Reap[factorExpression[exp, 0]]
 
 End[] (* End Private Context *)
