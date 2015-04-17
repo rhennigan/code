@@ -57,15 +57,18 @@ mostRedundantFactor[exp_] := Module[
 ]
 
 factorExpression[exp_, varCount_] := Module[
-  {factor, count},
+  {factor, count, result},
   {factor, count} = mostRedundantFactor[exp];
-  If[count > 1,
+  result = If[count > 1,
     Module[{newVar, newExp},
       newVar = Symbol["v" <> ToString[varCount + 1]];
       Sow[{newVar, factor}];
       newExp = exp /. factor -> newVar;
-    ]
-  ]
+      factorExpression[newExp, varCount + 1]
+    ],
+    exp;
+  ];
+  Return[result];
 ]
 
 factor[exp_, varCount_] := Module[
