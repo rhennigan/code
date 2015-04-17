@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     33338,        884]
-NotebookOptionsPosition[     32143,        839]
-NotebookOutlinePosition[     32645,        860]
-CellTagsIndexPosition[     32560,        855]
+NotebookDataLength[     34472,        929]
+NotebookOptionsPosition[     32980,        873]
+NotebookOutlinePosition[     33482,        894]
+CellTagsIndexPosition[     33397,        889]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -701,8 +701,8 @@ Cell[BoxData[{
    RowBox[{
     RowBox[{"{", 
      RowBox[{
-     "subexpressions", ",", "compoundSubexpressions", ",", 
-      "subexpressionCounts", ",", "mostRedundant"}], "}"}], ",", 
+     "subexpressions", ",", "subexpressionCounts", ",", "mostRedundant"}], 
+     "}"}], ",", 
     RowBox[{
      RowBox[{"subexpressions", "=", 
       RowBox[{
@@ -712,15 +712,8 @@ Cell[BoxData[{
         RowBox[{"Map", "[", 
          RowBox[{"commutativeSubsets", ",", "exp", ",", "Infinity"}], "]"}], 
         "]"}]}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"compoundSubexpressions", "=", 
-      RowBox[{"Select", "[", 
-       RowBox[{"subexpressions", ",", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"Depth", "[", "#", "]"}], ">", "1"}], "&"}]}], "]"}]}], ";",
-      "\[IndentingNewLine]", 
      RowBox[{"subexpressionCounts", "=", 
-      RowBox[{"Tally", "[", "compoundSubexpressions", "]"}]}], ";", 
+      RowBox[{"Tally", "[", "subexpressions", "]"}]}], ";", 
      "\[IndentingNewLine]", 
      RowBox[{"mostRedundant", "=", 
       RowBox[{"First", "[", 
@@ -730,13 +723,23 @@ Cell[BoxData[{
      RowBox[{"Return", "[", "mostRedundant", "]"}], ";"}]}], 
    "]"}]}], "\n"}], "Input",
  CellChangeTimes->{{3.6382548080256615`*^9, 3.638254808027733*^9}, 
-   3.6382561026922355`*^9, 3.638256216458623*^9}],
+   3.6382561026922355`*^9, 3.638256216458623*^9, {3.6382563267903013`*^9, 
+   3.6382563664504166`*^9}, 3.6382564535542517`*^9}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"exp", "=", 
-   RowBox[{"5", "x"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.6382562756322455`*^9, 3.6382562774406447`*^9}}],
+ RowBox[{"mostRedundantFactor", "[", "exp", "]"}]], "Input",
+ CellChangeTimes->{{3.6382562756322455`*^9, 3.6382562774406447`*^9}, {
+  3.638256343199301*^9, 3.6382563464658394`*^9}, {3.638256461839626*^9, 
+  3.6382564620224743`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\[Theta]x", ",", "55"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6382563469502163`*^9, 3.6382563679061847`*^9}, {
+  3.6382564596869745`*^9, 3.638256464557545*^9}}]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -758,7 +761,38 @@ Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"5", ",", "x"}], "}"}]], "Output",
  CellChangeTimes->{
-  3.638256121563407*^9, {3.6382562244062977`*^9, 3.638256285072733*^9}}]
+  3.638256121563407*^9, {3.6382562244062977`*^9, 3.638256285072733*^9}, 
+   3.638256383009719*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"subexpressionCounts", "=", 
+  RowBox[{"Tally", "[", "subexpressions", "]"}]}]], "Input",
+ CellChangeTimes->{3.638256390633007*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"5", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "1"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6382563914086356`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"First", "[", 
+  RowBox[{"MaximalBy", "[", 
+   RowBox[{"subexpressionCounts", ",", "Last"}], "]"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"5", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{3.638256400692917*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -848,43 +882,54 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "Info3638241092-3555341"->{
-  Cell[30896, 799, 582, 13, 62, "Print",
+  Cell[31733, 833, 582, 13, 62, "Print",
    CellTags->"Info3638241092-3555341"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info3638241092-3555341", 32455, 849}
+ {"Info3638241092-3555341", 33292, 883}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 387, 7, 52, "Input"],
 Cell[948, 29, 23986, 593, 652, "Input"],
-Cell[24937, 624, 4070, 108, 452, "Input"],
-Cell[29010, 734, 158, 4, 31, "Input"],
+Cell[24937, 624, 3850, 102, 432, "Input"],
 Cell[CellGroupData[{
-Cell[29193, 742, 542, 12, 31, "Input"],
-Cell[29738, 756, 166, 4, 31, "Output"]
+Cell[28812, 730, 246, 4, 31, "Input"],
+Cell[29061, 736, 203, 4, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[29941, 765, 320, 8, 31, "Input"],
-Cell[30264, 775, 110, 2, 31, "Output"]
+Cell[29301, 745, 542, 12, 31, "Input"],
+Cell[29846, 759, 192, 5, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[30411, 782, 216, 4, 31, "Input"],
-Cell[30630, 788, 109, 2, 31, "Output"]
+Cell[30075, 769, 154, 3, 31, "Input"],
+Cell[30232, 774, 215, 7, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[30776, 795, 117, 2, 31, "Input"],
-Cell[30896, 799, 582, 13, 62, "Print",
+Cell[30484, 786, 139, 3, 31, "Input"],
+Cell[30626, 791, 115, 3, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30778, 799, 320, 8, 31, "Input"],
+Cell[31101, 809, 110, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31248, 816, 216, 4, 31, "Input"],
+Cell[31467, 822, 109, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31613, 829, 117, 2, 31, "Input"],
+Cell[31733, 833, 582, 13, 62, "Print",
  CellTags->"Info3638241092-3555341"]
 }, Open  ]],
-Cell[31493, 815, 129, 2, 31, "Input"],
-Cell[31625, 819, 280, 8, 31, "Input"],
+Cell[32330, 849, 129, 2, 31, "Input"],
+Cell[32462, 853, 280, 8, 31, "Input"],
 Cell[CellGroupData[{
-Cell[31930, 831, 122, 2, 31, "Input"],
-Cell[32055, 835, 72, 1, 31, "Output"]
+Cell[32767, 865, 122, 2, 31, "Input"],
+Cell[32892, 869, 72, 1, 31, "Output"]
 }, Open  ]]
 }
 ]

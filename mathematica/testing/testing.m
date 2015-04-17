@@ -49,10 +49,9 @@ commutativeSubsets[exp_] := Module[
 ]
 
 mostRedundantFactor[exp_] := Module[
-  {subexpressions, compoundSubexpressions, subexpressionCounts, mostRedundant},
+  {subexpressions, subexpressionCounts, mostRedundant},
   subexpressions = (First @* Last) @ Reap[Map[commutativeSubsets, exp, Infinity]];
-  compoundSubexpressions = Select[subexpressions, Depth[#] > 1 &];
-  subexpressionCounts = Tally[compoundSubexpressions];
+  subexpressionCounts = Tally[subexpressions];
   mostRedundant = First[MaximalBy[subexpressionCounts, Last]];
   Return[mostRedundant];
 ]
