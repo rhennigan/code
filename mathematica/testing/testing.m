@@ -27,9 +27,10 @@ inReals[exp_] := Module[
 ]
 
 simp[exp_] := Module[
-  {assumption},
+  {assumption, simplified},
   assumption = inReals[exp];
-  Simplify[exp, assumption]
+  simplified = Simplify[exp, assumption];
+  Return simplified;
 ]
 
 commutativeSubsets[exp_] := Module[
@@ -54,13 +55,6 @@ factorExp[exp_] := Module[
   mostRedundant = First[MaximalBy[subexpressionCounts, Last]];
   Return[mostRedundant];
 ]
-    SortBy[
-      Select[
-        (tallyFirstLast @* Reap) @ {f[exp], Map[f, exp, Infinity]},
-        Depth[ #1[[1]] ] > 1 &
-      ],
-      -Last[#1] &
-    ]
 
 factor[exp_, varCount_] := Module[
   {subexpression, count, newVar, newExp},
