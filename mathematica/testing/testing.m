@@ -23,12 +23,14 @@ inReals[exp_] := Module[
   {allSymbols, symbols},
   allSymbols = Cases[exp, _Symbol, Infinity];
   symbols = Union[allSymbols];
-  Element[symbols, Reals]]
+  Element[symbols, Reals]
+]
 
 simp[exp_] := Module[
   {assumption},
   assumption = inReals[exp];
-  Simplify[exp, assumption]]
+  Simplify[exp, assumption]
+]
 
 commutativeSubsets[exp_] := Module[
   {productQ},
@@ -37,8 +39,10 @@ commutativeSubsets[exp_] := Module[
     Module[{subproductSets, subproducts},
       subproductSets = Subsets[List @@ exp, {2, Infinity}];
       subproducts = Times @@@ subproducts;
-      Sow /@ subproducts],
-    Sow[exp]];
+      Sow /@ subproducts
+    ],
+    Sow[exp]
+  ];
   Return[exp];
 ]
 
