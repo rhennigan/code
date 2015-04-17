@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     33055,        861]
-NotebookOptionsPosition[     31983,        823]
-NotebookOutlinePosition[     32331,        838]
-CellTagsIndexPosition[     32288,        835]
+NotebookDataLength[     38566,       1030]
+NotebookOptionsPosition[     37393,        987]
+NotebookOutlinePosition[     37741,       1002]
+CellTagsIndexPosition[     37698,        999]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -644,62 +644,25 @@ no first element. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
 ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
 ButtonData:>\\\"paclet:ref/First\\\", ButtonNote -> \
 \\\"First::nofirst\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6382580119327497`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Tally", "::", "list"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"List expected at position \[NoBreak]\\!\\(1\\)\[NoBreak] \
-in \[NoBreak]\\!\\(Tally[\\(\\(First[\\(\\({}\\)\\)]\\)\\)]\\)\[NoBreak]. \\!\
-\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/list\\\", \
-ButtonNote -> \\\"Tally::list\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6382580120265007`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Tally", "::", "list"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"List expected at position \[NoBreak]\\!\\(1\\)\[NoBreak] \
-in \[NoBreak]\\!\\(Tally[\\(\\(First[\\(\\({}\\)\\)]\\)\\)]\\)\[NoBreak]. \\!\
-\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/list\\\", \
-ButtonNote -> \\\"Tally::list\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.638258012135874*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"MaximalBy", "::", "arg1"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"The first argument is expected to be a list or \
-association. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/MaximalBy\\\", ButtonNote -> \\\"MaximalBy::arg1\\\
-\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6382580122764983`*^9}],
+ CellChangeTimes->{3.6382580119327497`*^9, 3.6382587791144795`*^9}],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
    RowBox[{"Set", "::", "shape"}], "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"Lists \[NoBreak]\\!\\({testing`Private`factor$19540, \
-testing`Private`count$19540}\\)\[NoBreak] and \
-\[NoBreak]\\!\\(Tally[\\(\\(First[\\(\\({}\\)\\)]\\)\\)]\\)\[NoBreak] are not \
-the same shape. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+  ":", " "}], "\<\"Lists \[NoBreak]\\!\\({testing`Private`factor$862, \
+testing`Private`count$862}\\)\[NoBreak] and \[NoBreak]\\!\\(First[\\(\\({}\\)\
+\\)]\\)\[NoBreak] are not the same shape. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
 ButtonData:>\\\"paclet:ref/message/Set/shape\\\", ButtonNote -> \
 \\\"Set::shape\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.638258012338999*^9}],
+ CellChangeTimes->{3.6382580119327497`*^9, 3.638258779176981*^9}],
 
 Cell[BoxData[
  RowBox[{"If", "[", 
   RowBox[{
-   RowBox[{"testing`Private`count$19540", ">", "1"}], ",", 
+   RowBox[{"testing`Private`count$862", ">", "1"}], ",", 
    RowBox[{"Module", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -714,12 +677,12 @@ Cell[BoxData[
       RowBox[{"Sow", "[", 
        RowBox[{"{", 
         RowBox[{
-        "testing`Private`newVar$", ",", "testing`Private`factor$19539"}], 
-        "}"}], "]"}], ";", 
+        "testing`Private`newVar$", ",", "testing`Private`factor$861"}], "}"}],
+        "]"}], ";", 
       RowBox[{"testing`Private`newExp$", "=", 
        RowBox[{"Null", "/.", "\[VeryThinSpace]", 
         RowBox[{
-        "testing`Private`factor$19539", "\[Rule]", 
+        "testing`Private`factor$861", "\[Rule]", 
          "testing`Private`newVar$"}]}]}], ";", 
       RowBox[{"factorExpression", "[", 
        RowBox[{"testing`Private`newExp$", ",", 
@@ -727,7 +690,7 @@ Cell[BoxData[
   "]"}]], "Output",
  CellChangeTimes->{
   3.6382574583676987`*^9, 3.6382578512530527`*^9, {3.6382579926140084`*^9, 
-   3.638258012338999*^9}}]
+   3.638258012338999*^9}, 3.638258779192607*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -819,7 +782,208 @@ Cell[BoxData[
        RowBox[{"Map", "[", 
         RowBox[{"commutativeSubsets", ",", "exp", ",", "Infinity"}], "]"}]}], 
       "]"}]}]}]}], "\n"}]], "Input",
- CellChangeTimes->{{3.6382585889000664`*^9, 3.6382585889000664`*^9}}]
+ CellChangeTimes->{{3.6382585889000664`*^9, 3.6382585889000664`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FactorExpression", "[", "exp", "]"}]], "Input",
+ CellChangeTimes->{{3.638258687249878*^9, 3.638258706096361*^9}, {
+  3.6382587857804303`*^9, 3.6382587960939193`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"v37", " ", 
+      RowBox[{"(", 
+       RowBox[{"tx", "+", 
+        RowBox[{"ty", " ", "v1"}], "+", 
+        RowBox[{"tz", " ", "v11"}], "+", 
+        RowBox[{"sx", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"v11", " ", "v18"}], "+", 
+           RowBox[{"v1", " ", "v24"}], "+", 
+           RowBox[{"v6", " ", "v8"}]}], ")"}], " ", "x"}], "+", 
+        RowBox[{"sy", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"v11", " ", "v20"}], "+", 
+           RowBox[{"v1", " ", "v25"}], "-", 
+           RowBox[{"v7", " ", "v8"}]}], ")"}], " ", "y"}], "+", 
+        RowBox[{"sz", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "v5"}], "+", 
+           RowBox[{"v11", " ", "v3", " ", "v8"}], "-", 
+           RowBox[{"v1", " ", "v4", " ", "v8"}]}], ")"}], " ", "z"}]}], 
+       ")"}]}], ",", 
+     RowBox[{"v37", " ", 
+      RowBox[{"(", 
+       RowBox[{"ty", "+", 
+        RowBox[{"tz", " ", "v2"}], "+", 
+        RowBox[{"sx", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"v18", " ", "v2"}], "+", "v24"}], ")"}], " ", "x"}], "+", 
+        RowBox[{"sy", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"v2", " ", "v20"}], "+", "v25"}], ")"}], " ", "y"}], "+", 
+        RowBox[{"sz", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"v2", " ", "v3", " ", "v8"}], "-", 
+           RowBox[{"v4", " ", "v8"}]}], ")"}], " ", "z"}]}], ")"}]}], ",", 
+     RowBox[{"v37", " ", 
+      RowBox[{"(", 
+       RowBox[{"tz", "+", 
+        RowBox[{"sx", " ", "v18", " ", "x"}], "+", 
+        RowBox[{"sy", " ", "v20", " ", "y"}], "+", 
+        RowBox[{"sz", " ", "v3", " ", "v8", " ", "z"}]}], ")"}]}]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"v1", ",", 
+        RowBox[{"Tan", "[", "sxy", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v2", ",", 
+        RowBox[{"Tan", "[", "syz", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v3", ",", 
+        RowBox[{"Cos", "[", "\[Theta]x", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v4", ",", 
+        RowBox[{"Sin", "[", "\[Theta]x", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v5", ",", 
+        RowBox[{"Sin", "[", "\[Theta]y", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v6", ",", 
+        RowBox[{"Cos", "[", "\[Theta]z", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v7", ",", 
+        RowBox[{"Sin", "[", "\[Theta]z", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v8", ",", 
+        RowBox[{"Cos", "[", "\[Theta]y", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v9", ",", 
+        RowBox[{"v1", " ", "v2"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v10", ",", 
+        RowBox[{"Tan", "[", "sxz", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v11", ",", 
+        RowBox[{"v10", "+", "v9"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v12", ",", 
+        RowBox[{"px", " ", "v1"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v13", ",", 
+        RowBox[{"py", "+", "v12"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v14", ",", 
+        RowBox[{"px", " ", "v11"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v15", ",", 
+        RowBox[{"py", " ", "v2"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v16", ",", 
+        RowBox[{"pz", "+", "v14", "+", "v15"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v17", ",", 
+        RowBox[{"v4", " ", "v7"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v18", ",", 
+        RowBox[{"v17", "+", 
+         RowBox[{"v3", " ", "v5", " ", "v6"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v19", ",", 
+        RowBox[{"v4", " ", "v6"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v20", ",", 
+        RowBox[{"v19", "-", 
+         RowBox[{"v3", " ", "v5", " ", "v7"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v21", ",", 
+        RowBox[{"v3", " ", "v7"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v22", ",", 
+        RowBox[{"v17", " ", "v5"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v23", ",", 
+        RowBox[{"v3", " ", "v6"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v24", ",", 
+        RowBox[{"v21", "-", 
+         RowBox[{"v19", " ", "v5"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v25", ",", 
+        RowBox[{"v22", "+", "v23"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v26", ",", 
+        RowBox[{"px", " ", "tx"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v27", ",", 
+        RowBox[{"ty", " ", "v13"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v28", ",", 
+        RowBox[{"tz", " ", "v16"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v29", ",", 
+        RowBox[{"v16", " ", "v18"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v30", ",", 
+        RowBox[{"v13", " ", "v24"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v31", ",", 
+        RowBox[{"v29", "+", "v30", "+", 
+         RowBox[{"px", " ", "v6", " ", "v8"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v32", ",", 
+        RowBox[{"v16", " ", "v20"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v33", ",", 
+        RowBox[{"v13", " ", "v25"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v34", ",", 
+        RowBox[{"v32", "+", "v33", "-", 
+         RowBox[{"px", " ", "v7", " ", "v8"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v35", ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "px"}], " ", "v5"}], "+", 
+         RowBox[{"v16", " ", "v3", " ", "v8"}], "-", 
+         RowBox[{"v13", " ", "v4", " ", "v8"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v36", ",", 
+        RowBox[{"1", "+", "v26", "+", "v27", "+", "v28", "+", 
+         RowBox[{"sx", " ", "v31", " ", "x"}], "+", 
+         RowBox[{"sy", " ", "v34", " ", "y"}], "+", 
+         RowBox[{"sz", " ", "v35", " ", "z"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v37", ",", 
+        FractionBox["1", "v36"]}], "}"}]}], "}"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6382586938075733`*^9, 3.6382587069704037`*^9}, {
+  3.6382587839212875`*^9, 3.6382587973868027`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Depth", "[", 
+  RowBox[{"5", "x"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6382587161133413`*^9, 3.6382587209337606`*^9}}],
+
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{{3.6382587184612517`*^9, 3.6382587215730457`*^9}}]
+}, Open  ]]
 },
 WindowSize->{1080, 1847},
 WindowMargins->{{Automatic, -1088}, {-351, Automatic}},
@@ -841,28 +1005,33 @@ Cell[558, 20, 481, 10, 52, "Input"],
 Cell[1042, 32, 23986, 593, 672, "Input"],
 Cell[CellGroupData[{
 Cell[25053, 629, 263, 5, 31, "Input"],
-Cell[25319, 636, 445, 10, 21, "Message"],
-Cell[25767, 648, 510, 10, 21, "Message"],
-Cell[26280, 660, 508, 10, 21, "Message"],
-Cell[26791, 672, 436, 10, 21, "Message"],
-Cell[27230, 684, 569, 12, 21, "Message"],
-Cell[27802, 698, 1163, 31, 112, "Output"]
+Cell[25319, 636, 469, 10, 21, "Message"],
+Cell[25791, 648, 568, 11, 21, "Message"],
+Cell[26362, 661, 1178, 31, 112, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[29002, 734, 139, 2, 31, "Input"],
-Cell[29144, 738, 464, 10, 21, "Message"],
-Cell[29611, 750, 566, 11, 21, "Message"],
-Cell[30180, 763, 191, 4, 31, "Output"]
+Cell[27577, 697, 139, 2, 31, "Input"],
+Cell[27719, 701, 464, 10, 21, "Message"],
+Cell[28186, 713, 566, 11, 21, "Message"],
+Cell[28755, 726, 191, 4, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[30408, 772, 224, 4, 31, "Input"],
-Cell[30635, 778, 251, 7, 31, "Output"]
+Cell[28983, 735, 224, 4, 31, "Input"],
+Cell[29210, 741, 251, 7, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[30923, 790, 458, 12, 72, "Input"],
-Cell[31384, 804, 122, 2, 31, "Output"]
+Cell[29498, 753, 458, 12, 72, "Input"],
+Cell[29959, 767, 122, 2, 31, "Output"]
 }, Open  ]],
-Cell[31521, 809, 458, 12, 72, "Input"]
+Cell[30096, 772, 458, 12, 72, "Input"],
+Cell[CellGroupData[{
+Cell[30579, 788, 190, 3, 31, "Input"],
+Cell[30772, 793, 6321, 180, 203, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37130, 978, 146, 3, 31, "Input"],
+Cell[37279, 983, 98, 1, 31, "Output"]
+}, Open  ]]
 }
 ]
 *)
