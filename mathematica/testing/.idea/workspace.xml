@@ -145,7 +145,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Mathematica" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -413,12 +413,12 @@
       <workItem from="1429166982301" duration="138000" />
       <workItem from="1429167147780" duration="209000" />
       <workItem from="1429167385422" duration="66000" />
-      <workItem from="1429167477645" duration="4444000" />
+      <workItem from="1429167477645" duration="4573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5926000" />
+    <option name="totallyTimeSpent" value="6055000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
