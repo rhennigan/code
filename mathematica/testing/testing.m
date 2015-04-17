@@ -86,6 +86,8 @@ SyntaxInformation[FactorExpression] = {"ArgumentsPattern" -> {_}};
 
 Attributes[FactorExpression] = {Protected};
 
+Options[FactorExpression] = {"Language" -> None};
+
 End[] (* End Private Context *)
 
 EndPackage[]
