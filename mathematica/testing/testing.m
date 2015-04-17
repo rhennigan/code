@@ -56,7 +56,7 @@ mostRedundantFactor[exp_] := Module[
   Return[{factor, count}];
 ]
 
-factorExpression[exp_, varCount_] := Module[
+factorExpression[exp_, varCount_Integer] := Module[
   {factor, count},
   {factor, count} = mostRedundantFactor[exp];
   If[count > 1,
