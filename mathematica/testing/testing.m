@@ -27,7 +27,7 @@ inReals[exp_] := Module[
   Return[membership];
 ]
 
-simp[exp_] := Module[
+simplify[exp_] := Module[
   {assumption, simplified},
   assumption = inReals[exp];
   simplified = Simplify[exp, assumption];
@@ -48,7 +48,7 @@ commutativeSubsets[exp_] := Module[
   Return[exp];
 ]
 
-factorExp[exp_] := Module[
+mostRedundantFactor[exp_] := Module[
   {subexpressions, compoundSubexpressions, subexpressionCounts, mostRedundant},
   subexpressions = (First @* Last) @ Reap[Map[commutativeSubsets, exp, Infinity]];
   compoundSubexpressions = Select[subexpressions, Depth[#] > 1 &];
