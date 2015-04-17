@@ -59,6 +59,11 @@ mostRedundantFactor[exp_] := Module[
 factorExpression[exp_, varCount_] := Module[
   {factor, count},
   {factor, count} = mostRedundantFactor[exp];
+  If[count > 1,
+    Module[{newVar},
+      newVar = Symbol["v" <> ToString[varCount + 1]];
+    ]
+  ]
 ]
 
 factor[exp_, varCount_] := Module[
