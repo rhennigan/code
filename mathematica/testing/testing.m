@@ -15,6 +15,11 @@
 BeginPackage["testing`"]
 (* Exported symbols added here with SymbolName::usage *)
 
+inReals::usage = ""
+simplify::usage = ""
+commutativeSubsets::usage = ""
+mostRedundantFactor::usage = ""
+factorExpression::usage = ""
 FactorExpression::usage = ""
 
 Begin["`Private`"] (* Begin Private Context *)

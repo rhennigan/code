@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     31853,        833]
-NotebookOptionsPosition[     31451,        815]
-NotebookOutlinePosition[     31799,        830]
-CellTagsIndexPosition[     31756,        827]
+NotebookDataLength[     30063,        771]
+NotebookOptionsPosition[     29340,        744]
+NotebookOutlinePosition[     29688,        759]
+CellTagsIndexPosition[     29645,        756]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -628,189 +628,118 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"FactorExpression", "[", "exp", "]"}]], "Input",
- CellChangeTimes->{{3.638257242934616*^9, 3.638257246047942*^9}}],
+ RowBox[{"FactorExpression", "[", "Null", "]"}]], "Input",
+ CellChangeTimes->{{3.638257242934616*^9, 3.638257246047942*^9}, {
+  3.6382578494879646`*^9, 3.6382578500504656`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"First", "::", "nofirst"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({}\\)\[NoBreak] has a length of zero and \
+no first element. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/First\\\", ButtonNote -> \
+\\\"First::nofirst\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6382578507644773`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Tally", "::", "list"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"List expected at position \[NoBreak]\\!\\(1\\)\[NoBreak] \
+in \[NoBreak]\\!\\(Tally[\\(\\(First[\\(\\({}\\)\\)]\\)\\)]\\)\[NoBreak]. \\!\
+\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/list\\\", \
+ButtonNote -> \\\"Tally::list\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6382578508876877`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Tally", "::", "list"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"List expected at position \[NoBreak]\\!\\(1\\)\[NoBreak] \
+in \[NoBreak]\\!\\(Tally[\\(\\(First[\\(\\({}\\)\\)]\\)\\)]\\)\[NoBreak]. \\!\
+\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/list\\\", \
+ButtonNote -> \\\"Tally::list\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6382578509814405`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"MaximalBy", "::", "arg1"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The first argument is expected to be a list or \
+association. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/MaximalBy\\\", ButtonNote -> \\\"MaximalBy::arg1\\\
+\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.638257851187977*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Set", "::", "shape"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Lists \[NoBreak]\\!\\({testing`Private`factor$56892, \
+testing`Private`count$56892}\\)\[NoBreak] and \
+\[NoBreak]\\!\\(Tally[\\(\\(First[\\(\\({}\\)\\)]\\)\\)]\\)\[NoBreak] are not \
+the same shape. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Set/shape\\\", ButtonNote -> \
+\\\"Set::shape\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.638257851250124*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-   RowBox[{"{", 
+   RowBox[{"If", "[", 
     RowBox[{
-     RowBox[{"v37", " ", 
-      RowBox[{"(", 
-       RowBox[{"tx", "+", 
-        RowBox[{"ty", " ", "v1"}], "+", 
-        RowBox[{"tz", " ", "v11"}], "+", 
-        RowBox[{"sx", " ", 
-         RowBox[{"(", 
+     RowBox[{"testing`Private`count$56892", ">", "1"}], ",", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"testing`Private`newVar$", ",", "testing`Private`newExp$"}], 
+        "}"}], ",", 
+       RowBox[{
+        RowBox[{"testing`Private`newVar$", "=", 
+         RowBox[{"Symbol", "[", 
+          RowBox[{"\<\"v\"\>", "<>", 
+           RowBox[{"ToString", "[", 
+            RowBox[{"0", "+", "1"}], "]"}]}], "]"}]}], ";", 
+        RowBox[{"Sow", "[", 
+         RowBox[{"{", 
           RowBox[{
-           RowBox[{"v11", " ", "v18"}], "+", 
-           RowBox[{"v1", " ", "v24"}], "+", 
-           RowBox[{"v6", " ", "v8"}]}], ")"}], " ", "x"}], "+", 
-        RowBox[{"sy", " ", 
-         RowBox[{"(", 
+          "testing`Private`newVar$", ",", "testing`Private`factor$56891"}], 
+          "}"}], "]"}], ";", 
+        RowBox[{"testing`Private`newExp$", "=", 
+         RowBox[{"Null", "/.", "\[VeryThinSpace]", 
           RowBox[{
-           RowBox[{"v11", " ", "v20"}], "+", 
-           RowBox[{"v1", " ", "v25"}], "-", 
-           RowBox[{"v7", " ", "v8"}]}], ")"}], " ", "y"}], "+", 
-        RowBox[{"sz", " ", 
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"-", "v5"}], "+", 
-           RowBox[{"v11", " ", "v3", " ", "v8"}], "-", 
-           RowBox[{"v1", " ", "v4", " ", "v8"}]}], ")"}], " ", "z"}]}], 
-       ")"}]}], ",", 
-     RowBox[{"v37", " ", 
-      RowBox[{"(", 
-       RowBox[{"ty", "+", 
-        RowBox[{"tz", " ", "v2"}], "+", 
-        RowBox[{"sx", " ", 
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"v18", " ", "v2"}], "+", "v24"}], ")"}], " ", "x"}], "+", 
-        RowBox[{"sy", " ", 
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"v2", " ", "v20"}], "+", "v25"}], ")"}], " ", "y"}], "+", 
-        RowBox[{"sz", " ", 
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"v2", " ", "v3", " ", "v8"}], "-", 
-           RowBox[{"v4", " ", "v8"}]}], ")"}], " ", "z"}]}], ")"}]}], ",", 
-     RowBox[{"v37", " ", 
-      RowBox[{"(", 
-       RowBox[{"tz", "+", 
-        RowBox[{"sx", " ", "v18", " ", "x"}], "+", 
-        RowBox[{"sy", " ", "v20", " ", "y"}], "+", 
-        RowBox[{"sz", " ", "v3", " ", "v8", " ", "z"}]}], ")"}]}]}], "}"}], 
+          "testing`Private`factor$56891", "\[Rule]", 
+           "testing`Private`newVar$"}]}]}], ";", 
+        RowBox[{"testing`Private`factorExpression", "[", 
+         RowBox[{"testing`Private`newExp$", ",", 
+          RowBox[{"0", "+", "1"}]}], "]"}]}]}], "]"}], ",", "Null"}], "]"}], 
    ",", 
-   RowBox[{"{", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"v1", ",", 
-        RowBox[{"Tan", "[", "sxy", "]"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v2", ",", 
-        RowBox[{"Tan", "[", "syz", "]"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v3", ",", 
-        RowBox[{"Cos", "[", "\[Theta]x", "]"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v4", ",", 
-        RowBox[{"Sin", "[", "\[Theta]x", "]"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v5", ",", 
-        RowBox[{"Sin", "[", "\[Theta]y", "]"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v6", ",", 
-        RowBox[{"Cos", "[", "\[Theta]z", "]"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v7", ",", 
-        RowBox[{"Sin", "[", "\[Theta]z", "]"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v8", ",", 
-        RowBox[{"Cos", "[", "\[Theta]y", "]"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v9", ",", 
-        RowBox[{"v1", " ", "v2"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v10", ",", 
-        RowBox[{"Tan", "[", "sxz", "]"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v11", ",", 
-        RowBox[{"v10", "+", "v9"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v12", ",", 
-        RowBox[{"px", " ", "v1"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v13", ",", 
-        RowBox[{"py", "+", "v12"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v14", ",", 
-        RowBox[{"px", " ", "v11"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v15", ",", 
-        RowBox[{"py", " ", "v2"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v16", ",", 
-        RowBox[{"pz", "+", "v14", "+", "v15"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v17", ",", 
-        RowBox[{"v4", " ", "v7"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v18", ",", 
-        RowBox[{"v17", "+", 
-         RowBox[{"v3", " ", "v5", " ", "v6"}]}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v19", ",", 
-        RowBox[{"v4", " ", "v6"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v20", ",", 
-        RowBox[{"v19", "-", 
-         RowBox[{"v3", " ", "v5", " ", "v7"}]}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v21", ",", 
-        RowBox[{"v3", " ", "v7"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v22", ",", 
-        RowBox[{"v17", " ", "v5"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v23", ",", 
-        RowBox[{"v3", " ", "v6"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v24", ",", 
-        RowBox[{"v21", "-", 
-         RowBox[{"v19", " ", "v5"}]}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v25", ",", 
-        RowBox[{"v22", "+", "v23"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v26", ",", 
-        RowBox[{"px", " ", "tx"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v27", ",", 
-        RowBox[{"ty", " ", "v13"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v28", ",", 
-        RowBox[{"tz", " ", "v16"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v29", ",", 
-        RowBox[{"v16", " ", "v18"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v30", ",", 
-        RowBox[{"v13", " ", "v24"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v31", ",", 
-        RowBox[{"v29", "+", "v30", "+", 
-         RowBox[{"px", " ", "v6", " ", "v8"}]}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v32", ",", 
-        RowBox[{"v16", " ", "v20"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v33", ",", 
-        RowBox[{"v13", " ", "v25"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v34", ",", 
-        RowBox[{"v32", "+", "v33", "-", 
-         RowBox[{"px", " ", "v7", " ", "v8"}]}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v35", ",", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"-", "px"}], " ", "v5"}], "+", 
-         RowBox[{"v16", " ", "v3", " ", "v8"}], "-", 
-         RowBox[{"v13", " ", "v4", " ", "v8"}]}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v36", ",", 
-        RowBox[{"1", "+", "v26", "+", "v27", "+", "v28", "+", 
-         RowBox[{"sx", " ", "v31", " ", "x"}], "+", 
-         RowBox[{"sy", " ", "v34", " ", "y"}], "+", 
-         RowBox[{"sz", " ", "v35", " ", "z"}]}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"v37", ",", 
-        FractionBox["1", "v36"]}], "}"}]}], "}"}], "}"}]}], "}"}]], "Output",
- CellChangeTimes->{3.6382574583676987`*^9}]
+   RowBox[{"{", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6382574583676987`*^9, 3.6382578512530527`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Definition", "[", "testing`factorExpression", "]"}]], "Input",
+ CellChangeTimes->{{3.6382578895453405`*^9, 3.6382579005477133`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox["Null",
+  Definition[testing`factorExpression],
+  Editable->False]], "Output",
+ CellChangeTimes->{3.6382579010164776`*^9}]
 }, Open  ]]
 },
 WindowSize->{1080, 1847},
@@ -832,8 +761,17 @@ Notebook[{
 Cell[558, 20, 481, 10, 52, "Input"],
 Cell[1042, 32, 23986, 593, 672, "Input"],
 Cell[CellGroupData[{
-Cell[25053, 629, 137, 2, 31, "Input"],
-Cell[25193, 633, 6242, 179, 203, "Output"]
+Cell[25053, 629, 191, 3, 31, "Input"],
+Cell[25247, 634, 445, 10, 21, "Message"],
+Cell[25695, 646, 510, 10, 21, "Message"],
+Cell[26208, 658, 510, 10, 21, "Message"],
+Cell[26721, 670, 434, 10, 21, "Message"],
+Cell[27158, 682, 569, 12, 21, "Message"],
+Cell[27730, 696, 1243, 32, 112, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29010, 733, 156, 2, 31, "Input"],
+Cell[29169, 737, 155, 4, 31, "Output"]
 }, Open  ]]
 }
 ]
