@@ -83,7 +83,7 @@ FactorExpression[exp_, OptionsPattern[]] /; Depth[exp] == 1 := {exp, {}}
 FactorExpression[exp_, OptionsPattern[]] := Reap[factorExpression[exp, 0]]
 Options[FactorExpression] = {"Language" -> None};
 
-SyntaxInformation[FactorExpression] = {"ArgumentsPattern" -> {_, OptionsPattern[]}};
+SyntaxInformation[FactorExpression] = {"ArgumentsPattern" -> {_, "Language" -> _}};
 
 Attributes[FactorExpression] = {Protected};
 
