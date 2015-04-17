@@ -81,12 +81,11 @@ factorExpression[exp_, varCount_Integer] := Module[
 
 FactorExpression[exp_, OptionsPattern[]] /; Depth[exp] == 1 := {exp, {}}
 FactorExpression[exp_, OptionsPattern[]] := Reap[factorExpression[exp, 0]]
+Options[FactorExpression] = {"Language" -> None};
 
 SyntaxInformation[FactorExpression] = {"ArgumentsPattern" -> {_}};
 
 Attributes[FactorExpression] = {Protected};
-
-Options[FactorExpression] = {"Language" -> None};
 
 End[] (* End Private Context *)
 
