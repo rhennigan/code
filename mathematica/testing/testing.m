@@ -23,52 +23,32 @@ inReals[exp_] := Module[
   {allSymbols, symbols},
   allSymbols = Cases[exp, _Symbol, Infinity];
   symbols = Union[allSymbols];
-  Element[symbols, Reals]
-]
+  Element[symbols, Reals]]
 
 simp[exp_] := Module[
   {assumption},
   assumption = inReals[exp];
-  Simplify[exp, assumption]
-  ]
+  Simplify[exp, assumption]]
 
 commutativeSubsets[exp_] := Module[
   {productQ},
   productQ = Head[exp] === Times && Length[exp] > 2;
-
   If[productQ,
-
     Module[{subproductSets, subproducts},
       subproductSets = Subsets[List @@ exp, {2, Infinity}];
       subproducts = Times @@@ subproducts;
-      Sow /@ subproducts
-    ],
+      Sow /@ subproducts],
+    Sow[exp]];
+  exp]
 
-    Sow[exp]
-
-  ];
-
-  exp
-]
-
-With[
-  {
-    f = Function[exp,
-      If[Head[exp] === Times && Length[exp] > 2,
-        Sow /@ (Times @@@ Subsets[List @@ exp, {2, Infinity}]),
-        Sow[exp]
-      ];
-      exp]
-  },
-  factorExp[exp_] :=
-      SortBy[
-        Select[
-          (Tally @* First @* Last @* Reap) @ {f[exp], Map[f, exp, Infinity]},
-          Depth[ #1[[1]] ] > 1 &
-        ],
-        -Last[#1] &
-      ]
-]
+factorExp[exp_] := 
+    SortBy[
+      Select[
+        (Tally @* First @* Last @* Reap) @ {f[exp], Map[f, exp, Infinity]},
+        Depth[ #1[[1]] ] > 1 &
+      ],
+      -Last[#1] &
+    ]
 
 factor[exp_, varCount_] := Module[
   {subexpression, count, newVar, newExp},
