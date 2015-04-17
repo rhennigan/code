@@ -42,9 +42,10 @@ commutativeSubsets[exp_] := Module[
   exp]
 
 factorExp[exp_] := Module[
-  {subexpressions, subexpressionCounts},
+  {subexpressions, subexpressionCounts, compoundSubexpressions},
   subexpressions = (First @* Last) @ Reap[Map[commutativeSubsets, exp, Infinity]];
   subexpressionCounts = Tally[subexpressions];
+  compoundSubexpressions = 
 ]
     SortBy[
       Select[
