@@ -24,6 +24,8 @@ FactorExpression::usage = ""
 
 Begin["`Private`"] (* Begin Private Context *)
 
+Unprotect[FactorExpression];
+
 inReals[exp_] := Module[
   {allSymbols, symbols, membership},
   allSymbols = Cases[exp, _Symbol, Infinity];
