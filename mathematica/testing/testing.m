@@ -35,14 +35,19 @@ simp[exp_] := Module[
 commutativeSubsets[exp_] := Module[
   {productQ},
   productQ = Head[exp] === Times && Length[exp] > 2;
+
   If[productQ,
+
     Module[{subproductSets, subproducts},
       subproductSets = Subsets[List @@ exp, {2, Infinity}];
       subproducts = Times @@@ subproducts;
       Sow /@ subproducts
     ],
+
     Sow[exp]
+
   ];
+
   exp
 ]
 
