@@ -56,6 +56,11 @@ mostRedundantFactor[exp_] := Module[
   Return[mostRedundant];
 ]
 
+factorExpression[exp_, varCount_] := Module[
+  {factor, count},
+  {factor, count} = mostRedundantFactor[exp];
+]
+
 factor[exp_, varCount_] := Module[
   {subexpression, count, newVar, newExp},
   {subexpression, count} = First[factorExp[exp]];
