@@ -84,6 +84,8 @@ FactorExpression[exp_] := Reap[factorExpression[exp, 0]]
 
 SyntaxInformation[FactorExpression] = {"ArgumentsPattern" -> {_}};
 
+Attributes[FactorExpression] = {Protected};
+
 End[] (* End Private Context *)
 
 EndPackage[]
