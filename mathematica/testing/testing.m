@@ -79,8 +79,8 @@ factorExpression[exp_, varCount_Integer] := Module[
   ]
 ]
 
-FactorExpression[exp_] /; Depth[exp] == 1 := {exp, {}}
-FactorExpression[exp_] := Reap[factorExpression[exp, 0]]
+FactorExpression[exp_, OptionsPattern[]] /; Depth[exp] == 1 := {exp, {}}
+FactorExpression[exp_, OptionsPattern[]] := Reap[factorExpression[exp, 0]]
 
 SyntaxInformation[FactorExpression] = {"ArgumentsPattern" -> {_}};
 
