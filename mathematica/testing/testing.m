@@ -41,7 +41,7 @@ commutativeSubsets[exp_] := Module[
     Sow[exp]];
   exp]
 
-factorExp[exp_] := 
+factorExp[exp_] :=
     SortBy[
       Select[
         (Tally @* First @* Last @* Reap) @ {f[exp], Map[f, exp, Infinity]},
