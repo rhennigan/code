@@ -19,9 +19,27 @@ FactorExpression::usage = ""
 
 Begin["`Private`"] (* Begin Private Context *)
 
-inReals[exp_] := Element[Union[Cases[exp, _Symbol, Infinity]], Reals]
+inReals[exp_] := Module[
+  {allSymbols, symbols},
+  allSymbols = Cases[exp, _Symbol, Infinity];
+  symbols = Union[allSymbols];
+  Element[symbols, Reals]
+]
 
-simp[exp_] := Simplify[exp, inReals[exp]]
+simp[exp_] := Module[
+  {assumption},
+  assumption = inReals[exp];
+  Simplify[exp, assumption]
+  ]
+
+commutativeSubsets[exp_] := Module[
+  {},
+  If[Head[exp] === Times && Length[exp] > 2,
+    Sow /@ (Times @@@ Subsets[List @@ exp, {2, Infinity}]),
+    Sow[exp]
+  ];
+  exp
+]
 
 With[
   {
