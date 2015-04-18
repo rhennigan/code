@@ -66,12 +66,13 @@ mostRedundantFactor[exp_] := Module[
   Return[{factor, count}];
 ]
 
-factorExpression[exp_, varCount_Integer] := Module[
+factorExpression[exp_, varCount_Integer, OptionsPattern[]] := Module[
   {factor, count},
   {factor, count} = mostRedundantFactor[exp];
   If[count > 1,
     Module[{prefix, newVar, newExp},
       prefix = OptionValue["Prefix"];
+      Print[prefix]; Abort[];
       newVar = If[prefix === None,
         Module[{v}, v],
         Symbol[prefix <> ToString[varCount + 1]]
