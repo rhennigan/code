@@ -70,10 +70,12 @@ factorExpression[exp_, varCount_Integer] := Module[
   {factor, count},
   {factor, count} = mostRedundantFactor[exp];
   If[count > 1,
-    Module[{newVar, newExp},
-      If[OptionsValue[]]
-      (*newVar = Symbol["v" <> ToString[varCount + 1]];*)
-      newVar = Module[{v}, v];
+    Module[{prefix, newVar, newExp},
+      prefix = OptionValue["Prefix"];
+      newVar = If[prefix === None,
+        Module[{v}, v],
+        Symbol["v" <> ToString[varCount + 1]]
+      ];
       Sow[{newVar, factor}];
       newExp = exp /. factor -> newVar;
       factorExpression[newExp, varCount + 1]
