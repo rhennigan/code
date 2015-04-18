@@ -87,7 +87,7 @@ factorExpression[exp_, varCount_Integer, opts:OptionsPattern[]] := Module[
 Options[factorExpression] = {"Language" -> None, "Prefix" -> None};
 
 FactorExpression[exp_, opts:OptionsPattern[]] /; Depth[exp] == 1 := {exp, {}}
-FactorExpression[exp_, opts:OptionsPattern[]] := Reap[factorExpression[exp, 0, opts]]
+FactorExpression[exp_, opts:OptionsPattern[]] := {#1[[1]], #1[[2, 1]]} & @ Reap[factorExpression[exp, 0, opts]]
 Options[FactorExpression] = {"Language" -> None, "Prefix" -> None};
 
 SyntaxInformation[FactorExpression] = {"ArgumentsPattern" -> {_, OptionsPattern[]}};
