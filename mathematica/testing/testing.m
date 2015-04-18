@@ -74,7 +74,7 @@ factorExpression[exp_, varCount_Integer] := Module[
       prefix = OptionValue["Prefix"];
       newVar = If[prefix === None,
         Module[{v}, v],
-        Symbol["v" <> ToString[varCount + 1]]
+        Symbol[prefix <> ToString[varCount + 1]]
       ];
       Sow[{newVar, factor}];
       newExp = exp /. factor -> newVar;
