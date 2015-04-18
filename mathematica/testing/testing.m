@@ -72,7 +72,6 @@ factorExpression[exp_, varCount_Integer, opts:OptionsPattern[]] := Module[
   If[count > 1,
     Module[{prefix, newVar, newExp},
       prefix = OptionValue["Prefix"];
-      Print[prefix]; Abort[];
       newVar = If[prefix === None,
         Module[{v}, v],
         Symbol[prefix <> ToString[varCount + 1]]
@@ -85,8 +84,10 @@ factorExpression[exp_, varCount_Integer, opts:OptionsPattern[]] := Module[
   ]
 ]
 
-FactorExpression[exp_, OptionsPattern[]] /; Depth[exp] == 1 := {exp, {}}
-FactorExpression[exp_, OptionsPattern[]] := Reap[factorExpression[exp, 0]]
+Options[factorExpression] = {"Language" -> None, "Prefix" -> None};
+
+FactorExpression[exp_, opts:OptionsPattern[]] /; Depth[exp] == 1 := {exp, {}}
+FactorExpression[exp_, opts:OptionsPattern[]] := Reap[factorExpression[exp, 0, opts]]
 Options[FactorExpression] = {"Language" -> None, "Prefix" -> None};
 
 SyntaxInformation[FactorExpression] = {"ArgumentsPattern" -> {_, OptionsPattern[]}};
