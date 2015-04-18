@@ -66,7 +66,7 @@ mostRedundantFactor[exp_] := Module[
   Return[{factor, count}];
 ]
 
-factorExpression[exp_, varCount_Integer, OptionsPattern[]] := Module[
+factorExpression[exp_, varCount_Integer, opts:OptionsPattern[]] := Module[
   {factor, count},
   {factor, count} = mostRedundantFactor[exp];
   If[count > 1,
@@ -79,7 +79,7 @@ factorExpression[exp_, varCount_Integer, OptionsPattern[]] := Module[
       ];
       Sow[{newVar, factor}];
       newExp = exp /. factor -> newVar;
-      factorExpression[newExp, varCount + 1]
+      factorExpression[newExp, varCount + 1, opts]
     ],
     exp
   ]
